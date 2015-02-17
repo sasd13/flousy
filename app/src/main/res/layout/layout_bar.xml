@@ -2,10 +2,12 @@
     android:id="@+id/layoutBar"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="15dp" >
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:gravity="center" />
 
 </LinearLayout>

@@ -1,11 +1,15 @@
 package com.diderot.android.flousy;
 
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,22 +25,12 @@ public class MenuActivity extends MyActivity {
         //Set activity color before everything
         setActivityColor(ACTIVITY_COLOR);
 
-        //Disable previous
+        //Disable previous remote
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
 
         //Set LineBar
-        ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutBar);
-        stub.setLayoutResource(R.layout.layout_bar);
-        //stub.setLayoutResource(R.layout.layout_barwithtitle);
-        setActivityLineBar(stub.inflate());
-
-        /*
-        TextView textTitleBar = (TextView) ((ViewGroup) getActivityLineBar()).getChildAt(0);
-        textTitleBar.setText("Test du menu");
-        */
-
-
+        setActivityLineBar(R.layout.layout_bar);
     }
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewStub;
 
 
 public class MyActivity extends ActionBarActivity {
@@ -26,8 +27,10 @@ public class MyActivity extends ActionBarActivity {
         return this.activityLineBar;
     }
 
-    public void setActivityLineBar(View lineBar) {
-        this.activityLineBar = lineBar;
+    public void setActivityLineBar(int layoutResource) {
+        ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutBar);
+        stub.setLayoutResource(layoutResource);
+        this.activityLineBar = stub.inflate();
         this.activityLineBar.setBackgroundResource(this.activityColor);
     }
 
