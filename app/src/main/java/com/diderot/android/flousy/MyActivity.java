@@ -6,17 +6,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import java.util.ArrayList;
+import android.view.View;
 
 
 public class MyActivity extends ActionBarActivity {
 
-    protected int activity_color;
-    protected LinearLayout activity_topLine;
+    protected int activityColor;
+    protected View activityLineBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +22,6 @@ public class MyActivity extends ActionBarActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setIcon(R.drawable.ic_launcher);
-
-        this.activity_topLine = (LinearLayout) findViewById(R.id.activity_topLine);
     }
 
 

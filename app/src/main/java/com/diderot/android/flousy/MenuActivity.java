@@ -1,12 +1,10 @@
 package com.diderot.android.flousy;
 
-import android.os.Build;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewStub;
 import android.widget.LinearLayout;
 
 
@@ -20,9 +18,15 @@ public class MenuActivity extends MyActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
 
+        //Set LineBar
+        ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutBar);
+        stub.setLayoutResource(R.layout.layout_bar);
+        //stub.setLayoutResource(R.layout.layout_barwithtitle);
+        this.activityLineBar = stub.inflate();
+
         //Set activity color
-        this.activity_color = R.color.customGreen;
-        this.activity_topLine.setBackgroundResource(this.activity_color);
+        this.activityColor = R.color.customGreen;
+        this.activityLineBar.setBackgroundResource(this.activityColor);
     }
 
 
