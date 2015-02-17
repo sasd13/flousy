@@ -11,8 +11,25 @@ import android.view.View;
 
 public class MyActivity extends ActionBarActivity {
 
-    protected int activityColor;
-    protected View activityLineBar;
+    private int activityColor = R.color.customGreen;
+    private View activityLineBar;
+
+    public int getActivityColor() {
+        return this.activityColor;
+    }
+
+    public void setActivityColor(int color) {
+        this.activityColor = color;
+    }
+
+    public View getActivityLineBar() {
+        return this.activityLineBar;
+    }
+
+    public void setActivityLineBar(View lineBar) {
+        this.activityLineBar = lineBar;
+        this.activityLineBar.setBackgroundResource(this.activityColor);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

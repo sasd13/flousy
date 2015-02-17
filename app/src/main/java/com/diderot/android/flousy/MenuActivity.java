@@ -4,15 +4,22 @@ import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 public class MenuActivity extends MyActivity {
 
+    public static final int ACTIVITY_COLOR = R.color.customGreen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set activity color before everything
+        setActivityColor(ACTIVITY_COLOR);
 
         //Disable previous
         ActionBar actionBar = getSupportActionBar();
@@ -22,11 +29,14 @@ public class MenuActivity extends MyActivity {
         ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutBar);
         stub.setLayoutResource(R.layout.layout_bar);
         //stub.setLayoutResource(R.layout.layout_barwithtitle);
-        this.activityLineBar = stub.inflate();
+        setActivityLineBar(stub.inflate());
 
-        //Set activity color
-        this.activityColor = R.color.customGreen;
-        this.activityLineBar.setBackgroundResource(this.activityColor);
+        /*
+        TextView textTitleBar = (TextView) ((ViewGroup) getActivityLineBar()).getChildAt(0);
+        textTitleBar.setText("Test du menu");
+        */
+
+
     }
 
 
