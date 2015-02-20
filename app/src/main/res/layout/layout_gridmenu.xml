@@ -1,0 +1,12 @@
+<GridView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabMenuActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:verticalSpacing="30dp"
+    android:horizontalSpacing="30dp"
+    android:gravity="center"
+    android:numColumns="auto_fit"
+    android:stretchMode="columnWidth">
+
+</GridView>

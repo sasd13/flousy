@@ -1,30 +1,21 @@
 package com.diderot.android.flousy;
 
 import android.content.Context;
-import android.graphics.ColorFilter;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import flousy.util.ImageBox;
-
+import flousy.util.ImageBoxAdapter;
 
 public class MenuActivity extends MyActivity {
 
@@ -39,62 +30,53 @@ public class MenuActivity extends MyActivity {
 
         //Disable previous remote
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
 
         //Set LineBar
         setActivityLineBar(R.layout.layout_bar);
 
         //Set content
         ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutContent);
-        stub.setLayoutResource(R.layout.layout_tabmenu);
+        stub.setLayoutResource(R.layout.layout_gridmenu);
 
-        TableLayout tabLayout = (TableLayout) stub.inflate();
-        TableRow tabRow0 = (TableRow) tabLayout.getChildAt(0);
+        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LinearLayout linearLayout = (LinearLayout) inflater.inflate(ImageBox.LAYOUT_DEFAULT_IMAGEBOX, null);
 
-        TableRow tabRow;
+        GridView gridMenu = (GridView) stub.inflate();
+        ArrayList<ImageBox> listBoxesMenu = new ArrayList<>();
         ImageBox imageBox;
-
-        for(int i=0; i<3; i++) {
-            tabRow = new TableRow(this);
-            tabRow.setLayoutParams(tabRow0.getLayoutParams());
-            tabRow.setGravity(Gravity.CENTER);
-
-            imageBox = new ImageBox(this);
+        for(int i=0; i<6; i++) {
+            imageBox = new ImageBox(linearLayout);
             switch(i) {
                 case 0:
                     imageBox.setText("Nouveau");
                     imageBox.setBackgroundColor(R.color.customGreen);
                     break;
                 case 1:
-                    imageBox.setText("Finances");
-                    imageBox.setBackgroundColor(R.color.customOrange);
-                    break;
-                case 2:
-                    imageBox.setText("Offres");
-                    imageBox.setBackgroundColor(R.color.customYellow);
-                    break;
-            }
-            tabRow.addView(imageBox.getBox());
-
-            imageBox = new ImageBox(this);
-            switch(i) {
-                case 0:
                     imageBox.setText("Consulter");
                     imageBox.setBackgroundColor(R.color.customRed);
                     break;
-                case 1:
+                case 2:
+                    imageBox.setText("Finances");
+                    imageBox.setBackgroundColor(R.color.customOrange);
+                    break;
+                case 3:
                     imageBox.setText("Communauté");
                     imageBox.setBackgroundColor(R.color.customBlue);
                     break;
-                case 2:
+                case 4:
+                    imageBox.setText("Offres");
+                    imageBox.setBackgroundColor(R.color.customYellow);
+                    break;
+                case 5:
                     imageBox.setText("Paramètres");
                     imageBox.setBackgroundColor(R.color.customPurple);
                     break;
             }
-            tabRow.addView(imageBox.getBox());
-
-            tabLayout.addView(tabRow);
+            listBoxesMenu.add(imageBox);
         }
+
+        gridMenu.setAdapter(new ImageBoxAdapter(getApplicationContext(), listBoxesMenu));
     }
 
 
