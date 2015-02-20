@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="7dp"
-        android:text="@string/title_bar"
+        android:text="@string/bar_title"
         android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="@android:color/white"/>

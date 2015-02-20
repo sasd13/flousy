@@ -12,16 +12,14 @@ import android.view.ViewStub;
 
 public class MyActivity extends ActionBarActivity {
 
-    private int activityColor = R.color.customGreen;
+    public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreen;
+
+    private int activityColor;
     private View activityLineBar;
 
-    public int getActivityColor() {
-        return this.activityColor;
-    }
+    public int getActivityColor() { return this.activityColor; }
 
-    public void setActivityColor(int color) {
-        this.activityColor = color;
-    }
+    public void setActivityColor(int resId) { this.activityColor = resId; }
 
     public View getActivityLineBar() {
         return this.activityLineBar;

@@ -10,6 +10,8 @@
     <string name="action_search">Search</string>
     <string name="action_item">Item</string>
 
-    <string name="title_bar">Titre</string>
+    <string name="bar_title">Titre</string>
+
+    <string name="imagebox_title">Menu</string>
 
 </resources>
