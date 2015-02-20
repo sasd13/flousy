@@ -42,18 +42,17 @@ public class ImageBoxAdapter extends BaseAdapter {
         LinearLayout linearLayout;
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            linearLayout = (LinearLayout) inflater.inflate(ImageBox.LAYOUT_DEFAULT_IMAGEBOX, parent, false);
-
-            ImageBox box = new ImageBox(linearLayout);
-            box.setBackgroundColor(this.imageBoxes.get(position).getBackgroundColor());
-            box.setImageResource(this.imageBoxes.get(position).getImageResource());
-            box.setText(this.imageBoxes.get(position).getText());
+            linearLayout = (LinearLayout) inflater.inflate(ImageBox.LAYOUT_DEFAULT_IMAGEBOX, null);
         }
         else {
             linearLayout = (LinearLayout) convertView;
         }
 
-        linearLayout.setBackgroundResource(this.imageBoxes.get(position).getBackgroundColor());
+        ImageBox box = new ImageBox(linearLayout);
+        ImageBox box_temp = this.imageBoxes.get(position);
+        box.setBackgroundColor(box_temp.getBackgroundColor());
+        box.setImageResource(box_temp.getImageResource());
+        box.setText(box_temp.getText());
 
         return linearLayout;
     }

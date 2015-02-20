@@ -41,8 +41,6 @@ public class ImageBox {
                     this.textView = (TextView) child;
                     this.textView.setText(this.text);
                     break;
-                default:
-                    break;
             }
         }
     }

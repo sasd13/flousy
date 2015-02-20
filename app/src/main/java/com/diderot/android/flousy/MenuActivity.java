@@ -40,12 +40,13 @@ public class MenuActivity extends MyActivity {
         stub.setLayoutResource(R.layout.layout_gridmenu);
 
         LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        LinearLayout linearLayout = (LinearLayout) inflater.inflate(ImageBox.LAYOUT_DEFAULT_IMAGEBOX, null);
+        LinearLayout linearLayout;
 
         GridView gridMenu = (GridView) stub.inflate();
         ArrayList<ImageBox> listBoxesMenu = new ArrayList<>();
         ImageBox imageBox;
         for(int i=0; i<6; i++) {
+            linearLayout = (LinearLayout) inflater.inflate(ImageBox.LAYOUT_DEFAULT_IMAGEBOX, null);
             imageBox = new ImageBox(linearLayout);
             switch(i) {
                 case 0:
@@ -61,7 +62,7 @@ public class MenuActivity extends MyActivity {
                     imageBox.setBackgroundColor(R.color.customOrange);
                     break;
                 case 3:
-                    imageBox.setText("Communauté");
+                    imageBox.setText("Amis");
                     imageBox.setBackgroundColor(R.color.customBlue);
                     break;
                 case 4:
