@@ -12,6 +12,6 @@
 
     <string name="bar_title">Titre</string>
 
-    <string name="imagebox_title">Menu</string>
+    <string name="menuitembox_title">Menu</string>
 
 </resources>

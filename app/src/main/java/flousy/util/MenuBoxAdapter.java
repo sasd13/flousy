@@ -12,19 +12,19 @@ import java.util.ArrayList;
 /**
  * Created by Samir on 20/02/2015.
  */
-public class ImageBoxAdapter extends BaseAdapter {
+public class MenuBoxAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<ImageBox> imageBoxes;
+    private MenuBox menuBox;
 
-    public ImageBoxAdapter(Context context, ArrayList<ImageBox> imageBoxes) {
+    public MenuBoxAdapter(Context context, MenuBox menuBox) {
         this.context = context;
-        this.imageBoxes = imageBoxes;
+        this.menuBox = menuBox;
     }
 
     @Override
     public int getCount() {
-        return this.imageBoxes.size();
+        return this.menuBox.getMenuItemBoxes().size();
     }
 
     @Override
@@ -42,17 +42,13 @@ public class ImageBoxAdapter extends BaseAdapter {
         LinearLayout linearLayout;
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            linearLayout = (LinearLayout) inflater.inflate(ImageBox.LAYOUT_DEFAULT_IMAGEBOX, null);
+            linearLayout = (LinearLayout) inflater.inflate(MenuItemBox.DEFAULT_LAYOUT, null);
         }
         else {
             linearLayout = (LinearLayout) convertView;
         }
 
-        ImageBox box = new ImageBox(linearLayout);
-        ImageBox box_temp = this.imageBoxes.get(position);
-        box.setBackgroundColor(box_temp.getBackgroundColor());
-        box.setImageResource(box_temp.getImageResource());
-        box.setText(box_temp.getText());
+        this.menuBox.getMenuItemBoxes().get(position).setBox(linearLayout);
 
         return linearLayout;
     }

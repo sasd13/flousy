@@ -1,21 +1,17 @@
 package com.diderot.android.flousy;
 
-import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 
-import java.util.ArrayList;
-
-import flousy.util.ImageBox;
-import flousy.util.ImageBoxAdapter;
+import flousy.util.MenuBox;
+import flousy.util.MenuItemBox;
+import flousy.util.MenuBoxAdapter;
 
 public class MenuActivity extends MyActivity {
 
@@ -38,46 +34,42 @@ public class MenuActivity extends MyActivity {
         //Set content
         ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutContent);
         stub.setLayoutResource(R.layout.layout_gridmenu);
-
-        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        LinearLayout linearLayout;
-
         GridView gridMenu = (GridView) stub.inflate();
-        ArrayList<ImageBox> listBoxesMenu = new ArrayList<>();
-        ImageBox imageBox;
+
+        MenuBox menuBox = new MenuBox("Menu");
+        MenuItemBox menuItemBox;
         for(int i=0; i<6; i++) {
-            linearLayout = (LinearLayout) inflater.inflate(ImageBox.LAYOUT_DEFAULT_IMAGEBOX, null);
-            imageBox = new ImageBox(linearLayout);
+            menuItemBox = new MenuItemBox();
             switch(i) {
                 case 0:
-                    imageBox.setText("Nouveau");
-                    imageBox.setBackgroundColor(R.color.customGreen);
+                    menuItemBox.setTextValue("Nouveau");
+                    menuItemBox.setBackgroundColor(R.color.customGreen);
                     break;
                 case 1:
-                    imageBox.setText("Consulter");
-                    imageBox.setBackgroundColor(R.color.customRed);
+                    menuItemBox.setTextValue("Consulter");
+                    menuItemBox.setBackgroundColor(R.color.customRed);
                     break;
                 case 2:
-                    imageBox.setText("Finances");
-                    imageBox.setBackgroundColor(R.color.customOrange);
+                    menuItemBox.setTextValue("Finances");
+                    menuItemBox.setBackgroundColor(R.color.customOrange);
                     break;
                 case 3:
-                    imageBox.setText("Amis");
-                    imageBox.setBackgroundColor(R.color.customBlue);
+                    menuItemBox.setTextValue("Amis");
+                    menuItemBox.setBackgroundColor(R.color.customBlue);
                     break;
                 case 4:
-                    imageBox.setText("Offres");
-                    imageBox.setBackgroundColor(R.color.customYellow);
+                    menuItemBox.setTextValue("Offres");
+                    menuItemBox.setBackgroundColor(R.color.customYellow);
                     break;
                 case 5:
-                    imageBox.setText("Paramètres");
-                    imageBox.setBackgroundColor(R.color.customPurple);
+                    menuItemBox.setTextValue("Paramètres");
+                    menuItemBox.setBackgroundColor(R.color.customPurple);
                     break;
             }
-            listBoxesMenu.add(imageBox);
+            menuBox.addMenuItemBox(menuItemBox);
         }
 
-        gridMenu.setAdapter(new ImageBoxAdapter(getApplicationContext(), listBoxesMenu));
+        gridMenu.setAdapter(new MenuBoxAdapter(getApplicationContext(), menuBox));
     }
 
 
