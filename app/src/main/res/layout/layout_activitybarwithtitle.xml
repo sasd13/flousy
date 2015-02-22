@@ -1,19 +1,19 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layoutBarWithTitle"
+    android:id="@+id/activitybarwithtitle"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
     <TextView
-        android:id="@+id/titleBar"
+        android:id="@+id/activitybarwithtitle_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="7dp"
-        android:text="@string/bar_title"
+        android:padding="@dimen/activitybarwithtitle_textview_padding"
+        android:text="@string/activitybarwithtitle_textview_text"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="@dimen/activitybarwithtitle_textview_textsize"
         android:textColor="@android:color/white"/>
 
 </LinearLayout>

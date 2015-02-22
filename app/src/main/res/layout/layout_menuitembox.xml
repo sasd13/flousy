@@ -8,10 +8,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:paddingTop="15dp"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingBottom="10dp"
+    android:paddingBottom="@dimen/menuitembox_imageview_bottompadding"
+    android:paddingTop="@dimen/menuitembox_imageview_padding"
+    android:paddingLeft="@dimen/menuitembox_imageview_padding"
+    android:paddingRight="@dimen/menuitembox_imageview_padding"
     android:src="@drawable/menuitembox"/>
 
     <TextView
@@ -19,13 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:gravity="center"
-        android:paddingTop="5dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="@dimen/menuitembox_textview_toppadding"
+        android:paddingBottom="@dimen/menuitembox_textview_padding"
+        android:paddingLeft="@dimen/menuitembox_textview_padding"
+        android:paddingRight="@dimen/menuitembox_textview_padding"
         android:text="@string/menuitembox_title"
         android:textStyle="bold"
-        android:textSize="16sp"
+        android:textSize="@dimen/menuitembox_textview_textsize"
         android:textColor="@android:color/black"/>
 
 </LinearLayout>

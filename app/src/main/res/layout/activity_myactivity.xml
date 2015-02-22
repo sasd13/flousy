@@ -4,21 +4,24 @@
     tools:context="com.diderot.android.flousy.MyActivity"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="0dp">
+    android:layout_height="match_parent">
 
     <ViewStub
-        android:id="@+id/viewStub_layoutBar"
+        android:id="@+id/activitybar_viewstub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <RelativeLayout
+        android:id="@+id/activitycontent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="15dp">
+        android:paddingTop="@dimen/activitycontent_verticalpadding"
+        android:paddingBottom="@dimen/activitycontent_verticalpadding"
+        android:paddingLeft="@dimen/activitycontent_horizontalpadding"
+        android:paddingRight="@dimen/activitycontent_horizontalpadding">
 
         <ViewStub
-            android:id="@+id/viewStub_layoutContent"
+            android:id="@+id/activitycontent_viewstub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

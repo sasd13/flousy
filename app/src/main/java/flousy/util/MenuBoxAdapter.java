@@ -29,7 +29,7 @@ public class MenuBoxAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return this.menuBox.getMenuItemBoxes().get(position);
     }
 
     @Override
@@ -39,17 +39,17 @@ public class MenuBoxAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LinearLayout linearLayout;
+        ViewGroup menuItemBoxContainer;
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            linearLayout = (LinearLayout) inflater.inflate(MenuItemBox.DEFAULT_LAYOUT, null);
+            menuItemBoxContainer = (LinearLayout) inflater.inflate(this.menuBox.getMenuItemBoxLayoutResource(), null);
         }
         else {
-            linearLayout = (LinearLayout) convertView;
+            menuItemBoxContainer = (LinearLayout) convertView;
         }
 
-        this.menuBox.getMenuItemBoxes().get(position).setBox(linearLayout);
+        this.menuBox.getMenuItemBoxes().get(position).setContainer(menuItemBoxContainer);
 
-        return linearLayout;
+        return menuItemBoxContainer;
     }
 }

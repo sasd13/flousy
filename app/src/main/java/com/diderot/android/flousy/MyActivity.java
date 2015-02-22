@@ -15,21 +15,21 @@ public class MyActivity extends ActionBarActivity {
     public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreen;
 
     private int activityColor;
-    private View activityLineBar;
+    private View activityBar;
 
     public int getActivityColor() { return this.activityColor; }
 
     public void setActivityColor(int resId) { this.activityColor = resId; }
 
-    public View getActivityLineBar() {
-        return this.activityLineBar;
+    public View getActivityBar() {
+        return this.activityBar;
     }
 
-    public void setActivityLineBar(int layoutResource) {
-        ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutBar);
+    public void setActivityBar(int layoutResource) {
+        ViewStub stub = (ViewStub) findViewById(R.id.activitybar_viewstub);
         stub.setLayoutResource(layoutResource);
-        this.activityLineBar = stub.inflate();
-        this.activityLineBar.setBackgroundResource(this.activityColor);
+        this.activityBar = stub.inflate();
+        this.activityBar.setBackgroundResource(this.activityColor);
     }
 
     @Override

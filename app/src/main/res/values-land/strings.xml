@@ -3,21 +3,15 @@
 
     <string name="hello_world">Hello world!</string>
 
-    <!-- Application -->
     <string name="app_name">Flousy</string>
-
-    <!-- Activity -->
     <string name="activity_menuactivity_title">Menu</string>
 
-    <!-- Action bar -->
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
     <string name="action_item">Item</string>
 
-    <!-- Activity bar -->
     <string name="activitybarwithtitle_textview_text">Titre</string>
 
-    <!-- MenuItemBox -->
     <string name="menuitembox_title">Menu</string>
 
 </resources>

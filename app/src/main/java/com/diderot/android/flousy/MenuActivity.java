@@ -28,41 +28,40 @@ public class MenuActivity extends MyActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
 
-        //Set LineBar
-        setActivityLineBar(R.layout.layout_bar);
+        //Set ActivityBar
+        setActivityBar(R.layout.layout_activitybar);
 
-        //Set content
-        ViewStub stub = (ViewStub) findViewById(R.id.viewStub_layoutContent);
-        stub.setLayoutResource(R.layout.layout_gridmenu);
+        //Set ActivityContent
+        ViewStub stub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
+        stub.setLayoutResource(R.layout.layout_menubox);
         GridView gridMenu = (GridView) stub.inflate();
 
-        MenuBox menuBox = new MenuBox("Menu");
-        MenuItemBox menuItemBox;
+        MenuBox menuBox = new MenuBox("Menu", R.layout.layout_menuitembox);
+        MenuItemBox menuItemBox = null;
         for(int i=0; i<6; i++) {
-            menuItemBox = new MenuItemBox();
             switch(i) {
                 case 0:
-                    menuItemBox.setTextValue("Nouveau");
+                    menuItemBox = new MenuItemBox("Nouveau");
                     menuItemBox.setBackgroundColor(R.color.customGreen);
                     break;
                 case 1:
-                    menuItemBox.setTextValue("Consulter");
+                    menuItemBox = new MenuItemBox("Consulter");
                     menuItemBox.setBackgroundColor(R.color.customRed);
                     break;
                 case 2:
-                    menuItemBox.setTextValue("Finances");
+                    menuItemBox = new MenuItemBox("Finances");
                     menuItemBox.setBackgroundColor(R.color.customOrange);
                     break;
                 case 3:
-                    menuItemBox.setTextValue("Amis");
+                    menuItemBox = new MenuItemBox("Amis");
                     menuItemBox.setBackgroundColor(R.color.customBlue);
                     break;
                 case 4:
-                    menuItemBox.setTextValue("Offres");
+                    menuItemBox = new MenuItemBox("Offres");
                     menuItemBox.setBackgroundColor(R.color.customYellow);
                     break;
                 case 5:
-                    menuItemBox.setTextValue("Paramètres");
+                    menuItemBox = new MenuItemBox("Paramètres");
                     menuItemBox.setBackgroundColor(R.color.customPurple);
                     break;
             }

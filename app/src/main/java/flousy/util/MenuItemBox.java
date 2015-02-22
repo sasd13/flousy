@@ -3,10 +3,11 @@ package flousy.util;
 import com.diderot.android.flousy.MyActivity;
 import com.diderot.android.flousy.R;
 
+import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.view.View;
+import android.content.Intent;
 
 /**
  * <b>MenuItemBox is the class to manage item boxes of a menu</b>
@@ -24,8 +25,6 @@ import android.view.View;
  * @since   18/02/2015
  */
 public class MenuItemBox {
-
-    public static final int DEFAULT_LAYOUT = R.layout.layout_menuitembox;
 
     /**
      * MenuItemBox background color
@@ -55,80 +54,65 @@ public class MenuItemBox {
 
     /**
      * MenuItemBox text value
-     *
-     * <p>type : CharSequence</p>
      */
     private CharSequence textValue;
 
     /**
      * MenuItemBox parent layout (container)
-     *
-     * <p>type : LinearLayout</p>
      */
-    private LinearLayout linearLayout;
+    private ViewGroup container;
 
     /**
      * Container first child
-     *
-     * <p>type : ImageView</p>
      */
     private ImageView imageView;
 
     /**
      * Container second child
-     *
-     * <p>type : TextView</p>
      */
     private TextView textView;
+
+    /**
+     * MenuItem action on item selected
+     */
+    private Intent intent;
 
     /**
      * Default constructor
      * <p>Setting only main attributes with default values</p>
      */
-    public MenuItemBox() {
+    public MenuItemBox(CharSequence textValue) {
         this.backgroundColor = MyActivity.DEFAULT_ACTIVITY_COLOR;
         this.imageResource = R.drawable.menuitembox;
-        this.textValue = "Menu";
-    }
-
-    /**
-     * Constructor
-     * <p>Setting main attributes default values and the MenuItemBox container</p>
-     *
-     * @param linearLayout
-     */
-    public MenuItemBox(LinearLayout linearLayout) {
-        this();
-
-        this.setBox(linearLayout);
+        this.textValue = textValue;
     }
 
     /**
      * Get container
      *
-     * @return  LinearLayout
+     * @return  ViewGroup
      */
-    public LinearLayout getBox() {
-        if (this.linearLayout == null) {
+    public ViewGroup getContainer() {
+        if (this.container == null) {
             return null;
         }
 
-        return this.linearLayout;
+        return this.container;
     }
 
     /**
      * Set container
      *
-     * @param linearLayout
+     * @param container
      */
-    public void setBox(LinearLayout linearLayout) {
-        if (linearLayout != null) {
-            this.linearLayout = linearLayout;
-            this.linearLayout.setBackgroundResource(this.backgroundColor);
+    public void setContainer(ViewGroup container) {
+        if (container != null) {
+            this.container = container;
+            this.container.setBackgroundResource(this.backgroundColor);
 
             View child;
-            for(int i=0; i<this.linearLayout.getChildCount(); i++) {
-                child = this.linearLayout.getChildAt(i);
+            for(int i=0; i<this.container.getChildCount(); i++) {
+                child = this.container.getChildAt(i);
 
                 switch (child.getClass().getSimpleName()) {
                     case "ImageView" :
@@ -159,8 +143,8 @@ public class MenuItemBox {
     public void setBackgroundColor(int backgroundColor) {
         this.backgroundColor = backgroundColor;
 
-        if(this.linearLayout != null) {
-            this.linearLayout.setBackgroundResource(this.backgroundColor);
+        if(this.container != null) {
+            this.container.setBackgroundResource(this.backgroundColor);
         }
     }
 
@@ -202,5 +186,21 @@ public class MenuItemBox {
         if(this.textView != null) {
             this.textView.setText(this.textValue);
         }
+    }
+
+    /**
+     * Get intent
+     *
+     * @return Intent
+     */
+    public Intent getIntent() { return this.intent; }
+
+    /**
+     * Set intent
+     *
+     * @param intent
+     */
+    public void setIntent(Intent intent) {
+        this.intent = intent;
     }
 }

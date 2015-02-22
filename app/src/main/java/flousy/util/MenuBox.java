@@ -8,17 +8,13 @@ import java.util.ArrayList;
 public class MenuBox {
 
     private String menuTitle;
+    private int menuItemBoxLayoutResource;
     private ArrayList<MenuItemBox> menuItemBoxes;
 
-    public MenuBox(String menuTitle) {
+    public MenuBox(String menuTitle, int menuItemBoxLayoutResource) {
         this.menuTitle = menuTitle;
+        this.menuItemBoxLayoutResource = menuItemBoxLayoutResource;
         this.menuItemBoxes = new ArrayList<MenuItemBox>();
-    }
-
-    public MenuBox(String menuTitle, ArrayList<MenuItemBox> menuItemBoxes) {
-        this(menuTitle);
-
-        this.menuItemBoxes = menuItemBoxes;
     }
 
     public String getMenuTitle() { return this.menuTitle; }
@@ -27,14 +23,22 @@ public class MenuBox {
         this.menuTitle = menuTitle;
     }
 
+    public int getMenuItemBoxLayoutResource() { return this.menuItemBoxLayoutResource; }
+
+    public void setMenuItemBoxLayoutResource(int menuItemBoxLayoutResource) {
+        this.menuItemBoxLayoutResource = menuItemBoxLayoutResource;
+    }
+
     public ArrayList<MenuItemBox> getMenuItemBoxes() { return this.menuItemBoxes; }
 
     public boolean addMenuItemBox(MenuItemBox menuItemBox) {
-        MenuItemBox menuItemBox_temp;
+        if(menuItemBox == null) {
+            return false;
+        }
+
         boolean contains = false;
         for(int i=0; i<this.menuItemBoxes.size(); i++) {
-            menuItemBox_temp = this.menuItemBoxes.get(i);
-            if(menuItemBox_temp.getTextValue().equals(menuItemBox.getTextValue())) {
+            if(this.menuItemBoxes.get(i).getTextValue().equals(menuItemBox.getTextValue())) {
                 contains = true;
                 break;
             }
@@ -43,9 +47,9 @@ public class MenuBox {
         if(contains == false) {
             this.menuItemBoxes.add(menuItemBox);
             return true;
+        } else {
+            return false;
         }
-
-        return false;
     }
 
     public MenuItemBox removeMenuItemBox(String menuItemBoxTextValue) {

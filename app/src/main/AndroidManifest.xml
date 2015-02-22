@@ -9,7 +9,7 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_menuactivity" >
+            android:label="@string/activity_menuactivity_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
