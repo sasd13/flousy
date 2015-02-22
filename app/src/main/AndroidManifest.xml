@@ -8,12 +8,40 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
-            android:name=".MenuActivity"
-            android:label="@string/activity_menuactivity_title" >
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/activity_menuactivity_name" >
+        </activity>
+        <activity
+            android:name=".NewActivity"
+            android:label="@string/activity_newactivity_name" >
+        </activity>
+        <activity
+            android:name=".ConsultActivity"
+            android:label="@string/activity_consultactivity_name" >
+        </activity>
+        <activity
+            android:name=".FinancesActivity"
+            android:label="@string/activity_financesactivity_name" >
+        </activity>
+        <activity
+            android:name=".FriendsActivity"
+            android:label="@string/activity_friendsactivity_name" >
+        </activity>
+        <activity
+            android:name=".OffersActivity"
+            android:label="@string/activity_offersactivity_name" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/activity_settingsactivity_name" >
         </activity>
     </application>
 </manifest>

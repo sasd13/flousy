@@ -1,12 +1,15 @@
 package com.diderot.android.flousy;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewStub;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import flousy.util.MenuBox;
@@ -25,8 +28,7 @@ public class MenuActivity extends MyActivity {
         setActivityColor(ACTIVITY_COLOR);
 
         //Disable previous remote
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(false);
+        getCustomActionBar().setDisplayHomeAsUpEnabled(false);
 
         //Set ActivityBar
         setActivityBar(R.layout.layout_activitybar);
@@ -36,39 +38,53 @@ public class MenuActivity extends MyActivity {
         stub.setLayoutResource(R.layout.layout_menubox);
         GridView gridMenu = (GridView) stub.inflate();
 
-        MenuBox menuBox = new MenuBox("Menu", R.layout.layout_menuitembox);
+        final MenuBox menuBox = new MenuBox("Menu", R.layout.layout_menuitembox);
         MenuItemBox menuItemBox = null;
         for(int i=0; i<6; i++) {
             switch(i) {
                 case 0:
-                    menuItemBox = new MenuItemBox("Nouveau");
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_newactivity_name));
                     menuItemBox.setBackgroundColor(R.color.customGreen);
+                    menuItemBox.setIntent(new Intent(getApplicationContext(), NewActivity.class));
                     break;
                 case 1:
-                    menuItemBox = new MenuItemBox("Consulter");
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_consultactivity_name));
                     menuItemBox.setBackgroundColor(R.color.customRed);
+                    menuItemBox.setIntent(new Intent(getApplicationContext(), ConsultActivity.class));
                     break;
                 case 2:
-                    menuItemBox = new MenuItemBox("Finances");
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_financesactivity_name));
                     menuItemBox.setBackgroundColor(R.color.customOrange);
+                    menuItemBox.setIntent(new Intent(getApplicationContext(), FinancesActivity.class));
                     break;
                 case 3:
-                    menuItemBox = new MenuItemBox("Amis");
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_friendsactivity_name));
                     menuItemBox.setBackgroundColor(R.color.customBlue);
+                    menuItemBox.setIntent(new Intent(getApplicationContext(), FriendsActivity.class));
                     break;
                 case 4:
-                    menuItemBox = new MenuItemBox("Offres");
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_offersactivity_name));
                     menuItemBox.setBackgroundColor(R.color.customYellow);
+                    menuItemBox.setIntent(new Intent(getApplicationContext(), OffersActivity.class));
                     break;
                 case 5:
-                    menuItemBox = new MenuItemBox("Paramètres");
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_settingsactivity_name));
                     menuItemBox.setBackgroundColor(R.color.customPurple);
+                    menuItemBox.setIntent(new Intent(getApplicationContext(), SettingsActivity.class));
                     break;
             }
             menuBox.addMenuItemBox(menuItemBox);
         }
 
         gridMenu.setAdapter(new MenuBoxAdapter(getApplicationContext(), menuBox));
+
+        gridMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(menuBox.getMenuItemBoxes().get(position).getIntent());
+            }
+        });
     }
 
 
