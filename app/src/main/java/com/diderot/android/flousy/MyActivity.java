@@ -1,5 +1,6 @@
 package com.diderot.android.flousy;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -11,19 +12,26 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-
 public class MyActivity extends ActionBarActivity {
 
     public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreen;
 
-    private ActionBar customActionBar;
+    private Object customActionBar;
     private int activityColor;
     private View activityBar;
 
-    public ActionBar getCustomActionBar() {
+    public Object getCustomActionBar() {
         return this.customActionBar;
+    }
+
+    public void setCustomActionBarDisplayHomeAsUpEnabled(boolean enabled) {
+        if (this.customActionBar != null) {
+            if(Build.VERSION.SDK_INT >= 11) {
+                ((android.app.ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
+            } else {
+                ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
+            }
+        }
     }
 
     public int getActivityColor() { return this.activityColor; }
@@ -46,14 +54,21 @@ public class MyActivity extends ActionBarActivity {
         textView.setText(title);
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myactivity);
 
-        this.customActionBar = getSupportActionBar();
-        this.customActionBar.setDisplayHomeAsUpEnabled(true);
-        this.customActionBar.setIcon(R.drawable.ic_launcher);
+        if(Build.VERSION.SDK_INT >= 11) {
+            this.customActionBar = (android.app.ActionBar) getActionBar();
+            ((android.app.ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
+            ((android.app.ActionBar) this.customActionBar).setIcon(R.drawable.ic_launcher);
+        } else {
+            this.customActionBar = (ActionBar) getSupportActionBar();
+            ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
+            ((ActionBar) this.customActionBar).setIcon(R.drawable.ic_launcher);
+        }
     }
 
 

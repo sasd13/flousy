@@ -28,7 +28,7 @@ public class MenuActivity extends MyActivity {
         setActivityColor(ACTIVITY_COLOR);
 
         //Disable previous remote
-        getCustomActionBar().setDisplayHomeAsUpEnabled(false);
+        setCustomActionBarDisplayHomeAsUpEnabled(false);
 
         //Set ActivityBar
         setActivityBar(R.layout.layout_activitybar);
