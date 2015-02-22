@@ -1,8 +1,8 @@
 <resources>
     <!-- Activity bar -->
     <dimen name="activitybar_height">15dp</dimen>
-    <dimen name="activitybarwithtitle_textview_padding">15dp</dimen>
-    <dimen name="activitybarwithtitle_textview_textsize">18sp</dimen>
+    <dimen name="activitybarwithtitle_textview_padding">7dp</dimen>
+    <dimen name="activitybarwithtitle_textview_textsize">16sp</dimen>
 
     <!-- Activity content -->
     <!-- Default screen margins, per the Android Design guidelines. -->
@@ -13,7 +13,7 @@
     <dimen name="menubox_horizontalspacing">20dp</dimen>
     <dimen name="menubox_verticalspacing">20dp</dimen>
     <!-- numColumns : auto_fit (-1) -->
-    <integer name="menubox_numcolumns">3</integer>
+    <integer name="menubox_numcolumns">-1</integer>
 
     <!-- MenuItemBox -->
     <dimen name="menuitembox_imageview_padding">15dp</dimen>

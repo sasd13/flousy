@@ -18,14 +18,12 @@ import flousy.util.MenuBoxAdapter;
 
 public class MenuActivity extends MyActivity {
 
-    public static final int ACTIVITY_COLOR = DEFAULT_ACTIVITY_COLOR;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(ACTIVITY_COLOR);
+        setActivityColor(DEFAULT_ACTIVITY_COLOR);
 
         //Disable previous remote
         setCustomActionBarDisplayHomeAsUpEnabled(false);

@@ -1,9 +1,5 @@
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+/android-flousy.git
 .DS_Store
-/build
 
 # Windows image file caches
 Thumbs.db

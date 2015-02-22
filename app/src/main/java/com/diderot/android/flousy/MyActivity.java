@@ -26,11 +26,14 @@ public class MyActivity extends ActionBarActivity {
 
     public void setCustomActionBarDisplayHomeAsUpEnabled(boolean enabled) {
         if (this.customActionBar != null) {
+            /*
             if(Build.VERSION.SDK_INT >= 11) {
                 ((android.app.ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
             } else {
                 ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
-            }
+            }*/
+
+            ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
         }
     }
 
@@ -54,12 +57,11 @@ public class MyActivity extends ActionBarActivity {
         textView.setText(title);
     }
 
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myactivity);
-
+        /*
         if(Build.VERSION.SDK_INT >= 11) {
             this.customActionBar = (android.app.ActionBar) getActionBar();
             ((android.app.ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
@@ -68,7 +70,11 @@ public class MyActivity extends ActionBarActivity {
             this.customActionBar = (ActionBar) getSupportActionBar();
             ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
             ((ActionBar) this.customActionBar).setIcon(R.drawable.ic_launcher);
-        }
+        }*/
+
+        this.customActionBar = (ActionBar) getSupportActionBar();
+        ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
+        ((ActionBar) this.customActionBar).setIcon(R.drawable.ic_launcher);
     }
 
 

@@ -15,7 +15,7 @@ public class NewActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(DEFAULT_ACTIVITY_COLOR);
+        setActivityColor(R.color.customGreen);
 
         //Set ActivityBar
         setActivityBar(R.layout.layout_activitybarwithtitle);
