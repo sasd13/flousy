@@ -13,7 +13,7 @@
     <dimen name="menubox_horizontalspacing">20dp</dimen>
     <dimen name="menubox_verticalspacing">20dp</dimen>
     <!-- numColumns : auto_fit (-1) -->
-    <integer name="menubox_numcolumns">-1</integer>
+    <integer name="menubox_numcolumns">2</integer>
 
     <!-- MenuItemBox -->
     <dimen name="menuitembox_imageview_padding">15dp</dimen>

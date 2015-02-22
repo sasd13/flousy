@@ -7,7 +7,7 @@
     <string name="app_name">Flousy</string>
 
     <!-- Activity -->
-    <string name="activity_menuactivity_name">Menu</string>
+    <string name="activity_menuactivity_name">@string/app_name</string>
     <string name="activity_newactivity_name">Nouveau</string>
     <string name="activity_consultactivity_name">Consulter</string>
     <string name="activity_financesactivity_name">Finances</string>
