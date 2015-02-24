@@ -10,12 +10,14 @@ import android.view.MenuItem;
 
 public class NewActivity extends MyActivity {
 
+    public static final int ACTIVITY_COLOR = R.color.customGreen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(R.color.customGreen);
+        setActivityColor(ACTIVITY_COLOR);
 
         //Set ActivityBar
         setActivityBar(R.layout.layout_activitybarwithtitle);

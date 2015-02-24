@@ -7,27 +7,15 @@ import java.util.ArrayList;
  */
 public class MenuBox {
 
-    private String menuTitle;
     private int menuItemBoxLayoutResource;
     private ArrayList<MenuItemBox> menuItemBoxes;
 
-    public MenuBox(String menuTitle, int menuItemBoxLayoutResource) {
-        this.menuTitle = menuTitle;
+    public MenuBox(int menuItemBoxLayoutResource) {
         this.menuItemBoxLayoutResource = menuItemBoxLayoutResource;
         this.menuItemBoxes = new ArrayList<MenuItemBox>();
     }
 
-    public String getMenuTitle() { return this.menuTitle; }
-
-    public void setMenuTitle(String menuTitle) {
-        this.menuTitle = menuTitle;
-    }
-
     public int getMenuItemBoxLayoutResource() { return this.menuItemBoxLayoutResource; }
-
-    public void setMenuItemBoxLayoutResource(int menuItemBoxLayoutResource) {
-        this.menuItemBoxLayoutResource = menuItemBoxLayoutResource;
-    }
 
     public ArrayList<MenuItemBox> getMenuItemBoxes() { return this.menuItemBoxes; }
 

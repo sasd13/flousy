@@ -49,6 +49,7 @@ public class MenuItemBox {
      * <li>xxxhdpi : 320*320 px</li>
      * </ul>
      * </p>
+     * <p>See www.flaticon.com</p>
      */
     private int imageResource;
 

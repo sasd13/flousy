@@ -5,24 +5,24 @@
     android:layout_height="wrap_content">
 
     <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:paddingBottom="@dimen/menuitembox_imageview_bottompadding"
-    android:paddingTop="@dimen/menuitembox_imageview_padding"
-    android:paddingLeft="@dimen/menuitembox_imageview_padding"
-    android:paddingRight="@dimen/menuitembox_imageview_padding"
-    android:src="@drawable/menuitembox"/>
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/menuitembox_imageview_height"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/menuitembox_imageview_padding"
+        android:layout_marginBottom="@dimen/menuitembox_imageview_bottompadding"
+        android:layout_marginLeft="@dimen/menuitembox_imageview_padding"
+        android:layout_marginRight="@dimen/menuitembox_imageview_padding"
+        android:src="@drawable/menuitembox"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:gravity="center"
-        android:paddingTop="@dimen/menuitembox_textview_toppadding"
-        android:paddingBottom="@dimen/menuitembox_textview_padding"
-        android:paddingLeft="@dimen/menuitembox_textview_padding"
-        android:paddingRight="@dimen/menuitembox_textview_padding"
+        android:layout_marginTop="@dimen/menuitembox_textview_toppadding"
+        android:layout_marginBottom="@dimen/menuitembox_textview_padding"
+        android:layout_marginLeft="@dimen/menuitembox_textview_padding"
+        android:layout_marginRight="@dimen/menuitembox_textview_padding"
         android:text="@string/menuitembox_title"
         android:textStyle="bold"
         android:textSize="@dimen/menuitembox_textview_textsize"

@@ -20,8 +20,28 @@ public class MyActivity extends ActionBarActivity {
     private int activityColor;
     private View activityBar;
 
-    public Object getCustomActionBar() {
-        return this.customActionBar;
+    public void setCustomActionBarEnabled(boolean enabled) {
+        if(enabled == true) {
+            /*
+            if(Build.VERSION.SDK_INT >= 11) {
+                ((android.app.ActionBar) this.customActionBar).show();
+            } else {
+                ((ActionBar) this.customActionBar).show();
+            }
+            */
+
+            ((ActionBar) this.customActionBar).show();
+        } else {
+            /*
+            if(Build.VERSION.SDK_INT >= 11) {
+                ((android.app.ActionBar) this.customActionBar).hide();
+            } else {
+                ((ActionBar) this.customActionBar).hide();
+            }
+            */
+
+            ((ActionBar) this.customActionBar).hide();
+        }
     }
 
     public void setCustomActionBarDisplayHomeAsUpEnabled(boolean enabled) {
@@ -39,7 +59,9 @@ public class MyActivity extends ActionBarActivity {
 
     public int getActivityColor() { return this.activityColor; }
 
-    public void setActivityColor(int resId) { this.activityColor = resId; }
+    public void setActivityColor (int colorResource) {
+        this.activityColor = colorResource;
+    }
 
     public View getActivityBar() {
         return this.activityBar;

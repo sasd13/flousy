@@ -21,7 +21,7 @@
     <item name="customPurple" type="color">#A864A8</item>
     <item name="customGreen" type="color">#A3D39C</item>
     <item name="customOrange" type="color">#FDC689</item>
-    <item name="customRed" type="color">#EF907C</item>
+    <item name="customRed" type="color">#F0A794</item>
     <item name="customYellow" type="color">#FFF568</item>
 
     <integer-array name="androidcolors">

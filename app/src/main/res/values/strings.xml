@@ -7,13 +7,14 @@
     <string name="app_name">Flousy</string>
 
     <!-- Activity -->
-    <string name="activity_menuactivity_name">@string/app_name</string>
-    <string name="activity_newactivity_name">Nouveau</string>
-    <string name="activity_consultactivity_name">Consulter</string>
-    <string name="activity_financesactivity_name">Finances</string>
-    <string name="activity_friendsactivity_name">Amis</string>
-    <string name="activity_offersactivity_name">Offres</string>
-    <string name="activity_settingsactivity_name">Paramètres</string>
+    <string name="activity_splashscreen_name">@string/app_name</string>
+    <string name="activity_menu_name">@string/app_name</string>
+    <string name="activity_new_name">Nouveau</string>
+    <string name="activity_consult_name">Consulter</string>
+    <string name="activity_finances_name">Finances</string>
+    <string name="activity_friends_name">Amis</string>
+    <string name="activity_offers_name">Offres</string>
+    <string name="activity_settings_name">Paramètres</string>
 
     <!-- Action bar -->
     <string name="action_settings">Settings</string>

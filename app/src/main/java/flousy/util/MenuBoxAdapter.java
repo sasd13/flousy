@@ -23,9 +23,7 @@ public class MenuBoxAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
-        return this.menuBox.getMenuItemBoxes().size();
-    }
+    public int getCount() { return this.menuBox.getMenuItemBoxes().size(); }
 
     @Override
     public Object getItem(int position) {

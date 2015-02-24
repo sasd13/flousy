@@ -36,38 +36,44 @@ public class MenuActivity extends MyActivity {
         stub.setLayoutResource(R.layout.layout_menubox);
         GridView gridMenu = (GridView) stub.inflate();
 
-        final MenuBox menuBox = new MenuBox("Menu", R.layout.layout_menuitembox);
+        final MenuBox menuBox = new MenuBox(R.layout.layout_menuitembox);
         MenuItemBox menuItemBox = null;
         for(int i=0; i<6; i++) {
             switch(i) {
                 case 0:
-                    menuItemBox = new MenuItemBox(getString(R.string.activity_newactivity_name));
-                    menuItemBox.setBackgroundColor(R.color.customGreen);
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_new_name));
+                    menuItemBox.setBackgroundColor(NewActivity.ACTIVITY_COLOR);
+                    menuItemBox.setImageResource(R.drawable.menuitembox_new);
                     menuItemBox.setIntent(new Intent(getApplicationContext(), NewActivity.class));
                     break;
                 case 1:
-                    menuItemBox = new MenuItemBox(getString(R.string.activity_consultactivity_name));
-                    menuItemBox.setBackgroundColor(R.color.customRed);
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_consult_name));
+                    menuItemBox.setBackgroundColor(ConsultActivity.ACTIVITY_COLOR);
+                    menuItemBox.setImageResource(R.drawable.menuitembox_consult);
                     menuItemBox.setIntent(new Intent(getApplicationContext(), ConsultActivity.class));
                     break;
                 case 2:
-                    menuItemBox = new MenuItemBox(getString(R.string.activity_financesactivity_name));
-                    menuItemBox.setBackgroundColor(R.color.customOrange);
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_finances_name));
+                    menuItemBox.setBackgroundColor(FinancesActivity.ACTIVITY_COLOR);
+                    menuItemBox.setImageResource(R.drawable.menuitembox_finances);
                     menuItemBox.setIntent(new Intent(getApplicationContext(), FinancesActivity.class));
                     break;
                 case 3:
-                    menuItemBox = new MenuItemBox(getString(R.string.activity_friendsactivity_name));
-                    menuItemBox.setBackgroundColor(R.color.customBlue);
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_friends_name));
+                    menuItemBox.setBackgroundColor(FriendsActivity.ACTIVITY_COLOR);
+                    menuItemBox.setImageResource(R.drawable.menuitembox_friends);
                     menuItemBox.setIntent(new Intent(getApplicationContext(), FriendsActivity.class));
                     break;
                 case 4:
-                    menuItemBox = new MenuItemBox(getString(R.string.activity_offersactivity_name));
-                    menuItemBox.setBackgroundColor(R.color.customYellow);
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_offers_name));
+                    menuItemBox.setBackgroundColor(OffersActivity.ACTIVITY_COLOR);
+                    menuItemBox.setImageResource(R.drawable.menuitembox_offers);
                     menuItemBox.setIntent(new Intent(getApplicationContext(), OffersActivity.class));
                     break;
                 case 5:
-                    menuItemBox = new MenuItemBox(getString(R.string.activity_settingsactivity_name));
-                    menuItemBox.setBackgroundColor(R.color.customPurple);
+                    menuItemBox = new MenuItemBox(getString(R.string.activity_settings_name));
+                    menuItemBox.setBackgroundColor(SettingsActivity.ACTIVITY_COLOR);
+                    menuItemBox.setImageResource(R.drawable.menuitembox_settings);
                     menuItemBox.setIntent(new Intent(getApplicationContext(), SettingsActivity.class));
                     break;
             }

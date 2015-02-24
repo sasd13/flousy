@@ -2,12 +2,14 @@
     android:id="@+id/activitybar"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/activitybar_height" >
+    android:layout_height="@dimen/activitybar_height"
+    android:gravity="center">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/activitybarwithtitle_textview_text"/>
 
 </LinearLayout>

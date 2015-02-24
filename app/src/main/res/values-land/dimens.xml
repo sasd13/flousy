@@ -16,6 +16,7 @@
     <integer name="menubox_numcolumns">3</integer>
 
     <!-- MenuItemBox -->
+    <dimen name="menuitembox_imageview_height">80dp</dimen>
     <dimen name="menuitembox_imageview_padding">15dp</dimen>
     <dimen name="menuitembox_imageview_bottompadding">10dp</dimen>
     <dimen name="menuitembox_textview_padding">10dp</dimen>
