@@ -21,7 +21,7 @@ public class FriendsActivity extends MyActivity {
 
         //Set ActivityBar
         setActivityBar(R.layout.layout_activitybarwithtitle);
-        setActivityBarTitle("Réception");
+        setActivityBarTitle("Reçus");
     }
 
 

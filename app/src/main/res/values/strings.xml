@@ -8,7 +8,7 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
-    <string name="activity_menu_name">@string/app_name</string>
+    <string name="activity_menu_name">Menu</string>
     <string name="activity_new_name">Nouveau</string>
     <string name="activity_consult_name">Consulter</string>
     <string name="activity_finances_name">Finances</string>
