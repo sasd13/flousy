@@ -14,10 +14,14 @@ import android.widget.RelativeLayout;
 public class SplashScreenActivity extends MyActivity {
 
     private static int SPLASH_TIME_OUT = 3000;
+    private Handler handler;
+    private Runnable runnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getIntent().addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
 
         //Set activity color before everything
         setActivityColor(DEFAULT_ACTIVITY_COLOR);
@@ -33,7 +37,7 @@ public class SplashScreenActivity extends MyActivity {
         stub.setLayoutResource(R.layout.layout_splashscreen);
         RelativeLayout layoutSplashScreen = (RelativeLayout) stub.inflate();
 
-        new Handler().postDelayed(new Runnable() {
+        this.runnable = new Runnable() {
 
             @Override
             public void run() {
@@ -43,9 +47,30 @@ public class SplashScreenActivity extends MyActivity {
                 // close this activity
                 finish();
             }
-        }, SPLASH_TIME_OUT);
+        };
+
+        this.handler = new Handler();
+        this.handler.postDelayed(this.runnable, SPLASH_TIME_OUT);
     }
 
+    /**
+     * Stop calling post delayed activity on user action
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        this.handler.removeCallbacks(this.runnable);
+        finish();
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+
+        this.handler.removeCallbacks(this.runnable);
+        finish();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
