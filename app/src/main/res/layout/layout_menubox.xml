@@ -3,6 +3,7 @@
     android:id="@+id/menubox"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:horizontalSpacing="@dimen/menubox_horizontalspacing"
     android:verticalSpacing="@dimen/menubox_verticalspacing"
     android:numColumns="@integer/menubox_numcolumns"

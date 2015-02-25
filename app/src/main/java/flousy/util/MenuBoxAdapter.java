@@ -5,9 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-
-import java.util.ArrayList;
 
 /**
  * Created by Samir on 20/02/2015.
@@ -40,10 +37,10 @@ public class MenuBoxAdapter extends BaseAdapter {
         ViewGroup menuItemBoxContainer;
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            menuItemBoxContainer = (LinearLayout) inflater.inflate(this.menuBox.getMenuItemBoxLayoutResource(), null);
+            menuItemBoxContainer = (ViewGroup) inflater.inflate(this.menuBox.getMenuItemBoxLayoutResource(), null);
         }
         else {
-            menuItemBoxContainer = (LinearLayout) convertView;
+            menuItemBoxContainer = (ViewGroup) convertView;
         }
 
         this.menuBox.getMenuItemBoxes().get(position).setContainer(menuItemBoxContainer);

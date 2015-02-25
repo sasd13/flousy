@@ -2,7 +2,6 @@ package com.diderot.android.flousy;
 
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -26,15 +25,15 @@ public class MenuActivity extends MyActivity {
         setActivityColor(DEFAULT_ACTIVITY_COLOR);
 
         //Disable previous remote
-        setCustomActionBarDisplayHomeAsUpEnabled(false);
+        setActionBarDisplayHomeAsUpEnabled(false);
 
         //Set ActivityBar
         setActivityBar(R.layout.layout_activitybar);
 
         //Set ActivityContent
-        ViewStub stub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        stub.setLayoutResource(R.layout.layout_menubox);
-        GridView gridMenu = (GridView) stub.inflate();
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
+        viewStub.setLayoutResource(R.layout.layout_menubox);
+        GridView gridMenu = (GridView) viewStub.inflate();
 
         final MenuBox menuBox = new MenuBox(R.layout.layout_menuitembox);
         MenuItemBox menuItemBox = null;
@@ -44,43 +43,44 @@ public class MenuActivity extends MyActivity {
                     menuItemBox = new MenuItemBox(getString(R.string.activity_new_name));
                     menuItemBox.setBackgroundColor(NewActivity.ACTIVITY_COLOR);
                     menuItemBox.setImageResource(R.drawable.menuitembox_new);
-                    menuItemBox.setIntent(new Intent(getApplicationContext(), NewActivity.class));
+                    menuItemBox.setIntent(new Intent(this, NewActivity.class));
                     break;
                 case 1:
                     menuItemBox = new MenuItemBox(getString(R.string.activity_consult_name));
                     menuItemBox.setBackgroundColor(ConsultActivity.ACTIVITY_COLOR);
                     menuItemBox.setImageResource(R.drawable.menuitembox_consult);
-                    menuItemBox.setIntent(new Intent(getApplicationContext(), ConsultActivity.class));
+                    menuItemBox.setIntent(new Intent(this, ConsultActivity.class));
                     break;
                 case 2:
                     menuItemBox = new MenuItemBox(getString(R.string.activity_finances_name));
                     menuItemBox.setBackgroundColor(FinancesActivity.ACTIVITY_COLOR);
                     menuItemBox.setImageResource(R.drawable.menuitembox_finances);
-                    menuItemBox.setIntent(new Intent(getApplicationContext(), FinancesActivity.class));
+                    menuItemBox.setIntent(new Intent(this, FinancesActivity.class));
                     break;
                 case 3:
                     menuItemBox = new MenuItemBox(getString(R.string.activity_friends_name));
                     menuItemBox.setBackgroundColor(FriendsActivity.ACTIVITY_COLOR);
                     menuItemBox.setImageResource(R.drawable.menuitembox_friends);
-                    menuItemBox.setIntent(new Intent(getApplicationContext(), FriendsActivity.class));
+                    menuItemBox.setIntent(new Intent(this, FriendsActivity.class));
                     break;
                 case 4:
                     menuItemBox = new MenuItemBox(getString(R.string.activity_offers_name));
                     menuItemBox.setBackgroundColor(OffersActivity.ACTIVITY_COLOR);
                     menuItemBox.setImageResource(R.drawable.menuitembox_offers);
-                    menuItemBox.setIntent(new Intent(getApplicationContext(), OffersActivity.class));
+                    menuItemBox.setIntent(new Intent(this, OffersActivity.class));
                     break;
                 case 5:
                     menuItemBox = new MenuItemBox(getString(R.string.activity_settings_name));
                     menuItemBox.setBackgroundColor(SettingsActivity.ACTIVITY_COLOR);
                     menuItemBox.setImageResource(R.drawable.menuitembox_settings);
-                    menuItemBox.setIntent(new Intent(getApplicationContext(), SettingsActivity.class));
+                    menuItemBox.setIntent(new Intent(this, SettingsActivity.class));
                     break;
             }
             menuBox.addMenuItemBox(menuItemBox);
         }
 
-        gridMenu.setAdapter(new MenuBoxAdapter(getApplicationContext(), menuBox));
+        MenuBoxAdapter menuBoxAdapter = new MenuBoxAdapter(this, menuBox);
+        gridMenu.setAdapter(menuBoxAdapter);
 
         gridMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

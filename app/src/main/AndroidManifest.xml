@@ -10,7 +10,7 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
             android:name=".SplashScreenActivity"
-            android:label="@string/activity_splashscreen_name">
+            android:label="@string/activity_splashscreen_name" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".MenuActivity"
-            android:label="@string/activity_menu_name">
+            android:label="@string/activity_menu_name" >
         </activity>
         <activity
             android:name=".NewActivity"

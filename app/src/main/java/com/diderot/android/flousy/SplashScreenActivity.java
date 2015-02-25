@@ -1,14 +1,12 @@
 package com.diderot.android.flousy;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
-import android.widget.LinearLayout;
+import android.view.Window;
 import android.widget.RelativeLayout;
 
 public class SplashScreenActivity extends MyActivity {
@@ -21,21 +19,16 @@ public class SplashScreenActivity extends MyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getIntent().addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
-
         //Set activity color before everything
         setActivityColor(DEFAULT_ACTIVITY_COLOR);
 
         //Disable ActionBar
-        setCustomActionBarEnabled(false);
-
-        //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybar);
+        setActionBarEnabled(false);
 
         //Set ActivityContent
-        ViewStub stub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        stub.setLayoutResource(R.layout.layout_splashscreen);
-        RelativeLayout layoutSplashScreen = (RelativeLayout) stub.inflate();
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
+        viewStub.setLayoutResource(R.layout.layout_splashscreen);
+        RelativeLayout splash = (RelativeLayout) viewStub.inflate();
 
         this.runnable = new Runnable() {
 
@@ -75,16 +68,6 @@ public class SplashScreenActivity extends MyActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_myactivity, menu);
-
-        MenuItem item = menu.add(R.string.action_search);
-        item.setIcon(R.drawable.ic_action_search);
-
-        if (Build.VERSION.SDK_INT >= 11) {
-            SearchView searchView = new SearchView(this);
-            item.setActionView(new SearchView(this));
-        }
-
         super.onCreateOptionsMenu(menu);
 
         return true;

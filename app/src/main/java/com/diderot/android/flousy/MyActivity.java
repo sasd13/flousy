@@ -1,10 +1,9 @@
 package com.diderot.android.flousy;
 
-import android.annotation.TargetApi;
 import android.os.Build;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,55 +15,47 @@ public class MyActivity extends ActionBarActivity {
 
     public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreen;
 
-    private Object customActionBar;
     private int activityColor;
     private View activityBar;
 
-    public void setCustomActionBarEnabled(boolean enabled) {
+    public void setActionBarEnabled(boolean enabled) {
         if(enabled == true) {
-            /*
             if(Build.VERSION.SDK_INT >= 11) {
-                ((android.app.ActionBar) this.customActionBar).show();
+                try {
+                    getActionBar().show();
+                } catch (Exception e) {
+                    Log.println(1, null, "ActionBar is null");
+                }
             } else {
-                ((ActionBar) this.customActionBar).show();
+                getSupportActionBar().show();
             }
-            */
-
-            ((ActionBar) this.customActionBar).show();
         } else {
-            /*
             if(Build.VERSION.SDK_INT >= 11) {
-                ((android.app.ActionBar) this.customActionBar).hide();
+                try {
+                    getActionBar().hide();
+                } catch (Exception e) {
+                    Log.println(1, null, "ActionBar is null");
+                }
             } else {
-                ((ActionBar) this.customActionBar).hide();
+                getSupportActionBar().hide();
             }
-            */
-
-            ((ActionBar) this.customActionBar).hide();
         }
     }
 
-    public void setCustomActionBarDisplayHomeAsUpEnabled(boolean enabled) {
-        if (this.customActionBar != null) {
-            /*
-            if(Build.VERSION.SDK_INT >= 11) {
-                ((android.app.ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
-            } else {
-                ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
-            }*/
-
-            ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(enabled);
+    public void setActionBarDisplayHomeAsUpEnabled(boolean enabled) {
+        if(Build.VERSION.SDK_INT >= 11) {
+            try {
+                getActionBar().setDisplayHomeAsUpEnabled(enabled);
+            } catch (Exception e) {
+                Log.println(1, null, "ActionBar is null");
+            }
+        } else {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(enabled);
         }
     }
-
-    public int getActivityColor() { return this.activityColor; }
 
     public void setActivityColor (int colorResource) {
         this.activityColor = colorResource;
-    }
-
-    public View getActivityBar() {
-        return this.activityBar;
     }
 
     public void setActivityBar(int layoutResource) {
@@ -82,21 +73,18 @@ public class MyActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_myactivity);
-        /*
-        if(Build.VERSION.SDK_INT >= 11) {
-            this.customActionBar = (android.app.ActionBar) getActionBar();
-            ((android.app.ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
-            ((android.app.ActionBar) this.customActionBar).setIcon(R.drawable.ic_launcher);
-        } else {
-            this.customActionBar = (ActionBar) getSupportActionBar();
-            ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
-            ((ActionBar) this.customActionBar).setIcon(R.drawable.ic_launcher);
-        }*/
 
-        this.customActionBar = (ActionBar) getSupportActionBar();
-        ((ActionBar) this.customActionBar).setDisplayHomeAsUpEnabled(true);
-        ((ActionBar) this.customActionBar).setIcon(R.drawable.ic_launcher);
+        setContentView(R.layout.activity_myactivity);
+
+        if(Build.VERSION.SDK_INT >= 11) {
+            try {
+                getActionBar().setDisplayHomeAsUpEnabled(true);
+            } catch (Exception e) {
+                Log.println(1, null, "ActionBar is null");
+            }
+        } else {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
 
@@ -107,7 +95,11 @@ public class MyActivity extends ActionBarActivity {
         for(int i=0; i<menu.size(); i++) {
             item = menu.getItem(i);
             if (Build.VERSION.SDK_INT >= 11) {
-                item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+                try {
+                    item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+                } catch (Exception e) {
+                    Log.println(1, null, "ActionBar is null");
+                }
             }
         }
 

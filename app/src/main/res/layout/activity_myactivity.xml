@@ -8,6 +8,7 @@
 
     <ViewStub
         android:id="@+id/activitybar_viewstub"
+        android:layout="@layout/layout_activitybar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -15,6 +16,8 @@
         android:id="@+id/activitycontent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
+
         android:paddingTop="@dimen/activitycontent_verticalpadding"
         android:paddingBottom="@dimen/activitycontent_verticalpadding"
         android:paddingLeft="@dimen/activitycontent_horizontalpadding"
@@ -23,7 +26,8 @@
         <ViewStub
             android:id="@+id/activitycontent_viewstub"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
 
     </RelativeLayout>
 
