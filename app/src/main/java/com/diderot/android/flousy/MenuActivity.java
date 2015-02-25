@@ -1,8 +1,11 @@
 package com.diderot.android.flousy;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -95,14 +98,19 @@ public class MenuActivity extends MyActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_myactivity, menu);
+        getMenuInflater().inflate(R.menu.menu_activity_menu, menu);
 
-        MenuItem item = menu.add(R.string.action_search);
-        item.setIcon(R.drawable.ic_action_search);
+        MenuItem item = (MenuItem) menu.findItem(R.id.action_search);
 
-        if (Build.VERSION.SDK_INT >= 11) {
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            android.widget.SearchView searchView = new android.widget.SearchView(this);
+            item.setActionView(searchView);
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        } else {
             SearchView searchView = new SearchView(this);
-            item.setActionView(new SearchView(this));
+            MenuItemCompat.setActionView(item, searchView);
         }
 
         super.onCreateOptionsMenu(menu);

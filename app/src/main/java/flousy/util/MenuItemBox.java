@@ -38,18 +38,16 @@ public class MenuItemBox {
      *
      * <p>type : int (resourceId, example : R.drawable.MenuItemBox)</p>
      * <p>
-     * recommanded (maximum) size : 80*80 dp<br/>
+     * recommanded (maximum) size : 64*64 dp<br/>
      * equivalences :
      * <ul>
-     * <li>ldpi : 60*60 px</li>
-     * <li>mdpi : 80*80 px</li>
-     * <li>hdpi : 120*120 px</li>
-     * <li>xhdpi : 160*160 px</li>
-     * <li>xxhdpi : 240*240 px</li>
-     * <li>xxxhdpi : 320*320 px</li>
+     * <li>ldpi : 48*48 px</li>
+     * <li>mdpi : 64*64 px</li>
+     * <li>hdpi : 96*96 px</li>
+     * <li>xhdpi : 128*128 px</li>
+     * <li>xxhdpi : 192*192 px</li>
      * </ul>
      * </p>
-     * <p>See www.flaticon.com</p>
      */
     private int imageResource;
 

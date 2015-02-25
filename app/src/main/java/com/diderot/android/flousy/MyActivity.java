@@ -20,7 +20,7 @@ public class MyActivity extends ActionBarActivity {
 
     public void setActionBarEnabled(boolean enabled) {
         if(enabled == true) {
-            if(Build.VERSION.SDK_INT >= 11) {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 try {
                     getActionBar().show();
                 } catch (Exception e) {
@@ -30,7 +30,7 @@ public class MyActivity extends ActionBarActivity {
                 getSupportActionBar().show();
             }
         } else {
-            if(Build.VERSION.SDK_INT >= 11) {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 try {
                     getActionBar().hide();
                 } catch (Exception e) {
@@ -43,7 +43,7 @@ public class MyActivity extends ActionBarActivity {
     }
 
     public void setActionBarDisplayHomeAsUpEnabled(boolean enabled) {
-        if(Build.VERSION.SDK_INT >= 11) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             try {
                 getActionBar().setDisplayHomeAsUpEnabled(enabled);
             } catch (Exception e) {
@@ -76,7 +76,7 @@ public class MyActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_myactivity);
 
-        if(Build.VERSION.SDK_INT >= 11) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             try {
                 getActionBar().setDisplayHomeAsUpEnabled(true);
             } catch (Exception e) {
@@ -90,18 +90,8 @@ public class MyActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuItem item;
-        for(int i=0; i<menu.size(); i++) {
-            item = menu.getItem(i);
-            if (Build.VERSION.SDK_INT >= 11) {
-                try {
-                    item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-                } catch (Exception e) {
-                    Log.println(1, null, "ActionBar is null");
-                }
-            }
-        }
+        // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
 
         return true;
     }

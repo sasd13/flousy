@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
-import android.view.Window;
 import android.widget.RelativeLayout;
 
 public class SplashScreenActivity extends MyActivity {
@@ -21,6 +20,7 @@ public class SplashScreenActivity extends MyActivity {
 
         //Set activity color before everything
         setActivityColor(DEFAULT_ACTIVITY_COLOR);
+
 
         //Disable ActionBar
         setActionBarEnabled(false);
