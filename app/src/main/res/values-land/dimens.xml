@@ -9,6 +9,9 @@
     <dimen name="activitycontent_horizontalpadding">16dp</dimen>
     <dimen name="activitycontent_verticalpadding">16dp</dimen>
 
+    <!-- Splash screen -->
+    <dimen name="splashscreen_progressbar_margin">20dp</dimen>
+
     <!-- MenuBox -->
     <dimen name="menubox_horizontalspacing">20dp</dimen>
     <dimen name="menubox_verticalspacing">20dp</dimen>
