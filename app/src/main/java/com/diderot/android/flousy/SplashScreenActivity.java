@@ -6,10 +6,12 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class SplashScreenActivity extends MyActivity {
 
+    private static final int APP_LOGO = R.drawable.ic_logo;
     private static int SPLASH_TIME_OUT = 3000;
     private Handler handler;
     private Runnable runnable;
@@ -21,21 +23,37 @@ public class SplashScreenActivity extends MyActivity {
         //Set activity color before everything
         setActivityColor(DEFAULT_ACTIVITY_COLOR);
 
-
         //Disable ActionBar
         setActionBarEnabled(false);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.layout_splashscreen);
+        viewStub.setLayoutResource(R.layout.activity_splashscreen);
         RelativeLayout splash = (RelativeLayout) viewStub.inflate();
+
+        //Set Logo
+        ImageView imageView = (ImageView) findViewById(R.id.splashscreen_logo);
+        imageView.setImageResource(APP_LOGO);
+
+        String activityToLaunch = "LogIn";
+        switch (activityToLaunch) {
+            case "Menu" :
+                attachActivity(MenuActivity.class);
+                break;
+            default:
+                attachActivity(LogInActivity.class);
+                break;
+        }
+    }
+
+    private void attachActivity(Class<?> activityClass) {
+        final Intent intent = new Intent(this, activityClass);
 
         this.runnable = new Runnable() {
 
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreenActivity.this, MenuActivity.class);
-                startActivity(i);
+                startActivity(intent);
 
                 // close this activity
                 finish();
@@ -46,6 +64,14 @@ public class SplashScreenActivity extends MyActivity {
         this.handler.postDelayed(this.runnable, SPLASH_TIME_OUT);
     }
 
+    public void detachActivity() {
+        if(this.runnable != null) {
+            this.handler.removeCallbacks(this.runnable);
+        }
+
+        finish();
+    }
+
     /**
      * Stop calling post delayed activity on user action
      */
@@ -53,16 +79,14 @@ public class SplashScreenActivity extends MyActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        this.handler.removeCallbacks(this.runnable);
-        finish();
+        detachActivity();
     }
 
     @Override
     protected void onUserLeaveHint() {
         super.onUserLeaveHint();
 
-        this.handler.removeCallbacks(this.runnable);
-        finish();
+        detachActivity();
     }
 
     @Override

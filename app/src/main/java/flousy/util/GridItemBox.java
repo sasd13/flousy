@@ -10,7 +10,7 @@ import android.view.View;
 import android.content.Intent;
 
 /**
- * <b>MenuItemBox is the class to manage item boxes of a menu</b>
+ * <b>GridItemBox is the class to manage item boxes of a menu</b>
  * <p>
  * A menu item box has :
  * <ul>
@@ -24,19 +24,19 @@ import android.content.Intent;
  * @version 1.0
  * @since   18/02/2015
  */
-public class MenuItemBox {
+public class GridItemBox {
 
     /**
-     * MenuItemBox background color
+     * GridItemBox background color
      *
      * <p>type : int (resourceId, example : R.color.black)</p>
      */
     private int backgroundColor;
 
     /**
-     * MenuItemBox image resource
+     * GridItemBox image resource
      *
-     * <p>type : int (resourceId, example : R.drawable.MenuItemBox)</p>
+     * <p>type : int (resourceId, example : R.drawable.GridItemBox)</p>
      * <p>
      * recommanded (maximum) size : 64*64 dp<br/>
      * equivalences :
@@ -52,12 +52,12 @@ public class MenuItemBox {
     private int imageResource;
 
     /**
-     * MenuItemBox text value
+     * GridItemBox text value
      */
     private CharSequence textValue;
 
     /**
-     * MenuItemBox parent layout (container)
+     * GridItemBox parent layout (container)
      */
     private ViewGroup container;
 
@@ -72,7 +72,7 @@ public class MenuItemBox {
     private TextView textView;
 
     /**
-     * MenuItem action on item selected
+     * GridItemBox action on item clicked
      */
     private Intent intent;
 
@@ -80,23 +80,10 @@ public class MenuItemBox {
      * Default constructor
      * <p>Setting only main attributes with default values</p>
      */
-    public MenuItemBox(CharSequence textValue) {
+    public GridItemBox(CharSequence textValue) {
         this.backgroundColor = MyActivity.DEFAULT_ACTIVITY_COLOR;
-        this.imageResource = R.drawable.menuitembox;
+        this.imageResource = R.drawable.griditembox;
         this.textValue = textValue;
-    }
-
-    /**
-     * Get container
-     *
-     * @return  ViewGroup
-     */
-    public ViewGroup getContainer() {
-        if (this.container == null) {
-            return null;
-        }
-
-        return this.container;
     }
 
     /**

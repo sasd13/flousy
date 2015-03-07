@@ -1,0 +1,81 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/login_textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textSize="@dimen/login_textview_title_textsize"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/login_textview_title_margintop"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/login_layoutconnect"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/login_edittext_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="@string/login_edittext_email_hint"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionDone"
+            android:maxLines="1"/>
+
+        <EditText
+            android:id="@+id/login_edittext_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="@string/login_edittext_password_hint"
+            android:inputType="textPassword"
+            android:imeOptions="actionGo"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/login_edittext_password_marginTop"/>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login_button_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_textsize"
+            android:textStyle="bold"
+            android:paddingTop="@dimen/button_verticalpadding"
+            android:paddingBottom="@dimen/button_verticalpadding"
+            android:paddingLeft="@dimen/button_horizontalpadding"
+            android:paddingRight="@dimen/button_horizontalpadding"
+            android:shadowColor="@android:color/darker_gray"
+            android:background="@color/customGreen"
+            android:onClick="startLogin"
+            android:layout_marginTop="@dimen/login_edittext_password_marginTop"/>
+
+        <TextView
+            android:id="@+id/login_edittext_restorepassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="J'ai oublié mon mot de passe"
+            android:layout_marginTop="@dimen/login_edittext_password_marginTop"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/login_edittext_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Je veux m'inscrire"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"/>
+
+</RelativeLayout>

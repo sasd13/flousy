@@ -6,7 +6,7 @@ import android.view.MenuItem;
 
 public class SettingsActivity extends MyActivity {
 
-    public static final int ACTIVITY_COLOR = R.color.customPurple;
+    public static final int ACTIVITY_COLOR = R.color.customBrown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

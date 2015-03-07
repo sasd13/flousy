@@ -1,12 +1,12 @@
 <GridView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/menubox"
+    android:id="@+id/gridbox"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:horizontalSpacing="@dimen/menubox_horizontalspacing"
-    android:verticalSpacing="@dimen/menubox_verticalspacing"
-    android:numColumns="@integer/menubox_numcolumns"
+    android:horizontalSpacing="@dimen/gridbox_horizontalspacing"
+    android:verticalSpacing="@dimen/gridbox_verticalspacing"
+    android:numColumns="@integer/gridbox_numcolumns"
     android:stretchMode="columnWidth">
 
 </GridView>

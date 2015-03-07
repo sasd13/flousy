@@ -6,7 +6,7 @@ import android.view.MenuItem;
 
 public class OffersActivity extends MyActivity {
 
-    public static final int ACTIVITY_COLOR = R.color.customYellow;
+    public static final int ACTIVITY_COLOR = R.color.customPurple;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

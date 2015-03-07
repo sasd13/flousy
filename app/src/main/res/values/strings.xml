@@ -8,6 +8,8 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
+    <string name="activity_signin_name">Connexion</string>
+    <string name="activity_signup_name">Inscription</string>
     <string name="activity_menu_name">Menu</string>
     <string name="activity_new_name">Nouveau</string>
     <string name="activity_consult_name">Consulter</string>
@@ -25,7 +27,12 @@
     <!-- Activity bar -->
     <string name="activitybarwithtitle_textview_text">Titre</string>
 
-    <!-- MenuItemBox -->
-    <string name="menuitembox_title">Menu</string>
+    <!-- Log in -->
+    <string name="login_edittext_email_hint">adresse email</string>
+    <string name="login_edittext_password_hint">mot de passe</string>
+    <string name="login_button_text">Connexion</string>
+
+    <!-- GridItemBox -->
+    <string name="griditembox_title">Menu</string>
 
 </resources>

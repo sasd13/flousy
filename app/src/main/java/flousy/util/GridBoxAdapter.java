@@ -9,22 +9,22 @@ import android.widget.BaseAdapter;
 /**
  * Created by Samir on 20/02/2015.
  */
-public class MenuBoxAdapter extends BaseAdapter {
+public class GridBoxAdapter extends BaseAdapter {
 
     private Context context;
-    private MenuBox menuBox;
+    private GridBox gridBox;
 
-    public MenuBoxAdapter(Context context, MenuBox menuBox) {
+    public GridBoxAdapter(Context context, GridBox gridBox) {
         this.context = context;
-        this.menuBox = menuBox;
+        this.gridBox = gridBox;
     }
 
     @Override
-    public int getCount() { return this.menuBox.getMenuItemBoxes().size(); }
+    public int getCount() { return this.gridBox.getGridItemBoxes().size(); }
 
     @Override
     public Object getItem(int position) {
-        return this.menuBox.getMenuItemBoxes().get(position);
+        return null;
     }
 
     @Override
@@ -34,17 +34,17 @@ public class MenuBoxAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewGroup menuItemBoxContainer;
+        ViewGroup gridItemBoxContainer;
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            menuItemBoxContainer = (ViewGroup) inflater.inflate(this.menuBox.getMenuItemBoxLayoutResource(), null);
+            gridItemBoxContainer = (ViewGroup) inflater.inflate(this.gridBox.getGridItemBoxLayoutResource(), null);
         }
         else {
-            menuItemBoxContainer = (ViewGroup) convertView;
+            gridItemBoxContainer = (ViewGroup) convertView;
         }
 
-        this.menuBox.getMenuItemBoxes().get(position).setContainer(menuItemBoxContainer);
+        this.gridBox.getGridItemBoxes().get(position).setContainer(gridItemBoxContainer);
 
-        return menuItemBoxContainer;
+        return gridItemBoxContainer;
     }
 }

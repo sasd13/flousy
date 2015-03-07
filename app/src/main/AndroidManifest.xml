@@ -10,12 +10,28 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
             android:name=".SplashScreenActivity"
-            android:label="@string/activity_splashscreen_name" >
+            android:label="@string/activity_splashscreen_name"
+            android:screenOrientation="portrait" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".LogInActivity"
+            android:label="@string/activity_signin_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/activity_signup_name"
+            android:parentActivityName=".LogInActivity"
+            android:screenOrientation="portrait" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LogInActivity" />
         </activity>
         <activity
             android:name=".MenuActivity"
@@ -69,7 +85,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/activity_settings_name"
-            android:parentActivityName=".MenuActivity" >
+            android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

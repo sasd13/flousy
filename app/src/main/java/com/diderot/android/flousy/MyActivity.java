@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
 
@@ -16,7 +15,10 @@ public class MyActivity extends ActionBarActivity {
     public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreen;
 
     private int activityColor;
-    private View activityBar;
+
+    public final void setActivityColor (int colorResource) {
+        this.activityColor = colorResource;
+    }
 
     public void setActionBarEnabled(boolean enabled) {
         if(enabled == true) {
@@ -54,19 +56,15 @@ public class MyActivity extends ActionBarActivity {
         }
     }
 
-    public void setActivityColor (int colorResource) {
-        this.activityColor = colorResource;
-    }
-
     public void setActivityBar(int layoutResource) {
         ViewStub stub = (ViewStub) findViewById(R.id.activitybar_viewstub);
         stub.setLayoutResource(layoutResource);
-        this.activityBar = stub.inflate();
-        this.activityBar.setBackgroundResource(this.activityColor);
+        View activityBar = stub.inflate();
+        activityBar.setBackgroundResource(this.activityColor);
     }
 
     public void setActivityBarTitle(CharSequence title) {
-        TextView textView = (TextView) ((ViewGroup) this.activityBar).getChildAt(0);
+        TextView textView = (TextView) findViewById(R.id.activitybarwithtitle_textview);
         textView.setText(title);
     }
 
@@ -74,19 +72,10 @@ public class MyActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_myactivity);
+        setContentView(R.layout.activity_my);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            try {
-                getActionBar().setDisplayHomeAsUpEnabled(true);
-            } catch (Exception e) {
-                Log.println(1, null, "ActionBar is null");
-            }
-        } else {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        setActionBarDisplayHomeAsUpEnabled(true);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

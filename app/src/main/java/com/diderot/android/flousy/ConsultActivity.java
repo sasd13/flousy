@@ -16,8 +16,7 @@ public class ConsultActivity extends MyActivity {
         setActivityColor(ACTIVITY_COLOR);
 
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybarwithtitle);
-        setActivityBarTitle("Dépenses");
+        setActivityBar(R.layout.layout_activitybar);
     }
 
     @Override

@@ -6,23 +6,25 @@
 
     <!-- Activity content -->
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activitycontent_horizontalpadding">16dp</dimen>
-    <dimen name="activitycontent_verticalpadding">16dp</dimen>
+    <dimen name="activitycontent_padding">16dp</dimen>
+
+    <!-- Horizontal bar -->
+    <dimen name="horizontalbar_height">5dp</dimen>
 
     <!-- Splash screen -->
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
 
-    <!-- MenuBox -->
-    <dimen name="menubox_horizontalspacing">20dp</dimen>
-    <dimen name="menubox_verticalspacing">20dp</dimen>
+    <!-- GridBox -->
+    <dimen name="gridbox_horizontalspacing">20dp</dimen>
+    <dimen name="gridbox_verticalspacing">20dp</dimen>
     <!-- numColumns : auto_fit (-1) -->
-    <integer name="menubox_numcolumns">-1</integer>
+    <integer name="gridbox_numcolumns">2</integer>
 
-    <!-- MenuItemBox -->
-    <dimen name="menuitembox_imageview_height">70dp</dimen>
-    <dimen name="menuitembox_imageview_margin">10dp</dimen>
-    <dimen name="menuitembox_imageview_bottommargin">5dp</dimen>
-    <dimen name="menuitembox_textview_margin">10dp</dimen>
-    <dimen name="menuitembox_textview_topmargin">5dp</dimen>
-    <dimen name="menuitembox_textview_textsize">14sp</dimen>
+    <!-- GridItemBox -->
+    <dimen name="griditembox_imageview_height">77dp</dimen>
+    <dimen name="griditembox_imageview_margin">10dp</dimen>
+    <dimen name="griditembox_imageview_bottommargin">5dp</dimen>
+    <dimen name="griditembox_textview_margin">10dp</dimen>
+    <dimen name="griditembox_textview_topmargin">5dp</dimen>
+    <dimen name="griditembox_textview_textsize">14sp</dimen>
 </resources>

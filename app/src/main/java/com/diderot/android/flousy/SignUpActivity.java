@@ -4,20 +4,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class SignInActivity extends MyActivity {
-
-    public static final int ACTIVITY_COLOR = R.color.customRed;
+public class SignUpActivity extends MyActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(ACTIVITY_COLOR);
+        setActivityColor(DEFAULT_ACTIVITY_COLOR);
+
+        //Enable ActionBar
+        setActionBarEnabled(true);
+        setActionBarDisplayHomeAsUpEnabled(true);
 
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybarwithtitle);
-        setActivityBarTitle("Dépenses");
+        setActivityBar(R.layout.layout_activitybar);
     }
 
     @Override
