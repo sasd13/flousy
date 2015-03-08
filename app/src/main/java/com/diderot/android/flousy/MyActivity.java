@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class MyActivity extends ActionBarActivity {
 
+    public static final String PREFS_NAME = "PrefsFile";
     public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreen;
-
     private int activityColor;
 
     public final void setActivityColor (int colorResource) {

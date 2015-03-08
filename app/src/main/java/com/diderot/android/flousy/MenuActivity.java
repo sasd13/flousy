@@ -94,6 +94,16 @@ public class MenuActivity extends MyActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (getIntent().hasExtra("EXIT") && getIntent().getBooleanExtra("EXIT", false) == true) {
+            Intent loginActivity = new Intent(this, LogInActivity.class);
+            startActivity(loginActivity);
+            finish();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

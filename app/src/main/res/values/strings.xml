@@ -27,12 +27,28 @@
     <!-- Activity bar -->
     <string name="activitybarwithtitle_textview_text">Titre</string>
 
+    <!-- Alert dialog -->
+    <string name="alertdialog_title_error">Erreur</string>
+    <string name="alertdialog_button_yes">Oui</string>
+    <string name="alertdialog_button_no">Non</string>
+    <string name="alertdialog_button_ok">OK</string>
+    <string name="alertdialog_button_cancel">Annuler</string>
+
     <!-- Log in -->
-    <string name="login_edittext_email_hint">adresse email</string>
-    <string name="login_edittext_password_hint">mot de passe</string>
+    <string name="login_edittext_email_hint">Adresse email ou téléphone</string>
+    <string name="login_edittext_password_hint">Mot de passe</string>
     <string name="login_button_text">Connexion</string>
+    <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
+    <string name="login_textview_signup">Inscription sur Flousy</string>
+    <string name="login_alertdialog_message_error">Veuillez renseigner des identifiants valides</string>
 
     <!-- GridItemBox -->
     <string name="griditembox_title">Menu</string>
+
+    <!-- Settings -->
+    <string name="logout_button_text">Deconnexion</string>
+    <string name="logout_alertdialog_title">Attention</string>
+    <string name="logout_alertdialog_message">Confirmer la déconnexion ?</string>
+    <string name="logout_alertdialog_message_error">Un problème est survenu : impossible de déconnecter</string>
 
 </resources>

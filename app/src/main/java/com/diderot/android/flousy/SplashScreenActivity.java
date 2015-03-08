@@ -1,6 +1,8 @@
 package com.diderot.android.flousy;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -34,15 +36,19 @@ public class SplashScreenActivity extends MyActivity {
         //Set Logo
         ImageView imageView = (ImageView) findViewById(R.id.splashscreen_logo);
         imageView.setImageResource(APP_LOGO);
+    }
 
-        String activityToLaunch = "LogIn";
-        switch (activityToLaunch) {
-            case "Menu" :
-                attachActivity(MenuActivity.class);
-                break;
-            default:
-                attachActivity(LogInActivity.class);
-                break;
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String login = settings.getString("login", null);
+
+        if(login == null) {
+            attachActivity(LogInActivity.class);
+        } else {
+            attachActivity(MenuActivity.class);
         }
     }
 
@@ -54,8 +60,6 @@ public class SplashScreenActivity extends MyActivity {
             @Override
             public void run() {
                 startActivity(intent);
-
-                // close this activity
                 finish();
             }
         };
@@ -68,8 +72,6 @@ public class SplashScreenActivity extends MyActivity {
         if(this.runnable != null) {
             this.handler.removeCallbacks(this.runnable);
         }
-
-        finish();
     }
 
     /**
@@ -80,6 +82,7 @@ public class SplashScreenActivity extends MyActivity {
         super.onBackPressed();
 
         detachActivity();
+        finish();
     }
 
     @Override
@@ -87,6 +90,7 @@ public class SplashScreenActivity extends MyActivity {
         super.onUserLeaveHint();
 
         detachActivity();
+        finish();
     }
 
     @Override
