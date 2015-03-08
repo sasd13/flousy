@@ -13,7 +13,7 @@
         android:gravity="center"
         android:text="@string/activitybarwithtitle_textview_text"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         android:textSize="@dimen/activitybarwithtitle_textview_textsize"
         android:layout_margin="@dimen/activitybarwithtitle_textview_margin"/>
 

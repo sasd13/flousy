@@ -8,8 +8,9 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
-    <string name="activity_signin_name">Connexion</string>
+    <string name="activity_login_name">Connexion</string>
     <string name="activity_signup_name">Inscription</string>
+    <string name="activity_restorepassword_name">Récupération</string>
     <string name="activity_menu_name">Menu</string>
     <string name="activity_new_name">Nouveau</string>
     <string name="activity_consult_name">Consulter</string>
@@ -33,6 +34,8 @@
     <string name="alertdialog_button_no">Non</string>
     <string name="alertdialog_button_ok">OK</string>
     <string name="alertdialog_button_cancel">Annuler</string>
+    <string name="customdialog_message_loading">Chargement...</string>
+    <string name="customdialog_message_logout">Déconnexion...</string>
 
     <!-- Log in -->
     <string name="login_edittext_email_hint">Adresse email ou téléphone</string>
@@ -40,15 +43,16 @@
     <string name="login_button_text">Connexion</string>
     <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
     <string name="login_textview_signup">Inscription sur Flousy</string>
+    <string name="login_alertdialog_title_error">Erreur connexion</string>
     <string name="login_alertdialog_message_error">Veuillez renseigner des identifiants valides</string>
 
     <!-- GridItemBox -->
     <string name="griditembox_title">Menu</string>
 
     <!-- Settings -->
-    <string name="logout_button_text">Deconnexion</string>
-    <string name="logout_alertdialog_title">Attention</string>
-    <string name="logout_alertdialog_message">Confirmer la déconnexion ?</string>
+    <string name="logout_button_text">Déconnexion</string>
+    <string name="logout_alertdialog_title">Déconnexion</string>
+    <string name="logout_alertdialog_message">Voulez-vous déconnecter ?</string>
     <string name="logout_alertdialog_message_error">Un problème est survenu : impossible de déconnecter</string>
 
 </resources>

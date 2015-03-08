@@ -1,0 +1,160 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activitycontent_padding">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="left|center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Identité"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/customGreenApp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/login_edittext_password_margintop"
+                android:hint="Prénom"
+                android:inputType="text"
+                android:textSize="@dimen/default_textsize"
+                android:imeOptions="actionDone"
+                android:maxLines="1"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/login_edittext_password_margintop"
+                android:hint="Nom"
+                android:inputType="text"
+                android:textSize="@dimen/default_textsize"
+                android:imeOptions="actionDone"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="left|center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connexion"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/customGreenApp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/login_edittext_password_margintop"
+                android:hint="Adresse email"
+                android:inputType="text"
+                android:textSize="@dimen/default_textsize"
+                android:imeOptions="actionDone"
+                android:maxLines="1"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/login_edittext_password_margintop"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:textSize="@dimen/default_textsize"
+                android:imeOptions="actionDone"
+                android:maxLines="1"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:padding="10dp"
+                android:layout_marginTop="@dimen/login_edittext_password_margintop"
+                android:hint="Confirmer le mot de passe"
+                android:inputType="textPassword"
+                android:textSize="@dimen/default_textsize"
+                android:imeOptions="actionDone"
+                android:maxLines="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"/>
+
+                <TextView
+                    android:id="@+id/login_textview_restorepassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/login_textview_restorepassword"
+                    android:clickable="true"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Enregistrer"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_textsize"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:paddingTop="@dimen/button_verticalpadding"
+                android:paddingBottom="@dimen/button_verticalpadding"
+                android:paddingLeft="@dimen/button_horizontalpadding"
+                android:paddingRight="@dimen/button_horizontalpadding"
+                android:onClick="startConnection"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

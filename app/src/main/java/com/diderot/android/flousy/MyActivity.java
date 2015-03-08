@@ -12,9 +12,36 @@ import android.widget.TextView;
 
 public class MyActivity extends ActionBarActivity {
 
-    public static final String PREFS_NAME = "PrefsFile";
-    public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreen;
+    public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreenApp;
+    public static final int DEFAULT_ACTIVITY_COLOR_LINK = R.color.lightGreenApp;
     private int activityColor;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_my);
+
+        setActionBarDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        return super.onOptionsItemSelected(item);
+    }
 
     public final void setActivityColor (int colorResource) {
         this.activityColor = colorResource;
@@ -66,32 +93,5 @@ public class MyActivity extends ActionBarActivity {
     public void setActivityBarTitle(CharSequence title) {
         TextView textView = (TextView) findViewById(R.id.activitybarwithtitle_textview);
         textView.setText(title);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_my);
-
-        setActionBarDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        super.onCreateOptionsMenu(menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
     }
 }

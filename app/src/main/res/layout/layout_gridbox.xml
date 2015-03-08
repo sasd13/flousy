@@ -3,6 +3,7 @@
     android:id="@+id/gridbox"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/activitycontent_padding"
     android:layout_gravity="center"
     android:horizontalSpacing="@dimen/gridbox_horizontalspacing"
     android:verticalSpacing="@dimen/gridbox_verticalspacing"

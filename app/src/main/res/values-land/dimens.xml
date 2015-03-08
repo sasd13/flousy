@@ -16,18 +16,22 @@
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
 
     <!-- Log in -->
-    <dimen name="login_textview_title_textsize">28sp</dimen>
-    <dimen name="login_textview_title_margintop">30dp</dimen>
-    <dimen name="login_edittext_password_marginTop">20dp</dimen>
+    <dimen name="login_edittext_password_margintop">10dp</dimen>
     <dimen name="button_textsize">14sp</dimen>
     <dimen name="button_horizontalpadding">20dp</dimen>
     <dimen name="button_verticalpadding">10dp</dimen>
+    <dimen name="login_textview_restorepassword_margintop">10dp</dimen>
+    <dimen name="login_textview_signup_marginbottom">5dp</dimen>
+
+    <!-- Alert dialog -->
+    <dimen name="customdialog_padding">20dp</dimen>
+    <dimen name="customdialog_message_marginleft">20dp</dimen>
+    <dimen name="customdialog_message_size">18sp</dimen>
 
     <!-- GridBox -->
     <dimen name="gridbox_horizontalspacing">20dp</dimen>
     <dimen name="gridbox_verticalspacing">20dp</dimen>
-    <!-- numColumns : auto_fit (-1) -->
-    <integer name="gridbox_numcolumns">3</integer>
+    <integer name="gridbox_numcolumns">3</integer><!-- numColumns : auto_fit (-1) -->
 
     <!-- GridItemBox -->
     <dimen name="griditembox_imageview_height">77dp</dimen>

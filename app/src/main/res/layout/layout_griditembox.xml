@@ -26,6 +26,6 @@
         android:text="@string/griditembox_title"
         android:textStyle="bold"
         android:textSize="@dimen/griditembox_textview_textsize"
-        android:textColor="@android:color/black"/>
+        android:textColor="@color/black"/>
 
 </LinearLayout>

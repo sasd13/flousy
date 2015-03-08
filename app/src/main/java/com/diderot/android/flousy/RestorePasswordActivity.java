@@ -1,12 +1,12 @@
 package com.diderot.android.flousy;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.ViewStub;
 
-public class SignUpActivity extends MyActivity {
+public class RestorePasswordActivity extends MyActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,18 +15,8 @@ public class SignUpActivity extends MyActivity {
         //Set activity color before everything
         setActivityColor(DEFAULT_ACTIVITY_COLOR);
 
-        //Enable ActionBar
-        setActionBarEnabled(true);
-        setActionBarDisplayHomeAsUpEnabled(true);
-
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybarwithtitle);
-        setActivityBarTitle("Nouveau compte Flousy");
-
-        //Set ActivityContent
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.activity_signup);
-        ViewGroup view = (ViewGroup) viewStub.inflate();
+        setActivityBar(R.layout.layout_activitybar);
     }
 
     @Override

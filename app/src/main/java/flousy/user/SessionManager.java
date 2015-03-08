@@ -1,5 +1,6 @@
 package flousy.user;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
@@ -7,15 +8,37 @@ import android.content.SharedPreferences;
  */
 public class SessionManager {
 
+    private static SessionManager instance = null;
+
+    private Context context;
+    private SharedPreferences settings;
+    private SharedPreferences.Editor editor;
+    private static final String PREFS_NAME = "PrefsFile";
     private static final String KEY_LOGIN = "login";
 
-    private SessionManager() { }
+    private SessionManager(Context context) {
+        this.context = context;
+        this.settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        this.editor = this.settings.edit();
+    }
 
-    public static boolean signup(User user) {
+    public static synchronized SessionManager getInstance(Context context) {
+        if(instance == null) {
+            instance = new SessionManager(context);
+        }
+
+        return instance;
+    }
+
+    public boolean signup(User user) {
         return false;
     }
 
-    public static User connect(SharedPreferences settings, String login, String password) {
+    public String checkUserLogin() {
+        return this.settings.getString(KEY_LOGIN, null);
+    }
+
+    public User connect(String login, String password) {
         User user = null;
 
         String verifEmail = "abcd@email.com";
@@ -26,19 +49,17 @@ public class SessionManager {
             user.setEmail(login);
             user.setPassword(password);
 
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString(KEY_LOGIN, login);
-            editor.commit();
+            this.editor.putString(KEY_LOGIN, login);
+            this.editor.commit();
         }
 
         return user;
     }
 
-    public static boolean deconnect(SharedPreferences settings) {
-        if(settings.contains(KEY_LOGIN)){
-            SharedPreferences.Editor editor = settings.edit();
-            editor.remove(KEY_LOGIN);
-            editor.commit();
+    public boolean deconnect() {
+        if(this.settings.contains(KEY_LOGIN)){
+            this.editor.remove(KEY_LOGIN);
+            this.editor.commit();
 
             return true;
         }

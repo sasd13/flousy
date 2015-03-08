@@ -1,14 +1,14 @@
 package com.diderot.android.flousy;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +24,10 @@ import flousy.user.User;
 
 public class LogInActivity extends MyActivity {
 
+    private static int LOADING_TIME_OUT = 2000;
+    private Handler handler;
+    private Runnable runnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +37,6 @@ public class LogInActivity extends MyActivity {
 
         //Enable ActionBar
         setActionBarEnabled(false);
-
-        //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybar);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
@@ -49,6 +50,7 @@ public class LogInActivity extends MyActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_GO && editTextPassword.getText().length() > 0) {
+
                     startConnection(editTextLogin.getText().toString(), editTextPassword.getText().toString());
                     return true;
                 }
@@ -78,6 +80,7 @@ public class LogInActivity extends MyActivity {
             }
         });
 
+        //Add underline for textViews
         TextView[] textViews = {
                 (TextView) findViewById(R.id.login_textview_restorepassword),
                 (TextView) findViewById(R.id.login_textview_signup)
@@ -91,29 +94,26 @@ public class LogInActivity extends MyActivity {
             text = new SpannableString(textView.getText().toString());
             text.setSpan(new UnderlineSpan(), 0, text.length(), 0);
             textView.setText(text);
-        }
-    }
 
-    public void startConnection(String login, String password) {
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        User user = SessionManager.connect(settings, login, password);
-
-        if(user == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(R.string.alertdialog_title_error)
-                    .setMessage(R.string.login_alertdialog_message_error)
-                    .setNegativeButton(R.string.alertdialog_button_ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
+            switch (textView.getId()) {
+                case R.id.login_textview_restorepassword :
+                    textView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent restorePasswordActivity = new Intent(LogInActivity.this, RestorePasswordActivity.class);
+                            startActivity(restorePasswordActivity);
                         }
                     });
-
-            AlertDialog dialog = builder.create();
-            dialog.show();
-        } else {
-            Intent menuActivity = new Intent(this, MenuActivity.class);
-            startActivity(menuActivity);
-            finish();
+                    break;
+                case R.id.login_textview_signup :
+                    textView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent signUpActivity = new Intent(LogInActivity.this, SignUpActivity.class);
+                            startActivity(signUpActivity);
+                        }
+                    });
+            }
         }
     }
 
@@ -133,5 +133,46 @@ public class LogInActivity extends MyActivity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void startConnection(String login, String password) {
+        SessionManager session = SessionManager.getInstance(this);
+        User user = session.connect(login, password);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        if(user == null) {
+            builder.setTitle(R.string.login_alertdialog_title_error)
+                    .setMessage(R.string.login_alertdialog_message_error)
+                    .setNeutralButton(R.string.alertdialog_button_ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User cancelled the dialog
+                        }
+                    });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        } else {
+            LayoutInflater inflater = getLayoutInflater();
+
+            builder.setView(inflater.inflate(R.layout.layout_customdialog, null));
+
+            final AlertDialog dialog = builder.create();
+            final Intent intent = new Intent(this, MenuActivity.class);
+
+            this.runnable = new Runnable() {
+
+                @Override
+                public void run() {
+                    startActivity(intent);
+                    dialog.dismiss();
+                    finish();
+                }
+            };
+
+            this.handler = new Handler();
+            dialog.show();
+            this.handler.postDelayed(this.runnable, LOADING_TIME_OUT);
+        }
     }
 }

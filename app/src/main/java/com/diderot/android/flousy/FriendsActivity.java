@@ -6,7 +6,7 @@ import android.view.MenuItem;
 
 public class FriendsActivity extends MyActivity {
 
-    public static final int ACTIVITY_COLOR = R.color.blue;
+    public static final int ACTIVITY_COLOR = R.color.customBlue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -20,12 +20,22 @@
         </activity>
         <activity
             android:name=".LogInActivity"
-            android:label="@string/activity_signin_name"
+            android:label="@string/activity_login_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".SignUpActivity"
             android:label="@string/activity_signup_name"
+            android:parentActivityName=".LogInActivity"
+            android:screenOrientation="portrait" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LogInActivity" />
+        </activity>
+        <activity
+            android:name=".RestorePasswordActivity"
+            android:label="@string/activity_restorepassword_name"
             android:parentActivityName=".LogInActivity"
             android:screenOrientation="portrait" >
             <!-- Parent activity meta-data to support 4.0 and lower -->

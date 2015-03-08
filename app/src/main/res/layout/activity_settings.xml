@@ -1,7 +1,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/activitycontent_padding">
 
     <LinearLayout
         android:id="@+id/login_layoutconnect"
@@ -23,7 +24,6 @@
             android:paddingBottom="@dimen/button_verticalpadding"
             android:paddingLeft="@dimen/button_horizontalpadding"
             android:paddingRight="@dimen/button_horizontalpadding"
-            android:shadowColor="@android:color/black"
             android:onClick="endConnection"/>
 
     </LinearLayout>

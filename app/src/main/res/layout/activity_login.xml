@@ -1,30 +1,33 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/activitycontent_padding"
+    android:gravity="center"
+    android:weightSum="3">
 
     <ImageView
         android:id="@+id/login_textview_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/login_textview_title_margintop"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:src="@drawable/ic_app_name"/>
 
     <LinearLayout
         android:id="@+id/login_layoutconnect"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
 
         <EditText
             android:id="@+id/login_edittext_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
             android:hint="@string/login_edittext_email_hint"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/default_textsize"
@@ -35,48 +38,59 @@
             android:id="@+id/login_edittext_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
             android:hint="@string/login_edittext_password_hint"
             android:inputType="textPassword"
             android:textSize="@dimen/default_textsize"
             android:imeOptions="actionGo"
             android:maxLines="1"
-            android:layout_marginTop="@dimen/login_edittext_password_marginTop"/>
+            android:layout_marginTop="@dimen/login_edittext_password_margintop"
+            android:fontFamily="sans-serif"/>
 
         <Button
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="@string/login_button_text"
             android:textColor="@color/white"
             android:textSize="@dimen/button_textsize"
             android:textStyle="bold"
+            android:layout_marginTop="@dimen/login_edittext_password_margintop"
             android:paddingTop="@dimen/button_verticalpadding"
             android:paddingBottom="@dimen/button_verticalpadding"
             android:paddingLeft="@dimen/button_horizontalpadding"
             android:paddingRight="@dimen/button_horizontalpadding"
-            android:shadowColor="@android:color/black"
-            android:onClick="startConnection"
-            android:layout_marginTop="@dimen/login_edittext_password_marginTop"/>
+            android:onClick="startConnection"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/login_textview_restorepassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/login_textview_restorepassword_margintop"
             android:text="@string/login_textview_restorepassword"
-            android:layout_marginTop="@dimen/login_edittext_password_marginTop"/>
+            android:clickable="true"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/login_textview_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/login_textview_signup_marginbottom"
+            android:text="@string/login_textview_signup"
+            android:clickable="true"/>
 
-    <TextView
-        android:id="@+id/login_textview_signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/login_textview_signup"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>
+
