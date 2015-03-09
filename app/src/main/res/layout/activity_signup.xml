@@ -1,56 +1,53 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/activitycontent_padding">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:padding="@dimen/activitycontent_padding">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="left|center_vertical">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Identité"/>
+                android:text="@string/signup_textview_identity"
+                android:textStyle="bold"
+                android:textSize="@dimen/textsize_large"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="3dp"
+                android:layout_height="@dimen/horizontalbar_height_medium"
+                android:layout_marginTop="@dimen/horizontalbar_margintop"
                 android:background="@color/customGreenApp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:padding="10dp"
+                android:background="@android:drawable/edit_text"
                 android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="Prénom"
-                android:inputType="text"
-                android:textSize="@dimen/default_textsize"
+                android:hint="@string/signup_edittext_firstname_hint"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
-                android:maxLines="1"/>
+                android:singleLine="true"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:padding="10dp"
+                android:background="@android:drawable/edit_text"
                 android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="Nom"
-                android:inputType="text"
-                android:textSize="@dimen/default_textsize"
+                android:hint="@string/signup_edittext_lastname_hint"
+                android:inputType="textPersonName"
+                android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
-                android:maxLines="1"/>
+                android:singleLine="true"/>
 
         </LinearLayout>
 
@@ -58,55 +55,54 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/linearlayout_margintop"
             android:gravity="left|center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Connexion"/>
+                android:text="@string/signup_textview_connection"
+                android:textStyle="bold"
+                android:textSize="@dimen/textsize_large"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="3dp"
+                android:layout_height="@dimen/horizontalbar_height_medium"
+                android:layout_marginTop="@dimen/horizontalbar_margintop"
                 android:background="@color/customGreenApp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:padding="10dp"
+                android:background="@android:drawable/edit_text"
                 android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="Adresse email"
-                android:inputType="text"
-                android:textSize="@dimen/default_textsize"
+                android:hint="@string/signup_edittext_email_hint"
+                android:inputType="textEmailAddress"
+                android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
-                android:maxLines="1"/>
+                android:singleLine="true"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:padding="10dp"
+                android:background="@android:drawable/edit_text"
                 android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="Mot de passe"
+                android:hint="@string/signup_edittext_password_hint"
                 android:inputType="textPassword"
-                android:textSize="@dimen/default_textsize"
+                android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
-                android:maxLines="1"/>
+                android:singleLine="true"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:padding="10dp"
+                android:background="@android:drawable/edit_text"
                 android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="Confirmer le mot de passe"
+                android:hint="@string/signup_edittext_confirmpassword_hint"
                 android:inputType="textPassword"
-                android:textSize="@dimen/default_textsize"
+                android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
-                android:maxLines="1"/>
+                android:singleLine="true"/>
 
         </LinearLayout>
 
@@ -114,7 +110,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="@dimen/linearlayout_margintop">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -124,34 +120,33 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left|center_vertical"/>
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/signup_checkbox_margin"/>
 
                 <TextView
-                    android:id="@+id/login_textview_restorepassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/login_textview_restorepassword"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/signup_textview_validation"
                     android:clickable="true"/>
 
             </LinearLayout>
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/sign_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Enregistrer"
                 android:textColor="@color/white"
-                android:textSize="@dimen/button_textsize"
+                android:textSize="@dimen/textsize_medium"
                 android:textStyle="bold"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/signup_button_margintop"
                 android:paddingTop="@dimen/button_verticalpadding"
                 android:paddingBottom="@dimen/button_verticalpadding"
                 android:paddingLeft="@dimen/button_horizontalpadding"
                 android:paddingRight="@dimen/button_horizontalpadding"
-                android:onClick="startConnection"/>
+                android:onClick="signUp"/>
 
         </LinearLayout>
 

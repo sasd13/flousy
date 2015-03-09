@@ -1,32 +1,43 @@
 <resources>
+    <!-- Text size -->
+    <dimen name="textsize_small">12sp</dimen>
+    <dimen name="textsize_medium">14sp</dimen><!-- Default Android text size -->
+    <dimen name="textsize_large">16sp</dimen>
+    <dimen name="textsize_xlarge">16sp</dimen>
+
     <!-- Activity bar -->
     <dimen name="activitybar_height">15dp</dimen>
     <dimen name="activitybarwithtitle_textview_margin">7dp</dimen>
-    <dimen name="activitybarwithtitle_textview_textsize">16sp</dimen>
 
     <!-- Activity content -->
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activitycontent_padding">16dp</dimen>
-    <dimen name="default_textsize">14sp</dimen>
+    <dimen name="linearlayout_margintop">30dp</dimen>
 
     <!-- Horizontal bar -->
-    <dimen name="horizontalbar_height">5dp</dimen>
+    <dimen name="horizontalbar_margintop">3dp</dimen>
+    <dimen name="horizontalbar_height_small">1dp</dimen>
+    <dimen name="horizontalbar_height_medium">2dp</dimen>
+    <dimen name="horizontalbar_height_large">3dp</dimen>
 
     <!-- Splash screen -->
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
 
     <!-- Log in -->
+    <dimen name="login_imageview_margin">50dp</dimen>
     <dimen name="login_edittext_password_margintop">10dp</dimen>
-    <dimen name="button_textsize">14sp</dimen>
     <dimen name="button_horizontalpadding">20dp</dimen>
     <dimen name="button_verticalpadding">10dp</dimen>
-    <dimen name="login_textview_restorepassword_margintop">10dp</dimen>
-    <dimen name="login_textview_signup_marginbottom">5dp</dimen>
+    <dimen name="login_textview_restorepassword_padding">5dp</dimen>
+    <dimen name="login_textview_signup_padding">5dp</dimen>
+
+    <!-- Sign up -->
+    <dimen name="signup_checkbox_margin">10dp</dimen>
+    <dimen name="signup_button_margintop">30dp</dimen>
 
     <!-- Alert dialog -->
     <dimen name="customdialog_padding">20dp</dimen>
     <dimen name="customdialog_message_marginleft">20dp</dimen>
-    <dimen name="customdialog_message_size">18sp</dimen>
 
     <!-- GridBox -->
     <dimen name="gridbox_horizontalspacing">20dp</dimen>
@@ -39,5 +50,4 @@
     <dimen name="griditembox_imageview_bottommargin">5dp</dimen>
     <dimen name="griditembox_textview_margin">10dp</dimen>
     <dimen name="griditembox_textview_topmargin">5dp</dimen>
-    <dimen name="griditembox_textview_textsize">14sp</dimen>
 </resources>

@@ -101,8 +101,6 @@ public class SettingsActivity extends MyActivity {
         } else {
             LayoutInflater inflater = getLayoutInflater();
             ViewGroup layoutDialog = (ViewGroup) inflater.inflate(R.layout.layout_customdialog, null);
-            TextView dialogMessage = (TextView) layoutDialog.getChildAt(1);
-            dialogMessage.setText(R.string.customdialog_message_logout);
 
             builder.setView(layoutDialog);
 

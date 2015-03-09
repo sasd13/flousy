@@ -30,7 +30,7 @@ public class SessionManager {
         return instance;
     }
 
-    public boolean signup(User user) {
+    public boolean signUp(User user) {
         return false;
     }
 

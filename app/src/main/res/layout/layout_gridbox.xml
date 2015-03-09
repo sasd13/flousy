@@ -8,6 +8,7 @@
     android:horizontalSpacing="@dimen/gridbox_horizontalspacing"
     android:verticalSpacing="@dimen/gridbox_verticalspacing"
     android:numColumns="@integer/gridbox_numcolumns"
-    android:stretchMode="columnWidth">
+    android:stretchMode="columnWidth"
+    android:scrollbars="none">
 
 </GridView>

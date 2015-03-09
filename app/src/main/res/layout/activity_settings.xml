@@ -18,7 +18,7 @@
             android:layout_gravity="center"
             android:text="@string/logout_button_text"
             android:textColor="@color/white"
-            android:textSize="@dimen/button_textsize"
+            android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"
             android:paddingTop="@dimen/button_verticalpadding"
             android:paddingBottom="@dimen/button_verticalpadding"
