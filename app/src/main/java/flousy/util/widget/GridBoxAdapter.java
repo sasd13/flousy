@@ -1,10 +1,12 @@
-package flousy.util;
+package flousy.util.widget;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 
 /**
  * Created by Samir on 20/02/2015.
@@ -24,7 +26,7 @@ public class GridBoxAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return this.gridBox.getGridItemBoxes().get(position);
     }
 
     @Override
@@ -34,17 +36,27 @@ public class GridBoxAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewGroup gridItemBoxContainer;
+        ViewGroup containerView;
+
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            gridItemBoxContainer = (ViewGroup) inflater.inflate(this.gridBox.getGridItemBoxLayoutResource(), null);
+            containerView = (ViewGroup) inflater.inflate(this.gridBox.getGridItemBoxLayoutResource(), null);
         }
         else {
-            gridItemBoxContainer = (ViewGroup) convertView;
+            containerView = (ViewGroup) convertView;
         }
 
-        this.gridBox.getGridItemBoxes().get(position).setContainer(gridItemBoxContainer);
+        GridItemBox gridItemBox = this.gridBox.getGridItemBoxes().get(position);
+        containerView.setOnTouchListener(new CustomOnTouchListener(gridItemBox.getColor()));
+        containerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GridView gridView = (GridView) view.getParent();
+                gridView.performItemClick(view, gridView.getPositionForView(view), 0);
+            }
+        });
+        gridItemBox.setContainerView(containerView);
 
-        return gridItemBoxContainer;
+        return containerView;
     }
 }

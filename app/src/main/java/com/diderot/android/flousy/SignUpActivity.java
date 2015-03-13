@@ -13,8 +13,12 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
 
-import flousy.user.SessionManager;
+import flousy.user.UserManager;
 import flousy.user.User;
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.TitledActivityBar;
+import flousy.util.color.CustomColor;
+import flousy.util.widget.CustomOnTouchListener;
 
 public class SignUpActivity extends MyActivity {
 
@@ -26,16 +30,15 @@ public class SignUpActivity extends MyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
-        setActivityColor(DEFAULT_ACTIVITY_COLOR);
-
         //Enable ActionBar
         setActionBarEnabled(true);
         setActionBarDisplayHomeAsUpEnabled(true);
 
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybarwithtitle);
-        setActivityBarTitle("Nouveau compte Flousy");
+        ActivityBarFactory factory = new ActivityBarFactory();
+        TitledActivityBar activityBar = (TitledActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        activityBar.setTitle(getResources().getString(R.string.signup_titledbar_title));
+        setActivityBar(activityBar);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
@@ -43,7 +46,8 @@ public class SignUpActivity extends MyActivity {
         ViewGroup view = (ViewGroup) viewStub.inflate();
 
         Button signButton = (Button) findViewById(R.id.sign_button);
-        signButton.setBackgroundResource(DEFAULT_ACTIVITY_COLOR);
+        signButton.setBackgroundColor(getActivityColor().getColor());
+        signButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
         signButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +75,7 @@ public class SignUpActivity extends MyActivity {
     }
 
     public void signUp(User user) {
-        SessionManager session = SessionManager.getInstance(this);
+        UserManager session = UserManager.getInstance();
         boolean signed = session.signUp(user);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -90,7 +94,7 @@ public class SignUpActivity extends MyActivity {
         } else {
             LayoutInflater inflater = getLayoutInflater();
 
-            builder.setView(inflater.inflate(R.layout.layout_customdialog, null));
+            builder.setView(inflater.inflate(R.layout.layout_customdialog_load, null));
 
             final AlertDialog dialog = builder.create();
             final Intent intent = new Intent(this, MenuActivity.class);

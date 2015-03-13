@@ -9,7 +9,7 @@
 
     <ViewStub
         android:id="@+id/activitybar_viewstub"
-        android:layout="@layout/layout_activitybar"
+        android:layout="@layout/layout_simpleactivitybar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

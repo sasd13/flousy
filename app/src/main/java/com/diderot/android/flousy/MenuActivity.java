@@ -3,6 +3,7 @@ package com.diderot.android.flousy;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -14,9 +15,12 @@ import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import flousy.util.GridBox;
-import flousy.util.GridItemBox;
-import flousy.util.GridBoxAdapter;
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.color.CustomColor;
+import flousy.util.widget.GridBox;
+import flousy.util.widget.GridItemBox;
+import flousy.util.widget.GridBoxAdapter;
 
 public class MenuActivity extends MyActivity {
 
@@ -25,71 +29,81 @@ public class MenuActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(DEFAULT_ACTIVITY_COLOR);
+        CustomColor activityColor = new CustomColor(getResources().getColor(APP_COLOR));
+        setActivityColor(activityColor);
 
         //Disable previous remote
         setActionBarDisplayHomeAsUpEnabled(false);
 
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybar);
+        ActivityBarFactory factory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        setActivityBar(activityBar);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
         viewStub.setLayoutResource(R.layout.layout_gridbox);
         GridView gridMenu = (GridView) viewStub.inflate();
 
-        final GridBox gridBox = new GridBox(R.layout.layout_griditembox);
-        GridItemBox gridItemBox = null;
+        GridBox gridBox = new GridBox(R.layout.layout_griditembox);
+        GridItemBox gridItemBox;
+        CustomColor gridItemBoxColor;
+
         for(int i=0; i<6; i++) {
+            gridItemBox = new GridItemBox();
+            gridItemBoxColor = new CustomColor();
+
             switch(i) {
                 case 0:
-                    gridItemBox = new GridItemBox(getString(R.string.activity_new_name));
-                    gridItemBox.setBackgroundColor(NewActivity.ACTIVITY_COLOR);
-                    gridItemBox.setImageResource(R.drawable.griditembox_new);
+                    gridItemBoxColor.setColor(getResources().getColor(NewActivity.ACTIVITY_COLOR));
+                    gridItemBox.setText(getResources().getString(R.string.activity_new_name));
+                    gridItemBox.setImage(getResources().getDrawable(R.drawable.griditembox_new));
                     gridItemBox.setIntent(new Intent(this, NewActivity.class));
                     break;
                 case 1:
-                    gridItemBox = new GridItemBox(getString(R.string.activity_consult_name));
-                    gridItemBox.setBackgroundColor(ConsultActivity.ACTIVITY_COLOR);
-                    gridItemBox.setImageResource(R.drawable.griditembox_consult);
+                    gridItemBoxColor.setColor(getResources().getColor(ConsultActivity.ACTIVITY_COLOR));
+                    gridItemBox.setText(getResources().getString(R.string.activity_consult_name));
+                    gridItemBox.setImage(getResources().getDrawable(R.drawable.griditembox_consult));
                     gridItemBox.setIntent(new Intent(this, ConsultActivity.class));
                     break;
                 case 2:
-                    gridItemBox = new GridItemBox(getString(R.string.activity_finances_name));
-                    gridItemBox.setBackgroundColor(FinancesActivity.ACTIVITY_COLOR);
-                    gridItemBox.setImageResource(R.drawable.griditembox_finances);
+                    gridItemBoxColor.setColor(getResources().getColor(FinancesActivity.ACTIVITY_COLOR));
+                    gridItemBox.setText(getResources().getString(R.string.activity_finances_name));
+                    gridItemBox.setImage(getResources().getDrawable(R.drawable.griditembox_finances));
                     gridItemBox.setIntent(new Intent(this, FinancesActivity.class));
                     break;
                 case 3:
-                    gridItemBox = new GridItemBox(getString(R.string.activity_friends_name));
-                    gridItemBox.setBackgroundColor(FriendsActivity.ACTIVITY_COLOR);
-                    gridItemBox.setImageResource(R.drawable.griditembox_friends);
+                    gridItemBoxColor.setColor(getResources().getColor(FriendsActivity.ACTIVITY_COLOR));
+                    gridItemBox.setText(getResources().getString(R.string.activity_friends_name));
+                    gridItemBox.setImage(getResources().getDrawable(R.drawable.griditembox_friends));
                     gridItemBox.setIntent(new Intent(this, FriendsActivity.class));
                     break;
                 case 4:
-                    gridItemBox = new GridItemBox(getString(R.string.activity_offers_name));
-                    gridItemBox.setBackgroundColor(OffersActivity.ACTIVITY_COLOR);
-                    gridItemBox.setImageResource(R.drawable.griditembox_offers);
+                    gridItemBoxColor.setColor(getResources().getColor(OffersActivity.ACTIVITY_COLOR));
+                    gridItemBox.setText(getResources().getString(R.string.activity_offers_name));
+                    gridItemBox.setImage(getResources().getDrawable(R.drawable.griditembox_offers));
                     gridItemBox.setIntent(new Intent(this, OffersActivity.class));
                     break;
                 case 5:
-                    gridItemBox = new GridItemBox(getString(R.string.activity_settings_name));
-                    gridItemBox.setBackgroundColor(SettingsActivity.ACTIVITY_COLOR);
-                    gridItemBox.setImageResource(R.drawable.griditembox_settings);
+                    gridItemBoxColor.setColor(getResources().getColor(SettingsActivity.ACTIVITY_COLOR));
+                    gridItemBox.setText(getResources().getString(R.string.activity_settings_name));
+                    gridItemBox.setImage(getResources().getDrawable(R.drawable.griditembox_settings));
                     gridItemBox.setIntent(new Intent(this, SettingsActivity.class));
                     break;
             }
+
+            gridItemBox.setColor(gridItemBoxColor);
             gridBox.addGridItemBox(gridItemBox);
         }
 
         GridBoxAdapter gridBoxAdapter = new GridBoxAdapter(this, gridBox);
         gridMenu.setAdapter(gridBoxAdapter);
-
         gridMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(gridBox.getGridItemBoxes().get(position).getIntent());
+                GridItemBox gridItemBox = (GridItemBox) parent.getAdapter().getItem(position);
+                startActivity(gridItemBox.getIntent());
             }
         });
     }

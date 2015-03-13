@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewStub;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-import flousy.user.SessionManager;
+import flousy.user.UserManager;
 
 public class SplashScreenActivity extends MyActivity {
 
@@ -23,8 +23,9 @@ public class SplashScreenActivity extends MyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
-        setActivityColor(DEFAULT_ACTIVITY_COLOR);
+        if(UserManager.getContext() == null) {
+            UserManager.setContext(this);
+        }
 
         //Disable ActionBar
         setActionBarEnabled(false);
@@ -32,19 +33,19 @@ public class SplashScreenActivity extends MyActivity {
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
         viewStub.setLayoutResource(R.layout.activity_splashscreen);
-        RelativeLayout splash = (RelativeLayout) viewStub.inflate();
+        View splashView = viewStub.inflate();
 
         //Set Logo
         ImageView imageView = (ImageView) findViewById(R.id.splashscreen_logo);
-        imageView.setImageResource(APP_LOGO);
+        imageView.setImageDrawable(getResources().getDrawable(APP_LOGO));
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        SessionManager session = SessionManager.getInstance(this);
-        String login = session.checkUserLogin();
+        UserManager session = UserManager.getInstance();
+        String login = session.checkUserLogged();
 
         if(login == null) {
             attachActivity(LogInActivity.class, SPLASH_TIME_OUT);
@@ -107,7 +108,7 @@ public class SplashScreenActivity extends MyActivity {
     }
 
     private void detachActivity() {
-        if(this.runnable != null) {
+        if(this.runnable != null && this.handler != null) {
             this.handler.removeCallbacks(this.runnable);
         }
     }

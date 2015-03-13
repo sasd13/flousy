@@ -8,20 +8,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewStub;
-import android.widget.TextView;
+
+import flousy.util.activitybar.ActivityBar;
+import flousy.util.color.CustomColor;
 
 public class MyActivity extends ActionBarActivity {
 
-    public static final int DEFAULT_ACTIVITY_COLOR = R.color.customGreenApp;
-    public static final int DEFAULT_ACTIVITY_COLOR_LINK = R.color.lightGreenApp;
-    private int activityColor;
+    public static final int APP_COLOR = R.color.customGreenApp;
+
+    private CustomColor activityColor;
+    private ActivityBar activityBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Set content view
         setContentView(R.layout.activity_my);
 
+        //Create activity color with app color
+        this.activityColor = new CustomColor(getResources().getColor(APP_COLOR));
+
+        //Enable previous remote
         setActionBarDisplayHomeAsUpEnabled(true);
     }
 
@@ -41,10 +49,6 @@ public class MyActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public final void setActivityColor (int colorResource) {
-        this.activityColor = colorResource;
     }
 
     public void setActionBarEnabled(boolean enabled) {
@@ -83,15 +87,23 @@ public class MyActivity extends ActionBarActivity {
         }
     }
 
-    public void setActivityBar(int layoutResource) {
-        ViewStub stub = (ViewStub) findViewById(R.id.activitybar_viewstub);
-        stub.setLayoutResource(layoutResource);
-        View activityBar = stub.inflate();
-        activityBar.setBackgroundResource(this.activityColor);
+    public CustomColor getActivityColor() {
+        return this.activityColor;
     }
 
-    public void setActivityBarTitle(CharSequence title) {
-        TextView textView = (TextView) findViewById(R.id.activitybarwithtitle_textview);
-        textView.setText(title);
+    public void setActivityColor(CustomColor activityColor) {
+        this.activityColor = activityColor;
+    }
+
+    public ActivityBar getActivityBar() {
+        return this.activityBar;
+    }
+
+    public void setActivityBar(ActivityBar activityBar) {
+        this.activityBar = activityBar;
+
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
+        View view = this.activityBar.create(viewStub);
+        view.setBackgroundColor(this.activityColor.getColor());
     }
 }

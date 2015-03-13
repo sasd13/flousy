@@ -8,19 +8,22 @@ import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.user.SessionManager;
+import flousy.user.UserManager;
 import flousy.user.User;
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.color.CustomColor;
+import flousy.util.widget.CustomOnTouchListener;
+import flousy.util.widget.CustomDialogBuilder;
 
 public class LogInActivity extends MyActivity {
 
@@ -32,16 +35,18 @@ public class LogInActivity extends MyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
-        setActivityColor(DEFAULT_ACTIVITY_COLOR);
-
-        //Enable ActionBar
+        //Disable ActionBar
         setActionBarEnabled(false);
+
+        //Set ActivityBar
+        ActivityBarFactory factory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        setActivityBar(activityBar);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
         viewStub.setLayoutResource(R.layout.activity_login);
-        ViewGroup view = (ViewGroup) viewStub.inflate();
+        View view = viewStub.inflate();
 
         final EditText editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         final EditText editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
@@ -50,7 +55,6 @@ public class LogInActivity extends MyActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_GO && editTextPassword.getText().length() > 0) {
-
                     startConnection(editTextLogin.getText().toString(), editTextPassword.getText().toString());
                     return true;
                 }
@@ -70,7 +74,8 @@ public class LogInActivity extends MyActivity {
         });
 
         Button loginButton = (Button) findViewById(R.id.login_button);
-        loginButton.setBackgroundResource(DEFAULT_ACTIVITY_COLOR);
+        loginButton.setBackgroundColor(getActivityColor().getColor());
+        loginButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,11 +91,8 @@ public class LogInActivity extends MyActivity {
                 (TextView) findViewById(R.id.login_textview_signup)
         };
 
-        TextView textView = null;
         SpannableString text;
-
-        for(int i=0; i<textViews.length; i++) {
-            textView = textViews[i];
+        for(TextView textView : textViews) {
             text = new SpannableString(textView.getText().toString());
             text.setSpan(new UnderlineSpan(), 0, text.length(), 0);
             textView.setText(text);
@@ -136,28 +138,27 @@ public class LogInActivity extends MyActivity {
     }
 
     public void startConnection(String login, String password) {
-        SessionManager session = SessionManager.getInstance(this);
+        UserManager session = UserManager.getInstance();
         User user = session.connect(login, password);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        CustomDialogBuilder builder;
 
         if(user == null) {
+            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.login_alertdialog_title_error)
-                    .setMessage(R.string.login_alertdialog_message_error)
-                    .setNeutralButton(R.string.alertdialog_button_ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
-                        }
-                    });
+                .setMessage(R.string.login_alertdialog_message_error)
+                .setNeutralButton(new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
+                    }
+                });
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
-            LayoutInflater inflater = getLayoutInflater();
-
-            builder.setView(inflater.inflate(R.layout.layout_customdialog, null));
-
+            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
+
             final Intent intent = new Intent(this, MenuActivity.class);
 
             this.runnable = new Runnable() {

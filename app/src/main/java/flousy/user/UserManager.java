@@ -6,25 +6,30 @@ import android.content.SharedPreferences;
 /**
  * Created by Samir on 07/03/2015.
  */
-public class SessionManager {
+public class UserManager {
 
-    private static SessionManager instance = null;
+    private static UserManager instance = null;
 
-    private Context context;
+    private static Context context = null;
     private SharedPreferences settings;
-    private SharedPreferences.Editor editor;
     private static final String PREFS_NAME = "PrefsFile";
     private static final String KEY_LOGIN = "login";
 
-    private SessionManager(Context context) {
-        this.context = context;
+    private UserManager() {
         this.settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        this.editor = this.settings.edit();
     }
 
-    public static synchronized SessionManager getInstance(Context context) {
+    public static Context getContext() {
+        return context;
+    }
+
+    public static void setContext(Context ctxt) {
+        context = ctxt;
+    }
+
+    public static synchronized UserManager getInstance() {
         if(instance == null) {
-            instance = new SessionManager(context);
+            instance = new UserManager();
         }
 
         return instance;
@@ -34,7 +39,7 @@ public class SessionManager {
         return false;
     }
 
-    public String checkUserLogin() {
+    public String checkUserLogged() {
         return this.settings.getString(KEY_LOGIN, null);
     }
 
@@ -49,8 +54,9 @@ public class SessionManager {
             user.setEmail(login);
             user.setPassword(password);
 
-            this.editor.putString(KEY_LOGIN, login);
-            this.editor.commit();
+            SharedPreferences.Editor editor = this.settings.edit();
+            editor.putString(KEY_LOGIN, login);
+            editor.commit();
         }
 
         return user;
@@ -58,8 +64,9 @@ public class SessionManager {
 
     public boolean deconnect() {
         if(this.settings.contains(KEY_LOGIN)){
-            this.editor.remove(KEY_LOGIN);
-            this.editor.commit();
+            SharedPreferences.Editor editor = this.settings.edit();
+            editor.remove(KEY_LOGIN);
+            editor.commit();
 
             return true;
         }

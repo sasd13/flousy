@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.color.CustomColor;
+
 public class OffersActivity extends MyActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customPurple;
@@ -13,10 +17,13 @@ public class OffersActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(ACTIVITY_COLOR);
+        CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
+        setActivityColor(activityColor);
 
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybar);
+        ActivityBarFactory factory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        setActivityBar(activityBar);
     }
 
 

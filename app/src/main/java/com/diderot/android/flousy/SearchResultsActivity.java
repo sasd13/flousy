@@ -6,18 +6,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.color.CustomColor;
+
 public class SearchResultsActivity extends MyActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
-        setActivityColor(DEFAULT_ACTIVITY_COLOR);
-
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybarwithtitle);
-        setActivityBarTitle("Recherche");
+        ActivityBarFactory factory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        setActivityBar(activityBar);
 
         handleIntent(getIntent());
     }

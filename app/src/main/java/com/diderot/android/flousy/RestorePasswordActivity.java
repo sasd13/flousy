@@ -1,10 +1,12 @@
 package com.diderot.android.flousy;
 
-import android.app.SearchManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.TitledActivityBar;
+import flousy.util.color.CustomColor;
 
 public class RestorePasswordActivity extends MyActivity {
 
@@ -12,11 +14,11 @@ public class RestorePasswordActivity extends MyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
-        setActivityColor(DEFAULT_ACTIVITY_COLOR);
-
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybar);
+        ActivityBarFactory factory = new ActivityBarFactory();
+        TitledActivityBar activityBar = (TitledActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        activityBar.setTitle(getResources().getString(R.string.restorepassword_titledbar_title));
+        setActivityBar(activityBar);
     }
 
     @Override

@@ -12,13 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
-import android.widget.TextView;
 
-import flousy.user.SessionManager;
+import flousy.user.UserManager;
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.color.CustomColor;
+import flousy.util.widget.CustomDialogBuilder;
+import flousy.util.widget.CustomOnTouchListener;
 
 public class SettingsActivity extends MyActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customBrown;
+
     private static int LOGOUT_TIME_OUT = 2000;
     private Handler handler;
     private Runnable runnable;
@@ -28,10 +33,13 @@ public class SettingsActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(ACTIVITY_COLOR);
+        CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
+        setActivityColor(activityColor);
 
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybar);
+        ActivityBarFactory factory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        setActivityBar(activityBar);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
@@ -40,24 +48,24 @@ public class SettingsActivity extends MyActivity {
 
         Button logoutButton = (Button) findViewById(R.id.logout_button);
         logoutButton.setBackgroundResource(ACTIVITY_COLOR);
+        logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
-                builder.setTitle(R.string.logout_alertdialog_title)
+                CustomDialogBuilder builder = new CustomDialogBuilder(SettingsActivity.this, CustomDialogBuilder.TYPE_TWOBUTTON_YESNO);
+                AlertDialog dialog = builder.setTitle(R.string.logout_alertdialog_title)
                         .setMessage(R.string.logout_alertdialog_message)
-                        .setPositiveButton(R.string.alertdialog_button_yes, new DialogInterface.OnClickListener() {
-                             public void onClick(DialogInterface dialog, int id) {
-                                 endConnection();
-                             }
-                        })
-                        .setNegativeButton(R.string.alertdialog_button_no, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // User cancelled the dialog
+                                endConnection();
                             }
-                        });
+                        })
+                        .setNegativeButton(new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
 
-                AlertDialog dialog = builder.create();
+                            }
+                        })
+                        .create();
                 dialog.show();
             }
         });
@@ -82,7 +90,7 @@ public class SettingsActivity extends MyActivity {
     }
 
     public void endConnection() {
-        SessionManager session = SessionManager.getInstance(this);
+        UserManager session = UserManager.getInstance();
         boolean deconnected = session.deconnect();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -100,7 +108,7 @@ public class SettingsActivity extends MyActivity {
             dialog.show();
         } else {
             LayoutInflater inflater = getLayoutInflater();
-            ViewGroup layoutDialog = (ViewGroup) inflater.inflate(R.layout.layout_customdialog, null);
+            ViewGroup layoutDialog = (ViewGroup) inflater.inflate(R.layout.layout_customdialog_load, null);
 
             builder.setView(layoutDialog);
 

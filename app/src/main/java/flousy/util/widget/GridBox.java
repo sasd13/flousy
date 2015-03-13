@@ -1,4 +1,4 @@
-package flousy.util;
+package flousy.util.widget;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class GridBox {
 
         boolean contains = false;
         for(int i=0; i<this.gridItemBoxes.size(); i++) {
-            if(this.gridItemBoxes.get(i).getTextValue().equals(gridItemBox.getTextValue())) {
+            if(this.gridItemBoxes.get(i).getText().equals(gridItemBox.getText())) {
                 contains = true;
                 break;
             }
@@ -40,11 +40,11 @@ public class GridBox {
         }
     }
 
-    public GridItemBox removeGridItemBox(CharSequence gridItemBoxTextValue) {
+    public GridItemBox removeGridItemBox(CharSequence gridItemBoxText) {
         GridItemBox gridItemBox = null;
         for(int i=0; i<this.gridItemBoxes.size(); i++) {
             gridItemBox = this.gridItemBoxes.get(i);
-            if(gridItemBox.getTextValue().equals(gridItemBoxTextValue)) {
+            if(gridItemBox.getText().equals(gridItemBoxText)) {
                 this.gridItemBoxes.remove(gridItemBox);
                 return gridItemBox;
             }

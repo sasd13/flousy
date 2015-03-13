@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import flousy.util.activitybar.ActivityBarFactory;
+import flousy.util.activitybar.TitledActivityBar;
+import flousy.util.color.CustomColor;
+
 public class NewActivity extends MyActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customGreen;
@@ -13,11 +17,14 @@ public class NewActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        setActivityColor(ACTIVITY_COLOR);
+        CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
+        setActivityColor(activityColor);
 
         //Set ActivityBar
-        setActivityBar(R.layout.layout_activitybarwithtitle);
-        setActivityBarTitle("Sélectionner la catégorie");
+        ActivityBarFactory factory = new ActivityBarFactory();
+        TitledActivityBar activityBar = (TitledActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        activityBar.setTitle(getResources().getString(R.string.new_titledbar_title));
+        setActivityBar(activityBar);
     }
 
 
