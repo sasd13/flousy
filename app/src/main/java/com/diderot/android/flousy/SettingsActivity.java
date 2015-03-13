@@ -37,8 +37,8 @@ public class SettingsActivity extends MyActivity {
         setActivityColor(activityColor);
 
         //Set ActivityBar
-        ActivityBarFactory factory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
         setActivityBar(activityBar);
 
         //Set ActivityContent
@@ -67,6 +67,13 @@ public class SettingsActivity extends MyActivity {
                         })
                         .create();
                 dialog.show();
+            }
+        });
+        logoutButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                view.performClick();
+                return false;
             }
         });
     }

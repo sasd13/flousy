@@ -21,8 +21,8 @@ public class ConsultActivity extends MyActivity {
         setActivityColor(activityColor);
 
         //Set ActivityBar
-        ActivityBarFactory factory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
         setActivityBar(activityBar);
     }
 

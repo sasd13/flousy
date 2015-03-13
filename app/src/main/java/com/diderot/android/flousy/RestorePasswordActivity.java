@@ -15,8 +15,8 @@ public class RestorePasswordActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityBar
-        ActivityBarFactory factory = new ActivityBarFactory();
-        TitledActivityBar activityBar = (TitledActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
+        TitledActivityBar activityBar = (TitledActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
         activityBar.setTitle(getResources().getString(R.string.restorepassword_titledbar_title));
         setActivityBar(activityBar);
     }

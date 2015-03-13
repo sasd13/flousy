@@ -10,6 +10,10 @@ public abstract class ActivityBar {
 
     private int layoutResource;
 
+    protected ActivityBar(int layoutResource) {
+        this.layoutResource = layoutResource;
+    }
+
     public int getLayoutResource() {
         return this.layoutResource;
     }
@@ -18,5 +22,5 @@ public abstract class ActivityBar {
         this.layoutResource = layoutResource;
     }
 
-    public abstract View create(ViewStub viewStub) ;
+    public abstract View create(ViewStub viewStub);
 }

@@ -11,7 +11,7 @@ import com.diderot.android.flousy.R;
 public class SimpleActivityBar extends ActivityBar {
 
     public SimpleActivityBar() {
-        super.setLayoutResource(R.layout.layout_simpleactivitybar);
+        super(R.layout.layout_simpleactivitybar);
     }
 
     @Override

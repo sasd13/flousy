@@ -1,10 +1,12 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/basegriditem"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/basegriditem_imageview"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/griditembox_imageview_height"
         android:layout_gravity="center"
@@ -15,6 +17,7 @@
         android:src="@drawable/griditembox"/>
 
     <TextView
+        android:id="@+id/basegriditem_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"

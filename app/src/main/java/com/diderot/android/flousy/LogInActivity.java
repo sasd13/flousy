@@ -39,8 +39,8 @@ public class LogInActivity extends MyActivity {
         setActionBarEnabled(false);
 
         //Set ActivityBar
-        ActivityBarFactory factory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
+        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
+        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
         setActivityBar(activityBar);
 
         //Set ActivityContent
@@ -82,6 +82,13 @@ public class LogInActivity extends MyActivity {
                 if (editTextLogin.getText().length() > 0 && editTextPassword.getText().length() > 0) {
                     startConnection(editTextLogin.getText().toString(), editTextPassword.getText().toString());
                 }
+            }
+        });
+        loginButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                view.performClick();
+                return false;
             }
         });
 

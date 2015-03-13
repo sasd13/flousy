@@ -35,8 +35,8 @@ public class SignUpActivity extends MyActivity {
         setActionBarDisplayHomeAsUpEnabled(true);
 
         //Set ActivityBar
-        ActivityBarFactory factory = new ActivityBarFactory();
-        TitledActivityBar activityBar = (TitledActivityBar) factory.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
+        TitledActivityBar activityBar = (TitledActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
         activityBar.setTitle(getResources().getString(R.string.signup_titledbar_title));
         setActivityBar(activityBar);
 
@@ -52,6 +52,13 @@ public class SignUpActivity extends MyActivity {
             @Override
             public void onClick(View v) {
                 signUp(new User());
+            }
+        });
+        signButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                view.performClick();
+                return false;
             }
         });
     }

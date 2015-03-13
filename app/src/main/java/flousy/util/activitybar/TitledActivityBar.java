@@ -17,7 +17,7 @@ public class TitledActivityBar extends ActivityBar {
     private CharSequence title;
 
     public TitledActivityBar() {
-        super.setLayoutResource(R.layout.layout_titledactivitybar);
+        super(R.layout.layout_titledactivitybar);
         this.textViewId = R.id.titledactivitybar_textview;
         this.textView = null;
         this.title = "Title";

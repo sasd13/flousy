@@ -51,7 +51,7 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
     public AlertDialog create() {
         if(this.dialogType == TYPE_LOAD) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            super.setView(inflater.inflate(R.layout.layout_customdialog_load, null));
+            this.setView(inflater.inflate(R.layout.layout_customdialog_load, null));
         }
 
         return super.create();
@@ -87,7 +87,7 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
         return this;
     }
 
-    public AlertDialog.Builder setNegativeButton(DialogInterface.OnClickListener listener) {
+    public CustomDialogBuilder setNegativeButton(DialogInterface.OnClickListener listener) {
         if(this.dialogType == TYPE_TWOBUTTON_YESNO) {
             super.setNegativeButton(R.string.alertdialog_button_no, listener);
         } else {

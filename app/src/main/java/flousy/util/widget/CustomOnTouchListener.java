@@ -27,11 +27,11 @@ public class CustomOnTouchListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View view, MotionEvent event) {
         if(event.getAction() == MotionEvent.ACTION_DOWN) {
-            view.setBackgroundColor(customColor.getColorDark());
-            view.performClick();
+            view.setBackgroundColor(this.customColor.getColorDark());
             return true;
         } else if(event.getAction() == MotionEvent.ACTION_UP) {
-            view.setBackgroundColor(customColor.getColor());
+            view.setBackgroundColor(this.customColor.getColor());
+            view.performClick();
             return true;
         }
 

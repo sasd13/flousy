@@ -10,7 +10,7 @@ public class ActivityBarFactory {
 
     public ActivityBarFactory() { }
 
-    public ActivityBar createActivityBar(int barType) {
+    public ActivityBar create(int barType) {
         ActivityBar activityBar = null;
 
         switch (barType) {

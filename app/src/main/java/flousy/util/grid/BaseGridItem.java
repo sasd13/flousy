@@ -1,13 +1,14 @@
-package flousy.util.widget;
+package flousy.util.grid;
 
-import com.diderot.android.flousy.MyActivity;
-
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.View;
-import android.content.Intent;
+
+import com.diderot.android.flousy.MyActivity;
+import com.diderot.android.flousy.R;
 
 import flousy.util.color.CustomColor;
 
@@ -26,7 +27,7 @@ import flousy.util.color.CustomColor;
  * @version 2.0
  * @since   13/03/2015
  */
-public class GridItemBox {
+public class BaseGridItem extends GridItem {
 
     /**
      * GridItemBox color
@@ -59,11 +60,6 @@ public class GridItemBox {
     private CharSequence text;
 
     /**
-     * GridItemBox parent layout (container)
-     */
-    private ViewGroup containerView;
-
-    /**
      * Container first child
      */
     private ImageView imageView;
@@ -81,19 +77,23 @@ public class GridItemBox {
     /**
      * Default constructor
      */
-    public GridItemBox() {
+    public BaseGridItem() {
+        super();
         this.color = new CustomColor(MyActivity.APP_COLOR);
         this.image = null;
         this.text = null;
+        this.intent = null;
     }
 
     /**
      * Constructor with params
      */
-    public GridItemBox(CharSequence text, Drawable image, CustomColor color) {
+    public BaseGridItem(CharSequence text, Drawable image, CustomColor color, Intent intent) {
+        super();
         this.color = color;
         this.image = image;
         this.text = text;
+        this.intent = intent;
     }
 
     /**
@@ -111,8 +111,10 @@ public class GridItemBox {
     public void setColor(CustomColor color) {
         this.color = color;
 
-        if(this.containerView != null) {
-            this.containerView.setBackgroundColor(this.color.getColor());
+        ViewGroup containerView = (ViewGroup) this.getContainerView();
+
+        if(containerView != null) {
+            containerView.setBackgroundColor(this.color.getColor());
         }
     }
 
@@ -172,37 +174,24 @@ public class GridItemBox {
         this.intent = intent;
     }
 
-    /**
-     * Get containerView
-     *
-     * @return ViewGroup
-     */
-    public ViewGroup getContainerView() {
-        return this.containerView;
-    }
-
-    /**
-     * Set containerView
-     *
-     * @param containerView
-     */
-    public void setContainerView(ViewGroup containerView) {
-        if (containerView != null) {
-            this.containerView = containerView;
-            this.containerView.setBackgroundColor(this.color.getColor());
+    @Override
+    public void inflate() {
+        ViewGroup containerView = (ViewGroup) this.getContainerView();
+        if(containerView != null) {
+            containerView.setBackgroundColor(this.color.getColor());
 
             View child;
-            for(int i=0; i<this.containerView.getChildCount(); i++) {
-                child = this.containerView.getChildAt(i);
+            for(int i=0; i<containerView.getChildCount(); i++) {
+                child = containerView.getChildAt(i);
 
-                switch (child.getClass().getSimpleName()) {
-                    case "ImageView" :
+                switch (child.getId()) {
+                    case R.id.basegriditem_imageview :
                         this.imageView = (ImageView) child;
                         if(this.image != null) {
                             this.imageView.setImageDrawable(this.image);
                         }
                         break;
-                    case "TextView" :
+                    case R.id.basegriditem_textview :
                         this.textView = (TextView) child;
                         if(this.text != null) {
                             this.textView.setText(this.text);
