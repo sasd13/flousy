@@ -1,7 +1,6 @@
 package flousy.util.color;
 
 import com.diderot.android.flousy.MyActivity;
-import com.diderot.android.flousy.R;
 
 /**
  * Created by Samir on 11/03/2015.
@@ -9,7 +8,7 @@ import com.diderot.android.flousy.R;
 public class CustomColor {
 
     private int color;
-    private int colorLight;
+    private int colorDark;
 
     public CustomColor() {
         this.color = MyActivity.APP_COLOR;
@@ -31,11 +30,11 @@ public class CustomColor {
     }
 
     public int getColorDark() {
-        return this.colorLight;
+        return this.colorDark;
     }
 
     private void setColorDark(int color) {
-        this.colorLight = colorDarker(color);
+        this.colorDark = colorDarker(color);
     }
 
     private int colorDarker(int color) {
