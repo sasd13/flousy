@@ -54,7 +54,7 @@ public class SettingsActivity extends MyActivity {
             public void onClick(View v) {
                 CustomDialogBuilder builder = new CustomDialogBuilder(SettingsActivity.this, CustomDialogBuilder.TYPE_TWOBUTTON_YESNO);
                 AlertDialog dialog = builder.setTitle(R.string.logout_alertdialog_title)
-                        .setMessage(R.string.logout_alertdialog_message)
+                        .setMessage(R.string.alertdialog_message_confirm)
                         .setPositiveButton(new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 endConnection();

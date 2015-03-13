@@ -51,13 +51,12 @@
     <!-- Friends -->
     <string name="friends_titledbar_title_received">Reçus</string>
     <string name="friends_titledbar_title_sended">Envoyés</string>
-    <string name="friends_titledbar_title_contact">Contact</string>
-    <string name="friends_titledbar_title_addcontact">Ajouter contacts</string>
+    <string name="friends_titledbar_title_contact">Contacts</string>
+    <string name="friends_titledbar_title_addcontact">Ajouter des contacts</string>
 
     <!-- Settings -->
     <string name="logout_button_text">Déconnexion</string>
     <string name="logout_alertdialog_title">Déconnexion</string>
-    <string name="logout_alertdialog_message">Voulez-vous déconnecter ?</string>
     <string name="logout_alertdialog_message_error">Un problème est survenu : impossible de déconnecter</string>
 
     <!-- Action bar -->
@@ -75,8 +74,7 @@
     <string name="alertdialog_button_no">Non</string>
     <string name="alertdialog_button_ok">OK</string>
     <string name="alertdialog_button_cancel">Annuler</string>
-    <string name="customdialog_message_loading">Chargement...</string>
-    <string name="customdialog_message_logout">Déconnexion...</string>
+    <string name="alertdialog_message_confirm">Confirmer ?</string>
 
     <!-- GridItemBox -->
     <string name="griditembox_title">Menu</string>
