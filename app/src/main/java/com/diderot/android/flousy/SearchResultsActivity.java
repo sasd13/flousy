@@ -7,8 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.SimpleActivityBar;
-import flousy.util.color.CustomColor;
+import flousy.util.activitybar.BaseActivityBar;
 
 public class SearchResultsActivity extends MyActivity {
 
@@ -17,9 +16,7 @@ public class SearchResultsActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
-        setActivityBar(activityBar);
+        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
 
         handleIntent(getIntent());
     }

@@ -78,20 +78,26 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
     }
 
     public CustomDialogBuilder setPositiveButton(DialogInterface.OnClickListener listener) {
-        if(this.dialogType == TYPE_TWOBUTTON_YESNO) {
-            super.setPositiveButton(R.string.alertdialog_button_yes, listener);
-        } else {
-            super.setPositiveButton(R.string.alertdialog_button_ok, listener);
+        switch (this.dialogType) {
+            case TYPE_TWOBUTTON_YESNO :
+                super.setPositiveButton(R.string.alertdialog_button_yes, listener);
+                break;
+            case TYPE_TWOBUTTON_OKCANCEL :
+                super.setPositiveButton(R.string.alertdialog_button_ok, listener);
+                break;
         }
 
         return this;
     }
 
     public CustomDialogBuilder setNegativeButton(DialogInterface.OnClickListener listener) {
-        if(this.dialogType == TYPE_TWOBUTTON_YESNO) {
-            super.setNegativeButton(R.string.alertdialog_button_no, listener);
-        } else {
-            super.setNegativeButton(R.string.alertdialog_button_cancel, listener);
+        switch (this.dialogType) {
+            case TYPE_TWOBUTTON_YESNO :
+                super.setNegativeButton(R.string.alertdialog_button_no, listener);
+                break;
+            case TYPE_TWOBUTTON_OKCANCEL :
+                super.setNegativeButton(R.string.alertdialog_button_cancel, listener);
+                break;
         }
 
         return this;

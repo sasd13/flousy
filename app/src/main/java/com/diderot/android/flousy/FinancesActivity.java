@@ -5,7 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.activitybar.BaseActivityBar;
 import flousy.util.color.CustomColor;
 
 public class FinancesActivity extends MyActivity {
@@ -18,12 +18,10 @@ public class FinancesActivity extends MyActivity {
 
         //Set activity color before everything
         CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
-        setActivityColor(activityColor);
+        this.setActivityColor(activityColor);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
-        setActivityBar(activityBar);
+        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
     }
 
     @Override

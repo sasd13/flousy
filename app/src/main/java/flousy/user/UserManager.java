@@ -8,67 +8,81 @@ import android.content.SharedPreferences;
  */
 public class UserManager {
 
-    private static UserManager instance = null;
+    private static final String TYPE_PREFS_SESSION = "PrefsSession";
+    private static final String TYPE_PREFS_DATA = "PrefsData";
+    private static final String KEY_EMAIL = "email";
 
-    private static Context context = null;
-    private SharedPreferences settings;
-    private static final String PREFS_NAME = "PrefsFile";
-    private static final String KEY_LOGIN = "login";
+    private Context context;
 
-    private UserManager() {
-        this.settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+    public UserManager(Context context) {
+        this.context = context;
     }
 
-    public static Context getContext() {
-        return context;
+    public Context getContext() {
+        return this.context;
     }
 
-    public static void setContext(Context ctxt) {
-        context = ctxt;
+    public void setContext(Context context) {
+        this.context = context;
     }
 
-    public static synchronized UserManager getInstance() {
-        if(instance == null) {
-            instance = new UserManager();
+    public SharedPreferences getSetting(String type) {
+        if(type.compareTo(TYPE_PREFS_SESSION) == 0 || type.compareTo(TYPE_PREFS_DATA) == 0) {
+            return this.context.getSharedPreferences(type, Context.MODE_PRIVATE);
         }
 
-        return instance;
+        return null;
     }
 
     public boolean signUp(User user) {
+        //Add implementation database query
+
+        String verifPassword = this.getSetting(TYPE_PREFS_DATA).getString(user.getEmail(), null);
+        if(verifPassword != null) {
+            //throw exception user
+        } else {
+            SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_DATA).edit(); //database query
+            editor.putString(user.getEmail(), user.getPassword());
+
+            return editor.commit();
+        }
+
         return false;
     }
 
-    public String checkUserLogged() {
-        return this.settings.getString(KEY_LOGIN, null);
-    }
-
-    public User connect(String login, String password) {
-        User user = null;
-
-        String verifEmail = "abcd@email.com";
-        String verifPassword = "password";
-
-        if((login.trim().compareTo(verifEmail) == 0) && (password.trim().compareTo(verifPassword) == 0)) {
-            user = new User();
-            user.setEmail(login);
-            user.setPassword(password);
-
-            SharedPreferences.Editor editor = this.settings.edit();
-            editor.putString(KEY_LOGIN, login);
-            editor.commit();
+    public boolean checkUserLogged() {
+        String verifEmail = this.getSetting(TYPE_PREFS_SESSION).getString(KEY_EMAIL, null);
+        if(verifEmail == null) {
+            // throw exception user
+        } else {
+            return true;
         }
 
-        return user;
+        return false;
+    }
+
+    public boolean connect(String email, String password) {
+        String verifPassword = this.getSetting(TYPE_PREFS_DATA).getString(email, null); //database query
+        if(verifPassword == null || verifPassword.compareTo(password) != 0) {
+            // throw exception user
+        } else {
+            SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
+            editor.putString(KEY_EMAIL, email);
+
+            return editor.commit();
+        }
+
+        return false;
     }
 
     public boolean deconnect() {
-        if(this.settings.contains(KEY_LOGIN)){
-            SharedPreferences.Editor editor = this.settings.edit();
-            editor.remove(KEY_LOGIN);
-            editor.commit();
+        boolean contains = this.getSetting(TYPE_PREFS_SESSION).contains(KEY_EMAIL);
 
-            return true;
+        if(contains){
+            SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
+            editor.remove(KEY_EMAIL);
+
+            return editor.commit();
         }
 
         return false;

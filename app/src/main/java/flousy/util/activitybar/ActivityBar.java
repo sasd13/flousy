@@ -1,5 +1,6 @@
 package flousy.util.activitybar;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewStub;
 
@@ -9,9 +10,11 @@ import android.view.ViewStub;
 public abstract class ActivityBar {
 
     private int layoutResource;
+    private View containerView;
 
     protected ActivityBar(int layoutResource) {
         this.layoutResource = layoutResource;
+        this.containerView = null;
     }
 
     public int getLayoutResource() {
@@ -22,5 +25,13 @@ public abstract class ActivityBar {
         this.layoutResource = layoutResource;
     }
 
-    public abstract View create(ViewStub viewStub);
+    public View getContainerView() {
+        return this.containerView;
+    }
+
+    public void setContainerView(View containerView) {
+        this.containerView = containerView;
+    }
+
+    public abstract void inflate(ViewStub viewStub);
 }

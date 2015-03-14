@@ -2,14 +2,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.diderot.android.flousy.MyActivity"
-    android:id="@+id/activity"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ViewStub
         android:id="@+id/activitybar_viewstub"
-        android:layout="@layout/layout_simpleactivitybar"
+        android:layout="@layout/layout_baseactivitybar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

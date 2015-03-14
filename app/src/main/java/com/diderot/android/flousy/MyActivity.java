@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewStub;
 
 import flousy.util.activitybar.ActivityBar;
+import flousy.util.activitybar.ActivityBarFactory;
 import flousy.util.color.CustomColor;
 
 public class MyActivity extends ActionBarActivity {
@@ -17,14 +17,13 @@ public class MyActivity extends ActionBarActivity {
     public static final int APP_COLOR = R.color.customGreenApp;
 
     private CustomColor activityColor;
-    private ActivityBar activityBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set content view
-        setContentView(R.layout.activity_my);
+        setContentView(R.layout.layout_activity_my);
 
         //Create activity color with app color
         this.activityColor = new CustomColor(getResources().getColor(APP_COLOR));
@@ -95,15 +94,15 @@ public class MyActivity extends ActionBarActivity {
         this.activityColor = activityColor;
     }
 
-    public ActivityBar getActivityBar() {
-        return this.activityBar;
-    }
+    public ActivityBar createActivityBar(int type) {
+        ActivityBar activityBar = ActivityBarFactory.create(type);
 
-    public void setActivityBar(ActivityBar activityBar) {
-        this.activityBar = activityBar;
+        if(activityBar != null) {
+            ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
+            activityBar.inflate(viewStub);
+            activityBar.getContainerView().setBackgroundColor(this.activityColor.getColor());
+        }
 
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
-        View view = this.activityBar.create(viewStub);
-        view.setBackgroundColor(this.activityColor.getColor());
+        return activityBar;
     }
 }

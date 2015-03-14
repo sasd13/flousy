@@ -21,10 +21,8 @@ public class NewActivity extends MyActivity {
         setActivityColor(activityColor);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        TitledActivityBar activityBar = (TitledActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        TitledActivityBar activityBar = (TitledActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
         activityBar.setTitle(getResources().getString(R.string.new_titledbar_title));
-        setActivityBar(activityBar);
     }
 
 

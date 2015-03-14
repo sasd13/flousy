@@ -21,7 +21,7 @@ public class ListGridItem extends ArrayList<GridItem> {
             gridItem = super.get(index);
         } catch (IndexOutOfBoundsException e) {
             gridItem = null;
-            Log.println(1, null, "GridBox error item index : "+index);
+            Log.println(1, null, "ListGridItem error item index : "+index);
         }
 
         return gridItem;
@@ -29,7 +29,7 @@ public class ListGridItem extends ArrayList<GridItem> {
 
     @Override
     public boolean add(GridItem gridItem) {
-        if(gridItem != null && this.contains(gridItem) == false) {
+        if(this.contains(gridItem) == false) {
             return super.add(gridItem);
         }
 
@@ -38,7 +38,7 @@ public class ListGridItem extends ArrayList<GridItem> {
 
     @Override
     public boolean remove(Object object) {
-        if(object instanceof GridItem && this.contains(object) == true) {
+        if(object instanceof GridItem) {
             return super.remove(object);
         }
 

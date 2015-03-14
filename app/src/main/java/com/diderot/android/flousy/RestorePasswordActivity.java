@@ -5,8 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.TitledActivityBar;
-import flousy.util.color.CustomColor;
+import flousy.util.activitybar.BaseActivityBar;
 
 public class RestorePasswordActivity extends MyActivity {
 
@@ -15,10 +14,7 @@ public class RestorePasswordActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        TitledActivityBar activityBar = (TitledActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
-        activityBar.setTitle(getResources().getString(R.string.restorepassword_titledbar_title));
-        setActivityBar(activityBar);
+        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
     }
 
     @Override

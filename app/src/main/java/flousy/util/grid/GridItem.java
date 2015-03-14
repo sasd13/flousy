@@ -5,7 +5,7 @@ import android.view.View;
 public abstract class GridItem {
 
     /**
-     * GridItemBox parent layout (container)
+     * GridItem view container
      */
     private View containerView;
 

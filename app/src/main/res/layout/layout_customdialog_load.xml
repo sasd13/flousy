@@ -1,9 +1,11 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/customdialog"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <ProgressBar
+        android:id="@+id/customdialog_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

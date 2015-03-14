@@ -1,21 +1,23 @@
 package flousy.util.activitybar;
 
+import android.content.Context;
+
 /**
  * Created by Samir on 11/03/2015.
  */
 public class ActivityBarFactory {
 
-    public static final int TYPE_SIMPLEACTIVITYBAR = 0;
+    public static final int TYPE_BASEACTIVITYBAR = 0;
     public static final int TYPE_TITLEDACTIVITYBAR = 1;
 
-    public ActivityBarFactory() { }
+    private ActivityBarFactory() {}
 
-    public ActivityBar create(int barType) {
+    public static ActivityBar create(int type) {
         ActivityBar activityBar = null;
 
-        switch (barType) {
-            case TYPE_SIMPLEACTIVITYBAR :
-                activityBar = new SimpleActivityBar();
+        switch (type) {
+            case TYPE_BASEACTIVITYBAR :
+                activityBar = new BaseActivityBar();
                 break;
             case TYPE_TITLEDACTIVITYBAR :
                 activityBar = new TitledActivityBar();

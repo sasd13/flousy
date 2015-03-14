@@ -26,7 +26,7 @@
         android:layout_marginBottom="@dimen/griditembox_textview_margin"
         android:layout_marginLeft="@dimen/griditembox_textview_margin"
         android:layout_marginRight="@dimen/griditembox_textview_margin"
-        android:text="@string/griditembox_title"
+        android:text="@string/griditem_text"
         android:textStyle="bold"
         android:textSize="@dimen/textsize_medium"
         android:textColor="@color/black"/>

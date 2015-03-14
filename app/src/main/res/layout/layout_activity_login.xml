@@ -8,14 +8,12 @@
     android:gravity="center">
 
     <ImageView
-        android:id="@+id/login_textview_title"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:src="@drawable/ic_app_name"/>
 
     <LinearLayout
-        android:id="@+id/login_layoutconnect"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -47,7 +45,7 @@
             android:fontFamily="sans-serif"/>
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/login_button_connect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_button_text"

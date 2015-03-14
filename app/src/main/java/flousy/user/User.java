@@ -1,18 +1,24 @@
 package flousy.user;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by Samir on 07/03/2015.
  */
 public class User extends Person {
     private String email;
     private String password;
-    private int image;
+    private Drawable image;
 
     public User() {
         super();
+
+        this.email = null;
+        this.password = null;
+        this.image = null;
     }
 
-    public User(String firstName, String lastName,  String phoneNumber, String email, String password, int image) {
+    public User(String firstName, String lastName,  String phoneNumber, String email, String password, Drawable image) {
         super(firstName, lastName, phoneNumber);
 
         this.email = email;
@@ -36,11 +42,11 @@ public class User extends Person {
         this.password = password;
     }
 
-    public int getImage() {
+    public Drawable getImage() {
         return this.image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Drawable image) {
         this.image = image;
     }
 }

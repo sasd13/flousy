@@ -3,8 +3,6 @@ package flousy.util.grid;
 import android.content.Context;
 import android.widget.GridView;
 
-import com.diderot.android.flousy.R;
-
 /**
  * Created by Samir on 21/02/2015.
  */
@@ -44,5 +42,5 @@ public abstract class Grid {
         this.itemLayoutResource = itemLayoutResource;
     }
 
-    public abstract void create(GridView gridView);
+    public abstract void adapt(GridView gridView);
 }

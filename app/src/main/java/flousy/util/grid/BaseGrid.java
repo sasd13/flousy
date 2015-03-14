@@ -17,7 +17,7 @@ public class BaseGrid extends Grid {
     }
 
     @Override
-    public void create(GridView gridView) {
+    public void adapt(GridView gridView) {
         BaseGridAdapter gridAdapter = new BaseGridAdapter(this);
         gridView.setAdapter(gridAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

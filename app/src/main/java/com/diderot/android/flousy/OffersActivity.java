@@ -5,7 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.activitybar.BaseActivityBar;
 import flousy.util.color.CustomColor;
 
 public class OffersActivity extends MyActivity {
@@ -21,9 +21,7 @@ public class OffersActivity extends MyActivity {
         setActivityColor(activityColor);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
-        setActivityBar(activityBar);
+        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
     }
 
 

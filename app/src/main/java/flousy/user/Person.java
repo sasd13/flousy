@@ -8,7 +8,11 @@ public class Person {
     private String lastName;
     private String phoneNumber;
 
-    public Person() { }
+    public Person() {
+        this.firstName = null;
+        this.lastName = null;
+        this.phoneNumber = null;
+    }
 
     public Person(String firstName, String lastName,  String phoneNumber) {
         this.firstName = firstName;

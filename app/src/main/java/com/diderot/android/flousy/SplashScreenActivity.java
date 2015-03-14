@@ -23,20 +23,16 @@ public class SplashScreenActivity extends MyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(UserManager.getContext() == null) {
-            UserManager.setContext(this);
-        }
-
         //Disable ActionBar
         setActionBarEnabled(false);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.activity_splashscreen);
+        viewStub.setLayoutResource(R.layout.layout_activity_splashscreen);
         View splashView = viewStub.inflate();
 
         //Set Logo
-        ImageView imageView = (ImageView) findViewById(R.id.splashscreen_logo);
+        ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
         imageView.setImageDrawable(getResources().getDrawable(APP_LOGO));
     }
 
@@ -44,10 +40,10 @@ public class SplashScreenActivity extends MyActivity {
     protected void onStart() {
         super.onStart();
 
-        UserManager session = UserManager.getInstance();
-        String login = session.checkUserLogged();
+        UserManager manager = new UserManager(this);
+        boolean logged = manager.checkUserLogged();
 
-        if(login == null) {
+        if(logged == false) {
             attachActivity(LogInActivity.class, SPLASH_TIME_OUT);
         } else {
             attachActivity(MenuActivity.class, SPLASH_TIME_OUT);

@@ -39,7 +39,7 @@ public class GridAdapter extends BaseAdapter {
 
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.grid.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            containerView = (View) inflater.inflate(this.grid.getItemLayoutResource(), null);
+            containerView = inflater.inflate(this.grid.getItemLayoutResource(), null);
         }
         else {
             containerView = convertView;

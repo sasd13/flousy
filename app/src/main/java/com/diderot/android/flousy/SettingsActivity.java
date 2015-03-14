@@ -15,7 +15,7 @@ import android.widget.Button;
 
 import flousy.user.UserManager;
 import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.activitybar.BaseActivityBar;
 import flousy.util.color.CustomColor;
 import flousy.util.widget.CustomDialogBuilder;
 import flousy.util.widget.CustomOnTouchListener;
@@ -37,16 +37,14 @@ public class SettingsActivity extends MyActivity {
         setActivityColor(activityColor);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
-        setActivityBar(activityBar);
+        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.activity_settings);
+        viewStub.setLayoutResource(R.layout.layout_activity_settings);
         ViewGroup view = (ViewGroup) viewStub.inflate();
 
-        Button logoutButton = (Button) findViewById(R.id.logout_button);
+        Button logoutButton = (Button) findViewById(R.id.settings_button_logout);
         logoutButton.setBackgroundResource(ACTIVITY_COLOR);
         logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +95,9 @@ public class SettingsActivity extends MyActivity {
     }
 
     public void endConnection() {
-        UserManager session = UserManager.getInstance();
-        boolean deconnected = session.deconnect();
+        UserManager manager = new UserManager(this);
+
+        boolean deconnected = manager.deconnect();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

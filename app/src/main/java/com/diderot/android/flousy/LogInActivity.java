@@ -1,7 +1,6 @@
 package com.diderot.android.flousy;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,12 +15,11 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import flousy.user.UserManager;
-import flousy.user.User;
 import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.SimpleActivityBar;
-import flousy.util.color.CustomColor;
+import flousy.util.activitybar.BaseActivityBar;
 import flousy.util.widget.CustomOnTouchListener;
 import flousy.util.widget.CustomDialogBuilder;
 
@@ -31,6 +29,9 @@ public class LogInActivity extends MyActivity {
     private Handler handler;
     private Runnable runnable;
 
+    private EditText editTextLogin, editTextPassword;
+    private Button buttonConnect;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,52 +40,40 @@ public class LogInActivity extends MyActivity {
         setActionBarEnabled(false);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
-        setActivityBar(activityBar);
+        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.activity_login);
+        viewStub.setLayoutResource(R.layout.layout_activity_login);
         View view = viewStub.inflate();
 
-        final EditText editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
-        final EditText editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
+        this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
+        this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
 
-        editTextLogin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_GO && editTextPassword.getText().length() > 0) {
-                    startConnection(editTextLogin.getText().toString(), editTextPassword.getText().toString());
+                if (actionId == EditorInfo.IME_ACTION_GO) {
+                    startConnection();
                     return true;
                 }
                 return false;
             }
-        });
+        };
 
-        editTextPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_GO && editTextLogin.getText().length() > 0) {
-                    startConnection(editTextLogin.getText().toString(), editTextPassword.getText().toString());
-                    return true;
-                }
-                return false;
-            }
-        });
+        this.editTextLogin.setOnEditorActionListener(editorActionListener);
+        this.editTextPassword.setOnEditorActionListener(editorActionListener);
 
-        Button loginButton = (Button) findViewById(R.id.login_button);
-        loginButton.setBackgroundColor(getActivityColor().getColor());
-        loginButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        this.buttonConnect = (Button) findViewById(R.id.login_button_connect);
+        this.buttonConnect.setBackgroundColor(this.getActivityColor().getColor());
+        this.buttonConnect.setOnTouchListener(new CustomOnTouchListener(this.getActivityColor()));
+        this.buttonConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editTextLogin.getText().length() > 0 && editTextPassword.getText().length() > 0) {
-                    startConnection(editTextLogin.getText().toString(), editTextPassword.getText().toString());
-                }
+                startConnection();
             }
         });
-        loginButton.setOnLongClickListener(new View.OnLongClickListener() {
+        this.buttonConnect.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 view.performClick();
@@ -120,6 +109,7 @@ public class LogInActivity extends MyActivity {
                         public void onClick(View v) {
                             Intent signUpActivity = new Intent(LogInActivity.this, SignUpActivity.class);
                             startActivity(signUpActivity);
+                            finish();
                         }
                     });
             }
@@ -144,30 +134,41 @@ public class LogInActivity extends MyActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void startConnection(String login, String password) {
-        UserManager session = UserManager.getInstance();
-        User user = session.connect(login, password);
+    public void startConnection() {
+        UserManager manager = new UserManager(this);
+        boolean connected = false;
 
-        CustomDialogBuilder builder;
+        String login = this.editTextLogin.getEditableText().toString();
+        String password = this.editTextPassword.getEditableText().toString();
 
-        if(user == null) {
-            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-            builder.setTitle(R.string.login_alertdialog_title_error)
-                .setMessage(R.string.login_alertdialog_message_error)
-                .setNeutralButton(new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-            AlertDialog dialog = builder.create();
-            dialog.show();
+        int errorMessageResource = R.string.login_alertdialog_message_error;
+        if(login.length() == 0) {
+            errorMessageResource = R.string.login_toast_login_message;
+        } else if(password.length() == 0) {
+            errorMessageResource = R.string.login_toast_password_message;
         } else {
-            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
+            connected = manager.connect(login, password);
+        }
+
+        if(connected == false) {
+            switch (errorMessageResource) {
+                case R.string.login_toast_login_message :case R.string.login_toast_password_message :
+                    String message = getResources().getString(errorMessageResource);
+                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+                    break;
+                case R.string.login_alertdialog_message_error :
+                    CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
+                    builder.setTitle(R.string.login_alertdialog_title_error)
+                            .setMessage(errorMessageResource)
+                            .setNeutralButton(null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+            }
+        } else {
+            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
             final Intent intent = new Intent(this, MenuActivity.class);
-
             this.runnable = new Runnable() {
 
                 @Override
@@ -177,7 +178,7 @@ public class LogInActivity extends MyActivity {
                     finish();
                 }
             };
-
+            
             this.handler = new Handler();
             dialog.show();
             this.handler.postDelayed(this.runnable, LOADING_TIME_OUT);

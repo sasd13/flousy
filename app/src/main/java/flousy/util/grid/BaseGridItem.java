@@ -13,9 +13,9 @@ import com.diderot.android.flousy.R;
 import flousy.util.color.CustomColor;
 
 /**
- * <b>GridItemBox is the class to manage item boxes of a menu</b>
+ * <b>BaseGridItem is the class to manage basic items of a BaseGrid</b>
  * <p>
- * A menu item box has :
+ * A BaseGrid item box has :
  * <ul>
  * <li>A color</li>
  * <li>An image</li>
@@ -30,14 +30,14 @@ import flousy.util.color.CustomColor;
 public class BaseGridItem extends GridItem {
 
     /**
-     * GridItemBox color
+     * BaseGridItem color
      *
      * <p>type : CustomColor</p>
      */
     private CustomColor color;
 
     /**
-     * GridItemBox image
+     * BaseGridItem image
      *
      * <p>type : Drawable</p>
      * <p>
@@ -55,22 +55,22 @@ public class BaseGridItem extends GridItem {
     private Drawable image;
 
     /**
-     * GridItemBox text
+     * BaseGridItem text
      */
     private CharSequence text;
 
     /**
-     * Container first child
+     * containerView first child
      */
     private ImageView imageView;
 
     /**
-     * Container second child
+     * containerView second child
      */
     private TextView textView;
 
     /**
-     * GridItemBox action on item clicked
+     * BaseGridItem action on item clicked
      */
     private Intent intent;
 
@@ -81,7 +81,7 @@ public class BaseGridItem extends GridItem {
         super();
         this.color = new CustomColor(MyActivity.APP_COLOR);
         this.image = null;
-        this.text = null;
+        this.text = "Item";
         this.intent = null;
     }
 

@@ -28,6 +28,7 @@
                 android:background="@color/customGreenApp"/>
 
             <EditText
+                android:id="@+id/signup_edittext_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
@@ -39,6 +40,7 @@
                 android:singleLine="true"/>
 
             <EditText
+                android:id="@+id/signup_edittext_lastname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
@@ -72,6 +74,7 @@
                 android:background="@color/customGreenApp"/>
 
             <EditText
+                android:id="@+id/signup_edittext_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
@@ -83,6 +86,7 @@
                 android:singleLine="true"/>
 
             <EditText
+                android:id="@+id/signup_edittext_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
@@ -94,6 +98,7 @@
                 android:singleLine="true"/>
 
             <EditText
+                android:id="@+id/signup_edittext_confirmpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
@@ -118,6 +123,7 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
+                    android:id="@+id/signup_checkbox_validation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -133,11 +139,11 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/sign_button"
+                android:id="@+id/signup_button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Enregistrer"
+                android:text="@string/signup_button_save"
                 android:textColor="@color/white"
                 android:textSize="@dimen/textsize_medium"
                 android:textStyle="bold"

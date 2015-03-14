@@ -14,7 +14,7 @@ import android.view.ViewStub;
 import android.widget.GridView;
 
 import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.SimpleActivityBar;
+import flousy.util.activitybar.BaseActivityBar;
 import flousy.util.color.CustomColor;
 import flousy.util.grid.BaseGrid;
 import flousy.util.grid.BaseGridItem;
@@ -35,17 +35,15 @@ public class MenuActivity extends MyActivity {
         setActionBarDisplayHomeAsUpEnabled(false);
 
         //Set ActivityBar
-        ActivityBarFactory activityBarFactory = new ActivityBarFactory();
-        SimpleActivityBar activityBar = (SimpleActivityBar) activityBarFactory.create(ActivityBarFactory.TYPE_SIMPLEACTIVITYBAR);
-        setActivityBar(activityBar);
+        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
         viewStub.setLayoutResource(R.layout.layout_basegrid);
         GridView gridView = (GridView) viewStub.inflate();
 
-        GridFactory gridFactory = new GridFactory();
-        BaseGrid menuGrid = (BaseGrid) gridFactory.create(this, GridFactory.TYPE_BASICGRID, gridView);
+        BaseGrid menuGrid = (BaseGrid) GridFactory.create(this, GridFactory.TYPE_BASEGRID);
+        menuGrid.adapt(gridView);
 
         ListGridItem listGridItem = new ListGridItem();
 
