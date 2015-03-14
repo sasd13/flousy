@@ -180,12 +180,12 @@ public class BaseGridItem extends GridItem {
             viewGroup.setBackgroundColor(this.color.getColor());
 
             this.imageView = (ImageView) viewGroup.findViewById(R.id.basegriditem_imageview);
-            if(this.imageView != null && this.image != null) {
+            if(this.image != null) {
                 this.imageView.setImageDrawable(this.image);
             }
 
             this.textView = (TextView) viewGroup.findViewById(R.id.basegriditem_textview);
-            if(this.textView != null && this.text != null) {
+            if(this.text != null) {
                 this.textView.setText(this.text);
             }
         }

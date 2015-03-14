@@ -18,7 +18,7 @@ public class BaseGridAdapter extends GridAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = super.getView(position, convertView, parent);
 
-        BaseGridItem gridItem = (BaseGridItem) this.getItem(position);
+        BaseGridItem gridItem = (BaseGridItem) getItem(position);
         convertView.setOnTouchListener(new CustomOnTouchListener(gridItem.getColor()));
 
         return convertView;

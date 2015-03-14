@@ -36,7 +36,7 @@ public class SettingsActivity extends MyActivity {
         setActivityColor(activityColor);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);

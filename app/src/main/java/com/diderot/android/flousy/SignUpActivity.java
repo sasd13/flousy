@@ -40,7 +40,7 @@ public class SignUpActivity extends MyActivity {
         setActionBarDisplayHomeAsUpEnabled(true);
 
         //Set ActivityBar
-        TitledActivityBar activityBar = (TitledActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
         activityBar.setTitle(getResources().getString(R.string.signup_titledbar_title));
 
         //Set ActivityContent
@@ -127,8 +127,9 @@ public class SignUpActivity extends MyActivity {
             builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
-            final Intent menuActivity = new Intent(this, MenuActivity.class);
-            menuActivity.putExtra("NEW_USER", true);
+            final Intent menuActivity = new Intent(this, LogInActivity.class);
+            menuActivity.putExtra("CLOSE", true);
+            menuActivity.putExtra("NEW_USER_FIRSTNAME", user.getFirstName());
 
             this.runnable = new Runnable() {
 

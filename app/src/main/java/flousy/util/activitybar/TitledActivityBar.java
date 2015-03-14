@@ -36,10 +36,10 @@ public class TitledActivityBar extends ActivityBar {
 
     @Override
     public void inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(this.getLayoutResource());
+        viewStub.setLayoutResource(getLayoutResource());
 
         ViewGroup viewGroup = (ViewGroup) viewStub.inflate();
-        this.setView(viewGroup);
+        setView(viewGroup);
 
         this.textView = (TextView) viewGroup.findViewById(this.textViewId);
         if(this.textView != null && this.title != null) {

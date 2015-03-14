@@ -35,40 +35,40 @@ public class UserManager {
     }
 
     public boolean signUp(User user) {
-        boolean signed = this.getSetting(TYPE_PREFS_DATA).contains(user.getEmail());
+        boolean signed = getSetting(TYPE_PREFS_DATA).contains(user.getEmail());
         if(signed == true) {
             return false;
         }
 
-        SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_DATA).edit(); //database query
+        SharedPreferences.Editor editor = getSetting(TYPE_PREFS_DATA).edit(); //database query
         editor.putString(user.getEmail(), user.getPassword());
 
         return editor.commit();
     }
 
     public boolean checkUserLogged() {
-        return this.getSetting(TYPE_PREFS_SESSION).contains(KEY_EMAIL);
+        return getSetting(TYPE_PREFS_SESSION).contains(KEY_EMAIL);
     }
 
     public boolean connect(String email, String password) {
-        String verifPassword = this.getSetting(TYPE_PREFS_DATA).getString(email, null); //database query
+        String verifPassword = getSetting(TYPE_PREFS_DATA).getString(email, null); //database query
         if(verifPassword == null || verifPassword.compareTo(password) != 0) {
             return false;
         }
 
-        SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
+        SharedPreferences.Editor editor = getSetting(TYPE_PREFS_SESSION).edit();
         editor.putString(KEY_EMAIL, email);
 
         return editor.commit();
     }
 
     public boolean deconnect() {
-        boolean contains = this.getSetting(TYPE_PREFS_SESSION).contains(KEY_EMAIL);
+        boolean contains = getSetting(TYPE_PREFS_SESSION).contains(KEY_EMAIL);
         if(contains == false) {
             return false;
         }
 
-        SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
+        SharedPreferences.Editor editor = getSetting(TYPE_PREFS_SESSION).edit();
         editor.remove(KEY_EMAIL);
 
         return editor.commit();

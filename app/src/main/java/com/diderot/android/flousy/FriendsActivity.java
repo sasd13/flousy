@@ -18,10 +18,10 @@ public class FriendsActivity extends MyActivity {
 
         //Set activity color before everything
         CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
-        this.setActivityColor(activityColor);
+        setActivityColor(activityColor);
 
         //Set ActivityBar
-        TitledActivityBar activityBar = (TitledActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
         activityBar.setTitle(getResources().getString(R.string.friends_titledbar_title_received));
     }
 

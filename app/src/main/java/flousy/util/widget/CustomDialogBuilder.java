@@ -53,7 +53,7 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
         if(this.dialogType == TYPE_LOAD) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(R.layout.layout_customdialog_load, null);
-            this.setView(view);
+            setView(view);
         }
 
         return super.create();
@@ -66,9 +66,25 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
         return this;
     }
 
+    @NonNull
+    @Override
+    public CustomDialogBuilder setTitle(CharSequence title) {
+        super.setTitle(title);
+
+        return this;
+    }
+
     @Override
     public CustomDialogBuilder setMessage(int messageId) {
         super.setMessage(messageId);
+
+        return this;
+    }
+
+    @NonNull
+    @Override
+    public CustomDialogBuilder setMessage(CharSequence message) {
+        super.setMessage(message);
 
         return this;
     }

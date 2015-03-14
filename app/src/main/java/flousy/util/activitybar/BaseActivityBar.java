@@ -16,9 +16,9 @@ public class BaseActivityBar extends ActivityBar {
 
     @Override
     public void inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(this.getLayoutResource());
+        viewStub.setLayoutResource(getLayoutResource());
 
         View view = viewStub.inflate();
-        this.setView(view);
+        setView(view);
     }
 }

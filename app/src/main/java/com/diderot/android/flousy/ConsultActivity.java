@@ -18,10 +18,10 @@ public class ConsultActivity extends MyActivity {
 
         //Set activity color before everything
         CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
-        this.setActivityColor(activityColor);
+        setActivityColor(activityColor);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
     }
 
     @Override

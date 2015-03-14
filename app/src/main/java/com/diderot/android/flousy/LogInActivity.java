@@ -2,7 +2,6 @@ package com.diderot.android.flousy;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.SpannableString;
@@ -41,7 +40,7 @@ public class LogInActivity extends MyActivity {
         setActionBarEnabled(false);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
@@ -110,10 +109,28 @@ public class LogInActivity extends MyActivity {
                         public void onClick(View v) {
                             Intent signUpActivity = new Intent(LogInActivity.this, SignUpActivity.class);
                             startActivity(signUpActivity);
-                            finish();
                         }
                     });
             }
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(getIntent().hasExtra("CLOSE") && getIntent().getBooleanExtra("CLOSE", false) == true) {
+            getIntent().removeExtra("CLOSE");
+
+            if(getIntent().hasExtra("NEW_USER_FIRSTNAME")) {
+                Intent menuActivity = new Intent(this, MenuActivity.class);
+                menuActivity.putExtra("WELCOME", true);
+                menuActivity.putExtra("NEW_USER_FIRSTNAME", getIntent().getCharSequenceExtra("NEW_USER_FIRSTNAME"));
+
+                startActivity(menuActivity);
+            }
+
+            finish();
         }
     }
 

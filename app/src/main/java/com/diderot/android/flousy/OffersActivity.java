@@ -21,7 +21,7 @@ public class OffersActivity extends MyActivity {
         setActivityColor(activityColor);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
     }
 
 

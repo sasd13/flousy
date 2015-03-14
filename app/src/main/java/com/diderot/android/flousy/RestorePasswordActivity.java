@@ -14,7 +14,7 @@ public class RestorePasswordActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
     }
 
     @Override

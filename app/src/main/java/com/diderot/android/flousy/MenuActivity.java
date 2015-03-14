@@ -37,7 +37,7 @@ public class MenuActivity extends MyActivity {
         setActionBarDisplayHomeAsUpEnabled(false);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) this.createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
 
         //Set ActivityContent
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
@@ -114,14 +114,20 @@ public class MenuActivity extends MyActivity {
     protected void onStart() {
         super.onStart();
 
-        if (getIntent().hasExtra("NEW_USER") && getIntent().getBooleanExtra("NEW_USER", false) == true) {
+        if (getIntent().hasExtra("WELCOME") && getIntent().getBooleanExtra("WELCOME", false) == true) {
+            getIntent().removeExtra("WELCOME");
+
+            CharSequence firstName = getIntent().getCharSequenceExtra("NEW_USER_FIRSTNAME");
+
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-            builder.setTitle(R.string.menu_alertdialog_title)
-                    .setMessage(R.string.menu_alertdialog_message)
+            builder.setTitle(R.string.menu_alertdialog_title_welcome)
+                    .setMessage(getResources().getString(R.string.menu_alertdialog_message_welcome) + " " + firstName + " !")
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();
         } else if (getIntent().hasExtra("EXIT") && getIntent().getBooleanExtra("EXIT", false) == true) {
+            getIntent().removeExtra("EXIT");
+
             Intent loginActivity = new Intent(this, LogInActivity.class);
             startActivity(loginActivity);
             finish();

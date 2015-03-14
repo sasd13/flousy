@@ -54,8 +54,8 @@
     <string name="restorepassword_titledbar_title">Récupération du mot de passe</string>
 
     <!-- Menu -->
-    <string name="menu_alertdialog_title">Salut</string>
-    <string name="menu_alertdialog_message">Bienvenue dans Flousy!</string>
+    <string name="menu_alertdialog_title_welcome">Bienvenue</string>
+    <string name="menu_alertdialog_message_welcome">Salut</string>
 
     <!-- New -->
     <string name="new_titledbar_title">Sélectionner la catégorie</string>
