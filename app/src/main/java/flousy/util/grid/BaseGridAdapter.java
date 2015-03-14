@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import flousy.util.widget.CustomOnTouchListener;
 
 /**
- * Created by Samir on 20/02/2015.
+ * Created by Samir on 13/03/2015.
  */
 public class BaseGridAdapter extends GridAdapter {
 

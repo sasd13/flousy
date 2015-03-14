@@ -8,7 +8,7 @@ import android.widget.GridView;
 import com.diderot.android.flousy.R;
 
 /**
- * Created by Samir on 21/02/2015.
+ * Created by Samir on 13/03/2015.
  */
 public class BaseGrid extends Grid {
 

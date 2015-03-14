@@ -25,7 +25,7 @@
 
     <!-- Log in -->
     <dimen name="login_imageview_margin">50dp</dimen>
-    <dimen name="login_edittext_password_margintop">10dp</dimen>
+    <dimen name="login_edittext_password_margintop">7dp</dimen>
     <dimen name="button_horizontalpadding">20dp</dimen>
     <dimen name="button_verticalpadding">10dp</dimen>
     <dimen name="login_textview_restorepassword_padding">5dp</dimen>

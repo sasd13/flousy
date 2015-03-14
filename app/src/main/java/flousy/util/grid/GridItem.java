@@ -2,6 +2,9 @@ package flousy.util.grid;
 
 import android.view.View;
 
+/**
+ * Created by Samir on 13/03/2015.
+ */
 public abstract class GridItem {
 
     /**

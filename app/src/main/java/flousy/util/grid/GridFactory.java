@@ -3,7 +3,7 @@ package flousy.util.grid;
 import android.content.Context;
 
 /**
- * Created by Samir on 11/03/2015.
+ * Created by Samir on 13/03/2015.
  */
 public class GridFactory {
 

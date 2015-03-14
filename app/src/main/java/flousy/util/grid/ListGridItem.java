@@ -3,7 +3,7 @@ package flousy.util.grid;
 import java.util.ArrayList;
 
 /**
- * Created by Samir on 21/02/2015.
+ * Created by Samir on 13/03/2015.
  */
 public class ListGridItem extends ArrayList<GridItem> {
 
