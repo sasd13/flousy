@@ -54,13 +54,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e8757a3-5306-4116-9471-c2c1d23d8bad" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-hdpi\ic_logo.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_app_logo.png" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\ic_logo.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi/ic_app_logo.png" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-xhdpi\ic_logo.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_app_logo.png" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-xxhdpi\ic_logo.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_app_logo.png" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\ic_logo.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_app_logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SplashScreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_activity_splashscreen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_activity_splashscreen.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="android-flousy.iws" />
@@ -1883,7 +1876,11 @@
       <created>1426357863582</created>
       <updated>1426357863582</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Renaming ic_logo to ic_app_logo">
+      <created>1426358312967</created>
+      <updated>1426358312967</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1956,7 +1953,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Modification for ViewStub" />
     <MESSAGE value="Begin for activity content" />
     <MESSAGE value="Editing Image box" />
     <MESSAGE value="Editing ImageBox with GridView" />
@@ -1981,7 +1977,8 @@
     <MESSAGE value="End for SignUpActivity, code optimisation" />
     <MESSAGE value="End for optimisation" />
     <MESSAGE value="Renaming drawables griditembox to griditem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renaming drawables griditembox to griditem" />
+    <MESSAGE value="Renaming ic_logo to ic_app_logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renaming ic_logo to ic_app_logo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
