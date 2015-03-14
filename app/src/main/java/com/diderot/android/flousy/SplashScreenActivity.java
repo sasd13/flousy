@@ -17,7 +17,7 @@ public class SplashScreenActivity extends MyActivity {
     private Handler handler;
     private Runnable runnable;
 
-    private static final int APP_LOGO = R.drawable.ic_logo;
+    private static final int APP_LOGO = R.drawable.ic_app_logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
