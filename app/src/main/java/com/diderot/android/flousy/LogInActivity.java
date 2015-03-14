@@ -168,12 +168,12 @@ public class LogInActivity extends MyActivity {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
-            final Intent intent = new Intent(this, MenuActivity.class);
+            final Intent menuActivity = new Intent(this, MenuActivity.class);
             this.runnable = new Runnable() {
 
                 @Override
                 public void run() {
-                    startActivity(intent);
+                    startActivity(menuActivity);
                     dialog.dismiss();
                     finish();
                 }

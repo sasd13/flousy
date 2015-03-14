@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import com.diderot.android.flousy.R;
 
@@ -51,7 +52,8 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
     public AlertDialog create() {
         if(this.dialogType == TYPE_LOAD) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            this.setView(inflater.inflate(R.layout.layout_customdialog_load, null));
+            View view = inflater.inflate(R.layout.layout_customdialog_load, null);
+            this.setView(view);
         }
 
         return super.create();

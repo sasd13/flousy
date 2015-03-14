@@ -51,19 +51,15 @@ public class SettingsActivity extends MyActivity {
             @Override
             public void onClick(View v) {
                 CustomDialogBuilder builder = new CustomDialogBuilder(SettingsActivity.this, CustomDialogBuilder.TYPE_TWOBUTTON_YESNO);
-                AlertDialog dialog = builder.setTitle(R.string.logout_alertdialog_title)
+                builder.setTitle(R.string.logout_alertdialog_title)
                         .setMessage(R.string.alertdialog_message_confirm)
                         .setPositiveButton(new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 endConnection();
                             }
                         })
-                        .setNegativeButton(new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-
-                            }
-                        })
-                        .create();
+                        .setNegativeButton(null);
+                AlertDialog dialog = builder.create();
                 dialog.show();
             }
         });
@@ -99,26 +95,18 @@ public class SettingsActivity extends MyActivity {
 
         boolean deconnected = manager.deconnect();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
+        CustomDialogBuilder builder;
         if(deconnected == false) {
+            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.alertdialog_title_error)
                     .setMessage(R.string.logout_alertdialog_message_error)
-                    .setNeutralButton(R.string.alertdialog_button_ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
-                        }
-                    });
-
+                    .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
-            LayoutInflater inflater = getLayoutInflater();
-            ViewGroup layoutDialog = (ViewGroup) inflater.inflate(R.layout.layout_customdialog_load, null);
-
-            builder.setView(layoutDialog);
-
+            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
+
             final Intent menuActivity = new Intent(this, MenuActivity.class);
             menuActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             menuActivity.putExtra("EXIT", true);

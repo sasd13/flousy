@@ -5,33 +5,33 @@ import android.view.View;
 public abstract class GridItem {
 
     /**
-     * GridItem view container
+     * GridItem view
      */
-    private View containerView;
+    private View view;
 
     /**
      * Default constructor
      */
     protected GridItem() {
-        this.containerView = null;
+        this.view = null;
     }
 
     /**
-     * Get containerView
+     * Get view
      *
-     * @return ViewGroup
+     * @return View
      */
-    public View getContainerView() {
-        return this.containerView;
+    public View getView() {
+        return this.view;
     }
 
     /**
-     * Set containerView
+     * Set view
      *
-     * @param containerView
+     * @param view
      */
-    public void setContainerView(View containerView) {
-        this.containerView = containerView;
+    public void setView(View view) {
+        this.view = view;
     }
 
     public abstract void inflate();

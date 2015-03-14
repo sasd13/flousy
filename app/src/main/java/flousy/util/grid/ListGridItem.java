@@ -1,7 +1,5 @@
 package flousy.util.grid;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 /**
@@ -15,33 +13,28 @@ public class ListGridItem extends ArrayList<GridItem> {
 
     @Override
     public GridItem get(int index) {
-        GridItem gridItem;
-
-        try {
-            gridItem = super.get(index);
-        } catch (IndexOutOfBoundsException e) {
-            gridItem = null;
-            Log.println(1, null, "ListGridItem error item index : "+index);
+        if(index < 0 || index > (this.size() - 1)) {
+            return null;
         }
 
-        return gridItem;
+        return super.get(index);
     }
 
     @Override
     public boolean add(GridItem gridItem) {
-        if(this.contains(gridItem) == false) {
-            return super.add(gridItem);
+        if(this.contains(gridItem) == true) {
+            return false;
         }
 
-        return false;
+        return super.add(gridItem);
     }
 
     @Override
     public boolean remove(Object object) {
-        if(object instanceof GridItem) {
-            return super.remove(object);
+        if(object instanceof GridItem == false) {
+            return false;
         }
 
-        return false;
+        return super.remove(object);
     }
 }

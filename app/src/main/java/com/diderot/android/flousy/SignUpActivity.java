@@ -19,6 +19,7 @@ import flousy.user.UserManager;
 import flousy.user.User;
 import flousy.util.activitybar.ActivityBarFactory;
 import flousy.util.activitybar.TitledActivityBar;
+import flousy.util.widget.CustomDialogBuilder;
 import flousy.util.widget.CustomOnTouchListener;
 import flousy.user.Validator;
 
@@ -115,33 +116,27 @@ public class SignUpActivity extends MyActivity {
             }
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        CustomDialogBuilder builder;
 
         if(signed == false) {
+            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.signup_alertdialog_title_error)
                     .setMessage(R.string.signup_alertdialog_message_error)
-                    .setNeutralButton(R.string.alertdialog_button_ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
-                        }
-                    });
-
+                    .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
-            LayoutInflater inflater = getLayoutInflater();
-
-            builder.setView(inflater.inflate(R.layout.layout_customdialog_load, null));
-
+            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
-            final Intent intent = new Intent(this, MenuActivity.class);
-            intent.putExtra("NEW_USER", true);
+
+            final Intent menuActivity = new Intent(this, MenuActivity.class);
+            menuActivity.putExtra("NEW_USER", true);
 
             this.runnable = new Runnable() {
 
                 @Override
                 public void run() {
-                    startActivity(intent);
+                    startActivity(menuActivity);
                     dialog.dismiss();
                     finish();
                 }

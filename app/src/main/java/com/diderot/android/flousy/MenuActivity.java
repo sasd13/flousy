@@ -1,5 +1,6 @@
 package com.diderot.android.flousy;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import flousy.util.grid.BaseGrid;
 import flousy.util.grid.BaseGridItem;
 import flousy.util.grid.GridFactory;
 import flousy.util.grid.ListGridItem;
+import flousy.util.widget.CustomDialogBuilder;
 
 public class MenuActivity extends MyActivity {
 
@@ -112,7 +114,14 @@ public class MenuActivity extends MyActivity {
     protected void onStart() {
         super.onStart();
 
-        if (getIntent().hasExtra("EXIT") && getIntent().getBooleanExtra("EXIT", false) == true) {
+        if (getIntent().hasExtra("NEW_USER") && getIntent().getBooleanExtra("NEW_USER", false) == true) {
+            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
+            builder.setTitle(R.string.menu_alertdialog_title)
+                    .setMessage(R.string.menu_alertdialog_message)
+                    .setNeutralButton(null);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        } else if (getIntent().hasExtra("EXIT") && getIntent().getBooleanExtra("EXIT", false) == true) {
             Intent loginActivity = new Intent(this, LogInActivity.class);
             startActivity(loginActivity);
             finish();

@@ -16,11 +16,11 @@ public class BaseGridAdapter extends GridAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View containerView = super.getView(position, convertView, parent);
+        convertView = super.getView(position, convertView, parent);
 
         BaseGridItem gridItem = (BaseGridItem) this.getItem(position);
-        containerView.setOnTouchListener(new CustomOnTouchListener(gridItem.getColor()));
+        convertView.setOnTouchListener(new CustomOnTouchListener(gridItem.getColor()));
 
-        return containerView;
+        return convertView;
     }
 }

@@ -23,7 +23,7 @@ public class BaseGrid extends Grid {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BaseGridItem baseGridItem = (BaseGridItem) parent.getAdapter().getItem(position);
+                BaseGridItem baseGridItem = (BaseGridItem) parent.getItemAtPosition(position);
                 getContext().startActivity(baseGridItem.getIntent());
             }
         });

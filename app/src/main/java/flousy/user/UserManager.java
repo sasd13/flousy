@@ -26,65 +26,51 @@ public class UserManager {
         this.context = context;
     }
 
-    public SharedPreferences getSetting(String type) {
-        if(type.compareTo(TYPE_PREFS_SESSION) == 0 || type.compareTo(TYPE_PREFS_DATA) == 0) {
-            return this.context.getSharedPreferences(type, Context.MODE_PRIVATE);
+    private SharedPreferences getSetting(String type) {
+        if(type.compareTo(TYPE_PREFS_SESSION) != 0 && type.compareTo(TYPE_PREFS_DATA) != 0) {
+            return null;
         }
 
-        return null;
+        return this.context.getSharedPreferences(type, Context.MODE_PRIVATE);
     }
 
     public boolean signUp(User user) {
-        //Add implementation database query
-
-        String verifPassword = this.getSetting(TYPE_PREFS_DATA).getString(user.getEmail(), null);
-        if(verifPassword != null) {
-            //throw exception user
-        } else {
-            SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_DATA).edit(); //database query
-            editor.putString(user.getEmail(), user.getPassword());
-
-            return editor.commit();
+        boolean signed = this.getSetting(TYPE_PREFS_DATA).contains(user.getEmail());
+        if(signed == true) {
+            return false;
         }
 
-        return false;
+        SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_DATA).edit(); //database query
+        editor.putString(user.getEmail(), user.getPassword());
+
+        return editor.commit();
     }
 
     public boolean checkUserLogged() {
-        String verifEmail = this.getSetting(TYPE_PREFS_SESSION).getString(KEY_EMAIL, null);
-        if(verifEmail == null) {
-            // throw exception user
-        } else {
-            return true;
-        }
-
-        return false;
+        return this.getSetting(TYPE_PREFS_SESSION).contains(KEY_EMAIL);
     }
 
     public boolean connect(String email, String password) {
         String verifPassword = this.getSetting(TYPE_PREFS_DATA).getString(email, null); //database query
         if(verifPassword == null || verifPassword.compareTo(password) != 0) {
-            // throw exception user
-        } else {
-            SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
-            editor.putString(KEY_EMAIL, email);
-
-            return editor.commit();
+            return false;
         }
 
-        return false;
+        SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
+        editor.putString(KEY_EMAIL, email);
+
+        return editor.commit();
     }
 
     public boolean deconnect() {
         boolean contains = this.getSetting(TYPE_PREFS_SESSION).contains(KEY_EMAIL);
-
-        if(contains){
-            SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
-            editor.remove(KEY_EMAIL);
-
-            return editor.commit();
+        if(contains == false) {
+            return false;
         }
 
-        return false;
+        SharedPreferences.Editor editor = this.getSetting(TYPE_PREFS_SESSION).edit();
+        editor.remove(KEY_EMAIL);
+
+        return editor.commit();
     }
 }

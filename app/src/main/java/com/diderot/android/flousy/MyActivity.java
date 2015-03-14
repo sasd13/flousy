@@ -100,7 +100,7 @@ public class MyActivity extends ActionBarActivity {
         if(activityBar != null) {
             ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
             activityBar.inflate(viewStub);
-            activityBar.getContainerView().setBackgroundColor(this.activityColor.getColor());
+            activityBar.getView().setBackgroundColor(this.activityColor.getColor());
         }
 
         return activityBar;

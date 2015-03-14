@@ -14,15 +14,15 @@ public class Validator {
         ValidatorCode codeEmail = validEmail(user.getEmail());
         ValidatorCode codePassword = validPassword(user.getPassword());
 
-        if(codeFirstName == ValidatorCode.OK
-                && codeLastName == ValidatorCode.OK
-                && codePhoneNumber == ValidatorCode.OK
-                && codeEmail == ValidatorCode.OK
-                && codePassword == ValidatorCode.OK) {
-            return true;
+        if(codeFirstName == ValidatorCode.ERROR_NAME
+                && codeLastName != ValidatorCode.ERROR_NAME
+                && codePhoneNumber == ValidatorCode.ERROR_PHONENUMBER
+                && codeEmail == ValidatorCode.ERROR_EMAIL
+                && codePassword == ValidatorCode.ERROR_PASSWORD) {
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     private static ValidatorCode validName(String name) {

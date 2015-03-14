@@ -1,7 +1,5 @@
 package flousy.util.activitybar;
 
-import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.TextView;
@@ -41,16 +39,11 @@ public class TitledActivityBar extends ActivityBar {
         viewStub.setLayoutResource(this.getLayoutResource());
 
         ViewGroup viewGroup = (ViewGroup) viewStub.inflate();
-        this.setContainerView(viewGroup);
+        this.setView(viewGroup);
 
-        View viewChild;
-        for(int i=0; i<viewGroup.getChildCount(); i++) {
-            viewChild = viewGroup.getChildAt(i);
-            if(viewChild.getId() == this.textViewId) {
-                this.textView = (TextView) viewChild;
-                this.textView.setText(this.title);
-                break;
-            }
+        this.textView = (TextView) viewGroup.findViewById(this.textViewId);
+        if(this.textView != null && this.title != null) {
+            this.textView.setText(this.title);
         }
     }
 }

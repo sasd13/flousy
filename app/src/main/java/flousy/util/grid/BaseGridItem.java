@@ -2,7 +2,6 @@ package flousy.util.grid;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,12 +59,12 @@ public class BaseGridItem extends GridItem {
     private CharSequence text;
 
     /**
-     * containerView first child
+     * container view first child
      */
     private ImageView imageView;
 
     /**
-     * containerView second child
+     * container view second child
      */
     private TextView textView;
 
@@ -111,10 +110,10 @@ public class BaseGridItem extends GridItem {
     public void setColor(CustomColor color) {
         this.color = color;
 
-        ViewGroup containerView = (ViewGroup) this.getContainerView();
+        ViewGroup viewGroup = (ViewGroup) this.getView();
 
-        if(containerView != null) {
-            containerView.setBackgroundColor(this.color.getColor());
+        if(viewGroup != null) {
+            viewGroup.setBackgroundColor(this.color.getColor());
         }
     }
 
@@ -134,7 +133,7 @@ public class BaseGridItem extends GridItem {
         this.image = image;
 
         if(this.imageView != null) {
-            this.imageView.setImageDrawable(this.image);
+            imageView.setImageDrawable(this.image);
         }
     }
 
@@ -176,28 +175,18 @@ public class BaseGridItem extends GridItem {
 
     @Override
     public void inflate() {
-        ViewGroup containerView = (ViewGroup) this.getContainerView();
-        if(containerView != null) {
-            containerView.setBackgroundColor(this.color.getColor());
+        ViewGroup viewGroup = (ViewGroup) this.getView();
+        if(viewGroup != null) {
+            viewGroup.setBackgroundColor(this.color.getColor());
 
-            View child;
-            for(int i=0; i<containerView.getChildCount(); i++) {
-                child = containerView.getChildAt(i);
+            this.imageView = (ImageView) viewGroup.findViewById(R.id.basegriditem_imageview);
+            if(this.imageView != null && this.image != null) {
+                this.imageView.setImageDrawable(this.image);
+            }
 
-                switch (child.getId()) {
-                    case R.id.basegriditem_imageview :
-                        this.imageView = (ImageView) child;
-                        if(this.image != null) {
-                            this.imageView.setImageDrawable(this.image);
-                        }
-                        break;
-                    case R.id.basegriditem_textview :
-                        this.textView = (TextView) child;
-                        if(this.text != null) {
-                            this.textView.setText(this.text);
-                        }
-                        break;
-                }
+            this.textView = (TextView) viewGroup.findViewById(R.id.basegriditem_textview);
+            if(this.textView != null && this.text != null) {
+                this.textView.setText(this.text);
             }
         }
     }
