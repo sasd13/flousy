@@ -14,7 +14,7 @@
         android:layout_marginBottom="@dimen/griditembox_imageview_bottommargin"
         android:layout_marginLeft="@dimen/griditembox_imageview_margin"
         android:layout_marginRight="@dimen/griditembox_imageview_margin"
-        android:src="@drawable/griditembox"/>
+        android:src="@drawable/griditem"/>
 
     <TextView
         android:id="@+id/basegriditem_textview"

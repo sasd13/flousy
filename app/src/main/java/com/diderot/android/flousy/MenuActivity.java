@@ -57,7 +57,7 @@ public class MenuActivity extends MyActivity {
                 case 0:
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_new_name),
-                            resources.getDrawable(R.drawable.griditembox_new),
+                            resources.getDrawable(R.drawable.griditem_new),
                             new CustomColor(resources.getColor(NewActivity.ACTIVITY_COLOR)),
                             new Intent(this, NewActivity.class)
                     );
@@ -65,7 +65,7 @@ public class MenuActivity extends MyActivity {
                 case 1:
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_consult_name),
-                            resources.getDrawable(R.drawable.griditembox_consult),
+                            resources.getDrawable(R.drawable.griditem_consult),
                             new CustomColor(resources.getColor(ConsultActivity.ACTIVITY_COLOR)),
                             new Intent(this, ConsultActivity.class)
                     );
@@ -73,7 +73,7 @@ public class MenuActivity extends MyActivity {
                 case 2:
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_finances_name),
-                            resources.getDrawable(R.drawable.griditembox_finances),
+                            resources.getDrawable(R.drawable.griditem_finances),
                             new CustomColor(resources.getColor(FinancesActivity.ACTIVITY_COLOR)),
                             new Intent(this, FinancesActivity.class)
                     );
@@ -81,7 +81,7 @@ public class MenuActivity extends MyActivity {
                 case 3:
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_friends_name),
-                            resources.getDrawable(R.drawable.griditembox_friends),
+                            resources.getDrawable(R.drawable.griditem_friends),
                             new CustomColor(resources.getColor(FriendsActivity.ACTIVITY_COLOR)),
                             new Intent(this, FriendsActivity.class)
                     );
@@ -89,7 +89,7 @@ public class MenuActivity extends MyActivity {
                 case 4:
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_offers_name),
-                            resources.getDrawable(R.drawable.griditembox_offers),
+                            resources.getDrawable(R.drawable.griditem_offers),
                             new CustomColor(resources.getColor(OffersActivity.ACTIVITY_COLOR)),
                             new Intent(this, OffersActivity.class)
                     );
@@ -97,7 +97,7 @@ public class MenuActivity extends MyActivity {
                 case 5:
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_settings_name),
-                            resources.getDrawable(R.drawable.griditembox_settings),
+                            resources.getDrawable(R.drawable.griditem_settings),
                             new CustomColor(resources.getColor(SettingsActivity.ACTIVITY_COLOR)),
                             new Intent(this, SettingsActivity.class)
                     );
