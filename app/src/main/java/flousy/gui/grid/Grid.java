@@ -1,4 +1,4 @@
-package flousy.util.grid;
+package flousy.gui.grid;
 
 import android.content.Context;
 import android.widget.GridView;

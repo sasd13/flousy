@@ -1,9 +1,9 @@
-package flousy.util.grid;
+package flousy.gui.grid;
 
 import android.view.View;
 import android.view.ViewGroup;
 
-import flousy.util.widget.CustomOnTouchListener;
+import flousy.gui.listener.CustomOnTouchListener;
 
 /**
  * Created by Samir on 13/03/2015.

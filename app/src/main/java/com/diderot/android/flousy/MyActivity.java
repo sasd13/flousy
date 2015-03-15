@@ -1,16 +1,22 @@
 package com.diderot.android.flousy;
 
+import android.content.Intent;
 import android.os.Build;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewStub;
+import android.widget.Button;
+import android.widget.TextView;
 
-import flousy.util.activitybar.ActivityBar;
-import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.color.CustomColor;
+import flousy.gui.activitybar.ActivityBar;
+import flousy.gui.activitybar.ActivityBarFactory;
+import flousy.gui.activitybar.ActivityBarType;
+import flousy.gui.color.CustomColor;
 
 public class MyActivity extends ActionBarActivity {
 
@@ -45,9 +51,17 @@ public class MyActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        return super.onOptionsItemSelected(item);
+        //Disable re-onCreate for subclasses on up button click
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = NavUtils.getParentActivityIntent(this);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                NavUtils.navigateUpTo(this, intent);
+                return true;
+            default :
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void setActionBarEnabled(boolean enabled) {
@@ -94,7 +108,7 @@ public class MyActivity extends ActionBarActivity {
         this.activityColor = activityColor;
     }
 
-    public ActivityBar createActivityBar(int type) {
+    public ActivityBar createActivityBar(ActivityBarType type) {
         ActivityBar activityBar = ActivityBarFactory.create(type);
 
         if(activityBar != null) {
@@ -104,5 +118,30 @@ public class MyActivity extends ActionBarActivity {
         }
 
         return activityBar;
+    }
+
+    public View createActivityContent(int layoutResource) {
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
+        viewStub.setLayoutResource(layoutResource);
+        View view = viewStub.inflate();
+
+        int i = 0;
+        String tag = "color_activity_";
+        View viewChild = view.findViewWithTag(tag + i);
+        while (viewChild != null) {
+            if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
+                ((TextView) viewChild).setTextColor(this.activityColor.getColor());
+            } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
+                ((Button) viewChild).setTextColor(getResources().getColor(R.color.white));
+                viewChild.setBackgroundColor(this.activityColor.getColor());
+            } else {
+                viewChild.setBackgroundColor(this.activityColor.getColor());
+            }
+
+            i++;
+            viewChild = view.findViewWithTag(tag + i);
+        }
+
+        return view;
     }
 }

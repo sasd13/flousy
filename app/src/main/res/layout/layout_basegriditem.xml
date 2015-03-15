@@ -8,12 +8,12 @@
     <ImageView
         android:id="@+id/basegriditem_imageview"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/griditembox_imageview_height"
+        android:layout_height="@dimen/basegriditem_imageview_height"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/griditembox_imageview_margin"
-        android:layout_marginBottom="@dimen/griditembox_imageview_bottommargin"
-        android:layout_marginLeft="@dimen/griditembox_imageview_margin"
-        android:layout_marginRight="@dimen/griditembox_imageview_margin"
+        android:layout_marginTop="@dimen/basegriditem_imageview_margin"
+        android:layout_marginBottom="@dimen/basegriditem_imageview_bottommargin"
+        android:layout_marginLeft="@dimen/basegriditem_imageview_margin"
+        android:layout_marginRight="@dimen/basegriditem_imageview_margin"
         android:src="@drawable/griditem"/>
 
     <TextView
@@ -22,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:gravity="center"
-        android:layout_marginTop="@dimen/griditembox_textview_topmargin"
-        android:layout_marginBottom="@dimen/griditembox_textview_margin"
-        android:layout_marginLeft="@dimen/griditembox_textview_margin"
-        android:layout_marginRight="@dimen/griditembox_textview_margin"
+        android:layout_marginTop="@dimen/basegriditem_textview_topmargin"
+        android:layout_marginBottom="@dimen/basegriditem_textview_margin"
+        android:layout_marginLeft="@dimen/basegriditem_textview_margin"
+        android:layout_marginRight="@dimen/basegriditem_textview_margin"
         android:text="@string/griditem_text"
         android:textStyle="bold"
         android:textSize="@dimen/textsize_medium"

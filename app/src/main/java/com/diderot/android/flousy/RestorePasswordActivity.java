@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.BaseActivityBar;
+import flousy.gui.activitybar.ActivityBarType;
+import flousy.gui.activitybar.BaseActivityBar;
 
 public class RestorePasswordActivity extends MyActivity {
 
@@ -14,7 +14,7 @@ public class RestorePasswordActivity extends MyActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
     }
 
     @Override
@@ -30,8 +30,9 @@ public class RestorePasswordActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            default :
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

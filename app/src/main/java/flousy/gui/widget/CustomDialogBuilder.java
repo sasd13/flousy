@@ -1,4 +1,4 @@
-package flousy.util.widget;
+package flousy.gui.widget;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -37,14 +37,6 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
 
     public void setContext(Context context) {
         this.context = context;
-    }
-
-    public int getDialogType() {
-        return this.dialogType;
-    }
-
-    public void setDialogType(int dialogType) {
-        this.dialogType = dialogType;
     }
 
     @NonNull

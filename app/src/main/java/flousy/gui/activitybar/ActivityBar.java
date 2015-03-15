@@ -1,4 +1,4 @@
-package flousy.util.activitybar;
+package flousy.gui.activitybar;
 
 import android.view.View;
 import android.view.ViewStub;

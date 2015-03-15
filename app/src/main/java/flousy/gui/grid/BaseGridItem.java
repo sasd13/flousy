@@ -1,4 +1,4 @@
-package flousy.util.grid;
+package flousy.gui.grid;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.diderot.android.flousy.MyActivity;
 import com.diderot.android.flousy.R;
 
-import flousy.util.color.CustomColor;
+import flousy.gui.color.CustomColor;
 
 /**
  * <b>BaseGridItem is the class to manage basic items of a BaseGrid</b>

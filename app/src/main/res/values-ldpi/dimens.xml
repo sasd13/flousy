@@ -14,7 +14,7 @@
     <dimen name="linearlayout_margintop">30dp</dimen>
 
     <!-- View -->
-    <dimen name="view_margintop">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7-->
+    <dimen name="view_margintop">7dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7-->
 
     <!-- Horizontal bar -->
     <dimen name="horizontalbar_margintop">3dp</dimen>
@@ -32,7 +32,7 @@
     <!-- Grid -->
     <dimen name="grid_horizontalspacing">20dp</dimen>
     <dimen name="grid_verticalspacing">20dp</dimen>
-    <integer name="grid_numcolumns">3</integer><!-- numColumns : auto_fit (-1) --><!-- DIFF land : 3-->
+    <integer name="grid_numcolumns">2</integer><!-- numColumns : auto_fit (-1) --><!-- DIFF land : 3-->
     <dimen name="basegriditem_imageview_height">77dp</dimen>
     <dimen name="basegriditem_imageview_margin">10dp</dimen>
     <dimen name="basegriditem_imageview_bottommargin">5dp</dimen>

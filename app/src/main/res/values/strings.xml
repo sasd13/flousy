@@ -19,30 +19,56 @@
     <string name="activity_offers_name">Offres</string>
     <string name="activity_settings_name">Paramètres</string>
 
+    <!-- TextView -->
+    <string name="textview_identity">Identité</string>
+    <string name="textview_connection">Connexion</string>
+
+    <!-- EditText -->
+    <string name="edittext_firstname_hint">Prénom</string>
+    <string name="edittext_lastname_hint">Nom</string>
+    <string name="edittext_email_hint">Adresse email</string>
+    <string name="edittext_password_hint">Mot de passe</string>
+
+    <!-- Button -->
+    <string name="button_save_text">Enregistrer</string>
+
+    <!-- Action bar -->
+    <string name="action_search">Search</string>
+
+    <!-- Searchable -->
+    <string name="search_hint">Rechercher</string>
+
+    <!-- Activity bar -->
+    <string name="titledbar_textview_text">Titre</string>
+
+    <!-- Alert dialog -->
+    <string name="alertdialog_title_careful">Attention</string>
+    <string name="alertdialog_message_confirm">Confirmer ?</string>
+    <string name="alertdialog_title_error">Erreur</string>
+    <string name="alertdialog_message_error">Une erreur est survenue</string>
+    <string name="alertdialog_button_yes">Oui</string>
+    <string name="alertdialog_button_no">Non</string>
+    <string name="alertdialog_button_ok">OK</string>
+    <string name="alertdialog_button_cancel">Annuler</string>
+
+    <!-- Grid -->
+    <string name="griditem_text">Item</string>
+
     <!-- Log in -->
-    <string name="login_edittext_email_hint">Adresse email</string>
-    <string name="login_edittext_password_hint">Mot de passe</string>
     <string name="login_button_text">Connexion</string>
     <string name="login_textview_signup">Inscription sur Flousy</string>
     <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
     <string name="login_alertdialog_title_error">Erreur connexion</string>
-    <string name="login_alertdialog_message_error">Veuillez renseigner des identifiants valides</string>
+    <string name="login_alertdialog_message_error">Identifiants invalides</string>
     <string name="login_toast_login_message">Veuillez renseigner votre email</string>
     <string name="login_toast_password_message">Veuillez renseigner votre mot de passe</string>
 
     <!-- Sign up -->
     <string name="signup_titledbar_title">Nouveau compte Flousy</string>
-    <string name="signup_textview_identity">Identité</string>
-    <string name="signup_edittext_firstname_hint">Prénom</string>
-    <string name="signup_edittext_lastname_hint">Nom</string>
-    <string name="signup_textview_connection">Connexion</string>
-    <string name="signup_edittext_email_hint">Adresse email</string>
-    <string name="signup_edittext_password_hint">Mot de passe</string>
     <string name="signup_edittext_confirmpassword_hint">Confirmer le mot de passe</string>
     <string name="signup_textview_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
-    <string name="signup_button_save">Enregistrer</string>
     <string name="signup_alertdialog_title_error">Erreur inscription</string>
-    <string name="signup_alertdialog_message_error">Veuillez remplir le formulaire d\'inscription</string>
+    <string name="signup_alertdialog_message_error">Remplir le formulaire d\'inscription</string>
     <string name="signup_alertdialog_firstname_message_error">Veuillez renseigner un prénom valide</string>
     <string name="signup_alertdialog_lastname_message_error">Veuillez renseigner un nom valide</string>
     <string name="signup_alertdialog_email_message_error">Veuillez renseigner un email valide</string>
@@ -67,29 +93,9 @@
     <string name="friends_titledbar_title_addcontact">Ajouter des contacts</string>
 
     <!-- Settings -->
-    <string name="logout_button_text">Déconnexion</string>
-    <string name="logout_alertdialog_title">Déconnexion</string>
-    <string name="logout_alertdialog_message_error">Un problème est survenu : impossible de déconnecter</string>
-
-    <!-- Action bar -->
-    <string name="action_search">Search</string>
-    <!-- Searchable -->
-    <string name="search_hint">Rechercher</string>
-
-    <!-- Activity bar -->
-    <string name="titledbar_textview_text">Titre</string>
-
-    <!-- Alert dialog -->
-    <string name="alertdialog_title_careful">Attention</string>
-    <string name="alertdialog_message_confirm">Confirmer ?</string>
-    <string name="alertdialog_title_error">Erreur</string>
-    <string name="alertdialog_message_error">Une erreur est survenue</string>
-    <string name="alertdialog_button_yes">Oui</string>
-    <string name="alertdialog_button_no">Non</string>
-    <string name="alertdialog_button_ok">OK</string>
-    <string name="alertdialog_button_cancel">Annuler</string>
-
-    <!-- Grid -->
-    <string name="griditem_text">Item</string>
+    <string name="settings_textview_connect">Rester connecté</string>
+    <string name="settings_button_logout_text">Déconnexion</string>
+    <string name="settings_alertdialog_logout_title">Déconnexion</string>
+    <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
 
 </resources>

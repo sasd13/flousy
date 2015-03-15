@@ -1,4 +1,4 @@
-package flousy.util.grid;
+package flousy.gui.grid;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-
-import flousy.util.widget.CustomOnTouchListener;
 
 /**
  * Created by Samir on 20/02/2015.

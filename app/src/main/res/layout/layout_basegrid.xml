@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     android:padding="@dimen/activitycontent_padding"
     android:layout_gravity="center"
-    android:horizontalSpacing="@dimen/gridbox_horizontalspacing"
-    android:verticalSpacing="@dimen/gridbox_verticalspacing"
-    android:numColumns="@integer/gridbox_numcolumns"
+    android:horizontalSpacing="@dimen/grid_horizontalspacing"
+    android:verticalSpacing="@dimen/grid_verticalspacing"
+    android:numColumns="@integer/grid_numcolumns"
     android:stretchMode="columnWidth"
     android:scrollbars="none">
 

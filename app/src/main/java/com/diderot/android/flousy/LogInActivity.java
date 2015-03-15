@@ -1,5 +1,6 @@
 package com.diderot.android.flousy;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,16 +13,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewStub;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import flousy.user.UserManager;
-import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.BaseActivityBar;
-import flousy.util.widget.CustomOnTouchListener;
-import flousy.util.widget.CustomDialogBuilder;
+import flousy.data.SessionManager;
+import flousy.data.UserManager;
+import flousy.gui.activitybar.ActivityBarType;
+import flousy.gui.activitybar.BaseActivityBar;
+import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.widget.CustomDialogBuilder;
+import flousy.gui.widget.KeyboardManager;
 
 public class LogInActivity extends MyActivity {
 
@@ -40,20 +44,19 @@ public class LogInActivity extends MyActivity {
         setActionBarEnabled(false);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
 
         //Set ActivityContent
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.layout_activity_login);
-        View view = viewStub.inflate();
+        View view = createActivityContent(R.layout.layout_activity_login);
 
         this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
 
-        TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
+        TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_GO) {
+                    KeyboardManager.hide(LogInActivity.this, v);
                     startConnection();
                     return true;
                 }
@@ -61,12 +64,11 @@ public class LogInActivity extends MyActivity {
             }
         };
 
-        this.editTextLogin.setOnEditorActionListener(editorActionListener);
-        this.editTextPassword.setOnEditorActionListener(editorActionListener);
+        this.editTextLogin.setOnEditorActionListener(listener);
+        this.editTextPassword.setOnEditorActionListener(listener);
 
         this.buttonConnect = (Button) findViewById(R.id.login_button_connect);
-        this.buttonConnect.setBackgroundColor(this.getActivityColor().getColor());
-        this.buttonConnect.setOnTouchListener(new CustomOnTouchListener(this.getActivityColor()));
+        this.buttonConnect.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
         this.buttonConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +83,7 @@ public class LogInActivity extends MyActivity {
             }
         });
 
-        //Add underline for textViews
+        //Add underline and link for textViews
         TextView[] textViews = {
                 (TextView) findViewById(R.id.login_textview_restorepassword),
                 (TextView) findViewById(R.id.login_textview_signup)
@@ -147,37 +149,39 @@ public class LogInActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            default :
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void startConnection() {
         UserManager manager = new UserManager(this);
-        boolean connected = false;
+        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
 
         String login = this.editTextLogin.getEditableText().toString();
         String password = this.editTextPassword.getEditableText().toString();
 
-        int errorMessageResource = R.string.login_alertdialog_message_error;
+        boolean connected = false;
+        int messageResource = R.string.login_alertdialog_message_error;
         if(login.length() == 0) {
-            errorMessageResource = R.string.login_toast_login_message;
+            messageResource = R.string.login_toast_login_message;
         } else if(password.length() == 0) {
-            errorMessageResource = R.string.login_toast_password_message;
+            messageResource = R.string.login_toast_password_message;
         } else {
-            connected = manager.connect(login, password);
+            connected = session.connect(login, password);
         }
 
         if(connected == false) {
-            switch (errorMessageResource) {
-                case R.string.login_toast_login_message :case R.string.login_toast_password_message :
-                    String message = getResources().getString(errorMessageResource);
+            switch (messageResource) {
+                case R.string.login_toast_login_message : case R.string.login_toast_password_message :
+                    String message = getResources().getString(messageResource);
                     Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
                     break;
                 case R.string.login_alertdialog_message_error :
                     CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
                     builder.setTitle(R.string.login_alertdialog_title_error)
-                            .setMessage(errorMessageResource)
+                            .setMessage(messageResource)
                             .setNeutralButton(null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
@@ -198,8 +202,8 @@ public class LogInActivity extends MyActivity {
             };
             
             this.handler = new Handler();
-            dialog.show();
             this.handler.postDelayed(this.runnable, LOADING_TIME_OUT);
+            dialog.show();
         }
     }
 }

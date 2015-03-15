@@ -9,7 +9,8 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.ImageView;
 
-import flousy.user.UserManager;
+import flousy.data.SessionManager;
+import flousy.data.UserManager;
 
 public class SplashScreenActivity extends MyActivity {
 
@@ -27,9 +28,7 @@ public class SplashScreenActivity extends MyActivity {
         setActionBarEnabled(false);
 
         //Set ActivityContent
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.layout_activity_splashscreen);
-        View splashView = viewStub.inflate();
+        View splashView = createActivityContent(R.layout.layout_activity_splashscreen);
 
         //Set Logo
         ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
@@ -41,7 +40,8 @@ public class SplashScreenActivity extends MyActivity {
         super.onStart();
 
         UserManager manager = new UserManager(this);
-        boolean logged = manager.checkUserLogged();
+        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
+        boolean logged = session.checkUserEmail();
 
         if(logged == false) {
             attachActivity(LogInActivity.class, SPLASH_TIME_OUT);
@@ -63,9 +63,10 @@ public class SplashScreenActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            default :
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**

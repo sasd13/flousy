@@ -15,25 +15,26 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:tag="color_activity_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/signup_textview_identity"
+                android:text="@string/textview_identity"
                 android:textStyle="bold"
                 android:textSize="@dimen/textsize_large"/>
 
             <View
+                android:tag="color_activity_1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/horizontalbar_height_medium"
-                android:layout_marginTop="@dimen/horizontalbar_margintop"
-                android:background="@color/customGreenApp"/>
+                android:layout_marginTop="@dimen/horizontalbar_margintop"/>
 
             <EditText
                 android:id="@+id/signup_edittext_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
-                android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="@string/signup_edittext_firstname_hint"
+                android:layout_marginTop="@dimen/view_margintop"
+                android:hint="@string/edittext_firstname_hint"
                 android:inputType="textPersonName"
                 android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
@@ -44,8 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
-                android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="@string/signup_edittext_lastname_hint"
+                android:layout_marginTop="@dimen/view_margintop"
+                android:hint="@string/edittext_lastname_hint"
                 android:inputType="textPersonName"
                 android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
@@ -61,25 +62,26 @@
             android:gravity="left|center_vertical">
 
             <TextView
+                android:tag="color_activity_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/signup_textview_connection"
+                android:text="@string/textview_connection"
                 android:textStyle="bold"
                 android:textSize="@dimen/textsize_large"/>
 
             <View
+                android:tag="color_activity_3"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/horizontalbar_height_medium"
-                android:layout_marginTop="@dimen/horizontalbar_margintop"
-                android:background="@color/customGreenApp"/>
+                android:layout_marginTop="@dimen/horizontalbar_margintop"/>
 
             <EditText
                 android:id="@+id/signup_edittext_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
-                android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="@string/signup_edittext_email_hint"
+                android:layout_marginTop="@dimen/view_margintop"
+                android:hint="@string/edittext_email_hint"
                 android:inputType="textEmailAddress"
                 android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
@@ -90,8 +92,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
-                android:layout_marginTop="@dimen/login_edittext_password_margintop"
-                android:hint="@string/signup_edittext_password_hint"
+                android:layout_marginTop="@dimen/view_margintop"
+                android:hint="@string/edittext_password_hint"
                 android:inputType="textPassword"
                 android:textSize="@dimen/textsize_medium"
                 android:imeOptions="actionDone"
@@ -102,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"
-                android:layout_marginTop="@dimen/login_edittext_password_margintop"
+                android:layout_marginTop="@dimen/view_margintop"
                 android:hint="@string/signup_edittext_confirmpassword_hint"
                 android:inputType="textPassword"
                 android:textSize="@dimen/textsize_medium"
@@ -139,12 +141,12 @@
             </LinearLayout>
 
             <Button
+                android:tag="color_activity_4"
                 android:id="@+id/signup_button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/signup_button_save"
-                android:textColor="@color/white"
+                android:text="@string/button_save_text"
                 android:textSize="@dimen/textsize_medium"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/signup_button_margintop"

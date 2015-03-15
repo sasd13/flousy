@@ -1,4 +1,4 @@
-package flousy.util.grid;
+package flousy.gui.grid;
 
 import java.util.ArrayList;
 

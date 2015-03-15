@@ -14,14 +14,15 @@ import android.view.MenuItem;
 import android.view.ViewStub;
 import android.widget.GridView;
 
-import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.BaseActivityBar;
-import flousy.util.color.CustomColor;
-import flousy.util.grid.BaseGrid;
-import flousy.util.grid.BaseGridItem;
-import flousy.util.grid.GridFactory;
-import flousy.util.grid.ListGridItem;
-import flousy.util.widget.CustomDialogBuilder;
+import flousy.gui.activitybar.ActivityBarType;
+import flousy.gui.activitybar.BaseActivityBar;
+import flousy.gui.color.CustomColor;
+import flousy.gui.grid.BaseGrid;
+import flousy.gui.grid.BaseGridItem;
+import flousy.gui.grid.GridFactory;
+import flousy.gui.grid.GridType;
+import flousy.gui.grid.ListGridItem;
+import flousy.gui.widget.CustomDialogBuilder;
 
 public class MenuActivity extends MyActivity {
 
@@ -37,14 +38,12 @@ public class MenuActivity extends MyActivity {
         setActionBarDisplayHomeAsUpEnabled(false);
 
         //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarFactory.TYPE_BASEACTIVITYBAR);
+        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
 
         //Set ActivityContent
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.layout_basegrid);
-        GridView gridView = (GridView) viewStub.inflate();
+        GridView gridView = (GridView) createActivityContent(R.layout.layout_basegrid);
 
-        BaseGrid menuGrid = (BaseGrid) GridFactory.create(this, GridFactory.TYPE_BASEGRID);
+        BaseGrid menuGrid = (BaseGrid) GridFactory.create(this, GridType.BASEGRID);
         menuGrid.adapt(gridView);
 
         ListGridItem listGridItem = new ListGridItem();
@@ -162,8 +161,9 @@ public class MenuActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            default :
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

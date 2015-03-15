@@ -1,9 +1,9 @@
-package flousy.util.widget;
+package flousy.gui.listener;
 
 import android.view.MotionEvent;
 import android.view.View;
 
-import flousy.util.color.CustomColor;
+import flousy.gui.color.CustomColor;
 
 /**
  * Created by Samir on 12/03/2015.
@@ -13,14 +13,6 @@ public class CustomOnTouchListener implements View.OnTouchListener {
     private CustomColor customColor;
 
     public CustomOnTouchListener(CustomColor customColor) {
-        this.customColor = customColor;
-    }
-
-    public CustomColor getCustomColor() {
-        return this.customColor;
-    }
-
-    public void setCustomColor(CustomColor customColor) {
         this.customColor = customColor;
     }
 

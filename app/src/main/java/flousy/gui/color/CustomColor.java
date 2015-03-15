@@ -1,4 +1,4 @@
-package flousy.util.color;
+package flousy.gui.color;
 
 import com.diderot.android.flousy.MyActivity;
 

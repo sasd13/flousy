@@ -2,6 +2,7 @@ package com.diderot.android.flousy;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -13,17 +14,19 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import flousy.user.UserManager;
+import flousy.data.DataManager;
+import flousy.data.SessionManager;
+import flousy.data.UserManager;
 import flousy.user.User;
-import flousy.util.activitybar.ActivityBarFactory;
-import flousy.util.activitybar.TitledActivityBar;
-import flousy.util.widget.CustomDialogBuilder;
-import flousy.util.widget.CustomOnTouchListener;
+import flousy.gui.activitybar.ActivityBarType;
+import flousy.gui.activitybar.TitledActivityBar;
+import flousy.gui.widget.CustomDialogBuilder;
+import flousy.gui.listener.CustomOnTouchListener;
 import flousy.user.Validator;
 
 public class SignUpActivity extends MyActivity {
 
-    private static int SIGNUP_TIME_OUT = 3000;
+    private static int SIGNUP_TIME_OUT = 2000;
     private Handler handler;
     private Runnable runnable;
 
@@ -40,13 +43,11 @@ public class SignUpActivity extends MyActivity {
         setActionBarDisplayHomeAsUpEnabled(true);
 
         //Set ActivityBar
-        TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarFactory.TYPE_TITLEDACTIVITYBAR);
+        TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarType.TITLEDBAR);
         activityBar.setTitle(getResources().getString(R.string.signup_titledbar_title));
 
         //Set ActivityContent
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(R.layout.layout_activity_signup);
-        ViewGroup view = (ViewGroup) viewStub.inflate();
+        View view = createActivityContent(R.layout.layout_activity_signup);
 
         this.editTextFirstName = (EditText) findViewById(R.id.signup_edittext_firstname);
         this.editTextLastName = (EditText) findViewById(R.id.signup_edittext_lastname);
@@ -87,55 +88,58 @@ public class SignUpActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            default :
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void signUp() {
         UserManager manager = new UserManager(this);
-        boolean signed = false;
+        DataManager data = (DataManager) manager.getManager(UserManager.TYPE_DATA);
+        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
 
         String firstName = this.editTextFirstName.getEditableText().toString();
         String lastName = this.editTextLastName.getEditableText().toString();
-        String phoneNumber = "0000";
         String email = this.editTextEmail.getEditableText().toString();
         String password = this.editTextPassword.getEditableText().toString();
         String confirmPassword = this.editTextConfirmPassword.getEditableText().toString();
 
-        Boolean checkboxValidation = this.checkBoxValidation.isChecked();
+        String phoneNumber = "0000";
+        Drawable image = null;
 
-        User user = new User(firstName, lastName, phoneNumber, email, password, null);
+        User user = new User(firstName, lastName, phoneNumber, email, password, image);
 
+        boolean signed = false;
         boolean valid = Validator.validUser(user);
         if(valid == true) {
+            Boolean checkboxValidation = this.checkBoxValidation.isChecked();
             if(confirmPassword.compareTo(password) == 0 && checkboxValidation == true) {
-                signed = manager.signUp(user);
+                signed = data.signUp(user);
             }
         }
 
-        CustomDialogBuilder builder;
-
         if(signed == false) {
-            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
+            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.signup_alertdialog_title_error)
                     .setMessage(R.string.signup_alertdialog_message_error)
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();
         } else {
-            builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
+            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
-            final Intent menuActivity = new Intent(this, LogInActivity.class);
-            menuActivity.putExtra("CLOSE", true);
-            menuActivity.putExtra("NEW_USER_FIRSTNAME", user.getFirstName());
+            final Intent loginActivity = new Intent(this, LogInActivity.class);
+            loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            loginActivity.putExtra("CLOSE", true);
+            loginActivity.putExtra("NEW_USER_FIRSTNAME", user.getFirstName());
 
             this.runnable = new Runnable() {
 
                 @Override
                 public void run() {
-                    startActivity(menuActivity);
+                    startActivity(loginActivity);
                     dialog.dismiss();
                     finish();
                 }
@@ -143,7 +147,7 @@ public class SignUpActivity extends MyActivity {
 
             this.handler = new Handler();
             dialog.show();
-            manager.connect(user.getEmail(), user.getPassword());
+            session.connect(user.getEmail(), user.getPassword());
             this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
         }
     }
