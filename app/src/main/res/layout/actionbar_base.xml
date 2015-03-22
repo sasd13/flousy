@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|center_vertical">
+
+        <ImageButton
+            android:id="@+id/actionbar_imagebutton_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/actionbar_imagebutton_previous_horizontalpadding"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_previous"
+            android:visibility="visible"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical">
+
+            <TextView
+                android:id="@+id/actionbar_textview_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/actionbar_textview_title_text"
+                android:textSize="@dimen/textsize_xxlarge"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/actionbar_textview_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/actionbar_textview_subtitle_text"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:gravity="right|center_vertical">
+
+        <ImageButton
+            android:id="@+id/actionbar_imagebutton_action_second"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/actionbar_imagebutton_action_horizontalpadding"
+            android:paddingLeft="@dimen/actionbar_imagebutton_action_horizontalpadding"
+            android:background="@color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/actionbar_imagebutton_action_first"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/actionbar_imagebutton_action_horizontalpadding"
+            android:paddingLeft="@dimen/actionbar_imagebutton_action_horizontalpadding"
+            android:background="@color/transparent"/>
+
+        <ImageButton
+            android:id="@+id/actionbar_imagebutton_drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/actionbar_imagebutton_action_horizontalpadding"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_drawer"/>
+
+    </LinearLayout>
+
+</LinearLayout>

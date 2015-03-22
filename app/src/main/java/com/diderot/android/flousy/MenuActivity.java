@@ -11,12 +11,11 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewStub;
 import android.widget.GridView;
+import android.widget.ImageButton;
 
-import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.activitybar.BaseActivityBar;
-import flousy.gui.color.CustomColor;
+import flousy.gui.actionbar.ActionBarType;
+import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.grid.BaseGrid;
 import flousy.gui.grid.BaseGridItem;
 import flousy.gui.grid.GridFactory;
@@ -24,24 +23,22 @@ import flousy.gui.grid.GridType;
 import flousy.gui.grid.ListGridItem;
 import flousy.gui.widget.CustomDialogBuilder;
 
-public class MenuActivity extends MyActivity {
+public class MenuActivity extends MotherActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
-        CustomColor activityColor = new CustomColor(getResources().getColor(APP_COLOR));
-        setActivityColor(activityColor);
+        //Set ActionBar
+        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
+        actionBar.setPreviousEnabled(false);
+        actionBar.getTextViewTitle().setText(R.string.activity_menu_name);
 
-        //Disable previous remote
-        setActionBarDisplayHomeAsUpEnabled(false);
-
-        //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
+        ImageButton buttonSearch = actionBar.getImageButtonActionFirst();
+        buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));
 
         //Set ActivityContent
-        GridView gridView = (GridView) createActivityContent(R.layout.layout_basegrid);
+        GridView gridView = (GridView) createActivityContent(R.layout.grid_base);
 
         BaseGrid menuGrid = (BaseGrid) GridFactory.create(this, GridType.BASEGRID);
         menuGrid.adapt(gridView);
@@ -57,7 +54,7 @@ public class MenuActivity extends MyActivity {
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_new_name),
                             resources.getDrawable(R.drawable.griditem_new),
-                            new CustomColor(resources.getColor(NewActivity.ACTIVITY_COLOR)),
+                            resources.getColor(NewActivity.ACTIVITY_COLOR),
                             new Intent(this, NewActivity.class)
                     );
                     break;
@@ -65,7 +62,7 @@ public class MenuActivity extends MyActivity {
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_consult_name),
                             resources.getDrawable(R.drawable.griditem_consult),
-                            new CustomColor(resources.getColor(ConsultActivity.ACTIVITY_COLOR)),
+                            resources.getColor(ConsultActivity.ACTIVITY_COLOR),
                             new Intent(this, ConsultActivity.class)
                     );
                     break;
@@ -73,7 +70,7 @@ public class MenuActivity extends MyActivity {
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_finances_name),
                             resources.getDrawable(R.drawable.griditem_finances),
-                            new CustomColor(resources.getColor(FinancesActivity.ACTIVITY_COLOR)),
+                            resources.getColor(FinancesActivity.ACTIVITY_COLOR),
                             new Intent(this, FinancesActivity.class)
                     );
                     break;
@@ -81,7 +78,7 @@ public class MenuActivity extends MyActivity {
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_friends_name),
                             resources.getDrawable(R.drawable.griditem_friends),
-                            new CustomColor(resources.getColor(FriendsActivity.ACTIVITY_COLOR)),
+                            resources.getColor(FriendsActivity.ACTIVITY_COLOR),
                             new Intent(this, FriendsActivity.class)
                     );
                     break;
@@ -89,7 +86,7 @@ public class MenuActivity extends MyActivity {
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_offers_name),
                             resources.getDrawable(R.drawable.griditem_offers),
-                            new CustomColor(resources.getColor(OffersActivity.ACTIVITY_COLOR)),
+                            resources.getColor(OffersActivity.ACTIVITY_COLOR),
                             new Intent(this, OffersActivity.class)
                     );
                     break;
@@ -97,7 +94,7 @@ public class MenuActivity extends MyActivity {
                     gridItem = new BaseGridItem(
                             resources.getString(R.string.activity_settings_name),
                             resources.getDrawable(R.drawable.griditem_settings),
-                            new CustomColor(resources.getColor(SettingsActivity.ACTIVITY_COLOR)),
+                            resources.getColor(SettingsActivity.ACTIVITY_COLOR),
                             new Intent(this, SettingsActivity.class)
                     );
                     break;
@@ -161,9 +158,6 @@ public class MenuActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 }

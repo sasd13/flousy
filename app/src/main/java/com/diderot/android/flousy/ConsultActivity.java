@@ -4,24 +4,23 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.activitybar.BaseActivityBar;
-import flousy.gui.color.CustomColor;
+import flousy.gui.actionbar.ActionBarType;
+import flousy.gui.actionbar.BaseActionBar;
 
-public class ConsultActivity extends MyActivity {
+public class ConsultActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customRed;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
-        setActivityColor(activityColor);
+        setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
+        //Set ActionBar
+        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
+        actionBar.getTextViewTitle().setText(R.string.activity_consult_name);
     }
 
     @Override
@@ -37,9 +36,6 @@ public class ConsultActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,22 +1,20 @@
 package flousy.gui.grid;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.diderot.android.flousy.MyActivity;
 import com.diderot.android.flousy.R;
-
-import flousy.gui.color.CustomColor;
 
 /**
  * <b>BaseGridItem is the class to manage basic items of a BaseGrid</b>
  * <p>
  * A BaseGrid item box has :
  * <ul>
- * <li>A color</li>
+ * <li>A background backgroundColor</li>
  * <li>An image</li>
  * <li>A text</li>
  * </ul>
@@ -29,11 +27,11 @@ import flousy.gui.color.CustomColor;
 public class BaseGridItem extends GridItem {
 
     /**
-     * BaseGridItem color
+     * BaseGridItem background backgroundColor
      *
-     * <p>type : CustomColor</p>
+     * <p>type : int</p>
      */
-    private CustomColor color;
+    private int backgroundColor;
 
     /**
      * BaseGridItem image
@@ -78,7 +76,7 @@ public class BaseGridItem extends GridItem {
      */
     public BaseGridItem() {
         super();
-        this.color = new CustomColor(MyActivity.APP_COLOR);
+        this.backgroundColor = Color.TRANSPARENT;
         this.image = null;
         this.text = "Item";
         this.intent = null;
@@ -87,33 +85,33 @@ public class BaseGridItem extends GridItem {
     /**
      * Constructor with params
      */
-    public BaseGridItem(CharSequence text, Drawable image, CustomColor color, Intent intent) {
+    public BaseGridItem(CharSequence text, Drawable image, int backgroundColor, Intent intent) {
         super();
-        this.color = color;
+        this.backgroundColor = backgroundColor;
         this.image = image;
         this.text = text;
         this.intent = intent;
     }
 
     /**
-     * Get color
+     * Get backgroundColor
      *
-     * @return CustomColor
+     * @return int
      */
-    public CustomColor getColor() { return this.color; }
+    public int getColor() { return this.backgroundColor; }
 
     /**
-     * Set color
+     * Set backgroundColor
      *
-     * @param color
+     * @param backgroundColor
      */
-    public void setColor(CustomColor color) {
-        this.color = color;
+    public void setColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
 
         ViewGroup viewGroup = (ViewGroup) this.getView();
 
         if(viewGroup != null) {
-            viewGroup.setBackgroundColor(this.color.getColor());
+            viewGroup.setBackgroundColor(this.backgroundColor);
         }
     }
 
@@ -175,19 +173,18 @@ public class BaseGridItem extends GridItem {
 
     @Override
     public void inflate() {
-        ViewGroup viewGroup = (ViewGroup) this.getView();
-        if(viewGroup != null) {
-            viewGroup.setBackgroundColor(this.color.getColor());
+        ViewGroup viewGroup = (ViewGroup) getView();
 
-            this.imageView = (ImageView) viewGroup.findViewById(R.id.basegriditem_imageview);
-            if(this.image != null) {
-                this.imageView.setImageDrawable(this.image);
-            }
+        viewGroup.setBackgroundColor(this.backgroundColor);
 
-            this.textView = (TextView) viewGroup.findViewById(R.id.basegriditem_textview);
-            if(this.text != null) {
-                this.textView.setText(this.text);
-            }
+        this.imageView = (ImageView) viewGroup.findViewById(R.id.griditem_base_imageview);
+        if(this.image != null) {
+            this.imageView.setImageDrawable(this.image);
+        }
+
+        this.textView = (TextView) viewGroup.findViewById(R.id.griditem_base_textview);
+        if(this.text != null) {
+            this.textView.setText(this.text);
         }
     }
 }

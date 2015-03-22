@@ -3,36 +3,34 @@ package com.diderot.android.flousy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewStub;
 import android.widget.ImageView;
 
 import flousy.data.SessionManager;
 import flousy.data.UserManager;
+import flousy.gui.app.NativeActionBarManager;
 
-public class SplashScreenActivity extends MyActivity {
+public class SplashScreenActivity extends ActionBarActivity {
 
     private static int SPLASH_TIME_OUT = 3000;
     private Handler handler;
     private Runnable runnable;
 
-    private static final int APP_LOGO = R.drawable.ic_app_logo;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Disable ActionBar
-        setActionBarEnabled(false);
+        //Set content view
+        setContentView(R.layout.activity_splashscreen);
 
-        //Set ActivityContent
-        View splashView = createActivityContent(R.layout.layout_activity_splashscreen);
+        //Disable native ActionBar
+        NativeActionBarManager.setActionBarEnabled(this, false);
 
         //Set Logo
         ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
-        imageView.setImageDrawable(getResources().getDrawable(APP_LOGO));
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_app_logo));
     }
 
     @Override
@@ -63,10 +61,7 @@ public class SplashScreenActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

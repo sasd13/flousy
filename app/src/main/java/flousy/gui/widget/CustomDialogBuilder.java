@@ -44,7 +44,7 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
     public AlertDialog create() {
         if(this.dialogType == TYPE_LOAD) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.layout_customdialog_load, null);
+            View view = inflater.inflate(R.layout.customdialog_load, null);
             setView(view);
         }
 

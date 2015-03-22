@@ -6,17 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.activitybar.BaseActivityBar;
-
-public class SearchResultsActivity extends MyActivity {
+public class SearchResultsActivity extends MotherActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
 
         handleIntent(getIntent());
     }
@@ -34,10 +28,7 @@ public class SearchResultsActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

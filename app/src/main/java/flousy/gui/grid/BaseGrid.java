@@ -13,7 +13,7 @@ import com.diderot.android.flousy.R;
 public class BaseGrid extends Grid {
 
     public BaseGrid(Context context) {
-        super(context, R.layout.layout_basegriditem);
+        super(context, R.layout.griditem_base);
     }
 
     @Override

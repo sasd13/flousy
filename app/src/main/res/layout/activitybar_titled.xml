@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activitybar_titled"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/activitybar_titled_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/activitybar_titled_textview_text"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_large"
+        android:layout_margin="@dimen/activitybar_titled_textview_margin"/>
+
+</LinearLayout>

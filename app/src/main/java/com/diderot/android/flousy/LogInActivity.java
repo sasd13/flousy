@@ -1,19 +1,17 @@
 package com.diderot.android.flousy;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewStub;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,13 +19,13 @@ import android.widget.Toast;
 
 import flousy.data.SessionManager;
 import flousy.data.UserManager;
-import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.activitybar.BaseActivityBar;
+import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.gui.widget.KeyboardManager;
+import flousy.gui.app.KeyboardManager;
+import flousy.gui.app.NativeActionBarManager;
 
-public class LogInActivity extends MyActivity {
+public class LogInActivity extends ActionBarActivity {
 
     private static int LOADING_TIME_OUT = 2000;
     private Handler handler;
@@ -37,17 +35,18 @@ public class LogInActivity extends MyActivity {
     private Button buttonConnect;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Disable ActionBar
-        setActionBarEnabled(false);
+        //Set content view
+        setContentView(R.layout.activity_login);
 
-        //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
+        //Disable native ActionBar
+        NativeActionBarManager.setActionBarEnabled(this, false);
 
         //Set ActivityContent
-        View view = createActivityContent(R.layout.layout_activity_login);
+        View view = findViewById(R.id.login_activitycontent);
+        ActivityContentCustomizer.customizeColor(view, this);
 
         this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
@@ -68,7 +67,7 @@ public class LogInActivity extends MyActivity {
         this.editTextPassword.setOnEditorActionListener(listener);
 
         this.buttonConnect = (Button) findViewById(R.id.login_button_connect);
-        this.buttonConnect.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+        this.buttonConnect.setOnTouchListener(new CustomOnTouchListener(getResources().getColor(MotherActivity.APP_COLOR)));
         this.buttonConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,10 +148,7 @@ public class LogInActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void startConnection() {

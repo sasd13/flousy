@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,14 +17,18 @@ import android.widget.EditText;
 import flousy.data.DataManager;
 import flousy.data.SessionManager;
 import flousy.data.UserManager;
+import flousy.gui.actionbar.ActionBarCustomizer;
+import flousy.gui.actionbar.ActionBarFactory;
+import flousy.gui.actionbar.ActionBarType;
+import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.activitycontent.ActivityContentCustomizer;
+import flousy.gui.app.NativeActionBarManager;
 import flousy.user.User;
-import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.activitybar.TitledActivityBar;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
-import flousy.user.Validator;
+import flousy.data.Validator;
 
-public class SignUpActivity extends MyActivity {
+public class SignUpActivity extends ActionBarActivity {
 
     private static int SIGNUP_TIME_OUT = 2000;
     private Handler handler;
@@ -35,19 +39,31 @@ public class SignUpActivity extends MyActivity {
     private Button buttonSave;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Enable ActionBar
-        setActionBarEnabled(true);
-        setActionBarDisplayHomeAsUpEnabled(true);
+        //Set content view
+        setContentView(R.layout.activity_signup);
 
-        //Set ActivityBar
-        TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarType.TITLEDBAR);
-        activityBar.setTitle(getResources().getString(R.string.signup_titledbar_title));
+        //Disable native ActionBar
+        NativeActionBarManager.setActionBarEnabled(this, false);
+
+        //Set ActionBar
+        BaseActionBar actionBar = (BaseActionBar) ActionBarFactory.create(this, ActionBarType.BASEBAR);
+        if(actionBar != null) {
+            ViewStub viewStub = (ViewStub) findViewById(R.id.signup_actionbar_viewstub);
+            actionBar.inflate(viewStub);
+
+            ActionBarCustomizer.customize(actionBar, this);
+
+            actionBar.setPreviousEnabled(false);
+            actionBar.setDrawerEnabled(false);
+            actionBar.getTextViewTitle().setText(R.string.activity_signup_name);
+        }
 
         //Set ActivityContent
-        View view = createActivityContent(R.layout.layout_activity_signup);
+        View view = findViewById(R.id.signup_activitycontent);
+        ActivityContentCustomizer.customizeColor(view, this);
 
         this.editTextFirstName = (EditText) findViewById(R.id.signup_edittext_firstname);
         this.editTextLastName = (EditText) findViewById(R.id.signup_edittext_lastname);
@@ -58,8 +74,7 @@ public class SignUpActivity extends MyActivity {
         this.checkBoxValidation = (CheckBox) findViewById(R.id.signup_checkbox_validation);
 
         this.buttonSave = (Button) findViewById(R.id.signup_button_save);
-        this.buttonSave.setBackgroundColor(getActivityColor().getColor());
-        this.buttonSave.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+        this.buttonSave.setOnTouchListener(new CustomOnTouchListener(getResources().getColor(MotherActivity.APP_COLOR)));
         this.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,10 +103,7 @@ public class SignUpActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void signUp() {

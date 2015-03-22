@@ -9,8 +9,6 @@ public class ActivityBarFactory {
 
     public static ActivityBar create(ActivityBarType type) {
         switch (type) {
-            case BASEBAR :
-                return new BaseActivityBar();
             case TITLEDBAR :
                 return new TitledActivityBar();
         }

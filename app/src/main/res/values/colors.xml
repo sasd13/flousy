@@ -32,15 +32,15 @@
     <item name="lightRed" type="color">#FE686A</item>
     <item name="lightYellow" type="color">#F2EB85</item>
 
-    <item name="customGreenApp" type="color">#4E655E</item>
-    <item name="customBlue" type="color">#0199D3</item>
-    <item name="customBrown" type="color">#BF8273</item>
-    <item name="customGreen" type="color">#45BC55</item>
-    <item name="customOrange" type="color">#FD951E</item>
-    <item name="customPink" type="color">#FD6C9E</item>
-    <item name="customPurple" type="color">#AA68AA</item>
-    <item name="customRed" type="color">#ED4B45</item>
-    <item name="customYellow" type="color">#FFF568</item>
+    <item name="customGreenApp" type="color">#1D3632</item>
+    <item name="customBlue" type="color">#0077B3</item>
+    <item name="customBrown" type="color">#99604C</item>
+    <item name="customGreen" type="color">#40994F</item>
+    <item name="customOrange" type="color">#d98716</item>
+    <item name="customPink" type="color">#D95777</item>
+    <item name="customPurple" type="color">#8C518C</item>
+    <item name="customRed" type="color">#D94436</item>
+    <item name="customYellow" type="color">#FFFF4C</item>
 
     <integer-array name="androidcolors">
         <item>@color/black</item>

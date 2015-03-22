@@ -56,6 +56,7 @@
             android:name=".NewActivity"
             android:label="@string/activity_new_name"
             android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -66,6 +67,7 @@
             android:name=".ConsultActivity"
             android:label="@string/activity_consult_name"
             android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -76,6 +78,7 @@
             android:name=".FinancesActivity"
             android:label="@string/activity_finances_name"
             android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -86,6 +89,7 @@
             android:name=".FriendsActivity"
             android:label="@string/activity_friends_name"
             android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -96,6 +100,7 @@
             android:name=".OffersActivity"
             android:label="@string/activity_offers_name"
             android:parentActivityName=".MenuActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -117,6 +122,7 @@
             android:name=".SearchResultsActivity"
             android:label="@string/activity_settings_name"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

@@ -3,26 +3,34 @@ package com.diderot.android.flousy;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 
+import flousy.gui.actionbar.ActionBarType;
+import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitybar.TitledActivityBar;
-import flousy.gui.color.CustomColor;
 
-public class FriendsActivity extends MyActivity {
+public class FriendsActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customBlue;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
-        setActivityColor(activityColor);
+        setActivityColor(getResources().getColor(ACTIVITY_COLOR));
+
+        //Set ActionBar
+        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
+        actionBar.getTextViewTitle().setText(R.string.activity_friends_name);
+
+        ImageButton buttonRefresh = actionBar.getImageButtonActionFirst();
+        buttonRefresh.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_refresh));
 
         //Set ActivityBar
         TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarType.TITLEDBAR);
-        activityBar.setTitle(getResources().getString(R.string.friends_titledbar_title_received));
+        activityBar.setTitle(getResources().getString(R.string.friends_tabedbar_tab_received));
     }
 
     @Override
@@ -38,9 +46,6 @@ public class FriendsActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 }

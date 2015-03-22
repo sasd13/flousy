@@ -1,21 +1,16 @@
 package com.diderot.android.flousy;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -23,17 +18,16 @@ import android.widget.TextView;
 
 import flousy.data.DataManager;
 import flousy.data.SessionManager;
-import flousy.gui.widget.KeyboardManager;
+import flousy.gui.actionbar.ActionBarType;
+import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.app.KeyboardManager;
 import flousy.user.User;
 import flousy.data.UserManager;
-import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.activitybar.BaseActivityBar;
-import flousy.gui.color.CustomColor;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
-import flousy.user.Validator;
+import flousy.data.Validator;
 
-public class SettingsActivity extends MyActivity {
+public class SettingsActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customBrown;
 
@@ -46,18 +40,18 @@ public class SettingsActivity extends MyActivity {
     private Button buttonSave;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set activity color before everything
-        CustomColor activityColor = new CustomColor(getResources().getColor(ACTIVITY_COLOR));
-        setActivityColor(activityColor);
+        setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set ActivityBar
-        BaseActivityBar activityBar = (BaseActivityBar) createActivityBar(ActivityBarType.BASEBAR);
+        //Set ActionBar
+        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
+        actionBar.getTextViewTitle().setText(R.string.activity_settings_name);
 
         //Set ActivityContent
-        View view = createActivityContent(R.layout.layout_activity_settings);
+        View view = createActivityContent(R.layout.activity_layout_settings);
 
         TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
@@ -83,7 +77,7 @@ public class SettingsActivity extends MyActivity {
         this.checkBoxConnect = (CheckBox) findViewById(R.id.settings_checkbox_connect);
 
         Button logoutButton = (Button) findViewById(R.id.settings_button_logout);
-        logoutButton.setBackgroundColor(getActivityColor().getColor());
+        logoutButton.setBackgroundColor(getActivityColor());
         logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,10 +124,7 @@ public class SettingsActivity extends MyActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-            default :
-                return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void startInject() {

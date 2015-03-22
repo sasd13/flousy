@@ -3,8 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
 
-    <!-- Application -->
-    <string name="app_name">Flousy</string>
+    <!-- ActionBar -->
+    <string name="actionbar_textview_title_text">Titre</string>
+    <string name="actionbar_textview_subtitle_text">Sous-titre</string>
+    <string name="action_search">Search</string>
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
@@ -19,42 +21,13 @@
     <string name="activity_offers_name">Offres</string>
     <string name="activity_settings_name">Paramètres</string>
 
-    <!-- TextView -->
-    <string name="textview_identity">Identité</string>
-    <string name="textview_connection">Connexion</string>
+    <!-- Activity Friends -->
+    <string name="friends_tabedbar_tab_received">Reçus</string>
+    <string name="friends_tabeddbar_tab_sended">Envoyés</string>
+    <string name="friends_tabedbar_tab_contact">Contacts</string>
+    <string name="friends_tabedbar_tab_contact_addcontact">Ajouter des contacts</string>
 
-    <!-- EditText -->
-    <string name="edittext_firstname_hint">Prénom</string>
-    <string name="edittext_lastname_hint">Nom</string>
-    <string name="edittext_email_hint">Adresse email</string>
-    <string name="edittext_password_hint">Mot de passe</string>
-
-    <!-- Button -->
-    <string name="button_save_text">Enregistrer</string>
-
-    <!-- Action bar -->
-    <string name="action_search">Search</string>
-
-    <!-- Searchable -->
-    <string name="search_hint">Rechercher</string>
-
-    <!-- Activity bar -->
-    <string name="titledbar_textview_text">Titre</string>
-
-    <!-- Alert dialog -->
-    <string name="alertdialog_title_careful">Attention</string>
-    <string name="alertdialog_message_confirm">Confirmer ?</string>
-    <string name="alertdialog_title_error">Erreur</string>
-    <string name="alertdialog_message_error">Une erreur est survenue</string>
-    <string name="alertdialog_button_yes">Oui</string>
-    <string name="alertdialog_button_no">Non</string>
-    <string name="alertdialog_button_ok">OK</string>
-    <string name="alertdialog_button_cancel">Annuler</string>
-
-    <!-- Grid -->
-    <string name="griditem_text">Item</string>
-
-    <!-- Log in -->
+    <!-- Activity LogIn -->
     <string name="login_button_text">Connexion</string>
     <string name="login_textview_signup">Inscription sur Flousy</string>
     <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
@@ -63,8 +36,23 @@
     <string name="login_toast_login_message">Veuillez renseigner votre email</string>
     <string name="login_toast_password_message">Veuillez renseigner votre mot de passe</string>
 
-    <!-- Sign up -->
-    <string name="signup_titledbar_title">Nouveau compte Flousy</string>
+    <!-- Activity Menu -->
+    <string name="menu_alertdialog_title_welcome">Bienvenue</string>
+    <string name="menu_alertdialog_message_welcome">Salut</string>
+
+    <!-- Activity New -->
+    <string name="new_actionbar_subtitle">Sélectionner la catégorie</string>
+
+    <!-- Activity RestorePassword -->
+    <string name="restorepassword_actionbar_subtitle">Récupération du mot de passe</string>
+
+    <!-- Activity Settings -->
+    <string name="settings_textview_connect">Rester connecté</string>
+    <string name="settings_button_logout_text">Déconnexion</string>
+    <string name="settings_alertdialog_logout_title">Déconnexion</string>
+    <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
+
+    <!-- Activity SignUp -->
     <string name="signup_edittext_confirmpassword_hint">Confirmer le mot de passe</string>
     <string name="signup_textview_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
     <string name="signup_alertdialog_title_error">Erreur inscription</string>
@@ -76,26 +64,42 @@
     <string name="signup_alertdialog_confirmpassword_message_error">Veuillez confirmer le mot de passe</string>
     <string name="signup_alertdialog_checkbox_message_error">Veuillez confirmer la validation</string>
 
-    <!-- Restore password -->
-    <string name="restorepassword_titledbar_title">Récupération du mot de passe</string>
+    <!-- ActivityBar -->
+    <string name="activitybar_titled_textview_text">Titre</string>
 
-    <!-- Menu -->
-    <string name="menu_alertdialog_title_welcome">Bienvenue</string>
-    <string name="menu_alertdialog_message_welcome">Salut</string>
+    <!-- Application -->
+    <string name="app_name">Flousy</string>
 
-    <!-- New -->
-    <string name="new_titledbar_title">Sélectionner la catégorie</string>
+    <!-- Button -->
+    <string name="button_save_text">Enregistrer</string>
 
-    <!-- Friends -->
-    <string name="friends_titledbar_title_received">Reçus</string>
-    <string name="friends_titledbar_title_sended">Envoyés</string>
-    <string name="friends_titledbar_title_contact">Contacts</string>
-    <string name="friends_titledbar_title_addcontact">Ajouter des contacts</string>
+    <!-- Dialog -->
+    <string name="alertdialog_title_careful">Attention</string>
+    <string name="alertdialog_message_confirm">Confirmer ?</string>
+    <string name="alertdialog_title_error">Erreur</string>
+    <string name="alertdialog_message_error">Une erreur est survenue</string>
+    <string name="alertdialog_button_yes">Oui</string>
+    <string name="alertdialog_button_no">Non</string>
+    <string name="alertdialog_button_ok">OK</string>
+    <string name="alertdialog_button_cancel">Annuler</string>
 
-    <!-- Settings -->
-    <string name="settings_textview_connect">Rester connecté</string>
-    <string name="settings_button_logout_text">Déconnexion</string>
-    <string name="settings_alertdialog_logout_title">Déconnexion</string>
-    <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
+    <!-- EditText -->
+    <string name="edittext_firstname_hint">Prénom</string>
+    <string name="edittext_lastname_hint">Nom</string>
+    <string name="edittext_email_hint">Adresse email</string>
+    <string name="edittext_password_hint">Mot de passe</string>
+
+    <!-- Grid -->
+    <string name="griditem_text">Item</string>
+
+    <!-- Searchable -->
+    <string name="search_hint">Rechercher</string>
+
+    <!-- TextView -->
+    <string name="textview_identity">Identité</string>
+    <string name="textview_connection">Connexion</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
