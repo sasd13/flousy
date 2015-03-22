@@ -133,20 +133,6 @@ public class MenuActivity extends MotherActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_activity_menu, menu);
-
-        MenuItem item = (MenuItem) menu.findItem(R.id.action_search);
-
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            android.widget.SearchView searchView = new android.widget.SearchView(this);
-            item.setActionView(searchView);
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        } else {
-            SearchView searchView = new SearchView(this);
-            MenuItemCompat.setActionView(item, searchView);
-        }
 
         super.onCreateOptionsMenu(menu);
 

@@ -14,7 +14,7 @@ public class GridAdapter extends BaseAdapter {
 
     private Grid grid;
 
-    public GridAdapter(Grid grid) {
+    protected GridAdapter(Grid grid) {
         this.grid = grid;
     }
 

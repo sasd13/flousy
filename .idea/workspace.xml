@@ -12,13 +12,13 @@
     <shared>
       <config>
         <devices>
-          <device id="2.7in QVGA" />
+          <device id="Nexus 7" />
+          <device id="4in WVGA (Nexus S)" />
           <device id="3.2in QVGA (ADP2)" />
+          <device id="2.7in QVGA" />
           <device id="wear_square" />
           <device id="Nexus 10" />
-          <device id="Nexus 7" />
           <device id="Galaxy Nexus" />
-          <device id="4in WVGA (Nexus S)" />
           <device id="Nexus S" />
           <device id="Nexus One" />
           <device id="Nexus 5" />
@@ -52,6 +52,11 @@
           <theme>@style/Theme.AppCompat.Light.DarkActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base_menu.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.DarkActionBar</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AndroidLogFilters">
@@ -59,274 +64,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e8757a3-5306-4116-9471-c2c1d23d8bad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_check_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_check_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_check_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_check_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_off_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_off_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_off_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_off_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_off_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_on_disabled_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_on_disabled_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_on_focused_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_on_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_radio_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/btn_radio_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/btn_radio_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/btn_radio_on_pressed_holo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/drawer_shadow.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/drawer_shadow.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/drawer_shadow.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/drawer_shadow.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/griditem.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/griditem_consult.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/griditem_finances.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/griditem_friends.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/griditem_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/griditem_offers.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/griditem_settings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_add_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_add_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_add_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_add_person.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_camera.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_discard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_discard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_discard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_discard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_go_to_today.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_go_to_today.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_go_to_today.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_go_to_today.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_refresh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_refresh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_refresh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_refresh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_select_all.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_select_all.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_select_all.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_select_all.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_send_now.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_send_now.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_send_now.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_send_now.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_share.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_action_share.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_action_share.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_action_share.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_app_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_app_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_drawer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_drawer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_drawer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_drawer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_previous.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_previous.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_previous.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_previous.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_multiline_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_multiline_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_multiline_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_multiline_activated_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_multiline_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_multiline_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_multiline_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_multiline_default_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_multiline_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_multiline_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_multiline_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_multiline_disabled_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_multiline_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_multiline_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_multiline_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_multiline_disabled_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/textfield_multiline_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/textfield_multiline_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/textfield_multiline_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/textfield_multiline_focused_holo_light.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/AbstractActionBar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/ActionBarCustomizer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/ActionBarFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/ActionBarType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitycontent/ActivityContentCustomizer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/BaseActionBar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/CategoryFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/app/NativeActionBarManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/actionbar_base.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layout_friends.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layout_new.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_holo_light.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_check_holo_light.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_radio_holo_light.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/edit_text_holo_light.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_category.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/griditem_base.xml" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\.idea\libraries\appcompat_v7_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\.idea\libraries\support_annotations_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\.idea\libraries\support_v4_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\java\com\diderot\android\flousy\MyActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\java\flousy\gui\activitybar\BaseActivityBar.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\griditem_consult.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\griditem_finances.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\griditem_friends.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\griditem_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\griditem_offers.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\griditem_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\ic_action_search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\ic_app_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\ic_app_name.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable-ldpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\griditem_consult.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\griditem_finances.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\griditem_friends.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\griditem_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\griditem_offers.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\griditem_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\ic_action_search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\ic_app_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\ic_app_name.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\drawable\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_activity_login.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_activity_my.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_activity_signup.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_basegriditem.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\java\flousy\gui\widget\KeyboardManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/app/KeyboardManager.java" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\java\flousy\user\Validator.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/data/Validator.java" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\java\flousy\user\ValidatorCode.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/data/ValidatorCode.java" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_activity_searchresults.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layout_searchresults.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_activity_settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_layout_settings.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_activity_splashscreen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splashscreen.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_baseactivitybar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activitybar_base.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_basegrid.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/grid_base.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_customdialog_load.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/customdialog_load.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\src\main\res\layout\layout_titledactivitybar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activitybar_titled.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/ActivityBarFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/ActivityBarFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/ActivityBarType.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/ActivityBarType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGrid.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGrid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGridItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGridItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/ConsultActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/ConsultActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/color/CustomColor.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/color/CustomColor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/widget/CustomDialogBuilder.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/widget/CustomDialogBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/listener/CustomOnTouchListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/listener/CustomOnTouchListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FinancesActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FinancesActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FriendsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FriendsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/LogInActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/LogInActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/BaseNavDrawerItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/ListNavDrawerItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/MenuNavDrawerItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerItemGroup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base_menu.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/navdraweritemgroup_base.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/GridAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/GridAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MenuActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MenuActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/NewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/NewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/OffersActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/OffersActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/RestorePasswordActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/RestorePasswordActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SearchResultsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SearchResultsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SettingsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SettingsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SignUpActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SignUpActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SplashScreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/TitledActivityBar.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/TitledActivityBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-land/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-land/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-ldpi/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-ldpi/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -355,7 +105,70 @@
     <favorites_list name="Flousy" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="MotherActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1011" max-vertical-offset="2669">
+              <caret line="101" column="112" selection-start-line="101" selection-start-column="112" selection-end-line="101" selection-end-column="112" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navdraweritemgroup_base.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navdraweritemgroup_base.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4531722" vertical-offset="156" max-vertical-offset="799">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navdraweritem_base.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.44" vertical-offset="117" max-vertical-offset="544">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_mother.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.2" vertical-offset="0" max-vertical-offset="1105">
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navdraweritem_base_menu.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base_menu.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.4" vertical-offset="102" max-vertical-offset="765">
+              <caret line="36" column="41" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -1086,43 +899,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/ActionBar.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/ActionBarType.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/listener/CustomOnTouchListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/ActivityBarType.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitybar/ActivityBarFactory.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/griditem_base.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/grid_base.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/customdialog_load.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activitybar_titled.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_searchresults.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/navdrawer.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/BaseActionBar.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/actionbar_base.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/CategoryFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_slave.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splashscreen.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activitybar_base.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_signup2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/ActionBarFactory.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/content/ContentCustomizer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SignUp2Activity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/actionbar/ActionBarCustomizer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/activitycontent/ActivityContentFactory.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_drawered.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FriendsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MenuActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/ConsultActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FinancesActivity.java" />
@@ -1137,6 +917,39 @@
         <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/widget/NativeActionBarManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/widget/KeyboardManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/app/KeyboardManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/array_menu.xml" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/drawer_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/drawer_item_menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/grid_item_base.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/griditem_base.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/ListDrawerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/DrawerItemGroup.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/DrawerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/draweritem.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/BaseDrawerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/draweritem_menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/MenuDrawerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/navdraweritem.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/navdraweritemgroup.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/GridAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/BaseNavDrawerItemGroup.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/BaseNavDrawerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/MenuNavDrawerItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MenuActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerItemGroup.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base_menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/navdraweritemgroup_base.xml" />
       </list>
     </option>
   </component>
@@ -1231,6 +1044,46 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dimens.xml" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
@@ -1251,6 +1104,106 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="flousy" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widget" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="navdrawer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1584,11 +1537,11 @@
       <recent name="com.diderot.android.flousy.MyActivity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="flousy.gui.navdrawer" />
       <recent name="com.diderot.android.flousy" />
       <recent name="flousy.util.grid" />
       <recent name="flousy.util.gridbox" />
       <recent name="flousy.util.widget" />
-      <recent name="flousy.util" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -1895,7 +1848,11 @@
       <created>1426451774690</created>
       <updated>1426451774690</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Add ActionBar (custom), begin for Navigation drawer">
+      <created>1427036651804</created>
+      <updated>1427036651804</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1927,12 +1884,12 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26359516" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37683523" sideWeight="0.52492446" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.47809666" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.4765861" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881355" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37683523" sideWeight="0.47507554" order="12" side_tool="false" content_ui="tabs" />
@@ -1949,7 +1906,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.32930514" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="752" y="146" width="587" height="320" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.32930514" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="752" y="146" width="587" height="320" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.47356495" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1969,7 +1926,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="End ImageBox with GridView" />
     <MESSAGE value="Renaming ImageBox with GridItemBox, optimisation" />
     <MESSAGE value="App begin responsive designing" />
     <MESSAGE value="Optimisation for Menu" />
@@ -1994,248 +1950,18 @@
     <MESSAGE value="Less modifications" />
     <MESSAGE value="Welcome bug correction, less modifications" />
     <MESSAGE value="Modification for user management (session and storage), optimisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification for user management (session and storage), optimisation" />
+    <MESSAGE value="Add ActionBar (custom), begin for Navigation drawer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ActionBar (custom), begin for Navigation drawer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="57" />
+      <option name="time" value="58" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGridItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2815" max-vertical-offset="3281">
-          <caret line="175" column="42" selection-start-line="175" selection-start-column="42" selection-end-line="175" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="442">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/listener/CustomOnTouchListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="561">
-          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="423" max-vertical-offset="1513">
-          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
-          <caret line="4" column="67" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/griditem_base.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/grid_base.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/customdialog_load.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activitybar_titled.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_layout_searchresults.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="331">
-          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_layout_friends.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="331">
-          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.64" vertical-offset="852" max-vertical-offset="1836">
-          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_check_holo_light.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24701874" vertical-offset="620" max-vertical-offset="1207">
-          <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_layout_settings.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1828" max-vertical-offset="2686">
-          <caret line="121" column="69" selection-start-line="121" selection-start-column="69" selection-end-line="121" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_radio_holo_light.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.3321976" vertical-offset="518" max-vertical-offset="1105">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/CategoryFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23876405" vertical-offset="0" max-vertical-offset="1955">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_category.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="331">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activitybar_base.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73413897" vertical-offset="46" max-vertical-offset="425">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splashscreen.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="527">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_layout_new.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/actionbar_base.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.68" vertical-offset="345" max-vertical-offset="1513">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15407854" vertical-offset="0" max-vertical-offset="1802">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20543806" vertical-offset="0" max-vertical-offset="3213">
-          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.897281" vertical-offset="638" max-vertical-offset="1088">
-          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="763" max-vertical-offset="1479">
-          <caret line="96" column="61" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/ConsultActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="697">
@@ -2256,14 +1982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6544944" vertical-offset="108" max-vertical-offset="816">
           <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MenuActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.6853933" vertical-offset="0" max-vertical-offset="2499">
-          <caret line="161" column="5" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -2385,16 +2103,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="397" max-vertical-offset="850">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/LogInActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3764045" vertical-offset="223" max-vertical-offset="2822">
-          <caret line="44" column="64" selection-start-line="43" selection-start-column="8" selection-end-line="44" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2426,6 +2136,238 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5730337" vertical-offset="0" max-vertical-offset="357">
           <caret line="15" column="115" selection-start-line="15" selection-start-column="115" selection-end-line="15" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.056179777" vertical-offset="694" max-vertical-offset="1513">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8" vertical-offset="1002" max-vertical-offset="2686">
+          <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.56" vertical-offset="220" max-vertical-offset="2023">
+          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/griditem_base.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.72" vertical-offset="0" max-vertical-offset="680">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/ListGridItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0758427" vertical-offset="229" max-vertical-offset="731">
+          <caret line="38" column="5" selection-start-line="22" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="1088">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="680">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGridItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.974719" vertical-offset="2806" max-vertical-offset="3162">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="442">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/grid_base.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/BaseGridAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33146068" vertical-offset="1" max-vertical-offset="442">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/GridAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8017493" vertical-offset="439" max-vertical-offset="850">
+          <caret line="59" column="27" selection-start-line="35" selection-start-column="8" selection-end-line="59" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/grid/GridItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5758427" vertical-offset="324" max-vertical-offset="680">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/ListNavDrawerItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4185393" vertical-offset="90" max-vertical-offset="748">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="381" max-vertical-offset="833">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/MenuNavDrawerItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6207865" vertical-offset="0" max-vertical-offset="799">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/LogInActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3764045" vertical-offset="223" max-vertical-offset="2822">
+          <caret line="44" column="64" selection-start-line="43" selection-start-column="8" selection-end-line="44" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MenuActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14044943" vertical-offset="1871" max-vertical-offset="2261">
+          <caret line="134" column="80" selection-start-line="134" selection-start-column="80" selection-end-line="134" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerItemGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6011236" vertical-offset="823" max-vertical-offset="1258">
+          <caret line="71" column="100" selection-start-line="71" selection-start-column="100" selection-end-line="71" selection-end-column="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/NavDrawerItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6235955" vertical-offset="358" max-vertical-offset="714">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/gui/navdrawer/BaseNavDrawerItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6348315" vertical-offset="182" max-vertical-offset="1156">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.2" vertical-offset="0" max-vertical-offset="1105">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.44" vertical-offset="117" max-vertical-offset="544">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navdraweritem_base_menu.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.4" vertical-offset="102" max-vertical-offset="765">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1011" max-vertical-offset="2669">
+          <caret line="101" column="112" selection-start-line="101" selection-start-column="112" selection-end-line="101" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navdraweritemgroup_base.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4531722" vertical-offset="156" max-vertical-offset="799">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding />
         </state>
       </provider>

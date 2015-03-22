@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left|center_vertical"
+    android:paddingLeft="5dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/navdraweritemgroup_textview"
+        android:tag="navdraweritemgroup_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:gravity="left|center_vertical"
+        android:text="ItemGroupTitle"
+        android:textStyle="bold"
+        android:textColor="@color/customGreenApp"/>
+
+    <View
+        android:tag="navdraweritemgroup_textview_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/button_material_dark"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="3dp"/>
+
+    <!-- The navigation drawer -->
+    <ListView
+        android:tag="navdraweritemgroup_listview"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="@color/transparent"/>
+
+</LinearLayout>
