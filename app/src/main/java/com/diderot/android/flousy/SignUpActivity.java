@@ -23,7 +23,7 @@ import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.app.NativeActionBarManager;
-import flousy.user.User;
+import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.data.Validator;

@@ -1,6 +1,8 @@
-package flousy.user;
+package flousy.content.user;
 
 import android.graphics.drawable.Drawable;
+
+import flousy.content.Person;
 
 /**
  * Created by Samir on 07/03/2015.

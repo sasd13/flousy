@@ -11,20 +11,20 @@ import android.widget.BaseAdapter;
  */
 public class NavDrawerAdapter extends BaseAdapter {
 
-    private ListNavDrawerItem listNavDrawerItem;
+    private NavDrawer navDrawer;
 
-    public NavDrawerAdapter(ListNavDrawerItem listNavDrawerItem) {
-        this.listNavDrawerItem = listNavDrawerItem;
+    public NavDrawerAdapter(NavDrawer navDrawer) {
+        this.navDrawer = navDrawer;
     }
 
     @Override
     public int getCount() {
-        return this.listNavDrawerItem.size();
+        return this.navDrawer.count();
     }
 
     @Override
     public Object getItem(int position) {
-        return this.listNavDrawerItem.get(position);
+        return this.navDrawer.getChild(position);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class NavDrawerAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        AbstractNavDrawerItem drawerItem = this.listNavDrawerItem.get(position);
+        AbstractNavDrawerItem drawerItem = this.navDrawer.getChild(position);
 
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) drawerItem.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -1,6 +1,6 @@
 package flousy.data;
 
-import flousy.user.User;
+import flousy.content.user.User;
 
 /**
  * Created by Samir on 13/03/2015.

@@ -2,10 +2,14 @@ package flousy.gui.navdrawer;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.diderot.android.flousy.MotherActivity;
 
 import flousy.gui.app.ListViewHeightResizer;
 
@@ -67,13 +71,19 @@ public class NavDrawerItemGroup extends AbstractNavDrawerItem {
         if(viewGroup != null) {
             this.groupTextView = (TextView) viewGroup.findViewWithTag("navdraweritemgroup_textview");
             if(this.groupTextView != null) {
-                this.groupTextView.setText(this.groupTitle);
+                this.groupTextView.setText(this.groupTitle.toString().toUpperCase());
                 this.groupTextView.setTypeface(Typeface.DEFAULT_BOLD);
             }
 
-            ListView listView = (ListView) viewGroup.findViewWithTag("navdraweritemgroup_listview");
-            listView.setAdapter(new NavDrawerAdapter(this.listNavDrawerItem));
-            ListViewHeightResizer.setListViewHeightBasedOnItems(listView);
+            LinearLayout linearLayout = (LinearLayout) viewGroup.findViewWithTag("navdraweritemgroup_linearlayout");
+            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = null;
+            for(AbstractNavDrawerItem navDrawerItem : this.listNavDrawerItem) {
+                view = inflater.inflate(navDrawerItem.getItemLayoutResource(), null);
+                navDrawerItem.setView(view);
+                navDrawerItem.inflate();
+                linearLayout.addView(view);
+            }
         }
 
         return viewGroup;

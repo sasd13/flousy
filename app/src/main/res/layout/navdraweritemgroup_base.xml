@@ -10,30 +10,28 @@
         android:id="@+id/navdraweritemgroup_textview"
         android:tag="navdraweritemgroup_textview"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:layout_marginBottom="5dp"
         android:paddingLeft="16dp"
         android:gravity="left|center_vertical"
-        android:text="ItemGroupTitle"
-        android:textSize="@dimen/textsize_medium"
-        android:textStyle="bold"
-        android:textColor="@color/customGreenApp"/>
+        android:text="ItemGroupTitle"/>
 
     <View
         android:tag="navdraweritemgroup_textview_divider"
         android:layout_width="match_parent"
-        android:layout_height="2px"
+        android:layout_height="2dp"
         android:background="@color/button_material_dark"/>
 
-    <ListView
-        android:tag="navdraweritemgroup_listview"
+    <LinearLayout
+        android:tag="navdraweritemgroup_linearlayout"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:choiceMode="singleChoice"
+        android:layout_marginBottom="17dp"
         android:divider="@color/primary_material_light"
-        android:dividerHeight="1px"
-        android:background="@color/transparent"/>
+        android:dividerPadding="1px">
+
+    </LinearLayout>
 
 </LinearLayout>

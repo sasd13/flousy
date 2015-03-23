@@ -21,7 +21,7 @@ import flousy.data.SessionManager;
 import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.app.KeyboardManager;
-import flousy.user.User;
+import flousy.content.user.User;
 import flousy.data.UserManager;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;

@@ -3,7 +3,7 @@ package flousy.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import flousy.user.User;
+import flousy.content.user.User;
 
 /**
  * Created by Samir on 15/03/2015.
@@ -28,10 +28,10 @@ public class DataManager extends UserManager{
     }
 
     public boolean signUp(User user) {
-        String verifEmail = getSettings(user.getEmail()).getString(user.getEmail(), null);
-        if(verifEmail != null) {
-            return false;
-        }
+       // String verifEmail = getSettings(user.getEmail()).getString(user.getEmail(), null);
+       // if(verifEmail != null) {
+         //   return false;
+       // }
 
         boolean signed = setUser(user.getEmail(), user);
 

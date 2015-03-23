@@ -1,4 +1,4 @@
-package flousy.user;
+package flousy.content;
 
 /**
  * Created by Samir on 07/03/2015.
