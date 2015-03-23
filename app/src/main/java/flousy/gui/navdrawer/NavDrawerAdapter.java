@@ -24,7 +24,7 @@ public class NavDrawerAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return this.navDrawer.getChild(position);
+        return this.navDrawer.getItem(position);
     }
 
     @Override
@@ -34,10 +34,10 @@ public class NavDrawerAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        AbstractNavDrawerItem drawerItem = this.navDrawer.getChild(position);
+        AbstractNavDrawerItem drawerItem = this.navDrawer.getItem(position);
 
         if(convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) drawerItem.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) this.navDrawer.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(drawerItem.getItemLayoutResource(), null);
         }
 

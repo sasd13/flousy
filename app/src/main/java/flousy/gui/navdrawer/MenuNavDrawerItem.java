@@ -15,8 +15,8 @@ public class MenuNavDrawerItem extends NavDrawerItem {
     private int itemColor;
     private View itemView;
 
-    public MenuNavDrawerItem(Context context, CharSequence itemText, Intent intent, int color) {
-        super(context, itemText, intent, R.layout.navdraweritem_base_menu);
+    public MenuNavDrawerItem(CharSequence itemText, Intent intent, int color) {
+        super(itemText, intent, R.layout.navdraweritem_base_menu);
 
         this.itemColor = color;
         this.itemView = null;

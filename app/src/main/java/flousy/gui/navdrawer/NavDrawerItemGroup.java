@@ -6,28 +6,44 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.diderot.android.flousy.MotherActivity;
-
-import flousy.gui.app.ListViewHeightResizer;
+import com.diderot.android.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.
  */
 public class NavDrawerItemGroup extends AbstractNavDrawerItem {
 
+    private Context context;
     private CharSequence groupTitle;
     private TextView groupTextView;
     private ListNavDrawerItem listNavDrawerItem;
 
-    public NavDrawerItemGroup(Context context, int itemGroupLayoutResource, CharSequence itemGroupTitle) {
-        super(context, itemGroupLayoutResource);
+    public NavDrawerItemGroup(Context context, CharSequence itemGroupTitle) {
+        super(R.layout.navdraweritemgroup_base);
 
+        this.context = context;
         this.groupTitle = itemGroupTitle;
         this.groupTextView = null;
         this.listNavDrawerItem = new ListNavDrawerItem();
+    }
+
+    public NavDrawerItemGroup(Context context, CharSequence itemGroupTitle, int itemGroupLayoutResource) {
+        super(itemGroupLayoutResource);
+
+        this.context = context;
+        this.groupTitle = itemGroupTitle;
+        this.groupTextView = null;
+        this.listNavDrawerItem = new ListNavDrawerItem();
+    }
+
+    public Context getContext() {
+        return this.context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public CharSequence getGroupTitle() {
@@ -76,7 +92,7 @@ public class NavDrawerItemGroup extends AbstractNavDrawerItem {
             }
 
             LinearLayout linearLayout = (LinearLayout) viewGroup.findViewWithTag("navdraweritemgroup_linearlayout");
-            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = null;
             for(AbstractNavDrawerItem navDrawerItem : this.listNavDrawerItem) {
                 view = inflater.inflate(navDrawerItem.getItemLayoutResource(), null);
@@ -84,6 +100,7 @@ public class NavDrawerItemGroup extends AbstractNavDrawerItem {
                 navDrawerItem.inflate();
                 linearLayout.addView(view);
             }
+            linearLayout.invalidate();
         }
 
         return viewGroup;

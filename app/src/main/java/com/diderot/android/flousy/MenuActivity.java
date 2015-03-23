@@ -26,7 +26,7 @@ public class MenuActivity extends MotherActivity {
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
-        actionBar.setPreviousEnabled(false);
+        actionBar.setButtonPreviousEnabled(false);
         actionBar.getTextViewTitle().setText(R.string.activity_menu_name);
 
         ImageButton buttonSearch = actionBar.getImageButtonActionFirst();

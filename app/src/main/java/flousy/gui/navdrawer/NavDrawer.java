@@ -23,15 +23,15 @@ public class NavDrawer {
         this.context = context;
     }
 
-    public boolean addChild(AbstractNavDrawerItem item) {
+    public boolean addItem(AbstractNavDrawerItem item) {
         return this.listNavDrawerItem.add(item);
     }
 
-    public AbstractNavDrawerItem removeChild(int index) {
+    public AbstractNavDrawerItem removeItem(int index) {
         return this.listNavDrawerItem.remove(index);
     }
 
-    public AbstractNavDrawerItem getChild(int index) {
+    public AbstractNavDrawerItem getItem(int index) {
         return this.listNavDrawerItem.get(index);
     }
 

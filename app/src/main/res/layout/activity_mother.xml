@@ -48,7 +48,7 @@
     <!-- The navigation drawer -->
     <ListView android:id="@+id/right_drawer"
         android:layout_width="240dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="right"
         android:padding="10dp"
         android:divider="@android:color/transparent"

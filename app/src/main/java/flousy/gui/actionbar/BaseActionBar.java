@@ -32,7 +32,7 @@ public class BaseActionBar extends AbstractActionBar {
         return this.imageButtonPrevious;
     }
 
-    public void setPreviousEnabled(boolean enabled) {
+    public void setButtonPreviousEnabled(boolean enabled) {
         if(this.imageButtonPrevious != null) {
             this.imageButtonPrevious.setEnabled(enabled);
             if(enabled == true) {
@@ -47,7 +47,7 @@ public class BaseActionBar extends AbstractActionBar {
         return this.imageButtonDrawer;
     }
 
-    public void setDrawerEnabled(boolean enabled) {
+    public void setButtonDrawerEnabled(boolean enabled) {
         if(this.imageButtonDrawer != null) {
             this.getImageButtonDrawer().setEnabled(enabled);
             if(enabled == true) {
@@ -84,8 +84,30 @@ public class BaseActionBar extends AbstractActionBar {
         return this.imageButtonActionFirst;
     }
 
+    public void setButtonActionFirstEnabled(boolean enabled) {
+        if(this.imageButtonActionFirst != null) {
+            this.imageButtonActionFirst.setEnabled(enabled);
+            if(enabled == true) {
+                this.imageButtonActionFirst.setVisibility(View.VISIBLE);
+            } else {
+                this.imageButtonActionFirst.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
     public ImageButton getImageButtonActionSecond() {
         return this.imageButtonActionSecond;
+    }
+
+    public void setImageButtonActionSecondEnabled(boolean enabled) {
+        if(this.imageButtonActionSecond != null) {
+            this.imageButtonActionSecond.setEnabled(enabled);
+            if(enabled == true) {
+                this.imageButtonActionSecond.setVisibility(View.VISIBLE);
+            } else {
+                this.imageButtonActionSecond.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 
     @Override

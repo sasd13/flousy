@@ -33,8 +33,10 @@ public class ActionBarCustomizer {
         }
 
         actionBar.getView().setBackgroundColor(activityColor);
-        actionBar.setPreviousEnabled(true);
+        actionBar.setButtonPreviousEnabled(true);
         actionBar.setSubTitleEnabled(false);
+        actionBar.setButtonActionFirstEnabled(false);
+        actionBar.setImageButtonActionSecondEnabled(false);
 
         CustomOnTouchListener listener = new CustomOnTouchListener(activityColor);
         actionBar.getImageButtonPrevious().setOnTouchListener(listener);

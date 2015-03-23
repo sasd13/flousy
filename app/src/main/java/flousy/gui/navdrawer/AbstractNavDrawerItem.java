@@ -1,6 +1,5 @@
 package flousy.gui.navdrawer;
 
-import android.content.Context;
 import android.view.View;
 
 /**
@@ -8,22 +7,12 @@ import android.view.View;
  */
 public abstract class AbstractNavDrawerItem {
 
-    private Context context;
     private int itemLayoutResource;
     private View view;
 
-    protected AbstractNavDrawerItem(Context context, int itemLayoutResource) {
-        this.context = context;
+    protected AbstractNavDrawerItem(int itemLayoutResource) {
         this.itemLayoutResource = itemLayoutResource;
         this.view = null;
-    }
-
-    public Context getContext() {
-        return this.context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
     }
 
     public int getItemLayoutResource() {

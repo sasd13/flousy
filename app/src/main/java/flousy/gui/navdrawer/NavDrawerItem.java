@@ -17,16 +17,16 @@ public class NavDrawerItem extends AbstractNavDrawerItem {
     private TextView itemTextView;
     private Intent intent;
 
-    public NavDrawerItem(Context context, CharSequence itemText, Intent intent) {
-        super(context, R.layout.navdraweritem_base);
+    public NavDrawerItem(CharSequence itemText, Intent intent) {
+        super(R.layout.navdraweritem_base);
 
         this.itemText = itemText;
         this.itemTextView = null;
         this.intent = intent;
     }
 
-    public NavDrawerItem(Context context, CharSequence itemText, Intent intent, int itemLayoutResource) {
-        super(context, itemLayoutResource);
+    public NavDrawerItem(CharSequence itemText, Intent intent, int itemLayoutResource) {
+        super(itemLayoutResource);
 
         this.itemText = itemText;
         this.itemTextView = null;
@@ -62,14 +62,6 @@ public class NavDrawerItem extends AbstractNavDrawerItem {
             if(this.itemTextView != null) {
                 this.itemTextView.setText(this.itemText);
             }
-
-            viewGroup.setClickable(true);
-            viewGroup.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getContext().startActivity(getIntent());
-                }
-            });
         }
 
         return viewGroup;
