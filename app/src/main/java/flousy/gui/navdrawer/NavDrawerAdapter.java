@@ -34,7 +34,7 @@ public class NavDrawerAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        NavDrawerItem drawerItem = this.listNavDrawerItem.get(position);
+        AbstractNavDrawerItem drawerItem = this.listNavDrawerItem.get(position);
 
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) drawerItem.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

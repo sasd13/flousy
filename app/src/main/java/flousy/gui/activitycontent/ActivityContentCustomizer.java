@@ -1,6 +1,7 @@
 package flousy.gui.activitycontent;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,6 +31,8 @@ public class ActivityContentCustomizer {
         while (viewChild != null) {
             if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
                 ((TextView) viewChild).setTextColor(activityColor);
+                CharSequence text = ((TextView) viewChild).getText();
+                ((TextView) viewChild).setText(text.toString().toUpperCase());
             } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
                 ((Button) viewChild).setTextColor(activity.getResources().getColor(R.color.white));
                 viewChild.setBackgroundColor(activityColor);

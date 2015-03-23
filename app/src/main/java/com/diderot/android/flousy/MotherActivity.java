@@ -19,11 +19,13 @@ import flousy.gui.activitybar.ActivityBar;
 import flousy.gui.activitybar.ActivityBarFactory;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
+import flousy.gui.app.ListViewHeightResizer;
 import flousy.gui.color.CustomColor;
 import flousy.gui.app.NativeActionBarManager;
 import flousy.gui.navdrawer.ListNavDrawerItem;
 import flousy.gui.navdrawer.MenuNavDrawerItem;
 import flousy.gui.navdrawer.NavDrawerAdapter;
+import flousy.gui.navdrawer.NavDrawerItem;
 import flousy.gui.navdrawer.NavDrawerItemGroup;
 
 public class MotherActivity extends ActionBarActivity {
@@ -149,8 +151,21 @@ public class MotherActivity extends ActionBarActivity {
             }
             navDrawerItemGroup.addChild(menuNavDrawerItem);
         }
-
         listNavDrawerItem.add(navDrawerItemGroup);
+
+        navDrawerItemGroup = new NavDrawerItemGroup(this, R.layout.navdraweritemgroup_base, "Catégories".toUpperCase());
+        NavDrawerItem navDrawerItem = new NavDrawerItem(this, "Ajouter catégorie", null);
+        navDrawerItemGroup.addChild(navDrawerItem);
+        listNavDrawerItem.add(navDrawerItemGroup);
+
+        navDrawerItemGroup = new NavDrawerItemGroup(this, R.layout.navdraweritemgroup_base, "Amis".toUpperCase());
+        navDrawerItem = new NavDrawerItem(this, "Ajouter", null);
+        navDrawerItemGroup.addChild(navDrawerItem);
+        listNavDrawerItem.add(navDrawerItemGroup);
+
+        navDrawerItem = new NavDrawerItem(this, "Déconnexion", null);
+        listNavDrawerItem.add(navDrawerItem);
+
         this.drawerList.setAdapter(new NavDrawerAdapter(listNavDrawerItem));
     }
 

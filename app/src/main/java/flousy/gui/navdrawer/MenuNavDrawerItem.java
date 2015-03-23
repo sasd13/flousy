@@ -10,7 +10,7 @@ import com.diderot.android.flousy.R;
 /**
  * Created by Samir on 22/03/2015.
  */
-public class MenuNavDrawerItem extends BaseNavDrawerItem {
+public class MenuNavDrawerItem extends NavDrawerItem {
 
     private int itemColor;
     private View itemView;

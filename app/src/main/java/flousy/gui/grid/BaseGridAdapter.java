@@ -10,16 +10,16 @@ import flousy.gui.listener.CustomOnTouchListener;
  */
 public class BaseGridAdapter extends GridAdapter {
 
-    public BaseGridAdapter(BaseGrid grid) {
-        super(grid);
+    public BaseGridAdapter(BaseGrid baseGrid) {
+        super(baseGrid);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = super.getView(position, convertView, parent);
 
-        BaseGridItem gridItem = (BaseGridItem) getItem(position);
-        convertView.setOnTouchListener(new CustomOnTouchListener(gridItem.getColor()));
+        BaseGridItem baseGridItem = (BaseGridItem) getItem(position);
+        convertView.setOnTouchListener(new CustomOnTouchListener(baseGridItem.getColor()));
 
         return convertView;
     }

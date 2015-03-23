@@ -1,46 +1,77 @@
 package flousy.gui.navdrawer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.diderot.android.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public abstract class NavDrawerItem {
+public class NavDrawerItem extends AbstractNavDrawerItem {
 
-    private Context context;
-    private int itemLayoutResource;
-    private View view;
+    private CharSequence itemText;
+    private TextView itemTextView;
+    private Intent intent;
 
-    protected NavDrawerItem(Context context, int itemLayoutResource) {
-        this.context = context;
-        this.itemLayoutResource = itemLayoutResource;
-        this.view = null;
+    public NavDrawerItem(Context context, CharSequence itemText, Intent intent) {
+        super(context, R.layout.navdraweritem_base);
+
+        this.itemText = itemText;
+        this.itemTextView = null;
+        this.intent = intent;
     }
 
-    public Context getContext() {
-        return this.context;
+    public NavDrawerItem(Context context, CharSequence itemText, Intent intent, int itemLayoutResource) {
+        super(context, itemLayoutResource);
+
+        this.itemText = itemText;
+        this.itemTextView = null;
+        this.intent = intent;
     }
 
-    public void setContext(Context context) {
-        this.context = context;
+    public CharSequence getItemText() {
+        return this.itemText;
     }
 
-    public int getItemLayoutResource() {
-        return this.itemLayoutResource;
+    public void setItemText(CharSequence itemText) {
+        this.itemText = itemText;
+
+        if(this.itemTextView != null) {
+            this.itemTextView.setText(this.itemText);
+        }
     }
 
-    public void setItemLayoutResource(int itemLayoutResource) {
-        this.itemLayoutResource = itemLayoutResource;
+    public Intent getIntent() {
+        return this.intent;
     }
 
-    public View getView() {
-        return this.view;
+    public void setIntent(Intent intent) {
+        this.intent = intent;
     }
 
-    public void setView(View view) {
-        this.view = view;
-    }
+    @Override
+    public View inflate() {
+        ViewGroup viewGroup = (ViewGroup) getView();
 
-    public abstract View inflate();
+        if(viewGroup != null) {
+            this.itemTextView = (TextView) viewGroup.findViewWithTag("navdraweritem_textview");
+            if(this.itemTextView != null) {
+                this.itemTextView.setText(this.itemText);
+            }
+
+            viewGroup.setClickable(true);
+            viewGroup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getContext().startActivity(getIntent());
+                }
+            });
+        }
+
+        return viewGroup;
+    }
 }

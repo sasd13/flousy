@@ -5,14 +5,14 @@ import java.util.ArrayList;
 /**
  * Created by Samir on 22/03/2015.
  */
-public class ListNavDrawerItem extends ArrayList<NavDrawerItem> {
+public class ListNavDrawerItem extends ArrayList<AbstractNavDrawerItem> {
 
     public ListNavDrawerItem() {
         super();
     }
 
     @Override
-    public NavDrawerItem get(int index) {
+    public AbstractNavDrawerItem get(int index) {
         if(index < 0 || index > (this.size() - 1)) {
             return null;
         }
@@ -21,17 +21,17 @@ public class ListNavDrawerItem extends ArrayList<NavDrawerItem> {
     }
 
     @Override
-    public boolean add(NavDrawerItem navDrawerItem) {
-        if(this.contains(navDrawerItem) == true) {
+    public boolean add(AbstractNavDrawerItem abstractNavDrawerItem) {
+        if(this.contains(abstractNavDrawerItem) == true) {
             return false;
         }
 
-        return super.add(navDrawerItem);
+        return super.add(abstractNavDrawerItem);
     }
 
     @Override
     public boolean remove(Object object) {
-        if(object instanceof NavDrawerItem == false) {
+        if(object instanceof AbstractNavDrawerItem == false) {
             return false;
         }
 

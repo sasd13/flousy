@@ -56,7 +56,7 @@ public class SignUpActivity extends ActionBarActivity {
 
             ActionBarCustomizer.customize(actionBar, this);
 
-            actionBar.setPreviousEnabled(false);
+            actionBar.setPreviousEnabled(true);
             actionBar.setDrawerEnabled(false);
             actionBar.getTextViewTitle().setText(R.string.activity_signup_name);
         }

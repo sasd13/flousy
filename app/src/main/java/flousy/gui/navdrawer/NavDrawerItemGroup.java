@@ -1,17 +1,18 @@
 package flousy.gui.navdrawer;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ListView;
-import android.widget.TableRow;
 import android.widget.TextView;
+
+import flousy.gui.app.ListViewHeightResizer;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public class NavDrawerItemGroup extends NavDrawerItem {
+public class NavDrawerItemGroup extends AbstractNavDrawerItem {
 
     private CharSequence groupTitle;
     private TextView groupTextView;
@@ -45,18 +46,18 @@ public class NavDrawerItemGroup extends NavDrawerItem {
         return this.listNavDrawerItem.size();
     }
 
-    public NavDrawerItem getChild(int position) {
+    public AbstractNavDrawerItem getChild(int position) {
         return this.listNavDrawerItem.get(position);
     }
 
-    public boolean addChild(NavDrawerItem navDrawerItem) {
-        return this.listNavDrawerItem.add(navDrawerItem);
+    public boolean addChild(AbstractNavDrawerItem abstractNavDrawerItem) {
+        return this.listNavDrawerItem.add(abstractNavDrawerItem);
     }
 
     public boolean removeChild(int position) {
-        NavDrawerItem navDrawerItem = this.listNavDrawerItem.get(position);
+        AbstractNavDrawerItem abstractNavDrawerItem = this.listNavDrawerItem.get(position);
 
-        return this.listNavDrawerItem.remove(navDrawerItem);
+        return this.listNavDrawerItem.remove(abstractNavDrawerItem);
     }
 
     @Override
@@ -67,10 +68,12 @@ public class NavDrawerItemGroup extends NavDrawerItem {
             this.groupTextView = (TextView) viewGroup.findViewWithTag("navdraweritemgroup_textview");
             if(this.groupTextView != null) {
                 this.groupTextView.setText(this.groupTitle);
+                this.groupTextView.setTypeface(Typeface.DEFAULT_BOLD);
             }
 
             ListView listView = (ListView) viewGroup.findViewWithTag("navdraweritemgroup_listview");
             listView.setAdapter(new NavDrawerAdapter(this.listNavDrawerItem));
+            ListViewHeightResizer.setListViewHeightBasedOnItems(listView);
         }
 
         return viewGroup;

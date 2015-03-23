@@ -1,14 +1,9 @@
 package com.diderot.android.flousy;
 
 import android.app.AlertDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
@@ -16,8 +11,8 @@ import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
-import flousy.gui.grid.BaseGrid;
 import flousy.gui.grid.BaseGridItem;
+import flousy.gui.grid.BaseGrid;
 import flousy.gui.grid.GridFactory;
 import flousy.gui.grid.GridType;
 import flousy.gui.grid.ListGridItem;
@@ -45,13 +40,13 @@ public class MenuActivity extends MotherActivity {
 
         ListGridItem listGridItem = new ListGridItem();
 
-        BaseGridItem gridItem = null;
+        BaseGridItem baseGridItem = null;
         Resources resources = getResources();
 
         for(int i=0; i<6; i++) {
             switch(i) {
                 case 0:
-                    gridItem = new BaseGridItem(
+                    baseGridItem = new BaseGridItem(
                             resources.getString(R.string.activity_new_name),
                             resources.getDrawable(R.drawable.griditem_new),
                             resources.getColor(NewActivity.ACTIVITY_COLOR),
@@ -59,7 +54,7 @@ public class MenuActivity extends MotherActivity {
                     );
                     break;
                 case 1:
-                    gridItem = new BaseGridItem(
+                    baseGridItem = new BaseGridItem(
                             resources.getString(R.string.activity_consult_name),
                             resources.getDrawable(R.drawable.griditem_consult),
                             resources.getColor(ConsultActivity.ACTIVITY_COLOR),
@@ -67,7 +62,7 @@ public class MenuActivity extends MotherActivity {
                     );
                     break;
                 case 2:
-                    gridItem = new BaseGridItem(
+                    baseGridItem = new BaseGridItem(
                             resources.getString(R.string.activity_finances_name),
                             resources.getDrawable(R.drawable.griditem_finances),
                             resources.getColor(FinancesActivity.ACTIVITY_COLOR),
@@ -75,7 +70,7 @@ public class MenuActivity extends MotherActivity {
                     );
                     break;
                 case 3:
-                    gridItem = new BaseGridItem(
+                    baseGridItem = new BaseGridItem(
                             resources.getString(R.string.activity_friends_name),
                             resources.getDrawable(R.drawable.griditem_friends),
                             resources.getColor(FriendsActivity.ACTIVITY_COLOR),
@@ -83,7 +78,7 @@ public class MenuActivity extends MotherActivity {
                     );
                     break;
                 case 4:
-                    gridItem = new BaseGridItem(
+                    baseGridItem = new BaseGridItem(
                             resources.getString(R.string.activity_offers_name),
                             resources.getDrawable(R.drawable.griditem_offers),
                             resources.getColor(OffersActivity.ACTIVITY_COLOR),
@@ -91,7 +86,7 @@ public class MenuActivity extends MotherActivity {
                     );
                     break;
                 case 5:
-                    gridItem = new BaseGridItem(
+                    baseGridItem = new BaseGridItem(
                             resources.getString(R.string.activity_settings_name),
                             resources.getDrawable(R.drawable.griditem_settings),
                             resources.getColor(SettingsActivity.ACTIVITY_COLOR),
@@ -100,7 +95,7 @@ public class MenuActivity extends MotherActivity {
                     break;
             }
 
-            listGridItem.add(gridItem);
+            listGridItem.add(baseGridItem);
         }
 
         menuGrid.setListGridItem(listGridItem);

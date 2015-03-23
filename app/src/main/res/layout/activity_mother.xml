@@ -12,8 +12,7 @@
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:padding="10dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
         android:background="@color/background_material_light"/>
