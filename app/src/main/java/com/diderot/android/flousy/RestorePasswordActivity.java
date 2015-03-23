@@ -17,15 +17,15 @@ public class RestorePasswordActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BaseActionBar actionBar = (BaseActionBar) ActionBarFactory.create(this, ActionBarType.BASEBAR);
+        BaseActionBar actionBar = (BaseActionBar) ActionBarFactory.create(ActionBarType.BASEBAR);
         if(actionBar != null) {
             ViewStub viewStub = (ViewStub) findViewById(R.id.restorepassword_actionbar_viewstub);
             actionBar.inflate(viewStub);
 
             ActionBarCustomizer.customize(actionBar, this);
 
-            actionBar.setButtonPreviousEnabled(true);
-            actionBar.setButtonDrawerEnabled(false);
+            actionBar.setPreviousEnabled(true);
+            actionBar.setDrawerEnabled(false);
             actionBar.getTextViewTitle().setText(R.string.activity_restorepassword_name);
         }
     }

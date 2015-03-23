@@ -3,19 +3,19 @@ package flousy.gui.grid;
 import android.content.Context;
 import android.widget.GridView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Samir on 13/03/2015.
  */
 public abstract class Grid {
 
     private Context context;
-    private ListGridItem listGridItem;
-    private int itemLayoutResource;
+    private ArrayList<GridItem> listGridItem;
 
     protected Grid(Context context, int itemLayoutResource) {
         this.context = context;
-        this.listGridItem = new ListGridItem();
-        this.itemLayoutResource = itemLayoutResource;
+        this.listGridItem = new ArrayList<GridItem>();
     }
 
     public Context getContext() {
@@ -26,20 +26,32 @@ public abstract class Grid {
         this.context = context;
     }
 
-    public ListGridItem getListGridItem() {
-        return this.listGridItem;
+    public GridItem getItem(int index) {
+        if(index < 0 || index > (this.listGridItem.size() - 1)) {
+            return null;
+        }
+
+        return this.listGridItem.get(index);
     }
 
-    public void setListGridItem(ListGridItem listGridItem) {
-        this.listGridItem = listGridItem;
+    public boolean addItem(GridItem gridItem) {
+        if(this.listGridItem.contains(gridItem) == true) {
+            return false;
+        }
+
+        return this.listGridItem.add(gridItem);
     }
 
-    public int getItemLayoutResource() {
-        return this.itemLayoutResource;
+    public boolean removeItem(Object object) {
+        if(object instanceof GridItem == false) {
+            return false;
+        }
+
+        return this.listGridItem.remove(object);
     }
 
-    public void setItemLayoutResource(int itemLayoutResource) {
-        this.itemLayoutResource = itemLayoutResource;
+    public int count() {
+        return this.listGridItem.size();
     }
 
     public abstract void adapt(GridView gridView);

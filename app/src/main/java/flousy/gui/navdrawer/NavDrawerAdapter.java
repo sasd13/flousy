@@ -17,6 +17,14 @@ public class NavDrawerAdapter extends BaseAdapter {
         this.navDrawer = navDrawer;
     }
 
+    public NavDrawer getNavDrawer() {
+        return this.navDrawer;
+    }
+
+    public void setNavDrawer(NavDrawer navDrawer) {
+        this.navDrawer = navDrawer;
+    }
+
     @Override
     public int getCount() {
         return this.navDrawer.count();
@@ -34,15 +42,14 @@ public class NavDrawerAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        AbstractNavDrawerItem drawerItem = this.navDrawer.getItem(position);
+        NavDrawerItem drawerItem = this.navDrawer.getItem(position);
 
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.navDrawer.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(drawerItem.getItemLayoutResource(), null);
+            convertView = inflater.inflate(drawerItem.getLayoutResource(), null);
         }
 
-        drawerItem.setView(convertView);
-        drawerItem.inflate();
+        drawerItem.inflate(convertView);
 
         return convertView;
     }

@@ -1,6 +1,5 @@
 package flousy.gui.navdrawer;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import com.diderot.android.flousy.R;
 /**
  * Created by Samir on 22/03/2015.
  */
-public class MenuNavDrawerItem extends NavDrawerItem {
+public class MenuNavDrawerItem extends BaseNavDrawerItem {
 
     private int itemColor;
     private View itemView;
@@ -35,14 +34,14 @@ public class MenuNavDrawerItem extends NavDrawerItem {
     }
 
     @Override
-    public View inflate() {
-        ViewGroup viewGroup = (ViewGroup) super.inflate();
+    public void inflate(View view) {
+        super.inflate(view);
+
+        ViewGroup viewGroup = (ViewGroup) view;
 
         this.itemView = viewGroup.findViewWithTag("navdraweritem_base_menu_view");
         if(this.itemView != null) {
             this.itemView.setBackgroundColor(this.itemColor);
         }
-
-        return viewGroup;
     }
 }

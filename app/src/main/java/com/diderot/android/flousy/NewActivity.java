@@ -7,6 +7,9 @@ import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.navdrawer.NavDrawer;
+import flousy.gui.navdrawer.BaseNavDrawerItem;
+import flousy.gui.navdrawer.BaseNavDrawerItemGroup;
 
 public class NewActivity extends MotherActivity {
 
@@ -18,6 +21,13 @@ public class NewActivity extends MotherActivity {
 
         //Set activity color before everything
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
+
+        //Set NavDrawer
+        NavDrawer navDrawer = getNavDrawer();
+        BaseNavDrawerItemGroup baseNavDrawerItemGroup = new BaseNavDrawerItemGroup(this, "Catégorie");
+        BaseNavDrawerItem baseNavDrawerItem = new BaseNavDrawerItem("Ajouter catégorie", null);
+        baseNavDrawerItemGroup.addChild(baseNavDrawerItem);
+        navDrawer.addItem(baseNavDrawerItemGroup);
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);

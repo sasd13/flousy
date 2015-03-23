@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,7 +47,7 @@ public class LogInActivity extends ActionBarActivity {
 
         //Set ActivityContent
         View view = findViewById(R.id.login_activitycontent);
-        ActivityContentCustomizer.customizeColor(view, this);
+        ActivityContentCustomizer.customize(this, view);
 
         this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
@@ -155,33 +156,27 @@ public class LogInActivity extends ActionBarActivity {
         UserManager manager = new UserManager(this);
         SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
 
-        String login = this.editTextLogin.getEditableText().toString();
+        String login = null;
+        try {
+            login = this.editTextLogin.getEditableText().toString();
+        } catch (Exception e) {
+            Log.e("error_login", e.getMessage());
+        }
         String password = this.editTextPassword.getEditableText().toString();
 
         boolean connected = false;
         int messageResource = R.string.login_alertdialog_message_error;
-        if(login.length() == 0) {
-            messageResource = R.string.login_toast_login_message;
-        } else if(password.length() == 0) {
-            messageResource = R.string.login_toast_password_message;
-        } else {
+        if(login.length() != 0 && password.length() != 0) {
             connected = session.connect(login, password);
         }
 
         if(connected == false) {
-            switch (messageResource) {
-                case R.string.login_toast_login_message : case R.string.login_toast_password_message :
-                    String message = getResources().getString(messageResource);
-                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-                    break;
-                case R.string.login_alertdialog_message_error :
-                    CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-                    builder.setTitle(R.string.login_alertdialog_title_error)
-                            .setMessage(messageResource)
-                            .setNeutralButton(null);
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-            }
+            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
+            builder.setTitle(R.string.login_alertdialog_title_error)
+                    .setMessage(messageResource)
+                    .setNeutralButton(null);
+            AlertDialog dialog = builder.create();
+            dialog.show();
         } else {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();

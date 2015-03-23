@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,21 +50,21 @@ public class SignUpActivity extends ActionBarActivity {
         NativeActionBarManager.setActionBarEnabled(this, false);
 
         //Set ActionBar
-        BaseActionBar actionBar = (BaseActionBar) ActionBarFactory.create(this, ActionBarType.BASEBAR);
+        BaseActionBar actionBar = (BaseActionBar) ActionBarFactory.create(ActionBarType.BASEBAR);
         if(actionBar != null) {
             ViewStub viewStub = (ViewStub) findViewById(R.id.signup_actionbar_viewstub);
             actionBar.inflate(viewStub);
 
             ActionBarCustomizer.customize(actionBar, this);
 
-            actionBar.setButtonPreviousEnabled(true);
-            actionBar.setButtonDrawerEnabled(false);
+            actionBar.setPreviousEnabled(true);
+            actionBar.setDrawerEnabled(false);
             actionBar.getTextViewTitle().setText(R.string.activity_signup_name);
         }
 
         //Set ActivityContent
         View view = findViewById(R.id.signup_activitycontent);
-        ActivityContentCustomizer.customizeColor(view, this);
+        ActivityContentCustomizer.customize(this, view);
 
         this.editTextFirstName = (EditText) findViewById(R.id.signup_edittext_firstname);
         this.editTextLastName = (EditText) findViewById(R.id.signup_edittext_lastname);
@@ -113,7 +114,12 @@ public class SignUpActivity extends ActionBarActivity {
 
         String firstName = this.editTextFirstName.getEditableText().toString();
         String lastName = this.editTextLastName.getEditableText().toString();
-        String email = this.editTextEmail.getEditableText().toString();
+        String email = null;
+        try {
+            email = this.editTextEmail.getEditableText().toString();
+        } catch (Exception e) {
+            Log.e("error_email", e.getMessage());
+        }
         String password = this.editTextPassword.getEditableText().toString();
         String confirmPassword = this.editTextConfirmPassword.getEditableText().toString();
 

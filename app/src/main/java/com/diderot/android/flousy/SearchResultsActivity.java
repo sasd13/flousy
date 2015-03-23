@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import flousy.gui.navdrawer.NavDrawer;
+
 public class SearchResultsActivity extends MotherActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set NavDrawer
+        NavDrawer navDrawer = getNavDrawer();
 
         handleIntent(getIntent());
     }

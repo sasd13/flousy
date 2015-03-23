@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.View;
-import android.view.ViewStub;
 
 import com.diderot.android.flousy.MotherActivity;
 
@@ -33,10 +32,10 @@ public class ActionBarCustomizer {
         }
 
         actionBar.getView().setBackgroundColor(activityColor);
-        actionBar.setButtonPreviousEnabled(true);
+        actionBar.setPreviousEnabled(true);
         actionBar.setSubTitleEnabled(false);
-        actionBar.setButtonActionFirstEnabled(false);
-        actionBar.setImageButtonActionSecondEnabled(false);
+        actionBar.setActionFirstEnabled(false);
+        actionBar.setActionSecondEnabled(false);
 
         CustomOnTouchListener listener = new CustomOnTouchListener(activityColor);
         actionBar.getImageButtonPrevious().setOnTouchListener(listener);

@@ -14,7 +14,7 @@ public class ActionBarFactory {
 
     private ActionBarFactory() {}
 
-    public static AbstractActionBar create(Context context, ActionBarType type) {
+    public static AbstractActionBar create(ActionBarType type) {
         switch (type) {
             case BASEBAR:
                 return new BaseActionBar();

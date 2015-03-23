@@ -3,7 +3,6 @@ package com.diderot.android.flousy;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,17 +20,19 @@ import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.color.CustomColor;
 import flousy.gui.app.NativeActionBarManager;
+import flousy.gui.navdrawer.BaseNavDrawer;
 import flousy.gui.navdrawer.MenuNavDrawerItem;
 import flousy.gui.navdrawer.NavDrawer;
-import flousy.gui.navdrawer.NavDrawerAdapter;
-import flousy.gui.navdrawer.NavDrawerItem;
-import flousy.gui.navdrawer.NavDrawerItemGroup;
+import flousy.gui.navdrawer.BaseNavDrawerItemGroup;
+import flousy.gui.navdrawer.NavDrawerFactory;
+import flousy.gui.navdrawer.NavDrawerType;
 
 public class MotherActivity extends ActionBarActivity {
 
     public static final int APP_COLOR = R.color.customGreenApp;
 
     private int activityColor;
+    private NavDrawer navDrawer;
     private ListView drawerList;
 
     @Override
@@ -49,52 +50,11 @@ public class MotherActivity extends ActionBarActivity {
 
         //Navigation drawer
         this.drawerList = (ListView) findViewById(R.id.right_drawer);
-    }
+        this.navDrawer = NavDrawerFactory.create(this, NavDrawerType.BASEDRAWER);
+        this.navDrawer.adapt(this.drawerList);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        super.onCreateOptionsMenu(menu);
+        BaseNavDrawerItemGroup baseNavDrawerItemGroup = new BaseNavDrawerItemGroup(this, getResources().getString(R.string.activity_menu_name));
 
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-        //Disable re-onCreate for subclasses on up button click
-        return super.onOptionsItemSelected(item);
-    }
-
-    public int getActivityColor() {
-        return this.activityColor;
-    }
-
-    public void setActivityColor(int activityColor) {
-        this.activityColor = activityColor;
-    }
-
-    public AbstractActionBar createActionBar(ActionBarType type) {
-        AbstractActionBar actionBar = ActionBarFactory.create(this, type);
-
-        if(actionBar != null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
-            actionBar.inflate(viewStub);
-            ActionBarCustomizer.customize(actionBar, this);
-        }
-
-        return actionBar;
-    }
-
-    public NavDrawer createNavDrawer() {
-        NavDrawer navDrawer = new NavDrawer(this);
-
-        NavDrawerItemGroup navDrawerItemGroup;
-
-        navDrawerItemGroup = new NavDrawerItemGroup(this, "Menu");
         MenuNavDrawerItem menuNavDrawerItem = null;
         Resources resources = getResources();
         for(int i=0; i<6; i++) {
@@ -136,27 +96,51 @@ public class MotherActivity extends ActionBarActivity {
                             resources.getColor(SettingsActivity.ACTIVITY_COLOR));
                     break;
             }
-            navDrawerItemGroup.addChild(menuNavDrawerItem);
+            baseNavDrawerItemGroup.addChild(menuNavDrawerItem);
         }
-        navDrawer.addItem(navDrawerItemGroup);
+        this.navDrawer.addItem(baseNavDrawerItemGroup);
+    }
 
-        navDrawerItemGroup = new NavDrawerItemGroup(this, "Catégories");
-        NavDrawerItem navDrawerItem = new NavDrawerItem("Ajouter catégorie", null);
-        navDrawerItemGroup.addChild(navDrawerItem);
-        navDrawer.addItem(navDrawerItemGroup);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
 
-        navDrawerItemGroup = new NavDrawerItemGroup(this, "Amis");
-        navDrawerItem = new NavDrawerItem("Ajouter", null);
-        navDrawerItemGroup.addChild(navDrawerItem);
-        navDrawer.addItem(navDrawerItemGroup);
+        return true;
+    }
 
-        navDrawerItem = new NavDrawerItem("Déconnexion", null);
-        navDrawer.addItem(navDrawerItem);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
 
-        this.drawerList.setAdapter(new NavDrawerAdapter(navDrawer));
-        this.drawerList.invalidate();
+        //Disable re-onCreate for subclasses on up button click
+        return super.onOptionsItemSelected(item);
+    }
 
-        return navDrawer;
+    public int getActivityColor() {
+        return this.activityColor;
+    }
+
+    public void setActivityColor(int activityColor) {
+        this.activityColor = activityColor;
+    }
+
+    public NavDrawer getNavDrawer() {
+        return this.navDrawer;
+    }
+
+    public AbstractActionBar createActionBar(ActionBarType type) {
+        AbstractActionBar actionBar = ActionBarFactory.create(type);
+
+        if(actionBar != null) {
+            ViewStub viewStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
+            actionBar.inflate(viewStub);
+            ActionBarCustomizer.customize(actionBar, this);
+        }
+
+        return actionBar;
     }
 
     public ActivityBar createActivityBar(ActivityBarType type) {
@@ -177,7 +161,7 @@ public class MotherActivity extends ActionBarActivity {
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
         viewStub.setLayoutResource(layoutResource);
         view = viewStub.inflate();
-        ActivityContentCustomizer.customizeColor(view, this);
+        ActivityContentCustomizer.customize(this, view);
 
         return view;
     }

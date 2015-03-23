@@ -1,7 +1,6 @@
 package flousy.gui.activitycontent;
 
 import android.app.Activity;
-import android.graphics.Typeface;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,17 +13,15 @@ import com.diderot.android.flousy.R;
  */
 public class ActivityContentCustomizer {
 
-    public static void customizeColor(View contentView, Activity activity) {
-        if(contentView != null) {
-            if (activity instanceof MotherActivity) {
-                customizeColor(activity, contentView, ((MotherActivity) activity).getActivityColor());
-            } else {
-                customizeColor(activity, contentView, activity.getResources().getColor(MotherActivity.APP_COLOR));
-            }
-        }
-    }
+    public static void customize(Activity activity, View view) {
+        int activityColor = 0;
 
-    private static void customizeColor(Activity activity, View view, int activityColor) {
+        if (activity instanceof MotherActivity) {
+            activityColor = ((MotherActivity) activity).getActivityColor();
+        } else {
+            activityColor =  activity.getResources().getColor(MotherActivity.APP_COLOR);
+        }
+
         int i = 0;
         String tag = "color_activity_";
         View viewChild = view.findViewWithTag(tag + i);

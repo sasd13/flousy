@@ -1,6 +1,5 @@
 package flousy.gui.actionbar;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -19,7 +18,7 @@ public class BaseActionBar extends AbstractActionBar {
     private ImageButton imageButtonActionFirst, imageButtonActionSecond;
 
     public BaseActionBar() {
-        super();
+        super(R.layout.actionbar_base);
 
         this.imageButtonPrevious = null;
         this.imageButtonDrawer = null;
@@ -32,7 +31,7 @@ public class BaseActionBar extends AbstractActionBar {
         return this.imageButtonPrevious;
     }
 
-    public void setButtonPreviousEnabled(boolean enabled) {
+    public void setPreviousEnabled(boolean enabled) {
         if(this.imageButtonPrevious != null) {
             this.imageButtonPrevious.setEnabled(enabled);
             if(enabled == true) {
@@ -47,7 +46,7 @@ public class BaseActionBar extends AbstractActionBar {
         return this.imageButtonDrawer;
     }
 
-    public void setButtonDrawerEnabled(boolean enabled) {
+    public void setDrawerEnabled(boolean enabled) {
         if(this.imageButtonDrawer != null) {
             this.getImageButtonDrawer().setEnabled(enabled);
             if(enabled == true) {
@@ -84,7 +83,7 @@ public class BaseActionBar extends AbstractActionBar {
         return this.imageButtonActionFirst;
     }
 
-    public void setButtonActionFirstEnabled(boolean enabled) {
+    public void setActionFirstEnabled(boolean enabled) {
         if(this.imageButtonActionFirst != null) {
             this.imageButtonActionFirst.setEnabled(enabled);
             if(enabled == true) {
@@ -99,7 +98,7 @@ public class BaseActionBar extends AbstractActionBar {
         return this.imageButtonActionSecond;
     }
 
-    public void setImageButtonActionSecondEnabled(boolean enabled) {
+    public void setActionSecondEnabled(boolean enabled) {
         if(this.imageButtonActionSecond != null) {
             this.imageButtonActionSecond.setEnabled(enabled);
             if(enabled == true) {
@@ -112,7 +111,7 @@ public class BaseActionBar extends AbstractActionBar {
 
     @Override
     public void inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(R.layout.actionbar_base);
+        viewStub.setLayoutResource(getLayoutResource());
 
         ViewGroup viewGroup = (ViewGroup) viewStub.inflate();
         setView(viewGroup);

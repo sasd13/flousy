@@ -15,7 +15,7 @@ import flousy.gui.grid.BaseGridItem;
 import flousy.gui.grid.BaseGrid;
 import flousy.gui.grid.GridFactory;
 import flousy.gui.grid.GridType;
-import flousy.gui.grid.ListGridItem;
+import flousy.gui.navdrawer.NavDrawer;
 import flousy.gui.widget.CustomDialogBuilder;
 
 public class MenuActivity extends MotherActivity {
@@ -24,9 +24,12 @@ public class MenuActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Set NavDrawer
+        NavDrawer navDrawer = getNavDrawer();
+
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
-        actionBar.setButtonPreviousEnabled(false);
+        actionBar.setPreviousEnabled(false);
         actionBar.getTextViewTitle().setText(R.string.activity_menu_name);
 
         ImageButton buttonSearch = actionBar.getImageButtonActionFirst();
@@ -37,8 +40,6 @@ public class MenuActivity extends MotherActivity {
 
         BaseGrid menuGrid = (BaseGrid) GridFactory.create(this, GridType.BASEGRID);
         menuGrid.adapt(gridView);
-
-        ListGridItem listGridItem = new ListGridItem();
 
         BaseGridItem baseGridItem = null;
         Resources resources = getResources();
@@ -95,10 +96,8 @@ public class MenuActivity extends MotherActivity {
                     break;
             }
 
-            listGridItem.add(baseGridItem);
+            menuGrid.addItem(baseGridItem);
         }
-
-        menuGrid.setListGridItem(listGridItem);
     }
 
     @Override

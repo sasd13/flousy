@@ -1,6 +1,5 @@
 package flousy.gui.actionbar;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewStub;
 
@@ -9,17 +8,27 @@ import android.view.ViewStub;
  */
 public abstract class AbstractActionBar {
 
+    private int layoutResource;
     private View view;
 
-    protected AbstractActionBar() {
+    protected AbstractActionBar(int layoutResource) {
+        this.layoutResource = layoutResource;
         this.view = null;
+    }
+
+    public int getLayoutResource() {
+        return this.layoutResource;
+    }
+
+    public void setLayoutResource(int layoutResource) {
+        this.layoutResource = layoutResource;
     }
 
     public View getView() {
         return this.view;
     }
 
-    public void setView(View view) {
+    protected void setView(View view) {
         this.view = view;
     }
 

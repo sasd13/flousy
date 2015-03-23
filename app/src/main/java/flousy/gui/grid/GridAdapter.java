@@ -18,12 +18,20 @@ public class GridAdapter extends BaseAdapter {
         this.grid = grid;
     }
 
+    public Grid getGrid() {
+        return this.grid;
+    }
+
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
+
     @Override
-    public int getCount() { return this.grid.getListGridItem().size(); }
+    public int getCount() { return this.grid.count(); }
 
     @Override
     public GridItem getItem(int position) {
-        return this.grid.getListGridItem().get(position);
+        return this.grid.getItem(position);
     }
 
     @Override
@@ -33,9 +41,11 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        GridItem gridItem = this.grid.getItem(position);
+
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) this.grid.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(this.grid.getItemLayoutResource(), null);
+            convertView = inflater.inflate(gridItem.getLayoutResource(), null);
         }
 
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -53,9 +63,7 @@ public class GridAdapter extends BaseAdapter {
             }
         });
 
-        GridItem gridItem = this.grid.getListGridItem().get(position);
-        gridItem.setView(convertView);
-        gridItem.inflate();
+        gridItem.inflate(convertView);
 
         return convertView;
     }

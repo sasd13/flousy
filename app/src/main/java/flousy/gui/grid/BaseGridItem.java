@@ -3,6 +3,7 @@ package flousy.gui.grid;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -75,7 +76,7 @@ public class BaseGridItem extends GridItem {
      * Default constructor
      */
     public BaseGridItem() {
-        super();
+        super(R.layout.griditem_base);
         this.backgroundColor = Color.TRANSPARENT;
         this.image = null;
         this.text = "Item";
@@ -86,7 +87,7 @@ public class BaseGridItem extends GridItem {
      * Constructor with params
      */
     public BaseGridItem(CharSequence text, Drawable image, int backgroundColor, Intent intent) {
-        super();
+        super(R.layout.griditem_base);
         this.backgroundColor = backgroundColor;
         this.image = image;
         this.text = text;
@@ -172,9 +173,10 @@ public class BaseGridItem extends GridItem {
     }
 
     @Override
-    public void inflate() {
-        ViewGroup viewGroup = (ViewGroup) getView();
+    public void inflate(View view) {
+        setView(view);
 
+        ViewGroup viewGroup = (ViewGroup) view;
         viewGroup.setBackgroundColor(this.backgroundColor);
 
         this.imageView = (ImageView) viewGroup.findViewById(R.id.griditem_base_imageview);

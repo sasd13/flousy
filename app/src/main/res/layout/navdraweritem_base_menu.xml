@@ -19,7 +19,7 @@
             android:background="@color/customGreenApp"/>
 
         <TextView
-            android:tag="navdraweritem_textview"
+            android:tag="navdraweritem_base_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <View
-        android:tag="navdraweritem_divider"
+        android:tag="navdraweritem_base_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/primary_material_light"/>

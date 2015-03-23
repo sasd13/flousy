@@ -6,6 +6,7 @@ import android.view.MenuItem;
 
 import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.navdrawer.NavDrawer;
 
 public class OffersActivity extends MotherActivity {
 
@@ -17,6 +18,9 @@ public class OffersActivity extends MotherActivity {
 
         //Set activity color before everything
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
+
+        //Set NavDrawer
+        NavDrawer navDrawer = getNavDrawer();
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);

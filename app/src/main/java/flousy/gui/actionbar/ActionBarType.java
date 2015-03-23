@@ -5,5 +5,4 @@ package flousy.gui.actionbar;
  */
 public enum ActionBarType {
     BASEBAR,
-    TABEDBAR
 }

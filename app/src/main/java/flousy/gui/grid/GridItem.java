@@ -7,6 +7,8 @@ import android.view.View;
  */
 public abstract class GridItem {
 
+    private int layoutResource;
+
     /**
      * GridItem view
      */
@@ -15,8 +17,17 @@ public abstract class GridItem {
     /**
      * Default constructor
      */
-    protected GridItem() {
+    protected GridItem(int layoutResource) {
+        this.layoutResource = layoutResource;
         this.view = null;
+    }
+
+    public int getLayoutResource() {
+        return this.layoutResource;
+    }
+
+    public void setLayoutResource(int layoutResource) {
+        this.layoutResource = layoutResource;
     }
 
     /**
@@ -33,9 +44,9 @@ public abstract class GridItem {
      *
      * @param view
      */
-    public void setView(View view) {
+    protected void setView(View view) {
         this.view = view;
     }
 
-    public abstract void inflate();
+    public abstract void inflate(View view);
 }

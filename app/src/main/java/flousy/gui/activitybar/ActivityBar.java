@@ -28,7 +28,7 @@ public abstract class ActivityBar {
         return this.view;
     }
 
-    public void setView(View view) {
+    protected void setView(View view) {
         this.view = view;
     }
 

@@ -7,24 +7,23 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/navdraweritemgroup_textview"
-        android:tag="navdraweritemgroup_textview"
+        android:tag="navdraweritemgroup_base_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:paddingLeft="16dp"
         android:gravity="left|center_vertical"
         android:text="ItemGroupTitle"/>
 
     <View
-        android:tag="navdraweritemgroup_textview_divider"
+        android:tag="navdraweritemgroup_base_textview_divider"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/button_material_dark"/>
 
     <LinearLayout
-        android:tag="navdraweritemgroup_linearlayout"
+        android:tag="navdraweritemgroup_base_linearlayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

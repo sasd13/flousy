@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +24,7 @@ import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.app.KeyboardManager;
 import flousy.content.user.User;
 import flousy.data.UserManager;
+import flousy.gui.navdrawer.NavDrawer;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.data.Validator;
@@ -45,6 +47,9 @@ public class SettingsActivity extends MotherActivity {
 
         //Set activity color before everything
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
+
+        //Set NavDrawer
+        NavDrawer navDrawer = getNavDrawer();
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
@@ -149,7 +154,12 @@ public class SettingsActivity extends MotherActivity {
 
         String firstName = this.editTextFirstName.getEditableText().toString();
         String lastName = this.editTextLastName.getEditableText().toString();
-        String email = this.editTextEmail.getEditableText().toString();
+        String email = null;
+        try {
+            email = this.editTextEmail.getEditableText().toString();
+        } catch (Exception e) {
+            Log.e("error_email", e.getMessage());
+        }
         String password = "password";
 
         String phoneNumber = "0000";

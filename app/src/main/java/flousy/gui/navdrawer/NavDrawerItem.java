@@ -1,69 +1,35 @@
 package flousy.gui.navdrawer;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import com.diderot.android.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public class NavDrawerItem extends AbstractNavDrawerItem {
+public abstract class NavDrawerItem {
 
-    private CharSequence itemText;
-    private TextView itemTextView;
-    private Intent intent;
+    private int layoutResource;
+    private View view;
 
-    public NavDrawerItem(CharSequence itemText, Intent intent) {
-        super(R.layout.navdraweritem_base);
-
-        this.itemText = itemText;
-        this.itemTextView = null;
-        this.intent = intent;
+    protected NavDrawerItem(int layoutResource) {
+        this.layoutResource = layoutResource;
+        this.view = null;
     }
 
-    public NavDrawerItem(CharSequence itemText, Intent intent, int itemLayoutResource) {
-        super(itemLayoutResource);
-
-        this.itemText = itemText;
-        this.itemTextView = null;
-        this.intent = intent;
+    public int getLayoutResource() {
+        return this.layoutResource;
     }
 
-    public CharSequence getItemText() {
-        return this.itemText;
+    public void setLayoutResource(int layoutResource) {
+        this.layoutResource = layoutResource;
     }
 
-    public void setItemText(CharSequence itemText) {
-        this.itemText = itemText;
-
-        if(this.itemTextView != null) {
-            this.itemTextView.setText(this.itemText);
-        }
+    public View getView() {
+        return this.view;
     }
 
-    public Intent getIntent() {
-        return this.intent;
+    protected void setView(View view) {
+        this.view = view;
     }
 
-    public void setIntent(Intent intent) {
-        this.intent = intent;
-    }
-
-    @Override
-    public View inflate() {
-        ViewGroup viewGroup = (ViewGroup) getView();
-
-        if(viewGroup != null) {
-            this.itemTextView = (TextView) viewGroup.findViewWithTag("navdraweritem_textview");
-            if(this.itemTextView != null) {
-                this.itemTextView.setText(this.itemText);
-            }
-        }
-
-        return viewGroup;
-    }
+    public abstract void inflate(View view);
 }
