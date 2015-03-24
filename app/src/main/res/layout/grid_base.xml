@@ -10,6 +10,6 @@
     android:verticalSpacing="@dimen/grid_base_verticalspacing"
     android:numColumns="@integer/grid_base_numcolumns"
     android:stretchMode="columnWidth"
-    android:scrollbars="none">
+    android:scrollbarStyle="outsideOverlay">
 
 </GridView>
