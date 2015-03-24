@@ -8,8 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import flousy.data.SessionManager;
-import flousy.data.UserManager;
+import flousy.util.SessionManager;
+import flousy.util.UserManager;
 import flousy.gui.app.NativeActionBarManager;
 
 public class SplashScreenActivity extends ActionBarActivity {

@@ -15,9 +15,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import flousy.data.DataManager;
-import flousy.data.SessionManager;
-import flousy.data.UserManager;
+import flousy.util.DataManager;
+import flousy.util.SessionManager;
+import flousy.util.UserManager;
 import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.actionbar.ActionBarFactory;
 import flousy.gui.actionbar.ActionBarType;
@@ -27,7 +27,7 @@ import flousy.gui.app.NativeActionBarManager;
 import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
-import flousy.data.Validator;
+import flousy.util.Validator;
 
 public class SignUpActivity extends ActionBarActivity {
 

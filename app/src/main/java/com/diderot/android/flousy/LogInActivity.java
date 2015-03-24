@@ -8,24 +8,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import flousy.data.SessionManager;
-import flousy.data.UserManager;
-import flousy.data.Validator;
-import flousy.data.ValidatorCode;
+import flousy.util.SessionManager;
+import flousy.util.UserManager;
+import flousy.util.Validator;
+import flousy.util.ValidatorCode;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.gui.app.KeyboardManager;
 import flousy.gui.app.NativeActionBarManager;
 
 public class LogInActivity extends ActionBarActivity {

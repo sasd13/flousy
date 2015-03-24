@@ -16,7 +16,7 @@ public class ActionBarCustomizer {
 
     public static void customize(AbstractActionBar actionBar, Activity activity) {
         if(actionBar != null) {
-            if(actionBar instanceof BaseActionBar) {
+            if(actionBar.getClass().getSimpleName().compareTo("BaseActionBar") == 0) {
                 base((BaseActionBar) actionBar, activity);
             }
         }

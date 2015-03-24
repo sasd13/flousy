@@ -1,4 +1,6 @@
-package flousy.data;
+package flousy.util;
+
+import android.util.Patterns;
 
 import flousy.content.user.User;
 
@@ -36,7 +38,7 @@ public class Validator {
     }
 
     public static ValidatorCode validPhoneNumber(String phoneNumber) {
-        if(phoneNumber.length() == 0) {
+        if(phoneNumber.length() == 0 || Patterns.PHONE.matcher(phoneNumber).matches() == false) {
             return ValidatorCode.ERROR_PHONENUMBER;
         }
 
@@ -44,7 +46,7 @@ public class Validator {
     }
 
     public static ValidatorCode validEmail(String email) {
-        if(email.length() == 0 || email.contains("@") == false) {
+        if(email.length() == 0 || Patterns.EMAIL_ADDRESS.matcher(email).matches() == false) {
             return ValidatorCode.ERROR_EMAIL;
         }
 

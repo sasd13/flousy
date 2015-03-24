@@ -17,17 +17,17 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.data.DataManager;
-import flousy.data.SessionManager;
+import flousy.util.DataManager;
+import flousy.util.SessionManager;
 import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.app.KeyboardManager;
 import flousy.content.user.User;
-import flousy.data.UserManager;
+import flousy.util.UserManager;
 import flousy.gui.drawer.Drawer;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
-import flousy.data.Validator;
+import flousy.util.Validator;
 
 public class SettingsActivity extends MotherActivity {
 

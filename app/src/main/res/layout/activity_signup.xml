@@ -51,7 +51,7 @@
                     android:background="@drawable/edit_text_holo_light"
                     android:layout_marginTop="@dimen/view_margintop"
                     android:hint="@string/edittext_firstname_hint"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|textCapWords"
                     android:textSize="@dimen/textsize_medium"
                     android:imeOptions="actionGo"
                     android:singleLine="true"/>
@@ -63,7 +63,7 @@
                     android:background="@drawable/edit_text_holo_light"
                     android:layout_marginTop="@dimen/view_margintop"
                     android:hint="@string/edittext_lastname_hint"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|textCapSentences"
                     android:textSize="@dimen/textsize_medium"
                     android:imeOptions="actionGo"
                     android:singleLine="true"/>

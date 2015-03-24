@@ -1,4 +1,4 @@
-package flousy.data;
+package flousy.util;
 
 /**
  * Created by Samir on 14/03/2015.
