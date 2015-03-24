@@ -18,8 +18,26 @@ public class BaseGridAdapter extends GridAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = super.getView(position, convertView, parent);
 
-        BaseGridItem baseGridItem = (BaseGridItem) getItem(position);
-        convertView.setOnTouchListener(new CustomOnTouchListener(baseGridItem.getColor()));
+        if(getItem(position) instanceof BaseGridItem) {
+            final BaseGridItem baseGridItem = (BaseGridItem) getItem(position);
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(baseGridItem.getIntent() != null) {
+                        baseGridItem.getContext().startActivity(baseGridItem.getIntent());
+                    }
+                }
+            });
+            convertView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    view.performClick();
+                    return false;
+                }
+            });
+            convertView.setOnTouchListener(new CustomOnTouchListener(baseGridItem.getColor()));
+        }
 
         return convertView;
     }

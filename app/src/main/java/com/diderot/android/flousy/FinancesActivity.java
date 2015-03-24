@@ -6,7 +6,7 @@ import android.view.MenuItem;
 
 import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
-import flousy.gui.navdrawer.NavDrawer;
+import flousy.gui.drawer.Drawer;
 
 public class FinancesActivity extends MotherActivity {
 
@@ -20,7 +20,7 @@ public class FinancesActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set NavDrawer
-        NavDrawer navDrawer = getNavDrawer();
+        Drawer drawer = getDrawer();
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);

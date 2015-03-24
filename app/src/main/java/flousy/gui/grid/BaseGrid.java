@@ -1,19 +1,16 @@
 package flousy.gui.grid;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-
-import com.diderot.android.flousy.R;
 
 /**
  * Created by Samir on 13/03/2015.
  */
 public class BaseGrid extends Grid {
 
-    public BaseGrid(Context context) {
-        super(context, R.layout.griditem_base);
+    public BaseGrid() {
+        super();
     }
 
     @Override
@@ -23,8 +20,7 @@ public class BaseGrid extends Grid {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BaseGridItem baseGridItem = (BaseGridItem) parent.getItemAtPosition(position);
-                getContext().startActivity(baseGridItem.getIntent());
+                view.performClick();
             }
         });
     }

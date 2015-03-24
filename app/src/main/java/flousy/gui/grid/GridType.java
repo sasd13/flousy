@@ -5,5 +5,4 @@ package flousy.gui.grid;
  */
 public enum GridType {
     BASEGRID,
-    IMAGEDGRID
 }

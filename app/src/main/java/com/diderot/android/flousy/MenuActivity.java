@@ -15,7 +15,7 @@ import flousy.gui.grid.BaseGridItem;
 import flousy.gui.grid.BaseGrid;
 import flousy.gui.grid.GridFactory;
 import flousy.gui.grid.GridType;
-import flousy.gui.navdrawer.NavDrawer;
+import flousy.gui.drawer.Drawer;
 import flousy.gui.widget.CustomDialogBuilder;
 
 public class MenuActivity extends MotherActivity {
@@ -25,7 +25,7 @@ public class MenuActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         //Set NavDrawer
-        NavDrawer navDrawer = getNavDrawer();
+        Drawer drawer = getDrawer();
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
@@ -38,7 +38,7 @@ public class MenuActivity extends MotherActivity {
         //Set ActivityContent
         GridView gridView = (GridView) createActivityContent(R.layout.grid_base);
 
-        BaseGrid menuGrid = (BaseGrid) GridFactory.create(this, GridType.BASEGRID);
+        BaseGrid menuGrid = (BaseGrid) GridFactory.create(GridType.BASEGRID);
         menuGrid.adapt(gridView);
 
         BaseGridItem baseGridItem = null;
@@ -48,6 +48,7 @@ public class MenuActivity extends MotherActivity {
             switch(i) {
                 case 0:
                     baseGridItem = new BaseGridItem(
+                            this,
                             resources.getString(R.string.activity_new_name),
                             resources.getDrawable(R.drawable.griditem_new),
                             resources.getColor(NewActivity.ACTIVITY_COLOR),
@@ -56,6 +57,7 @@ public class MenuActivity extends MotherActivity {
                     break;
                 case 1:
                     baseGridItem = new BaseGridItem(
+                            this,
                             resources.getString(R.string.activity_consult_name),
                             resources.getDrawable(R.drawable.griditem_consult),
                             resources.getColor(ConsultActivity.ACTIVITY_COLOR),
@@ -64,6 +66,7 @@ public class MenuActivity extends MotherActivity {
                     break;
                 case 2:
                     baseGridItem = new BaseGridItem(
+                            this,
                             resources.getString(R.string.activity_finances_name),
                             resources.getDrawable(R.drawable.griditem_finances),
                             resources.getColor(FinancesActivity.ACTIVITY_COLOR),
@@ -72,6 +75,7 @@ public class MenuActivity extends MotherActivity {
                     break;
                 case 3:
                     baseGridItem = new BaseGridItem(
+                            this,
                             resources.getString(R.string.activity_friends_name),
                             resources.getDrawable(R.drawable.griditem_friends),
                             resources.getColor(FriendsActivity.ACTIVITY_COLOR),
@@ -80,6 +84,7 @@ public class MenuActivity extends MotherActivity {
                     break;
                 case 4:
                     baseGridItem = new BaseGridItem(
+                            this,
                             resources.getString(R.string.activity_offers_name),
                             resources.getDrawable(R.drawable.griditem_offers),
                             resources.getColor(OffersActivity.ACTIVITY_COLOR),
@@ -88,6 +93,7 @@ public class MenuActivity extends MotherActivity {
                     break;
                 case 5:
                     baseGridItem = new BaseGridItem(
+                            this,
                             resources.getString(R.string.activity_settings_name),
                             resources.getDrawable(R.drawable.griditem_settings),
                             resources.getColor(SettingsActivity.ACTIVITY_COLOR),

@@ -1,7 +1,7 @@
 package flousy.gui.grid;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,7 @@ import com.diderot.android.flousy.R;
  * <p>
  * A BaseGrid item box has :
  * <ul>
- * <li>A background backgroundColor</li>
+ * <li>A background color</li>
  * <li>An image</li>
  * <li>A text</li>
  * </ul>
@@ -28,7 +28,7 @@ import com.diderot.android.flousy.R;
 public class BaseGridItem extends GridItem {
 
     /**
-     * BaseGridItem background backgroundColor
+     * BaseGridItem background color
      *
      * <p>type : int</p>
      */
@@ -73,21 +73,10 @@ public class BaseGridItem extends GridItem {
     private Intent intent;
 
     /**
-     * Default constructor
-     */
-    public BaseGridItem() {
-        super(R.layout.griditem_base);
-        this.backgroundColor = Color.TRANSPARENT;
-        this.image = null;
-        this.text = "Item";
-        this.intent = null;
-    }
-
-    /**
      * Constructor with params
      */
-    public BaseGridItem(CharSequence text, Drawable image, int backgroundColor, Intent intent) {
-        super(R.layout.griditem_base);
+    public BaseGridItem(Context context, CharSequence text, Drawable image, int backgroundColor, Intent intent) {
+        super(context, R.layout.griditem_base);
         this.backgroundColor = backgroundColor;
         this.image = image;
         this.text = text;
@@ -109,10 +98,8 @@ public class BaseGridItem extends GridItem {
     public void setColor(int backgroundColor) {
         this.backgroundColor = backgroundColor;
 
-        ViewGroup viewGroup = (ViewGroup) this.getView();
-
-        if(viewGroup != null) {
-            viewGroup.setBackgroundColor(this.backgroundColor);
+        if(getView() != null) {
+            getView().setBackgroundColor(this.backgroundColor);
         }
     }
 
@@ -177,6 +164,7 @@ public class BaseGridItem extends GridItem {
         setView(view);
 
         ViewGroup viewGroup = (ViewGroup) view;
+
         viewGroup.setBackgroundColor(this.backgroundColor);
 
         this.imageView = (ImageView) viewGroup.findViewById(R.id.griditem_base_imageview);

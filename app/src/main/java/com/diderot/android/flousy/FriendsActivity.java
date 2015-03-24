@@ -9,7 +9,7 @@ import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitybar.TitledActivityBar;
-import flousy.gui.navdrawer.NavDrawer;
+import flousy.gui.drawer.Drawer;
 
 public class FriendsActivity extends MotherActivity {
 
@@ -23,7 +23,7 @@ public class FriendsActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set NavDrawer
-        NavDrawer navDrawer = getNavDrawer();
+        Drawer drawer = getDrawer();
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);

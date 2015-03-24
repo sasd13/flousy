@@ -1,8 +1,8 @@
-package flousy.gui.navdrawer;
+package flousy.gui.drawer;
 
 /**
  * Created by Samir on 23/03/2015.
  */
-public enum  NavDrawerType {
+public enum DrawerType {
     BASEDRAWER,
 }

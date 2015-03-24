@@ -1,5 +1,6 @@
 package flousy.gui.grid;
 
+import android.content.Context;
 import android.view.View;
 
 /**
@@ -7,6 +8,7 @@ import android.view.View;
  */
 public abstract class GridItem {
 
+    private Context context;
     private int layoutResource;
 
     /**
@@ -17,9 +19,18 @@ public abstract class GridItem {
     /**
      * Default constructor
      */
-    protected GridItem(int layoutResource) {
+    protected GridItem(Context context, int layoutResource) {
+        this.context = context;
         this.layoutResource = layoutResource;
         this.view = null;
+    }
+
+    public Context getContext() {
+        return this.context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public int getLayoutResource() {

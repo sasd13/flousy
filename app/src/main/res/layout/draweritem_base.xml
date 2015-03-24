@@ -7,18 +7,18 @@
     android:gravity="center">
 
     <TextView
-        android:tag="navdraweritem_textview"
+        android:id="@+id/draweritem_base_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/navdraweritem_verticalmargin"
-        android:layout_marginBottom="@dimen/navdraweritem_verticalmargin"
+        android:layout_marginTop="@dimen/draweritem_verticalmargin"
+        android:layout_marginBottom="@dimen/draweritem_verticalmargin"
         android:paddingLeft="@dimen/activitycontent_padding"
         android:gravity="left|center_vertical"
-        android:text="@string/navdraweritem_textview"
+        android:text="@string/draweritem_textview"
         android:textSize="@dimen/textsize_large"/>
 
     <View
-        android:tag="navdraweritem_view_divider"
+        android:id="@+id/draweritem_base_view_divider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_divider_height_small"
         android:background="@color/primary_material_light"/>

@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import flousy.data.SessionManager;
 import flousy.data.UserManager;
+import flousy.data.Validator;
+import flousy.data.ValidatorCode;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
@@ -57,8 +59,8 @@ public class LogInActivity extends ActionBarActivity {
         this.buttonConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editTextLogin.getEditableText().toString().isEmpty() == false
-                        && editTextPassword.getEditableText().toString().isEmpty() == false)
+                if(editTextLogin.getText().toString().trim().length() > 0
+                        && editTextPassword.getText().toString().trim().length() > 0)
                 startConnection();
             }
         });
@@ -152,15 +154,15 @@ public class LogInActivity extends ActionBarActivity {
         String password = this.editTextPassword.getEditableText().toString();
 
         boolean connected = false;
-        int messageResource = R.string.login_alertdialog_login_message_error;
-        if(login.length() != 0 && password.length() != 0) {
+        ValidatorCode codeEmail = Validator.validEmail(login);
+        if(codeEmail == ValidatorCode.OK) {
             connected = session.connect(login, password);
         }
 
         if(connected == false) {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.login_alertdialog_login_title_error)
-                    .setMessage(messageResource)
+                    .setMessage(R.string.login_alertdialog_login_message_error)
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();

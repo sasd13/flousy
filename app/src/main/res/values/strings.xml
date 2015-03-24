@@ -80,8 +80,8 @@
     <string name="griditem_textview">Item</string>
 
     <!-- Navigation drawer -->
-    <string name="navdraweritem_textview">Item</string>
-    <string name="navdraweritemgroup_textview">Title</string>
+    <string name="draweritem_textview">Item</string>
+    <string name="draweritemgroup_textview">Title</string>
 
     <!-- Searchable -->
     <string name="search_hint">Rechercher</string>

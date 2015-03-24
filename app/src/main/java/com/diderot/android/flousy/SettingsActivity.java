@@ -24,7 +24,7 @@ import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.app.KeyboardManager;
 import flousy.content.user.User;
 import flousy.data.UserManager;
-import flousy.gui.navdrawer.NavDrawer;
+import flousy.gui.drawer.Drawer;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.data.Validator;
@@ -49,7 +49,7 @@ public class SettingsActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set NavDrawer
-        NavDrawer navDrawer = getNavDrawer();
+        Drawer drawer = getDrawer();
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);

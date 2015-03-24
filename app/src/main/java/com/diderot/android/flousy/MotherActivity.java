@@ -20,20 +20,18 @@ import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.color.CustomColor;
 import flousy.gui.app.NativeActionBarManager;
-import flousy.gui.navdrawer.BaseNavDrawer;
-import flousy.gui.navdrawer.MenuNavDrawerItem;
-import flousy.gui.navdrawer.NavDrawer;
-import flousy.gui.navdrawer.BaseNavDrawerItemGroup;
-import flousy.gui.navdrawer.NavDrawerFactory;
-import flousy.gui.navdrawer.NavDrawerType;
+import flousy.gui.drawer.MenuDrawerItem;
+import flousy.gui.drawer.Drawer;
+import flousy.gui.drawer.BaseDrawerItemTitle;
+import flousy.gui.drawer.DrawerFactory;
+import flousy.gui.drawer.DrawerType;
 
 public class MotherActivity extends ActionBarActivity {
 
     public static final int APP_COLOR = R.color.customGreenApp;
 
     private int activityColor;
-    private NavDrawer navDrawer;
-    private ListView drawerList;
+    private Drawer drawer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,56 +47,62 @@ public class MotherActivity extends ActionBarActivity {
         this.activityColor = getResources().getColor(APP_COLOR);
 
         //Navigation drawer
-        this.drawerList = (ListView) findViewById(R.id.right_drawer);
-        this.navDrawer = NavDrawerFactory.create(this, NavDrawerType.BASEDRAWER);
-        this.navDrawer.adapt(this.drawerList);
+        ListView drawerList = (ListView) findViewById(R.id.navdrawer);
+        this.drawer = DrawerFactory.create(DrawerType.BASEDRAWER);
+        this.drawer.adapt(drawerList);
 
-        BaseNavDrawerItemGroup baseNavDrawerItemGroup = new BaseNavDrawerItemGroup(this, getResources().getString(R.string.activity_menu_name));
+        BaseDrawerItemTitle baseDrawerItemTitle = new BaseDrawerItemTitle(this, getResources().getString(R.string.activity_menu_name));
+        this.drawer.addItem(baseDrawerItemTitle);
 
-        MenuNavDrawerItem menuNavDrawerItem = null;
+        MenuDrawerItem menuDrawerItem = null;
         Resources resources = getResources();
         for(int i=0; i<6; i++) {
             switch (i) {
                 case 0:
-                    menuNavDrawerItem = new MenuNavDrawerItem(
+                    menuDrawerItem = new MenuDrawerItem(
+                            this,
                             resources.getString(R.string.activity_new_name),
                             new Intent(this, NewActivity.class),
                             resources.getColor(NewActivity.ACTIVITY_COLOR));
                     break;
                 case 1:
-                    menuNavDrawerItem = new MenuNavDrawerItem(
+                    menuDrawerItem = new MenuDrawerItem(
+                            this,
                             resources.getString(R.string.activity_consult_name),
                             new Intent(this, ConsultActivity.class),
                             resources.getColor(ConsultActivity.ACTIVITY_COLOR));
                     break;
                 case 2:
-                    menuNavDrawerItem = new MenuNavDrawerItem(
+                    menuDrawerItem = new MenuDrawerItem(
+                            this,
                             resources.getString(R.string.activity_finances_name),
                             new Intent(this, FinancesActivity.class),
                             resources.getColor(FinancesActivity.ACTIVITY_COLOR));
                     break;
                 case 3:
-                    menuNavDrawerItem = new MenuNavDrawerItem(
+                    menuDrawerItem = new MenuDrawerItem(
+                            this,
                             resources.getString(R.string.activity_friends_name),
                             new Intent(this, FriendsActivity.class),
                             resources.getColor(FriendsActivity.ACTIVITY_COLOR));
                     break;
                 case 4:
-                    menuNavDrawerItem = new MenuNavDrawerItem(
+                    menuDrawerItem = new MenuDrawerItem(
+                            this,
                             resources.getString(R.string.activity_offers_name),
                             new Intent(this, OffersActivity.class),
                             resources.getColor(OffersActivity.ACTIVITY_COLOR));
                     break;
                 case 5:
-                    menuNavDrawerItem = new MenuNavDrawerItem(
+                    menuDrawerItem = new MenuDrawerItem(
+                            this,
                             resources.getString(R.string.activity_settings_name),
                             new Intent(this, SettingsActivity.class),
                             resources.getColor(SettingsActivity.ACTIVITY_COLOR));
                     break;
             }
-            baseNavDrawerItemGroup.addChild(menuNavDrawerItem);
+            this.drawer.addItem(menuDrawerItem);
         }
-        this.navDrawer.addItem(baseNavDrawerItemGroup);
     }
 
     @Override
@@ -127,8 +131,8 @@ public class MotherActivity extends ActionBarActivity {
         this.activityColor = activityColor;
     }
 
-    public NavDrawer getNavDrawer() {
-        return this.navDrawer;
+    public Drawer getDrawer() {
+        return this.drawer;
     }
 
     public AbstractActionBar createActionBar(ActionBarType type) {

@@ -1,6 +1,5 @@
 package flousy.gui.grid;
 
-import android.content.Context;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -10,20 +9,10 @@ import java.util.ArrayList;
  */
 public abstract class Grid {
 
-    private Context context;
-    private ArrayList<GridItem> listGridItem;
+     private ArrayList<GridItem> listGridItem;
 
-    protected Grid(Context context, int itemLayoutResource) {
-        this.context = context;
+    protected Grid() {
         this.listGridItem = new ArrayList<GridItem>();
-    }
-
-    public Context getContext() {
-        return this.context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
     }
 
     public GridItem getItem(int index) {
@@ -42,12 +31,12 @@ public abstract class Grid {
         return this.listGridItem.add(gridItem);
     }
 
-    public boolean removeItem(Object object) {
-        if(object instanceof GridItem == false) {
-            return false;
+    public GridItem removeItem(int index) {
+        if(index < 0 || index > (this.listGridItem.size() - 1)) {
+            return null;
         }
 
-        return this.listGridItem.remove(object);
+        return this.listGridItem.remove(index);
     }
 
     public int count() {

@@ -1,18 +1,29 @@
-package flousy.gui.navdrawer;
+package flousy.gui.drawer;
 
+import android.content.Context;
 import android.view.View;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public abstract class NavDrawerItem {
+public abstract class DrawerItem {
 
+    private Context context;
     private int layoutResource;
     private View view;
 
-    protected NavDrawerItem(int layoutResource) {
+    protected DrawerItem(Context context, int layoutResource) {
+        this.context = context;
         this.layoutResource = layoutResource;
         this.view = null;
+    }
+
+    public Context getContext() {
+        return this.context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public int getLayoutResource() {
