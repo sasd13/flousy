@@ -41,29 +41,29 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        GridItem gridItem = this.grid.getItem(position);
-
         if(convertView == null) {
+            GridItem gridItem = this.grid.getItem(position);
+
             LayoutInflater inflater = (LayoutInflater) this.grid.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(gridItem.getLayoutResource(), null);
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    GridView gridView = (GridView) view.getParent();
+                    gridView.performItemClick(view, gridView.getPositionForView(view), 0);
+                }
+            });
+            convertView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    view.performClick();
+                    return false;
+                }
+            });
+
+            gridItem.inflate(convertView);
         }
-
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                GridView gridView = (GridView) view.getParent();
-                gridView.performItemClick(view, gridView.getPositionForView(view), 0);
-            }
-        });
-        convertView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                view.performClick();
-                return false;
-            }
-        });
-
-        gridItem.inflate(convertView);
 
         return convertView;
     }

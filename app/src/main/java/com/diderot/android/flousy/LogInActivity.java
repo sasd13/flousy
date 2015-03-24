@@ -52,26 +52,13 @@ public class LogInActivity extends ActionBarActivity {
         this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
 
-        TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_GO) {
-                    KeyboardManager.hide(LogInActivity.this, v);
-                    startConnection();
-                    return true;
-                }
-                return false;
-            }
-        };
-
-        this.editTextLogin.setOnEditorActionListener(listener);
-        this.editTextPassword.setOnEditorActionListener(listener);
-
         this.buttonConnect = (Button) findViewById(R.id.login_button_connect);
         this.buttonConnect.setOnTouchListener(new CustomOnTouchListener(getResources().getColor(MotherActivity.APP_COLOR)));
         this.buttonConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(editTextLogin.getEditableText().toString().isEmpty() == false
+                        && editTextPassword.getEditableText().toString().isEmpty() == false)
                 startConnection();
             }
         });
@@ -165,14 +152,14 @@ public class LogInActivity extends ActionBarActivity {
         String password = this.editTextPassword.getEditableText().toString();
 
         boolean connected = false;
-        int messageResource = R.string.login_alertdialog_message_error;
+        int messageResource = R.string.login_alertdialog_login_message_error;
         if(login.length() != 0 && password.length() != 0) {
             connected = session.connect(login, password);
         }
 
         if(connected == false) {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-            builder.setTitle(R.string.login_alertdialog_title_error)
+            builder.setTitle(R.string.login_alertdialog_login_title_error)
                     .setMessage(messageResource)
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();

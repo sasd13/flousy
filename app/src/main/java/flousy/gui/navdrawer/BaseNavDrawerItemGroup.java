@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
 import java.util.ArrayList;
@@ -81,11 +82,15 @@ public class BaseNavDrawerItemGroup extends NavDrawerItem {
 
         ViewGroup viewGroup = (ViewGroup) view;
 
-        this.groupTextView = (TextView) viewGroup.findViewWithTag("navdraweritemgroup_base_textview");
+        this.groupTextView = (TextView) viewGroup.findViewWithTag("navdraweritemgroup_textview");
         if(this.groupTextView != null) {
             this.groupTextView.setText(this.groupTitle.toString().toUpperCase());
             this.groupTextView.setTypeface(Typeface.DEFAULT_BOLD);
+            this.groupTextView.setTextColor(getContext().getResources().getColor(MotherActivity.APP_COLOR));
         }
+
+        View viewDivider = viewGroup.findViewWithTag("navdraweritemgroup_textview_view_divider");
+        viewDivider.setBackgroundColor(getContext().getResources().getColor(MotherActivity.APP_COLOR));
 
         LinearLayout linearLayout = (LinearLayout) viewGroup.findViewWithTag("navdraweritemgroup_base_linearlayout");
         if(linearLayout != null) {
@@ -97,8 +102,6 @@ public class BaseNavDrawerItemGroup extends NavDrawerItem {
                 navDrawerItem.inflate(viewChild);
                 linearLayout.addView(viewChild);
             }
-
-            //linearLayout.invalidate();
         }
     }
 }

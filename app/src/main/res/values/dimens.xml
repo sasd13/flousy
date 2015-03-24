@@ -19,7 +19,6 @@
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
 
     <!-- ActivityBar -->
-    <dimen name="baseactivitybar_height">15dp</dimen>
     <dimen name="activitybar_titled_textview_margin">7dp</dimen>
 
     <!-- Button -->
@@ -27,7 +26,7 @@
     <dimen name="button_verticalpadding">10dp</dimen>
 
     <!-- Dialog -->
-    <dimen name="customdialog_progressbar_padding">20dp</dimen>
+    <dimen name="customdialog_progressbar_padding">15dp</dimen>
 
     <!-- Grid -->
     <dimen name="grid_base_horizontalspacing">20dp</dimen>
@@ -39,11 +38,12 @@
     <dimen name="griditem_base_textview_margin">10dp</dimen>
     <dimen name="griditem_base_textview_topmargin">5dp</dimen>
 
-    <!-- Horizontal bar -->
-    <dimen name="horizontalbar_margintop">1dp</dimen>
-    <dimen name="horizontalbar_height_small">1dp</dimen>
-    <dimen name="horizontalbar_height_medium">2dp</dimen>
-    <dimen name="horizontalbar_height_large">3dp</dimen>
+    <!-- Navigation drawer -->
+    <dimen name="navdrawer_width">240dp</dimen>
+    <dimen name="navdrawer_padding">10dp</dimen>
+    <dimen name="navdraweritem_verticalmargin">17dp</dimen>
+    <dimen name="navdraweritem_base_menu_view_width">16dp</dimen>
+    <dimen name="navdraweritem_base_menu_view_height">35dp</dimen>
 
     <!-- Text -->
     <dimen name="textsize_small">12sp</dimen>
@@ -55,4 +55,8 @@
     <!-- View -->
     <dimen name="view_margintop">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
     <dimen name="viewgroup_margintop">30dp</dimen>
+    <dimen name="view_divider_margintop">10dp</dimen>
+    <dimen name="view_divider_height_small">1dp</dimen>
+    <dimen name="view_divider_height_medium">2dp</dimen>
+    <dimen name="view_divider_height_large">3dp</dimen>
 </resources>

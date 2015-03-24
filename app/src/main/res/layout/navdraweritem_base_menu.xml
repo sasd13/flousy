@@ -14,27 +14,26 @@
 
         <View
             android:tag="navdraweritem_base_menu_view"
-            android:layout_width="16dp"
-            android:layout_height="35dp"
-            android:background="@color/customGreenApp"/>
+            android:layout_width="@dimen/navdraweritem_base_menu_view_width"
+            android:layout_height="@dimen/navdraweritem_base_menu_view_height"/>
 
         <TextView
-            android:tag="navdraweritem_base_textview"
+            android:tag="navdraweritem_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:layout_marginBottom="17dp"
-            android:paddingLeft="16dp"
+            android:layout_marginTop="@dimen/navdraweritem_verticalmargin"
+            android:layout_marginBottom="@dimen/navdraweritem_verticalmargin"
+            android:paddingLeft="@dimen/activitycontent_padding"
             android:gravity="left|center_vertical"
-            android:text="Item"
+            android:text="@string/navdraweritem_textview"
             android:textSize="@dimen/textsize_large"/>
 
     </LinearLayout>
 
     <View
-        android:tag="navdraweritem_base_divider"
+        android:tag="navdraweritem_view_divider"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/view_divider_height_small"
         android:background="@color/primary_material_light"/>
 
 </LinearLayout>

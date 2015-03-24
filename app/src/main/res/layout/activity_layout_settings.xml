@@ -19,14 +19,13 @@
                 android:tag="color_activity_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/textview_identity"
-                android:textStyle="bold"/>
+                android:text="@string/textview_identity"/>
 
             <View
                 android:tag="color_activity_1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/horizontalbar_height_medium"
-                android:layout_marginTop="@dimen/horizontalbar_margintop"/>
+                android:layout_height="@dimen/view_divider_height_medium"
+                android:layout_marginTop="@dimen/view_divider_margintop"/>
 
             <EditText
                 android:id="@+id/settings_edittext_firstname"
@@ -65,14 +64,13 @@
                 android:tag="color_activity_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/textview_connection"
-                android:textStyle="bold"/>
+                android:text="@string/textview_connection"/>
 
             <View
                 android:tag="color_activity_3"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/horizontalbar_height_medium"
-                android:layout_marginTop="@dimen/horizontalbar_margintop"/>
+                android:layout_height="@dimen/view_divider_height_medium"
+                android:layout_marginTop="@dimen/view_divider_margintop"/>
 
             <EditText
                 android:id="@+id/settings_edittext_email"
@@ -136,14 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/settings_button_logout_text"
-            android:textSize="@dimen/textsize_medium"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/signup_button_margintop"
-            android:paddingTop="@dimen/button_verticalpadding"
-            android:paddingBottom="@dimen/button_verticalpadding"
-            android:paddingLeft="@dimen/button_horizontalpadding"
-            android:paddingRight="@dimen/button_horizontalpadding"
+            android:text="@string/settings_button_logout"
             android:onClick="endConnection"/>
 
     </LinearLayout>

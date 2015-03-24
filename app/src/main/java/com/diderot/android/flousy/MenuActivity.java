@@ -110,8 +110,8 @@ public class MenuActivity extends MotherActivity {
             CharSequence firstName = getIntent().getCharSequenceExtra("NEW_USER_FIRSTNAME");
 
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-            builder.setTitle(R.string.menu_alertdialog_title_welcome)
-                    .setMessage(getResources().getString(R.string.menu_alertdialog_message_welcome) + " " + firstName + " !")
+            builder.setTitle(R.string.menu_alertdialog_welcome_title)
+                    .setMessage(getResources().getString(R.string.menu_alertdialog_welcome_message) + " " + firstName + " !")
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();

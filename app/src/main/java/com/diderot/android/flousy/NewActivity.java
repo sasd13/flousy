@@ -33,7 +33,7 @@ public class NewActivity extends MotherActivity {
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
         actionBar.getTextViewTitle().setText(R.string.activity_new_name);
         actionBar.setSubTitleEnabled(true);
-        actionBar.getTextViewSubTitle().setText(R.string.new_actionbar_subtitle);
+        actionBar.getTextViewSubTitle().setText(R.string.new_actionbar_textview_subtitle);
 
         ImageButton buttonSearch = actionBar.getImageButtonActionFirst();
         buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));

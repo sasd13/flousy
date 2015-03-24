@@ -1,6 +1,9 @@
 package flousy.gui.activitycontent;
 
 import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Typeface;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,17 +25,32 @@ public class ActivityContentCustomizer {
             activityColor =  activity.getResources().getColor(MotherActivity.APP_COLOR);
         }
 
+        Resources resources = activity.getResources();
+
         int i = 0;
         String tag = "color_activity_";
         View viewChild = view.findViewWithTag(tag + i);
         while (viewChild != null) {
             if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
-                ((TextView) viewChild).setTextColor(activityColor);
                 CharSequence text = ((TextView) viewChild).getText();
                 ((TextView) viewChild).setText(text.toString().toUpperCase());
+                ((TextView) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
+                ((TextView) viewChild).setTextColor(activityColor);
+                viewChild.setPadding(
+                        (int) resources.getDimension(R.dimen.activitycontent_padding),
+                        0,
+                        0,
+                        0);
             } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
-                ((Button) viewChild).setTextColor(activity.getResources().getColor(R.color.white));
+                ((Button) viewChild).setTextSize(TypedValue.COMPLEX_UNIT_DIP, resources.getDimension(R.dimen.textsize_medium));
+                ((Button) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
+                ((Button) viewChild).setTextColor(resources.getColor(R.color.white));
                 viewChild.setBackgroundColor(activityColor);
+                viewChild.setPadding(
+                        (int) resources.getDimension(R.dimen.button_horizontalpadding),
+                        (int) resources.getDimension(R.dimen.button_verticalpadding),
+                        (int) resources.getDimension(R.dimen.button_horizontalpadding),
+                        (int) resources.getDimension(R.dimen.button_verticalpadding));
             } else {
                 viewChild.setBackgroundColor(activityColor);
             }

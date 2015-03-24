@@ -4,9 +4,8 @@
     <string name="hello_world">Hello world!</string>
 
     <!-- ActionBar -->
-    <string name="actionbar_textview_title_text">Titre</string>
-    <string name="actionbar_textview_subtitle_text">Sous-titre</string>
-    <string name="action_search">Search</string>
+    <string name="actionbar_textview_title">Titre</string>
+    <string name="actionbar_textview_subtitle">Sous-titre</string>
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
@@ -20,70 +19,49 @@
     <string name="activity_friends_name">Amis</string>
     <string name="activity_offers_name">Offres</string>
     <string name="activity_settings_name">Paramètres</string>
-    <string-array name="array_menu">
-        <item>@string/activity_menu_name</item>
-        <item>@string/activity_consult_name</item>
-        <item>@string/activity_finances_name</item>
-        <item>@string/activity_friends_name</item>
-        <item>@string/activity_offers_name</item>
-        <item>@string/activity_settings_name</item>
-    </string-array>
 
     <!-- Activity Friends -->
-    <string name="friends_tabedbar_tab_received">Reçus</string>
-    <string name="friends_tabeddbar_tab_sended">Envoyés</string>
-    <string name="friends_tabedbar_tab_contact">Contacts</string>
-    <string name="friends_tabedbar_tab_contact_addcontact">Ajouter des contacts</string>
+    <string name="friends_activitybar_tabed_tab_received">Reçus</string>
+    <string name="friends_activitybar_tabed_tab_sended">Envoyés</string>
+    <string name="friends_activitybar_tabed_tab_contact">Contacts</string>
 
     <!-- Activity LogIn -->
-    <string name="login_button_text">Connexion</string>
+    <string name="login_button_login">Connexion</string>
     <string name="login_textview_signup">Inscription sur Flousy</string>
     <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="login_alertdialog_title_error">Erreur connexion</string>
-    <string name="login_alertdialog_message_error">Identifiants invalides</string>
-    <string name="login_toast_login_message">Veuillez renseigner votre email</string>
-    <string name="login_toast_password_message">Veuillez renseigner votre mot de passe</string>
+    <string name="login_alertdialog_login_title_error">Erreur connexion</string>
+    <string name="login_alertdialog_login_message_error">Identifiants invalides</string>
 
     <!-- Activity Menu -->
-    <string name="menu_alertdialog_title_welcome">Bienvenue</string>
-    <string name="menu_alertdialog_message_welcome">Salut</string>
+    <string name="menu_alertdialog_welcome_title">Bienvenue</string>
+    <string name="menu_alertdialog_welcome_message">Salut</string>
 
     <!-- Activity New -->
-    <string name="new_actionbar_subtitle">Sélectionner la catégorie</string>
-
-    <!-- Activity RestorePassword -->
-    <string name="restorepassword_actionbar_subtitle">Récupération du mot de passe</string>
+    <string name="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
 
     <!-- Activity Settings -->
     <string name="settings_textview_connect">Rester connecté</string>
-    <string name="settings_button_logout_text">Déconnexion</string>
+    <string name="settings_button_logout">Déconnexion</string>
     <string name="settings_alertdialog_logout_title">Déconnexion</string>
     <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
 
     <!-- Activity SignUp -->
-    <string name="signup_edittext_confirmpassword_hint">Confirmer le mot de passe</string>
     <string name="signup_textview_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
-    <string name="signup_alertdialog_title_error">Erreur inscription</string>
-    <string name="signup_alertdialog_message_error">Remplir le formulaire d\'inscription</string>
-    <string name="signup_alertdialog_firstname_message_error">Veuillez renseigner un prénom valide</string>
-    <string name="signup_alertdialog_lastname_message_error">Veuillez renseigner un nom valide</string>
-    <string name="signup_alertdialog_email_message_error">Veuillez renseigner un email valide</string>
-    <string name="signup_alertdialog_password_message_error">Veuillez renseigner un mot de passe valide</string>
-    <string name="signup_alertdialog_confirmpassword_message_error">Veuillez confirmer le mot de passe</string>
-    <string name="signup_alertdialog_checkbox_message_error">Veuillez confirmer la validation</string>
+    <string name="signup_alertdialog_signup_title_error">Erreur inscription</string>
+    <string name="signup_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
 
     <!-- ActivityBar -->
-    <string name="activitybar_titled_textview_text">Titre</string>
+    <string name="activitybar_titled_textview">Titre</string>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
 
     <!-- Button -->
-    <string name="button_save_text">Enregistrer</string>
+    <string name="button_save">Enregistrer</string>
 
     <!-- Dialog -->
-    <string name="alertdialog_title_careful">Attention</string>
-    <string name="alertdialog_message_confirm">Confirmer ?</string>
+    <string name="alertdialog_careful_title">Attention</string>
+    <string name="alertdialog_confirm_message">Confirmer ?</string>
     <string name="alertdialog_title_error">Erreur</string>
     <string name="alertdialog_message_error">Une erreur est survenue</string>
     <string name="alertdialog_button_yes">Oui</string>
@@ -96,9 +74,14 @@
     <string name="edittext_lastname_hint">Nom</string>
     <string name="edittext_email_hint">Adresse email</string>
     <string name="edittext_password_hint">Mot de passe</string>
+    <string name="edittext_confirmpassword_hint">Mot de passe</string>
 
     <!-- Grid -->
-    <string name="griditem_text">Item</string>
+    <string name="griditem_textview">Item</string>
+
+    <!-- Navigation drawer -->
+    <string name="navdraweritem_textview">Item</string>
+    <string name="navdraweritemgroup_textview">Title</string>
 
     <!-- Searchable -->
     <string name="search_hint">Rechercher</string>

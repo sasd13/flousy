@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
 /**
@@ -59,7 +60,7 @@ public class BaseNavDrawerItem extends NavDrawerItem {
         ViewGroup viewGroup = (ViewGroup) view;
 
         if(viewGroup != null) {
-            this.itemTextView = (TextView) viewGroup.findViewWithTag("navdraweritem_base_textview");
+            this.itemTextView = (TextView) viewGroup.findViewWithTag("navdraweritem_textview");
             if(this.itemTextView != null) {
                 this.itemTextView.setText(this.itemText);
             }

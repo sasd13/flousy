@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LogInActivity"
     android:id="@+id/login_activitycontent"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -58,14 +60,8 @@
             android:id="@+id/login_button_connect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_button_text"
-            android:textSize="@dimen/textsize_medium"
-            android:textStyle="bold"
+            android:text="@string/login_button_login"
             android:layout_marginTop="@dimen/view_margintop"
-            android:paddingTop="@dimen/button_verticalpadding"
-            android:paddingBottom="@dimen/button_verticalpadding"
-            android:paddingLeft="@dimen/button_horizontalpadding"
-            android:paddingRight="@dimen/button_horizontalpadding"
             android:onClick="startConnection"/>
 
         <TextView

@@ -139,8 +139,8 @@ public class SignUpActivity extends ActionBarActivity {
 
         if(signed == false) {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-            builder.setTitle(R.string.signup_alertdialog_title_error)
-                    .setMessage(R.string.signup_alertdialog_message_error)
+            builder.setTitle(R.string.signup_alertdialog_signup_title_error)
+                    .setMessage(R.string.signup_alertdialog_signup_message_error)
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();

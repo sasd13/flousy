@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/activitybar_titled_textview_text"
+        android:text="@string/activitybar_titled_textview"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="@dimen/textsize_large"
