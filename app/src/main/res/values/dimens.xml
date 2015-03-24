@@ -44,6 +44,7 @@
     <dimen name="draweritem_verticalmargin">17dp</dimen>
     <dimen name="draweritem_base_menu_view_width">16dp</dimen>
     <dimen name="draweritem_base_menu_view_height">35dp</dimen>
+    <dimen name="draweritemtitle_margintop">34dp</dimen>
 
     <!-- Text -->
     <dimen name="textsize_small">12sp</dimen>
@@ -55,7 +56,7 @@
     <!-- View -->
     <dimen name="view_margintop">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
     <dimen name="viewgroup_margintop">30dp</dimen>
-    <dimen name="view_divider_margintop">10dp</dimen>
+    <dimen name="view_divider_margintop">7dp</dimen>
     <dimen name="view_divider_height_small">1dp</dimen>
     <dimen name="view_divider_height_medium">2dp</dimen>
     <dimen name="view_divider_height_large">3dp</dimen>

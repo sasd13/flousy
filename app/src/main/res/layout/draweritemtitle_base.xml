@@ -10,7 +10,7 @@
         android:id="@+id/draweritemtitle_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/draweritem_verticalmargin"
+        android:layout_marginTop="@dimen/draweritemtitle_margintop"
         android:paddingLeft="@dimen/activitycontent_padding"
         android:gravity="left|center_vertical"
         android:text="@string/draweritemgroup_textview"

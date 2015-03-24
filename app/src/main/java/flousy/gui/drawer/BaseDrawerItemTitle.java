@@ -17,7 +17,7 @@ public class BaseDrawerItemTitle extends DrawerItem {
     private TextView titleTextView;
 
     public BaseDrawerItemTitle(Context context, CharSequence itemTitle) {
-        super(context, R.layout.draweritemgroup_base);
+        super(context, R.layout.draweritemtitle_base);
 
         this.title = itemTitle;
         this.titleTextView = null;

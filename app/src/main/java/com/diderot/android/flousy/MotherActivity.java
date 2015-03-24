@@ -3,6 +3,7 @@ package com.diderot.android.flousy;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -121,6 +122,17 @@ public class MotherActivity extends ActionBarActivity {
 
         //Disable re-onCreate for subclasses on up button click
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = NavUtils.getParentActivityIntent(this);
+        if(intent != null) {
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            NavUtils.navigateUpTo(this, intent);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public int getActivityColor() {

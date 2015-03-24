@@ -42,7 +42,7 @@ public class ActivityContentCustomizer {
                         0,
                         0);
             } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
-                ((Button) viewChild).setTextSize(TypedValue.COMPLEX_UNIT_DIP, resources.getDimension(R.dimen.textsize_medium));
+                ((Button) viewChild).setTextSize(TypedValue.DENSITY_DEFAULT, resources.getDimension(R.dimen.textsize_medium));
                 ((Button) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
                 ((Button) viewChild).setTextColor(resources.getColor(R.color.white));
                 viewChild.setBackgroundColor(activityColor);
