@@ -7,20 +7,19 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/draweritem_base_textview"
+        android:id="@+id/draweritem_textview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/draweritem_verticalmargin"
-        android:layout_marginBottom="@dimen/draweritem_verticalmargin"
+        android:layout_height="@dimen/draweritem_textview_height"
         android:paddingLeft="@dimen/activitycontent_padding"
         android:gravity="left|center_vertical"
         android:text="@string/draweritem_textview"
         android:textSize="@dimen/textsize_large"/>
 
     <View
-        android:id="@+id/draweritem_base_view_divider"
+        android:id="@+id/draweritem_stublayout_viewdivider"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_divider_height_small"
+        android:layout_height="@dimen/dividerview_height_small"
         android:background="@color/primary_material_light"/>
 
 </LinearLayout>
+

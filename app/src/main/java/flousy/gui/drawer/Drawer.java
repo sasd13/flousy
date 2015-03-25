@@ -1,47 +1,80 @@
 package flousy.gui.drawer;
 
-import android.widget.ListView;
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
+import android.view.ViewGroup;
+
+import com.diderot.android.flousy.R;
 
 import java.util.ArrayList;
 
 /**
  * Created by Samir on 23/03/2015.
  */
-public abstract class Drawer {
+public class Drawer {
 
-    private ArrayList<DrawerItem> listDrawerItem;
+    private Context context;
+    private ArrayList<AbstractDrawerItem> listAbstractDrawerItem;
+    private int itemStubLayout;
 
-    protected Drawer() {
-        this.listDrawerItem = new ArrayList<DrawerItem>();
+    public Drawer(Context context) {
+        this.context = context;
+        this.listAbstractDrawerItem = new ArrayList<AbstractDrawerItem>();
+        this.itemStubLayout = R.layout.drawer_layout_itemstub;
     }
 
-    public DrawerItem getItem(int index) {
-        if(index < 0 || index > (this.listDrawerItem.size() - 1)) {
+    public Drawer(Context context, int itemStubLayout) {
+        this.listAbstractDrawerItem = new ArrayList<AbstractDrawerItem>();
+        this.itemStubLayout = itemStubLayout;
+    }
+
+    public Context getContext() {
+        return this.context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public int getItemStubLayout() {
+        return this.itemStubLayout;
+    }
+
+    public void setItemStubLayout(int itemStubLayout) {
+        this.itemStubLayout = itemStubLayout;
+    }
+
+    public AbstractDrawerItem getItem(int index) {
+        if(index < 0 || index > (this.listAbstractDrawerItem.size() - 1)) {
             return null;
         }
 
-        return this.listDrawerItem.get(index);
+        return this.listAbstractDrawerItem.get(index);
     }
 
-    public boolean addItem(DrawerItem drawerItem) {
-        if(this.listDrawerItem.contains(drawerItem) == true) {
+    public boolean addItem(AbstractDrawerItem abstractDrawerItem) {
+        if(this.listAbstractDrawerItem.contains(abstractDrawerItem) == true) {
             return false;
         }
 
-        return this.listDrawerItem.add(drawerItem);
+        return this.listAbstractDrawerItem.add(abstractDrawerItem);
     }
 
-    public DrawerItem removeItem(int index) {
-        if(index < 0 || index > (this.listDrawerItem.size() - 1)) {
+    public AbstractDrawerItem removeItem(int index) {
+        if(index < 0 || index > (this.listAbstractDrawerItem.size() - 1)) {
             return null;
         }
 
-        return this.listDrawerItem.remove(index);
+        return this.listAbstractDrawerItem.remove(index);
     }
 
     public int count() {
-        return this.listDrawerItem.size();
+        return this.listAbstractDrawerItem.size();
     }
 
-    public abstract void adapt(ListView listView);
+    public void adapt(RecyclerView drawerLayout) {
+        DrawerAdapter drawerAdapter = new DrawerAdapter(this.context, this.listAbstractDrawerItem, this.itemStubLayout);
+        drawerLayout.setAdapter(drawerAdapter);
+    }
 }

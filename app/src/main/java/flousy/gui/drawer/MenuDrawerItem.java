@@ -1,22 +1,21 @@
 package flousy.gui.drawer;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.ViewStub;
 
 import com.diderot.android.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public class MenuDrawerItem extends BaseDrawerItem {
+public class MenuDrawerItem extends DrawerItem {
 
     private int color;
     private View colorView;
 
-    public MenuDrawerItem(Context context, CharSequence text, Intent intent, int color) {
-        super(context, text, intent, R.layout.draweritem_base_menu);
+    public MenuDrawerItem(CharSequence text, Intent intent, int color) {
+        super(R.layout.draweritem_menu, text, intent);
 
         this.color = color;
         this.colorView = null;
@@ -35,14 +34,15 @@ public class MenuDrawerItem extends BaseDrawerItem {
     }
 
     @Override
-    public void inflate(View view) {
-        super.inflate(view);
+    public View inflate(ViewStub viewStub) {
+        if(this.colorView == null) {
+            View view = super.inflate(viewStub);
 
-        ViewGroup viewGroup = (ViewGroup) view;
-
-        this.colorView = viewGroup.findViewById(R.id.draweritem_base_menu_colorview);
-        if(this.colorView != null) {
-            this.colorView.setBackgroundColor(this.color);
+            this.colorView = view.findViewById(R.id.draweritem_menu_colorview);
         }
+
+        this.colorView.setBackgroundColor(this.color);
+
+        return getView();
     }
 }

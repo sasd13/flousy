@@ -25,6 +25,9 @@ public class CustomOnTouchListener implements View.OnTouchListener {
             view.setBackgroundColor(this.customColor);
             view.performClick();
             return true;
+        } else if(event.getAction() == MotionEvent.ACTION_CANCEL) {
+            view.setBackgroundColor(this.customColor);
+            return true;
         }
 
         return false;

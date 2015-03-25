@@ -8,8 +8,8 @@ import android.widget.ImageButton;
 import flousy.gui.actionbar.ActionBarType;
 import flousy.gui.actionbar.BaseActionBar;
 import flousy.gui.drawer.Drawer;
-import flousy.gui.drawer.BaseDrawerItem;
-import flousy.gui.drawer.BaseDrawerItemTitle;
+import flousy.gui.drawer.DrawerItem;
+import flousy.gui.drawer.DrawerItemTitle;
 
 public class NewActivity extends MotherActivity {
 
@@ -24,11 +24,11 @@ public class NewActivity extends MotherActivity {
 
         //Set NavDrawer
         Drawer drawer = getDrawer();
-        BaseDrawerItemTitle baseDrawerItemTitle = new BaseDrawerItemTitle(this, "Catégorie");
-        drawer.addItem(baseDrawerItemTitle);
+        DrawerItemTitle drawerItemTitle = new DrawerItemTitle("Catégorie");
+        drawer.addItem(drawerItemTitle);
 
-        BaseDrawerItem baseDrawerItem = new BaseDrawerItem(this, "Ajouter catégorie", null);
-        drawer.addItem(baseDrawerItem);
+        DrawerItem drawerItem = new DrawerItem("Ajouter catégorie", null);
+        drawer.addItem(drawerItem);
 
         //Set ActionBar
         BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);

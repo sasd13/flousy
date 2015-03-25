@@ -5,11 +5,12 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewStub;
-import android.widget.ListView;
 
 import flousy.gui.actionbar.AbstractActionBar;
 import flousy.gui.actionbar.ActionBarCustomizer;
@@ -23,9 +24,7 @@ import flousy.gui.color.CustomColor;
 import flousy.gui.app.NativeActionBarManager;
 import flousy.gui.drawer.MenuDrawerItem;
 import flousy.gui.drawer.Drawer;
-import flousy.gui.drawer.BaseDrawerItemTitle;
-import flousy.gui.drawer.DrawerFactory;
-import flousy.gui.drawer.DrawerType;
+import flousy.gui.drawer.DrawerItemTitle;
 
 public class MotherActivity extends ActionBarActivity {
 
@@ -48,12 +47,21 @@ public class MotherActivity extends ActionBarActivity {
         this.activityColor = getResources().getColor(APP_COLOR);
 
         //Navigation drawer
-        ListView drawerList = (ListView) findViewById(R.id.navdrawer);
-        this.drawer = DrawerFactory.create(DrawerType.BASEDRAWER);
-        this.drawer.adapt(drawerList);
+        RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer);
 
-        BaseDrawerItemTitle baseDrawerItemTitle = new BaseDrawerItemTitle(this, getResources().getString(R.string.activity_menu_name));
-        this.drawer.addItem(baseDrawerItemTitle);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        drawerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        drawerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //set adapter
+        this.drawer = new Drawer(this);
+        this.drawer.adapt(drawerView);
+
+        DrawerItemTitle drawerItemTitle = new DrawerItemTitle(getResources().getString(R.string.activity_menu_name));
+        this.drawer.addItem(drawerItemTitle);
 
         MenuDrawerItem menuDrawerItem = null;
         Resources resources = getResources();
@@ -61,42 +69,36 @@ public class MotherActivity extends ActionBarActivity {
             switch (i) {
                 case 0:
                     menuDrawerItem = new MenuDrawerItem(
-                            this,
                             resources.getString(R.string.activity_new_name),
                             new Intent(this, NewActivity.class),
                             resources.getColor(NewActivity.ACTIVITY_COLOR));
                     break;
                 case 1:
                     menuDrawerItem = new MenuDrawerItem(
-                            this,
                             resources.getString(R.string.activity_consult_name),
                             new Intent(this, ConsultActivity.class),
                             resources.getColor(ConsultActivity.ACTIVITY_COLOR));
                     break;
                 case 2:
                     menuDrawerItem = new MenuDrawerItem(
-                            this,
                             resources.getString(R.string.activity_finances_name),
                             new Intent(this, FinancesActivity.class),
                             resources.getColor(FinancesActivity.ACTIVITY_COLOR));
                     break;
                 case 3:
                     menuDrawerItem = new MenuDrawerItem(
-                            this,
                             resources.getString(R.string.activity_friends_name),
                             new Intent(this, FriendsActivity.class),
                             resources.getColor(FriendsActivity.ACTIVITY_COLOR));
                     break;
                 case 4:
                     menuDrawerItem = new MenuDrawerItem(
-                            this,
                             resources.getString(R.string.activity_offers_name),
                             new Intent(this, OffersActivity.class),
                             resources.getColor(OffersActivity.ACTIVITY_COLOR));
                     break;
                 case 5:
                     menuDrawerItem = new MenuDrawerItem(
-                            this,
                             resources.getString(R.string.activity_settings_name),
                             new Intent(this, SettingsActivity.class),
                             resources.getColor(SettingsActivity.ACTIVITY_COLOR));
@@ -122,17 +124,6 @@ public class MotherActivity extends ActionBarActivity {
 
         //Disable re-onCreate for subclasses on up button click
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent intent = NavUtils.getParentActivityIntent(this);
-        if(intent != null) {
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            NavUtils.navigateUpTo(this, intent);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     public int getActivityColor() {

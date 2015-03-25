@@ -41,8 +41,8 @@
                 <View
                     android:tag="color_activity_1"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/view_divider_height_medium"
-                    android:layout_marginTop="@dimen/view_divider_margintop"/>
+                    android:layout_height="@dimen/dividerview_height_medium"
+                    android:layout_marginTop="@dimen/dividerview_margintop"/>
 
                 <EditText
                     android:id="@+id/signup_edittext_firstname"
@@ -86,8 +86,8 @@
                 <View
                     android:tag="color_activity_3"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/view_divider_height_medium"
-                    android:layout_marginTop="@dimen/view_divider_margintop"/>
+                    android:layout_height="@dimen/dividerview_height_medium"
+                    android:layout_marginTop="@dimen/dividerview_margintop"/>
 
                 <EditText
                     android:id="@+id/signup_edittext_email"

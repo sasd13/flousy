@@ -44,19 +44,16 @@
     </LinearLayout>
 
     <!-- The navigation drawer -->
-    <ListView android:id="@+id/navdrawer"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drawer"
         android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="right"
         android:paddingLeft="@dimen/drawer_padding"
         android:paddingRight="@dimen/drawer_padding"
         android:paddingBottom="@dimen/drawer_padding"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        android:listSelector="@color/transparent"
-        android:cacheColorHint="@color/transparent"
         android:background="@color/background_material_light"
+        android:scrollbars="vertical"
         android:scrollbarStyle="outsideOverlay"/>
 
 </android.support.v4.widget.DrawerLayout>

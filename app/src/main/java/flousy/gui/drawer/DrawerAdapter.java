@@ -1,49 +1,79 @@
 package flousy.gui.drawer;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.view.ViewStub;
+
+import com.diderot.android.flousy.R;
+
+import java.util.ArrayList;
+
+import flousy.gui.listener.CustomOnTouchListener;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public class DrawerAdapter extends BaseAdapter {
+public class DrawerAdapter extends RecyclerView.Adapter {
 
-    private Drawer drawer;
+    private Context context;
+    private ArrayList<AbstractDrawerItem> listAbstractDrawerItem;
+    private int itemStubLayout;
 
-    public DrawerAdapter(Drawer drawer) {
-        this.drawer = drawer;
-    }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public ViewStub stub;
 
-    @Override
-    public int getCount() {
-        return this.drawer.count();
-    }
+        public ViewHolder(View view) {
+            super(view);
 
-    @Override
-    public Object getItem(int position) {
-        return this.drawer.getItem(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        DrawerItem drawerItem = this.drawer.getItem(position);
-
-        if(convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) drawerItem.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(drawerItem.getLayoutResource(), null);
+            stub = (ViewStub) view.findViewById(R.id.draweritem_stublayout_viewstub);
         }
+    }
 
-        drawerItem.inflate(convertView);
+    public DrawerAdapter(Context context, ArrayList<AbstractDrawerItem> listAbstractDrawerItem, int itemStubLayout) {
+        this.context = context;
+        this.listAbstractDrawerItem = listAbstractDrawerItem;
+        this.itemStubLayout = itemStubLayout;
+    }
 
-        return convertView;
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(itemStubLayout, parent, false);
+
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+        final AbstractDrawerItem abstractDrawerItem = this.listAbstractDrawerItem.get(position);
+
+        View convertView = abstractDrawerItem.inflate(((ViewHolder) viewHolder).stub);
+
+        if(abstractDrawerItem instanceof DrawerItem) {
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(((DrawerItem) abstractDrawerItem).getIntent() != null) {
+                        context.startActivity(((DrawerItem) abstractDrawerItem).getIntent());
+                    }
+                }
+            });
+            convertView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    view.performClick();
+                    return false;
+                }
+            });
+            int color = this.context.getResources().getColor(R.color.background_material_light);
+            convertView.setOnTouchListener(new CustomOnTouchListener(color));
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return this.listAbstractDrawerItem.size();
     }
 }

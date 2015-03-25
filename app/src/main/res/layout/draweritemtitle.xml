@@ -14,13 +14,14 @@
         android:paddingLeft="@dimen/activitycontent_padding"
         android:gravity="left|center_vertical"
         android:text="@string/draweritemgroup_textview"
+        android:textStyle="bold"
         android:textColor="@color/black"/>
 
     <View
-        android:id="@+id/draweritemtitle_textview_view_divider"
+        android:id="@+id/draweritem_stublayout_viewdivider"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_divider_height_medium"
-        android:layout_marginTop="@dimen/view_divider_margintop"
+        android:layout_height="@dimen/dividerview_height_medium"
+        android:layout_marginTop="@dimen/dividerview_margintop"
         android:background="@color/black"/>
 
 </LinearLayout>

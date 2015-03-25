@@ -1,46 +1,70 @@
 package flousy.gui.drawer;
 
-import android.content.Context;
+import android.content.Intent;
 import android.view.View;
+import android.view.ViewStub;
+import android.widget.TextView;
+
+import com.diderot.android.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public abstract class DrawerItem {
+public class DrawerItem extends AbstractDrawerItem {
 
-    private Context context;
-    private int layoutResource;
-    private View view;
+    private CharSequence text;
+    private TextView textView;
+    private Intent intent;
 
-    protected DrawerItem(Context context, int layoutResource) {
-        this.context = context;
-        this.layoutResource = layoutResource;
-        this.view = null;
+    public DrawerItem(CharSequence text, Intent intent) {
+        super(R.layout.draweritem);
+
+        this.text = text;
+        this.textView = null;
+        this.intent = intent;
     }
 
-    public Context getContext() {
-        return this.context;
+    public DrawerItem(int layoutResource, CharSequence text, Intent intent) {
+        super(layoutResource);
+
+        this.text = text;
+        this.textView = null;
+        this.intent = intent;
     }
 
-    public void setContext(Context context) {
-        this.context = context;
+    public CharSequence getText() {
+        return this.text;
     }
 
-    public int getLayoutResource() {
-        return this.layoutResource;
+    public void setText(CharSequence text) {
+        this.text = text;
+
+        if(this.textView != null) {
+            this.textView.setText(this.text);
+        }
     }
 
-    public void setLayoutResource(int layoutResource) {
-        this.layoutResource = layoutResource;
+    public Intent getIntent() {
+        return this.intent;
     }
 
-    public View getView() {
-        return this.view;
+    public void setIntent(Intent intent) {
+        this.intent = intent;
     }
 
-    protected void setView(View view) {
-        this.view = view;
-    }
+    @Override
+    public View inflate(ViewStub viewStub) {
+        if(this.textView == null) {
+            viewStub.setLayoutResource(getLayoutResource());
 
-    public abstract void inflate(View view);
+            View view = viewStub.inflate();
+            setView(view);
+
+            this.textView = (TextView) view.findViewById(R.id.draweritem_textview);
+        }
+
+        this.textView.setText(this.text);
+
+        return getView();
+    }
 }

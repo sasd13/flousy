@@ -46,9 +46,7 @@ public class ActionBarCustomizer {
         actionBar.getImageButtonPrevious().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = NavUtils.getParentActivityIntent(activity);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                NavUtils.navigateUpTo(activity, intent);
+                activity.onBackPressed();
             }
         });
     }

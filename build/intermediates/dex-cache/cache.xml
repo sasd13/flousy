@@ -9,11 +9,18 @@
         <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\classes-fed8a0c04164872e86f096c0eea5ba11135145dd.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Samir\Projects\GitHub\android-flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\classes-36962a059a97f8c9042a5858b002656a11985972.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\classes-df39cc5899b41cc724deda1e45a7277ee234ac92.jar" />
     </item>
     <item
         jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
@@ -28,6 +35,13 @@
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-86e97165a02a8e399f1a95603ef952309093e63d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Samir\Projects\GitHub\android-flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
     </item>
 
 </items>

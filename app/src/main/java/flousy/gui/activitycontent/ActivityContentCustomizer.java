@@ -2,6 +2,7 @@ package flousy.gui.activitycontent;
 
 import android.app.Activity;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.View;
@@ -17,15 +18,14 @@ import com.diderot.android.flousy.R;
 public class ActivityContentCustomizer {
 
     public static void customize(Activity activity, View view) {
-        int activityColor = 0;
+        Resources resources = activity.getResources();
 
+        int activityColor;
         if (activity instanceof MotherActivity) {
             activityColor = ((MotherActivity) activity).getActivityColor();
         } else {
-            activityColor =  activity.getResources().getColor(MotherActivity.APP_COLOR);
+            activityColor =  resources.getColor(MotherActivity.APP_COLOR);
         }
-
-        Resources resources = activity.getResources();
 
         int i = 0;
         String tag = "color_activity_";
@@ -44,7 +44,7 @@ public class ActivityContentCustomizer {
             } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
                 ((Button) viewChild).setTextSize(TypedValue.DENSITY_DEFAULT, resources.getDimension(R.dimen.textsize_medium));
                 ((Button) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
-                ((Button) viewChild).setTextColor(resources.getColor(R.color.white));
+                ((Button) viewChild).setTextColor(Color.WHITE);
                 viewChild.setBackgroundColor(activityColor);
                 viewChild.setPadding(
                         (int) resources.getDimension(R.dimen.button_horizontalpadding),
