@@ -85,8 +85,9 @@ public class LogInActivity extends ActionBarActivity {
                     textView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent restorePasswordActivity = new Intent(LogInActivity.this, RestorePasswordActivity.class);
-                            startActivity(restorePasswordActivity);
+                            Intent intent = new Intent(LogInActivity.this, RestorePasswordActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                         }
                     });
                     break;

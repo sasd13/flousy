@@ -5,8 +5,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
-import flousy.gui.actionbar.ActionBarType;
-import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.actionbar.ActionBar;
+import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.drawer.Drawer;
 import flousy.gui.drawer.DrawerItem;
 import flousy.gui.drawer.DrawerItemTitle;
@@ -22,25 +22,25 @@ public class NewActivity extends MotherActivity {
         //Set activity color before everything
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set NavDrawer
+        //Set CustomActionBar
+        ActionBar actionBar = getCustomActionBar();
+        ActionBarCustomizer.customize(this, actionBar);
+        actionBar.getTitleView().setText(R.string.activity_new_name);
+        actionBar.getSubTitleView().setText(R.string.new_actionbar_textview_subtitle);
+
+        ImageButton buttonSearch = actionBar.getActionFirstButton();
+        buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));
+
+        ImageButton buttonAdd = actionBar.getActionSecondButton();
+        buttonAdd.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_new));
+
+        //Set Drawer
         Drawer drawer = getDrawer();
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle("Catégorie");
         drawer.addItem(drawerItemTitle);
 
         DrawerItem drawerItem = new DrawerItem("Ajouter catégorie", null);
         drawer.addItem(drawerItem);
-
-        //Set ActionBar
-        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
-        actionBar.getTextViewTitle().setText(R.string.activity_new_name);
-        actionBar.setSubTitleEnabled(true);
-        actionBar.getTextViewSubTitle().setText(R.string.new_actionbar_textview_subtitle);
-
-        ImageButton buttonSearch = actionBar.getImageButtonActionFirst();
-        buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));
-
-        ImageButton buttonAdd = actionBar.getImageButtonActionSecond();
-        buttonAdd.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_new));
     }
 
 

@@ -5,8 +5,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
-import flousy.gui.actionbar.ActionBarType;
-import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.actionbar.ActionBar;
+import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitybar.TitledActivityBar;
 import flousy.gui.drawer.Drawer;
@@ -22,19 +22,20 @@ public class FriendsActivity extends MotherActivity {
         //Set activity color before everything
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set NavDrawer
-        Drawer drawer = getDrawer();
+        //Set CustomActionBar
+        ActionBar actionBar = getCustomActionBar();
+        ActionBarCustomizer.customize(this, actionBar);
+        actionBar.getTitleView().setText(R.string.activity_friends_name);
 
-        //Set ActionBar
-        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
-        actionBar.getTextViewTitle().setText(R.string.activity_friends_name);
-
-        ImageButton buttonRefresh = actionBar.getImageButtonActionFirst();
+        ImageButton buttonRefresh = actionBar.getActionFirstButton();
         buttonRefresh.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_refresh));
 
         //Set ActivityBar
         TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarType.TITLEDBAR);
         activityBar.setTitle(getResources().getString(R.string.friends_activitybar_tabed_tab_received));
+
+        //Set Drawer
+        Drawer drawer = getDrawer();
     }
 
     @Override

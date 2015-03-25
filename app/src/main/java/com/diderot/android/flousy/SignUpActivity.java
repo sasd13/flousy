@@ -15,13 +15,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.util.UserManager;
-import flousy.gui.actionbar.ActionBarCustomizer;
-import flousy.gui.actionbar.ActionBarFactory;
-import flousy.gui.actionbar.ActionBarType;
-import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.actionbar.ActionBar;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.app.NativeActionBarManager;
 import flousy.content.user.User;
@@ -46,21 +44,15 @@ public class SignUpActivity extends ActionBarActivity {
         //Set content view
         setContentView(R.layout.activity_signup);
 
-        //Disable native ActionBar
+        //Create CustomActionBar, disable native ActionBar
         NativeActionBarManager.setActionBarEnabled(this, false);
+        ActionBar actionBar = new ActionBar();
+        ViewStub viewStub = (ViewStub) findViewById(R.id.signup_actionbar_viewstub);
+        actionBar.inflate(viewStub);
 
-        //Set ActionBar
-        BaseActionBar actionBar = (BaseActionBar) ActionBarFactory.create(ActionBarType.BASEBAR);
-        if(actionBar != null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.signup_actionbar_viewstub);
-            actionBar.inflate(viewStub);
+        ActionBarCustomizer.customize(this, actionBar);
 
-            ActionBarCustomizer.customize(actionBar, this);
-
-            actionBar.setPreviousEnabled(true);
-            actionBar.setDrawerEnabled(false);
-            actionBar.getTextViewTitle().setText(R.string.activity_signup_name);
-        }
+        actionBar.getTitleView().setText(R.string.activity_signup_name);
 
         //Set ActivityContent
         View view = findViewById(R.id.signup_activitycontent);

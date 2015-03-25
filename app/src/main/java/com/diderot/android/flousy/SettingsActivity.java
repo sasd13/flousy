@@ -17,10 +17,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
-import flousy.gui.actionbar.ActionBarType;
-import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
 import flousy.content.user.User;
 import flousy.util.UserManager;
@@ -48,12 +48,13 @@ public class SettingsActivity extends MotherActivity {
         //Set activity color before everything
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set NavDrawer
-        Drawer drawer = getDrawer();
-
         //Set ActionBar
-        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
-        actionBar.getTextViewTitle().setText(R.string.activity_settings_name);
+        ActionBar actionBar = getCustomActionBar();
+        ActionBarCustomizer.customize(this, actionBar);
+        actionBar.getTitleView().setText(R.string.activity_settings_name);
+
+        //Set Drawer
+        Drawer drawer = getDrawer();
 
         //Set ActivityContent
         View view = createActivityContent(R.layout.activity_layout_settings);

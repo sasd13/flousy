@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import flousy.gui.actionbar.ActionBarType;
-import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.actionbar.ActionBar;
+import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.drawer.Drawer;
 
 public class ConsultActivity extends MotherActivity {
@@ -19,12 +19,13 @@ public class ConsultActivity extends MotherActivity {
         //Set activity color before everything
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set NavDrawer
-        Drawer drawer = getDrawer();
+        //Set CustomActionBar
+        ActionBar actionBar = getCustomActionBar();
+        ActionBarCustomizer.customize(this, actionBar);
+        actionBar.getTitleView().setText(R.string.activity_consult_name);
 
-        //Set ActionBar
-        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
-        actionBar.getTextViewTitle().setText(R.string.activity_consult_name);
+        //Set Drawer
+        Drawer drawer = getDrawer();
     }
 
     @Override

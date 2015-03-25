@@ -3,7 +3,6 @@ package com.diderot.android.flousy;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,10 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewStub;
 
-import flousy.gui.actionbar.AbstractActionBar;
-import flousy.gui.actionbar.ActionBarCustomizer;
-import flousy.gui.actionbar.ActionBarFactory;
-import flousy.gui.actionbar.ActionBarType;
+import flousy.gui.actionbar.ActionBar;
 import flousy.gui.activitybar.ActivityBar;
 import flousy.gui.activitybar.ActivityBarFactory;
 import flousy.gui.activitybar.ActivityBarType;
@@ -31,6 +27,7 @@ public class MotherActivity extends ActionBarActivity {
     public static final int APP_COLOR = R.color.customGreenApp;
 
     private int activityColor;
+    private ActionBar actionBar;
     private Drawer drawer;
 
     @Override
@@ -40,13 +37,16 @@ public class MotherActivity extends ActionBarActivity {
         //Set content view
         setContentView(R.layout.activity_mother);
 
-        //Disable native
-        NativeActionBarManager.setActionBarEnabled(this, false);
-
         //Create activity color with app color
         this.activityColor = getResources().getColor(APP_COLOR);
 
-        //Navigation drawer
+        //Create CustomActionBar, disable native ActionBar
+        NativeActionBarManager.setActionBarEnabled(this, false);
+        ViewStub actionbarStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
+        this.actionBar = new ActionBar();
+        this.actionBar.inflate(actionbarStub);
+
+        //Create Drawer
         RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer);
 
         // use this setting to improve performance if you know that changes
@@ -134,20 +134,12 @@ public class MotherActivity extends ActionBarActivity {
         this.activityColor = activityColor;
     }
 
-    public Drawer getDrawer() {
-        return this.drawer;
+    public ActionBar getCustomActionBar() {
+        return this.actionBar;
     }
 
-    public AbstractActionBar createActionBar(ActionBarType type) {
-        AbstractActionBar actionBar = ActionBarFactory.create(type);
-
-        if(actionBar != null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
-            actionBar.inflate(viewStub);
-            ActionBarCustomizer.customize(actionBar, this);
-        }
-
-        return actionBar;
+    public Drawer getDrawer() {
+        return this.drawer;
     }
 
     public ActivityBar createActivityBar(ActivityBarType type) {

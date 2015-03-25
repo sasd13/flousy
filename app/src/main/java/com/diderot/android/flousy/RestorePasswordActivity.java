@@ -6,10 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
 
+import flousy.gui.actionbar.ActionBar;
 import flousy.gui.actionbar.ActionBarCustomizer;
-import flousy.gui.actionbar.ActionBarFactory;
-import flousy.gui.actionbar.ActionBarType;
-import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.app.NativeActionBarManager;
 
 public class RestorePasswordActivity extends ActionBarActivity {
 
@@ -17,17 +16,15 @@ public class RestorePasswordActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BaseActionBar actionBar = (BaseActionBar) ActionBarFactory.create(ActionBarType.BASEBAR);
-        if(actionBar != null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.restorepassword_actionbar_viewstub);
-            actionBar.inflate(viewStub);
+        //Create CustomActionBar, disable native ActionBar
+        NativeActionBarManager.setActionBarEnabled(this, false);
+        ActionBar actionBar = new ActionBar();
+        ViewStub viewStub = (ViewStub) findViewById(R.id.restorepassword_actionbar_viewstub);
+        actionBar.inflate(viewStub);
 
-            ActionBarCustomizer.customize(actionBar, this);
+        ActionBarCustomizer.customize(this, actionBar);
 
-            actionBar.setPreviousEnabled(true);
-            actionBar.setDrawerEnabled(false);
-            actionBar.getTextViewTitle().setText(R.string.activity_restorepassword_name);
-        }
+        actionBar.getTitleView().setText(R.string.activity_restorepassword_name);
     }
 
     @Override

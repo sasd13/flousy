@@ -14,7 +14,7 @@ public class SearchResultsActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set NavDrawer
+        //Set Drawer
         Drawer drawer = getDrawer();
 
         handleIntent(getIntent());

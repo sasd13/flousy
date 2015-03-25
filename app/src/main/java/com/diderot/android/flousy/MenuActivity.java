@@ -9,8 +9,8 @@ import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.ImageButton;
 
-import flousy.gui.actionbar.ActionBarType;
-import flousy.gui.actionbar.BaseActionBar;
+import flousy.gui.actionbar.ActionBar;
+import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.grid.BaseGridItem;
 import flousy.gui.grid.BaseGrid;
 import flousy.gui.grid.GridFactory;
@@ -24,16 +24,17 @@ public class MenuActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set NavDrawer
-        Drawer drawer = getDrawer();
+        //Set CustomActionBar
+        ActionBar actionBar = getCustomActionBar();
+        ActionBarCustomizer.customize(this, actionBar);
+        actionBar.setUpEnabled(false);
+        actionBar.getTitleView().setText(R.string.activity_menu_name);
 
-        //Set ActionBar
-        BaseActionBar actionBar = (BaseActionBar) createActionBar(ActionBarType.BASEBAR);
-        actionBar.setPreviousEnabled(false);
-        actionBar.getTextViewTitle().setText(R.string.activity_menu_name);
-
-        ImageButton buttonSearch = actionBar.getImageButtonActionFirst();
+        ImageButton buttonSearch = actionBar.getActionFirstButton();
         buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));
+
+        //Set Drawer
+        Drawer drawer = getDrawer();
 
         //Set ActivityContent
         GridView gridView = (GridView) createActivityContent(R.layout.grid_base);
