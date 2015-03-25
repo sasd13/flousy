@@ -28,7 +28,7 @@ public class DrawerAdapter extends RecyclerView.Adapter {
         public ViewHolder(View view) {
             super(view);
 
-            stub = (ViewStub) view.findViewById(R.id.draweritem_stublayout_viewstub);
+            stub = (ViewStub) view.findViewById(R.id.drawer_viewstub);
         }
     }
 
@@ -49,26 +49,31 @@ public class DrawerAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         final AbstractDrawerItem abstractDrawerItem = this.listAbstractDrawerItem.get(position);
 
-        View convertView = abstractDrawerItem.inflate(((ViewHolder) viewHolder).stub);
+        if(abstractDrawerItem.getView() == null) {
+            ViewStub viewStub =  ((ViewHolder) viewHolder).stub;
+            viewStub.setLayoutResource(abstractDrawerItem.getLayoutResource());
+            View convertView = viewStub.inflate();
+            abstractDrawerItem.parse(convertView);
 
-        if(abstractDrawerItem instanceof DrawerItem) {
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(((DrawerItem) abstractDrawerItem).getIntent() != null) {
-                        context.startActivity(((DrawerItem) abstractDrawerItem).getIntent());
+            if(abstractDrawerItem instanceof DrawerItem) {
+                abstractDrawerItem.getView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(((DrawerItem) abstractDrawerItem).getIntent() != null) {
+                            context.startActivity(((DrawerItem) abstractDrawerItem).getIntent());
+                        }
                     }
-                }
-            });
-            convertView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    view.performClick();
-                    return false;
-                }
-            });
-            int color = this.context.getResources().getColor(R.color.background_material_light);
-            convertView.setOnTouchListener(new CustomOnTouchListener(color));
+                });
+                abstractDrawerItem.getView().setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        view.performClick();
+                        return false;
+                    }
+                });
+                int color = this.context.getResources().getColor(R.color.background_material_light);
+                abstractDrawerItem.getView().setOnTouchListener(new CustomOnTouchListener(color));
+            }
         }
     }
 

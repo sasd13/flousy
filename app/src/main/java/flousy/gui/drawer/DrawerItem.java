@@ -2,7 +2,6 @@ package flousy.gui.drawer;
 
 import android.content.Intent;
 import android.view.View;
-import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.diderot.android.flousy.R;
@@ -53,18 +52,12 @@ public class DrawerItem extends AbstractDrawerItem {
     }
 
     @Override
-    public View inflate(ViewStub viewStub) {
+    public void parse(View view) {
         if(this.textView == null) {
-            viewStub.setLayoutResource(getLayoutResource());
-
-            View view = viewStub.inflate();
             setView(view);
-
             this.textView = (TextView) view.findViewById(R.id.draweritem_textview);
         }
 
         this.textView.setText(this.text);
-
-        return getView();
     }
 }

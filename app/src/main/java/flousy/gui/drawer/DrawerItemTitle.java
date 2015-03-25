@@ -1,7 +1,6 @@
 package flousy.gui.drawer;
 
 import android.view.View;
-import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.diderot.android.flousy.R;
@@ -12,13 +11,13 @@ import com.diderot.android.flousy.R;
 public class DrawerItemTitle extends AbstractDrawerItem {
 
     private CharSequence title;
-    private TextView titleTextView;
+    private TextView titleView;
 
-    public DrawerItemTitle(CharSequence itemTitle) {
+    public DrawerItemTitle(CharSequence title) {
         super(R.layout.draweritemtitle);
 
-        this.title = itemTitle;
-        this.titleTextView = null;
+        this.title = title;
+        this.titleView = null;
     }
 
     public CharSequence getTitle() {
@@ -30,18 +29,12 @@ public class DrawerItemTitle extends AbstractDrawerItem {
     }
 
     @Override
-    public View inflate(ViewStub viewStub) {
-        if(this.titleTextView == null) {
-            viewStub.setLayoutResource(getLayoutResource());
-
-            View view = viewStub.inflate();
+    public void parse(View view) {
+        if(this.titleView == null) {
             setView(view);
-
-            this.titleTextView = (TextView) view.findViewById(R.id.draweritemtitle_textview);
+            this.titleView = (TextView) view.findViewById(R.id.draweritemtitle_textview);
         }
 
-        this.titleTextView.setText(this.title.toString().toUpperCase());
-
-        return getView();
+        this.titleView.setText(this.title.toString().toUpperCase());
     }
 }

@@ -7,7 +7,7 @@
     android:gravity="center">
 
     <ViewStub
-        android:id="@+id/draweritem_stublayout_viewstub"
+        android:id="@+id/drawer_viewstub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

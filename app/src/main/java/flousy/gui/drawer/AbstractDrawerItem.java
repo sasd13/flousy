@@ -1,7 +1,6 @@
 package flousy.gui.drawer;
 
 import android.view.View;
-import android.view.ViewStub;
 
 /**
  * Created by Samir on 22/03/2015.
@@ -32,5 +31,5 @@ public abstract class AbstractDrawerItem {
         this.view = view;
     }
 
-    public abstract View inflate(ViewStub viewStub);
+    public abstract void parse(View view);
 }

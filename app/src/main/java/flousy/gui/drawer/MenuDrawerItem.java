@@ -2,7 +2,6 @@ package flousy.gui.drawer;
 
 import android.content.Intent;
 import android.view.View;
-import android.view.ViewStub;
 
 import com.diderot.android.flousy.R;
 
@@ -34,15 +33,12 @@ public class MenuDrawerItem extends DrawerItem {
     }
 
     @Override
-    public View inflate(ViewStub viewStub) {
+    public void parse(View view) {
         if(this.colorView == null) {
-            View view = super.inflate(viewStub);
-
+            super.parse(view);
             this.colorView = view.findViewById(R.id.draweritem_menu_colorview);
         }
 
         this.colorView.setBackgroundColor(this.color);
-
-        return getView();
     }
 }
