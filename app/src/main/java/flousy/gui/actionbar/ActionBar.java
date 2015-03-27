@@ -2,6 +2,7 @@ package flousy.gui.actionbar;
 
 import android.app.Activity;
 import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
+import flousy.gui.content.Converter;
 import flousy.gui.listener.CustomOnTouchListener;
 
 /**
@@ -20,14 +22,18 @@ import flousy.gui.listener.CustomOnTouchListener;
  */
 public class ActionBar {
 
+    private Context context;
+
+    private int color;
     private View view;
-    private int backgroundColor;
 
     private ImageButton upButton, actionFirstButton, actionSecondButton, drawerButton;
     private TextView titleView, subTitleView;
 
-    public ActionBar() {
-        this.backgroundColor = 0;
+    public ActionBar(Context context) {
+        this.context = context;
+
+        this.color = 0;
         this.view = null;
 
         this.upButton = null;
@@ -38,15 +44,16 @@ public class ActionBar {
         this.actionSecondButton = null;
     }
 
-    public int getBackgroundColor() {
-        return this.backgroundColor;
+    public int getColor() {
+        return this.color;
     }
 
-    public void setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public void setColor(int color) {
+        this.color = color;
 
         if(this.view != null) {
-            this.view.setBackgroundColor(this.backgroundColor);
+            this.view.setBackgroundColor(this.color);
+            setCustomOnTouchListener(this.color);
         }
     }
 
@@ -146,31 +153,31 @@ public class ActionBar {
         viewStub.setLayoutResource(R.layout.actionbar);
         this.view = viewStub.inflate();
 
-        this.backgroundColor = viewStub.getContext().getResources().getColor(MotherActivity.APP_COLOR);
-        this.view.setBackgroundColor(this.backgroundColor);
+        if(this.color == 0) {
+            this.color = this.context.getResources().getColor(MotherActivity.APP_COLOR);
+        }
+        this.view.setBackgroundColor(this.color);
 
         this.upButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_up);
+        setUpEnabled(false);
+
         this.titleView = (TextView) this.view.findViewById(R.id.actionbar_textview_title);
+
         this.subTitleView = (TextView) this.view.findViewById(R.id.actionbar_textview_subtitle);
+        setSubTitleEnabled(false);
+
         this.actionFirstButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_action_first);
+        setActionFirstEnabled(false);
+
         this.actionSecondButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_action_second);
+        setActionSecondEnabled(false);
+
         this.drawerButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_drawer);
+        setDrawerEnabled(false);
     }
 
-    public ActionBar customize(final Activity activity) {
-        int activityColor;
-        if(activity instanceof MotherActivity) {
-            activityColor = ((MotherActivity) activity).getActivityColor();
-        } else {
-            activityColor = activity.getResources().getColor(MotherActivity.APP_COLOR);
-        }
-
-        setBackgroundColor(activityColor);
+    public ActionBar setNavigationUp(final Activity activity) {
         setUpEnabled(true);
-        setSubTitleEnabled(false);
-        setActionFirstEnabled(false);
-        setActionSecondEnabled(false);
-        setDrawerEnabled(true);
 
         this.upButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,12 +199,31 @@ public class ActionBar {
             }
         });
 
-        CustomOnTouchListener listener = new CustomOnTouchListener(activityColor);
+        return this;
+    }
+
+    private void setCustomOnTouchListener(int color) {
+        CustomOnTouchListener listener = new CustomOnTouchListener(color);
+
         this.upButton.setOnTouchListener(listener);
         this.actionFirstButton.setOnTouchListener(listener);
         this.actionSecondButton.setOnTouchListener(listener);
         this.drawerButton.setOnTouchListener(listener);
+    }
 
-        return this;
+    public void show() {
+        this.view.setEnabled(true);
+        this.view.setVisibility(View.VISIBLE);
+        ViewGroup.LayoutParams params = this.view.getLayoutParams();
+        params.height = this.context.getResources().getDimensionPixelSize(R.dimen.actionbar_height);
+        this.view.setLayoutParams(params);
+    }
+
+    public void hide() {
+        this.view.setEnabled(false);
+        this.view.setVisibility(View.INVISIBLE);
+        ViewGroup.LayoutParams params = this.view.getLayoutParams();
+        params.height = 0;
+        this.view.setLayoutParams(params);
     }
 }

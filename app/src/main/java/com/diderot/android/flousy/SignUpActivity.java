@@ -1,6 +1,5 @@
 package com.diderot.android.flousy;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -10,22 +9,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import flousy.gui.actionbar.ActionBar;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.util.UserManager;
-import flousy.gui.actionbar.ActionBar;
-import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.util.Validator;
 
-public class SignUpActivity extends Activity {
+public class SignUpActivity extends MotherActivity {
 
     private static int SIGNUP_TIME_OUT = 2000;
     private Handler handler;
@@ -40,19 +37,12 @@ public class SignUpActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         //Set content view
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_signup_layout);
 
-        //Create CustomActionBar
-        ActionBar actionBar = new ActionBar();
-        ViewStub viewStub = (ViewStub) findViewById(R.id.signup_actionbar_viewstub);
-        actionBar.inflate(viewStub);
-        actionBar.customize(this);
+        //Set CustomActionBar
+        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
         actionBar.getTitleView().setText(R.string.activity_signup_name);
         actionBar.setDrawerEnabled(false);
-
-        //Set ActivityContent
-        View view = findViewById(R.id.signup_activitycontent);
-        ActivityContentCustomizer.customize(view, this);
 
         this.editTextFirstName = (EditText) findViewById(R.id.signup_edittext_firstname);
         this.editTextLastName = (EditText) findViewById(R.id.signup_edittext_lastname);
@@ -77,6 +67,11 @@ public class SignUpActivity extends Activity {
                 return false;
             }
         });
+
+        //Customize activity
+        customizeColor(getActivityColor());
+        customizeText();
+        customizeDimensions();
     }
 
     @Override
@@ -136,25 +131,25 @@ public class SignUpActivity extends Activity {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
-            final Intent loginActivity = new Intent(this, LogInActivity.class);
-            loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            loginActivity.putExtra("CLOSE", true);
-            loginActivity.putExtra("NEW_USER_FIRSTNAME", user.getFirstName());
+            final Intent intent = new Intent(this, LogInActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("CLOSE", true);
+            intent.putExtra("NEW_USER_FIRSTNAME", user.getFirstName());
 
             this.runnable = new Runnable() {
 
                 @Override
                 public void run() {
-                    startActivity(loginActivity);
+                    startActivity(intent);
                     dialog.dismiss();
                     finish();
                 }
             };
 
             this.handler = new Handler();
+            this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
             dialog.show();
             session.connect(user.getEmail(), user.getPassword());
-            this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
         }
     }
 }

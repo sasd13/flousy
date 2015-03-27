@@ -1,10 +1,8 @@
 package com.diderot.android.flousy;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -12,7 +10,7 @@ import android.widget.ImageView;
 import flousy.util.SessionManager;
 import flousy.util.UserManager;
 
-public class SplashScreenActivity extends Activity {
+public class SplashScreenActivity extends MotherActivity {
 
     private static int SPLASH_TIME_OUT = 3000;
     private Handler handler;
@@ -23,7 +21,10 @@ public class SplashScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         //Set content view
-        setContentView(R.layout.activity_splashscreen);
+        setContentView(R.layout.activity_splashscreen_layout);
+
+        //Disable ActionBar
+        getCustomActionBar().hide();
 
         //Set Logo
         ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
@@ -82,6 +83,7 @@ public class SplashScreenActivity extends Activity {
 
     private void attachActivity(Class<?> activityClass, int timeOut) {
         final Intent intent = new Intent(this, activityClass);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         this.runnable = new Runnable() {
 

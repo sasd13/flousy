@@ -17,7 +17,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.gui.actionbar.ActionBar;
@@ -49,15 +48,15 @@ public class SettingsActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set ActionBar
-        ActionBar actionBar = getCustomActionBar().customize(this);
+        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
         actionBar.getTitleView().setText(R.string.activity_settings_name);
 
         //Set Drawer
         Drawer drawer = getDrawer();
 
         //Set ActivityContent
-        View view = createActivityContent(R.layout.activity_layout_settings);
-        ActivityContentCustomizer.customize(view, this);
+        setContentView(R.layout.activity_settings_layout);
+        //ActivityCustomizer.customize(view, this);
 
         TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
@@ -108,6 +107,11 @@ public class SettingsActivity extends MotherActivity {
                 return false;
             }
         });
+
+        //Customize activity
+        customizeColor(getActivityColor());
+        customizeText();
+        customizeDimensions();
     }
 
     @Override
@@ -193,23 +197,23 @@ public class SettingsActivity extends MotherActivity {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
-            final Intent menuActivity = new Intent(this, MenuActivity.class);
-            menuActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            menuActivity.putExtra("EXIT", true);
+            final Intent intent = new Intent(this, MenuActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("EXIT", true);
 
             this.runnable = new Runnable() {
 
                 @Override
                 public void run() {
-                    startActivity(menuActivity);
+                    startActivity(intent);
                     dialog.dismiss();
                     finish();
                 }
             };
 
             this.handler = new Handler();
-            dialog.show();
             this.handler.postDelayed(this.runnable, LOGOUT_TIME_OUT);
+            dialog.show();
         }
     }
 }

@@ -71,6 +71,7 @@ public class DrawerItem extends AbstractDrawerItem {
             @Override
             public void onClick(View view) {
                 if (intent != null) {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     viewStub.getContext().startActivity(intent);
                 }
             }

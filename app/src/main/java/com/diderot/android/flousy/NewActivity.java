@@ -7,8 +7,6 @@ import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.drawer.Drawer;
-import flousy.gui.drawer.DrawerItem;
-import flousy.gui.drawer.DrawerItemTitle;
 
 public class NewActivity extends MotherActivity {
 
@@ -22,26 +20,23 @@ public class NewActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar().customize(this);
+        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
         actionBar.getTitleView().setText(R.string.activity_new_name);
         actionBar.getSubTitleView().setText(R.string.new_actionbar_textview_subtitle);
 
-        ImageButton buttonSearch = actionBar.getActionFirstButton();
-        buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));
+        ImageButton buttonEdit = actionBar.getActionFirstButton();
+        buttonEdit.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_edit));
 
         ImageButton buttonAdd = actionBar.getActionSecondButton();
         buttonAdd.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_new));
 
         //Set Drawer
         Drawer drawer = getDrawer();
-        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
-        drawerItemTitle.setTitle("Catégorie");
-        drawer.addItem(drawerItemTitle);
 
-        DrawerItem drawerItem = new DrawerItem();
-        drawerItem.setText("Ajouter catégorie");
-        drawerItem.setIntent(null);
-        drawer.addItem(drawerItem);
+        //Customize activity
+        customizeColor(getActivityColor());
+        customizeText();
+        customizeDimensions();
     }
 
 

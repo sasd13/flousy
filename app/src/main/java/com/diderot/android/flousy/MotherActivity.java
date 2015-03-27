@@ -2,10 +2,10 @@ package com.diderot.android.flousy;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -20,47 +20,58 @@ import flousy.gui.actionbar.ActionBar;
 import flousy.gui.activitybar.ActivityBar;
 import flousy.gui.activitybar.ActivityBarFactory;
 import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.activitycontent.ActivityContentCustomizer;
-import flousy.gui.color.CustomColor;
+import flousy.gui.color.ColorBrightness;
+import flousy.gui.content.ColorCustomizer;
+import flousy.gui.content.DimensionCustomizer;
+import flousy.gui.content.TextCustomizer;
 import flousy.gui.drawer.MenuDrawerItem;
 import flousy.gui.drawer.Drawer;
 import flousy.gui.drawer.DrawerItemTitle;
 
-public class MotherActivity extends Activity {
+public class MotherActivity extends Activity implements ColorCustomizer, TextCustomizer, DimensionCustomizer {
 
     public static final int APP_COLOR = R.color.customGreenApp;
 
     private int activityColor;
+
     private ActionBar actionBar;
+
     private Drawer drawer;
+    private DrawerLayout drawerLayout;
+    private RecyclerView drawerView;
+
+    private ActivityBar activityBar = null;
+    private View contentView = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set content view
-        setContentView(R.layout.activity_mother);
+        super.setContentView(R.layout.activity_mother);
 
-        //Create activity color with app color
+        //Create ActivityColor with app color
         this.activityColor = getResources().getColor(APP_COLOR);
 
         //Create CustomActionBar
         ViewStub actionbarStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
-        this.actionBar = new ActionBar();
+        this.actionBar = new ActionBar(this);
         this.actionBar.inflate(actionbarStub);
 
         //Create Drawer
-        RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer);
+        this.drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        this.drawerView = (RecyclerView) findViewById(R.id.drawer_view);
+        this.drawer = new Drawer();
+        this.actionBar.setDrawerEnabled(true);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        drawerView.setHasFixedSize(true);
+        this.drawerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        drawerView.setLayoutManager(new LinearLayoutManager(this));
+        this.drawerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //set adapter
-        this.drawer = new Drawer();
+        //Set adapter
         this.drawer.adapt(drawerView);
 
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
@@ -68,47 +79,72 @@ public class MotherActivity extends Activity {
         this.drawer.addItem(drawerItemTitle);
 
         MenuDrawerItem menuDrawerItem = null;
-        Resources resources = getResources();
         for(int i=0; i<6; i++) {
             switch (i) {
                 case 0:
                     menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(resources.getString(R.string.activity_new_name));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_new_name));
                     menuDrawerItem.setIntent(new Intent(this, NewActivity.class));
-                    menuDrawerItem.setColor(resources.getColor(NewActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setColor(getResources().getColor(NewActivity.ACTIVITY_COLOR));
                     break;
                 case 1:
                     menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(resources.getString(R.string.activity_consult_name));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_consult_name));
                     menuDrawerItem.setIntent(new Intent(this, ConsultActivity.class));
-                    menuDrawerItem.setColor(resources.getColor(ConsultActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setColor(getResources().getColor(ConsultActivity.ACTIVITY_COLOR));
                     break;
                 case 2:
                     menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(resources.getString(R.string.activity_finances_name));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_finances_name));
                     menuDrawerItem.setIntent(new Intent(this, FinancesActivity.class));
-                    menuDrawerItem.setColor(resources.getColor(FinancesActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setColor(getResources().getColor(FinancesActivity.ACTIVITY_COLOR));
                     break;
                 case 3:
                     menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(resources.getString(R.string.activity_friends_name));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_friends_name));
                     menuDrawerItem.setIntent(new Intent(this, FriendsActivity.class));
-                    menuDrawerItem.setColor(resources.getColor(FriendsActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setColor(getResources().getColor(FriendsActivity.ACTIVITY_COLOR));
                     break;
                 case 4:
                     menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(resources.getString(R.string.activity_offers_name));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_offers_name));
                     menuDrawerItem.setIntent(new Intent(this, OffersActivity.class));
-                    menuDrawerItem.setColor(resources.getColor(OffersActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setColor(getResources().getColor(OffersActivity.ACTIVITY_COLOR));
                     break;
                 case 5:
                     menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(resources.getString(R.string.activity_settings_name));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_settings_name));
                     menuDrawerItem.setIntent(new Intent(this, SettingsActivity.class));
-                    menuDrawerItem.setColor(resources.getColor(SettingsActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setColor(getResources().getColor(SettingsActivity.ACTIVITY_COLOR));
                     break;
             }
             this.drawer.addItem(menuDrawerItem);
+        }
+
+        //Add ActionBar drawer button listener
+        this.actionBar.getDrawerButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(drawerLayout.isDrawerOpen(drawerView)) {
+                    drawerLayout.closeDrawer(drawerView);
+                } else {
+                    drawerLayout.openDrawer(drawerView);
+                }
+            }
+        });
+
+        //Customize activity default
+        customizeColor(getActivityColor());
+        customizeText();
+        customizeDimensions();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if(this.drawerLayout.isDrawerOpen(this.drawerView)) {
+            this.drawerLayout.closeDrawer(this.drawerView);
         }
     }
 
@@ -146,27 +182,107 @@ public class MotherActivity extends Activity {
         return this.drawer;
     }
 
-    public ActivityBar createActivityBar(ActivityBarType type) {
-        ActivityBar activityBar = ActivityBarFactory.create(type);
-
-        if(activityBar != null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
-            activityBar.inflate(viewStub);
-            activityBar.getView().setBackgroundColor(CustomColor.colorDarker(this.activityColor));
-        }
-
-        return activityBar;
+    public ActivityBar getActivityBar() {
+        return this.activityBar;
     }
 
-    public View createActivityContent(int layoutResource) {
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(layoutResource);
-        View view = viewStub.inflate();
+    public ActivityBar createActivityBar(ActivityBarType type) {
+        this.activityBar = ActivityBarFactory.create(type);
 
-        if(view == null) {
-            return null;
+        if(this.activityBar != null) {
+            ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
+            activityBar.inflate(viewStub);
+            activityBar.getView().setBackgroundColor(this.activityColor);
         }
 
-        return view;
+        return this.activityBar;
+    }
+
+    public View getContentView() {
+        return this.contentView;
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
+        viewStub.setLayoutResource(layoutResID);
+        this.contentView = viewStub.inflate();
+    }
+
+    @Override
+    public void customizeColor(int activityColor) {
+        this.actionBar.setColor(activityColor);
+
+        if(this.activityBar != null) {
+            this.activityBar.getView().setBackgroundColor(ColorBrightness.colorDarker(activityColor));
+        }
+
+        if(this.contentView != null) {
+            int i = 0;
+            String tag = "customize_";
+            View viewChild = this.contentView.findViewWithTag(tag + i);
+            while (viewChild != null) {
+                if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
+                    ((TextView) viewChild).setTextColor(activityColor);
+                } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
+                    ((Button) viewChild).setTextColor(Color.WHITE);
+                    viewChild.setBackgroundColor(activityColor);
+                } else {
+                    viewChild.setBackgroundColor(activityColor);
+                }
+
+                i++;
+                viewChild = this.contentView.findViewWithTag(tag + i);
+            }
+        }
+    }
+
+    @Override
+    public void customizeText() {
+        if(this.contentView != null) {
+            int i = 0;
+            String tag = "customize_";
+            View viewChild = this.contentView.findViewWithTag(tag + i);
+            while (viewChild != null) {
+                if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
+                    CharSequence text = ((TextView) viewChild).getText();
+                    ((TextView) viewChild).setText(text.toString().toUpperCase());
+                    ((TextView) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
+                } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
+                    ((Button) viewChild).setTextSize(TypedValue.DENSITY_DEFAULT, getResources().getDimension(R.dimen.textsize_medium));
+                    ((Button) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
+                }
+
+                i++;
+                viewChild = this.contentView.findViewWithTag(tag + i);
+            }
+        }
+    }
+
+    @Override
+    public void customizeDimensions() {
+        if(this.contentView != null) {
+            int i = 0;
+            String tag = "customize_";
+            View viewChild = this.contentView.findViewWithTag(tag + i);
+            while (viewChild != null) {
+                if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
+                    viewChild.setPadding(
+                            (int) getResources().getDimension(R.dimen.activitycontent_padding),
+                            0,
+                            0,
+                            0);
+                } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
+                    viewChild.setPadding(
+                            (int) getResources().getDimension(R.dimen.button_horizontalpadding),
+                            (int) getResources().getDimension(R.dimen.button_verticalpadding),
+                            (int) getResources().getDimension(R.dimen.button_horizontalpadding),
+                            (int) getResources().getDimension(R.dimen.button_verticalpadding));
+                }
+
+                i++;
+                viewChild = this.contentView.findViewWithTag(tag + i);
+            }
+        }
     }
 }

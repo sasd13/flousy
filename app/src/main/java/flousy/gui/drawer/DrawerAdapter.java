@@ -24,7 +24,7 @@ public class DrawerAdapter extends RecyclerView.Adapter {
         public ViewHolder(View view) {
             super(view);
 
-            stub = (ViewStub) view.findViewById(R.id.drawer_viewstub);
+            stub = (ViewStub) view.findViewById(R.id.drawer_item_layout_viewstub);
         }
     }
 

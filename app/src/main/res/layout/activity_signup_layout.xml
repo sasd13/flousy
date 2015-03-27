@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/signup_activitycontent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:padding="@dimen/activitycontent_padding"
     android:scrollbarStyle="outsideOverlay">
 
@@ -17,19 +19,19 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:tag="color_activity_0"
+                android:tag="customize_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textview_identity"/>
 
             <View
-                android:tag="color_activity_1"
+                android:tag="customize_1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dividerview_height_medium"
                 android:layout_marginTop="@dimen/dividerview_margintop"/>
 
             <EditText
-                android:id="@+id/settings_edittext_firstname"
+                android:id="@+id/signup_edittext_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_holo_light"
@@ -37,19 +39,19 @@
                 android:hint="@string/edittext_firstname_hint"
                 android:inputType="textPersonName|textCapWords"
                 android:textSize="@dimen/textsize_medium"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionGo"
                 android:singleLine="true"/>
 
             <EditText
-                android:id="@+id/settings_edittext_lastname"
+                android:id="@+id/signup_edittext_lastname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_holo_light"
                 android:layout_marginTop="@dimen/view_margintop"
                 android:hint="@string/edittext_lastname_hint"
-                android:inputType="textPersonName|textCapWords"
+                android:inputType="textPersonName|textCapSentences"
                 android:textSize="@dimen/textsize_medium"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionGo"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -62,19 +64,19 @@
             android:gravity="left|center_vertical">
 
             <TextView
-                android:tag="color_activity_2"
+                android:tag="customize_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textview_connection"/>
 
             <View
-                android:tag="color_activity_3"
+                android:tag="customize_3"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dividerview_height_medium"
                 android:layout_marginTop="@dimen/dividerview_margintop"/>
 
             <EditText
-                android:id="@+id/settings_edittext_email"
+                android:id="@+id/signup_edittext_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_holo_light"
@@ -82,11 +84,11 @@
                 android:hint="@string/edittext_email_hint"
                 android:inputType="textEmailAddress"
                 android:textSize="@dimen/textsize_medium"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionGo"
                 android:singleLine="true"/>
 
             <EditText
-                android:id="@+id/settings_edittext_password"
+                android:id="@+id/signup_edittext_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_holo_light"
@@ -94,7 +96,19 @@
                 android:hint="@string/edittext_password_hint"
                 android:inputType="textPassword"
                 android:textSize="@dimen/textsize_medium"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionGo"
+                android:singleLine="true"/>
+
+            <EditText
+                android:id="@+id/signup_edittext_confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_holo_light"
+                android:layout_marginTop="@dimen/view_margintop"
+                android:hint="@string/edittext_confirmpassword_hint"
+                android:inputType="textPassword"
+                android:textSize="@dimen/textsize_medium"
+                android:imeOptions="actionGo"
                 android:singleLine="true"/>
 
         </LinearLayout>
@@ -111,7 +125,7 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/settings_checkbox_connect"
+                    android:id="@+id/signup_checkbox_validation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -122,21 +136,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/settings_textview_connect"
+                    android:text="@string/signup_textview_validation"
                     android:clickable="true"/>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <Button
+                android:tag="customize_4"
+                android:id="@+id/signup_button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/button_save"
+                android:layout_marginTop="@dimen/signup_button_margintop"
+                android:onClick="signUp"/>
 
-        <Button
-            android:tag="color_activity_4"
-            android:id="@+id/settings_button_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/settings_button_logout"
-            android:onClick="endConnection"/>
+        </LinearLayout>
 
     </LinearLayout>
 

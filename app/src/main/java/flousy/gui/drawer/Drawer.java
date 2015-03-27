@@ -16,7 +16,7 @@ public class Drawer {
 
     public Drawer() {
         this.listAbstractDrawerItem = new ArrayList<AbstractDrawerItem>();
-        this.itemStubLayout = R.layout.drawer_layout_itemstub;
+        this.itemStubLayout = R.layout.drawer_item_layout;
     }
 
     public AbstractDrawerItem getItem(int index) {
@@ -47,8 +47,8 @@ public class Drawer {
         return this.listAbstractDrawerItem.size();
     }
 
-    public void adapt(RecyclerView drawerLayout) {
+    public void adapt(RecyclerView drawerView) {
         DrawerAdapter drawerAdapter = new DrawerAdapter(this.listAbstractDrawerItem, this.itemStubLayout);
-        drawerLayout.setAdapter(drawerAdapter);
+        drawerView.setAdapter(drawerAdapter);
     }
 }

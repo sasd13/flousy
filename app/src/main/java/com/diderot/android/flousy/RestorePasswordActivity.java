@@ -1,29 +1,29 @@
 package com.diderot.android.flousy;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewStub;
 
 import flousy.gui.actionbar.ActionBar;
 
-public class RestorePasswordActivity extends Activity {
+public class RestorePasswordActivity extends MotherActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Set content view
-        setContentView(R.layout.activity_restorepassword);
+        setContentView(R.layout.activity_restorepassword_layout);
 
-        //Create CustomActionBar
-        ActionBar actionBar = new ActionBar();
-        ViewStub viewStub = (ViewStub) findViewById(R.id.restorepassword_actionbar_viewstub);
-        actionBar.inflate(viewStub);
-        actionBar.customize(this);
+        //Set CustomActionBar
+        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
         actionBar.getTitleView().setText(R.string.activity_restorepassword_name);
-        actionBar.setUpEnabled(false);
+        actionBar.setDrawerEnabled(false);
+
+        //Customize activity
+        customizeColor(getActivityColor());
+        customizeText();
+        customizeDimensions();
     }
 
     @Override

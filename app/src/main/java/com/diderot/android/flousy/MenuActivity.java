@@ -14,7 +14,6 @@ import flousy.gui.grid.GridItem;
 import flousy.gui.grid.Grid;
 import flousy.gui.grid.GridFactory;
 import flousy.gui.grid.GridType;
-import flousy.gui.drawer.Drawer;
 import flousy.gui.widget.CustomDialogBuilder;
 
 public class MenuActivity extends MotherActivity {
@@ -23,20 +22,18 @@ public class MenuActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Set ActivityContent
+        setContentView(R.layout.grid);
+
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar().customize(this);
-        actionBar.setUpEnabled(false);
+        ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_menu_name);
 
         ImageButton buttonSearch = actionBar.getActionFirstButton();
         buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));
 
-        //Set Drawer
-        Drawer drawer = getDrawer();
-
-        //Set ActivityContent
-        GridView gridView = (GridView) createActivityContent(R.layout.grid);
-
+        //Set Activity content
+        GridView gridView = (GridView) getContentView();
         Grid menuGrid = (Grid) GridFactory.create(GridType.BASEGRID);
         menuGrid.adapt(gridView);
 
@@ -106,8 +103,9 @@ public class MenuActivity extends MotherActivity {
         } else if (getIntent().hasExtra("EXIT") && getIntent().getBooleanExtra("EXIT", false) == true) {
             getIntent().removeExtra("EXIT");
 
-            Intent loginActivity = new Intent(this, LogInActivity.class);
-            startActivity(loginActivity);
+            Intent intent = new Intent(this, LogInActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
             finish();
         }
     }

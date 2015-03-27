@@ -19,11 +19,13 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
     public static final int TYPE_TWOBUTTON_YESNO = 2;
     public static final int TYPE_TWOBUTTON_OKCANCEL = 3;
 
+    private Context context;
     private int dialogType;
 
     public CustomDialogBuilder(Context context, int dialogType) {
         super(context);
 
+        this.context = context;
         this.dialogType = dialogType;
     }
 
@@ -31,7 +33,8 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
     @Override
     public AlertDialog create() {
         if(this.dialogType == TYPE_LOAD) {
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.customdialog_load, null, false);
+            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.customdialog_load, null);
             setView(view);
         }
 

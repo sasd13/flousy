@@ -1,6 +1,5 @@
 package com.diderot.android.flousy;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,11 +18,10 @@ import flousy.util.SessionManager;
 import flousy.util.UserManager;
 import flousy.util.Validator;
 import flousy.util.ValidatorCode;
-import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
 
-public class LogInActivity extends Activity {
+public class LogInActivity extends MotherActivity {
 
     private static int LOADING_TIME_OUT = 2000;
     private Handler handler;
@@ -37,11 +35,10 @@ public class LogInActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         //Set content view
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_layout);
 
-        //Set ActivityContent
-        View view = findViewById(R.id.login_activitycontent);
-        ActivityContentCustomizer.customize(view, this);
+        //Disable CustomActionBar
+        getCustomActionBar().hide();
 
         this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
@@ -52,8 +49,9 @@ public class LogInActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(editTextLogin.getText().toString().trim().length() > 0
-                        && editTextPassword.getText().toString().trim().length() > 0)
-                startConnection();
+                        && editTextPassword.getText().toString().trim().length() > 0) {
+                    startConnection();
+                }
             }
         });
         this.buttonConnect.setOnLongClickListener(new View.OnLongClickListener() {
@@ -91,8 +89,9 @@ public class LogInActivity extends Activity {
                     textView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent signUpActivity = new Intent(LogInActivity.this, SignUpActivity.class);
-                            startActivity(signUpActivity);
+                            Intent intent = new Intent(LogInActivity.this, SignUpActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                         }
                     });
             }
@@ -107,11 +106,12 @@ public class LogInActivity extends Activity {
             getIntent().removeExtra("CLOSE");
 
             if(getIntent().hasExtra("NEW_USER_FIRSTNAME")) {
-                Intent menuActivity = new Intent(this, MenuActivity.class);
-                menuActivity.putExtra("WELCOME", true);
-                menuActivity.putExtra("NEW_USER_FIRSTNAME", getIntent().getCharSequenceExtra("NEW_USER_FIRSTNAME"));
+                Intent intent = new Intent(this, MenuActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("WELCOME", true);
+                intent.putExtra("NEW_USER_FIRSTNAME", getIntent().getCharSequenceExtra("NEW_USER_FIRSTNAME"));
 
-                startActivity(menuActivity);
+                startActivity(intent);
             }
 
             finish();
@@ -163,12 +163,14 @@ public class LogInActivity extends Activity {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
-            final Intent menuActivity = new Intent(this, MenuActivity.class);
+            final Intent intent = new Intent(this, MenuActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
             this.runnable = new Runnable() {
 
                 @Override
                 public void run() {
-                    startActivity(menuActivity);
+                    startActivity(intent);
                     dialog.dismiss();
                     finish();
                 }
