@@ -5,5 +5,5 @@ package flousy.gui.content;
  */
 public interface ColorCustomizer {
 
-    public void customizeColor(int activityColor);
+    public void customizeColor();
 }

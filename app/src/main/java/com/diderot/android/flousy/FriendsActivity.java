@@ -30,13 +30,13 @@ public class FriendsActivity extends MotherActivity {
 
         //Set ActivityBar
         TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarType.TITLEDBAR);
-        activityBar.setTitle(getResources().getString(R.string.friends_activitybar_tabed_tab_received));
+        activityBar.setTitle(getResources().getString(R.string.friends_activitybar_tabed_tab_reception));
 
         //Set Drawer
         Drawer drawer = getDrawer();
 
         //Customize activity
-        customizeColor(getActivityColor());
+        customizeColor();
         customizeText();
         customizeDimensions();
     }

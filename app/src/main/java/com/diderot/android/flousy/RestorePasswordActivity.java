@@ -21,7 +21,7 @@ public class RestorePasswordActivity extends MotherActivity {
         actionBar.setDrawerEnabled(false);
 
         //Customize activity
-        customizeColor(getActivityColor());
+        customizeColor();
         customizeText();
         customizeDimensions();
     }

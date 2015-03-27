@@ -109,7 +109,7 @@ public class SettingsActivity extends MotherActivity {
         });
 
         //Customize activity
-        customizeColor(getActivityColor());
+        customizeColor();
         customizeText();
         customizeDimensions();
     }

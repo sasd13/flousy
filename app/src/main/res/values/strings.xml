@@ -21,8 +21,8 @@
     <string name="activity_settings_name">Paramètres</string>
 
     <!-- Activity Friends -->
-    <string name="friends_activitybar_tabed_tab_received">Reçus</string>
-    <string name="friends_activitybar_tabed_tab_sended">Envoyés</string>
+    <string name="friends_activitybar_tabed_tab_reception">Réceptions</string>
+    <string name="friends_activitybar_tabed_tab_send">Envois</string>
     <string name="friends_activitybar_tabed_tab_contact">Contacts</string>
 
     <!-- Activity LogIn -->

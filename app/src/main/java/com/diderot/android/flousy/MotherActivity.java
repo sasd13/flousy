@@ -134,7 +134,7 @@ public class MotherActivity extends Activity implements ColorCustomizer, TextCus
         });
 
         //Customize activity default
-        customizeColor(getActivityColor());
+        customizeColor();
         customizeText();
         customizeDimensions();
     }
@@ -210,11 +210,11 @@ public class MotherActivity extends Activity implements ColorCustomizer, TextCus
     }
 
     @Override
-    public void customizeColor(int activityColor) {
-        this.actionBar.setColor(activityColor);
+    public void customizeColor() {
+        this.actionBar.setColor(this.activityColor);
 
         if(this.activityBar != null) {
-            this.activityBar.getView().setBackgroundColor(ColorBrightness.colorDarker(activityColor));
+            this.activityBar.getView().setBackgroundColor(ColorBrightness.colorDarker(this.activityColor));
         }
 
         if(this.contentView != null) {
@@ -223,12 +223,12 @@ public class MotherActivity extends Activity implements ColorCustomizer, TextCus
             View viewChild = this.contentView.findViewWithTag(tag + i);
             while (viewChild != null) {
                 if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
-                    ((TextView) viewChild).setTextColor(activityColor);
+                    ((TextView) viewChild).setTextColor(this.activityColor);
                 } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
                     ((Button) viewChild).setTextColor(Color.WHITE);
-                    viewChild.setBackgroundColor(activityColor);
+                    viewChild.setBackgroundColor(this.activityColor);
                 } else {
-                    viewChild.setBackgroundColor(activityColor);
+                    viewChild.setBackgroundColor(this.activityColor);
                 }
 
                 i++;

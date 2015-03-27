@@ -34,7 +34,7 @@ public class NewActivity extends MotherActivity {
         Drawer drawer = getDrawer();
 
         //Customize activity
-        customizeColor(getActivityColor());
+        customizeColor();
         customizeText();
         customizeDimensions();
     }

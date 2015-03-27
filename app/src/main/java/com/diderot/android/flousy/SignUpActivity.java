@@ -69,7 +69,7 @@ public class SignUpActivity extends MotherActivity {
         });
 
         //Customize activity
-        customizeColor(getActivityColor());
+        customizeColor();
         customizeText();
         customizeDimensions();
     }
