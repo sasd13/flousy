@@ -5,7 +5,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.drawer.Drawer;
 
 public class FinancesActivity extends MotherActivity {
@@ -20,8 +19,7 @@ public class FinancesActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar();
-        ActionBarCustomizer.customize(this, actionBar);
+        ActionBar actionBar = getCustomActionBar().customize(this);
         actionBar.getTitleView().setText(R.string.activity_finances_name);
 
         //Set Drawer

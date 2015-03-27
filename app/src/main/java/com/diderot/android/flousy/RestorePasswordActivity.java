@@ -1,30 +1,29 @@
 package com.diderot.android.flousy;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.actionbar.ActionBarCustomizer;
-import flousy.gui.app.NativeActionBarManager;
 
-public class RestorePasswordActivity extends ActionBarActivity {
+public class RestorePasswordActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Create CustomActionBar, disable native ActionBar
-        NativeActionBarManager.setActionBarEnabled(this, false);
+        //Set content view
+        setContentView(R.layout.activity_restorepassword);
+
+        //Create CustomActionBar
         ActionBar actionBar = new ActionBar();
         ViewStub viewStub = (ViewStub) findViewById(R.id.restorepassword_actionbar_viewstub);
         actionBar.inflate(viewStub);
-
-        ActionBarCustomizer.customize(this, actionBar);
-
+        actionBar.customize(this);
         actionBar.getTitleView().setText(R.string.activity_restorepassword_name);
+        actionBar.setUpEnabled(false);
     }
 
     @Override

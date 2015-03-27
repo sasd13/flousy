@@ -17,7 +17,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.gui.actionbar.ActionBarCustomizer;
+import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.gui.actionbar.ActionBar;
@@ -39,7 +39,7 @@ public class SettingsActivity extends MotherActivity {
 
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
     private CheckBox checkBoxConnect;
-    private Button buttonSave;
+    private Button logoutButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,7 @@ public class SettingsActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set ActionBar
-        ActionBar actionBar = getCustomActionBar();
-        ActionBarCustomizer.customize(this, actionBar);
+        ActionBar actionBar = getCustomActionBar().customize(this);
         actionBar.getTitleView().setText(R.string.activity_settings_name);
 
         //Set Drawer
@@ -58,12 +57,13 @@ public class SettingsActivity extends MotherActivity {
 
         //Set ActivityContent
         View view = createActivityContent(R.layout.activity_layout_settings);
+        ActivityContentCustomizer.customize(view, this);
 
         TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId == EditorInfo.IME_ACTION_DONE) {
-                    KeyboardManager.hide(getApplicationContext(), v);
+                    KeyboardManager.hide(v);
                     save();
                     return true;
                 }
@@ -82,10 +82,10 @@ public class SettingsActivity extends MotherActivity {
 
         this.checkBoxConnect = (CheckBox) findViewById(R.id.settings_checkbox_connect);
 
-        Button logoutButton = (Button) findViewById(R.id.settings_button_logout);
-        logoutButton.setBackgroundColor(getActivityColor());
-        logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
-        logoutButton.setOnClickListener(new View.OnClickListener() {
+        this.logoutButton = (Button) findViewById(R.id.settings_button_logout);
+        this.logoutButton.setBackgroundColor(getActivityColor());
+        this.logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+        this.logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CustomDialogBuilder builder = new CustomDialogBuilder(SettingsActivity.this, CustomDialogBuilder.TYPE_TWOBUTTON_YESNO);
@@ -101,7 +101,7 @@ public class SettingsActivity extends MotherActivity {
                 dialog.show();
             }
         });
-        logoutButton.setOnLongClickListener(new View.OnLongClickListener() {
+        this.logoutButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 view.performClick();

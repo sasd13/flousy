@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/grid_base"
+    android:id="@+id/grid"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activitycontent_padding"
     android:layout_gravity="center"
-    android:horizontalSpacing="@dimen/grid_base_horizontalspacing"
-    android:verticalSpacing="@dimen/grid_base_verticalspacing"
-    android:numColumns="@integer/grid_base_numcolumns"
+    android:horizontalSpacing="@dimen/grid_horizontalspacing"
+    android:verticalSpacing="@dimen/grid_verticalspacing"
+    android:numColumns="@integer/grid_numcolumns"
     android:stretchMode="columnWidth"
     android:scrollbarStyle="outsideOverlay">
 

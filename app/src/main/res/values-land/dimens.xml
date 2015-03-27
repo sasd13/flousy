@@ -1,5 +1,5 @@
 <resources>
     <!-- Grid -->
-    <integer name="grid_base_numcolumns">3</integer><!-- numColumns : auto_fit (-1) --><!-- DIFF default : -1 -->
+    <integer name="grid_numcolumns">3</integer><!-- numColumns : auto_fit (-1) --><!-- DIFF default : -1 -->
 
 </resources>

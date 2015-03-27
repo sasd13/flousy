@@ -10,9 +10,8 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.actionbar.ActionBarCustomizer;
-import flousy.gui.grid.BaseGridItem;
-import flousy.gui.grid.BaseGrid;
+import flousy.gui.grid.GridItem;
+import flousy.gui.grid.Grid;
 import flousy.gui.grid.GridFactory;
 import flousy.gui.grid.GridType;
 import flousy.gui.drawer.Drawer;
@@ -25,8 +24,7 @@ public class MenuActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar();
-        ActionBarCustomizer.customize(this, actionBar);
+        ActionBar actionBar = getCustomActionBar().customize(this);
         actionBar.setUpEnabled(false);
         actionBar.getTitleView().setText(R.string.activity_menu_name);
 
@@ -37,73 +35,56 @@ public class MenuActivity extends MotherActivity {
         Drawer drawer = getDrawer();
 
         //Set ActivityContent
-        GridView gridView = (GridView) createActivityContent(R.layout.grid_base);
+        GridView gridView = (GridView) createActivityContent(R.layout.grid);
 
-        BaseGrid menuGrid = (BaseGrid) GridFactory.create(GridType.BASEGRID);
+        Grid menuGrid = (Grid) GridFactory.create(GridType.BASEGRID);
         menuGrid.adapt(gridView);
 
-        BaseGridItem baseGridItem = null;
+        GridItem gridItem = null;
         Resources resources = getResources();
 
         for(int i=0; i<6; i++) {
+            gridItem = new GridItem();
             switch(i) {
                 case 0:
-                    baseGridItem = new BaseGridItem(
-                            this,
-                            resources.getString(R.string.activity_new_name),
-                            resources.getDrawable(R.drawable.griditem_new),
-                            resources.getColor(NewActivity.ACTIVITY_COLOR),
-                            new Intent(this, NewActivity.class)
-                    );
+                    gridItem.setBackgroundColor(resources.getColor(NewActivity.ACTIVITY_COLOR));
+                    gridItem.setText(resources.getString(R.string.activity_new_name));
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_new));
+                    gridItem.setIntent(new Intent(this, NewActivity.class));
                     break;
                 case 1:
-                    baseGridItem = new BaseGridItem(
-                            this,
-                            resources.getString(R.string.activity_consult_name),
-                            resources.getDrawable(R.drawable.griditem_consult),
-                            resources.getColor(ConsultActivity.ACTIVITY_COLOR),
-                            new Intent(this, ConsultActivity.class)
-                    );
+                    gridItem.setBackgroundColor(resources.getColor(ConsultActivity.ACTIVITY_COLOR));
+                    gridItem.setText(resources.getString(R.string.activity_consult_name));
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_consult));
+                    gridItem.setIntent(new Intent(this, ConsultActivity.class));
                     break;
                 case 2:
-                    baseGridItem = new BaseGridItem(
-                            this,
-                            resources.getString(R.string.activity_finances_name),
-                            resources.getDrawable(R.drawable.griditem_finances),
-                            resources.getColor(FinancesActivity.ACTIVITY_COLOR),
-                            new Intent(this, FinancesActivity.class)
-                    );
+                    gridItem.setBackgroundColor(resources.getColor(FinancesActivity.ACTIVITY_COLOR));
+                    gridItem.setText(resources.getString(R.string.activity_finances_name));
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_finances));
+                    gridItem.setIntent(new Intent(this, FinancesActivity.class));
                     break;
                 case 3:
-                    baseGridItem = new BaseGridItem(
-                            this,
-                            resources.getString(R.string.activity_friends_name),
-                            resources.getDrawable(R.drawable.griditem_friends),
-                            resources.getColor(FriendsActivity.ACTIVITY_COLOR),
-                            new Intent(this, FriendsActivity.class)
-                    );
+                    gridItem.setBackgroundColor(resources.getColor(FriendsActivity.ACTIVITY_COLOR));
+                    gridItem.setText(resources.getString(R.string.activity_friends_name));
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_friends));
+                    gridItem.setIntent(new Intent(this, FriendsActivity.class));
                     break;
                 case 4:
-                    baseGridItem = new BaseGridItem(
-                            this,
-                            resources.getString(R.string.activity_offers_name),
-                            resources.getDrawable(R.drawable.griditem_offers),
-                            resources.getColor(OffersActivity.ACTIVITY_COLOR),
-                            new Intent(this, OffersActivity.class)
-                    );
+                    gridItem.setBackgroundColor(resources.getColor(OffersActivity.ACTIVITY_COLOR));
+                    gridItem.setText(resources.getString(R.string.activity_offers_name));
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_offers));
+                    gridItem.setIntent(new Intent(this, OffersActivity.class));
                     break;
                 case 5:
-                    baseGridItem = new BaseGridItem(
-                            this,
-                            resources.getString(R.string.activity_settings_name),
-                            resources.getDrawable(R.drawable.griditem_settings),
-                            resources.getColor(SettingsActivity.ACTIVITY_COLOR),
-                            new Intent(this, SettingsActivity.class)
-                    );
+                    gridItem.setBackgroundColor(resources.getColor(SettingsActivity.ACTIVITY_COLOR));
+                    gridItem.setText(resources.getString(R.string.activity_settings_name));
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_settings));
+                    gridItem.setIntent(new Intent(this, SettingsActivity.class));
                     break;
             }
 
-            menuGrid.addItem(baseGridItem);
+            menuGrid.addItem(gridItem);
         }
     }
 

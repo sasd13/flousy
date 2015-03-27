@@ -1,6 +1,6 @@
 package flousy.gui.activitybar;
 
-import android.view.ViewGroup;
+import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
 
@@ -11,24 +11,14 @@ import com.diderot.android.flousy.R;
  */
 public class TitledActivityBar extends ActivityBar {
 
-    private int textViewId;
-    private TextView textView;
     private CharSequence title;
+    private TextView titleView;
 
     public TitledActivityBar() {
         super(R.layout.activitybar_titled);
 
-        this.textViewId = R.id.activitybar_titled_textview;
-        this.textView = null;
         this.title = "Title";
-    }
-
-    public TitledActivityBar(CharSequence title) {
-        super(R.layout.activitybar_titled);
-
-        this.textViewId = R.id.activitybar_titled_textview;
-        this.textView = null;
-        this.title = title;
+        this.titleView = null;
     }
 
     public CharSequence getTitle() {
@@ -38,21 +28,24 @@ public class TitledActivityBar extends ActivityBar {
     public void setTitle(CharSequence title) {
         this.title = title;
 
-        if(this.textView != null) {
-            this.textView.setText(this.title);
+        if(this.titleView != null) {
+            this.titleView.setText(this.title);
         }
     }
 
     @Override
-    public void inflate(ViewStub viewStub) {
+    public View inflate(ViewStub viewStub) {
         viewStub.setLayoutResource(getLayoutResource());
-
-        ViewGroup viewGroup = (ViewGroup) viewStub.inflate();
-        setView(viewGroup);
-
-        this.textView = (TextView) viewGroup.findViewById(this.textViewId);
-        if(this.textView != null && this.title != null) {
-            this.textView.setText(this.title);
+        View view = viewStub.inflate();
+        if(view == null) {
+            return null;
         }
+
+        setView(view);
+
+        this.titleView = (TextView) view.findViewById(R.id.activitybar_titled_textview);
+        this.titleView.setText(this.title);
+
+        return view;
     }
 }

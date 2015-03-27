@@ -6,7 +6,6 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitybar.TitledActivityBar;
 import flousy.gui.drawer.Drawer;
@@ -23,8 +22,7 @@ public class FriendsActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar();
-        ActionBarCustomizer.customize(this, actionBar);
+        ActionBar actionBar = getCustomActionBar().customize(this);
         actionBar.getTitleView().setText(R.string.activity_friends_name);
 
         ImageButton buttonRefresh = actionBar.getActionFirstButton();

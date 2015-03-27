@@ -1,17 +1,24 @@
-package flousy.gui.drawer;
+package flousy.gui.grid;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewStub;
 
 /**
- * Created by Samir on 22/03/2015.
+ * Created by Samir on 13/03/2015.
  */
-public abstract class AbstractDrawerItem {
+public abstract class AbstractGridItem {
 
     private int layoutResource;
+
+    /**
+     * GridItem view
+     */
     private View view;
 
-    protected AbstractDrawerItem(int layoutResource) {
+    /**
+     * Default constructor
+     */
+    protected AbstractGridItem(int layoutResource) {
         this.layoutResource = layoutResource;
         this.view = null;
     }
@@ -24,13 +31,23 @@ public abstract class AbstractDrawerItem {
         this.layoutResource = layoutResource;
     }
 
+    /**
+     * Get view
+     *
+     * @return View
+     */
     public View getView() {
         return this.view;
     }
 
+    /**
+     * Set view
+     *
+     * @param view
+     */
     protected void setView(View view) {
         this.view = view;
     }
 
-    public abstract View inflate(ViewStub viewStub);
+    public abstract void parse(View view, Context context);
 }

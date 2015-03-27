@@ -32,5 +32,5 @@ public abstract class ActivityBar {
         this.view = view;
     }
 
-    public abstract void inflate(ViewStub viewStub);
+    public abstract View inflate(ViewStub viewStub);
 }

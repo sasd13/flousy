@@ -11,8 +11,8 @@ import android.widget.TextView;
 public class KeyboardManager {
     private KeyboardManager() {}
 
-    public static void hide(Context context, TextView textView) {
-        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    public static void hide(TextView textView) {
+        InputMethodManager inputMethodManager = (InputMethodManager) textView.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(textView.getWindowToken(), InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
 }

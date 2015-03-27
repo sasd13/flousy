@@ -10,7 +10,7 @@ public class GridFactory {
     public static Grid create(GridType type) {
         switch (type) {
             case BASEGRID :
-                return new BaseGrid();
+                return new Grid();
         }
 
         return null;

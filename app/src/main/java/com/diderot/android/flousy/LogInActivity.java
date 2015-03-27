@@ -1,10 +1,10 @@
 package com.diderot.android.flousy;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
@@ -22,9 +22,8 @@ import flousy.util.ValidatorCode;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.gui.app.NativeActionBarManager;
 
-public class LogInActivity extends ActionBarActivity {
+public class LogInActivity extends Activity {
 
     private static int LOADING_TIME_OUT = 2000;
     private Handler handler;
@@ -40,12 +39,9 @@ public class LogInActivity extends ActionBarActivity {
         //Set content view
         setContentView(R.layout.activity_login);
 
-        //Disable native ActionBar
-        NativeActionBarManager.setActionBarEnabled(this, false);
-
         //Set ActivityContent
         View view = findViewById(R.id.login_activitycontent);
-        ActivityContentCustomizer.customize(this, view);
+        ActivityContentCustomizer.customize(view, this);
 
         this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);

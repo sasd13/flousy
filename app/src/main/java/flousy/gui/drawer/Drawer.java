@@ -1,6 +1,5 @@
 package flousy.gui.drawer;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
 import com.diderot.android.flousy.R;
@@ -12,35 +11,12 @@ import java.util.ArrayList;
  */
 public class Drawer {
 
-    private Context context;
     private ArrayList<AbstractDrawerItem> listAbstractDrawerItem;
     private int itemStubLayout;
 
-    public Drawer(Context context) {
-        this.context = context;
+    public Drawer() {
         this.listAbstractDrawerItem = new ArrayList<AbstractDrawerItem>();
         this.itemStubLayout = R.layout.drawer_layout_itemstub;
-    }
-
-    public Drawer(Context context, int itemStubLayout) {
-        this.listAbstractDrawerItem = new ArrayList<AbstractDrawerItem>();
-        this.itemStubLayout = itemStubLayout;
-    }
-
-    public Context getContext() {
-        return this.context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public int getItemStubLayout() {
-        return this.itemStubLayout;
-    }
-
-    public void setItemStubLayout(int itemStubLayout) {
-        this.itemStubLayout = itemStubLayout;
     }
 
     public AbstractDrawerItem getItem(int index) {
@@ -72,7 +48,7 @@ public class Drawer {
     }
 
     public void adapt(RecyclerView drawerLayout) {
-        DrawerAdapter drawerAdapter = new DrawerAdapter(this.context, this.listAbstractDrawerItem, this.itemStubLayout);
+        DrawerAdapter drawerAdapter = new DrawerAdapter(this.listAbstractDrawerItem, this.itemStubLayout);
         drawerLayout.setAdapter(drawerAdapter);
     }
 }

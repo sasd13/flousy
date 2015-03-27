@@ -1,7 +1,5 @@
 package flousy.gui.color;
 
-import com.diderot.android.flousy.MotherActivity;
-
 /**
  * Created by Samir on 11/03/2015.
  */

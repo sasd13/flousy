@@ -17,7 +17,7 @@ import com.diderot.android.flousy.R;
  */
 public class ActivityContentCustomizer {
 
-    public static void customize(Activity activity, View view) {
+    public static void customize(View view, Activity activity) {
         Resources resources = activity.getResources();
 
         int activityColor;

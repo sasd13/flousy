@@ -1,7 +1,7 @@
 package flousy.gui.drawer;
 
-import android.content.Intent;
 import android.view.View;
+import android.view.ViewStub;
 
 import com.diderot.android.flousy.R;
 
@@ -13,10 +13,10 @@ public class MenuDrawerItem extends DrawerItem {
     private int color;
     private View colorView;
 
-    public MenuDrawerItem(CharSequence text, Intent intent, int color) {
-        super(R.layout.draweritem_menu, text, intent);
+    public MenuDrawerItem() {
+        super(R.layout.draweritem_menu);
 
-        this.color = color;
+        this.color = 0;
         this.colorView = null;
     }
 
@@ -33,12 +33,16 @@ public class MenuDrawerItem extends DrawerItem {
     }
 
     @Override
-    public void parse(View view) {
-        if(this.colorView == null) {
-            super.parse(view);
-            this.colorView = view.findViewById(R.id.draweritem_menu_colorview);
+    public View inflate(ViewStub viewStub) {
+        viewStub.setLayoutResource(getLayoutResource());
+        View view = super.inflate(viewStub);
+        if (view == null) {
+            return null;
         }
 
+        this.colorView = view.findViewById(R.id.draweritem_menu_colorview);
         this.colorView.setBackgroundColor(this.color);
+
+        return view;
     }
 }

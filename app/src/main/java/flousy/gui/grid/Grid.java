@@ -2,46 +2,58 @@ package flousy.gui.grid;
 
 import android.widget.GridView;
 
+import com.diderot.android.flousy.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Samir on 13/03/2015.
  */
-public abstract class Grid {
+public class Grid {
 
-     private ArrayList<GridItem> listGridItem;
+    private ArrayList<AbstractGridItem> listAbstractGridItem;
+    private int itemLayout;
 
     protected Grid() {
-        this.listGridItem = new ArrayList<GridItem>();
+        this.listAbstractGridItem = new ArrayList<AbstractGridItem>();
+        this.itemLayout = R.layout.griditem;
     }
 
-    public GridItem getItem(int index) {
-        if(index < 0 || index > (this.listGridItem.size() - 1)) {
+    protected Grid(int itemLayout) {
+        this.listAbstractGridItem = new ArrayList<AbstractGridItem>();
+        this.itemLayout = itemLayout;
+    }
+
+    public AbstractGridItem getItem(int index) {
+        if(index < 0 || index > (this.listAbstractGridItem.size() - 1)) {
             return null;
         }
 
-        return this.listGridItem.get(index);
+        return this.listAbstractGridItem.get(index);
     }
 
-    public boolean addItem(GridItem gridItem) {
-        if(this.listGridItem.contains(gridItem) == true) {
+    public boolean addItem(AbstractGridItem abstractGridItem) {
+        if(this.listAbstractGridItem.contains(abstractGridItem) == true) {
             return false;
         }
 
-        return this.listGridItem.add(gridItem);
+        return this.listAbstractGridItem.add(abstractGridItem);
     }
 
-    public GridItem removeItem(int index) {
-        if(index < 0 || index > (this.listGridItem.size() - 1)) {
+    public AbstractGridItem removeItem(int index) {
+        if(index < 0 || index > (this.listAbstractGridItem.size() - 1)) {
             return null;
         }
 
-        return this.listGridItem.remove(index);
+        return this.listAbstractGridItem.remove(index);
     }
 
     public int count() {
-        return this.listGridItem.size();
+        return this.listAbstractGridItem.size();
     }
 
-    public abstract void adapt(GridView gridView);
+    public void adapt(GridView gridView) {
+        GridAdapter gridAdapter = new GridAdapter(this.listAbstractGridItem, this.itemLayout);
+        gridView.setAdapter(gridAdapter);
+    }
 }

@@ -1,11 +1,11 @@
 package com.diderot.android.flousy;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,19 +15,17 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.util.UserManager;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.activitycontent.ActivityContentCustomizer;
-import flousy.gui.app.NativeActionBarManager;
 import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.util.Validator;
 
-public class SignUpActivity extends ActionBarActivity {
+public class SignUpActivity extends Activity {
 
     private static int SIGNUP_TIME_OUT = 2000;
     private Handler handler;
@@ -44,19 +42,17 @@ public class SignUpActivity extends ActionBarActivity {
         //Set content view
         setContentView(R.layout.activity_signup);
 
-        //Create CustomActionBar, disable native ActionBar
-        NativeActionBarManager.setActionBarEnabled(this, false);
+        //Create CustomActionBar
         ActionBar actionBar = new ActionBar();
         ViewStub viewStub = (ViewStub) findViewById(R.id.signup_actionbar_viewstub);
         actionBar.inflate(viewStub);
-
-        ActionBarCustomizer.customize(this, actionBar);
-
+        actionBar.customize(this);
         actionBar.getTitleView().setText(R.string.activity_signup_name);
+        actionBar.setDrawerEnabled(false);
 
         //Set ActivityContent
         View view = findViewById(R.id.signup_activitycontent);
-        ActivityContentCustomizer.customize(this, view);
+        ActivityContentCustomizer.customize(view, this);
 
         this.editTextFirstName = (EditText) findViewById(R.id.signup_edittext_firstname);
         this.editTextLastName = (EditText) findViewById(R.id.signup_edittext_lastname);

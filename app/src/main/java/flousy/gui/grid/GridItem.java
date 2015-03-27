@@ -1,63 +1,211 @@
 package flousy.gui.grid;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.diderot.android.flousy.MotherActivity;
+import com.diderot.android.flousy.R;
+
+import flousy.gui.listener.CustomOnTouchListener;
 
 /**
- * Created by Samir on 13/03/2015.
+ * <b>BaseGridItem is the class to manage basic items of a BaseGrid</b>
+ * <p>
+ * A BaseGrid item box has :
+ * <ul>
+ * <li>A background color</li>
+ * <li>An image</li>
+ * <li>A text</li>
+ * </ul>
+ * </p>
+ *
+ * @author  Samir SAID ALI <samir_saidali@yahoo.fr>
+ * @version 2.0
+ * @since   13/03/2015
  */
-public abstract class GridItem {
-
-    private Context context;
-    private int layoutResource;
+public class GridItem extends AbstractGridItem {
 
     /**
-     * GridItem view
-     */
-    private View view;
-
-    /**
-     * Default constructor
-     */
-    protected GridItem(Context context, int layoutResource) {
-        this.context = context;
-        this.layoutResource = layoutResource;
-        this.view = null;
-    }
-
-    public Context getContext() {
-        return this.context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public int getLayoutResource() {
-        return this.layoutResource;
-    }
-
-    public void setLayoutResource(int layoutResource) {
-        this.layoutResource = layoutResource;
-    }
-
-    /**
-     * Get view
+     * BaseGridItem background color
      *
-     * @return View
+     * <p>type : int</p>
      */
-    public View getView() {
-        return this.view;
+    private int backgroundColor;
+
+    /**
+     * BaseGridItem image
+     *
+     * <p>type : Drawable</p>
+     * <p>
+     * recommanded (maximum) size : 64*64 dp<br/>
+     * equivalences :
+     * <ul>
+     * <li>ldpi : 48*48 px</li>
+     * <li>mdpi : 64*64 px</li>
+     * <li>hdpi : 96*96 px</li>
+     * <li>xhdpi : 128*128 px</li>
+     * <li>xxhdpi : 192*192 px</li>
+     * </ul>
+     * </p>
+     */
+    private Drawable image;
+
+    /**
+     * BaseGridItem text
+     */
+    private CharSequence text;
+
+    /**
+     * container view first child
+     */
+    private ImageView imageView;
+
+    /**
+     * container view second child
+     */
+    private TextView textView;
+
+    /**
+     * BaseGridItem action on item clicked
+     */
+    private Intent intent;
+
+    /**
+     * Constructor with params
+     */
+    public GridItem() {
+        super(R.layout.griditem);
+
+        this.backgroundColor = 0;
+        this.image = null;
+        this.text = "Item";
+        this.intent = null;
+    }
+
+    public GridItem(int layoutResource) {
+        super(layoutResource);
+
+        this.backgroundColor = 0;
+        this.image = null;
+        this.text = "Item";
+        this.intent = null;
     }
 
     /**
-     * Set view
+     * Get backgroundColor
      *
-     * @param view
+     * @return int
      */
-    protected void setView(View view) {
-        this.view = view;
+    public int getBackgroundColor() {
+        return this.backgroundColor;
     }
 
-    public abstract void inflate(View view);
+    /**
+     * Set backgroundColor
+     *
+     * @param backgroundColor
+     */
+    public void setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+
+        if(getView() != null) {
+            getView().setBackgroundColor(this.backgroundColor);
+        }
+    }
+
+    /**
+     * Get image
+     *
+     * @return Drawable
+     */
+    public Drawable getImage() { return this.image; }
+
+    /**
+     * Set image
+     *
+     * @param image
+     */
+    public void setImage(Drawable image) {
+        this.image = image;
+
+        if(this.imageView != null) {
+            imageView.setImageDrawable(this.image);
+        }
+    }
+
+    /**
+     * Get text
+     *
+     * @return CharSequence
+     */
+    public CharSequence getText() { return this.text; }
+
+    /**
+     * Set text
+     *
+     * @param text
+     */
+    public void setText(CharSequence text) {
+        this.text = text;
+
+        if(this.textView != null) {
+            this.textView.setText(this.text);
+        }
+    }
+
+    /**
+     * Get intent
+     *
+     * @return Intent
+     */
+    public Intent getIntent() { return this.intent; }
+
+    /**
+     * Set intent
+     *
+     * @param intent
+     */
+    public void setIntent(Intent intent) {
+        this.intent = intent;
+    }
+
+    @Override
+    public void parse(View view, Context ctext) {
+        if(view != null) {
+            setView(view);
+
+            if(this.backgroundColor == 0) {
+                this.backgroundColor = ctext.getResources().getColor(MotherActivity.APP_COLOR);
+            }
+            view.setBackgroundColor(this.backgroundColor);
+
+            this.imageView = (ImageView) view.findViewById(R.id.griditem_imageview);
+            this.imageView.setImageDrawable(this.image);
+
+            this.textView = (TextView) view.findViewById(R.id.griditem_textview);
+            this.textView.setText(this.text);
+
+            final Context context = ctext;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(intent != null) {
+                        context.startActivity(intent);
+                    }
+                }
+            });
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    view.performClick();
+                    return false;
+                }
+            });
+            view.setOnTouchListener(new CustomOnTouchListener(this.backgroundColor));
+        }
+    }
 }

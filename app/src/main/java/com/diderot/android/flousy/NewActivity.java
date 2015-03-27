@@ -6,7 +6,6 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.actionbar.ActionBarCustomizer;
 import flousy.gui.drawer.Drawer;
 import flousy.gui.drawer.DrawerItem;
 import flousy.gui.drawer.DrawerItemTitle;
@@ -23,8 +22,7 @@ public class NewActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar();
-        ActionBarCustomizer.customize(this, actionBar);
+        ActionBar actionBar = getCustomActionBar().customize(this);
         actionBar.getTitleView().setText(R.string.activity_new_name);
         actionBar.getSubTitleView().setText(R.string.new_actionbar_textview_subtitle);
 
@@ -36,10 +34,13 @@ public class NewActivity extends MotherActivity {
 
         //Set Drawer
         Drawer drawer = getDrawer();
-        DrawerItemTitle drawerItemTitle = new DrawerItemTitle("Catégorie");
+        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
+        drawerItemTitle.setTitle("Catégorie");
         drawer.addItem(drawerItemTitle);
 
-        DrawerItem drawerItem = new DrawerItem("Ajouter catégorie", null);
+        DrawerItem drawerItem = new DrawerItem();
+        drawerItem.setText("Ajouter catégorie");
+        drawerItem.setIntent(null);
         drawer.addItem(drawerItem);
     }
 
