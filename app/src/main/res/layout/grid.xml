@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/grid_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/activitycontent_padding"
-    android:layout_gravity="center"
-    android:paddingLeft="@dimen/drawer_padding"
-    android:paddingRight="@dimen/drawer_padding"
-    android:background="@color/background_material_light"
-    android:scrollbars="vertical"
-    android:scrollbarStyle="outsideOverlay"/>
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:padding="@dimen/activitycontent_padding"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"/>
+
+</FrameLayout>

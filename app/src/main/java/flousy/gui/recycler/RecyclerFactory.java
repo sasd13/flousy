@@ -1,5 +1,7 @@
 package flousy.gui.recycler;
 
+import android.content.Context;
+
 import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.recycler.grid.Grid;
 
@@ -10,12 +12,12 @@ public class RecyclerFactory {
 
     private RecyclerFactory() {}
 
-    public static AbstractRecycler create(RecyclerType type) {
+    public static AbstractRecycler create(RecyclerType type, Context context) {
         switch (type) {
             case DAWER :
-                return Drawer.getInstance();
+                return new Drawer(context);
             case GRID :
-                return new Grid();
+                return new Grid(context);
         }
 
         return null;

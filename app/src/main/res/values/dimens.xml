@@ -28,14 +28,11 @@
     <dimen name="customdialog_progressbar_padding">15dp</dimen>
 
     <!-- Grid -->
-    <dimen name="grid_horizontalspacing">20dp</dimen>
-    <dimen name="grid_verticalspacing">20dp</dimen>
-    <integer name="grid_numcolumns">-1</integer><!-- numColumns : auto_fit (-1) --><!-- DIFF land : 3 -->
-    <dimen name="griditem_imageview_height">77dp</dimen>
-    <dimen name="griditem_imageview_margin">10dp</dimen>
-    <dimen name="griditem_imageview_bottommargin">5dp</dimen>
-    <dimen name="griditem_textview_margin">10dp</dimen>
-    <dimen name="griditem_textview_topmargin">5dp</dimen>
+    <integer name="grid_numcolumns">2</integer>
+    <dimen name="grid_items_space">12dp</dimen>
+    <dimen name="griditem_size">120dp</dimen>
+    <dimen name="griditem_verticalmargin_external">14dp</dimen>
+    <dimen name="griditem_verticalmargin_internal">7dp</dimen>
 
     <!-- Navigation drawer -->
     <dimen name="drawer_width">240dp</dimen>

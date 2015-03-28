@@ -1,5 +1,6 @@
 package flousy.gui.recycler;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
 import com.diderot.android.flousy.R;
@@ -11,12 +12,22 @@ import java.util.ArrayList;
  */
 public abstract class AbstractRecycler {
 
+    private Context context;
     private ArrayList<AbstractRecyclerItem> listAbstractRecyclerItem;
     private int itemStubLayout;
 
-    protected AbstractRecycler() {
+    protected AbstractRecycler(Context context) {
+        this.context = context;
         this.listAbstractRecyclerItem = new ArrayList<AbstractRecyclerItem>();
         this.itemStubLayout = R.layout.recyclerview_item_layout;
+    }
+
+    public Context getContext() {
+        return this.context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     protected ArrayList<AbstractRecyclerItem> getListAbstractRecyclerItem() {
@@ -59,5 +70,5 @@ public abstract class AbstractRecycler {
         this.itemStubLayout = itemStubLayout;
     }
 
-    public abstract void adapt(RecyclerView gridView);
+    public abstract void adapt(RecyclerView recyclerView);
 }

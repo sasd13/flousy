@@ -23,7 +23,7 @@ public class SplashScreenActivity extends MotherActivity {
         //Set content view
         setContentView(R.layout.activity_splashscreen_layout);
 
-        //Disable ActionBar
+        //Disable CustomActionBar
         getCustomActionBar().hide();
 
         //Set Logo

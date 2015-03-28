@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter {
 
-    private ArrayList<AbstractRecyclerItem> listItem;
+    private ArrayList<AbstractRecyclerItem> listAbstractRecyclerItem;
     private int itemStubLayout;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -28,8 +28,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public RecyclerAdapter(ArrayList<AbstractRecyclerItem> listItem, int itemStubLayout) {
-        this.listItem = listItem;
+    public RecyclerAdapter(ArrayList<AbstractRecyclerItem> listAbstractRecyclerItem, int itemStubLayout) {
+        this.listAbstractRecyclerItem = listAbstractRecyclerItem;
         this.itemStubLayout = itemStubLayout;
     }
 
@@ -42,7 +42,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        AbstractRecyclerItem abstractRecyclerItem = this.listItem.get(position);
+        AbstractRecyclerItem abstractRecyclerItem = this.listAbstractRecyclerItem.get(position);
 
         if(abstractRecyclerItem.getView() == null) {
             abstractRecyclerItem.inflate(((ViewHolder) viewHolder).stub);
@@ -51,6 +51,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return this.listItem.size();
+        return this.listAbstractRecyclerItem.size();
     }
 }

@@ -55,15 +55,15 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.activityColor = getResources().getColor(APP_COLOR);
 
         //Create CustomActionBar
+        this.actionBar = new ActionBar();
         ViewStub actionbarStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
-        this.actionBar = new ActionBar(this);
         this.actionBar.inflate(actionbarStub);
 
         //Create Drawer
+        this.drawer = (Drawer) RecyclerFactory.create(RecyclerType.DAWER, this);
         this.drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.drawerView = (RecyclerView) findViewById(R.id.drawer_view);
-        this.drawer = (Drawer) RecyclerFactory.create(RecyclerType.DAWER);
-        this.drawer.adapt(drawerView);
+        this.drawer.adapt(this.drawerView);
         this.actionBar.setDrawerEnabled(true);
 
         //Add Items menu
@@ -136,7 +136,7 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
     protected void onStop() {
         super.onStop();
 
-        if(this.drawerLayout.isDrawerOpen(this.drawerView)) {
+        if(this.drawerLayout != null && this.drawerLayout.isDrawerOpen(this.drawerView)) {
             this.drawerLayout.closeDrawer(this.drawerView);
         }
     }
@@ -157,6 +157,17 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
 
         //Disable re-onCreate for subclasses on up button click
         return super.onOptionsItemSelected(item);
+    }
+
+    public View getContentView() {
+        return this.contentView;
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
+        viewStub.setLayoutResource(layoutResID);
+        this.contentView = viewStub.inflate();
     }
 
     public int getActivityColor() {
@@ -182,29 +193,22 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
     public ActivityBar createActivityBar(ActivityBarType type) {
         this.activityBar = ActivityBarFactory.create(type);
 
-        if(this.activityBar != null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
-            activityBar.inflate(viewStub);
-            activityBar.getView().setBackgroundColor(this.activityColor);
+        if(this.activityBar == null) {
+            return null;
         }
+
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
+        this.activityBar.inflate(viewStub);
+        this.activityBar.getView().setBackgroundColor(this.activityColor);
 
         return this.activityBar;
     }
 
-    public View getContentView() {
-        return this.contentView;
-    }
-
-    @Override
-    public void setContentView(int layoutResID) {
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(layoutResID);
-        this.contentView = viewStub.inflate();
-    }
-
     @Override
     public void customizeColor() {
-        this.actionBar.setColor(this.activityColor);
+        if(this.actionBar != null) {
+            this.actionBar.setColor(this.activityColor);
+        }
 
         if(this.activityBar != null) {
             this.activityBar.getView().setBackgroundColor(ColorBrightness.colorDarker(this.activityColor));

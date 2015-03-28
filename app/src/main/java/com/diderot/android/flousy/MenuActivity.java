@@ -29,8 +29,8 @@ public class MenuActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_menu_name);
 
         //Set Activity content
-        RecyclerView gridView = (RecyclerView) getContentView();
-        Grid menuGrid = (Grid) RecyclerFactory.create(RecyclerType.GRID);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
+        Grid menuGrid = (Grid) RecyclerFactory.create(RecyclerType.GRID, this);
         menuGrid.adapt(gridView);
 
         GridItem gridItem;

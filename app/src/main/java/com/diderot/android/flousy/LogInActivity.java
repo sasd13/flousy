@@ -7,13 +7,16 @@ import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import flousy.gui.app.KeyboardManager;
 import flousy.util.SessionManager;
 import flousy.util.UserManager;
 import flousy.util.Validator;

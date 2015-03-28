@@ -2,30 +2,25 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="@dimen/griditem_size"
+    android:layout_height="@dimen/griditem_size"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/griditem_imageview"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/griditem_imageview_height"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/griditem_imageview_margin"
-        android:layout_marginBottom="@dimen/griditem_imageview_bottommargin"
-        android:layout_marginLeft="@dimen/griditem_imageview_margin"
-        android:layout_marginRight="@dimen/griditem_imageview_margin"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/griditem_verticalmargin_external"
+        android:layout_marginBottom="@dimen/griditem_verticalmargin_internal"
         android:src="@drawable/griditem"/>
 
     <TextView
         android:id="@+id/griditem_textview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
         android:gravity="center"
-        android:layout_marginTop="@dimen/griditem_textview_topmargin"
-        android:layout_marginBottom="@dimen/griditem_textview_margin"
-        android:layout_marginLeft="@dimen/griditem_textview_margin"
-        android:layout_marginRight="@dimen/griditem_textview_margin"
+        android:layout_marginTop="@dimen/griditem_verticalmargin_internal"
+        android:layout_marginBottom="@dimen/griditem_verticalmargin_external"
         android:text="@string/griditem_textview"
         android:textStyle="bold"
         android:textSize="@dimen/textsize_medium"

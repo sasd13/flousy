@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <View
+        android:id="@+id/draweritem_menu_colorview"
+        android:layout_width="@dimen/draweritem_menu_colorview_width"
+        android:layout_height="@dimen/draweritem_menu_colorview_height"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/draweritem_textview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <View
-            android:id="@+id/draweritem_menu_colorview"
-            android:layout_width="@dimen/draweritem_menu_colorview_width"
-            android:layout_height="@dimen/draweritem_menu_colorview_height"/>
-
-        <TextView
-            android:id="@+id/draweritem_textview"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/draweritem_textview_height"
-            android:paddingLeft="@dimen/activitycontent_padding"
-            android:gravity="left|center_vertical"
-            android:text="@string/draweritem_textview"
-            android:textSize="@dimen/textsize_large"/>
-
-    </LinearLayout>
+        android:layout_height="@dimen/draweritem_textview_height"
+        android:layout_toRightOf="@id/draweritem_menu_colorview"
+        android:layout_alignBaseline="@id/draweritem_menu_colorview"
+        android:paddingLeft="@dimen/activitycontent_padding"
+        android:gravity="left|center_vertical"
+        android:text="@string/draweritem_textview"
+        android:textSize="@dimen/textsize_large"/>
 
     <View
         android:id="@+id/draweritem_stublayout_viewdivider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
+        android:layout_below="@id/draweritem_textview"
         android:background="@color/primary_material_light"/>
 
-</LinearLayout>
+</RelativeLayout>
 
