@@ -1,4 +1,4 @@
-package flousy.gui.drawer;
+package flousy.gui.recycler.drawer;
 
 import android.view.View;
 import android.view.ViewStub;
@@ -6,10 +6,12 @@ import android.widget.TextView;
 
 import com.diderot.android.flousy.R;
 
+import flousy.gui.recycler.AbstractRecyclerItem;
+
 /**
  * Created by Samir on 22/03/2015.
  */
-public class DrawerItemTitle extends AbstractDrawerItem {
+public class DrawerItemTitle extends AbstractRecyclerItem {
 
     private CharSequence title;
     private TextView titleView;

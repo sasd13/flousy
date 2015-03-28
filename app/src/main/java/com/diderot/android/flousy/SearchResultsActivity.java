@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import flousy.gui.drawer.Drawer;
+import flousy.gui.recycler.drawer.Drawer;
 
 public class SearchResultsActivity extends MotherActivity {
 

@@ -4,16 +4,15 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.GridView;
-import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.grid.GridItem;
-import flousy.gui.grid.Grid;
-import flousy.gui.grid.GridFactory;
-import flousy.gui.grid.GridType;
+import flousy.gui.recycler.grid.GridItem;
+import flousy.gui.recycler.grid.Grid;
+import flousy.gui.recycler.RecyclerFactory;
+import flousy.gui.recycler.RecyclerType;
 import flousy.gui.widget.CustomDialogBuilder;
 
 public class MenuActivity extends MotherActivity {
@@ -30,11 +29,11 @@ public class MenuActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_menu_name);
 
         //Set Activity content
-        GridView gridView = (GridView) getContentView();
-        Grid menuGrid = (Grid) GridFactory.create(GridType.BASEGRID);
+        RecyclerView gridView = (RecyclerView) getContentView();
+        Grid menuGrid = (Grid) RecyclerFactory.create(RecyclerType.GRID);
         menuGrid.adapt(gridView);
 
-        GridItem gridItem = null;
+        GridItem gridItem;
         Resources resources = getResources();
 
         for(int i=0; i<6; i++) {

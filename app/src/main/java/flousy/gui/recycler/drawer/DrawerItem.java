@@ -1,4 +1,4 @@
-package flousy.gui.drawer;
+package flousy.gui.recycler.drawer;
 
 import android.content.Intent;
 import android.view.View;
@@ -8,11 +8,12 @@ import android.widget.TextView;
 import com.diderot.android.flousy.R;
 
 import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.recycler.AbstractRecyclerItem;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public class DrawerItem extends AbstractDrawerItem {
+public class DrawerItem extends AbstractRecyclerItem {
 
     private CharSequence text;
     private TextView textView;
@@ -87,5 +88,11 @@ public class DrawerItem extends AbstractDrawerItem {
         view.setOnTouchListener(new CustomOnTouchListener(color));
 
         return view;
+    }
+
+    private void setCustomOnTouchListener(int color) {
+        CustomOnTouchListener listener = new CustomOnTouchListener(color);
+
+        getView().setOnTouchListener(listener);
     }
 }

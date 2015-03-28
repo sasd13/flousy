@@ -1,9 +1,9 @@
-package flousy.gui.grid;
+package flousy.gui.recycler.grid;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +11,7 @@ import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
 import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.recycler.AbstractRecyclerItem;
 
 /**
  * <b>BaseGridItem is the class to manage basic items of a BaseGrid</b>
@@ -27,7 +28,7 @@ import flousy.gui.listener.CustomOnTouchListener;
  * @version 2.0
  * @since   13/03/2015
  */
-public class GridItem extends AbstractGridItem {
+public class GridItem extends AbstractRecyclerItem {
 
     /**
      * BaseGridItem background color
@@ -174,39 +175,44 @@ public class GridItem extends AbstractGridItem {
     }
 
     @Override
-    public void parse(View view, Context ctext) {
-        if(view != null) {
-            setView(view);
-
-            if(this.backgroundColor == 0) {
-                this.backgroundColor = ctext.getResources().getColor(MotherActivity.APP_COLOR);
-            }
-            view.setBackgroundColor(this.backgroundColor);
-
-            this.imageView = (ImageView) view.findViewById(R.id.griditem_imageview);
-            this.imageView.setImageDrawable(this.image);
-
-            this.textView = (TextView) view.findViewById(R.id.griditem_textview);
-            this.textView.setText(this.text);
-
-            final Context context = ctext;
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(intent != null) {
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        context.startActivity(intent);
-                    }
-                }
-            });
-            view.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    view.performClick();
-                    return false;
-                }
-            });
-            view.setOnTouchListener(new CustomOnTouchListener(this.backgroundColor));
+    public View inflate(final ViewStub viewStub) {
+        viewStub.setLayoutResource(getLayoutResource());
+        View view = viewStub.inflate();
+        if (view == null) {
+            return null;
         }
+
+        setView(view);
+
+        if(this.backgroundColor == 0) {
+            this.backgroundColor = viewStub.getContext().getResources().getColor(MotherActivity.APP_COLOR);
+        }
+        view.setBackgroundColor(this.backgroundColor);
+
+        this.imageView = (ImageView) view.findViewById(R.id.griditem_imageview);
+        this.imageView.setImageDrawable(this.image);
+
+        this.textView = (TextView) view.findViewById(R.id.griditem_textview);
+        this.textView.setText(this.text);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(intent != null) {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    viewStub.getContext().startActivity(intent);
+                }
+            }
+        });
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                view.performClick();
+                return false;
+            }
+        });
+        view.setOnTouchListener(new CustomOnTouchListener(this.backgroundColor));
+
+        return view;
     }
 }

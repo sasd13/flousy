@@ -1,4 +1,4 @@
-package flousy.gui.drawer;
+package flousy.gui.recycler;
 
 import android.view.View;
 import android.view.ViewStub;
@@ -6,12 +6,12 @@ import android.view.ViewStub;
 /**
  * Created by Samir on 22/03/2015.
  */
-public abstract class AbstractDrawerItem {
+public abstract class AbstractRecyclerItem {
 
     private int layoutResource;
     private View view;
 
-    protected AbstractDrawerItem(int layoutResource) {
+    protected AbstractRecyclerItem(int layoutResource) {
         this.layoutResource = layoutResource;
         this.view = null;
     }

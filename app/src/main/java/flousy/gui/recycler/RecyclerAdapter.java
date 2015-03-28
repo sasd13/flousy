@@ -1,4 +1,4 @@
-package flousy.gui.drawer;
+package flousy.gui.recycler;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,9 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by Samir on 22/03/2015.
  */
-public class DrawerAdapter extends RecyclerView.Adapter {
+public class RecyclerAdapter extends RecyclerView.Adapter {
 
-    private ArrayList<AbstractDrawerItem> listAbstractDrawerItem;
+    private ArrayList<AbstractRecyclerItem> listItem;
     private int itemStubLayout;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -24,12 +24,12 @@ public class DrawerAdapter extends RecyclerView.Adapter {
         public ViewHolder(View view) {
             super(view);
 
-            stub = (ViewStub) view.findViewById(R.id.drawer_item_layout_viewstub);
+            stub = (ViewStub) view.findViewById(R.id.recyclerview_item_layout_viewstub);
         }
     }
 
-    public DrawerAdapter(ArrayList<AbstractDrawerItem> listAbstractDrawerItem, int itemStubLayout) {
-        this.listAbstractDrawerItem = listAbstractDrawerItem;
+    public RecyclerAdapter(ArrayList<AbstractRecyclerItem> listItem, int itemStubLayout) {
+        this.listItem = listItem;
         this.itemStubLayout = itemStubLayout;
     }
 
@@ -42,15 +42,15 @@ public class DrawerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        AbstractDrawerItem abstractDrawerItem = this.listAbstractDrawerItem.get(position);
+        AbstractRecyclerItem abstractRecyclerItem = this.listItem.get(position);
 
-        if(abstractDrawerItem.getView() == null) {
-            abstractDrawerItem.inflate(((ViewHolder) viewHolder).stub);
+        if(abstractRecyclerItem.getView() == null) {
+            abstractRecyclerItem.inflate(((ViewHolder) viewHolder).stub);
         }
     }
 
     @Override
     public int getItemCount() {
-        return this.listAbstractDrawerItem.size();
+        return this.listItem.size();
     }
 }

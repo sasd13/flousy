@@ -1,4 +1,4 @@
-package flousy.gui.drawer;
+package flousy.gui.recycler.drawer;
 
 import android.view.View;
 import android.view.ViewStub;

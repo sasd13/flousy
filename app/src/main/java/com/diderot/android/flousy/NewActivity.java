@@ -6,8 +6,8 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.drawer.Drawer;
-import flousy.gui.drawer.DrawerItemTitle;
+import flousy.gui.recycler.drawer.Drawer;
+import flousy.gui.recycler.drawer.DrawerItemTitle;
 
 public class NewActivity extends MotherActivity {
 

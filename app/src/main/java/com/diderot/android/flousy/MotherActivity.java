@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -21,14 +20,16 @@ import flousy.gui.activitybar.ActivityBar;
 import flousy.gui.activitybar.ActivityBarFactory;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.color.ColorBrightness;
-import flousy.gui.content.ColorCustomizer;
-import flousy.gui.content.DimensionCustomizer;
-import flousy.gui.content.TextCustomizer;
-import flousy.gui.drawer.MenuDrawerItem;
-import flousy.gui.drawer.Drawer;
-import flousy.gui.drawer.DrawerItemTitle;
+import flousy.gui.content.IColorCustomizer;
+import flousy.gui.content.IDimensionCustomizer;
+import flousy.gui.content.ITextCustomizer;
+import flousy.gui.recycler.RecyclerFactory;
+import flousy.gui.recycler.RecyclerType;
+import flousy.gui.recycler.drawer.MenuDrawerItem;
+import flousy.gui.recycler.drawer.Drawer;
+import flousy.gui.recycler.drawer.DrawerItemTitle;
 
-public class MotherActivity extends Activity implements ColorCustomizer, TextCustomizer, DimensionCustomizer {
+public class MotherActivity extends Activity implements IColorCustomizer, ITextCustomizer, IDimensionCustomizer {
 
     public static final int APP_COLOR = R.color.customGreenApp;
 
@@ -61,18 +62,9 @@ public class MotherActivity extends Activity implements ColorCustomizer, TextCus
         //Create Drawer
         this.drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.drawerView = (RecyclerView) findViewById(R.id.drawer_view);
-        this.drawer = new Drawer();
-        this.actionBar.setDrawerEnabled(true);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        this.drawerView.setHasFixedSize(true);
-
-        // use a linear layout manager
-        this.drawerView.setLayoutManager(new LinearLayoutManager(this));
-
-        //Set adapter
+        this.drawer = (Drawer) RecyclerFactory.create(RecyclerType.DAWER);
         this.drawer.adapt(drawerView);
+        this.actionBar.setDrawerEnabled(true);
 
         //Add Items menu
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
@@ -269,16 +261,16 @@ public class MotherActivity extends Activity implements ColorCustomizer, TextCus
             while (viewChild != null) {
                 if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
                     viewChild.setPadding(
-                            (int) getResources().getDimension(R.dimen.activitycontent_padding),
+                            getResources().getDimensionPixelSize(R.dimen.activitycontent_padding),
                             0,
                             0,
                             0);
                 } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
                     viewChild.setPadding(
-                            (int) getResources().getDimension(R.dimen.button_horizontalpadding),
-                            (int) getResources().getDimension(R.dimen.button_verticalpadding),
-                            (int) getResources().getDimension(R.dimen.button_horizontalpadding),
-                            (int) getResources().getDimension(R.dimen.button_verticalpadding));
+                            getResources().getDimensionPixelSize(R.dimen.button_horizontalpadding),
+                            getResources().getDimensionPixelSize(R.dimen.button_verticalpadding),
+                            getResources().getDimensionPixelSize(R.dimen.button_horizontalpadding),
+                            getResources().getDimensionPixelSize(R.dimen.button_verticalpadding));
                 }
 
                 i++;

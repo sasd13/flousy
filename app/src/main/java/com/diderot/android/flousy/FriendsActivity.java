@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitybar.TitledActivityBar;
-import flousy.gui.drawer.Drawer;
+import flousy.gui.recycler.drawer.Drawer;
 
 public class FriendsActivity extends MotherActivity {
 

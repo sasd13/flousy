@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
-import flousy.gui.content.Converter;
 import flousy.gui.listener.CustomOnTouchListener;
 
 /**
@@ -22,17 +21,13 @@ import flousy.gui.listener.CustomOnTouchListener;
  */
 public class ActionBar {
 
-    private Context context;
-
     private int color;
     private View view;
 
     private ImageButton upButton, actionFirstButton, actionSecondButton, drawerButton;
     private TextView titleView, subTitleView;
 
-    public ActionBar(Context context) {
-        this.context = context;
-
+    public ActionBar() {
         this.color = 0;
         this.view = null;
 
@@ -154,7 +149,7 @@ public class ActionBar {
         this.view = viewStub.inflate();
 
         if(this.color == 0) {
-            this.color = this.context.getResources().getColor(MotherActivity.APP_COLOR);
+            this.color = this.view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
         }
         this.view.setBackgroundColor(this.color);
 
@@ -202,7 +197,7 @@ public class ActionBar {
         return this;
     }
 
-    private void setCustomOnTouchListener(int color) {
+    public void setCustomOnTouchListener(int color) {
         CustomOnTouchListener listener = new CustomOnTouchListener(color);
 
         this.upButton.setOnTouchListener(listener);
@@ -215,7 +210,7 @@ public class ActionBar {
         this.view.setEnabled(true);
         this.view.setVisibility(View.VISIBLE);
         ViewGroup.LayoutParams params = this.view.getLayoutParams();
-        params.height = this.context.getResources().getDimensionPixelSize(R.dimen.actionbar_height);
+        params.height = this.view.getContext().getResources().getDimensionPixelSize(R.dimen.actionbar_height);
         this.view.setLayoutParams(params);
     }
 

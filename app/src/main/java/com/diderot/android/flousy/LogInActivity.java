@@ -28,7 +28,7 @@ public class LogInActivity extends MotherActivity {
     private Runnable runnable;
 
     private class ViewHolder {
-        public EditText loginditText, passwordEditText;
+        public EditText loginEditText, passwordEditText;
         public Button connectButton;
     }
 
@@ -46,14 +46,14 @@ public class LogInActivity extends MotherActivity {
 
         this.form = new ViewHolder();
 
-        this.form.loginditText = (EditText) findViewById(R.id.login_edittext_email);
+        this.form.loginEditText = (EditText) findViewById(R.id.login_edittext_email);
         this.form.passwordEditText = (EditText) findViewById(R.id.login_edittext_password);
 
         this.form.connectButton = (Button) findViewById(R.id.login_button_connect);
         this.form.connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (form.loginditText.getText().toString().trim().length() > 0
+                if (form.loginEditText.getText().toString().trim().length() > 0
                         && form.passwordEditText.getText().toString().trim().length() > 0) {
                     startConnection();
                 }
@@ -158,7 +158,7 @@ public class LogInActivity extends MotherActivity {
         UserManager manager = new UserManager(this);
         SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
 
-        String login = this.form.loginditText.getEditableText().toString();
+        String login = this.form.loginEditText.getEditableText().toString();
         String password = this.form.passwordEditText.getEditableText().toString();
 
         boolean connected = false;
