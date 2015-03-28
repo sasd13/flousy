@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import flousy.gui.actionbar.ActionBar;
 import flousy.util.DataManager;
@@ -28,39 +29,46 @@ public class SignUpActivity extends MotherActivity {
     private Handler handler;
     private Runnable runnable;
 
-    private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
-    private CheckBox checkBoxValidation;
-    private Button buttonSave;
+    private class ViewHolder {
+        public EditText firstNameEditText, lastNameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
+        public CheckBox validCheckBox;
+        public Button saveButton;
+    }
+
+    private ViewHolder form;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Set content view
-        setContentView(R.layout.activity_signup_layout);
 
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
         actionBar.getTitleView().setText(R.string.activity_signup_name);
         actionBar.setDrawerEnabled(false);
 
-        this.editTextFirstName = (EditText) findViewById(R.id.signup_edittext_firstname);
-        this.editTextLastName = (EditText) findViewById(R.id.signup_edittext_lastname);
-        this.editTextEmail = (EditText) findViewById(R.id.signup_edittext_email);
-        this.editTextPassword = (EditText) findViewById(R.id.signup_edittext_password);
-        this.editTextConfirmPassword = (EditText) findViewById(R.id.signup_edittext_confirmpassword);
+        //Set ActivityContent
+        setContentView(R.layout.userform_layout);
 
-        this.checkBoxValidation = (CheckBox) findViewById(R.id.signup_checkbox_validation);
+        this.form = new ViewHolder();
 
-        this.buttonSave = (Button) findViewById(R.id.signup_button_save);
-        this.buttonSave.setOnTouchListener(new CustomOnTouchListener(getResources().getColor(MotherActivity.APP_COLOR)));
-        this.buttonSave.setOnClickListener(new View.OnClickListener() {
+        this.form.firstNameEditText = (EditText) findViewById(R.id.userform_edittext_firstname);
+        this.form.lastNameEditText = (EditText) findViewById(R.id.userform_edittext_lastname);
+        this.form.emailEditText = (EditText) findViewById(R.id.userform_edittext_email);
+        this.form.passwordEditText = (EditText) findViewById(R.id.userform_edittext_password);
+
+        this.form.validCheckBox = (CheckBox) findViewById(R.id.userform_checkbox);
+        TextView validCheckBoxTextView = (TextView) findViewById(R.id.userform_textview_validcheckbox);
+        validCheckBoxTextView.setText(R.string.signup_userform_textview_validcheckbox_validation);
+
+        this.form.saveButton = (Button) findViewById(R.id.userform_button);
+        this.form.saveButton.setText(R.string.settings_userform_button_logout);
+        this.form.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signUp();
             }
         });
-        this.buttonSave.setOnLongClickListener(new View.OnLongClickListener() {
+        this.form.saveButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 view.performClick();
@@ -90,21 +98,27 @@ public class SignUpActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void customizeColor() {
+        super.customizeColor();
+
+        if(getContentView() != null) {
+            this.form.saveButton.setBackgroundColor(getActivityColor());
+            this.form.saveButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+        }
+    }
+
     public void signUp() {
         UserManager manager = new UserManager(this);
         DataManager data = (DataManager) manager.getManager(UserManager.TYPE_DATA);
         SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
 
-        String firstName = this.editTextFirstName.getEditableText().toString();
-        String lastName = this.editTextLastName.getEditableText().toString();
-        String email = null;
-        try {
-            email = this.editTextEmail.getEditableText().toString();
-        } catch (Exception e) {
-            Log.e("error_email", e.getMessage());
-        }
-        String password = this.editTextPassword.getEditableText().toString();
-        String confirmPassword = this.editTextConfirmPassword.getEditableText().toString();
+        String firstName = this.form.firstNameEditText.getEditableText().toString();
+        String lastName = this.form.lastNameEditText.getEditableText().toString();
+        String email = this.form.emailEditText.getEditableText().toString();
+        String password = this.form.passwordEditText.getEditableText().toString();
+        String confirmPassword = this.form.confirmPasswordEditText.getEditableText().toString();
+        Boolean validCheckBox = this.form.validCheckBox.isChecked();
 
         String phoneNumber = "0000";
         Drawable image = null;
@@ -114,8 +128,7 @@ public class SignUpActivity extends MotherActivity {
         boolean signed = false;
         boolean valid = Validator.validUser(user);
         if(valid == true) {
-            Boolean checkboxValidation = this.checkBoxValidation.isChecked();
-            if(confirmPassword.compareTo(password) == 0 && checkboxValidation == true) {
+            if(confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
                 signed = data.signUp(user);
             }
         }

@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import flousy.gui.drawer.DrawerAdapter;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.gui.actionbar.ActionBar;
@@ -36,9 +37,13 @@ public class SettingsActivity extends MotherActivity {
     private Handler handler;
     private Runnable runnable;
 
-    private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
-    private CheckBox checkBoxConnect;
-    private Button logoutButton;
+    private class ViewHolder {
+        public EditText firstNameEditText, lastNameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
+        public CheckBox connectCheckBox;
+        public Button logoutButton;
+    }
+
+    private ViewHolder form;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,8 +60,14 @@ public class SettingsActivity extends MotherActivity {
         Drawer drawer = getDrawer();
 
         //Set ActivityContent
-        setContentView(R.layout.activity_settings_layout);
-        //ActivityCustomizer.customize(view, this);
+        setContentView(R.layout.userform_layout);
+
+        this.form = new ViewHolder();
+
+        this.form.firstNameEditText = (EditText) findViewById(R.id.userform_edittext_firstname);
+        this.form.lastNameEditText = (EditText) findViewById(R.id.userform_edittext_lastname);
+        this.form.emailEditText = (EditText) findViewById(R.id.userform_edittext_email);
+        this.form.passwordEditText = (EditText) findViewById(R.id.userform_edittext_password);
 
         TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
@@ -70,21 +81,17 @@ public class SettingsActivity extends MotherActivity {
             }
         };
 
-        this.editTextFirstName = (EditText) findViewById(R.id.settings_edittext_firstname);
-        this.editTextLastName = (EditText) findViewById(R.id.settings_edittext_lastname);
-        this.editTextEmail = (EditText) findViewById(R.id.settings_edittext_email);
-        this.editTextPassword = (EditText) findViewById(R.id.settings_edittext_password);
+        this.form.firstNameEditText.setOnEditorActionListener(listener);
+        this.form.lastNameEditText.setOnEditorActionListener(listener);
+        this.form.emailEditText.setOnEditorActionListener(listener);
 
-        this.editTextFirstName.setOnEditorActionListener(listener);
-        this.editTextLastName.setOnEditorActionListener(listener);
-        this.editTextEmail.setOnEditorActionListener(listener);
+        this.form.connectCheckBox = (CheckBox) findViewById(R.id.userform_checkbox);
+        TextView validCheckBoxTextView = (TextView) findViewById(R.id.userform_textview_validcheckbox);
+        validCheckBoxTextView.setText(R.string.settings_userform_textview_validcheckbox_connect);
 
-        this.checkBoxConnect = (CheckBox) findViewById(R.id.settings_checkbox_connect);
-
-        this.logoutButton = (Button) findViewById(R.id.settings_button_logout);
-        this.logoutButton.setBackgroundColor(getActivityColor());
-        this.logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
-        this.logoutButton.setOnClickListener(new View.OnClickListener() {
+        this.form.logoutButton = (Button) findViewById(R.id.userform_button);
+        this.form.logoutButton.setText(R.string.settings_userform_button_logout);
+        this.form.logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CustomDialogBuilder builder = new CustomDialogBuilder(SettingsActivity.this, CustomDialogBuilder.TYPE_TWOBUTTON_YESNO);
@@ -100,7 +107,7 @@ public class SettingsActivity extends MotherActivity {
                 dialog.show();
             }
         });
-        this.logoutButton.setOnLongClickListener(new View.OnLongClickListener() {
+        this.form.logoutButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 view.performClick();
@@ -137,6 +144,16 @@ public class SettingsActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void customizeColor() {
+        super.customizeColor();
+
+        if(getContentView() != null) {
+            this.form.logoutButton.setBackgroundColor(getActivityColor());
+            this.form.logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+        }
+    }
+
     public void startInject() {
         UserManager manager = new UserManager(this);
         SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
@@ -144,12 +161,12 @@ public class SettingsActivity extends MotherActivity {
         User user = data.getUser(session.getUserEmail());
         boolean stayConnect = true;
 
-        this.editTextFirstName.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
-        this.editTextLastName.setText(user.getLastName(), TextView.BufferType.EDITABLE);
-        this.editTextEmail.setText(user.getEmail(), TextView.BufferType.EDITABLE);
-        this.editTextPassword.setText("", TextView.BufferType.EDITABLE);
+        this.form.firstNameEditText.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
+        this.form.lastNameEditText.setText(user.getLastName(), TextView.BufferType.EDITABLE);
+        this.form.emailEditText.setText(user.getEmail(), TextView.BufferType.EDITABLE);
+        this.form.passwordEditText.setText("", TextView.BufferType.EDITABLE);
 
-        this.checkBoxConnect.setChecked(stayConnect);
+        this.form.connectCheckBox.setChecked(stayConnect);
     }
 
     public void save() {
@@ -157,15 +174,11 @@ public class SettingsActivity extends MotherActivity {
         DataManager data = (DataManager) manager.getManager(UserManager.TYPE_DATA);
         SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
 
-        String firstName = this.editTextFirstName.getEditableText().toString();
-        String lastName = this.editTextLastName.getEditableText().toString();
-        String email = null;
-        try {
-            email = this.editTextEmail.getEditableText().toString();
-        } catch (Exception e) {
-            Log.e("error_email", e.getMessage());
-        }
+        String firstName = this.form.firstNameEditText.getEditableText().toString();
+        String lastName = this.form.lastNameEditText.getEditableText().toString();
+        String email = this.form.emailEditText.getEditableText().toString();
         String password = "password";
+        Boolean connectCheckBox = this.form.connectCheckBox.isChecked();
 
         String phoneNumber = "0000";
         Drawable image = null;

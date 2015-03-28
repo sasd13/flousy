@@ -40,8 +40,8 @@ public class MotherActivity extends Activity implements ColorCustomizer, TextCus
     private DrawerLayout drawerLayout;
     private RecyclerView drawerView;
 
-    private ActivityBar activityBar = null;
-    private View contentView = null;
+    private ActivityBar activityBar;
+    private View contentView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +74,7 @@ public class MotherActivity extends Activity implements ColorCustomizer, TextCus
         //Set adapter
         this.drawer.adapt(drawerView);
 
+        //Add Items menu
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
         drawerItemTitle.setTitle(getResources().getString(R.string.activity_menu_name));
         this.drawer.addItem(drawerItemTitle);

@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="@dimen/actionbar_height">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <ImageButton
+        android:id="@+id/actionbar_imagebutton_up"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="left|center_vertical">
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="@dimen/actionbar_imagebutton_up_horizontalpadding"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_previous"/>
 
-        <ImageButton
-            android:id="@+id/actionbar_imagebutton_up"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/actionbar_imagebutton_up"
+        android:layout_alignBaseline="@id/actionbar_imagebutton_up"
+        android:gravity="left|center_vertical">
+
+        <TextView
+            android:id="@+id/actionbar_textview_title"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:paddingLeft="@dimen/actionbar_imagebutton_up_horizontalpadding"
-            android:background="@color/transparent"
-            android:src="@drawable/ic_previous"/>
+            android:layout_height="wrap_content"
+            android:text="@string/actionbar_textview_title"
+            android:textSize="@dimen/textsize_xxlarge"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
-        <LinearLayout
-            android:orientation="vertical"
+        <TextView
+            android:id="@+id/actionbar_textview_subtitle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="left|center_vertical">
-
-            <TextView
-                android:id="@+id/actionbar_textview_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/actionbar_textview_title"
-                android:textSize="@dimen/textsize_xxlarge"
-                android:textColor="@color/white"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/actionbar_textview_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/actionbar_textview_subtitle"
-                android:textSize="@dimen/textsize_small"
-                android:textColor="@color/white"/>
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="@string/actionbar_textview_subtitle"
+            android:textSize="@dimen/textsize_small"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="right|center_vertical"
-        android:gravity="right|center_vertical">
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@id/actionbar_imagebutton_up"
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/actionbar_imagebutton_action_second"
@@ -80,4 +76,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -40,13 +40,13 @@
     <string name="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
 
     <!-- Activity Settings -->
-    <string name="settings_textview_connect">Rester connecté</string>
-    <string name="settings_button_logout">Déconnexion</string>
+    <string name="settings_userform_textview_validcheckbox_connect">Rester connecté</string>
+    <string name="settings_userform_button_logout">Déconnexion</string>
     <string name="settings_alertdialog_logout_title">Déconnexion</string>
     <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
 
     <!-- Activity SignUp -->
-    <string name="signup_textview_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
+    <string name="signup_userform_textview_validcheckbox_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
     <string name="signup_alertdialog_signup_title_error">Erreur inscription</string>
     <string name="signup_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
 
@@ -74,7 +74,7 @@
     <string name="edittext_lastname_hint">Nom</string>
     <string name="edittext_email_hint">Adresse email</string>
     <string name="edittext_password_hint">Mot de passe</string>
-    <string name="edittext_confirmpassword_hint">Mot de passe</string>
+    <string name="edittext_confirmpassword_hint">Confirmer</string>
 
     <!-- Grid -->
     <string name="griditem_textview">Item</string>
@@ -86,9 +86,10 @@
     <!-- Searchable -->
     <string name="search_hint">Rechercher</string>
 
-    <!-- TextView -->
-    <string name="textview_identity">Identité</string>
-    <string name="textview_connection">Connexion</string>
+    <!-- User form -->
+    <string name="userform_textview_identity">Identité</string>
+    <string name="userform_textview_connection">Connexion</string>
+    <string name="userform_textview_validcheckbox">Valider</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

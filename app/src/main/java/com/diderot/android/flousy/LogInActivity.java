@@ -27,8 +27,12 @@ public class LogInActivity extends MotherActivity {
     private Handler handler;
     private Runnable runnable;
 
-    private EditText editTextLogin, editTextPassword;
-    private Button buttonConnect;
+    private class ViewHolder {
+        public EditText loginditText, passwordEditText;
+        public Button connectButton;
+    }
+
+    private ViewHolder form;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,21 +44,22 @@ public class LogInActivity extends MotherActivity {
         //Disable CustomActionBar
         getCustomActionBar().hide();
 
-        this.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
-        this.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
+        this.form = new ViewHolder();
 
-        this.buttonConnect = (Button) findViewById(R.id.login_button_connect);
-        this.buttonConnect.setOnTouchListener(new CustomOnTouchListener(getResources().getColor(MotherActivity.APP_COLOR)));
-        this.buttonConnect.setOnClickListener(new View.OnClickListener() {
+        this.form.loginditText = (EditText) findViewById(R.id.login_edittext_email);
+        this.form.passwordEditText = (EditText) findViewById(R.id.login_edittext_password);
+
+        this.form.connectButton = (Button) findViewById(R.id.login_button_connect);
+        this.form.connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editTextLogin.getText().toString().trim().length() > 0
-                        && editTextPassword.getText().toString().trim().length() > 0) {
+                if (form.loginditText.getText().toString().trim().length() > 0
+                        && form.passwordEditText.getText().toString().trim().length() > 0) {
                     startConnection();
                 }
             }
         });
-        this.buttonConnect.setOnLongClickListener(new View.OnLongClickListener() {
+        this.form.connectButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 view.performClick();
@@ -96,6 +101,11 @@ public class LogInActivity extends MotherActivity {
                     });
             }
         }
+
+        //Customize activity default
+        customizeColor();
+        customizeText();
+        customizeDimensions();
     }
 
     @Override
@@ -134,17 +144,22 @@ public class LogInActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void customizeColor() {
+        super.customizeColor();
+
+        if(getContentView() != null) {
+            this.form.connectButton.setBackgroundColor(getActivityColor());
+            this.form.connectButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+        }
+    }
+
     public void startConnection() {
         UserManager manager = new UserManager(this);
         SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
 
-        String login = null;
-        try {
-            login = this.editTextLogin.getEditableText().toString();
-        } catch (Exception e) {
-            Log.e("error_login", e.getMessage());
-        }
-        String password = this.editTextPassword.getEditableText().toString();
+        String login = this.form.loginditText.getEditableText().toString();
+        String password = this.form.passwordEditText.getEditableText().toString();
 
         boolean connected = false;
         ValidatorCode codeEmail = Validator.validEmail(login);

@@ -44,29 +44,27 @@
             android:id="@+id/login_edittext_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margintop_medium"
             android:background="@drawable/edit_text_holo_light"
             android:hint="@string/edittext_password_hint"
             android:inputType="textPassword"
             android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionGo"
-            android:singleLine="true"
-            android:layout_marginTop="@dimen/view_margintop"
-            android:fontFamily="sans-serif"/>
+            android:singleLine="true"/>
 
         <Button
-            android:tag="customize_0"
             android:id="@+id/login_button_connect"
+            android:tag="customize_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_button_login"
-            android:layout_marginTop="@dimen/view_margintop"
-            android:onClick="startConnection"/>
+            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:text="@string/login_button_login"/>
 
         <TextView
             android:id="@+id/login_textview_restorepassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_margintop"
+            android:layout_marginTop="@dimen/view_margintop_medium"
             android:padding="@dimen/login_textview_restorepassword_padding"
             android:text="@string/login_textview_restorepassword"
             android:clickable="true"/>

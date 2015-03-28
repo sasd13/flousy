@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.drawer.Drawer;
+import flousy.gui.drawer.DrawerItemTitle;
 
 public class NewActivity extends MotherActivity {
 
@@ -32,6 +33,9 @@ public class NewActivity extends MotherActivity {
 
         //Set Drawer
         Drawer drawer = getDrawer();
+        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
+        drawerItemTitle.setTitle("Catégorie");
+        drawer.addItem(drawerItemTitle);
 
         //Customize activity
         customizeColor();

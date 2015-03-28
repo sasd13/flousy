@@ -29,9 +29,6 @@ public class MenuActivity extends MotherActivity {
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_menu_name);
 
-        ImageButton buttonSearch = actionBar.getActionFirstButton();
-        buttonSearch.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_search));
-
         //Set Activity content
         GridView gridView = (GridView) getContentView();
         Grid menuGrid = (Grid) GridFactory.create(GridType.BASEGRID);

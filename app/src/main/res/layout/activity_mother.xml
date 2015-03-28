@@ -21,8 +21,7 @@
         android:layout_height="match_parent">
 
         <!-- The main content view -->
-        <LinearLayout
-            android:orientation="vertical"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -30,23 +29,17 @@
                 android:id="@+id/activitybar_viewstub"
                 android:layout="@layout/activitybar_titled"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"/>
 
-            <RelativeLayout
-                android:id="@+id/activitycontent"
+            <ViewStub
+                android:id="@+id/activitycontent_viewstub"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:layout_centerInParent="true"
+                android:layout_below="@id/activitybar_viewstub"/>
 
-                <ViewStub
-                    android:id="@+id/activitycontent_viewstub"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
+        </RelativeLayout>
 
         <!-- The navigation drawer -->
         <android.support.v7.widget.RecyclerView
@@ -56,7 +49,6 @@
             android:layout_gravity="right"
             android:paddingLeft="@dimen/drawer_padding"
             android:paddingRight="@dimen/drawer_padding"
-            android:paddingBottom="@dimen/drawer_padding"
             android:background="@color/background_material_light"
             android:scrollbars="vertical"
             android:scrollbarStyle="outsideOverlay"/>
