@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import flousy.gui.recycler.AbstractRecycler;
+import flousy.gui.recycler.AbstractRecyclerItem;
 import flousy.gui.recycler.RecyclerAdapter;
 
 /**
@@ -20,6 +21,15 @@ public class Drawer extends AbstractRecycler {
         super(context);
 
         this.drawerLayout = null;
+    }
+
+    @Override
+    public boolean addItem(AbstractRecyclerItem abstractRecyclerItem) {
+        if(abstractRecyclerItem instanceof DrawerItem || abstractRecyclerItem instanceof DrawerItemTitle) {
+            return super.addItem(abstractRecyclerItem);
+        }
+
+        return false;
     }
 
     public DrawerLayout getDrawerLayout() {

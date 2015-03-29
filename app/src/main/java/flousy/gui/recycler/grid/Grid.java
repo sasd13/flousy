@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.diderot.android.flousy.R;
 
 import flousy.gui.recycler.AbstractRecycler;
+import flousy.gui.recycler.AbstractRecyclerItem;
 import flousy.gui.recycler.RecyclerAdapter;
 
 /**
@@ -16,6 +17,15 @@ public class Grid extends AbstractRecycler {
 
     public Grid(Context context) {
         super(context);
+    }
+
+    @Override
+    public boolean addItem(AbstractRecyclerItem abstractRecyclerItem) {
+        if(abstractRecyclerItem instanceof GridItem) {
+            return super.addItem(abstractRecyclerItem);
+        }
+
+        return false;
     }
 
     @Override

@@ -26,6 +26,7 @@ public class FriendsActivity extends MotherActivity {
 
         ImageButton buttonRefresh = actionBar.getActionFirstButton();
         buttonRefresh.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_refresh));
+        actionBar.setActionFirstButtonEnabled(true);
 
         //Set ActivityBar
         TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarType.TITLEDBAR);

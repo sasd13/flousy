@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.recycler.drawer.Drawer;
@@ -16,23 +17,24 @@ public class NewActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
+        //Set activity color immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_new_name);
-        actionBar.getSubTitleView().setText(R.string.new_actionbar_textview_subtitle);
+
+        TextView subTitle = actionBar.getSubTitleView();
+        subTitle.setText(R.string.new_actionbar_textview_subtitle);
         actionBar.setSubTitleViewEnabled(true);
 
         ImageButton buttonEdit = actionBar.getActionFirstButton();
         buttonEdit.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_edit));
+        actionBar.setActionFirstButtonEnabled(true);
 
         ImageButton buttonAdd = actionBar.getActionSecondButton();
         buttonAdd.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_new));
-
-        //Set Drawer
-        Drawer drawer = getDrawer();
+        actionBar.setActionSecondButtonEnabled(true);
 
         //Customize activity
         customizeColor();

@@ -46,18 +46,15 @@ public class SettingsActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
+        //Set ActivityContent
+        setContentView(R.layout.userform_layout);
+
+        //Set activity color immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set ActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_settings_name);
-
-        //Set Drawer
-        Drawer drawer = getDrawer();
-
-        //Set ActivityContent
-        setContentView(R.layout.userform_layout);
 
         this.form = new ViewHolder();
 

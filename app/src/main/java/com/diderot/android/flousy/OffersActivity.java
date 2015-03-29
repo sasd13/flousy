@@ -15,15 +15,12 @@ public class OffersActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
+        //Set activity color immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_offers_name);
-
-        //Set Drawer
-        Drawer drawer = getDrawer();
 
         //Customize activity
         customizeColor();

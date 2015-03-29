@@ -135,7 +135,10 @@ public class ActionBar {
         setSubTitleViewEnabled(false);
 
         this.actionFirstButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionfirst);
+        setActionFirstButtonEnabled(false);
+
         this.actionSecondButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionsecond);
+        setActionSecondButtonEnabled(false);
 
         this.actionDrawerButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actiondrawer);
         setActionDrawerListener();
