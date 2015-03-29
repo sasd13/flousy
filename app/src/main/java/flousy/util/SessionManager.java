@@ -8,17 +8,19 @@ import flousy.content.user.User;
 /**
  * Created by Samir on 15/03/2015.
  */
-public class SessionManager extends UserManager {
-    private static final String PREFS_SESSION = "PrefsSession";
+public class SessionManager {
 
+    private static final String PREFS_SESSION = "PrefsSession";
     private static final String SESSION_KEY_EMAIL = "email";
 
+    private Context context;
+
     public SessionManager(Context context) {
-        super(context);
+        this.context = context;
     }
 
     private SharedPreferences getSettings() {
-        return super.getSettings(PREFS_SESSION);
+        return this.context.getSharedPreferences(PREFS_SESSION, Context.MODE_PRIVATE);
     }
 
     public boolean checkUserEmail() {
@@ -30,9 +32,11 @@ public class SessionManager extends UserManager {
     }
 
     public boolean connect(String email, String password) {
-        DataManager data = (DataManager) super.getManager(TYPE_DATA); //database query
-
+        //Database query
+        DataManager data = new DataManager(this.context);
         User user = data.getUser(email);
+        //End query
+
         if(user == null || user.getPassword().compareTo(password) != 0) {
             return false;
         }

@@ -14,9 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import flousy.util.SessionManager;
-import flousy.util.UserManager;
-import flousy.util.Validator;
-import flousy.util.ValidatorCode;
+import flousy.util.FormValidator;
+import flousy.util.FormValidatorCode;
 import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
 
@@ -158,15 +157,14 @@ public class LogInActivity extends MotherActivity {
     }
 
     public void startConnection() {
-        UserManager manager = new UserManager(this);
-        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
+        SessionManager session = new SessionManager(this);
 
         String login = this.form.loginEditText.getEditableText().toString();
         String password = this.form.passwordEditText.getEditableText().toString();
 
         boolean connected = false;
-        ValidatorCode codeEmail = Validator.validEmail(login);
-        if(codeEmail == ValidatorCode.OK) {
+        FormValidatorCode codeEmail = FormValidator.validEmail(login);
+        if(codeEmail == FormValidatorCode.OK) {
             connected = session.connect(login, password);
         }
 

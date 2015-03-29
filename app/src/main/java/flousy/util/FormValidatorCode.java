@@ -3,7 +3,7 @@ package flousy.util;
 /**
  * Created by Samir on 14/03/2015.
  */
-public enum ValidatorCode {
+public enum FormValidatorCode {
     OK,
     ERROR_NAME,
     ERROR_PHONENUMBER,

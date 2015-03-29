@@ -1,5 +1,9 @@
 package flousy.gui.actionbar;
 
+import android.app.Activity;
+import android.app.TaskStackBuilder;
+import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -14,13 +18,15 @@ import com.diderot.android.flousy.R;
  */
 public class ActionBar {
 
+    private Activity activity;
     private int color;
     private View view;
 
     private ImageButton actionUpButton, actionFirstButton, actionSecondButton, actionDrawerButton;
     private TextView titleView, subTitleView;
 
-    public ActionBar() {
+    public ActionBar(Activity activity) {
+        this.activity = activity;
         this.color = 0;
         this.view = null;
 
@@ -120,11 +126,17 @@ public class ActionBar {
         this.view.setBackgroundColor(this.color);
 
         this.actionUpButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionup);
+
         this.titleView = (TextView) this.view.findViewById(R.id.actionbar_textview_title);
+
         this.subTitleView = (TextView) this.view.findViewById(R.id.actionbar_textview_subtitle);
+        setSubTitleViewEnabled(false);
+
         this.actionFirstButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionfirst);
         this.actionSecondButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionsecond);
         this.actionDrawerButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actiondrawer);
+
+        setNavigationUp();
     }
 
     public void show() {
@@ -137,5 +149,27 @@ public class ActionBar {
         ViewGroup.LayoutParams params = this.view.getLayoutParams();
         params.height = 0;
         this.view.setLayoutParams(params);
+    }
+
+    private void setNavigationUp() {
+        this.actionUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent upIntent = NavUtils.getParentActivityIntent(activity);
+                if (NavUtils.shouldUpRecreateTask(activity, upIntent)) {
+                    // This activity is NOT part of this app's task, so create a new task
+                    // when navigating up, with a synthesized back stack.
+                    TaskStackBuilder.create(activity)
+                            // Add all of this activity's parents to the back stack
+                            .addNextIntentWithParentStack(upIntent)
+                                    // Navigate up to the closest parent
+                            .startActivities();
+                } else {
+                    // This activity is part of this app's task, so simply
+                    // navigate up to the logical parent activity.
+                    NavUtils.navigateUpTo(activity, upIntent);
+                }
+            }
+        });
     }
 }

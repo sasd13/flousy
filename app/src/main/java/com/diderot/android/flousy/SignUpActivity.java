@@ -16,11 +16,10 @@ import android.widget.TextView;
 import flousy.gui.actionbar.ActionBar;
 import flousy.util.DataManager;
 import flousy.util.SessionManager;
-import flousy.util.UserManager;
 import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
-import flousy.util.Validator;
+import flousy.util.FormValidator;
 
 public class SignUpActivity extends MotherActivity {
 
@@ -112,15 +111,14 @@ public class SignUpActivity extends MotherActivity {
     }
 
     public void signUp() {
-        UserManager manager = new UserManager(this);
-        DataManager data = (DataManager) manager.getManager(UserManager.TYPE_DATA);
-        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
+        SessionManager session = new SessionManager(this);
+        DataManager data = new DataManager(this);
 
-        String firstName = this.form.firstNameEditText.getEditableText().toString();
-        String lastName = this.form.lastNameEditText.getEditableText().toString();
-        String email = this.form.emailEditText.getEditableText().toString();
-        String password = this.form.passwordEditText.getEditableText().toString();
-        String confirmPassword = this.form.confirmPasswordEditText.getEditableText().toString();
+        String firstName = this.form.firstNameEditText.getEditableText().toString().trim();
+        String lastName = this.form.lastNameEditText.getEditableText().toString().trim();
+        String email = this.form.emailEditText.getEditableText().toString().trim();
+        String password = this.form.passwordEditText.getEditableText().toString().trim();
+        String confirmPassword = this.form.confirmPasswordEditText.getEditableText().toString().trim();
         Boolean validCheckBox = this.form.validCheckBox.isChecked();
 
         String phoneNumber = "0000";
@@ -129,11 +127,9 @@ public class SignUpActivity extends MotherActivity {
         User user = new User(firstName, lastName, phoneNumber, email, password, image);
 
         boolean signed = false;
-        boolean valid = Validator.validUser(user);
-        if(valid == true) {
-            if(confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
-                signed = data.signUp(user);
-            }
+        boolean valid = FormValidator.validUser(user);
+        if(valid == true && confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
+            signed = data.signUp(user);
         }
 
         if(signed == false) {
@@ -164,6 +160,7 @@ public class SignUpActivity extends MotherActivity {
 
             this.handler = new Handler();
             this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
+
             dialog.show();
             session.connect(user.getEmail(), user.getPassword());
         }

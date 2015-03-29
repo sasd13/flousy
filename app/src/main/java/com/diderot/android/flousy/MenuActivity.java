@@ -27,6 +27,7 @@ public class MenuActivity extends MotherActivity {
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_menu_name);
+        actionBar.setActionUpButtonEnabled(false);
 
         //Set Activity content
         RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);

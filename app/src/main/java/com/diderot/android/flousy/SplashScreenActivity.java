@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import flousy.util.SessionManager;
-import flousy.util.UserManager;
 
 public class SplashScreenActivity extends Activity {
 
@@ -33,8 +32,7 @@ public class SplashScreenActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        UserManager manager = new UserManager(this);
-        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
+        SessionManager session = new SessionManager(this);
         boolean logged = session.checkUserEmail();
 
         if(logged == false) {

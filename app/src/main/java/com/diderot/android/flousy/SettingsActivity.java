@@ -21,11 +21,10 @@ import flousy.util.SessionManager;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
 import flousy.content.user.User;
-import flousy.util.UserManager;
 import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.widget.CustomDialogBuilder;
 import flousy.gui.listener.CustomOnTouchListener;
-import flousy.util.Validator;
+import flousy.util.FormValidator;
 
 public class SettingsActivity extends MotherActivity {
 
@@ -153,9 +152,9 @@ public class SettingsActivity extends MotherActivity {
     }
 
     public void startInject() {
-        UserManager manager = new UserManager(this);
-        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
-        DataManager data = (DataManager) manager.getManager(UserManager.TYPE_DATA);
+        SessionManager session = new SessionManager(this);
+        DataManager data = new DataManager(this);
+
         User user = data.getUser(session.getUserEmail());
         boolean stayConnect = true;
 
@@ -163,14 +162,12 @@ public class SettingsActivity extends MotherActivity {
         this.form.lastNameEditText.setText(user.getLastName(), TextView.BufferType.EDITABLE);
         this.form.emailEditText.setText(user.getEmail(), TextView.BufferType.EDITABLE);
         this.form.passwordEditText.setText("", TextView.BufferType.EDITABLE);
-
         this.form.connectCheckBox.setChecked(stayConnect);
     }
 
     public void save() {
-        UserManager manager = new UserManager(this);
-        DataManager data = (DataManager) manager.getManager(UserManager.TYPE_DATA);
-        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
+        SessionManager session = new SessionManager(this);
+        DataManager data = new DataManager(this);
 
         String firstName = this.form.firstNameEditText.getEditableText().toString();
         String lastName = this.form.lastNameEditText.getEditableText().toString();
@@ -183,7 +180,7 @@ public class SettingsActivity extends MotherActivity {
 
         User user = new User(firstName, lastName, phoneNumber, email, password, image);
 
-        boolean valid = Validator.validUser(user);
+        boolean valid = FormValidator.validUser(user);
         if(valid == true) {
             boolean updated = data.setUser(session.getUserEmail(), user);
             if(updated == true) {
@@ -193,8 +190,7 @@ public class SettingsActivity extends MotherActivity {
     }
 
     public void endConnection() {
-        UserManager manager = new UserManager(this);
-        SessionManager session = (SessionManager) manager.getManager(UserManager.TYPE_SESSION);
+        SessionManager session = new SessionManager(this);
 
         boolean deconnected = session.deconnect();
         if(deconnected == false) {
@@ -224,6 +220,7 @@ public class SettingsActivity extends MotherActivity {
 
             this.handler = new Handler();
             this.handler.postDelayed(this.runnable, LOGOUT_TIME_OUT);
+
             dialog.show();
         }
     }
