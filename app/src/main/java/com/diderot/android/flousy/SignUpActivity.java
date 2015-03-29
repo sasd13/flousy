@@ -64,7 +64,7 @@ public class SignUpActivity extends MotherActivity {
         validCheckBoxTextView.setText(R.string.signup_userform_textview_validcheckbox_validation);
 
         this.form.saveButton = (Button) findViewById(R.id.userform_button);
-        this.form.saveButton.setText(R.string.settings_userform_button_logout);
+        this.form.saveButton.setText(R.string.button_save);
         this.form.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
