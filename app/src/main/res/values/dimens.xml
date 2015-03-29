@@ -1,7 +1,7 @@
 <resources>
     <!-- ActionBar -->
     <dimen name="actionbar_height">55dp</dimen>
-    <dimen name="actionbar_imagebutton_up_horizontalpadding">7dp</dimen>
+    <dimen name="actionbar_imagebutton_actionup_horizontalpadding">7dp</dimen>
     <dimen name="actionbar_imagebutton_action_horizontalpadding">14dp</dimen>
 
     <!-- Activity -->

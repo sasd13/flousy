@@ -51,7 +51,7 @@ public class SettingsActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set ActionBar
-        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
+        ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_settings_name);
 
         //Set Drawer

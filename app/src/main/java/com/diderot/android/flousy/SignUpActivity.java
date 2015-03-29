@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,14 +40,18 @@ public class SignUpActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
-        actionBar.getTitleView().setText(R.string.activity_signup_name);
-        actionBar.setDrawerEnabled(false);
-
         //Set ActivityContent
         setContentView(R.layout.userform_layout);
 
+        //Set CustomActionBar
+        ActionBar actionBar = getCustomActionBar();
+        actionBar.getTitleView().setText(R.string.activity_signup_name);
+
+        //Disable Drawer
+        actionBar.setActionDrawerButtonEnabled(false);
+        getDrawer().setEnabled(false);
+
+        //Set User form
         this.form = new ViewHolder();
 
         this.form.firstNameEditText = (EditText) findViewById(R.id.userform_edittext_firstname);

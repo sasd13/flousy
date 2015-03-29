@@ -56,7 +56,7 @@ public class DrawerItem extends AbstractRecyclerItem {
     }
 
     @Override
-    public View inflate(final ViewStub viewStub) {
+    public View inflate(ViewStub viewStub) {
         viewStub.setLayoutResource(getLayoutResource());
         View view = viewStub.inflate();
         if (view == null) {
@@ -73,7 +73,7 @@ public class DrawerItem extends AbstractRecyclerItem {
             public void onClick(View view) {
                 if (intent != null) {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    viewStub.getContext().startActivity(intent);
+                    view.getContext().startActivity(intent);
                 }
             }
         });
@@ -84,15 +84,9 @@ public class DrawerItem extends AbstractRecyclerItem {
                 return false;
             }
         });
-        int color = viewStub.getContext().getResources().getColor(R.color.background_material_light);
+        int color = view.getContext().getResources().getColor(R.color.background_material_light);
         view.setOnTouchListener(new CustomOnTouchListener(color));
 
         return view;
-    }
-
-    private void setCustomOnTouchListener(int color) {
-        CustomOnTouchListener listener = new CustomOnTouchListener(color);
-
-        getView().setOnTouchListener(listener);
     }
 }

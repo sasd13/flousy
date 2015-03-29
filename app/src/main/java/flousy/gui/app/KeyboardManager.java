@@ -1,7 +1,6 @@
 package flousy.gui.app;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
@@ -9,6 +8,7 @@ import android.widget.TextView;
  * Created by Samir on 15/03/2015.
  */
 public class KeyboardManager {
+
     private KeyboardManager() {}
 
     public static void hide(TextView textView) {

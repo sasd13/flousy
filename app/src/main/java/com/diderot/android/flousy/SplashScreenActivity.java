@@ -1,5 +1,6 @@
 package com.diderot.android.flousy;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,7 +11,7 @@ import android.widget.ImageView;
 import flousy.util.SessionManager;
 import flousy.util.UserManager;
 
-public class SplashScreenActivity extends MotherActivity {
+public class SplashScreenActivity extends Activity {
 
     private static int SPLASH_TIME_OUT = 3000;
     private Handler handler;
@@ -22,9 +23,6 @@ public class SplashScreenActivity extends MotherActivity {
 
         //Set content view
         setContentView(R.layout.activity_splashscreen_layout);
-
-        //Disable CustomActionBar
-        getCustomActionBar().hide();
 
         //Set Logo
         ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);

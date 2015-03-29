@@ -175,7 +175,7 @@ public class GridItem extends AbstractRecyclerItem {
     }
 
     @Override
-    public View inflate(final ViewStub viewStub) {
+    public View inflate(ViewStub viewStub) {
         viewStub.setLayoutResource(getLayoutResource());
         View view = viewStub.inflate();
         if (view == null) {
@@ -184,9 +184,7 @@ public class GridItem extends AbstractRecyclerItem {
 
         setView(view);
 
-        if(this.backgroundColor == 0) {
-            this.backgroundColor = viewStub.getContext().getResources().getColor(MotherActivity.APP_COLOR);
-        }
+        this.backgroundColor = view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
         view.setBackgroundColor(this.backgroundColor);
 
         this.imageView = (ImageView) view.findViewById(R.id.griditem_imageview);
@@ -200,7 +198,7 @@ public class GridItem extends AbstractRecyclerItem {
             public void onClick(View view) {
                 if(intent != null) {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    viewStub.getContext().startActivity(intent);
+                    view.getContext().startActivity(intent);
                 }
             }
         });

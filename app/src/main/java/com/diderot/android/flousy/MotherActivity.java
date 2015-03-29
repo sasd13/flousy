@@ -1,10 +1,12 @@
 package com.diderot.android.flousy;
 
 import android.app.Activity;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -23,6 +25,7 @@ import flousy.gui.color.ColorBrightness;
 import flousy.gui.content.IColorCustomizer;
 import flousy.gui.content.IDimensionCustomizer;
 import flousy.gui.content.ITextCustomizer;
+import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.recycler.RecyclerFactory;
 import flousy.gui.recycler.RecyclerType;
 import flousy.gui.recycler.drawer.MenuDrawerItem;
@@ -58,13 +61,19 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.actionBar = new ActionBar();
         ViewStub actionbarStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
         this.actionBar.inflate(actionbarStub);
+        this.actionBar.setSubTitleViewEnabled(false);
+        setCustomActionBarNavigationUp();
 
         //Create Drawer
-        this.drawer = (Drawer) RecyclerFactory.create(RecyclerType.DAWER, this);
         this.drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.drawerView = (RecyclerView) findViewById(R.id.drawer_view);
+
+        this.drawer = (Drawer) RecyclerFactory.create(RecyclerType.DAWER, this);
+        this.drawer.setDrawerLayout(this.drawerLayout);
+        //this.actionBar.setActionDrawerButtonEnabled(true);
+
+        //Set Drawer adapter
         this.drawer.adapt(this.drawerView);
-        this.actionBar.setDrawerEnabled(true);
 
         //Add Items menu
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
@@ -115,13 +124,13 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         }
 
         //Add ActionBar drawer button listener
-        this.actionBar.getDrawerButton().setOnClickListener(new View.OnClickListener() {
+        this.actionBar.getActionDrawerButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(drawerLayout.isDrawerOpen(drawerView)) {
-                    drawerLayout.closeDrawer(drawerView);
+                if(drawer.isOpened()) {
+                    drawer.close();
                 } else {
-                    drawerLayout.openDrawer(drawerView);
+                    drawer.open();
                 }
             }
         });
@@ -136,9 +145,7 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
     protected void onStop() {
         super.onStop();
 
-        if(this.drawerLayout != null && this.drawerLayout.isDrawerOpen(this.drawerView)) {
-            this.drawerLayout.closeDrawer(this.drawerView);
-        }
+        this.drawer.close();
     }
 
     @Override
@@ -182,6 +189,30 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         return this.actionBar;
     }
 
+    private void setCustomActionBarNavigationUp() {
+        this.actionBar.setActionUpButtonEnabled(true);
+
+        this.actionBar.getActionUpButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent upIntent = NavUtils.getParentActivityIntent(MotherActivity.this);
+                if (NavUtils.shouldUpRecreateTask(MotherActivity.this, upIntent)) {
+                    // This activity is NOT part of this app's task, so create a new task
+                    // when navigating up, with a synthesized back stack.
+                    TaskStackBuilder.create(MotherActivity.this)
+                            // Add all of this activity's parents to the back stack
+                            .addNextIntentWithParentStack(upIntent)
+                                    // Navigate up to the closest parent
+                            .startActivities();
+                } else {
+                    // This activity is part of this app's task, so simply
+                    // navigate up to the logical parent activity.
+                    NavUtils.navigateUpTo(MotherActivity.this, upIntent);
+                }
+            }
+        });
+    }
+
     public Drawer getDrawer() {
         return this.drawer;
     }
@@ -206,9 +237,14 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
 
     @Override
     public void customizeColor() {
-        if(this.actionBar != null) {
-            this.actionBar.setColor(this.activityColor);
-        }
+        this.actionBar.setColor(this.activityColor);
+
+        CustomOnTouchListener listener = new CustomOnTouchListener(this.activityColor);
+
+        this.actionBar.getActionUpButton().setOnTouchListener(listener);
+        this.actionBar.getActionFirstButton().setOnTouchListener(listener);
+        this.actionBar.getActionSecondButton().setOnTouchListener(listener);
+        this.actionBar.getActionDrawerButton().setOnTouchListener(listener);
 
         if(this.activityBar != null) {
             this.activityBar.getView().setBackgroundColor(ColorBrightness.colorDarker(this.activityColor));

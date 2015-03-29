@@ -19,7 +19,7 @@ public class FinancesActivity extends MotherActivity {
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
+        ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_finances_name);
 
         //Set Drawer

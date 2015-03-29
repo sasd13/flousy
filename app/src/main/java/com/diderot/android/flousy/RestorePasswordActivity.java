@@ -16,9 +16,12 @@ public class RestorePasswordActivity extends MotherActivity {
         setContentView(R.layout.activity_restorepassword_layout);
 
         //Set CustomActionBar
-        ActionBar actionBar = getCustomActionBar().setNavigationUp(this);
+        ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_restorepassword_name);
-        actionBar.setDrawerEnabled(false);
+
+        //Disable Drawer
+        actionBar.setActionDrawerButtonEnabled(false);
+        getDrawer().setEnabled(false);
 
         //Customize activity
         customizeColor();
