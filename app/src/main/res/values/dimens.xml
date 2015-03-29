@@ -12,13 +12,13 @@
     <dimen name="login_textview_signup_padding">7dp</dimen>
 
     <!-- Activity SignUp -->
-    <dimen name="userform_checkbox_horizontalmargin">10dp</dimen>
+    <dimen name="userform_checkbox_horizontalmargin">7dp</dimen>
 
     <!-- Activity SplashScreen -->
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
 
     <!-- ActivityBar -->
-    <dimen name="activitybar_titled_textview_margin">7dp</dimen>
+    <dimen name="activitybar_titled_textview_margin">10dp</dimen>
 
     <!-- Button -->
     <dimen name="button_horizontalpadding">20dp</dimen>
@@ -27,20 +27,20 @@
     <!-- Dialog -->
     <dimen name="customdialog_progressbar_padding">15dp</dimen>
 
+    <!-- Drawer -->
+    <dimen name="drawer_width">240dp</dimen>
+    <dimen name="drawer_padding">10dp</dimen>
+    <dimen name="draweritem_textview_height">60dp</dimen>
+    <dimen name="draweritem_menu_colorview_width">16dp</dimen>
+    <dimen name="draweritem_menu_colorview_height">42dp</dimen>
+    <dimen name="draweritem_title_textview_paddingtop">30dp</dimen>
+
     <!-- Grid -->
     <integer name="grid_numcolumns">2</integer>
     <dimen name="grid_items_space">12dp</dimen>
     <dimen name="griditem_size">120dp</dimen>
     <dimen name="griditem_verticalmargin_external">14dp</dimen>
     <dimen name="griditem_verticalmargin_internal">7dp</dimen>
-
-    <!-- Navigation drawer -->
-    <dimen name="drawer_width">240dp</dimen>
-    <dimen name="drawer_padding">10dp</dimen>
-    <dimen name="draweritem_textview_height">60dp</dimen>
-    <dimen name="draweritem_menu_colorview_width">16dp</dimen>
-    <dimen name="draweritem_menu_colorview_height">42dp</dimen>
-    <dimen name="draweritemtitle_textview_paddingtop">30dp</dimen>
 
     <!-- Text -->
     <dimen name="textsize_small">12sp</dimen>

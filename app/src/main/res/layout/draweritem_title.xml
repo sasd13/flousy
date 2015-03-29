@@ -7,18 +7,18 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/draweritemtitle_textview"
+        android:id="@+id/draweritem_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activitycontent_padding"
-        android:paddingTop="@dimen/draweritemtitle_textview_paddingtop"
+        android:paddingTop="@dimen/draweritem_title_textview_paddingtop"
         android:gravity="left|bottom"
-        android:text="@string/draweritemgroup_textview"
+        android:text="@string/draweritem_title_textview"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 
     <View
-        android:id="@+id/draweritem_stublayout_viewdivider"
+        android:id="@+id/draweritem_title_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_medium"
         android:layout_marginTop="@dimen/dividerview_margintop"

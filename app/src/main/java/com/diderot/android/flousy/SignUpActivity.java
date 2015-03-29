@@ -18,7 +18,7 @@ import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.color.ColorOnTouchListener;
 import flousy.util.FormValidator;
 
 public class SignUpActivity extends MotherActivity {
@@ -107,7 +107,7 @@ public class SignUpActivity extends MotherActivity {
 
         if(getContentView() != null) {
             this.form.saveButton.setBackgroundColor(getActivityColor());
-            this.form.saveButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+            this.form.saveButton.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
         }
     }
 

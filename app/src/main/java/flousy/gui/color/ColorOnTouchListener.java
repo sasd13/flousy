@@ -1,4 +1,4 @@
-package flousy.gui.listener;
+package flousy.gui.color;
 
 import android.view.MotionEvent;
 import android.view.View;
@@ -8,11 +8,11 @@ import flousy.gui.color.ColorBrightness;
 /**
  * Created by Samir on 12/03/2015.
  */
-public class CustomOnTouchListener implements View.OnTouchListener {
+public class ColorOnTouchListener implements View.OnTouchListener {
 
     private int color;
 
-    public CustomOnTouchListener(int color) {
+    public ColorOnTouchListener(int color) {
         this.color = color;
     }
 

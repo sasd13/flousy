@@ -69,6 +69,10 @@
     <string name="alertdialog_button_ok">OK</string>
     <string name="alertdialog_button_cancel">Annuler</string>
 
+    <!-- Drawer -->
+    <string name="draweritem_textview">Item</string>
+    <string name="draweritem_title_textview">Title</string>
+
     <!-- EditText -->
     <string name="edittext_firstname_hint">Prénom</string>
     <string name="edittext_lastname_hint">Nom</string>
@@ -78,10 +82,6 @@
 
     <!-- Grid -->
     <string name="griditem_textview">Item</string>
-
-    <!-- Navigation drawer -->
-    <string name="draweritem_textview">Item</string>
-    <string name="draweritemgroup_textview">Title</string>
 
     <!-- Searchable -->
     <string name="search_hint">Rechercher</string>

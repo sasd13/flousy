@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import flousy.gui.recycler.AbstractRecycler;
 import flousy.gui.recycler.AbstractRecyclerItem;
@@ -25,19 +24,11 @@ public class Drawer extends AbstractRecycler {
 
     @Override
     public boolean addItem(AbstractRecyclerItem abstractRecyclerItem) {
-        if(abstractRecyclerItem instanceof DrawerItem || abstractRecyclerItem instanceof DrawerItemTitle) {
-            return super.addItem(abstractRecyclerItem);
+        if(abstractRecyclerItem instanceof DrawerItem == false) {
+            return false;
         }
 
-        return false;
-    }
-
-    public DrawerLayout getDrawerLayout() {
-        return this.drawerLayout;
-    }
-
-    public void setDrawerLayout(DrawerLayout drawerLayout) {
-        this.drawerLayout = drawerLayout;
+        return super.addItem(abstractRecyclerItem);
     }
 
     @Override
@@ -54,6 +45,14 @@ public class Drawer extends AbstractRecycler {
 
         RecyclerAdapter drawerAdapter = new RecyclerAdapter(getListAbstractRecyclerItem(), getItemStubLayout());
         drawerView.setAdapter(drawerAdapter);
+    }
+
+    public DrawerLayout getDrawerLayout() {
+        return this.drawerLayout;
+    }
+
+    public void setDrawerLayout(DrawerLayout drawerLayout) {
+        this.drawerLayout = drawerLayout;
     }
 
     public void open() {

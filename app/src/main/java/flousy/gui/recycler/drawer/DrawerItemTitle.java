@@ -2,48 +2,27 @@ package flousy.gui.recycler.drawer;
 
 import android.view.View;
 import android.view.ViewStub;
-import android.widget.TextView;
 
 import com.diderot.android.flousy.R;
-
-import flousy.gui.recycler.AbstractRecyclerItem;
 
 /**
  * Created by Samir on 22/03/2015.
  */
-public class DrawerItemTitle extends AbstractRecyclerItem {
-
-    private CharSequence title;
-    private TextView titleView;
+public class DrawerItemTitle extends DrawerItem {
 
     public DrawerItemTitle() {
-        super(R.layout.draweritemtitle);
+        super(R.layout.draweritem_title);
 
-        this.title = "Title";
-        this.titleView = null;
+        setText("Title");
     }
 
-    public CharSequence getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(CharSequence title) {
-        this.title = title;
+    @Override
+    public void setText(CharSequence text) {
+        super.setText(text.toString().toUpperCase());
     }
 
     @Override
     public View inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(getLayoutResource());
-        View view = viewStub.inflate();
-        if (view == null) {
-            return null;
-        }
-
-        setView(view);
-
-        this.titleView = (TextView) view.findViewById(R.id.draweritemtitle_textview);
-        this.titleView.setText(this.title.toString().toUpperCase());
-
-        return view;
+        return super.inflate(viewStub);
     }
 }

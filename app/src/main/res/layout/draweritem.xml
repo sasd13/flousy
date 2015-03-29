@@ -16,7 +16,7 @@
         android:textSize="@dimen/textsize_large"/>
 
     <View
-        android:id="@+id/draweritem_stublayout_viewdivider"
+        android:id="@+id/draweritem_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
         android:background="@color/primary_material_light"/>

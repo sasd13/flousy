@@ -9,12 +9,12 @@ import com.diderot.android.flousy.R;
 /**
  * Created by Samir on 22/03/2015.
  */
-public class MenuDrawerItem extends DrawerItem {
+public class DrawerItemMenu extends DrawerItemBase {
 
     private int color;
     private View colorView;
 
-    public MenuDrawerItem() {
+    public DrawerItemMenu() {
         super(R.layout.draweritem_menu);
 
         this.color = 0;
@@ -35,9 +35,8 @@ public class MenuDrawerItem extends DrawerItem {
 
     @Override
     public View inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(getLayoutResource());
         View view = super.inflate(viewStub);
-        if (view == null) {
+        if(view == null) {
             return null;
         }
 

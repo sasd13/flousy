@@ -16,7 +16,7 @@ import android.widget.TextView;
 import flousy.util.SessionManager;
 import flousy.util.FormValidator;
 import flousy.util.FormValidatorCode;
-import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
 
 public class LogInActivity extends MotherActivity {
@@ -152,7 +152,7 @@ public class LogInActivity extends MotherActivity {
 
         if(getContentView() != null) {
             this.form.connectButton.setBackgroundColor(getActivityColor());
-            this.form.connectButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+            this.form.connectButton.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
         }
     }
 

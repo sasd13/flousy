@@ -21,9 +21,8 @@ import flousy.util.SessionManager;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
 import flousy.content.user.User;
-import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.color.ColorOnTouchListener;
 import flousy.util.FormValidator;
 
 public class SettingsActivity extends MotherActivity {
@@ -144,7 +143,7 @@ public class SettingsActivity extends MotherActivity {
 
         if(getContentView() != null) {
             this.form.logoutButton.setBackgroundColor(getActivityColor());
-            this.form.logoutButton.setOnTouchListener(new CustomOnTouchListener(getActivityColor()));
+            this.form.logoutButton.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
         }
     }
 

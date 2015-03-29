@@ -21,11 +21,11 @@ public class Grid extends AbstractRecycler {
 
     @Override
     public boolean addItem(AbstractRecyclerItem abstractRecyclerItem) {
-        if(abstractRecyclerItem instanceof GridItem) {
-            return super.addItem(abstractRecyclerItem);
+        if(abstractRecyclerItem instanceof GridItem == false) {
+            return false;
         }
 
-        return false;
+        return super.addItem(abstractRecyclerItem);
     }
 
     @Override

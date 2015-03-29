@@ -23,10 +23,10 @@ import flousy.gui.color.ColorBrightness;
 import flousy.gui.content.IColorCustomizer;
 import flousy.gui.content.IDimensionCustomizer;
 import flousy.gui.content.ITextCustomizer;
-import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.recycler.RecyclerFactory;
 import flousy.gui.recycler.RecyclerType;
-import flousy.gui.recycler.drawer.MenuDrawerItem;
+import flousy.gui.recycler.drawer.DrawerItemMenu;
 import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.recycler.drawer.DrawerItemTitle;
 import flousy.util.SessionManager;
@@ -138,50 +138,50 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
 
     private void addMenuDrawerItems() {
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
-        drawerItemTitle.setTitle(getResources().getString(R.string.activity_menu_name));
+        drawerItemTitle.setText(getResources().getString(R.string.activity_menu_name));
         this.drawer.addItem(drawerItemTitle);
 
-        MenuDrawerItem menuDrawerItem = null;
+        DrawerItemMenu drawerItemMenu = null;
         for(int i=0; i<6; i++) {
             switch (i) {
                 case 0:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setColor(getResources().getColor(NewActivity.ACTIVITY_COLOR));
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_new_name));
-                    menuDrawerItem.setIntent(new Intent(this, NewActivity.class));
+                    drawerItemMenu = new DrawerItemMenu();
+                    drawerItemMenu.setColor(getResources().getColor(NewActivity.ACTIVITY_COLOR));
+                    drawerItemMenu.setText(getResources().getString(R.string.activity_new_name));
+                    drawerItemMenu.setIntent(new Intent(this, NewActivity.class));
                     break;
                 case 1:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setColor(getResources().getColor(ConsultActivity.ACTIVITY_COLOR));
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_consult_name));
-                    menuDrawerItem.setIntent(new Intent(this, ConsultActivity.class));
+                    drawerItemMenu = new DrawerItemMenu();
+                    drawerItemMenu.setColor(getResources().getColor(ConsultActivity.ACTIVITY_COLOR));
+                    drawerItemMenu.setText(getResources().getString(R.string.activity_consult_name));
+                    drawerItemMenu.setIntent(new Intent(this, ConsultActivity.class));
                     break;
                 case 2:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setColor(getResources().getColor(FinancesActivity.ACTIVITY_COLOR));
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_finances_name));
-                    menuDrawerItem.setIntent(new Intent(this, FinancesActivity.class));
+                    drawerItemMenu = new DrawerItemMenu();
+                    drawerItemMenu.setColor(getResources().getColor(FinancesActivity.ACTIVITY_COLOR));
+                    drawerItemMenu.setText(getResources().getString(R.string.activity_finances_name));
+                    drawerItemMenu.setIntent(new Intent(this, FinancesActivity.class));
                     break;
                 case 3:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setColor(getResources().getColor(FriendsActivity.ACTIVITY_COLOR));
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_friends_name));
-                    menuDrawerItem.setIntent(new Intent(this, FriendsActivity.class));
+                    drawerItemMenu = new DrawerItemMenu();
+                    drawerItemMenu.setColor(getResources().getColor(FriendsActivity.ACTIVITY_COLOR));
+                    drawerItemMenu.setText(getResources().getString(R.string.activity_friends_name));
+                    drawerItemMenu.setIntent(new Intent(this, FriendsActivity.class));
                     break;
                 case 4:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setColor(getResources().getColor(OffersActivity.ACTIVITY_COLOR));
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_offers_name));
-                    menuDrawerItem.setIntent(new Intent(this, OffersActivity.class));
+                    drawerItemMenu = new DrawerItemMenu();
+                    drawerItemMenu.setColor(getResources().getColor(OffersActivity.ACTIVITY_COLOR));
+                    drawerItemMenu.setText(getResources().getString(R.string.activity_offers_name));
+                    drawerItemMenu.setIntent(new Intent(this, OffersActivity.class));
                     break;
                 case 5:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setColor(getResources().getColor(SettingsActivity.ACTIVITY_COLOR));
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_settings_name));
-                    menuDrawerItem.setIntent(new Intent(this, SettingsActivity.class));
+                    drawerItemMenu = new DrawerItemMenu();
+                    drawerItemMenu.setColor(getResources().getColor(SettingsActivity.ACTIVITY_COLOR));
+                    drawerItemMenu.setText(getResources().getString(R.string.activity_settings_name));
+                    drawerItemMenu.setIntent(new Intent(this, SettingsActivity.class));
                     break;
             }
-            this.drawer.addItem(menuDrawerItem);
+            this.drawer.addItem(drawerItemMenu);
         }
     }
 
@@ -207,7 +207,7 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
     public void customizeColor() {
         this.actionBar.setColor(this.activityColor);
 
-        CustomOnTouchListener listener = new CustomOnTouchListener(this.activityColor);
+        ColorOnTouchListener listener = new ColorOnTouchListener(this.activityColor);
 
         this.actionBar.getActionUpButton().setOnTouchListener(listener);
         this.actionBar.getActionFirstButton().setOnTouchListener(listener);

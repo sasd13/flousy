@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
-import flousy.gui.listener.CustomOnTouchListener;
+import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.recycler.AbstractRecyclerItem;
 
 /**
@@ -211,7 +211,7 @@ public class GridItem extends AbstractRecyclerItem {
                 return false;
             }
         });
-        view.setOnTouchListener(new CustomOnTouchListener(this.color));
+        view.setOnTouchListener(new ColorOnTouchListener(this.color));
 
         return view;
     }
