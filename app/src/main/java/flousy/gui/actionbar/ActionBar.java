@@ -1,6 +1,5 @@
 package flousy.gui.actionbar;
 
-import android.app.Activity;
 import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
@@ -13,19 +12,21 @@ import android.widget.TextView;
 import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
+import flousy.gui.recycler.drawer.Drawer;
+
 /**
  * Created by Samir on 19/03/2015.
  */
 public class ActionBar {
 
-    private Activity activity;
+    private MotherActivity activity;
     private int color;
     private View view;
 
     private ImageButton actionUpButton, actionFirstButton, actionSecondButton, actionDrawerButton;
     private TextView titleView, subTitleView;
 
-    public ActionBar(Activity activity) {
+    public ActionBar(MotherActivity activity) {
         this.activity = activity;
         this.color = 0;
         this.view = null;
@@ -126,6 +127,7 @@ public class ActionBar {
         this.view.setBackgroundColor(this.color);
 
         this.actionUpButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionup);
+        setActionUpNavigation();
 
         this.titleView = (TextView) this.view.findViewById(R.id.actionbar_textview_title);
 
@@ -134,9 +136,9 @@ public class ActionBar {
 
         this.actionFirstButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionfirst);
         this.actionSecondButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionsecond);
-        this.actionDrawerButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actiondrawer);
 
-        setNavigationUp();
+        this.actionDrawerButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actiondrawer);
+        setActionDrawerListener();
     }
 
     public void show() {
@@ -151,7 +153,7 @@ public class ActionBar {
         this.view.setLayoutParams(params);
     }
 
-    private void setNavigationUp() {
+    private void setActionUpNavigation() {
         this.actionUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,6 +170,20 @@ public class ActionBar {
                     // This activity is part of this app's task, so simply
                     // navigate up to the logical parent activity.
                     NavUtils.navigateUpTo(activity, upIntent);
+                }
+            }
+        });
+    }
+
+    private void setActionDrawerListener() {
+        this.actionDrawerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Drawer drawer = activity.getDrawer();
+                if (drawer.isOpened()) {
+                    drawer.close();
+                } else {
+                    drawer.open();
                 }
             }
         });

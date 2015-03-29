@@ -14,11 +14,11 @@ import flousy.gui.listener.CustomOnTouchListener;
 import flousy.gui.recycler.AbstractRecyclerItem;
 
 /**
- * <b>BaseGridItem is the class to manage basic items of a BaseGrid</b>
+ * <b>GridItem is the class to manage basic items of a Grid</b>
  * <p>
- * A BaseGrid item box has :
+ * A Grid item box has :
  * <ul>
- * <li>A background color</li>
+ * <li>A color</li>
  * <li>An image</li>
  * <li>A text</li>
  * </ul>
@@ -31,14 +31,14 @@ import flousy.gui.recycler.AbstractRecyclerItem;
 public class GridItem extends AbstractRecyclerItem {
 
     /**
-     * BaseGridItem background color
+     * GridItem color
      *
      * <p>type : int</p>
      */
-    private int backgroundColor;
+    private int color;
 
     /**
-     * BaseGridItem image
+     * GridItem image
      *
      * <p>type : Drawable</p>
      * <p>
@@ -56,7 +56,7 @@ public class GridItem extends AbstractRecyclerItem {
     private Drawable image;
 
     /**
-     * BaseGridItem text
+     * GridItem text
      */
     private CharSequence text;
 
@@ -71,7 +71,7 @@ public class GridItem extends AbstractRecyclerItem {
     private TextView textView;
 
     /**
-     * BaseGridItem action on item clicked
+     * GridItem action on item clicked
      */
     private Intent intent;
 
@@ -81,7 +81,7 @@ public class GridItem extends AbstractRecyclerItem {
     public GridItem() {
         super(R.layout.griditem);
 
-        this.backgroundColor = 0;
+        this.color = 0;
         this.image = null;
         this.text = "Item";
         this.intent = null;
@@ -90,31 +90,31 @@ public class GridItem extends AbstractRecyclerItem {
     public GridItem(int layoutResource) {
         super(layoutResource);
 
-        this.backgroundColor = 0;
+        this.color = 0;
         this.image = null;
         this.text = "Item";
         this.intent = null;
     }
 
     /**
-     * Get backgroundColor
+     * Get color
      *
      * @return int
      */
-    public int getBackgroundColor() {
-        return this.backgroundColor;
+    public int getColor() {
+        return this.color;
     }
 
     /**
-     * Set backgroundColor
+     * Set color
      *
-     * @param backgroundColor
+     * @param color
      */
-    public void setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public void setColor(int color) {
+        this.color = color;
 
         if(getView() != null) {
-            getView().setBackgroundColor(this.backgroundColor);
+            getView().setBackgroundColor(this.color);
         }
     }
 
@@ -184,8 +184,10 @@ public class GridItem extends AbstractRecyclerItem {
 
         setView(view);
 
-        this.backgroundColor = view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
-        view.setBackgroundColor(this.backgroundColor);
+        if(this.color == 0) {
+            this.color = view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
+        }
+        view.setBackgroundColor(this.color);
 
         this.imageView = (ImageView) view.findViewById(R.id.griditem_imageview);
         this.imageView.setImageDrawable(this.image);
@@ -209,7 +211,7 @@ public class GridItem extends AbstractRecyclerItem {
                 return false;
             }
         });
-        view.setOnTouchListener(new CustomOnTouchListener(this.backgroundColor));
+        view.setOnTouchListener(new CustomOnTouchListener(this.color));
 
         return view;
     }

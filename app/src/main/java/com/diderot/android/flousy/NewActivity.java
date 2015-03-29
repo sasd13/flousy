@@ -23,6 +23,7 @@ public class NewActivity extends MotherActivity {
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_new_name);
         actionBar.getSubTitleView().setText(R.string.new_actionbar_textview_subtitle);
+        actionBar.setSubTitleViewEnabled(true);
 
         ImageButton buttonEdit = actionBar.getActionFirstButton();
         buttonEdit.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_edit));

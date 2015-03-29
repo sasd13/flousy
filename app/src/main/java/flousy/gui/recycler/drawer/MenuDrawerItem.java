@@ -42,7 +42,9 @@ public class MenuDrawerItem extends DrawerItem {
         }
 
         this.colorView = view.findViewById(R.id.draweritem_menu_colorview);
-        this.color = view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
+        if(this.color == 0) {
+            this.color = view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
+        }
         this.colorView.setBackgroundColor(this.color);
 
         return view;

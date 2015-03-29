@@ -41,37 +41,37 @@ public class MenuActivity extends MotherActivity {
             gridItem = new GridItem();
             switch(i) {
                 case 0:
-                    gridItem.setBackgroundColor(resources.getColor(NewActivity.ACTIVITY_COLOR));
+                    gridItem.setColor(resources.getColor(NewActivity.ACTIVITY_COLOR));
                     gridItem.setText(resources.getString(R.string.activity_new_name));
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_new));
                     gridItem.setIntent(new Intent(this, NewActivity.class));
                     break;
                 case 1:
-                    gridItem.setBackgroundColor(resources.getColor(ConsultActivity.ACTIVITY_COLOR));
+                    gridItem.setColor(resources.getColor(ConsultActivity.ACTIVITY_COLOR));
                     gridItem.setText(resources.getString(R.string.activity_consult_name));
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_consult));
                     gridItem.setIntent(new Intent(this, ConsultActivity.class));
                     break;
                 case 2:
-                    gridItem.setBackgroundColor(resources.getColor(FinancesActivity.ACTIVITY_COLOR));
+                    gridItem.setColor(resources.getColor(FinancesActivity.ACTIVITY_COLOR));
                     gridItem.setText(resources.getString(R.string.activity_finances_name));
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_finances));
                     gridItem.setIntent(new Intent(this, FinancesActivity.class));
                     break;
                 case 3:
-                    gridItem.setBackgroundColor(resources.getColor(FriendsActivity.ACTIVITY_COLOR));
+                    gridItem.setColor(resources.getColor(FriendsActivity.ACTIVITY_COLOR));
                     gridItem.setText(resources.getString(R.string.activity_friends_name));
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_friends));
                     gridItem.setIntent(new Intent(this, FriendsActivity.class));
                     break;
                 case 4:
-                    gridItem.setBackgroundColor(resources.getColor(OffersActivity.ACTIVITY_COLOR));
+                    gridItem.setColor(resources.getColor(OffersActivity.ACTIVITY_COLOR));
                     gridItem.setText(resources.getString(R.string.activity_offers_name));
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_offers));
                     gridItem.setIntent(new Intent(this, OffersActivity.class));
                     break;
                 case 5:
-                    gridItem.setBackgroundColor(resources.getColor(SettingsActivity.ACTIVITY_COLOR));
+                    gridItem.setColor(resources.getColor(SettingsActivity.ACTIVITY_COLOR));
                     gridItem.setText(resources.getString(R.string.activity_settings_name));
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_settings));
                     gridItem.setIntent(new Intent(this, SettingsActivity.class));

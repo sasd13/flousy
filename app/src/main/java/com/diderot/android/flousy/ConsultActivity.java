@@ -5,7 +5,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.recycler.drawer.Drawer;
 
 public class ConsultActivity extends MotherActivity {
 
@@ -15,15 +14,12 @@ public class ConsultActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
+        //Set ActivityColor immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_consult_name);
-
-        //Set Drawer
-        Drawer drawer = getDrawer();
 
         //Customize activity
         customizeColor();

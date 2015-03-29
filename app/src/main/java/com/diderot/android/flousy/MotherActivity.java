@@ -1,12 +1,10 @@
 package com.diderot.android.flousy;
 
 import android.app.Activity;
-import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -31,6 +29,7 @@ import flousy.gui.recycler.RecyclerType;
 import flousy.gui.recycler.drawer.MenuDrawerItem;
 import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.recycler.drawer.DrawerItemTitle;
+import flousy.util.SessionManager;
 
 public class MotherActivity extends Activity implements IColorCustomizer, ITextCustomizer, IDimensionCustomizer {
 
@@ -58,8 +57,9 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.activityColor = getResources().getColor(APP_COLOR);
 
         //Create CustomActionBar
-        this.actionBar = new ActionBar(this);
         ViewStub actionbarStub = (ViewStub) findViewById(R.id.actionbar_viewstub);
+
+        this.actionBar = new ActionBar(this);
         this.actionBar.inflate(actionbarStub);
         this.actionBar.setSubTitleViewEnabled(false);
 
@@ -69,69 +69,14 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
 
         this.drawer = (Drawer) RecyclerFactory.create(RecyclerType.DAWER, this);
         this.drawer.setDrawerLayout(this.drawerLayout);
-
-        //Set Drawer adapter
         this.drawer.adapt(this.drawerView);
 
         //Add Items menu
-        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
-        drawerItemTitle.setTitle(getResources().getString(R.string.activity_menu_name));
-        this.drawer.addItem(drawerItemTitle);
-
-        MenuDrawerItem menuDrawerItem = null;
-        for(int i=0; i<6; i++) {
-            switch (i) {
-                case 0:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_new_name));
-                    menuDrawerItem.setIntent(new Intent(this, NewActivity.class));
-                    menuDrawerItem.setColor(getResources().getColor(NewActivity.ACTIVITY_COLOR));
-                    break;
-                case 1:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_consult_name));
-                    menuDrawerItem.setIntent(new Intent(this, ConsultActivity.class));
-                    menuDrawerItem.setColor(getResources().getColor(ConsultActivity.ACTIVITY_COLOR));
-                    break;
-                case 2:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_finances_name));
-                    menuDrawerItem.setIntent(new Intent(this, FinancesActivity.class));
-                    menuDrawerItem.setColor(getResources().getColor(FinancesActivity.ACTIVITY_COLOR));
-                    break;
-                case 3:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_friends_name));
-                    menuDrawerItem.setIntent(new Intent(this, FriendsActivity.class));
-                    menuDrawerItem.setColor(getResources().getColor(FriendsActivity.ACTIVITY_COLOR));
-                    break;
-                case 4:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_offers_name));
-                    menuDrawerItem.setIntent(new Intent(this, OffersActivity.class));
-                    menuDrawerItem.setColor(getResources().getColor(OffersActivity.ACTIVITY_COLOR));
-                    break;
-                case 5:
-                    menuDrawerItem = new MenuDrawerItem();
-                    menuDrawerItem.setText(getResources().getString(R.string.activity_settings_name));
-                    menuDrawerItem.setIntent(new Intent(this, SettingsActivity.class));
-                    menuDrawerItem.setColor(getResources().getColor(SettingsActivity.ACTIVITY_COLOR));
-                    break;
-            }
-            this.drawer.addItem(menuDrawerItem);
+        SessionManager session = new SessionManager(this);
+        boolean logged = session.checkUserEmail();
+        if(logged) {
+            addMenuDrawerItems();
         }
-
-        //Add ActionBar drawer button listener
-        this.actionBar.getActionDrawerButton().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(drawer.isOpened()) {
-                    drawer.close();
-                } else {
-                    drawer.open();
-                }
-            }
-        });
 
         //Customize activity default
         customizeColor();
@@ -140,8 +85,8 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
 
         this.drawer.close();
     }
@@ -191,8 +136,53 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         return this.drawer;
     }
 
-    public void drawerInject() {
+    private void addMenuDrawerItems() {
+        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
+        drawerItemTitle.setTitle(getResources().getString(R.string.activity_menu_name));
+        this.drawer.addItem(drawerItemTitle);
 
+        MenuDrawerItem menuDrawerItem = null;
+        for(int i=0; i<6; i++) {
+            switch (i) {
+                case 0:
+                    menuDrawerItem = new MenuDrawerItem();
+                    menuDrawerItem.setColor(getResources().getColor(NewActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_new_name));
+                    menuDrawerItem.setIntent(new Intent(this, NewActivity.class));
+                    break;
+                case 1:
+                    menuDrawerItem = new MenuDrawerItem();
+                    menuDrawerItem.setColor(getResources().getColor(ConsultActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_consult_name));
+                    menuDrawerItem.setIntent(new Intent(this, ConsultActivity.class));
+                    break;
+                case 2:
+                    menuDrawerItem = new MenuDrawerItem();
+                    menuDrawerItem.setColor(getResources().getColor(FinancesActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_finances_name));
+                    menuDrawerItem.setIntent(new Intent(this, FinancesActivity.class));
+                    break;
+                case 3:
+                    menuDrawerItem = new MenuDrawerItem();
+                    menuDrawerItem.setColor(getResources().getColor(FriendsActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_friends_name));
+                    menuDrawerItem.setIntent(new Intent(this, FriendsActivity.class));
+                    break;
+                case 4:
+                    menuDrawerItem = new MenuDrawerItem();
+                    menuDrawerItem.setColor(getResources().getColor(OffersActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_offers_name));
+                    menuDrawerItem.setIntent(new Intent(this, OffersActivity.class));
+                    break;
+                case 5:
+                    menuDrawerItem = new MenuDrawerItem();
+                    menuDrawerItem.setColor(getResources().getColor(SettingsActivity.ACTIVITY_COLOR));
+                    menuDrawerItem.setText(getResources().getString(R.string.activity_settings_name));
+                    menuDrawerItem.setIntent(new Intent(this, SettingsActivity.class));
+                    break;
+            }
+            this.drawer.addItem(menuDrawerItem);
+        }
     }
 
     public ActivityBar getActivityBar() {

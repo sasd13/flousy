@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.activitybar.ActivityBarType;
 import flousy.gui.activitybar.TitledActivityBar;
-import flousy.gui.recycler.drawer.Drawer;
 
 public class FriendsActivity extends MotherActivity {
 
@@ -18,7 +17,7 @@ public class FriendsActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color before everything
+        //Set ActivityColor immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
 
         //Set CustomActionBar
@@ -31,9 +30,6 @@ public class FriendsActivity extends MotherActivity {
         //Set ActivityBar
         TitledActivityBar activityBar = (TitledActivityBar) createActivityBar(ActivityBarType.TITLEDBAR);
         activityBar.setTitle(getResources().getString(R.string.friends_activitybar_tabed_tab_reception));
-
-        //Set Drawer
-        Drawer drawer = getDrawer();
 
         //Customize activity
         customizeColor();

@@ -57,6 +57,7 @@ public class SignUpActivity extends MotherActivity {
         this.form.lastNameEditText = (EditText) findViewById(R.id.userform_edittext_lastname);
         this.form.emailEditText = (EditText) findViewById(R.id.userform_edittext_email);
         this.form.passwordEditText = (EditText) findViewById(R.id.userform_edittext_password);
+        this.form.confirmPasswordEditText = (EditText) findViewById(R.id.userform_edittext_confirmpassword);
 
         this.form.validCheckBox = (CheckBox) findViewById(R.id.userform_checkbox);
         TextView validCheckBoxTextView = (TextView) findViewById(R.id.userform_textview_validcheckbox);
@@ -144,7 +145,7 @@ public class SignUpActivity extends MotherActivity {
             final AlertDialog dialog = builder.create();
 
             final Intent intent = new Intent(this, LogInActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("CLOSE", true);
             intent.putExtra("NEW_USER_FIRSTNAME", user.getFirstName());
 

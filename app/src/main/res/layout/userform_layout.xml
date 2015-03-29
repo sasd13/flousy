@@ -96,11 +96,24 @@
             android:imeOptions="actionDone"
             android:singleLine="true"/>
 
+        <EditText
+            android:id="@+id/userform_edittext_confirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userform_edittext_password"
+            android:background="@drawable/edit_text_holo_light"
+            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:hint="@string/edittext_confirmpassword_hint"
+            android:inputType="textPassword"
+            android:textSize="@dimen/textsize_medium"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+
         <CheckBox
             android:id="@+id/userform_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/userform_edittext_password"
+            android:layout_below="@id/userform_edittext_confirmpassword"
             android:layout_marginTop="@dimen/viewgroup_margintop"
             android:layout_marginLeft="@dimen/userform_checkbox_horizontalmargin"
             android:layout_marginRight="@dimen/userform_checkbox_horizontalmargin"
