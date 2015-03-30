@@ -2,17 +2,15 @@ package com.diderot.android.flousy;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.gui.actionbar.ActionBar;
+import flousy.gui.content.ListMenu;
 import flousy.gui.recycler.grid.GridItem;
 import flousy.gui.recycler.grid.Grid;
-import flousy.gui.recycler.RecyclerFactory;
-import flousy.gui.recycler.RecyclerType;
 import flousy.gui.widget.CustomDialogBuilder;
 
 public class MenuActivity extends MotherActivity {
@@ -29,56 +27,30 @@ public class MenuActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_menu_name);
         actionBar.setActionUpButtonEnabled(false);
 
+        //Disable Drawer
+        actionBar.setActionDrawerButtonEnabled(false);
+        getDrawer().setEnabled(false);
+
         //Set Activity content
         RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
-        Grid menuGrid = (Grid) RecyclerFactory.create(RecyclerType.GRID, this);
-        menuGrid.adapt(gridView);
+        Grid gridMenu = new Grid(this);
+        gridMenu.adapt(gridView);
+
+        //Add items
+        ListMenu listMenu = ListMenu.getInstance(this);
+        ListMenu.Menu menu;
 
         GridItem gridItem;
-        Resources resources = getResources();
-
-        for(int i=0; i<6; i++) {
+        for(int i=0; i<listMenu.count(); i++) {
             gridItem = new GridItem();
-            switch(i) {
-                case 0:
-                    gridItem.setColor(resources.getColor(NewActivity.ACTIVITY_COLOR));
-                    gridItem.setText(resources.getString(R.string.activity_new_name));
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_new));
-                    gridItem.setIntent(new Intent(this, NewActivity.class));
-                    break;
-                case 1:
-                    gridItem.setColor(resources.getColor(ConsultActivity.ACTIVITY_COLOR));
-                    gridItem.setText(resources.getString(R.string.activity_consult_name));
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_consult));
-                    gridItem.setIntent(new Intent(this, ConsultActivity.class));
-                    break;
-                case 2:
-                    gridItem.setColor(resources.getColor(FinancesActivity.ACTIVITY_COLOR));
-                    gridItem.setText(resources.getString(R.string.activity_finances_name));
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_finances));
-                    gridItem.setIntent(new Intent(this, FinancesActivity.class));
-                    break;
-                case 3:
-                    gridItem.setColor(resources.getColor(FriendsActivity.ACTIVITY_COLOR));
-                    gridItem.setText(resources.getString(R.string.activity_friends_name));
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_friends));
-                    gridItem.setIntent(new Intent(this, FriendsActivity.class));
-                    break;
-                case 4:
-                    gridItem.setColor(resources.getColor(OffersActivity.ACTIVITY_COLOR));
-                    gridItem.setText(resources.getString(R.string.activity_offers_name));
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_offers));
-                    gridItem.setIntent(new Intent(this, OffersActivity.class));
-                    break;
-                case 5:
-                    gridItem.setColor(resources.getColor(SettingsActivity.ACTIVITY_COLOR));
-                    gridItem.setText(resources.getString(R.string.activity_settings_name));
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_settings));
-                    gridItem.setIntent(new Intent(this, SettingsActivity.class));
-                    break;
-            }
+            menu = listMenu.get(i);
 
-            menuGrid.addItem(gridItem);
+            gridItem.setColor(menu.getColor());
+            gridItem.setImage(menu.getImage());
+            gridItem.setText(menu.getName());
+            gridItem.setIntent(menu.getIntent());
+
+            gridMenu.addItem(gridItem);
         }
     }
 

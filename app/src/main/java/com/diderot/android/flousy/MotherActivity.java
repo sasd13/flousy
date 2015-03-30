@@ -24,8 +24,7 @@ import flousy.gui.content.IColorCustomizer;
 import flousy.gui.content.IDimensionCustomizer;
 import flousy.gui.content.ITextCustomizer;
 import flousy.gui.color.ColorOnTouchListener;
-import flousy.gui.recycler.RecyclerFactory;
-import flousy.gui.recycler.RecyclerType;
+import flousy.gui.content.ListMenu;
 import flousy.gui.recycler.drawer.DrawerItemMenu;
 import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.recycler.drawer.DrawerItemTitle;
@@ -67,7 +66,7 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.drawerView = (RecyclerView) findViewById(R.id.drawer_view);
 
-        this.drawer = (Drawer) RecyclerFactory.create(RecyclerType.DAWER, this);
+        this.drawer = new Drawer(this);
         this.drawer.setDrawerLayout(this.drawerLayout);
         this.drawer.adapt(this.drawerView);
 
@@ -141,46 +140,18 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         drawerItemTitle.setText(getResources().getString(R.string.activity_menu_name));
         this.drawer.addItem(drawerItemTitle);
 
+        ListMenu listMenu = ListMenu.getInstance(this);
+        ListMenu.Menu menu;
+
         DrawerItemMenu drawerItemMenu = null;
-        for(int i=0; i<6; i++) {
-            switch (i) {
-                case 0:
-                    drawerItemMenu = new DrawerItemMenu();
-                    drawerItemMenu.setColor(getResources().getColor(NewActivity.ACTIVITY_COLOR));
-                    drawerItemMenu.setText(getResources().getString(R.string.activity_new_name));
-                    drawerItemMenu.setIntent(new Intent(this, NewActivity.class));
-                    break;
-                case 1:
-                    drawerItemMenu = new DrawerItemMenu();
-                    drawerItemMenu.setColor(getResources().getColor(ConsultActivity.ACTIVITY_COLOR));
-                    drawerItemMenu.setText(getResources().getString(R.string.activity_consult_name));
-                    drawerItemMenu.setIntent(new Intent(this, ConsultActivity.class));
-                    break;
-                case 2:
-                    drawerItemMenu = new DrawerItemMenu();
-                    drawerItemMenu.setColor(getResources().getColor(FinancesActivity.ACTIVITY_COLOR));
-                    drawerItemMenu.setText(getResources().getString(R.string.activity_finances_name));
-                    drawerItemMenu.setIntent(new Intent(this, FinancesActivity.class));
-                    break;
-                case 3:
-                    drawerItemMenu = new DrawerItemMenu();
-                    drawerItemMenu.setColor(getResources().getColor(FriendsActivity.ACTIVITY_COLOR));
-                    drawerItemMenu.setText(getResources().getString(R.string.activity_friends_name));
-                    drawerItemMenu.setIntent(new Intent(this, FriendsActivity.class));
-                    break;
-                case 4:
-                    drawerItemMenu = new DrawerItemMenu();
-                    drawerItemMenu.setColor(getResources().getColor(OffersActivity.ACTIVITY_COLOR));
-                    drawerItemMenu.setText(getResources().getString(R.string.activity_offers_name));
-                    drawerItemMenu.setIntent(new Intent(this, OffersActivity.class));
-                    break;
-                case 5:
-                    drawerItemMenu = new DrawerItemMenu();
-                    drawerItemMenu.setColor(getResources().getColor(SettingsActivity.ACTIVITY_COLOR));
-                    drawerItemMenu.setText(getResources().getString(R.string.activity_settings_name));
-                    drawerItemMenu.setIntent(new Intent(this, SettingsActivity.class));
-                    break;
-            }
+        for(int i=0; i<listMenu.count(); i++) {
+            drawerItemMenu = new DrawerItemMenu();
+            menu = listMenu.get(i);
+
+            drawerItemMenu.setColor(menu.getColor());
+            drawerItemMenu.setText(menu.getName());
+            drawerItemMenu.setIntent(menu.getIntent());
+
             this.drawer.addItem(drawerItemMenu);
         }
     }

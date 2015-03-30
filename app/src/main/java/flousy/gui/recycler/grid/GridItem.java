@@ -190,6 +190,9 @@ public class GridItem extends AbstractRecyclerItem {
         view.setBackgroundColor(this.color);
 
         this.imageView = (ImageView) view.findViewById(R.id.griditem_imageview);
+        if(this.image == null) {
+            this.image = view.getContext().getResources().getDrawable(R.drawable.griditem);
+        }
         this.imageView.setImageDrawable(this.image);
 
         this.textView = (TextView) view.findViewById(R.id.griditem_textview);

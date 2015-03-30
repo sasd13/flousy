@@ -1,18 +1,27 @@
 package com.diderot.android.flousy;
 
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.gui.actionbar.ActionBar;
+import flousy.gui.recycler.grid.Grid;
+import flousy.gui.recycler.grid.GridItem;
 
 public class FinancesActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customOrange;
 
+    private Grid gridSubMenu;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set ActivityContent
+        setContentView(R.layout.grid);
 
         //Set ActivityColor immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
@@ -20,6 +29,42 @@ public class FinancesActivity extends MotherActivity {
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_finances_name);
+
+        //Set Activity content
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
+        this.gridSubMenu = new Grid(this);
+        this.gridSubMenu.adapt(gridView);
+
+        //Add items
+        GridItem gridItem;
+        Resources resources = getResources();
+
+        for(int i=0; i<4; i++) {
+            gridItem = new GridItem();
+            gridItem.setColor(getActivityColor());
+            gridItem.setIntent(null);
+
+            switch(i) {
+                case 0:
+                    gridItem.setText("Dépenses");
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_table));
+                    break;
+                case 1:
+                    gridItem.setText("Evolutions");
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_evolution));
+                    break;
+                case 2:
+                    gridItem.setText("Répartition");
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_dividing));
+                    break;
+                case 3:
+                    gridItem.setText("Revenus");
+                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_salary));
+                    break;
+            }
+
+            this.gridSubMenu.addItem(gridItem);
+        }
 
         //Customize activity
         customizeColor();
