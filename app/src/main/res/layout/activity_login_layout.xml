@@ -66,6 +66,7 @@
             android:layout_marginTop="@dimen/view_margintop_medium"
             android:padding="@dimen/login_textview_restorepassword_padding"
             android:text="@string/login_textview_restorepassword"
+            android:textSize="@dimen/textsize_medium"
             android:clickable="true"/>
 
     </LinearLayout>
@@ -83,6 +84,7 @@
             android:layout_centerHorizontal="true"
             android:padding="@dimen/login_textview_signup_padding"
             android:text="@string/login_textview_signup"
+            android:textSize="@dimen/textsize_medium"
             android:clickable="true"/>
 
     </RelativeLayout>

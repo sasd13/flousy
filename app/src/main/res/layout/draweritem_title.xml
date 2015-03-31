@@ -14,6 +14,7 @@
         android:paddingTop="@dimen/draweritem_title_textview_paddingtop"
         android:gravity="left|bottom"
         android:text="@string/draweritem_title_textview"
+        android:textSize="@dimen/textsize_medium"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 

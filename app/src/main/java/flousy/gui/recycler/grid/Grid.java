@@ -3,6 +3,7 @@ package flousy.gui.recycler.grid;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.diderot.android.flousy.R;
 
@@ -40,9 +41,14 @@ public class Grid extends AbstractRecycler {
         int space = getContext().getResources().getDimensionPixelSize(R.dimen.grid_items_space);
         gridView.addItemDecoration(new SpacesItemDecoration(space));
 
+        int spanCount = getContext().getResources().getInteger(R.integer.grid_numcolumns);
+
         // use a grid layout manager
-        int numColumns = getContext().getResources().getInteger(R.integer.grid_numcolumns);
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), numColumns);
+        //GridLayoutManager layoutManager = new GridLayoutManager(getContext(), spanCount);
+
+        // use a staggered grid layout manager
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL);
+
         gridView.setLayoutManager(layoutManager);
 
         RecyclerAdapter gridAdapter = new RecyclerAdapter(getListAbstractRecyclerItem(), getItemStubLayout());

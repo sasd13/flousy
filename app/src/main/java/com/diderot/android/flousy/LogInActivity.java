@@ -61,13 +61,6 @@ public class LogInActivity extends MotherActivity {
                 }
             }
         });
-        this.form.connectButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                view.performClick();
-                return false;
-            }
-        });
 
         //Add underline and link for textViews
         TextView[] textViews = {

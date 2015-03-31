@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/userform_textview_identity"
+            android:textSize="@dimen/textsize_medium"
             android:layout_alignParentTop="true"/>
 
         <View
@@ -60,7 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/userform_edittext_lastname"
             android:layout_marginTop="@dimen/viewgroup_margintop"
-            android:text="@string/userform_textview_connection"/>
+            android:text="@string/userform_textview_connection"
+            android:textSize="@dimen/textsize_medium"/>
 
         <View
             android:id="@+id/userform_dividerview_2"
@@ -109,34 +111,33 @@
             android:imeOptions="actionDone"
             android:singleLine="true"/>
 
-        <CheckBox
-            android:id="@+id/userform_checkbox"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/userform_linearlayout_checkbox"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/userform_edittext_confirmpassword"
-            android:layout_marginTop="@dimen/viewgroup_margintop"
-            android:layout_marginLeft="@dimen/userform_checkbox_horizontalmargin"
-            android:layout_marginRight="@dimen/userform_checkbox_horizontalmargin"
-            android:button="@drawable/btn_check_holo_light"/>
+            android:layout_marginTop="@dimen/viewgroup_margintop">
 
-        <TextView
-            android:id="@+id/userform_textview_validcheckbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/userform_checkbox"
-            android:layout_alignBaseline="@id/userform_checkbox"
-            android:text="@string/userform_textview_validcheckbox"
-            android:clickable="true"/>
+            <CheckBox
+                android:id="@+id/userform_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/userform_checkbox_horizontalmargin"
+                android:layout_marginRight="@dimen/userform_checkbox_horizontalmargin"
+                android:button="@drawable/btn_check_holo_light"/>
 
-        <Button
-            android:tag="customize_4"
-            android:id="@+id/userform_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/userform_checkbox"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/viewgroup_margintop"
-            android:text="@string/button_save"/>
+            <TextView
+                android:id="@+id/userform_textview_validcheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:text="@string/userform_textview_validcheckbox"
+                android:textSize="@dimen/textsize_medium"
+                android:clickable="true"/>
+
+         </LinearLayout>
 
     </RelativeLayout>
 

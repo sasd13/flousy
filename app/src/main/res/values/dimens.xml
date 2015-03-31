@@ -11,14 +11,11 @@
     <dimen name="login_textview_restorepassword_padding">7dp</dimen>
     <dimen name="login_textview_signup_padding">7dp</dimen>
 
-    <!-- Activity SignUp -->
-    <dimen name="userform_checkbox_horizontalmargin">7dp</dimen>
-
     <!-- Activity SplashScreen -->
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
 
     <!-- ActivityBar -->
-    <dimen name="activitybar_titled_textview_margin">10dp</dimen>
+    <dimen name="activitybar_titled_textview_margin">7dp</dimen>
 
     <!-- Button -->
     <dimen name="button_horizontalpadding">20dp</dimen>
@@ -48,6 +45,9 @@
     <dimen name="textsize_large">16sp</dimen>
     <dimen name="textsize_xlarge">18sp</dimen>
     <dimen name="textsize_xxlarge">20sp</dimen>
+
+    <!-- User form -->
+    <dimen name="userform_checkbox_horizontalmargin">7dp</dimen>
 
     <!-- View -->
     <dimen name="view_margintop_small">7dp</dimen><!-- DIFF ldpi : 5 -->

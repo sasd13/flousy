@@ -8,9 +8,9 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import flousy.gui.actionbar.ActionBar;
@@ -18,7 +18,6 @@ import flousy.util.DataManager;
 import flousy.util.SessionManager;
 import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.gui.color.ColorOnTouchListener;
 import flousy.util.FormValidator;
 
 public class SignUpActivity extends MotherActivity {
@@ -30,7 +29,6 @@ public class SignUpActivity extends MotherActivity {
     private class ViewHolder {
         public EditText firstNameEditText, lastNameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
         public CheckBox validCheckBox;
-        public Button saveButton;
     }
 
     private ViewHolder form;
@@ -45,6 +43,16 @@ public class SignUpActivity extends MotherActivity {
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_signup_name);
+
+        ImageButton buttonValid = actionBar.getActionFirstButton();
+        buttonValid.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_accept));
+        buttonValid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signUp();
+            }
+        });
+        actionBar.setActionFirstButtonEnabled(true);
 
         //Disable Drawer
         actionBar.setActionDrawerButtonEnabled(false);
@@ -62,22 +70,6 @@ public class SignUpActivity extends MotherActivity {
         this.form.validCheckBox = (CheckBox) findViewById(R.id.userform_checkbox);
         TextView validCheckBoxTextView = (TextView) findViewById(R.id.userform_textview_validcheckbox);
         validCheckBoxTextView.setText(R.string.signup_userform_textview_validcheckbox_validation);
-
-        this.form.saveButton = (Button) findViewById(R.id.userform_button);
-        this.form.saveButton.setText(R.string.button_save);
-        this.form.saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signUp();
-            }
-        });
-        this.form.saveButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                view.performClick();
-                return false;
-            }
-        });
 
         //Customize activity
         customizeColor();
@@ -99,16 +91,6 @@ public class SignUpActivity extends MotherActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void customizeColor() {
-        super.customizeColor();
-
-        if(getContentView() != null) {
-            this.form.saveButton.setBackgroundColor(getActivityColor());
-            this.form.saveButton.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
-        }
     }
 
     public void signUp() {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.color.ColorBrightness;

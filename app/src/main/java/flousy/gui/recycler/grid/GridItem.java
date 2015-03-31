@@ -207,13 +207,6 @@ public class GridItem extends AbstractRecyclerItem {
                 }
             }
         });
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                view.performClick();
-                return false;
-            }
-        });
         view.setOnTouchListener(new ColorOnTouchListener(this.color));
 
         return view;

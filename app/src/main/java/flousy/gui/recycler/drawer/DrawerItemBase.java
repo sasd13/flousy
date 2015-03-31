@@ -51,13 +51,6 @@ public class DrawerItemBase extends DrawerItem {
                 }
             }
         });
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                view.performClick();
-                return false;
-            }
-        });
         int color = view.getContext().getResources().getColor(R.color.background_material_light);
         view.setOnTouchListener(new ColorOnTouchListener(color));
 
