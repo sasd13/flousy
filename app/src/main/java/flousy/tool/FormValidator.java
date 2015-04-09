@@ -1,4 +1,4 @@
-package flousy.util;
+package flousy.tool;
 
 import android.util.Patterns;
 

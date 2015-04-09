@@ -20,7 +20,6 @@ public class FinancesActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set ActivityContent
         setContentView(R.layout.grid);
 
         //Set ActivityColor immediately after content view
@@ -30,7 +29,7 @@ public class FinancesActivity extends MotherActivity {
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_finances_name);
 
-        //Set Activity content
+        //Set ActivityContent
         RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
         this.gridSubMenu = new Grid(this);
         this.gridSubMenu.adapt(gridView);

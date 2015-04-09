@@ -1,4 +1,4 @@
-package flousy.util;
+package flousy.tool;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,14 +8,14 @@ import flousy.content.user.User;
 /**
  * Created by Samir on 15/03/2015.
  */
-public class SessionManager {
+public class Session {
 
     private static final String PREFS_SESSION = "PrefsSession";
-    private static final String SESSION_KEY_EMAIL = "email";
+    private static final String SESSION_KEY = "email";
 
     private Context context;
 
-    public SessionManager(Context context) {
+    public Session(Context context) {
         this.context = context;
     }
 
@@ -23,15 +23,15 @@ public class SessionManager {
         return this.context.getSharedPreferences(PREFS_SESSION, Context.MODE_PRIVATE);
     }
 
-    public boolean checkUserEmail() {
-        return getSettings().contains(SESSION_KEY_EMAIL);
+    public boolean isUserLogged() {
+        return getSettings().contains(SESSION_KEY);
     }
 
     public String getUserEmail() {
-        return getSettings().getString(SESSION_KEY_EMAIL, null);
+        return getSettings().getString(SESSION_KEY, null);
     }
 
-    public boolean connect(String email, String password) {
+    public boolean logIn(String email, String password) {
         //Database query
         DataManager data = new DataManager(this.context);
         User user = data.getUser(email);
@@ -42,27 +42,27 @@ public class SessionManager {
         }
 
         SharedPreferences.Editor editor = getSettings().edit();
-        editor.putString(SESSION_KEY_EMAIL, email);
+        editor.putString(SESSION_KEY, email);
 
         return editor.commit();
     }
 
-    public boolean deconnect() {
-        boolean contains = getSettings().contains(SESSION_KEY_EMAIL);
+    public boolean logOut() {
+        boolean contains = getSettings().contains(SESSION_KEY);
         if(contains == false) {
             return false;
         }
 
         SharedPreferences.Editor editor = getSettings().edit();
-        editor.remove(SESSION_KEY_EMAIL);
+        editor.remove(SESSION_KEY);
 
         return editor.commit();
     }
 
     public boolean updateSession(String email) {
         SharedPreferences.Editor editor = getSettings().edit();
-        editor.remove(SESSION_KEY_EMAIL);
-        editor.putString(SESSION_KEY_EMAIL, email);
+        editor.remove(SESSION_KEY);
+        editor.putString(SESSION_KEY, email);
 
         return editor.commit();
     }

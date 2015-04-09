@@ -1,7 +1,6 @@
 package com.diderot.android.flousy;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -28,7 +27,7 @@ import flousy.gui.content.ListMenu;
 import flousy.gui.recycler.drawer.DrawerItemMenu;
 import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.recycler.drawer.DrawerItemTitle;
-import flousy.util.SessionManager;
+import flousy.tool.Session;
 
 public class MotherActivity extends Activity implements IColorCustomizer, ITextCustomizer, IDimensionCustomizer {
 
@@ -71,9 +70,8 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.drawer.adapt(this.drawerView);
 
         //Add Items menu
-        SessionManager session = new SessionManager(this);
-        boolean logged = session.checkUserEmail();
-        if(logged) {
+        Session session = new Session(this);
+        if(session.isUserLogged()) {
             addMenuDrawerItems();
         }
 
@@ -141,7 +139,7 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.drawer.addItem(drawerItemTitle);
 
         ListMenu listMenu = ListMenu.getInstance(this);
-        ListMenu.Menu menu;
+        flousy.gui.content.Menu menu;
 
         DrawerItemMenu drawerItemMenu = null;
         for(int i=0; i<listMenu.count(); i++) {

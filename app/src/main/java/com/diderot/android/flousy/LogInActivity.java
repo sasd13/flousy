@@ -13,9 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.util.SessionManager;
-import flousy.util.FormValidator;
-import flousy.util.FormValidatorCode;
+import flousy.tool.Session;
+import flousy.tool.FormValidator;
+import flousy.tool.FormValidatorCode;
 import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.widget.CustomDialogBuilder;
 
@@ -36,7 +36,6 @@ public class LogInActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set content view
         setContentView(R.layout.activity_login_layout);
 
         //Disable CustomActionBar
@@ -45,7 +44,7 @@ public class LogInActivity extends MotherActivity {
         //Disable Drawer
         getDrawer().setEnabled(false);
 
-        //Set User form
+        //Set ActivityContent
         this.form = new ViewHolder();
 
         this.form.loginEditText = (EditText) findViewById(R.id.login_edittext_email);
@@ -150,7 +149,7 @@ public class LogInActivity extends MotherActivity {
     }
 
     public void startConnection() {
-        SessionManager session = new SessionManager(this);
+        Session session = new Session(this);
 
         String login = this.form.loginEditText.getEditableText().toString();
         String password = this.form.passwordEditText.getEditableText().toString();
@@ -158,7 +157,7 @@ public class LogInActivity extends MotherActivity {
         boolean connected = false;
         FormValidatorCode codeEmail = FormValidator.validEmail(login);
         if(codeEmail == FormValidatorCode.OK) {
-            connected = session.connect(login, password);
+            connected = session.logIn(login, password);
         }
 
         if(connected == false) {

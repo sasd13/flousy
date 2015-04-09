@@ -2,7 +2,6 @@ package com.diderot.android.flousy;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,12 +10,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.util.DataManager;
-import flousy.util.SessionManager;
+import flousy.tool.DataManager;
+import flousy.tool.Session;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
 import flousy.content.user.User;
-import flousy.util.FormValidator;
+import flousy.tool.FormValidator;
 
 public class SettingsActivity extends MotherActivity {
 
@@ -101,7 +100,7 @@ public class SettingsActivity extends MotherActivity {
     }
 
     public void startInject() {
-        SessionManager session = new SessionManager(this);
+        Session session = new Session(this);
         DataManager data = new DataManager(this);
 
         User user = data.getUser(session.getUserEmail());
@@ -115,7 +114,7 @@ public class SettingsActivity extends MotherActivity {
     }
 
     public void save() {
-        SessionManager session = new SessionManager(this);
+        Session session = new Session(this);
         DataManager data = new DataManager(this);
 
         String firstName = this.form.firstNameEditText.getEditableText().toString();

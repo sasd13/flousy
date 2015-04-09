@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import flousy.util.SessionManager;
+import flousy.tool.Session;
 
 public class SplashScreenActivity extends Activity {
 
@@ -32,10 +32,8 @@ public class SplashScreenActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        SessionManager session = new SessionManager(this);
-        boolean logged = session.checkUserEmail();
-
-        if(logged == false) {
+        Session session = new Session(this);
+        if(session.isUserLogged()) {
             attachActivity(LogInActivity.class, SPLASH_TIME_OUT);
         } else {
             attachActivity(MenuActivity.class, SPLASH_TIME_OUT);

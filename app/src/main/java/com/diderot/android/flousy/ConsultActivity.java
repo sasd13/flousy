@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageButton;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.color.ColorBrightness;
 import flousy.gui.recycler.grid.Grid;
 import flousy.gui.recycler.grid.GridItem;
 
@@ -22,7 +20,6 @@ public class ConsultActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set ActivityContent
         setContentView(R.layout.grid);
 
         //Set ActivityColor immediately after content view
@@ -32,7 +29,7 @@ public class ConsultActivity extends MotherActivity {
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_consult_name);
 
-        //Set Activity content
+        //Set ActivityContent
         RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
         this.gridCategories = new Grid(this);
         this.gridCategories.adapt(gridView);

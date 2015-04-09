@@ -16,7 +16,7 @@ import flousy.gui.content.ListMenu;
 import flousy.gui.recycler.grid.GridItem;
 import flousy.gui.recycler.grid.Grid;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.util.SessionManager;
+import flousy.tool.Session;
 
 public class MenuActivity extends MotherActivity {
 
@@ -69,7 +69,7 @@ public class MenuActivity extends MotherActivity {
 
         //Add items
         ListMenu listMenu = ListMenu.getInstance(this);
-        ListMenu.Menu menu;
+        flousy.gui.content.Menu menu;
 
         GridItem gridItem;
         for(int i=0; i<listMenu.count(); i++) {
@@ -128,9 +128,9 @@ public class MenuActivity extends MotherActivity {
     }
 
     public void endConnection() {
-        SessionManager session = new SessionManager(this);
+        Session session = new Session(this);
 
-        boolean deconnected = session.deconnect();
+        boolean deconnected = session.logOut();
         if(deconnected == false) {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.alertdialog_title_error)

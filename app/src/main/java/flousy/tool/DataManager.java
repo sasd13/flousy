@@ -1,4 +1,4 @@
-package flousy.util;
+package flousy.tool;
 
 import android.content.Context;
 import android.content.SharedPreferences;

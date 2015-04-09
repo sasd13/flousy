@@ -14,11 +14,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.util.DataManager;
-import flousy.util.SessionManager;
+import flousy.tool.DataManager;
+import flousy.tool.Session;
 import flousy.content.user.User;
 import flousy.gui.widget.CustomDialogBuilder;
-import flousy.util.FormValidator;
+import flousy.tool.FormValidator;
 
 public class SignUpActivity extends MotherActivity {
 
@@ -94,7 +94,7 @@ public class SignUpActivity extends MotherActivity {
     }
 
     public void signUp() {
-        SessionManager session = new SessionManager(this);
+        Session session = new Session(this);
         DataManager data = new DataManager(this);
 
         String firstName = this.form.firstNameEditText.getEditableText().toString().trim();
@@ -145,7 +145,7 @@ public class SignUpActivity extends MotherActivity {
             this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
 
             dialog.show();
-            session.connect(user.getEmail(), user.getPassword());
+            session.logIn(user.getEmail(), user.getPassword());
         }
     }
 }
