@@ -58,7 +58,7 @@ public class DataManager {
         String phoneNumber = getSettings(email).getString(DATA_KEY_PHONENUMBER, null);
         String password = getSettings(email).getString(DATA_KEY_PASSWORD, null);
 
-        user = new User(firstName, lastName, null, email, password, null);
+        user = new User(firstName, lastName, null,email, password, null);
         //End query
 
         return user;

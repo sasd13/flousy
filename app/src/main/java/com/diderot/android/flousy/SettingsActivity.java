@@ -101,21 +101,21 @@ public class SettingsActivity extends MotherActivity {
 
     public void startInject() {
         Session session = new Session(this);
-        DataManager data = new DataManager(this);
+       // DataManager data = new DataManager(this);
 
-        User user = data.getUser(session.getUserEmail());
+       // User user = data.getUser(session.getUserEmail());
         boolean stayConnect = true;
 
-        this.form.firstNameEditText.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
-        this.form.lastNameEditText.setText(user.getLastName(), TextView.BufferType.EDITABLE);
-        this.form.emailEditText.setText(user.getEmail(), TextView.BufferType.EDITABLE);
+       // this.form.firstNameEditText.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
+        //this.form.lastNameEditText.setText(user.getLastName(), TextView.BufferType.EDITABLE);
+        //this.form.emailEditText.setText(user.getEmail(), TextView.BufferType.EDITABLE);
         this.form.passwordEditText.setText("", TextView.BufferType.EDITABLE);
-        this.form.connectCheckBox.setChecked(stayConnect);
+       this.form.connectCheckBox.setChecked(stayConnect);
     }
 
     public void save() {
         Session session = new Session(this);
-        DataManager data = new DataManager(this);
+      //  DataManager data = new DataManager(this);
 
         String firstName = this.form.firstNameEditText.getEditableText().toString();
         String lastName = this.form.lastNameEditText.getEditableText().toString();
@@ -129,11 +129,12 @@ public class SettingsActivity extends MotherActivity {
         User user = new User(firstName, lastName, phoneNumber, email, password, image);
 
         boolean valid = FormValidator.validUser(user);
-        if(valid == true) {
-            boolean updated = data.setUser(session.getUserEmail(), user);
-            if(updated == true) {
-                session.updateSession(user.getEmail());
-            }
-        }
+       // if(valid == true) {
+         //   User user = new User(firstName, lastName, phoneNumber, email, password, image);
+    //appeler la base pour mettre a jour les données de l'utilisateur
+           // if(updated == true) {
+          //      session.updateSession(user.getEmail());
+           // }
+        //}
     }
 }

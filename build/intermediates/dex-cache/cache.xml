@@ -2,46 +2,67 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\classes-fed8a0c04164872e86f096c0eea5ba11135145dd.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\classes-36962a059a97f8c9042a5858b002656a11985972.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\classes-df39cc5899b41cc724deda1e45a7277ee234ac92.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\classes-b189f638a210e6dfe56a975f7785878c892154fb.jar" />
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/classes-4c9a8f3023205a6b5c6d33a3ac539eae2b18808f.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Samir\Projects\Bitbucket\android-flousy\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-86e97165a02a8e399f1a95603ef952309093e63d.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="/Users/simo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Samir\Projects\GitHub\android-flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-9113e813df43ed10c5d9e9f706ef952775d3f5f8.jar" />
+    </item>
+    <item
+        jar="/Users/simo/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-android/4.3.5.1/eecbb0b998e77629862a13d957d552b3be58fc4e/httpclient-android-4.3.5.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/httpclient-android-4.3.5.1-30f5174b413a21d5358a07dff94cd4f29186b83e.jar" />
+    </item>
+    <item
+        jar="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/classes-993b8df13a25263f99e4109cd2027632398f54e7.jar" />
+    </item>
+    <item
+        jar="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/classes-a964badefaf50b033f69a391db57320d5784d24b.jar" />
+    </item>
+    <item
+        jar="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-5b84b9bb06c3df36d0ea79699f42126382e6d5e9.jar" />
+    </item>
+    <item
+        jar="/Users/simo/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/gson-2.2.4-d31c64acf11d484484652bbe5baf483c5dd86107.jar" />
+    </item>
+    <item
+        jar="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/classes-4c7e4be1751c655325daf04172a8d9c4af780e66.jar" />
+    </item>
+    <item
+        jar="/Users/simo/Documents/Master1/Android/flousy/app/build/libs/FloussyBeans.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7e618603206d96906dcca2e7721ccb714c937a6e">
+        <dex dex="/Users/simo/Documents/Master1/Android/flousy/app/build/intermediates/pre-dexed/debug/FloussyBeans-68d7634456a1ccc934111f1a369e32b5fd064f3f.jar" />
     </item>
 
 </items>

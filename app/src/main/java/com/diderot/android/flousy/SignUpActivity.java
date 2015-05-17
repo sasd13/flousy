@@ -107,7 +107,7 @@ public class SignUpActivity extends MotherActivity {
         String phoneNumber = "0000";
         Drawable image = null;
 
-        User user = new User(firstName, lastName, phoneNumber, email, password, image);
+        User user = new User(firstName, lastName, phoneNumber,email, password, image);
 
         boolean signed = false;
         boolean valid = FormValidator.validUser(user);
