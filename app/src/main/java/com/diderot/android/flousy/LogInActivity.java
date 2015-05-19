@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.Menu;
@@ -52,7 +53,8 @@ public class LogInActivity extends MotherActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         setContentView(R.layout.activity_login_layout);
 
         //Disable CustomActionBar

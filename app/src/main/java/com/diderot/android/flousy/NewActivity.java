@@ -3,6 +3,7 @@ package com.diderot.android.flousy;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +11,22 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import flousy.beans.Categorie;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.color.ColorBrightness;
 import flousy.gui.recycler.drawer.Drawer;
@@ -26,6 +43,8 @@ public class NewActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         //Set ActivityContent
         setContentView(R.layout.grid);
 
@@ -82,6 +101,8 @@ public class NewActivity extends MotherActivity {
     public void addCategoriesGridItems() {
         GridItem gridItem;
         Resources resources = getResources();
+       ArrayList<Categorie> allcategorie= allCategoriesHttpClient();
+       //System.out.println(allcategorie.get(0).getNom());
 
         for(int i=0; i<6; i++) {
             gridItem = new GridItem();
@@ -90,32 +111,65 @@ public class NewActivity extends MotherActivity {
 
             switch(i) {
                 case 0:
-                    gridItem.setText("Nourriture");
+                    gridItem.setText(allcategorie.get(i).getNom());
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_food));
                     break;
                 case 1:
-                    gridItem.setText("Soins");
+                    gridItem.setText(allcategorie.get(i).getNom());
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_drug));
                     break;
                 case 2:
-                    gridItem.setText("Transports");
+                    gridItem.setText(allcategorie.get(i).getNom());
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_transport));
                     break;
                 case 3:
-                    gridItem.setText("Loisirs");
+                    gridItem.setText(allcategorie.get(i).getNom());
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_controller));
                     break;
                 case 4:
-                    gridItem.setText("Mode");
+                    gridItem.setText(allcategorie.get(i).getNom());
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_clothes));
                     break;
                 case 5:
-                    gridItem.setText("Courses");
+                    gridItem.setText(allcategorie.get(i).getNom());
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_shopping));
                     break;
             }
 
             this.gridCategories.addItem(gridItem);
         }
+    }
+    public ArrayList<Categorie> allCategoriesHttpClient() {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = "http://10.0.2.2:8080/WebProject/allCategories";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+
+
+           Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+            Type type = new TypeToken<List<Categorie>>(){}.getType();
+
+            // type de retour de Gson
+            ArrayList<Categorie> allCategorie = gson.fromJson(donnee.toString(), type);
+            //resultat.setText(IMCResult.getResult());
+
+            return allCategorie;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

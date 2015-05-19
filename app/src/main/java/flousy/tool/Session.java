@@ -100,7 +100,7 @@ public class Session {
             // add header
 
             Utilisateurs utilisateur = new Utilisateurs();
-            utilisateur.setLogin(email);
+            utilisateur.setEmail(email);
             utilisateur.setPassword(password);
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
