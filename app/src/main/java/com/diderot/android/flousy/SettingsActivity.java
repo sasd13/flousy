@@ -10,7 +10,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.tool.DataManager;
 import flousy.tool.Session;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
@@ -33,7 +32,7 @@ public class SettingsActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityContent
-        setContentView(R.layout.userform_layout);
+        setContentView(R.layout.form_user_layout);
 
         //Set activity color immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
@@ -45,10 +44,10 @@ public class SettingsActivity extends MotherActivity {
         //Set ActivityContent
         this.form = new ViewHolder();
 
-        this.form.firstNameEditText = (EditText) findViewById(R.id.userform_edittext_firstname);
-        this.form.lastNameEditText = (EditText) findViewById(R.id.userform_edittext_lastname);
-        this.form.emailEditText = (EditText) findViewById(R.id.userform_edittext_email);
-        this.form.passwordEditText = (EditText) findViewById(R.id.userform_edittext_password);
+        this.form.firstNameEditText = (EditText) findViewById(R.id.form_user_edittext_firstname);
+        this.form.lastNameEditText = (EditText) findViewById(R.id.form_user_edittext_lastname);
+        this.form.emailEditText = (EditText) findViewById(R.id.form_user_edittext_email);
+        this.form.passwordEditText = (EditText) findViewById(R.id.form_user_edittext_password);
 
         TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
@@ -66,9 +65,9 @@ public class SettingsActivity extends MotherActivity {
         this.form.lastNameEditText.setOnEditorActionListener(listener);
         this.form.emailEditText.setOnEditorActionListener(listener);
 
-        this.form.connectCheckBox = (CheckBox) findViewById(R.id.userform_checkbox);
-        TextView validCheckBoxTextView = (TextView) findViewById(R.id.userform_textview_validcheckbox);
-        validCheckBoxTextView.setText(R.string.settings_userform_textview_validcheckbox_connect);
+        this.form.connectCheckBox = (CheckBox) findViewById(R.id.form_user_checkbox);
+        TextView validCheckBoxTextView = (TextView) findViewById(R.id.form_user_textview_validcheckbox);
+        validCheckBoxTextView.setText(R.string.settings_form_user_textview_validcheckbox_connect);
 
         //Customize activity
         customizeColor();

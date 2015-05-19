@@ -38,7 +38,7 @@ public class SignUpActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityContent
-        setContentView(R.layout.userform_layout);
+        setContentView(R.layout.form_user_layout);
 
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();

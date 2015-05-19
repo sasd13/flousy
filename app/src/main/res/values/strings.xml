@@ -40,13 +40,13 @@
     <string name="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
 
     <!-- Activity Settings -->
-    <string name="settings_userform_textview_validcheckbox_connect">Rester connecté</string>
-    <string name="settings_userform_button_logout">Déconnexion</string>
+    <string name="settings_form_user_textview_validcheckbox_connect">Rester connecté</string>
+    <string name="settings_form_user_button_logout">Déconnexion</string>
     <string name="settings_alertdialog_logout_title">Déconnexion</string>
     <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
 
     <!-- Activity SignUp -->
-    <string name="signup_userform_textview_validcheckbox_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
+    <string name="signup_form_user_textview_validcheckbox_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
     <string name="signup_alertdialog_signup_title_error">Erreur inscription</string>
     <string name="signup_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
 
@@ -86,10 +86,10 @@
     <!-- Searchable -->
     <string name="search_hint">Rechercher</string>
 
-    <!-- User form -->
-    <string name="userform_textview_identity">Identité</string>
-    <string name="userform_textview_connection">Connexion</string>
-    <string name="userform_textview_validcheckbox">Valider</string>
+    <!-- Form user -->
+    <string name="form_user_textview_identity">Identité</string>
+    <string name="form_user_textview_connection">Connexion</string>
+    <string name="form_user_textview_validcheckbox">Valider</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

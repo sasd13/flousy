@@ -32,6 +32,9 @@
     <dimen name="draweritem_menu_colorview_height">42dp</dimen>
     <dimen name="draweritem_title_textview_paddingtop">30dp</dimen>
 
+    <!-- Form user -->
+    <dimen name="form_user_checkbox_horizontalmargin">7dp</dimen>
+
     <!-- Grid -->
     <integer name="grid_numcolumns">2</integer>
     <dimen name="grid_items_space">12dp</dimen>
@@ -45,9 +48,6 @@
     <dimen name="textsize_large">16sp</dimen>
     <dimen name="textsize_xlarge">18sp</dimen>
     <dimen name="textsize_xxlarge">20sp</dimen>
-
-    <!-- User form -->
-    <dimen name="userform_checkbox_horizontalmargin">7dp</dimen>
 
     <!-- View -->
     <dimen name="view_margintop_small">7dp</dimen><!-- DIFF ldpi : 5 -->
