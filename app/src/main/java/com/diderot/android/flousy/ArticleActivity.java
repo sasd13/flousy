@@ -102,7 +102,7 @@ public class ArticleActivity extends MotherActivity {
             actionBar.getSubTitleView().setText(getResources().getString(R.string.activity_new_name));
             actionBar.setSubTitleViewEnabled(true);
 
-            ImageButton buttonValid = actionBar.getActionSecondButton();
+            ImageButton buttonValid = actionBar.getActionFirstButton();
             buttonValid.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_accept));
             actionBar.setActionFirstButtonEnabled(true);
 
