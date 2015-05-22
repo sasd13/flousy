@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="FloussyBeans">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/libs/FloussyBeans.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
