@@ -10,24 +10,6 @@ import com.diderot.android.flousy.NewActivity;
 import com.diderot.android.flousy.OffersActivity;
 import com.diderot.android.flousy.R;
 import com.diderot.android.flousy.SettingsActivity;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import flousy.beans.Categorie;
-import flousy.beans.Utilisateurs;
 
 /**
  * Created by Samir on 30/03/2015.

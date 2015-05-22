@@ -60,23 +60,6 @@ public class ArticleActivity extends MotherActivity {
             actionBar.getSubTitleView().setText(nameArticle);
             actionBar.setSubTitleViewEnabled(true);
 
-            ImageButton buttonValid = actionBar.getActionSecondButton();
-            buttonValid.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_accept));
-            actionBar.setActionFirstButtonEnabled(true);
-
-            buttonValid.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (formArticle.nameEditText.getText().toString().trim().length() > 0
-                            && formArticle.priceEditText.getText().toString().trim().length() > 0) {
-                        addArticle();
-                    }
-                }
-            });
-        } else {
-            actionBar.getSubTitleView().setText(getResources().getString(R.string.activity_new_name));
-            actionBar.setSubTitleViewEnabled(true);
-
             ImageButton buttonShare = actionBar.getActionFirstButton();
             buttonShare.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_share));
             actionBar.setActionFirstButtonEnabled(true);
@@ -115,6 +98,23 @@ public class ArticleActivity extends MotherActivity {
             this.formArticle.priceEditText.setOnEditorActionListener(listener);
 
             loadArticle();
+        } else {
+            actionBar.getSubTitleView().setText(getResources().getString(R.string.activity_new_name));
+            actionBar.setSubTitleViewEnabled(true);
+
+            ImageButton buttonValid = actionBar.getActionSecondButton();
+            buttonValid.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_accept));
+            actionBar.setActionFirstButtonEnabled(true);
+
+            buttonValid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (formArticle.nameEditText.getText().toString().trim().length() > 0
+                            && formArticle.priceEditText.getText().toString().trim().length() > 0) {
+                        addArticle();
+                    }
+                }
+            });
         }
 
         //Customize activity
@@ -152,6 +152,8 @@ public class ArticleActivity extends MotherActivity {
         String name = this.formArticle.nameEditText.getEditableText().toString().trim();
         String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
+        //TODO
+
         onBackPressed();
     }
 
@@ -159,12 +161,17 @@ public class ArticleActivity extends MotherActivity {
         String name = "Name ";
         String price = "Price";
 
+        //TODO
+
         this.formArticle.nameEditText.setText(name, TextView.BufferType.EDITABLE);
         this.formArticle.priceEditText.setText(price, TextView.BufferType.EDITABLE);
     }
 
     public void updateArticle() {
+        String name = this.formArticle.nameEditText.getEditableText().toString().trim();
+        String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
+        //TODO
     }
 
     public void deleteArticle() {

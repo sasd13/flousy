@@ -87,15 +87,6 @@ public class GridItem extends AbstractRecyclerItem {
         this.intent = null;
     }
 
-    public GridItem(int layoutResource) {
-        super(layoutResource);
-
-        this.color = 0;
-        this.image = null;
-        this.text = "Item";
-        this.intent = null;
-    }
-
     /**
      * Get color
      *

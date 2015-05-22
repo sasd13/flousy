@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center">
+    android:weightSum="7">
 
-    <TextView
-        android:id="@+id/draweritem_textview"
+    <LinearLayout
+        android:id="@+id/tabitem_layout_article"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/draweritem_textview_height"
-        android:paddingLeft="@dimen/activitycontent_padding"
-        android:gravity="left|center_vertical"
-        android:text="@string/draweritem_textview"
-        android:textSize="@dimen/textsize_large"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tabitem_textview_name"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="5"
+            android:paddingLeft="@dimen/activitycontent_padding"
+            android:gravity="left|center_vertical"
+            android:text="@string/tabitem_textview_name"
+            android:textSize="@dimen/textsize_medium"/>
+
+        <TextView
+            android:id="@+id/tabitem_textview_price"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/tabitem_textview_price"
+            android:textSize="@dimen/textsize_medium"/>
+
+    </LinearLayout>
 
     <View
         android:id="@+id/draweritem_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
+        android:layout_below="@id/tabitem_layout_article"
         android:background="@color/primary_material_light"/>
 
-</LinearLayout>
+</RelativeLayout>
 
