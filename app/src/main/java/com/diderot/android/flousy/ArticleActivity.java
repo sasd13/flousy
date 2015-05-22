@@ -156,7 +156,7 @@ public class ArticleActivity extends MotherActivity {
     }
 
     public void loadArticle() {
-        String name = "Name";
+        String name = "Name ";
         String price = "Price";
 
         this.formArticle.nameEditText.setText(name, TextView.BufferType.EDITABLE);
