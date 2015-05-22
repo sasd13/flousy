@@ -61,15 +61,15 @@ public class SignUpActivity extends MotherActivity {
         //Set User form
         this.form = new ViewHolder();
 
-        this.form.firstNameEditText = (EditText) findViewById(R.id.userform_edittext_firstname);
-        this.form.lastNameEditText = (EditText) findViewById(R.id.userform_edittext_lastname);
-        this.form.emailEditText = (EditText) findViewById(R.id.userform_edittext_email);
-        this.form.passwordEditText = (EditText) findViewById(R.id.userform_edittext_password);
-        this.form.confirmPasswordEditText = (EditText) findViewById(R.id.userform_edittext_confirmpassword);
+        this.form.firstNameEditText = (EditText) findViewById(R.id.form_user_edittext_firstname);
+        this.form.lastNameEditText = (EditText) findViewById(R.id.form_user_edittext_lastname);
+        this.form.emailEditText = (EditText) findViewById(R.id.form_user_edittext_email);
+        this.form.passwordEditText = (EditText) findViewById(R.id.form_user_edittext_password);
+        this.form.confirmPasswordEditText = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
 
-        this.form.validCheckBox = (CheckBox) findViewById(R.id.userform_checkbox);
-        TextView validCheckBoxTextView = (TextView) findViewById(R.id.userform_textview_validcheckbox);
-        validCheckBoxTextView.setText(R.string.signup_userform_textview_validcheckbox_validation);
+        this.form.validCheckBox = (CheckBox) findViewById(R.id.form_user_checkbox);
+        TextView validCheckBoxTextView = (TextView) findViewById(R.id.form_user_textview_validcheckbox);
+        validCheckBoxTextView.setText(R.string.signup_form_user_textview_validcheckbox_validation);
 
         //Customize activity
         customizeColor();

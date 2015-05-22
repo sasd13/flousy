@@ -72,6 +72,14 @@
         </activity>
 
         <activity
+            android:name=".ArticleActivity"
+            android:label="@string/activity_article_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
             android:name=".ConsultActivity"
             android:label="@string/activity_consult_name"
             android:parentActivityName=".MenuActivity"

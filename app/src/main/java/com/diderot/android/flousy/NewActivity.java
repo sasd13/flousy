@@ -2,6 +2,7 @@ package com.diderot.android.flousy;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -40,14 +41,6 @@ public class NewActivity extends MotherActivity {
         subTitle.setText(R.string.new_actionbar_textview_subtitle);
         actionBar.setSubTitleViewEnabled(true);
 
-        ImageButton buttonEdit = actionBar.getActionFirstButton();
-        buttonEdit.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_edit));
-        actionBar.setActionFirstButtonEnabled(true);
-
-        ImageButton buttonAdd = actionBar.getActionSecondButton();
-        buttonAdd.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_new));
-        actionBar.setActionSecondButtonEnabled(true);
-
         //Set Activity content
         RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
         this.gridCategories = new Grid(this);
@@ -83,37 +76,56 @@ public class NewActivity extends MotherActivity {
         GridItem gridItem;
         Resources resources = getResources();
 
-        for(int i=0; i<6; i++) {
+        String nameCategory;
+        Drawable image;
+        Intent intent = new Intent(this, ArticleActivity.class);
+        intent.putExtra("ACTIVITY_COLOR", getActivityColor());
+
+        for(int i=0; i<8; i++) {
             gridItem = new GridItem();
             gridItem.setColor(getActivityColor());
-            gridItem.setIntent(null);
 
             switch(i) {
                 case 0:
-                    gridItem.setText("Nourriture");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_food));
+                    nameCategory = "Nourriture";
+                    image = resources.getDrawable(R.drawable.griditem_food);
                     break;
                 case 1:
-                    gridItem.setText("Soins");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_drug));
+                    nameCategory = "Soins";
+                    image = resources.getDrawable(R.drawable.griditem_drug);
                     break;
                 case 2:
-                    gridItem.setText("Transports");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_transport));
+                    nameCategory = "Transports";
+                    image = resources.getDrawable(R.drawable.griditem_transport);
                     break;
                 case 3:
-                    gridItem.setText("Loisirs");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_controller));
+                    nameCategory = "Loisirs";
+                    image = resources.getDrawable(R.drawable.griditem_controller);
                     break;
                 case 4:
-                    gridItem.setText("Mode");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_clothes));
+                    nameCategory = "Mode";
+                    image = resources.getDrawable(R.drawable.griditem_clothes);
                     break;
                 case 5:
-                    gridItem.setText("Courses");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_shopping));
+                    nameCategory = "Courses";
+                    image = resources.getDrawable(R.drawable.griditem_shopping);
+                    break;
+                case 6:
+                    nameCategory = "Maison";
+                    image = resources.getDrawable(R.drawable.griditem_home);
+                    break;
+                default:
+                    nameCategory = "Autres";
+                    image = resources.getDrawable(R.drawable.griditem);
                     break;
             }
+
+            gridItem.setText(nameCategory);
+            gridItem.setImage(image);
+            gridItem.setColor(getActivityColor());
+
+            intent.putExtra("CATEGORY_NAME", nameCategory);
+            gridItem.setIntent(intent);
 
             this.gridCategories.addItem(gridItem);
         }
