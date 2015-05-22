@@ -1,2 +1,2 @@
-# android-flousy
+# flousy
 Android app for money management
