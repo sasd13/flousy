@@ -70,7 +70,7 @@ public class ConsultActivity extends MotherActivity {
 
             switch(i) {
                 case 0:
-                    gridItem.setText("Nourriture");
+                    gridItem.setText("Nouture");
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_food));
                     break;
                 case 1:
