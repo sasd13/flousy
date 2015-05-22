@@ -7,13 +7,9 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.color.ColorBrightness;
-import flousy.gui.recycler.drawer.Drawer;
 import flousy.gui.recycler.grid.Grid;
 import flousy.gui.recycler.grid.GridItem;
 
@@ -78,13 +74,9 @@ public class NewActivity extends MotherActivity {
 
         String nameCategory;
         Drawable image;
-        Intent intent = new Intent(this, ArticleActivity.class);
-        intent.putExtra("ACTIVITY_COLOR", getActivityColor());
+        Intent intent;
 
         for(int i=0; i<8; i++) {
-            gridItem = new GridItem();
-            gridItem.setColor(getActivityColor());
-
             switch(i) {
                 case 0:
                     nameCategory = "Nourriture";
@@ -120,11 +112,15 @@ public class NewActivity extends MotherActivity {
                     break;
             }
 
+            gridItem = new GridItem();
+            gridItem.setColor(getActivityColor());
             gridItem.setText(nameCategory);
             gridItem.setImage(image);
             gridItem.setColor(getActivityColor());
 
-            intent.putExtra("CATEGORY_NAME", nameCategory);
+            intent = new Intent(this, ArticleActivity.class);
+            intent.putExtra(ArticleActivity.EXTRA_ACTIVITY_COLOR, getActivityColor());
+            intent.putExtra(ArticleActivity.EXTRA_CATEGORY_NAME, nameCategory);
             gridItem.setIntent(intent);
 
             this.gridCategories.addItem(gridItem);

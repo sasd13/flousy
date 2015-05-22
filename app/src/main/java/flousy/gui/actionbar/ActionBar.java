@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.diderot.android.flousy.MotherActivity;
@@ -23,15 +25,17 @@ public class ActionBar {
     private int color;
     private View view;
 
-    private ImageButton actionUpButton, actionFirstButton, actionSecondButton, actionDrawerButton;
+    private RelativeLayout layoutActionUp;
+    private ImageView actionUpView;
     private TextView titleView, subTitleView;
+    private ImageButton actionFirstButton, actionSecondButton, actionDrawerButton;
 
     public ActionBar(MotherActivity activity) {
         this.activity = activity;
         this.color = 0;
         this.view = null;
 
-        this.actionUpButton = null;
+        this.layoutActionUp = null;
         this.actionDrawerButton = null;
         this.titleView = null;
         this.subTitleView = null;
@@ -51,15 +55,15 @@ public class ActionBar {
         }
     }
 
-    public ImageButton getActionUpButton() {
-        return this.actionUpButton;
+    public RelativeLayout getLayoutActionUp() {
+        return this.layoutActionUp;
     }
 
     public void setActionUpButtonEnabled(boolean enabled) {
         if(enabled) {
-            this.actionUpButton.setVisibility(View.VISIBLE);
+            this.actionUpView.setVisibility(View.VISIBLE);
         } else {
-            this.actionUpButton.setVisibility(View.INVISIBLE);
+            this.actionUpView.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -126,7 +130,8 @@ public class ActionBar {
         this.color = this.view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
         this.view.setBackgroundColor(this.color);
 
-        this.actionUpButton = (ImageButton) this.view.findViewById(R.id.actionbar_imagebutton_actionup);
+        this.layoutActionUp = (RelativeLayout) this.view.findViewById(R.id.actionbar_relativelayout_actionup);
+        this.actionUpView = (ImageView) this.view.findViewById(R.id.actionbar_imageview_actionup);
         setActionUpNavigation();
 
         this.titleView = (TextView) this.view.findViewById(R.id.actionbar_textview_title);
@@ -157,23 +162,10 @@ public class ActionBar {
     }
 
     private void setActionUpNavigation() {
-        this.actionUpButton.setOnClickListener(new View.OnClickListener() {
+        this.layoutActionUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent upIntent = NavUtils.getParentActivityIntent(activity);
-                if (NavUtils.shouldUpRecreateTask(activity, upIntent)) {
-                    // This activity is NOT part of this app's task, so create a new task
-                    // when navigating up, with a synthesized back stack.
-                    TaskStackBuilder.create(activity)
-                            // Add all of this activity's parents to the back stack
-                            .addNextIntentWithParentStack(upIntent)
-                                    // Navigate up to the closest parent
-                            .startActivities();
-                } else {
-                    // This activity is part of this app's task, so simply
-                    // navigate up to the logical parent activity.
-                    NavUtils.navigateUpTo(activity, upIntent);
-                }
+                activity.onBackPressed();
             }
         });
     }

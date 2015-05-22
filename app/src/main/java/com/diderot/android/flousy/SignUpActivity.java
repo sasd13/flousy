@@ -128,8 +128,8 @@ public class SignUpActivity extends MotherActivity {
 
             final Intent intent = new Intent(this, LogInActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("CLOSE", true);
-            intent.putExtra("NEW_USER_FIRSTNAME", user.getFirstName());
+            intent.putExtra(LogInActivity.EXTRA_CLOSE, true);
+            intent.putExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME, user.getFirstName());
 
             this.runnable = new Runnable() {
 

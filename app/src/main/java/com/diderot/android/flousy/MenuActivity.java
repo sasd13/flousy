@@ -20,6 +20,10 @@ import flousy.tool.Session;
 
 public class MenuActivity extends MotherActivity {
 
+    public static final String EXTRA_NEW_USER_FIRSTNAME = "NEW_USER_FIRST_NAME";
+    public static final String EXTRA_WELCOME = "WELCOME";
+    public static final String EXTRA_EXIT = "EXIT";
+
     private static int LOGOUT_TIME_OUT = 2000;
     private Handler handler;
     private Runnable runnable;
@@ -89,10 +93,10 @@ public class MenuActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        if (getIntent().hasExtra("WELCOME") && getIntent().getBooleanExtra("WELCOME", false) == true) {
-            getIntent().removeExtra("WELCOME");
+        if (getIntent().hasExtra(EXTRA_WELCOME) && getIntent().getBooleanExtra(EXTRA_WELCOME, false) == true) {
+            getIntent().removeExtra(EXTRA_WELCOME);
 
-            CharSequence firstName = getIntent().getCharSequenceExtra("NEW_USER_FIRSTNAME");
+            CharSequence firstName = getIntent().getCharSequenceExtra(EXTRA_NEW_USER_FIRSTNAME);
 
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.menu_alertdialog_welcome_title)
@@ -100,8 +104,8 @@ public class MenuActivity extends MotherActivity {
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();
-        } else if (getIntent().hasExtra("EXIT") && getIntent().getBooleanExtra("EXIT", false) == true) {
-            getIntent().removeExtra("EXIT");
+        } else if (getIntent().hasExtra(EXTRA_EXIT) && getIntent().getBooleanExtra(EXTRA_EXIT, false) == true) {
+            getIntent().removeExtra(EXTRA_EXIT);
 
             Intent intent = new Intent(this, LogInActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -142,9 +146,8 @@ public class MenuActivity extends MotherActivity {
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
             final AlertDialog dialog = builder.create();
 
-            final Intent intent = new Intent(this, MenuActivity.class);
+            final Intent intent = new Intent(this, LogInActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("EXIT", true);
 
             this.runnable = new Runnable() {
 

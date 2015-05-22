@@ -38,6 +38,8 @@ import flousy.gui.widget.CustomDialogBuilder;
 
 public class LogInActivity extends MotherActivity {
 
+    public static final String EXTRA_CLOSE = "CLOSE";
+
     private static int LOADING_TIME_OUT = 2000;
     private Handler handler;
     private Runnable runnable;
@@ -47,7 +49,7 @@ public class LogInActivity extends MotherActivity {
         public Button connectButton;
     }
 
-    private ViewHolder form;
+    private ViewHolder formUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,18 +64,18 @@ public class LogInActivity extends MotherActivity {
         getDrawer().setEnabled(false);
 
         //Set ActivityContent
-        this.form = new ViewHolder();
+        this.formUser = new ViewHolder();
 
-        this.form.loginEditText = (EditText) findViewById(R.id.login_edittext_email);
-        this.form.passwordEditText = (EditText) findViewById(R.id.login_edittext_password);
+        this.formUser.loginEditText = (EditText) findViewById(R.id.login_edittext_email);
+        this.formUser.passwordEditText = (EditText) findViewById(R.id.login_edittext_password);
 
-        this.form.connectButton = (Button) findViewById(R.id.login_button_connect);
-        this.form.connectButton.setOnClickListener(new View.OnClickListener() {
+        this.formUser.connectButton = (Button) findViewById(R.id.login_button_connect);
+        this.formUser.connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (form.loginEditText.getText().toString().trim().length() > 0
-                        && form.passwordEditText.getText().toString().trim().length() > 0) {
+                if (formUser.loginEditText.getText().toString().trim().length() > 0
+                        && formUser.passwordEditText.getText().toString().trim().length() > 0) {
                     startConnection();
                 }
             }
@@ -124,14 +126,14 @@ public class LogInActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        if(getIntent().hasExtra("CLOSE") && getIntent().getBooleanExtra("CLOSE", false) == true) {
-            getIntent().removeExtra("CLOSE");
+        if(getIntent().hasExtra(EXTRA_CLOSE) && getIntent().getBooleanExtra(EXTRA_CLOSE, false) == true) {
+            getIntent().removeExtra(EXTRA_CLOSE);
 
-            if(getIntent().hasExtra("NEW_USER_FIRSTNAME")) {
+            if(getIntent().hasExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME)) {
                 Intent intent = new Intent(this, MenuActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("WELCOME", true);
-                intent.putExtra("NEW_USER_FIRSTNAME", getIntent().getCharSequenceExtra("NEW_USER_FIRSTNAME"));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(MenuActivity.EXTRA_WELCOME, true);
+                intent.putExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME, getIntent().getCharSequenceExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME));
 
                 startActivity(intent);
             }
@@ -161,16 +163,16 @@ public class LogInActivity extends MotherActivity {
         super.customizeColor();
 
         if(getContentView() != null) {
-            this.form.connectButton.setBackgroundColor(getActivityColor());
-            this.form.connectButton.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
+            this.formUser.connectButton.setBackgroundColor(getActivityColor());
+            this.formUser.connectButton.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
         }
     }
 
     public void startConnection() {
         Session session = new Session(this);
 
-        String login = this.form.loginEditText.getEditableText().toString();
-        String password = this.form.passwordEditText.getEditableText().toString();
+        String login = this.formUser.loginEditText.getEditableText().toString();
+        String password = this.formUser.passwordEditText.getEditableText().toString();
 
         boolean connected = false;
         User u=null;

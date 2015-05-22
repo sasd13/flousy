@@ -4,42 +4,51 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/actionbar_height">
 
-    <ImageButton
-        android:id="@+id/actionbar_imagebutton_actionup"
+    <RelativeLayout
+        android:id="@+id/actionbar_relativelayout_actionup"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_centerVertical="true"
+        android:paddingRight="@dimen/actionbar_imagebutton_actionup_horizontalpadding"
         android:layout_alignParentLeft="true"
-        android:paddingLeft="@dimen/actionbar_imagebutton_actionup_horizontalpadding"
-        android:background="@color/transparent"
-        android:src="@drawable/ic_action_up"/>
+        android:clickable="true">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@id/actionbar_imagebutton_actionup"
-        android:layout_alignBaseline="@id/actionbar_imagebutton_actionup"
-        android:gravity="left|center_vertical">
-
-        <TextView
-            android:id="@+id/actionbar_textview_title"
+        <ImageView
+            android:id="@+id/actionbar_imageview_actionup"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/actionbar_textview_title"
-            android:textSize="@dimen/textsize_xxlarge"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_action_up"/>
 
-        <TextView
-            android:id="@+id/actionbar_textview_subtitle"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/actionbar_textview_subtitle"
-            android:textSize="@dimen/textsize_small"
-            android:textColor="@color/white"/>
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/actionbar_imageview_actionup"
+            android:layout_alignBaseline="@id/actionbar_imageview_actionup"
+            android:gravity="left|center_vertical">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/actionbar_textview_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/actionbar_textview_title"
+                android:textSize="@dimen/textsize_xxlarge"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/actionbar_textview_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/actionbar_textview_subtitle"
+                android:textSize="@dimen/textsize_small"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"

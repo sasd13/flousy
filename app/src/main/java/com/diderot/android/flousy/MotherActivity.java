@@ -178,7 +178,7 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
 
         ColorOnTouchListener listener = new ColorOnTouchListener(this.activityColor);
 
-        this.actionBar.getActionUpButton().setOnTouchListener(listener);
+        this.actionBar.getLayoutActionUp().setOnTouchListener(listener);
         this.actionBar.getActionFirstButton().setOnTouchListener(listener);
         this.actionBar.getActionSecondButton().setOnTouchListener(listener);
         this.actionBar.getActionDrawerButton().setOnTouchListener(listener);

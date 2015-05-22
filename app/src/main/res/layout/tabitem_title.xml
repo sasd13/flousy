@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tabitem_textview_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/draweritem_textview_height"
+        android:paddingLeft="@dimen/activitycontent_padding"
+        android:gravity="left|center_vertical"
+        android:text="@string/draweritem_textview"
+        android:textSize="@dimen/textsize_large"/>
+
+    <TextView
+        android:id="@+id/tabitem_textview_price"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/draweritem_textview_height"
+        android:paddingLeft="@dimen/activitycontent_padding"
+        android:gravity="left|center_vertical"
+        android:text="@string/draweritem_textview"
+        android:textSize="@dimen/textsize_large"/>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
+

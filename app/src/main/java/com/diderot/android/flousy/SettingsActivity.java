@@ -25,7 +25,7 @@ public class SettingsActivity extends MotherActivity {
         public CheckBox connectCheckBox;
     }
 
-    private ViewHolder form;
+    private ViewHolder formUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,30 +42,30 @@ public class SettingsActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_settings_name);
 
         //Set ActivityContent
-        this.form = new ViewHolder();
+        this.formUser = new ViewHolder();
 
-        this.form.firstNameEditText = (EditText) findViewById(R.id.form_user_edittext_firstname);
-        this.form.lastNameEditText = (EditText) findViewById(R.id.form_user_edittext_lastname);
-        this.form.emailEditText = (EditText) findViewById(R.id.form_user_edittext_email);
-        this.form.passwordEditText = (EditText) findViewById(R.id.form_user_edittext_password);
+        this.formUser.firstNameEditText = (EditText) findViewById(R.id.form_user_edittext_firstname);
+        this.formUser.lastNameEditText = (EditText) findViewById(R.id.form_user_edittext_lastname);
+        this.formUser.emailEditText = (EditText) findViewById(R.id.form_user_edittext_email);
+        this.formUser.passwordEditText = (EditText) findViewById(R.id.form_user_edittext_password);
 
         TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if(actionId == EditorInfo.IME_ACTION_DONE) {
                     KeyboardManager.hide(v);
-                    save();
+                    updateUser();
                     return true;
                 }
                 return false;
             }
         };
 
-        this.form.firstNameEditText.setOnEditorActionListener(listener);
-        this.form.lastNameEditText.setOnEditorActionListener(listener);
-        this.form.emailEditText.setOnEditorActionListener(listener);
+        this.formUser.firstNameEditText.setOnEditorActionListener(listener);
+        this.formUser.lastNameEditText.setOnEditorActionListener(listener);
+        this.formUser.emailEditText.setOnEditorActionListener(listener);
 
-        this.form.connectCheckBox = (CheckBox) findViewById(R.id.form_user_checkbox);
+        this.formUser.connectCheckBox = (CheckBox) findViewById(R.id.form_user_checkbox);
         TextView validCheckBoxTextView = (TextView) findViewById(R.id.form_user_textview_validcheckbox);
         validCheckBoxTextView.setText(R.string.settings_form_user_textview_validcheckbox_connect);
 
@@ -79,7 +79,7 @@ public class SettingsActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        startInject();
+        loadUser();
     }
 
     @Override
@@ -98,7 +98,7 @@ public class SettingsActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void startInject() {
+    public void loadUser() {
         Session session = new Session(this);
        // DataManager data = new DataManager(this);
 
@@ -108,19 +108,19 @@ public class SettingsActivity extends MotherActivity {
        // this.form.firstNameEditText.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
         //this.form.lastNameEditText.setText(user.getLastName(), TextView.BufferType.EDITABLE);
         //this.form.emailEditText.setText(user.getEmail(), TextView.BufferType.EDITABLE);
-        this.form.passwordEditText.setText("", TextView.BufferType.EDITABLE);
-       this.form.connectCheckBox.setChecked(stayConnect);
+        this.formUser.passwordEditText.setText("", TextView.BufferType.EDITABLE);
+       this.formUser.connectCheckBox.setChecked(stayConnect);
     }
 
-    public void save() {
+    public void updateUser() {
         Session session = new Session(this);
       //  DataManager data = new DataManager(this);
 
-        String firstName = this.form.firstNameEditText.getEditableText().toString();
-        String lastName = this.form.lastNameEditText.getEditableText().toString();
-        String email = this.form.emailEditText.getEditableText().toString();
+        String firstName = this.formUser.firstNameEditText.getEditableText().toString();
+        String lastName = this.formUser.lastNameEditText.getEditableText().toString();
+        String email = this.formUser.emailEditText.getEditableText().toString();
         String password = "password";
-        Boolean connectCheckBox = this.form.connectCheckBox.isChecked();
+        Boolean connectCheckBox = this.formUser.connectCheckBox.isChecked();
 
         String phoneNumber = "0000";
         Drawable image = null;
