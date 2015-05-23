@@ -24,7 +24,7 @@ public class NewActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityContent
-        setContentView(R.layout.grid);
+        setContentView(R.layout.recyclerview);
 
         //Set activity color immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
@@ -38,7 +38,7 @@ public class NewActivity extends MotherActivity {
         actionBar.setSubTitleViewEnabled(true);
 
         //Set Activity content
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
         this.gridCategories = new Grid(this);
         this.gridCategories.adapt(gridView);
 
@@ -74,7 +74,6 @@ public class NewActivity extends MotherActivity {
 
         String nameCategory;
         Drawable image;
-        Intent intent;
 
         for(int i=0; i<8; i++) {
             switch(i) {
@@ -118,7 +117,7 @@ public class NewActivity extends MotherActivity {
             gridItem.setImage(image);
             gridItem.setColor(getActivityColor());
 
-            intent = new Intent(this, ArticleActivity.class);
+            Intent intent = new Intent(this, ArticleActivity.class);
             intent.putExtra(ArticleActivity.EXTRA_ACTIVITY_COLOR, getActivityColor());
             intent.putExtra(ArticleActivity.EXTRA_CATEGORY_NAME, nameCategory);
             gridItem.setIntent(intent);

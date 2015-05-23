@@ -35,7 +35,7 @@ public class MenuActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         //Set ActivityContent
-        setContentView(R.layout.grid);
+        setContentView(R.layout.recyclerview);
 
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
@@ -67,7 +67,7 @@ public class MenuActivity extends MotherActivity {
         getDrawer().setEnabled(false);
 
         //Set Activity content
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
         this.gridMenu = new Grid(this);
         this.gridMenu.adapt(gridView);
 

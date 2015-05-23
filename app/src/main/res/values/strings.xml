@@ -21,6 +21,9 @@
     <string name="activity_offers_name">Offres</string>
     <string name="activity_settings_name">Paramètres</string>
 
+    <!-- Activity FrinancesTab -->
+    <string name="financestab_actionbar_title">Dépenses</string>
+
     <!-- Activity Friends -->
     <string name="friends_activitybar_tabed_tab_reception">Réceptions</string>
     <string name="friends_activitybar_tabed_tab_send">Envois</string>
@@ -99,10 +102,10 @@
     <string name="form_article_textview_picture">Photo</string>
 
     <!-- Tab -->
-    <string name="tabitem_title_textview_name">NAME</string>
-    <string name="tabitem_title_textview_price">PRICE</string>
-    <string name="tabitem_textview_name">Name</string>
-    <string name="tabitem_textview_price">Price</string>
+    <string name="tabitem_title_textview_name">NOM</string>
+    <string name="tabitem_title_textview_price">PRIX</string>
+    <string name="tabitem_textview_name">Nom</string>
+    <string name="tabitem_textview_price">Prix</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

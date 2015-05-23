@@ -1,5 +1,6 @@
 package com.diderot.android.flousy;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -20,7 +21,7 @@ public class FinancesActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.grid);
+        setContentView(R.layout.recyclerview);
 
         //Set ActivityColor immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
@@ -30,7 +31,7 @@ public class FinancesActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_finances_name);
 
         //Set ActivityContent
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
         this.gridSubMenu = new Grid(this);
         this.gridSubMenu.adapt(gridView);
 
@@ -47,6 +48,7 @@ public class FinancesActivity extends MotherActivity {
                 case 0:
                     gridItem.setText("Dépenses");
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_table));
+                    gridItem.setIntent(new Intent(this, FinancesTabActivity.class));
                     break;
                 case 1:
                     gridItem.setText("Evolutions");

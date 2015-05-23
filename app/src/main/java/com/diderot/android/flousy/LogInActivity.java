@@ -215,7 +215,4 @@ public class LogInActivity extends MotherActivity {
             dialog.show();
         }
     }
-
-
-
 }

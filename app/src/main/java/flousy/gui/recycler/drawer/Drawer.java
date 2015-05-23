@@ -23,15 +23,6 @@ public class Drawer extends AbstractRecycler {
     }
 
     @Override
-    public boolean addItem(AbstractRecyclerItem abstractRecyclerItem) {
-        if(abstractRecyclerItem instanceof DrawerItem == false) {
-            return false;
-        }
-
-        return super.addItem(abstractRecyclerItem);
-    }
-
-    @Override
     public void adapt(RecyclerView drawerView) {
         setView(drawerView);
 

@@ -21,15 +21,6 @@ public class Grid extends AbstractRecycler {
     }
 
     @Override
-    public boolean addItem(AbstractRecyclerItem abstractRecyclerItem) {
-        if(abstractRecyclerItem instanceof GridItem == false) {
-            return false;
-        }
-
-        return super.addItem(abstractRecyclerItem);
-    }
-
-    @Override
     public void adapt(RecyclerView gridView) {
         setView(gridView);
 

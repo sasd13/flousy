@@ -20,7 +20,7 @@ public class ConsultActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.grid);
+        setContentView(R.layout.recyclerview);
 
         //Set ActivityColor immediately after content view
         setActivityColor(getResources().getColor(ACTIVITY_COLOR));
@@ -30,7 +30,7 @@ public class ConsultActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_consult_name);
 
         //Set ActivityContent
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.grid_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
         this.gridCategories = new Grid(this);
         this.gridCategories.adapt(gridView);
 

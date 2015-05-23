@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import com.diderot.android.flousy.R;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.recycler.AbstractRecyclerItem;
 
@@ -50,7 +53,11 @@ public class TabItem extends AbstractRecyclerItem {
         this.priceText = priceText;
 
         if (this.priceTextView != null) {
-            this.priceTextView.setText(this.priceText);
+            try {
+                this.priceTextView.setText(URLDecoder.decode(this.priceText.toString(), "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
         }
     }
 

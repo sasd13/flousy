@@ -124,15 +124,6 @@ public class ArticleActivity extends MotherActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        getIntent().removeExtra(EXTRA_ACTIVITY_COLOR);
-        getIntent().removeExtra(EXTRA_CATEGORY_NAME);
-        getIntent().removeExtra(EXTRA_ARTICLE_NAME);
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         super.onCreateOptionsMenu(menu);
