@@ -1,6 +1,8 @@
 package com.diderot.android.flousy;
 
+import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -30,7 +32,7 @@ public class ConsultActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_consult_name);
 
         //Set ActivityContent
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         this.gridCategories = new Grid(this);
         this.gridCategories.adapt(gridView);
 
@@ -61,39 +63,53 @@ public class ConsultActivity extends MotherActivity {
 
     public void addCategoriesGridItems() {
         GridItem gridItem;
+
         Resources resources = getResources();
 
-        for(int i=0; i<6; i++) {
-            gridItem = new GridItem();
-            gridItem.setColor(getActivityColor());
-            gridItem.setIntent(null);
+        String nameCategory;
+        Drawable image;
+        Intent intent;
 
+        for(int i=0; i<6; i++) {
             switch(i) {
                 case 0:
-                    gridItem.setText("Nouture");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_food));
+                    nameCategory = "Nourriture";
+                    image = resources.getDrawable(R.drawable.griditem_food);
                     break;
                 case 1:
-                    gridItem.setText("Soins");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_drug));
+                    nameCategory = "Soins";
+                    image = resources.getDrawable(R.drawable.griditem_drug);
                     break;
                 case 2:
-                    gridItem.setText("Transports");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_transport));
+                    nameCategory = "Transports";
+                    image = resources.getDrawable(R.drawable.griditem_transport);
                     break;
                 case 3:
-                    gridItem.setText("Loisirs");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_controller));
+                    nameCategory = "Loisirs";
+                    image = resources.getDrawable(R.drawable.griditem_controller);
                     break;
                 case 4:
-                    gridItem.setText("Mode");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_clothes));
+                    nameCategory = "Mode";
+                    image = resources.getDrawable(R.drawable.griditem_clothes);
                     break;
                 case 5:
-                    gridItem.setText("Courses");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_shopping));
+                    nameCategory = "Courses";
+                    image = resources.getDrawable(R.drawable.griditem_shopping);
                     break;
+                default:
+                    nameCategory = "Category";
+                    image = resources.getDrawable(R.drawable.griditem);
             }
+
+            gridItem = new GridItem();
+            gridItem.setColor(getActivityColor());
+            gridItem.setText(nameCategory);
+            gridItem.setImage(image);
+
+            intent = new Intent(this, ConsultCategoryActivity.class);
+            intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
+            intent.putExtra(EXTRA_CATEGORY_NAME, nameCategory);
+            gridItem.setIntent(intent);
 
             this.gridCategories.addItem(gridItem);
         }

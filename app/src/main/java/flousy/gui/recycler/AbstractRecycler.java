@@ -22,7 +22,7 @@ public abstract class AbstractRecycler {
     protected AbstractRecycler(Context context) {
         this.context = context;
         this.listAbstractRecyclerItem = new ArrayList<AbstractRecyclerItem>();
-        this.itemStubLayout = R.layout.recyclerview_item_layout;
+        this.itemStubLayout = R.layout.recyclerviewitem;
         this.view = null;
     }
 

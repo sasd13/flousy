@@ -10,21 +10,35 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import flousy.beans.Produit;
+import flousy.beans.Utilisateurs;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
 
 public class ArticleActivity extends MotherActivity {
-
-    public static final String EXTRA_ACTIVITY_COLOR = "ACTIVITY_COLOR";
-    public static final String EXTRA_CATEGORY_NAME = "CATEGORY_NAME";
-    public static final String EXTRA_ARTICLE_NAME = "ARTICLE_NAME";
 
     private class ViewHolder {
         public EditText nameEditText, priceEditText;
     }
 
     private ViewHolder formArticle;
-
+    String categoryName;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +63,7 @@ public class ArticleActivity extends MotherActivity {
         this.formArticle.priceEditText = (EditText) findViewById(R.id.form_article_edittext_price);
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
-            String categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
+             categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
 
             actionBar.getTitleView().setText(categoryName);
         }
@@ -143,9 +157,22 @@ public class ArticleActivity extends MotherActivity {
         String name = this.formArticle.nameEditText.getEditableText().toString().trim();
         String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
-        //TODO
+        Float prix= Float.parseFloat(price);
+        int idProduit= chercherproduitId(categoryName);
 
-        onBackPressed();
+        Produit produit = new Produit();
+        produit.setNom(name);
+        produit.setPrix(prix);
+        produit.setIdCategorie(idProduit);
+
+        if(idProduit!=-1)
+        {
+            if(ajouterArticle(produit)) {
+                onBackPressed();
+            }
+        }
+
+
     }
 
     public void loadArticle() {
@@ -172,4 +199,76 @@ public class ArticleActivity extends MotherActivity {
     public void shareArticle() {
 
     }
+    public Boolean ajouterArticle(Produit produit) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = "http://10.0.2.2:8080/WebProject/InsertionProduit";
+
+            HttpPost post = new HttpPost(url);
+            // add heade
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String jsonString = gson.toJson(produit);
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair(produit.JSON_PRODUIT_PARAMETER_NAME, jsonString));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Boolean ajoutProduit = gson.fromJson(donnee.toString(), Boolean.class);
+            return ajoutProduit;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public int chercherproduitId(String nom) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = "http://10.0.2.2:8080/WebProject/ChercherProduit";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair("produitnom", nom));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            int produitId = gson.fromJson(donnee.toString(),int.class);
+            //resultat.setText(IMCResult.getResult());
+            return produitId;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+
+
 }

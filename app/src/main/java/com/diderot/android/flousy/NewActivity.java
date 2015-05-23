@@ -3,7 +3,9 @@ package com.diderot.android.flousy;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +25,11 @@ public class NewActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         //Set ActivityContent
         setContentView(R.layout.recyclerview);
 
@@ -38,7 +45,7 @@ public class NewActivity extends MotherActivity {
         actionBar.setSubTitleViewEnabled(true);
 
         //Set Activity content
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         this.gridCategories = new Grid(this);
         this.gridCategories.adapt(gridView);
 
@@ -74,6 +81,7 @@ public class NewActivity extends MotherActivity {
 
         String nameCategory;
         Drawable image;
+        Intent intent;
 
         for(int i=0; i<8; i++) {
             switch(i) {
@@ -117,9 +125,9 @@ public class NewActivity extends MotherActivity {
             gridItem.setImage(image);
             gridItem.setColor(getActivityColor());
 
-            Intent intent = new Intent(this, ArticleActivity.class);
-            intent.putExtra(ArticleActivity.EXTRA_ACTIVITY_COLOR, getActivityColor());
-            intent.putExtra(ArticleActivity.EXTRA_CATEGORY_NAME, nameCategory);
+            intent = new Intent(this, ArticleActivity.class);
+            intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
+            intent.putExtra(EXTRA_CATEGORY_NAME, nameCategory);
             gridItem.setIntent(intent);
 
             this.gridCategories.addItem(gridItem);

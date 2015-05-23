@@ -106,7 +106,7 @@
         </activity>
 
         <activity
-            android:name=".FinancesTabActivity"
+            android:name=".ConsultCategoryActivity"
             android:label="@string/activity_finances_name"
             android:parentActivityName=".FinancesActivity"
             android:screenOrientation="portrait"
@@ -166,6 +166,7 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
+        <activity android:name="org.achartengine.GraphicalActivity"/>
 
     </application>
 

@@ -67,7 +67,7 @@ public class MenuActivity extends MotherActivity {
         getDrawer().setEnabled(false);
 
         //Set Activity content
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         this.gridMenu = new Grid(this);
         this.gridMenu.adapt(gridView);
 

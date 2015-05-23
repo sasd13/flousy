@@ -39,8 +39,6 @@ import flousy.gui.widget.CustomDialogBuilder;
 
 public class LogInActivity extends MotherActivity {
 
-    public static final String EXTRA_CLOSE = "CLOSE";
-
     private static int LOADING_TIME_OUT = 2000;
     private Handler handler;
     private Runnable runnable;
@@ -55,8 +53,12 @@ public class LogInActivity extends MotherActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         setContentView(R.layout.activity_login_layout);
 
         //Disable CustomActionBar
@@ -209,10 +211,13 @@ public class LogInActivity extends MotherActivity {
                     finish();
                 }
             };
-            
+
             this.handler = new Handler();
             this.handler.postDelayed(this.runnable, LOADING_TIME_OUT);
             dialog.show();
         }
     }
+
+
+
 }

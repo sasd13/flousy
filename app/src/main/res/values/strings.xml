@@ -17,12 +17,13 @@
     <string name="activity_article_name">Article</string>
     <string name="activity_consult_name">Consulter</string>
     <string name="activity_finances_name">Finances</string>
+    <string name="activity_spends_name">Dépenses</string>
     <string name="activity_friends_name">Amis</string>
     <string name="activity_offers_name">Offres</string>
     <string name="activity_settings_name">Paramètres</string>
 
-    <!-- Activity FrinancesTab -->
-    <string name="financestab_actionbar_title">Dépenses</string>
+    <!-- Activity Spends -->
+    <string name="spends_actionbar_title">Dépenses</string>
 
     <!-- Activity Friends -->
     <string name="friends_activitybar_tabed_tab_reception">Réceptions</string>
@@ -100,8 +101,11 @@
     <string name="form_article_edittext_name_hint">Nom</string>
     <string name="form_article_edittext_price_hint">Prix</string>
     <string name="form_article_textview_picture">Photo</string>
+    <!-- connexion Server -->
 
-    <!-- Tab -->
+    <string name="adressConnect">http://10.0.2.2:8080/WebProject</string>
+
+    <!-- Tab articles -->
     <string name="tabitem_title_textview_name">NOM</string>
     <string name="tabitem_title_textview_price">PRIX</string>
     <string name="tabitem_textview_name">Nom</string>

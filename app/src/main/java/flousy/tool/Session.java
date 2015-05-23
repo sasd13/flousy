@@ -3,6 +3,7 @@ package flousy.tool;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.diderot.android.flousy.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -19,7 +20,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-//import flousy.beans.Utilisateurs;
+import flousy.beans.Utilisateurs;
 import flousy.content.user.User;
 
 /**
@@ -52,7 +53,7 @@ public class Session {
         //Database query
         //DataManager data = new DataManager(this.context);
         //User user = data.getUser(email);
-      /* flousy.beans.Utilisateurs utilisateur = connectUserHTTPPost(email, password);
+        Utilisateurs utilisateur = connectUserHTTPPost(email, password);
         User user = new User();
         user.setFirstName(utilisateur.getNom());
         user.setPhoneNumber(utilisateur.getNumTel());
@@ -60,13 +61,13 @@ public class Session {
         //End query
 
 
-        if(user == null || user.getPassword().compareTo(password) != 0) {
-            //return false;
+       /* if(user == null || user.getPassword().compareTo(password) != 0) {
+            return false;
         }
-
+*/
         SharedPreferences.Editor editor = getSettings().edit();
-        editor.putString(SESSION_KEY, email);*/
-        return null;
+        editor.putString(SESSION_KEY, email);
+        return user;
 
         // return editor.commit();
     }
@@ -90,11 +91,11 @@ public class Session {
 
         return editor.commit();
     }
-/*
+
     public Utilisateurs connectUserHTTPPost(String email, String password) {
         try {
             CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url = "http://10.0.2.2:8080/WebProject/UserConnect";
+            String url =this.context.getResources().getString(R.string.adressConnect)+"/UserConnect";
 
             HttpPost post = new HttpPost(url);
             // add header
@@ -129,11 +130,11 @@ public class Session {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    return null;
+        return null;
     }
 
 
-*/
+
 
 
 }

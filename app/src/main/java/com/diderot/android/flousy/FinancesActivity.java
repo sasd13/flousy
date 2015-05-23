@@ -31,7 +31,7 @@ public class FinancesActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_finances_name);
 
         //Set ActivityContent
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         this.gridSubMenu = new Grid(this);
         this.gridSubMenu.adapt(gridView);
 
@@ -48,7 +48,6 @@ public class FinancesActivity extends MotherActivity {
                 case 0:
                     gridItem.setText("Dépenses");
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_table));
-                    gridItem.setIntent(new Intent(this, FinancesTabActivity.class));
                     break;
                 case 1:
                     gridItem.setText("Evolutions");
@@ -57,6 +56,8 @@ public class FinancesActivity extends MotherActivity {
                 case 2:
                     gridItem.setText("Répartition");
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_dividing));
+                    gridItem.setIntent( new Intent(this,ChartActivity.class));
+
                     break;
                 case 3:
                     gridItem.setText("Revenus");

@@ -13,6 +13,23 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import flousy.beans.Utilisateurs;
 import flousy.gui.actionbar.ActionBar;
 import flousy.tool.DataManager;
 import flousy.tool.Session;
@@ -103,49 +120,130 @@ public class SignUpActivity extends MotherActivity {
         String password = this.form.passwordEditText.getEditableText().toString().trim();
         String confirmPassword = this.form.confirmPasswordEditText.getEditableText().toString().trim();
         Boolean validCheckBox = this.form.validCheckBox.isChecked();
+        boolean signed = false;
 
         String phoneNumber = "0000";
         Drawable image = null;
+        if(!existUserHTTPPost(email)){
+            Utilisateurs utilisateur = new Utilisateurs();
+            utilisateur.setNom(firstName);
+            utilisateur.setPrenom(lastName);
+            utilisateur.setEmail(email);
+            utilisateur.setPassword(password);
+            utilisateur.setSalaire(1000);
+            if(inscriptionUserHTTPPost(utilisateur)){
+                User  user = new User(firstName, lastName, phoneNumber,email, password, image);
+                boolean valid = FormValidator.validUser(user);
+                if(valid == true && confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
+                    signed = data.signUp(user);
+                }
+                CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
+                final AlertDialog dialog = builder.create();
 
-        User user = new User(firstName, lastName, phoneNumber,email, password, image);
+                final Intent intent = new Intent(this, LogInActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(EXTRA_CLOSE, true);
+                intent.putExtra(EXTRA_USER_FIRSTNAME, user.getFirstName());
 
-        boolean signed = false;
-        boolean valid = FormValidator.validUser(user);
-        if(valid == true && confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
-            signed = data.signUp(user);
-        }
+                this.runnable = new Runnable() {
 
-        if(signed == false) {
+                    @Override
+                    public void run() {
+                        startActivity(intent);
+                        dialog.dismiss();
+                        finish();
+                    }
+                };
+
+                this.handler = new Handler();
+                this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
+
+                dialog.show();
+                session.logIn(user.getEmail(), user.getPassword());
+            }
+
+        }else{
+            signed = false;
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.signup_alertdialog_signup_title_error)
                     .setMessage(R.string.signup_alertdialog_signup_message_error)
                     .setNeutralButton(null);
             AlertDialog dialog = builder.create();
             dialog.show();
-        } else {
-            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
-            final AlertDialog dialog = builder.create();
-
-            final Intent intent = new Intent(this, LogInActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra(LogInActivity.EXTRA_CLOSE, true);
-            intent.putExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME, user.getFirstName());
-
-            this.runnable = new Runnable() {
-
-                @Override
-                public void run() {
-                    startActivity(intent);
-                    dialog.dismiss();
-                    finish();
-                }
-            };
-
-            this.handler = new Handler();
-            this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
-
-            dialog.show();
-            session.logIn(user.getEmail(), user.getPassword());
         }
+
     }
+
+    public Boolean inscriptionUserHTTPPost(Utilisateurs utilisateur) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = "http://10.0.2.2:8080/WebProject/InscriptionUtilisateur";
+
+            HttpPost post = new HttpPost(url);
+            // add heade
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String jsonString = gson.toJson(utilisateur);
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair(utilisateur.JSON_USER_PARAMETER_NAME, jsonString));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Boolean utilisateursInsert = gson.fromJson(donnee.toString(), Boolean.class);
+            return utilisateursInsert;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean existUserHTTPPost(String email) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = "http://10.0.2.2:8080/WebProject/ExistUtilisateur";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair("userEmail", email));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Boolean exitUser = gson.fromJson(donnee.toString(),Boolean.class);
+            //resultat.setText(IMCResult.getResult());
+            return exitUser;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+
 }
