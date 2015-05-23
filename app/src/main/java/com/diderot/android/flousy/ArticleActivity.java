@@ -27,9 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import flousy.beans.Produit;
+import flousy.beans.ProduitUtilisateur;
 import flousy.beans.Utilisateurs;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
+import flousy.tool.Session;
 
 public class ArticleActivity extends MotherActivity {
 
@@ -157,18 +159,31 @@ public class ArticleActivity extends MotherActivity {
         String name = this.formArticle.nameEditText.getEditableText().toString().trim();
         String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
+        Session session = new Session(this);
+        String emailUser=session.getUserEmail();
+        int idUtilisateur=chercherUtilisateur("e@gmail.com");
         Float prix= Float.parseFloat(price);
-        int idProduit= chercherproduitId(categoryName);
-
+        int idCategorie= chercherproduitId(categoryName);
         Produit produit = new Produit();
         produit.setNom(name);
         produit.setPrix(prix);
-        produit.setIdCategorie(idProduit);
+        produit.setIdCategorie(idCategorie);
 
-        if(idProduit!=-1)
+
+        if(idCategorie!=-1)
         {
-            if(ajouterArticle(produit)) {
-                onBackPressed();
+            int idProduit=ajouterArticle(produit);
+            if(idProduit!=-1) {
+                produit.setIdProduit(idProduit);
+                ProduitUtilisateur produitUtilisateur= new ProduitUtilisateur();
+                produitUtilisateur.setIdCategorie(idCategorie);
+                produitUtilisateur.setIdProduit(idProduit);
+                produitUtilisateur.setIdUtilisateur(idUtilisateur);
+
+                if(ajoutProduitUser(produitUtilisateur)){
+                    onBackPressed();
+
+                }
             }
         }
 
@@ -199,7 +214,7 @@ public class ArticleActivity extends MotherActivity {
     public void shareArticle() {
 
     }
-    public Boolean ajouterArticle(Produit produit) {
+    public int ajouterArticle(Produit produit) {
         try {
             CloseableHttpClient httpclient = HttpClients.createDefault();
             String url = "http://10.0.2.2:8080/WebProject/InsertionProduit";
@@ -226,13 +241,49 @@ public class ArticleActivity extends MotherActivity {
                 donnee.append(line);
             }
 
-            Boolean ajoutProduit = gson.fromJson(donnee.toString(), Boolean.class);
+            int ajoutProduit = gson.fromJson(donnee.toString(), int.class);
             return ajoutProduit;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    public Boolean ajoutProduitUser(ProduitUtilisateur produitUtilisateur) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = "http://10.0.2.2:8080/WebProject/AjoutProduitUtilisateur";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String jsonString = gson.toJson(produitUtilisateur);
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair(ProduitUtilisateur.JSON_PRODUIT_USER_NAME, jsonString));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Boolean produitUt = gson.fromJson(donnee.toString(),Boolean.class);
+            //resultat.setText(IMCResult.getResult());
+            return produitUt;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
+
 
     public int chercherproduitId(String nom) {
         try {
@@ -269,6 +320,41 @@ public class ArticleActivity extends MotherActivity {
         return -1;
     }
 
+
+    public int chercherUtilisateur(String email) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = "http://10.0.2.2:8080/WebProject/ChercherUtilisateurProduit";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair("emailUtilisateur", email));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            int utilisateurtId = gson.fromJson(donnee.toString(),int.class);
+            //resultat.setText(IMCResult.getResult());
+            return utilisateurtId;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 
 
 }

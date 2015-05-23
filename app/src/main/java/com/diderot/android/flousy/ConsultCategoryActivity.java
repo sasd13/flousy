@@ -87,15 +87,15 @@ public class ConsultCategoryActivity extends MotherActivity {
             switch(i) {
                 case 0:
                     nameArticle = "Pizza";
-                    priceArticle = "9.90 €";
+                    priceArticle = "9.90 ";
                     break;
                 case 1:
                     nameArticle = "Montre";
-                    priceArticle = "129 €";
+                    priceArticle = "129 ";
                     break;
                 case 2:
                     nameArticle = "MacBook Pro";
-                    priceArticle = "1499 €";
+                    priceArticle = "1499 ";
                     break;
                 default:
                     nameArticle = "Nom";
