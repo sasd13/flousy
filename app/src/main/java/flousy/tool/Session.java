@@ -67,9 +67,9 @@ public class Session {
 */
         SharedPreferences.Editor editor = getSettings().edit();
         editor.putString(SESSION_KEY, email);
+        editor.commit();
         return user;
 
-        // return editor.commit();
     }
 
     public boolean logOut() {

@@ -161,7 +161,7 @@ public class ArticleActivity extends MotherActivity {
 
         Session session = new Session(this);
         String emailUser=session.getUserEmail();
-        int idUtilisateur=chercherUtilisateur("e@gmail.com");
+        int idUtilisateur=chercherUtilisateur(emailUser);
         Float prix= Float.parseFloat(price);
         int idCategorie= chercherproduitId(categoryName);
         Produit produit = new Produit();

@@ -53,9 +53,11 @@ public class SignUpActivity extends MotherActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-       StrictMode.setThreadPolicy(policy);
+        StrictMode.setThreadPolicy(policy);
+
         //Set ActivityContent
         setContentView(R.layout.form_user_layout);
 
@@ -99,13 +101,7 @@ public class SignUpActivity extends MotherActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  new RetrieveFeedTask().execute(urlToRssFeed);
 
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
         super.onCreateOptionsMenu(menu);
         return true;
     }
