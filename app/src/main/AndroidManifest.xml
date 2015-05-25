@@ -3,7 +3,7 @@
     package="com.diderot.android.flousy"
     android:installLocation="auto">
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-sdk android:minSdkVersion="9" />
 
     <application
         android:allowBackup="true"
