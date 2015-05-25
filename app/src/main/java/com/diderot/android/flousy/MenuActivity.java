@@ -20,10 +20,6 @@ import flousy.tool.Session;
 
 public class MenuActivity extends MotherActivity {
 
-    public static final String EXTRA_NEW_USER_FIRSTNAME = "NEW_USER_FIRST_NAME";
-    public static final String EXTRA_WELCOME = "WELCOME";
-    public static final String EXTRA_EXIT = "EXIT";
-
     private static int LOGOUT_TIME_OUT = 2000;
     private Handler handler;
     private Runnable runnable;
@@ -96,7 +92,7 @@ public class MenuActivity extends MotherActivity {
         if (getIntent().hasExtra(EXTRA_WELCOME) && getIntent().getBooleanExtra(EXTRA_WELCOME, false) == true) {
             getIntent().removeExtra(EXTRA_WELCOME);
 
-            CharSequence firstName = getIntent().getCharSequenceExtra(EXTRA_NEW_USER_FIRSTNAME);
+            CharSequence firstName = getIntent().getCharSequenceExtra(EXTRA_USER_FIRSTNAME);
 
             CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
             builder.setTitle(R.string.menu_alertdialog_welcome_title)

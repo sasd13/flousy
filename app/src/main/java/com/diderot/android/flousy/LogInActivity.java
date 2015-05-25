@@ -54,12 +54,10 @@ public class LogInActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-       // if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
-          //  StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-           // StrictMode.setThreadPolicy(policy);
-       // }
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         setContentView(R.layout.activity_login_layout);
 
@@ -135,11 +133,11 @@ public class LogInActivity extends MotherActivity {
         if(getIntent().hasExtra(EXTRA_CLOSE) && getIntent().getBooleanExtra(EXTRA_CLOSE, false) == true) {
             getIntent().removeExtra(EXTRA_CLOSE);
 
-            if(getIntent().hasExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME)) {
+            if(getIntent().hasExtra(MenuActivity.EXTRA_USER_FIRSTNAME)) {
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(MenuActivity.EXTRA_WELCOME, true);
-                intent.putExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME, getIntent().getCharSequenceExtra(MenuActivity.EXTRA_NEW_USER_FIRSTNAME));
+                intent.putExtra(MenuActivity.EXTRA_USER_FIRSTNAME, getIntent().getCharSequenceExtra(MenuActivity.EXTRA_USER_FIRSTNAME));
 
                 startActivity(intent);
             }

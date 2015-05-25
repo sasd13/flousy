@@ -31,6 +31,8 @@ import flousy.tool.Session;
 
 public class MotherActivity extends Activity implements IColorCustomizer, ITextCustomizer, IDimensionCustomizer {
 
+    public static final String EXTRA_WELCOME = "WELCOME";
+    public static final String EXTRA_EXIT = "EXIT";
     public static final String EXTRA_CLOSE = "CLOSE";
     public static final String EXTRA_ACTIVITY_COLOR = "ACTIVITY_COLOR";
     public static final String EXTRA_USER_FIRSTNAME = "USER_FIRSTNAME";
