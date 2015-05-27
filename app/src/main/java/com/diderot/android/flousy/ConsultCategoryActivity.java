@@ -105,9 +105,6 @@ public class ConsultCategoryActivity extends MotherActivity {
         Session session = new Session(this);
         String emailUser = session.getUserEmail();
         int idUser = webService.chercherUtilisateur(emailUser);
-
-
-        // =  new ArrayList<>();
         ArrayList<Produit> listProduit = webService.listProduit(idUser);
         tabItem = new TabItem();
 
@@ -130,12 +127,5 @@ public class ConsultCategoryActivity extends MotherActivity {
         }
 
     }
-
-
-
-
-
-
-
 
 }

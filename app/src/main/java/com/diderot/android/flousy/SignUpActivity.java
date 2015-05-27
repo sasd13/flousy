@@ -119,7 +119,7 @@ public class SignUpActivity extends MotherActivity {
     public void signUp() {
         Session session = new Session(this);
         DataManager data = new DataManager(this);
-
+        WebService webService = new WebService(this);
         String firstName = this.form.firstNameEditText.getEditableText().toString().trim();
         String lastName = this.form.lastNameEditText.getEditableText().toString().trim();
         String email = this.form.emailEditText.getEditableText().toString().trim();
@@ -130,14 +130,14 @@ public class SignUpActivity extends MotherActivity {
 
         String phoneNumber = "0000";
         Drawable image = null;
-        if(!existUserHTTPPost(email)){
+        if(!webService.existUserHTTPPost(email)){
             Utilisateurs utilisateur = new Utilisateurs();
             utilisateur.setNom(firstName);
             utilisateur.setPrenom(lastName);
             utilisateur.setEmail(email);
             utilisateur.setPassword(password);
             utilisateur.setSalaire(1000);
-            if(inscriptionUserHTTPPost(utilisateur)){
+            if(webService.inscriptionUserHTTPPost(utilisateur)){
                 User  user = new User(firstName, lastName, phoneNumber,email, password, image);
                 boolean valid = FormValidator.validUser(user);
                 if(valid == true && confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
@@ -180,75 +180,7 @@ public class SignUpActivity extends MotherActivity {
 
     }
 
-    public Boolean inscriptionUserHTTPPost(Utilisateurs utilisateur) {
-        try {
-            CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url = "http://10.0.2.2:8080/WebProject/InscriptionUtilisateur";
 
-            HttpPost post = new HttpPost(url);
-            // add heade
-
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String jsonString = gson.toJson(utilisateur);
-
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair(utilisateur.JSON_USER_PARAMETER_NAME, jsonString));
-
-            post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-            CloseableHttpResponse response = httpclient.execute(post);
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-
-            StringBuffer donnee = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                donnee.append(line);
-            }
-
-            Boolean utilisateursInsert = gson.fromJson(donnee.toString(), Boolean.class);
-            return utilisateursInsert;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean existUserHTTPPost(String email) {
-        try {
-            CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url = "http://10.0.2.2:8080/WebProject/ExistUtilisateur";
-
-            HttpPost post = new HttpPost(url);
-            // add header
-
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair("userEmail", email));
-
-            post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-            CloseableHttpResponse response = httpclient.execute(post);
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-
-            StringBuffer donnee = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                donnee.append(line);
-            }
-
-            Boolean exitUser = gson.fromJson(donnee.toString(),Boolean.class);
-            //resultat.setText(IMCResult.getResult());
-            return exitUser;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
 
 
