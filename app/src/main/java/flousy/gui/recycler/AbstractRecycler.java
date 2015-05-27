@@ -39,30 +39,18 @@ public abstract class AbstractRecycler {
     }
 
     public AbstractRecyclerItem getItem(int index) {
-        if(index < 0 || index > (this.listAbstractRecyclerItem.size() - 1)) {
-            return null;
-        }
-
         return this.listAbstractRecyclerItem.get(index);
     }
 
     public boolean addItem(AbstractRecyclerItem abstractRecyclerItem) {
-        if(this.listAbstractRecyclerItem.contains(listAbstractRecyclerItem) == true) {
-            return false;
-        }
-
         return this.listAbstractRecyclerItem.add(abstractRecyclerItem);
     }
 
     public AbstractRecyclerItem removeItem(int index) {
-        if(index < 0 || index > (this.listAbstractRecyclerItem.size() - 1)) {
-            return null;
-        }
-
         return this.listAbstractRecyclerItem.remove(index);
     }
 
-    public int count() {
+    public int size() {
         return this.listAbstractRecyclerItem.size();
     }
 

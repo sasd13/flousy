@@ -24,13 +24,15 @@ public abstract class AbstractRecyclerItem {
         this.layoutResource = layoutResource;
     }
 
-    public View getView() {
+    protected View getView() {
         return this.view;
     }
 
-    protected void setView(View view) {
-        this.view = view;
-    }
+    public View inflate(ViewStub viewStub) {
+        viewStub.setLayoutResource(this.layoutResource);
 
-    public abstract View inflate(ViewStub viewStub);
+        this.view = viewStub.inflate();
+
+        return this.view;
+    }
 }

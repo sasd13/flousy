@@ -30,20 +30,16 @@ public class DrawerItem extends AbstractRecyclerItem {
     public void setText(CharSequence text) {
         this.text = text;
 
-        if(this.textView != null) {
+        try {
             this.textView.setText(this.text);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public View inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(getLayoutResource());
-        View view = viewStub.inflate();
-        if (view == null) {
-            return null;
-        }
-
-        setView(view);
+        View view = super.inflate(viewStub);
 
         this.textView = (TextView) view.findViewById(R.id.draweritem_textview);
         this.textView.setText(this.text);

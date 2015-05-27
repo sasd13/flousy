@@ -167,13 +167,7 @@ public class GridItem extends AbstractRecyclerItem {
 
     @Override
     public View inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(getLayoutResource());
-        View view = viewStub.inflate();
-        if (view == null) {
-            return null;
-        }
-
-        setView(view);
+        View view = super.inflate(viewStub);
 
         if(this.color == 0) {
             this.color = view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
@@ -198,6 +192,7 @@ public class GridItem extends AbstractRecyclerItem {
                 }
             }
         });
+
         view.setOnTouchListener(new ColorOnTouchListener(this.color));
 
         return view;

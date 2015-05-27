@@ -45,8 +45,8 @@ public class SignUpActivity extends MotherActivity {
     private Runnable runnable;
 
     private class ViewHolder {
-        public EditText firstNameEditText, lastNameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
-        public CheckBox validCheckBox;
+        public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
+        public CheckBox checkboxValidation;
     }
 
     private ViewHolder form;
@@ -84,15 +84,15 @@ public class SignUpActivity extends MotherActivity {
         //Set User form
         this.form = new ViewHolder();
 
-        this.form.firstNameEditText = (EditText) findViewById(R.id.form_user_edittext_firstname);
-        this.form.lastNameEditText = (EditText) findViewById(R.id.form_user_edittext_lastname);
-        this.form.emailEditText = (EditText) findViewById(R.id.form_user_edittext_email);
-        this.form.passwordEditText = (EditText) findViewById(R.id.form_user_edittext_password);
-        this.form.confirmPasswordEditText = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
+        this.form.editTextFirstName = (EditText) findViewById(R.id.form_user_edittext_firstname);
+        this.form.editTextLastName = (EditText) findViewById(R.id.form_user_edittext_lastname);
+        this.form.editTextEmail = (EditText) findViewById(R.id.form_user_edittext_email);
+        this.form.editTextPassword = (EditText) findViewById(R.id.form_user_edittext_password);
+        this.form.editTextConfirmPassword = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
 
-        this.form.validCheckBox = (CheckBox) findViewById(R.id.form_user_checkbox);
-        TextView validCheckBoxTextView = (TextView) findViewById(R.id.form_user_textview_validcheckbox);
-        validCheckBoxTextView.setText(R.string.signup_form_user_textview_validcheckbox_validation);
+        this.form.checkboxValidation = (CheckBox) findViewById(R.id.form_user_checkbox);
+        TextView checkboxValidationTextView = (TextView) findViewById(R.id.form_user_textview_validcheckbox);
+        checkboxValidationTextView.setText(R.string.signup_form_user_textview_validcheckbox_validation);
 
         //Customize activity
         customizeColor();
@@ -120,12 +120,12 @@ public class SignUpActivity extends MotherActivity {
         Session session = new Session(this);
         DataManager data = new DataManager(this);
 
-        String firstName = this.form.firstNameEditText.getEditableText().toString().trim();
-        String lastName = this.form.lastNameEditText.getEditableText().toString().trim();
-        String email = this.form.emailEditText.getEditableText().toString().trim();
-        String password = this.form.passwordEditText.getEditableText().toString().trim();
-        String confirmPassword = this.form.confirmPasswordEditText.getEditableText().toString().trim();
-        Boolean validCheckBox = this.form.validCheckBox.isChecked();
+        String firstName = this.form.editTextFirstName.getEditableText().toString().trim();
+        String lastName = this.form.editTextLastName.getEditableText().toString().trim();
+        String email = this.form.editTextEmail.getEditableText().toString().trim();
+        String password = this.form.editTextPassword.getEditableText().toString().trim();
+        String confirmPassword = this.form.editTextConfirmPassword.getEditableText().toString().trim();
+        Boolean checkboxValidation = this.form.checkboxValidation.isChecked();
         boolean signed = false;
 
         String phoneNumber = "0000";
@@ -140,7 +140,7 @@ public class SignUpActivity extends MotherActivity {
             if(inscriptionUserHTTPPost(utilisateur)){
                 User  user = new User(firstName, lastName, phoneNumber,email, password, image);
                 boolean valid = FormValidator.validUser(user);
-                if(valid == true && confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
+                if(valid == true && confirmPassword.compareTo(password) == 0 && checkboxValidation == true) {
                     signed = data.signUp(user);
                 }
                 CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);

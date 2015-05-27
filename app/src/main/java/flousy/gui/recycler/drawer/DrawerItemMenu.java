@@ -36,9 +36,6 @@ public class DrawerItemMenu extends DrawerItemBase {
     @Override
     public View inflate(ViewStub viewStub) {
         View view = super.inflate(viewStub);
-        if(view == null) {
-            return null;
-        }
 
         this.colorView = view.findViewById(R.id.draweritem_menu_colorview);
         if(this.color == 0) {

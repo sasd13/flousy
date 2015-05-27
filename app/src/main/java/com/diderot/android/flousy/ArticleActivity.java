@@ -36,7 +36,7 @@ import flousy.tool.Session;
 public class ArticleActivity extends MotherActivity {
 
     private class ViewHolder {
-        public EditText nameEditText, priceEditText;
+        public EditText editTextName, editTextPrice;
     }
 
     private ViewHolder formArticle;
@@ -61,8 +61,8 @@ public class ArticleActivity extends MotherActivity {
         //Set ActivityContent
         this.formArticle = new ViewHolder();
 
-        this.formArticle.nameEditText = (EditText) findViewById(R.id.form_article_edittext_name);
-        this.formArticle.priceEditText = (EditText) findViewById(R.id.form_article_edittext_price);
+        this.formArticle.editTextName = (EditText) findViewById(R.id.form_article_edittext_name);
+        this.formArticle.editTextPrice = (EditText) findViewById(R.id.form_article_edittext_price);
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
              categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
@@ -110,8 +110,8 @@ public class ArticleActivity extends MotherActivity {
                 }
             };
 
-            this.formArticle.nameEditText.setOnEditorActionListener(listener);
-            this.formArticle.priceEditText.setOnEditorActionListener(listener);
+            this.formArticle.editTextName.setOnEditorActionListener(listener);
+            this.formArticle.editTextPrice.setOnEditorActionListener(listener);
 
             loadArticle();
         } else {
@@ -125,8 +125,8 @@ public class ArticleActivity extends MotherActivity {
             buttonValid.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (formArticle.nameEditText.getText().toString().trim().length() > 0
-                            && formArticle.priceEditText.getText().toString().trim().length() > 0) {
+                    if (formArticle.editTextName.getText().toString().trim().length() > 0
+                            && formArticle.editTextPrice.getText().toString().trim().length() > 0) {
                         addArticle();
                     }
                 }
@@ -156,8 +156,8 @@ public class ArticleActivity extends MotherActivity {
     }
 
     public void addArticle() {
-        String name = this.formArticle.nameEditText.getEditableText().toString().trim();
-        String price = this.formArticle.priceEditText.getEditableText().toString().trim();
+        String name = this.formArticle.editTextName.getEditableText().toString().trim();
+        String price = this.formArticle.editTextPrice.getEditableText().toString().trim();
 
         Session session = new Session(this);
         String emailUser=session.getUserEmail();
@@ -196,13 +196,13 @@ public class ArticleActivity extends MotherActivity {
 
         //TODO
 
-        this.formArticle.nameEditText.setText(name, TextView.BufferType.EDITABLE);
-        this.formArticle.priceEditText.setText(price, TextView.BufferType.EDITABLE);
+        this.formArticle.editTextName.setText(name, TextView.BufferType.EDITABLE);
+        this.formArticle.editTextPrice.setText(price, TextView.BufferType.EDITABLE);
     }
 
     public void updateArticle() {
-        String name = this.formArticle.nameEditText.getEditableText().toString().trim();
-        String price = this.formArticle.priceEditText.getEditableText().toString().trim();
+        String name = this.formArticle.editTextName.getEditableText().toString().trim();
+        String price = this.formArticle.editTextPrice.getEditableText().toString().trim();
 
         //TODO
     }
