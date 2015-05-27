@@ -120,8 +120,9 @@ public class ConsultCategoryActivity extends MotherActivity {
                       priceArticle=  Float.toString(prix);
             tabItem.setNameText(nameArticle);
             tabItem.setPriceText(priceArticle);
-           intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
+            intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
             intent.putExtra(EXTRA_ARTICLE_NAME, nameArticle);
+            intent.putExtra(EXTRA_ARTICLE_ID, listProduit.get(i).getIdProduit());
             tabItem.setIntent(intent);
             }
         this.tabArticles.addItem(tabItem);

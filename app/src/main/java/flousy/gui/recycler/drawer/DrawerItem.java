@@ -30,10 +30,8 @@ public class DrawerItem extends AbstractRecyclerItem {
     public void setText(CharSequence text) {
         this.text = text;
 
-        try {
+        if (this.textView != null) {
             this.textView.setText(this.text);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
         }
     }
 

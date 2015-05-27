@@ -204,6 +204,7 @@ public class ArticleActivity extends MotherActivity {
         String price = "Price";
 
         //TODO
+        //articleId
 
         this.formArticle.nameEditText.setText(name, TextView.BufferType.EDITABLE);
         this.formArticle.priceEditText.setText(price, TextView.BufferType.EDITABLE);
@@ -214,13 +215,17 @@ public class ArticleActivity extends MotherActivity {
         String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
         //TODO
+        //articleId
     }
 
     public void deleteArticle() {
-
+        //TODO
+        //articleId
     }
 
     public void shareArticle() {
+        //TODO
+        //articleId
 
     }
     public int ajouterArticle(Produit produit) {
