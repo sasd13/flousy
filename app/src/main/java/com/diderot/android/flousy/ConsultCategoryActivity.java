@@ -7,10 +7,30 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import flousy.beans.Produit;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.recycler.tab.Tab;
 import flousy.gui.recycler.tab.TabItem;
 import flousy.gui.recycler.tab.TabItemTitle;
+import flousy.tool.Session;
 
 public class ConsultCategoryActivity extends MotherActivity {
 
@@ -78,41 +98,41 @@ public class ConsultCategoryActivity extends MotherActivity {
         TabItem tabItem;
 
         Resources resources = getResources();
-
+        WebService webService = new WebService(this);
         String nameArticle;
         String priceArticle;
         Intent intent;
+        Session session = new Session(this);
+        String emailUser =session.getUserEmail();
+        int idUser = webService.chercherUtilisateur(emailUser);
 
-        for(int i=0; i<3; i++) {
-            switch(i) {
-                case 0:
-                    nameArticle = "Pizza";
-                    priceArticle = "9.90 ";
-                    break;
-                case 1:
-                    nameArticle = "Montre";
-                    priceArticle = "129 ";
-                    break;
-                case 2:
-                    nameArticle = "MacBook Pro";
-                    priceArticle = "1499 ";
-                    break;
-                default:
-                    nameArticle = "Nom";
-                    priceArticle = "Prix";
-                    break;
-            }
 
-            tabItem = new TabItem();
-            tabItem.setNameText(nameArticle);
-            tabItem.setPriceText(priceArticle);
+         // =  new ArrayList<>();
+        ArrayList<Produit>   listProduit = webService.listProduit(idUser);
+        tabItem = new TabItem();
+
+
+        for(int i=0; i<listProduit.size(); i++) {
 
             intent = new Intent(this, ArticleActivity.class);
-            intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
+                    nameArticle =  listProduit.get(i).getNom();
+                    Float prix =  listProduit.get(i).getPrix();
+                      priceArticle=  Float.toString(prix);
+            tabItem.setNameText(nameArticle);
+            tabItem.setPriceText(priceArticle);
+           intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
             intent.putExtra(EXTRA_ARTICLE_NAME, nameArticle);
             tabItem.setIntent(intent);
+            }
+        this.tabArticles.addItem(tabItem);
 
-            this.tabArticles.addItem(tabItem);
         }
-    }
+
+
+
+
+
+
+
+
 }
