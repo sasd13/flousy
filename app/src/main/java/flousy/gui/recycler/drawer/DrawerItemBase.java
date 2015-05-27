@@ -38,9 +38,6 @@ public class DrawerItemBase extends DrawerItem {
     @Override
     public View inflate(ViewStub viewStub) {
         View view = super.inflate(viewStub);
-        if(view == null) {
-            return null;
-        }
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,8 +21,8 @@ public class SettingsActivity extends MotherActivity {
     public static final int ACTIVITY_COLOR = R.color.customBrown;
 
     private class ViewHolder {
-        public EditText firstNameEditText, lastNameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
-        public CheckBox connectCheckBox;
+        public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
+        public CheckBox checkboxStayConnected;
     }
 
     private ViewHolder formUser;
@@ -44,10 +44,10 @@ public class SettingsActivity extends MotherActivity {
         //Set ActivityContent
         this.formUser = new ViewHolder();
 
-        this.formUser.firstNameEditText = (EditText) findViewById(R.id.form_user_edittext_firstname);
-        this.formUser.lastNameEditText = (EditText) findViewById(R.id.form_user_edittext_lastname);
-        this.formUser.emailEditText = (EditText) findViewById(R.id.form_user_edittext_email);
-        this.formUser.passwordEditText = (EditText) findViewById(R.id.form_user_edittext_password);
+        this.formUser.editTextFirstName = (EditText) findViewById(R.id.form_user_edittext_firstname);
+        this.formUser.editTextLastName = (EditText) findViewById(R.id.form_user_edittext_lastname);
+        this.formUser.editTextEmail = (EditText) findViewById(R.id.form_user_edittext_email);
+        this.formUser.editTextPassword = (EditText) findViewById(R.id.form_user_edittext_password);
 
         TextView.OnEditorActionListener listener = new TextView.OnEditorActionListener() {
             @Override
@@ -61,11 +61,11 @@ public class SettingsActivity extends MotherActivity {
             }
         };
 
-        this.formUser.firstNameEditText.setOnEditorActionListener(listener);
-        this.formUser.lastNameEditText.setOnEditorActionListener(listener);
-        this.formUser.emailEditText.setOnEditorActionListener(listener);
+        this.formUser.editTextFirstName.setOnEditorActionListener(listener);
+        this.formUser.editTextLastName.setOnEditorActionListener(listener);
+        this.formUser.editTextEmail.setOnEditorActionListener(listener);
 
-        this.formUser.connectCheckBox = (CheckBox) findViewById(R.id.form_user_checkbox);
+        this.formUser.checkboxStayConnected = (CheckBox) findViewById(R.id.form_user_checkbox);
         TextView validCheckBoxTextView = (TextView) findViewById(R.id.form_user_textview_validcheckbox);
         validCheckBoxTextView.setText(R.string.settings_form_user_textview_validcheckbox_connect);
 
@@ -105,22 +105,22 @@ public class SettingsActivity extends MotherActivity {
        // User user = data.getUser(session.getUserEmail());
         boolean stayConnect = true;
 
-       // this.form.firstNameEditText.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
-        //this.form.lastNameEditText.setText(user.getLastName(), TextView.BufferType.EDITABLE);
-        //this.form.emailEditText.setText(user.getEmail(), TextView.BufferType.EDITABLE);
-        this.formUser.passwordEditText.setText("", TextView.BufferType.EDITABLE);
-       this.formUser.connectCheckBox.setChecked(stayConnect);
+       // this.form.editTextFirstName.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
+        //this.form.editTextLastName.setText(user.getLastName(), TextView.BufferType.EDITABLE);
+        //this.form.editTextEmail.setText(user.getEmail(), TextView.BufferType.EDITABLE);
+        this.formUser.editTextPassword.setText("", TextView.BufferType.EDITABLE);
+       this.formUser.checkboxStayConnected.setChecked(stayConnect);
     }
 
     public void updateUser() {
         Session session = new Session(this);
       //  DataManager data = new DataManager(this);
 
-        String firstName = this.formUser.firstNameEditText.getEditableText().toString();
-        String lastName = this.formUser.lastNameEditText.getEditableText().toString();
-        String email = this.formUser.emailEditText.getEditableText().toString();
+        String firstName = this.formUser.editTextFirstName.getEditableText().toString();
+        String lastName = this.formUser.editTextLastName.getEditableText().toString();
+        String email = this.formUser.editTextEmail.getEditableText().toString();
         String password = "password";
-        Boolean connectCheckBox = this.formUser.connectCheckBox.isChecked();
+        Boolean checkboxStayConnected = this.formUser.checkboxStayConnected.isChecked();
 
         String phoneNumber = "0000";
         Drawable image = null;

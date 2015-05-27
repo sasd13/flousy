@@ -44,7 +44,7 @@ public class LogInActivity extends MotherActivity {
     private Runnable runnable;
 
     private class ViewHolder {
-        public EditText loginEditText, passwordEditText;
+        public EditText editTextLogin, editTextPassword;
         public Button connectButton;
     }
 
@@ -70,16 +70,16 @@ public class LogInActivity extends MotherActivity {
         //Set ActivityContent
         this.formUser = new ViewHolder();
 
-        this.formUser.loginEditText = (EditText) findViewById(R.id.login_edittext_email);
-        this.formUser.passwordEditText = (EditText) findViewById(R.id.login_edittext_password);
+        this.formUser.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
+        this.formUser.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
 
         this.formUser.connectButton = (Button) findViewById(R.id.login_button_connect);
         this.formUser.connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (formUser.loginEditText.getText().toString().trim().length() > 0
-                        && formUser.passwordEditText.getText().toString().trim().length() > 0) {
+                if (formUser.editTextLogin.getText().toString().trim().length() > 0
+                        && formUser.editTextPassword.getText().toString().trim().length() > 0) {
                     startConnection();
                 }
             }
@@ -175,8 +175,8 @@ public class LogInActivity extends MotherActivity {
     public void startConnection() {
         Session session = new Session(this);
 
-        String login = this.formUser.loginEditText.getEditableText().toString();
-        String password = this.formUser.passwordEditText.getEditableText().toString();
+        String login = this.formUser.editTextLogin.getEditableText().toString();
+        String password = this.formUser.editTextPassword.getEditableText().toString();
 
         boolean connected = false;
         User u=null;
