@@ -19,11 +19,6 @@ public class TabItemTitle extends AbstractRecyclerItem {
 
     @Override
     public View inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(getLayoutResource());
-        View view = viewStub.inflate();
-
-        setView(view);
-
-        return view;
+        return super.inflate(viewStub);
     }
 }

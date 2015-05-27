@@ -64,10 +64,7 @@ public class TabItem extends AbstractRecyclerItem {
 
     @Override
     public View inflate(ViewStub viewStub) {
-        viewStub.setLayoutResource(getLayoutResource());
-        View view = viewStub.inflate();
-
-        setView(view);
+        View view = super.inflate(viewStub);
 
         this.nameTextView = (TextView) view.findViewById(R.id.tabitem_textview_name);
         this.nameTextView.setText(this.nameText);
