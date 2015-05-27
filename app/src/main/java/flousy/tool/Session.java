@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.diderot.android.flousy.R;
+import com.diderot.android.flousy.WebService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -50,10 +51,9 @@ public class Session {
     }
 
     public User logIn(String email, String password) {
-        //Database query
-        //DataManager data = new DataManager(this.context);
-        //User user = data.getUser(email);
-        Utilisateurs utilisateur = connectUserHTTPPost(email, password);
+
+        WebService webService = new WebService(context);
+        Utilisateurs utilisateur = webService.connectUserHTTPPost(email, password);
         User user = new User();
         user.setFirstName(utilisateur.getNom());
         user.setPhoneNumber(utilisateur.getNumTel());
@@ -91,49 +91,6 @@ public class Session {
 
         return editor.commit();
     }
-
-    public Utilisateurs connectUserHTTPPost(String email, String password) {
-        try {
-            CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url =this.context.getResources().getString(R.string.adressConnect)+"/UserConnect";
-
-            HttpPost post = new HttpPost(url);
-            // add header
-
-            Utilisateurs utilisateur = new Utilisateurs();
-            utilisateur.setEmail(email);
-            utilisateur.setPassword(password);
-
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String jsonString = gson.toJson(utilisateur);
-
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair(utilisateur.JSON_USER_PARAMETER_NAME, jsonString));
-
-            post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-            CloseableHttpResponse response = httpclient.execute(post);
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-
-            StringBuffer donnee = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                donnee.append(line);
-            }
-
-            Utilisateurs utilisateursResult = gson.fromJson(donnee.toString(), Utilisateurs.class);
-            //resultat.setText(IMCResult.getResult());
-
-            return utilisateursResult;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
 
 
 
