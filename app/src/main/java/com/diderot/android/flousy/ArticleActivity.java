@@ -40,7 +40,8 @@ public class ArticleActivity extends MotherActivity {
     }
 
     private ViewHolder formArticle;
-    String categoryName;
+    private String categoryId, categoryName, articleId, articleName;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,16 +65,24 @@ public class ArticleActivity extends MotherActivity {
         this.formArticle.editTextName = (EditText) findViewById(R.id.form_article_edittext_name);
         this.formArticle.editTextPrice = (EditText) findViewById(R.id.form_article_edittext_price);
 
+        if(getIntent().hasExtra(EXTRA_CATEGORY_ID)) {
+            categoryId = getIntent().getStringExtra(EXTRA_CATEGORY_ID);
+        }
+
         if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
-             categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
+            categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
 
             actionBar.getTitleView().setText(categoryName);
         }
 
-        if(getIntent().hasExtra(EXTRA_ARTICLE_NAME)) {
-            String nameArticle = getIntent().getStringExtra(EXTRA_ARTICLE_NAME);
+        if(getIntent().hasExtra(EXTRA_ARTICLE_ID)) {
+            articleId = getIntent().getStringExtra(EXTRA_ARTICLE_ID);
+        }
 
-            actionBar.getSubTitleView().setText(nameArticle);
+        if(getIntent().hasExtra(EXTRA_ARTICLE_NAME)) {
+            articleName = getIntent().getStringExtra(EXTRA_ARTICLE_NAME);
+
+            actionBar.getSubTitleView().setText(articleName);
             actionBar.setSubTitleViewEnabled(true);
 
             ImageButton buttonShare = actionBar.getActionFirstButton();
@@ -163,7 +172,7 @@ public class ArticleActivity extends MotherActivity {
         String emailUser=session.getUserEmail();
         int idUtilisateur=chercherUtilisateur(emailUser);
         Float prix= Float.parseFloat(price);
-        int idCategorie= chercherproduitId(categoryName);
+        int idCategorie = chercherproduitId(categoryId);
         Produit produit = new Produit();
         produit.setNom(name);
         produit.setPrix(prix);

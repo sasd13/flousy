@@ -36,7 +36,9 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
     public static final String EXTRA_CLOSE = "CLOSE";
     public static final String EXTRA_ACTIVITY_COLOR = "ACTIVITY_COLOR";
     public static final String EXTRA_USER_FIRSTNAME = "USER_FIRSTNAME";
+    public static final String EXTRA_CATEGORY_ID = "CATEGORY_ID";
     public static final String EXTRA_CATEGORY_NAME = "CATEGORY_NAME";
+    public static final String EXTRA_ARTICLE_ID = "ARTICLE_ID";
     public static final String EXTRA_ARTICLE_NAME = "ARTICLE_NAME";
 
     public static final int APP_COLOR = R.color.customGreenApp;
