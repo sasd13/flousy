@@ -163,17 +163,18 @@ public class ArticleActivity extends MotherActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         return super.onOptionsItemSelected(item);
     }
-
+    Session session = new Session(this);
+    WebService webService = new WebService(this);
     public void addArticle() {
         String name = this.formArticle.nameEditText.getEditableText().toString().trim();
         String price = this.formArticle.priceEditText.getEditableText().toString().trim();
-        WebService webService = new WebService(this);
 
-        Session session = new Session(this);
+
+
         String emailUser=session.getUserEmail();
         int idUtilisateur=webService.chercherUtilisateur(emailUser);
         Float prix= Float.parseFloat(price);
-        int idCategorie = webService.chercherproduitId(categoryId);
+        int idCategorie = webService.chercherproduitId(categoryName);
         Produit produit = new Produit();
         produit.setNom(name);
         produit.setPrix(prix);
@@ -201,11 +202,15 @@ public class ArticleActivity extends MotherActivity {
     }
 
     public void loadArticle() {
-        String name = "Name ";
-        String price = "Price";
-
-        //TODO
-        //articleId
+        String price = "price";
+        String name = "name";
+      
+        //String id = articleId;
+        //int idArticle = Integer.parseInt(articleId);
+        Produit p =webService.produitByid(32);
+         float prix=p.getPrix();
+         name= p.getNom();
+         price =Float.toString(34);
 
         this.formArticle.nameEditText.setText(name, TextView.BufferType.EDITABLE);
         this.formArticle.priceEditText.setText(price, TextView.BufferType.EDITABLE);
@@ -220,8 +225,10 @@ public class ArticleActivity extends MotherActivity {
     }
 
     public void deleteArticle() {
-        //TODO
-        //articleId
+        int idArticle = Integer.parseInt(articleId);
+        if(webService.supprimerProduit(idArticle));
+
+
     }
 
     public void shareArticle() {

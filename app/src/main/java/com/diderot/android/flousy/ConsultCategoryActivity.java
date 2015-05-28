@@ -109,7 +109,7 @@ public class ConsultCategoryActivity extends MotherActivity {
         tabItem = new TabItem();
 
 
-        for (int i = 0; i < listProduit.size(); i++) {
+       for (int i = 0; i < listProduit.size(); i++) {
 
             intent = new Intent(this, ArticleActivity.class);
             nameArticle = listProduit.get(i).getNom();
