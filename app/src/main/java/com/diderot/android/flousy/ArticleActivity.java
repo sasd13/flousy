@@ -49,10 +49,10 @@ public class ArticleActivity extends MotherActivity {
         setContentView(R.layout.form_article_layout);
 
         if(getIntent().hasExtra(EXTRA_ACTIVITY_COLOR)) {
-            int activityColorId = getIntent().getIntExtra(EXTRA_ACTIVITY_COLOR, APP_COLOR);
+            int activityColor = getIntent().getIntExtra(EXTRA_ACTIVITY_COLOR, APP_COLOR);
 
             //Set ActivityColor immediately after content view
-            setActivityColor(activityColorId);
+            setActivityColor(activityColor);
         }
 
         //Set CustomActionBar
@@ -221,6 +221,8 @@ public class ArticleActivity extends MotherActivity {
     public void deleteArticle() {
         //TODO
         //articleId
+
+        onBackPressed();
     }
 
     public void shareArticle() {

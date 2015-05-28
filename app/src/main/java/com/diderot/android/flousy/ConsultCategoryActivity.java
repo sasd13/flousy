@@ -106,36 +106,27 @@ public class ConsultCategoryActivity extends MotherActivity {
         String emailUser = session.getUserEmail();
         int idUser = webService.chercherUtilisateur(emailUser);
 
-
         // =  new ArrayList<>();
         ArrayList<Produit> listProduit = webService.listProduit(idUser);
-        tabItem = new TabItem();
-
 
         for (int i = 0; i < listProduit.size(); i++) {
+            tabItem = new TabItem();
+
+            nameArticle = listProduit.get(i).getNom();
+            tabItem.setNameText(nameArticle);
+
+            priceArticle = Float.toString(listProduit.get(i).getPrix());
+            tabItem.setPriceText(priceArticle);
 
             intent = new Intent(this, ArticleActivity.class);
-            nameArticle = listProduit.get(i).getNom();
-            Float prix = listProduit.get(i).getPrix();
-            priceArticle = Float.toString(prix);
-            tabItem.setNameText(nameArticle);
-            tabItem.setPriceText(priceArticle);
             intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
             intent.putExtra(EXTRA_ARTICLE_NAME, nameArticle);
             intent.putExtra(EXTRA_ARTICLE_ID, listProduit.get(i).getIdProduit());
             tabItem.setIntent(intent);
 
             this.tabArticles.addItem(tabItem);
-
         }
 
     }
-
-
-
-
-
-
-
 
 }

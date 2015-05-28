@@ -66,49 +66,50 @@ public class ConsultActivity extends MotherActivity {
 
         Resources resources = getResources();
 
-        String nameCategory;
+        String categoryName;
         Drawable image;
         Intent intent;
 
         for(int i=0; i<6; i++) {
             switch(i) {
                 case 0:
-                    nameCategory = "Nourriture";
+                    categoryName = "Nourriture";
                     image = resources.getDrawable(R.drawable.griditem_food);
                     break;
                 case 1:
-                    nameCategory = "Soins";
+                    categoryName = "Soins";
                     image = resources.getDrawable(R.drawable.griditem_drug);
                     break;
                 case 2:
-                    nameCategory = "Transports";
+                    categoryName = "Transports";
                     image = resources.getDrawable(R.drawable.griditem_transport);
                     break;
                 case 3:
-                    nameCategory = "Loisirs";
+                    categoryName = "Loisirs";
                     image = resources.getDrawable(R.drawable.griditem_controller);
                     break;
                 case 4:
-                    nameCategory = "Mode";
+                    categoryName = "Mode";
                     image = resources.getDrawable(R.drawable.griditem_clothes);
                     break;
                 case 5:
-                    nameCategory = "Courses";
+                    categoryName = "Courses";
                     image = resources.getDrawable(R.drawable.griditem_shopping);
                     break;
                 default:
-                    nameCategory = "Category";
+                    categoryName = "Category";
                     image = resources.getDrawable(R.drawable.griditem);
             }
 
             gridItem = new GridItem();
             gridItem.setColor(getActivityColor());
-            gridItem.setText(nameCategory);
+            gridItem.setText(categoryName);
             gridItem.setImage(image);
 
             intent = new Intent(this, ConsultCategoryActivity.class);
             intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
-            intent.putExtra(EXTRA_CATEGORY_NAME, nameCategory);
+            intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
+            //intent.putExtra(EXTRA_CATEGORY_ID, categoryId);
             gridItem.setIntent(intent);
 
             this.gridCategories.addItem(gridItem);
