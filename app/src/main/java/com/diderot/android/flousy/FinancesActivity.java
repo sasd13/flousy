@@ -52,6 +52,8 @@ public class FinancesActivity extends MotherActivity {
                 case 1:
                     gridItem.setText("Evolutions");
                     gridItem.setImage(resources.getDrawable(R.drawable.griditem_evolution));
+                    gridItem.setIntent( new Intent(this,LineChartActivity.class));
+
                     break;
                 case 2:
                     gridItem.setText("Répartition");

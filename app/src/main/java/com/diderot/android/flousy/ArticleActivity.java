@@ -1,5 +1,6 @@
 package com.diderot.android.flousy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -40,7 +41,8 @@ public class ArticleActivity extends MotherActivity {
     }
 
     private ViewHolder formArticle;
-    private String categoryId, categoryName, articleId, articleName;
+    private String  categoryName, articleName;
+    private int articleId,categoryId;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,7 @@ public class ArticleActivity extends MotherActivity {
         this.formArticle.priceEditText = (EditText) findViewById(R.id.form_article_edittext_price);
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_ID)) {
-            categoryId = getIntent().getStringExtra(EXTRA_CATEGORY_ID);
+            categoryId = getIntent().getIntExtra(EXTRA_CATEGORY_ID,1);
         }
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
@@ -76,7 +78,7 @@ public class ArticleActivity extends MotherActivity {
         }
 
         if(getIntent().hasExtra(EXTRA_ARTICLE_ID)) {
-            articleId = getIntent().getStringExtra(EXTRA_ARTICLE_ID);
+            articleId = getIntent().getIntExtra(EXTRA_ARTICLE_ID,0);
         }
 
         if(getIntent().hasExtra(EXTRA_ARTICLE_NAME)) {
@@ -163,16 +165,18 @@ public class ArticleActivity extends MotherActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         return super.onOptionsItemSelected(item);
     }
-
+    
+    Session session = new Session(this);
+    WebService webService = new WebService(this);
+    
     public void addArticle() {
         String name = this.formArticle.nameEditText.getEditableText().toString().trim();
         String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
-        Session session = new Session(this);
         String emailUser=session.getUserEmail();
-        int idUtilisateur=chercherUtilisateur(emailUser);
+        int idUtilisateur=webService.chercherUtilisateur(emailUser);
         Float prix= Float.parseFloat(price);
-        int idCategorie = chercherproduitId(categoryId);
+        int idCategorie = webService.chercherproduitId(categoryName);
         Produit produit = new Produit();
         produit.setNom(name);
         produit.setPrix(prix);
@@ -181,7 +185,7 @@ public class ArticleActivity extends MotherActivity {
 
         if(idCategorie!=-1)
         {
-            int idProduit=ajouterArticle(produit);
+            int idProduit=webService.ajouterArticle(produit);
             if(idProduit!=-1) {
                 produit.setIdProduit(idProduit);
                 ProduitUtilisateur produitUtilisateur= new ProduitUtilisateur();
@@ -189,9 +193,12 @@ public class ArticleActivity extends MotherActivity {
                 produitUtilisateur.setIdProduit(idProduit);
                 produitUtilisateur.setIdUtilisateur(idUtilisateur);
 
-                if(ajoutProduitUser(produitUtilisateur)){
-                    onBackPressed();
+                if(webService.ajoutProduitUser(produitUtilisateur)){
+                    Intent intent = new Intent(this, NewActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
+                    startActivity(intent);
+                    finish();
                 }
             }
         }
@@ -200,11 +207,14 @@ public class ArticleActivity extends MotherActivity {
     }
 
     public void loadArticle() {
-        String name = "Name ";
-        String price = "Price";
+        String price = "price";
+        String name = "name";
+      
 
-        //TODO
-        //articleId
+        Produit p =webService.produitByid(articleId);
+         float prix=p.getPrix();
+         name= p.getNom();
+         price =Float.toString(prix);
 
         this.formArticle.nameEditText.setText(name, TextView.BufferType.EDITABLE);
         this.formArticle.priceEditText.setText(price, TextView.BufferType.EDITABLE);
@@ -214,15 +224,32 @@ public class ArticleActivity extends MotherActivity {
         String name = this.formArticle.nameEditText.getEditableText().toString().trim();
         String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
-        //TODO
-        //articleId
+        Produit p= new Produit();
+        p.setIdProduit(articleId);
+        p.setPrix(Float.parseFloat(price));
+        p.setNom(name);
+        p.setIdCategorie(categoryId);
+        if(webService.updateProduit(p)) {
+            backToLastActivity();
+        }
+    }
+
+    public void backToLastActivity() {
+        Intent intent = new Intent(this, ConsultCategoryActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
+        intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
+        intent.putExtra(EXTRA_CATEGORY_ID, categoryId);
+
+        startActivity(intent);
+        finish();
     }
 
     public void deleteArticle() {
-        //TODO
-        //articleId
-
-        onBackPressed();
+        //int idArticle = Integer.parseInt(articleId);
+        if(webService.supprimerProduit(articleId)) {
+            backToLastActivity();
+        }
     }
 
     public void shareArticle() {
@@ -230,147 +257,7 @@ public class ArticleActivity extends MotherActivity {
         //articleId
 
     }
-    public int ajouterArticle(Produit produit) {
-        try {
-            CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url = "http://10.0.2.2:8080/WebProject/InsertionProduit";
 
-            HttpPost post = new HttpPost(url);
-            // add heade
-
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String jsonString = gson.toJson(produit);
-
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair(produit.JSON_PRODUIT_PARAMETER_NAME, jsonString));
-
-            post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-            CloseableHttpResponse response = httpclient.execute(post);
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-
-            StringBuffer donnee = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                donnee.append(line);
-            }
-
-            int ajoutProduit = gson.fromJson(donnee.toString(), int.class);
-            return ajoutProduit;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return -1;
-    }
-    public Boolean ajoutProduitUser(ProduitUtilisateur produitUtilisateur) {
-        try {
-            CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url = "http://10.0.2.2:8080/WebProject/AjoutProduitUtilisateur";
-
-            HttpPost post = new HttpPost(url);
-            // add header
-
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String jsonString = gson.toJson(produitUtilisateur);
-
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair(ProduitUtilisateur.JSON_PRODUIT_USER_NAME, jsonString));
-
-            post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-            CloseableHttpResponse response = httpclient.execute(post);
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-
-            StringBuffer donnee = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                donnee.append(line);
-            }
-
-            Boolean produitUt = gson.fromJson(donnee.toString(),Boolean.class);
-            //resultat.setText(IMCResult.getResult());
-            return produitUt;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-
-    public int chercherproduitId(String nom) {
-        try {
-            CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url = "http://10.0.2.2:8080/WebProject/ChercherProduit";
-
-            HttpPost post = new HttpPost(url);
-            // add header
-
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair("produitnom", nom));
-
-            post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-            CloseableHttpResponse response = httpclient.execute(post);
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-
-            StringBuffer donnee = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                donnee.append(line);
-            }
-
-            int produitId = gson.fromJson(donnee.toString(),int.class);
-            //resultat.setText(IMCResult.getResult());
-            return produitId;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return -1;
-    }
-
-
-    public int chercherUtilisateur(String email) {
-        try {
-            CloseableHttpClient httpclient = HttpClients.createDefault();
-            String url = "http://10.0.2.2:8080/WebProject/ChercherUtilisateurProduit";
-
-            HttpPost post = new HttpPost(url);
-            // add header
-
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
-            urlParameters.add(new BasicNameValuePair("emailUtilisateur", email));
-
-            post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-            CloseableHttpResponse response = httpclient.execute(post);
-
-            BufferedReader rd = new BufferedReader(new InputStreamReader(
-                    response.getEntity().getContent()));
-
-            StringBuffer donnee = new StringBuffer();
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-                donnee.append(line);
-            }
-
-            int utilisateurtId = gson.fromJson(donnee.toString(),int.class);
-            //resultat.setText(IMCResult.getResult());
-            return utilisateurtId;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return -1;
-    }
 
 
 }

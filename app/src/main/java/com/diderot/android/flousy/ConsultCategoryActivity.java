@@ -35,6 +35,8 @@ import flousy.tool.Session;
 public class ConsultCategoryActivity extends MotherActivity {
 
     private Tab tabArticles;
+    private int idCategory;
+    WebService webService = new WebService(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,10 @@ public class ConsultCategoryActivity extends MotherActivity {
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_spends_name);
+
+        if(getIntent().hasExtra(EXTRA_CATEGORY_ID)) {
+            idCategory = getIntent().getIntExtra(EXTRA_CATEGORY_ID,0);
+        }
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
             String categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
@@ -92,22 +98,25 @@ public class ConsultCategoryActivity extends MotherActivity {
     }
 
     public void addArticlesTabItems() {
+        Session session = new Session(this);
+
         TabItemTitle tabItemTitle = new TabItemTitle();
         this.tabArticles.addItem(tabItemTitle);
+
+        //TODO
+        //tu as une veriable globale String idCategory qui contient l'id
+        //recuperer les produits de la base avec idCategory,
+        //puis les rajouter dans TabItem
 
         TabItem tabItem;
 
         Resources resources = getResources();
-        WebService webService = new WebService(this);
         String nameArticle;
         String priceArticle;
         Intent intent;
-        Session session = new Session(this);
         String emailUser = session.getUserEmail();
         int idUser = webService.chercherUtilisateur(emailUser);
-
-        // =  new ArrayList<>();
-        ArrayList<Produit> listProduit = webService.listProduit(idUser);
+        ArrayList<Produit> listProduit = webService.ProduitCategorie(idUser,idCategory);
 
         for (int i = 0; i < listProduit.size(); i++) {
             tabItem = new TabItem();

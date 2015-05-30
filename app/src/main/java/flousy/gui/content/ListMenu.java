@@ -70,10 +70,6 @@ public class ListMenu {
     }
 
     public Menu get(int index) {
-        if(index < 0 || index >= menus.length) {
-            return null;
-        }
-
         return menus[index];
     }
 
@@ -87,13 +83,7 @@ public class ListMenu {
         return null;
     }
 
-    public int count() {
+    public int size() {
         return menus.length;
     }
-
-
-
-
-
-
 }

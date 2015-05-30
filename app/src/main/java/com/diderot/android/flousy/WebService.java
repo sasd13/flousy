@@ -34,7 +34,47 @@ public class WebService {
         this.context = context;
     }
 
+    public ArrayList<Produit> ProduitCategorie(int idUtilisateur,int idCategorie) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = this.context.getResources().getString(R.string.adressConnect)+"/AfficherProduitUtilisateur";
 
+            HttpPost post = new HttpPost(url);
+            // add header
+            String idUser = Integer.toString(idUtilisateur);
+            String idCate = Integer.toString(idCategorie);
+
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair("idUtilisateur",idUser ));
+            urlParameters.add(new BasicNameValuePair("idCategorie",idCate ));
+
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Type listType = new TypeToken<ArrayList<Produit>>(){}.getType();
+            // ArrayList<T> list = g.fromJson(s, listType);
+            ArrayList<Produit> listproduit = gson.fromJson(donnee.toString(),listType);
+            //resultat.setText(IMCResult.getResult());
+            return listproduit;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public ArrayList<Produit> listProduit(int idUtilisateur) {
         try {
             CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -178,6 +218,76 @@ public class WebService {
         return -1;
     }
 
+    public Produit produitByid(int idProduit) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = this.context.getResources().getString(R.string.adressConnect)+"/ChercherProduitID";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+            Produit produit = new Produit();
+            produit.setIdProduit(idProduit);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String jsonString = gson.toJson(produit);
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair(produit.JSON_PRODUIT_PARAMETER_NAME, jsonString));
+           // urlParameters.add(new BasicNameValuePair(utilisateur.JSON_USER_PARAMETER_NAME, jsonString));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Produit produitres = gson.fromJson(donnee.toString(),Produit.class);
+            return produitres;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Boolean supprimerProduit(int idProduit) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = this.context.getResources().getString(R.string.adressConnect)+"/SupressionProduit";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+            String idpr=Integer.toString(idProduit);
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair("idProduit", idpr));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Boolean produitId = gson.fromJson(donnee.toString(),Boolean.class);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     public int chercherUtilisateur(String email) {
         try {
@@ -315,7 +425,6 @@ public class WebService {
             }
 
             Utilisateurs utilisateursResult = gson.fromJson(donnee.toString(), Utilisateurs.class);
-            //resultat.setText(IMCResult.getResult());
 
             return utilisateursResult;
         } catch (Exception e) {
@@ -324,5 +433,39 @@ public class WebService {
         return null;
     }
 
+    public Boolean updateProduit(Produit produit) {
+        try {
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            String url = this.context.getResources().getString(R.string.adressConnect)+"/UpdateProduit";
+
+            HttpPost post = new HttpPost(url);
+            // add header
+            int produitId=produit.getIdProduit();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String jsonString = gson.toJson(produit);
+
+            List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+            urlParameters.add(new BasicNameValuePair(produit.JSON_PRODUIT_PARAMETER_NAME, jsonString));
+
+            post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+            CloseableHttpResponse response = httpclient.execute(post);
+
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+
+            StringBuffer donnee = new StringBuffer();
+            String line = "";
+            while ((line = rd.readLine()) != null) {
+                donnee.append(line);
+            }
+
+            Boolean produitU = gson.fromJson(donnee.toString(), Boolean.class);
+            return produitU;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }

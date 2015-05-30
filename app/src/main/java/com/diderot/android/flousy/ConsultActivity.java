@@ -66,50 +66,58 @@ public class ConsultActivity extends MotherActivity {
 
         Resources resources = getResources();
 
-        String categoryName;
+        int idCategory;
+        String nameCategory;
         Drawable image;
         Intent intent;
 
         for(int i=0; i<6; i++) {
+            idCategory = i+1;
+
             switch(i) {
                 case 0:
-                    categoryName = "Nourriture";
+                    nameCategory = "Nourriture";
                     image = resources.getDrawable(R.drawable.griditem_food);
                     break;
                 case 1:
-                    categoryName = "Soins";
+                    nameCategory = "Soins";
                     image = resources.getDrawable(R.drawable.griditem_drug);
                     break;
                 case 2:
-                    categoryName = "Transports";
+                    nameCategory = "Transports";
                     image = resources.getDrawable(R.drawable.griditem_transport);
                     break;
                 case 3:
-                    categoryName = "Loisirs";
+                    nameCategory = "Loisirs";
                     image = resources.getDrawable(R.drawable.griditem_controller);
                     break;
                 case 4:
-                    categoryName = "Mode";
+                    nameCategory = "Mode";
                     image = resources.getDrawable(R.drawable.griditem_clothes);
                     break;
                 case 5:
-                    categoryName = "Courses";
+                    nameCategory = "Courses";
                     image = resources.getDrawable(R.drawable.griditem_shopping);
                     break;
+                case 6:
+                    nameCategory = "Maison";
+                    image = resources.getDrawable(R.drawable.griditem_home);
+                    break;
                 default:
-                    categoryName = "Category";
+                    nameCategory = "Autres";
                     image = resources.getDrawable(R.drawable.griditem);
+                    break;
             }
 
             gridItem = new GridItem();
             gridItem.setColor(getActivityColor());
-            gridItem.setText(categoryName);
+            gridItem.setText(nameCategory);
             gridItem.setImage(image);
 
             intent = new Intent(this, ConsultCategoryActivity.class);
             intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
-            intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
-            //intent.putExtra(EXTRA_CATEGORY_ID, categoryId);
+            intent.putExtra(EXTRA_CATEGORY_NAME, nameCategory); //nameCategory = category.getName();
+            intent.putExtra(EXTRA_CATEGORY_ID, idCategory); //idCategory = category.getId();
             gridItem.setIntent(intent);
 
             this.gridCategories.addItem(gridItem);

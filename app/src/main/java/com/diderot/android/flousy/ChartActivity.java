@@ -23,9 +23,9 @@ public class ChartActivity extends MotherActivity {
     public void piechart() {
 
 
-        String[] subjects = new String[]{"math", "phisic", "science"};
-        double[] distribution = {43.5, 35.9, 12.3};
-        int[] colors = {Color.BLUE, Color.GREEN, Color.RED};
+        String[] subjects = new String[]{"Nourriture", "Soins", "Transport","Loisirs","Mode"};
+        double[] distribution = {43.5, 35.9, 12.3,28,120};
+        int[] colors = {Color.parseColor("#FF6600"), Color.parseColor("#2C4762"), Color.parseColor("#0CBADF"),Color.GREEN,Color.RED};
         CategorySeries category = new CategorySeries("Studens subje");
         for (int i = 0; i < distribution.length; i++) {
             category.add(subjects[i], distribution[i]);
@@ -38,12 +38,15 @@ public class ChartActivity extends MotherActivity {
             renderer.setDisplayChartValues(true);
 
 
+
             drenderer.addSeriesRenderer(renderer);
         }
+        drenderer.setApplyBackgroundColor(true);
         drenderer.setLabelsTextSize(50);
-        drenderer.setLabelsColor(Color.BLUE);
+        drenderer.setLabelsColor(Color.BLACK);
         drenderer.setLegendTextSize(50);
-        drenderer.setChartTitle("piechart Exemple");
+        drenderer.setBackgroundColor(Color.parseColor("#FFCC33"));
+        drenderer.setChartTitle("Répartition d'achat");
         drenderer.setChartTitleTextSize(125);
         drenderer.setZoomButtonsVisible(true);
         Intent in = ChartFactory.getPieChartIntent(this, category, drenderer, "piechartdemo");
@@ -51,4 +54,7 @@ public class ChartActivity extends MotherActivity {
         startActivity(in);
         finish();
     }
+
+
+
 }
