@@ -258,7 +258,11 @@ public class WebService {
     public Boolean supprimerProduit(int idProduit) {
         try {
             CloseableHttpClient httpclient = HttpClients.createDefault();
+<<<<<<< HEAD
             String url = this.context.getResources().getString(R.string.adressConnect)+"/SupressionProduit";
+=======
+            String url = this.context.getResources().getString(R.string.adressConnect)+"/ChercherProduit";
+>>>>>>> 3c36de6a2c620298634675416fe60adeec56a06d
 
             HttpPost post = new HttpPost(url);
             // add header

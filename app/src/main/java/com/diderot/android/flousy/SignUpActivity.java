@@ -180,4 +180,11 @@ public class SignUpActivity extends MotherActivity {
 
     }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 3c36de6a2c620298634675416fe60adeec56a06d
 }
