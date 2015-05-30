@@ -57,7 +57,7 @@ public class ConsultCategoryActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_spends_name);
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_ID)) {
-            idCategory = getIntent().getIntExtra(EXTRA_CATEGORY_ID,0);
+            idCategory = getIntent().getIntExtra(EXTRA_CATEGORY_ID, 0);
         }
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
