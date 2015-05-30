@@ -9,6 +9,9 @@ import flousy.gui.recycler.AbstractRecyclerItem;
 import flousy.gui.recycler.RecyclerAdapter;
 
 /**
+ * <p>
+ * Container class for Table views :
+ * </p>
  * Created by Samir on 22/05/2015.
  */
 public class Tab extends AbstractRecycler {

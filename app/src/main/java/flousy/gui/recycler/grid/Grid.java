@@ -12,6 +12,9 @@ import flousy.gui.recycler.AbstractRecyclerItem;
 import flousy.gui.recycler.RecyclerAdapter;
 
 /**
+ * <p>
+ * Container class for grids :
+ * </p>
  * Created by Samir on 13/03/2015.
  */
 public class Grid extends AbstractRecycler {

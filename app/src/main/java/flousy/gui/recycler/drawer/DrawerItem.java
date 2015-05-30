@@ -9,6 +9,9 @@ import com.diderot.android.flousy.R;
 import flousy.gui.recycler.AbstractRecyclerItem;
 
 /**
+ * <p>
+ * Container item class for Navigation drawer :
+ * </p>
  * Created by Samir on 22/03/2015.
  */
 public class DrawerItem extends AbstractRecyclerItem {

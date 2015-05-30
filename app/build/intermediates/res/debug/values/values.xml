@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <integer-array name="androidcolors">
         <item>@color/black</item>
@@ -40,7 +40,7 @@
         <item>@color/customRed</item>
         <item>@color/customYellow</item>
     </integer-array>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
@@ -62,11 +62,11 @@
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <item name="black" type="color">#000000</item>
     <item name="blue" type="color">#FF33B5E5</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -74,20 +74,20 @@
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <item name="brown" type="color">#BF8273</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="cardview_dark_background">#FF202020</color>
     <color name="cardview_light_background">#FFFAFAFA</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <item name="customBlue" type="color">#0077B3</item>
     <item name="customBrown" type="color">#99604C</item>
@@ -106,22 +106,22 @@
     <item name="darkPurple" type="color">#FF9933CC</item>
     <item name="darkRed" type="color">#FFCC0000</item>
     <item name="darkYellow" type="color">#E3D700</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <item name="green" type="color">#FF99CC00</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <item name="lightBlue" type="color">#8DC9E8</item>
     <item name="lightBrown" type="color">#CAAC97</item>
@@ -132,7 +132,7 @@
     <item name="lightPurple" type="color">#CEA8D2</item>
     <item name="lightRed" type="color">#FE686A</item>
     <item name="lightYellow" type="color">#F2EB85</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="link_text_material_dark">@color/material_deep_teal_200</color>
     <color name="link_text_material_light">@color/material_deep_teal_500</color>
@@ -141,11 +141,11 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <item name="orange" type="color">#FFFFBB33</item>
     <item name="pink" type="color">#FD6C9E</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
@@ -155,11 +155,11 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <item name="purple" type="color">#FFAA66CC</item>
     <item name="red" type="color">#FFFF4444</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <color name="ripple_material_dark">#40ffffff</color>
     <color name="ripple_material_light">#40000000</color>
@@ -169,7 +169,7 @@
     <color name="secondary_text_disabled_material_light">#24000000</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="transparent">#00000000</color>
     <item name="white" type="color">#FFFFFF</item>
@@ -198,7 +198,7 @@
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="theme"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
@@ -237,7 +237,7 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="actionbar_height">55dp</dimen>
     <dimen name="actionbar_imagebutton_action_horizontalpadding">14dp</dimen>
@@ -246,15 +246,15 @@
     <dimen name="activitycontent_padding">16dp</dimen>
     <dimen name="button_horizontalpadding">20dp</dimen>
     <dimen name="button_verticalpadding">10dp</dimen>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="customdialog_progressbar_padding">15dp</dimen>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <item name="dialog_fixed_height_major" type="dimen">80%</item>
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
@@ -262,7 +262,7 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="dividerview_height_large">3dp</dimen>
     <dimen name="dividerview_height_medium">2dp</dimen>
@@ -291,7 +291,7 @@
     <dimen name="view_margintop_medium">12dp</dimen>
     <dimen name="view_margintop_small">7dp</dimen>
     <dimen name="viewgroup_margintop">30dp</dimen>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -303,10 +303,10 @@
     <item name="split_action_bar" type="id"/>
     <item name="up" type="id"/>
     <integer name="abc_max_action_buttons">2</integer>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <integer name="grid_numcolumns">2</integer>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -324,7 +324,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="actionbar_textview_subtitle">Sous-titre</string>
     <string name="actionbar_textview_title">Titre</string>
@@ -394,12 +394,12 @@
     <string name="tabitem_textview_price">Prix</string>
     <string name="tabitem_title_textview_name">NOM</string>
     <string name="tabitem_title_textview_price">PRIX</string>
-    <!-- From: file:/Users/simo/Documents/flousy/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance">
         <item name="android:textColor">?android:textColorPrimary</item>
@@ -1153,7 +1153,7 @@
         <item name="android:scaleType">center</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <style name="CardView">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
@@ -1169,7 +1169,7 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
-    <!-- From: file:/Users/simo/Documents/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>

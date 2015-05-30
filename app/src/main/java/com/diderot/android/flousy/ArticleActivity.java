@@ -257,7 +257,4 @@ public class ArticleActivity extends MotherActivity {
         //articleId
 
     }
-
-
-
 }

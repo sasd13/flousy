@@ -10,6 +10,9 @@ import flousy.gui.recycler.AbstractRecyclerItem;
 import flousy.gui.recycler.RecyclerAdapter;
 
 /**
+ * <p>
+ * Container class for Navigation drawer :
+ * </p>
  * Created by Samir on 23/03/2015.
  */
 public class Drawer extends AbstractRecycler {

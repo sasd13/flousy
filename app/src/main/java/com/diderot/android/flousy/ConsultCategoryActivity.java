@@ -35,7 +35,9 @@ import flousy.tool.Session;
 public class ConsultCategoryActivity extends MotherActivity {
 
     private Tab tabArticles;
-    private int idCategory;
+    private String  categoryName, articleName;
+    private int articleId,categoryId;
+
     WebService webService = new WebService(this);
 
     @Override
@@ -57,11 +59,11 @@ public class ConsultCategoryActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_spends_name);
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_ID)) {
-            idCategory = getIntent().getIntExtra(EXTRA_CATEGORY_ID, 0);
+            categoryId = getIntent().getIntExtra(EXTRA_CATEGORY_ID, 0);
         }
 
         if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
-            String categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
+            categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
 
             actionBar.getTitleView().setText(categoryName);
         }
@@ -116,7 +118,7 @@ public class ConsultCategoryActivity extends MotherActivity {
         Intent intent;
         String emailUser = session.getUserEmail();
         int idUser = webService.chercherUtilisateur(emailUser);
-        ArrayList<Produit> listProduit = webService.ProduitCategorie(idUser,idCategory);
+        ArrayList<Produit> listProduit = webService.ProduitCategorie(idUser, categoryId);
 
         for (int i = 0; i < listProduit.size(); i++) {
             tabItem = new TabItem();
@@ -129,6 +131,8 @@ public class ConsultCategoryActivity extends MotherActivity {
 
             intent = new Intent(this, ArticleActivity.class);
             intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
+            intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
+            intent.putExtra(EXTRA_CATEGORY_ID, categoryId);
             intent.putExtra(EXTRA_ARTICLE_NAME, nameArticle);
             intent.putExtra(EXTRA_ARTICLE_ID, listProduit.get(i).getIdProduit());
             tabItem.setIntent(intent);

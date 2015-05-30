@@ -5,6 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
+ * <p>
+ * Decorator class for grid items :
+ * </p>
  * Created by Samir on 28/03/2015.
  */
 public class SpacesItemDecoration extends RecyclerView.ItemDecoration {

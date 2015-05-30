@@ -11,6 +11,9 @@ import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.recycler.AbstractRecyclerItem;
 
 /**
+ * <p>
+ * Container item class for Tables view :
+ * </p>
  * Created by Samir on 22/03/2015.
  */
 public class TabItem extends AbstractRecyclerItem {

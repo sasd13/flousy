@@ -9,6 +9,16 @@ import com.diderot.android.flousy.R;
 import java.util.ArrayList;
 
 /**
+ * <b>AbstractRecycler is a container class for a group of elements (AbstractRecyclerItem)</b>
+ * <p>
+ * A container has :
+ * <ul>
+ * <li>A context for the adaptor inflater (RecyclerAdapter)</li>
+ * <li>A list of elements (AbstractRecycler!item) (</li>
+ * <li>A layout resource (XML) for items</li>
+ * </ul>
+ * </p>
+ *
  * Created by Samir on 13/03/2015.
  */
 public abstract class AbstractRecycler {
