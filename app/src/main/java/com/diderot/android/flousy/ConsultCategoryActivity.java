@@ -7,29 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 import flousy.beans.Produit;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.recycler.tab.Tab;
-import flousy.gui.recycler.tab.TabItem;
-import flousy.gui.recycler.tab.TabItemTitle;
+import flousy.gui.widget.recycler.tab.TabItem;
+import flousy.gui.widget.recycler.tab.TabItemTitle;
 import flousy.tool.Session;
 
 public class ConsultCategoryActivity extends MotherActivity {

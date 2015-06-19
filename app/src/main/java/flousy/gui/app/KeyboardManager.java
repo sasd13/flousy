@@ -13,6 +13,6 @@ public class KeyboardManager {
 
     public static void hide(TextView textView) {
         InputMethodManager inputMethodManager = (InputMethodManager) textView.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(textView.getWindowToken(), InputMethodManager.HIDE_IMPLICIT_ONLY);
+        inputMethodManager.hideSoftInputFromWindow(textView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

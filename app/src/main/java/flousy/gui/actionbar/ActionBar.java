@@ -1,8 +1,5 @@
 package flousy.gui.actionbar;
 
-import android.app.TaskStackBuilder;
-import android.content.Intent;
-import android.support.v4.app.NavUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -14,7 +11,7 @@ import android.widget.TextView;
 import com.diderot.android.flousy.MotherActivity;
 import com.diderot.android.flousy.R;
 
-import flousy.gui.recycler.drawer.Drawer;
+import flousy.gui.widget.recycler.drawer.Drawer;
 
 /**
  * Created by Samir on 19/03/2015.

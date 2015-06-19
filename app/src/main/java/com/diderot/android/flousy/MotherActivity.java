@@ -24,9 +24,9 @@ import flousy.gui.content.IDimensionCustomizer;
 import flousy.gui.content.ITextCustomizer;
 import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.content.ListMenu;
-import flousy.gui.recycler.drawer.DrawerItemMenu;
-import flousy.gui.recycler.drawer.Drawer;
-import flousy.gui.recycler.drawer.DrawerItemTitle;
+import flousy.gui.widget.recycler.drawer.DrawerItemMenu;
+import flousy.gui.widget.recycler.drawer.Drawer;
+import flousy.gui.widget.recycler.drawer.DrawerItemTitle;
 import flousy.tool.Session;
 
 public class MotherActivity extends Activity implements IColorCustomizer, ITextCustomizer, IDimensionCustomizer {
