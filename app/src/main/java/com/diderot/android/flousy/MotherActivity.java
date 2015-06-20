@@ -16,41 +16,27 @@ import android.widget.TextView;
 
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.activitybar.ActivityBar;
+import flousy.gui.activitybar.ActivityBarException;
 import flousy.gui.activitybar.ActivityBarFactory;
 import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.color.ColorBrightness;
-import flousy.gui.content.IColorCustomizer;
-import flousy.gui.content.IDimensionCustomizer;
-import flousy.gui.content.ITextCustomizer;
+import flousy.gui.content.FlousyMenu;
+import flousy.gui.content.ColorCustomizer;
+import flousy.gui.content.DimensionCustomizer;
+import flousy.gui.content.TextCustomizer;
 import flousy.gui.color.ColorOnTouchListener;
-import flousy.gui.content.ListMenu;
+import flousy.gui.content.ListFlousyMenus;
 import flousy.gui.widget.recycler.drawer.DrawerItemMenu;
 import flousy.gui.widget.recycler.drawer.Drawer;
 import flousy.gui.widget.recycler.drawer.DrawerItemTitle;
-import flousy.tool.Session;
+import flousy.session.Session;
 
-public class MotherActivity extends Activity implements IColorCustomizer, ITextCustomizer, IDimensionCustomizer {
-
-    public static final String EXTRA_WELCOME = "WELCOME";
-    public static final String EXTRA_EXIT = "EXIT";
-    public static final String EXTRA_CLOSE = "CLOSE";
-    public static final String EXTRA_ACTIVITY_COLOR = "ACTIVITY_COLOR";
-    public static final String EXTRA_USER_FIRSTNAME = "USER_FIRSTNAME";
-    public static final String EXTRA_CATEGORY_ID = "CATEGORY_ID";
-    public static final String EXTRA_CATEGORY_NAME = "CATEGORY_NAME";
-    public static final String EXTRA_ARTICLE_ID = "ARTICLE_ID";
-    public static final String EXTRA_ARTICLE_NAME = "ARTICLE_NAME";
+public class MotherActivity extends Activity implements ColorCustomizer, TextCustomizer, DimensionCustomizer {
 
     public static final int APP_COLOR = R.color.customGreenApp;
 
     private int activityColor;
-
     private ActionBar actionBar;
-
     private Drawer drawer;
-    private DrawerLayout drawerLayout;
-    private RecyclerView drawerView;
-
     private ActivityBar activityBar;
     private View contentView;
 
@@ -72,30 +58,18 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.actionBar.setSubTitleViewEnabled(false);
 
         //Create Drawer
-        this.drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        this.drawerView = (RecyclerView) findViewById(R.id.drawer_view);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        this.drawer = new Drawer(this, drawerLayout);
 
-        this.drawer = new Drawer(this);
-        this.drawer.setDrawerLayout(this.drawerLayout);
-        this.drawer.adapt(this.drawerView);
-
-        //Add Items menu
-        Session session = new Session(this);
-        if(session.isUserLogged()) {
-            addMenuDrawerItems();
-        }
-
-        //Customize activity default
-        customizeColor();
-        customizeText();
-        customizeDimensions();
+        RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer_view);
+        this.drawer.adapt(drawerView);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        this.drawer.close();
+        this.drawer.setOpened(false);
     }
 
     @Override
@@ -116,14 +90,10 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         return super.onOptionsItemSelected(item);
     }
 
-    public View getContentView() {
-        return this.contentView;
-    }
-
     @Override
-    public void setContentView(int layoutResID) {
+    public void setContentView(int layoutResource) {
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
-        viewStub.setLayoutResource(layoutResID);
+        viewStub.setLayoutResource(layoutResource);
         this.contentView = viewStub.inflate();
     }
 
@@ -143,43 +113,49 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         return this.drawer;
     }
 
-    private void addMenuDrawerItems() {
-        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
-        drawerItemTitle.setText(getResources().getString(R.string.activity_menu_name));
-        this.drawer.addItem(drawerItemTitle);
-
-        ListMenu listMenu = ListMenu.getInstance(this);
-        flousy.gui.content.Menu menu;
-
-        DrawerItemMenu drawerItemMenu = null;
-        for(int i=0; i<listMenu.count(); i++) {
-            drawerItemMenu = new DrawerItemMenu();
-            menu = listMenu.get(i);
-
-            drawerItemMenu.setColor(menu.getColor());
-            drawerItemMenu.setText(menu.getName());
-            drawerItemMenu.setIntent(menu.getIntent());
-
-            this.drawer.addItem(drawerItemMenu);
-        }
-    }
-
     public ActivityBar getActivityBar() {
         return this.activityBar;
     }
 
     public ActivityBar createActivityBar(ActivityBarType type) {
-        this.activityBar = ActivityBarFactory.create(type);
-
-        if(this.activityBar == null) {
-            return null;
+        try {
+            this.activityBar = ActivityBarFactory.create(type);
+            this.activityBar.inflate((ViewStub) findViewById(R.id.activitybar_viewstub));
+            this.activityBar.setColor(this.activityColor);
+        } catch (ActivityBarException e) {
+            e.printStackTrace();
         }
 
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitybar_viewstub);
-        this.activityBar.inflate(viewStub);
-        this.activityBar.getView().setBackgroundColor(this.activityColor);
-
         return this.activityBar;
+    }
+
+    public void initialize() {
+        if (Session.isLogged()) {
+            addDrawerItems();
+        }
+
+        customizeColor();
+        customizeDimensions();
+        customizeText();
+    }
+
+    private void addDrawerItems() {
+        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
+        drawerItemTitle.setText(getResources().getString(R.string.activity_menu_name));
+        this.drawer.addItem(drawerItemTitle);
+
+        ListFlousyMenus listFlousyMenus = ListFlousyMenus.getInstance(this);
+
+        DrawerItemMenu drawerItemMenu;
+        for(Object flousyMenu : listFlousyMenus) {
+            drawerItemMenu = new DrawerItemMenu();
+
+            drawerItemMenu.setColor(((FlousyMenu) flousyMenu).getColor());
+            drawerItemMenu.setText(((FlousyMenu) flousyMenu).getName());
+            drawerItemMenu.setIntent(((FlousyMenu) flousyMenu).getIntent());
+
+            this.drawer.addItem(drawerItemMenu);
+        }
     }
 
     @Override
@@ -193,18 +169,17 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
         this.actionBar.getActionSecondButton().setOnTouchListener(listener);
         this.actionBar.getActionDrawerButton().setOnTouchListener(listener);
 
-        if(this.activityBar != null) {
-            this.activityBar.getView().setBackgroundColor(ColorBrightness.colorDarker(this.activityColor));
-        }
+        try {
+            this.activityBar.setColor(this.activityColor);
 
-        if(this.contentView != null) {
             int i = 0;
             String tag = "customize_";
             View viewChild = this.contentView.findViewWithTag(tag + i);
+
             while (viewChild != null) {
-                if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
+                if (viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
                     ((TextView) viewChild).setTextColor(this.activityColor);
-                } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
+                } else if (viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
                     ((Button) viewChild).setTextColor(Color.WHITE);
                     viewChild.setBackgroundColor(this.activityColor);
                 } else {
@@ -214,21 +189,24 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
                 i++;
                 viewChild = this.contentView.findViewWithTag(tag + i);
             }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public void customizeText() {
-        if(this.contentView != null) {
+        try {
             int i = 0;
             String tag = "customize_";
             View viewChild = this.contentView.findViewWithTag(tag + i);
+
             while (viewChild != null) {
-                if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
+                if (viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
                     CharSequence text = ((TextView) viewChild).getText();
                     ((TextView) viewChild).setText(text.toString().toUpperCase());
                     ((TextView) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
-                } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
+                } else if (viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
                     ((Button) viewChild).setTextSize(TypedValue.DENSITY_DEFAULT, getResources().getDimension(R.dimen.textsize_medium));
                     ((Button) viewChild).setTypeface(Typeface.DEFAULT_BOLD);
                 }
@@ -236,23 +214,26 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
                 i++;
                 viewChild = this.contentView.findViewWithTag(tag + i);
             }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public void customizeDimensions() {
-        if(this.contentView != null) {
+        try {
             int i = 0;
             String tag = "customize_";
             View viewChild = this.contentView.findViewWithTag(tag + i);
+
             while (viewChild != null) {
-                if(viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
+                if (viewChild.getClass().getSimpleName().compareTo("TextView") == 0) {
                     viewChild.setPadding(
                             getResources().getDimensionPixelSize(R.dimen.activitycontent_padding),
                             0,
                             0,
                             0);
-                } else if(viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
+                } else if (viewChild.getClass().getSimpleName().compareTo("Button") == 0) {
                     viewChild.setPadding(
                             getResources().getDimensionPixelSize(R.dimen.button_horizontalpadding),
                             getResources().getDimensionPixelSize(R.dimen.button_verticalpadding),
@@ -263,6 +244,8 @@ public class MotherActivity extends Activity implements IColorCustomizer, ITextC
                 i++;
                 viewChild = this.contentView.findViewWithTag(tag + i);
             }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 }

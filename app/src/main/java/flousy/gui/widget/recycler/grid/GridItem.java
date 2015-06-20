@@ -79,8 +79,6 @@ public class GridItem extends RecyclerItem {
      */
     public GridItem() {
         super(R.layout.griditem);
-
-        this.text = "Item";
     }
 
     /**
@@ -171,7 +169,7 @@ public class GridItem extends RecyclerItem {
     public void inflate(ViewStub viewStub) {
         super.inflate(viewStub);
 
-        if(this.color == 0) {
+        if (this.color == 0) {
             this.color = this.view.getContext().getResources().getColor(R.color.customOrange);
         }
         this.view.setBackgroundColor(this.color);

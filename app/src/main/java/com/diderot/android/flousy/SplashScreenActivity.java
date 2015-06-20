@@ -8,11 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import flousy.tool.Session;
+import flousy.data.dao.DataAccessorManager;
+import flousy.session.Session;
 
 public class SplashScreenActivity extends Activity {
 
-    private static int SPLASH_TIME_OUT = 3000;
+    private static final int SPLASH_TIME_OUT = 3000;
     private Handler handler;
     private Runnable runnable;
 
@@ -32,11 +33,13 @@ public class SplashScreenActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        Session session = new Session(this);
-        if(session.isUserLogged()) {
-            attachActivity(LogInActivity.class, SPLASH_TIME_OUT);
-        } else {
+        DataAccessorManager.start(this);
+        Session.start(this);
+
+        if (Session.isLogged()) {
             attachActivity(MenuActivity.class, SPLASH_TIME_OUT);
+        } else {
+            attachActivity(LogInActivity.class, SPLASH_TIME_OUT);
         }
     }
 
@@ -77,7 +80,7 @@ public class SplashScreenActivity extends Activity {
 
     private void attachActivity(Class<?> activityClass, int timeOut) {
         final Intent intent = new Intent(this, activityClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         this.runnable = new Runnable() {
 
@@ -93,8 +96,10 @@ public class SplashScreenActivity extends Activity {
     }
 
     private void detachActivity() {
-        if(this.runnable != null && this.handler != null) {
+        try {
             this.handler.removeCallbacks(this.runnable);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 }

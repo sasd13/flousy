@@ -7,12 +7,12 @@ public class ActivityBarFactory {
 
     private ActivityBarFactory() {}
 
-    public static ActivityBar create(ActivityBarType type) {
+    public static ActivityBar create(ActivityBarType type) throws ActivityBarException {
         switch (type) {
             case TITLEDBAR :
                 return new TitledActivityBar();
+            default:
+                throw new ActivityBarException("ActivityBar type is null");
         }
-
-        return null;
     }
 }

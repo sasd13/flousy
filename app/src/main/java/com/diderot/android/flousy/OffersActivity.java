@@ -21,11 +21,6 @@ public class OffersActivity extends MotherActivity {
         //Set CustomActionBar
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_offers_name);
-
-        //Customize activity
-        customizeColor();
-        customizeText();
-        customizeDimensions();
     }
 
 

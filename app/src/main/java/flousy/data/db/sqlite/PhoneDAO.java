@@ -32,8 +32,7 @@ class PhoneDAO extends AbstractTableDAO {
     }
 
     public void update(Phone phone, String clientId) {
-        db.update(PHONE_TABLE_NAME, getContentValues(phone, clientId), PHONE_CLIENT_ID + " = ?",
-                new String[]{clientId});
+        db.update(PHONE_TABLE_NAME, getContentValues(phone, clientId), PHONE_CLIENT_ID + " = ?", new String[]{clientId});
     }
 
     public long delete(String clientId) {
@@ -48,7 +47,7 @@ class PhoneDAO extends AbstractTableDAO {
                         + " from " + PHONE_TABLE_NAME
                         + " where " + PHONE_CLIENT_ID + " = ?", new String[]{clientId});
 
-        while (cursor.moveToNext()) {
+        if (cursor.moveToNext()) {
             phone = new Phone();
             phone.setIndex(cursor.getLong(0));
             phone.setNumber(cursor.getString(1));
@@ -62,7 +61,7 @@ class PhoneDAO extends AbstractTableDAO {
         boolean contains = false;
 
         Cursor cursor = db.rawQuery(
-                "select " + PHONE_INDEX + ", " + PHONE_NUMBER
+                "select " + PHONE_ID
                         + " from " + PHONE_TABLE_NAME
                         + " where " + PHONE_CLIENT_ID + " = ?", new String[]{clientId});
 

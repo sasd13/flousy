@@ -2,10 +2,11 @@ package flousy.data.dao;
 
 import android.content.Context;
 
-import proadmin.data.dao.accessor.DataAccessor;
-import proadmin.data.dao.accessor.DataAccessorException;
-import proadmin.data.dao.accessor.DataAccessorFactory;
-import proadmin.data.dao.accessor.DataAccessorType;
+import flousy.data.dao.accessor.DataAccessor;
+import flousy.data.dao.accessor.DataAccessorException;
+import flousy.data.dao.accessor.DataAccessorFactory;
+import flousy.data.dao.accessor.DataAccessorType;
+import flousy.data.db.sqlite.SQLiteDAO;
 
 /**
  * Created by Samir on 11/06/2015.
@@ -34,7 +35,7 @@ public class DataAccessorManager {
     private static void config() {
         switch (dao.getType()) {
             case SQLITE:
-                ((proadmin.data.db.sqlite.SQLiteDAO) dao).create(context);
+                ((SQLiteDAO) dao).create(context);
                 break;
         }
     }

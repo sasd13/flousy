@@ -1,6 +1,6 @@
 package flousy.data.dao.accessor;
 
-import proadmin.data.db.sqlite.SQLiteDAO;
+import flousy.data.db.sqlite.SQLiteDAO;
 
 /**
  * Created by Samir on 11/06/2015.

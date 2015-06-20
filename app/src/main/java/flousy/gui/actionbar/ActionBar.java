@@ -173,9 +173,9 @@ public class ActionBar {
             public void onClick(View v) {
                 Drawer drawer = activity.getDrawer();
                 if (drawer.isOpened()) {
-                    drawer.close();
+                    drawer.setOpened(false);
                 } else {
-                    drawer.open();
+                    drawer.setOpened(true);
                 }
             }
         });

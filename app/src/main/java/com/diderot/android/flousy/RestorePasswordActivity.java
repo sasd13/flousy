@@ -24,9 +24,7 @@ public class RestorePasswordActivity extends MotherActivity {
         getDrawer().setEnabled(false);
 
         //Customize activity
-        customizeColor();
-        customizeText();
-        customizeDimensions();
+        initialize();
     }
 
     @Override

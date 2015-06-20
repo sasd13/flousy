@@ -3,9 +3,9 @@ package flousy.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import proadmin.content.Teacher;
-import proadmin.data.dao.DataAccessorManager;
-import proadmin.data.dao.accessor.DataAccessor;
+import flousy.content.Client;
+import flousy.data.dao.DataAccessorManager;
+import flousy.data.dao.accessor.DataAccessor;
 
 /**
  * Created by Samir on 15/03/2015.
@@ -13,7 +13,7 @@ import proadmin.data.dao.accessor.DataAccessor;
 public class Session {
 
     private static final String SESSION_PREFERENCES = "session_preferences";
-    private static final String SESSION_ID = "teacher_id";
+    private static final String SESSION_ID = "client_id";
 
     private static SharedPreferences preferences;
     private static DataAccessor dao;
@@ -35,13 +35,13 @@ public class Session {
 
     public static boolean logIn(String email, String password) {
         dao.open();
-        Teacher teacher = dao.selectTeacher(email);
+        Client client = dao.selectClient(email);
         dao.close();
 
         try {
-            if(teacher.getPassword().compareTo(password) == 0) {
+            if(client.getPassword().compareTo(password) == 0) {
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString(SESSION_ID, teacher.getId().toString());
+                editor.putString(SESSION_ID, client.getId());
 
                 return editor.commit();
             }

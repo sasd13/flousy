@@ -24,6 +24,7 @@ public abstract class Recycler {
     private ListRecyclerItems listRecyclerItems;
     private int recyclerItemLayout;
 
+    protected RecyclerView recyclerView;
     private RecyclerAdapter recyclerAdapter;
 
     protected Recycler(Context context) {
@@ -89,6 +90,8 @@ public abstract class Recycler {
     }
 
     public void adapt(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+
         this.recyclerAdapter.registerAdapterDataObserver(new RecyclerAdapterDataObserver(recyclerView));
         recyclerView.setAdapter(this.recyclerAdapter);
     }

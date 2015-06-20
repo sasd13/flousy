@@ -109,17 +109,6 @@
                 android:value=".MenuActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.ChartActivity"
-            android:parentActivityName="com.diderot.android.flousy.FinancesActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FinancesActivity" />
-        </activity>
-        <activity
             android:name="com.diderot.android.flousy.ConsultCategoryActivity"
             android:label="@string/activity_finances_name"
             android:parentActivityName="com.diderot.android.flousy.FinancesActivity"

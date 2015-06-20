@@ -16,9 +16,6 @@ public class DrawerItemMenu extends DrawerItemBase {
 
     public DrawerItemMenu() {
         super(R.layout.draweritem_menu);
-
-        this.color = 0;
-        this.colorView = null;
     }
 
     public int getColor() {
@@ -28,21 +25,21 @@ public class DrawerItemMenu extends DrawerItemBase {
     public void setColor(int color) {
         this.color = color;
 
-        if(this.colorView != null) {
+        try {
             this.colorView.setBackgroundColor(this.color);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public View inflate(ViewStub viewStub) {
-        View view = super.inflate(viewStub);
+    public void inflate(ViewStub viewStub) {
+        super.inflate(viewStub);
 
-        this.colorView = view.findViewById(R.id.draweritem_menu_colorview);
-        if(this.color == 0) {
-            this.color = view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
+        this.colorView = this.view.findViewById(R.id.draweritem_menu_colorview);
+        if (this.color == 0) {
+            this.color = this.view.getContext().getResources().getColor(MotherActivity.APP_COLOR);
         }
         this.colorView.setBackgroundColor(this.color);
-
-        return view;
     }
 }

@@ -1609,7 +1609,8 @@ containing a value of this type.
         public static final int form_article_edittext_price=0x7f0a005c;
         public static final int form_article_imagebutton_picture=0x7f0a005d;
         public static final int form_article_textview_article=0x7f0a0059;
-        public static final int form_user_checkbox=0x7f0a0068;
+        public static final int form_user_checkbox_valid=0x7f0a0068;
+        public static final int form_user_checkbox_valid_textview=0x7f0a0069;
         public static final int form_user_dividerview_1=0x7f0a005f;
         public static final int form_user_dividerview_2=0x7f0a0063;
         public static final int form_user_edittext_confirmpassword=0x7f0a0066;
@@ -1620,7 +1621,6 @@ containing a value of this type.
         public static final int form_user_linearlayout_checkbox=0x7f0a0067;
         public static final int form_user_textview_connection=0x7f0a0062;
         public static final int form_user_textview_identity=0x7f0a005e;
-        public static final int form_user_textview_validcheckbox=0x7f0a0069;
         public static final int griditem_imageview=0x7f0a006a;
         public static final int griditem_textview=0x7f0a006b;
         public static final int home=0x7f0a0004;
@@ -1722,8 +1722,8 @@ containing a value of this type.
         public static final int recyclerview=0x7f030027;
         public static final int recyclerviewitem=0x7f030028;
         public static final int support_simple_spinner_dropdown_item=0x7f030029;
-        public static final int tabitem=0x7f03002a;
-        public static final int tabitem_title=0x7f03002b;
+        public static final int tabitem_article=0x7f03002a;
+        public static final int tabitem_article_title=0x7f03002b;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f0c0000;
@@ -1782,34 +1782,33 @@ containing a value of this type.
         public static final int form_article_textview_picture=0x7f0c0035;
         public static final int form_user_textview_connection=0x7f0c0036;
         public static final int form_user_textview_identity=0x7f0c0037;
-        public static final int form_user_textview_validcheckbox=0x7f0c0038;
-        public static final int friends_activitybar_tabed_tab_contact=0x7f0c0039;
-        public static final int friends_activitybar_tabed_tab_reception=0x7f0c003a;
-        public static final int friends_activitybar_tabed_tab_send=0x7f0c003b;
-        public static final int griditem_textview=0x7f0c003c;
-        public static final int hello_blank_fragment=0x7f0c003d;
-        public static final int hello_world=0x7f0c003e;
-        public static final int login_alertdialog_login_message_error=0x7f0c003f;
-        public static final int login_alertdialog_login_title_error=0x7f0c0040;
-        public static final int login_button_login=0x7f0c0041;
-        public static final int login_textview_restorepassword=0x7f0c0042;
-        public static final int login_textview_signup=0x7f0c0043;
-        public static final int menu_alertdialog_welcome_message=0x7f0c0044;
-        public static final int menu_alertdialog_welcome_title=0x7f0c0045;
-        public static final int new_actionbar_textview_subtitle=0x7f0c0046;
-        public static final int search_hint=0x7f0c0047;
-        public static final int settings_alertdialog_logout_title=0x7f0c0048;
-        public static final int settings_alertdialog_lougout_message_error=0x7f0c0049;
-        public static final int settings_form_user_button_logout=0x7f0c004a;
-        public static final int settings_form_user_textview_validcheckbox_connect=0x7f0c004b;
-        public static final int signup_alertdialog_signup_message_error=0x7f0c004c;
-        public static final int signup_alertdialog_signup_title_error=0x7f0c004d;
-        public static final int signup_form_user_textview_validcheckbox_validation=0x7f0c004e;
-        public static final int spends_actionbar_title=0x7f0c004f;
-        public static final int tabitem_textview_name=0x7f0c0050;
-        public static final int tabitem_textview_price=0x7f0c0051;
-        public static final int tabitem_title_textview_name=0x7f0c0052;
-        public static final int tabitem_title_textview_price=0x7f0c0053;
+        public static final int friends_activitybar_tabed_tab_contact=0x7f0c0038;
+        public static final int friends_activitybar_tabed_tab_reception=0x7f0c0039;
+        public static final int friends_activitybar_tabed_tab_send=0x7f0c003a;
+        public static final int griditem_textview=0x7f0c003b;
+        public static final int hello_blank_fragment=0x7f0c003c;
+        public static final int hello_world=0x7f0c003d;
+        public static final int login_alertdialog_login_message_error=0x7f0c003e;
+        public static final int login_alertdialog_login_title_error=0x7f0c003f;
+        public static final int login_button_login=0x7f0c0040;
+        public static final int login_textview_restorepassword=0x7f0c0041;
+        public static final int login_textview_signup=0x7f0c0042;
+        public static final int menu_alertdialog_welcome_message=0x7f0c0043;
+        public static final int menu_alertdialog_welcome_title=0x7f0c0044;
+        public static final int new_actionbar_textview_subtitle=0x7f0c0045;
+        public static final int search_hint=0x7f0c0046;
+        public static final int settings_alertdialog_logout_title=0x7f0c0047;
+        public static final int settings_alertdialog_lougout_message_error=0x7f0c0048;
+        public static final int settings_form_user_button_logout=0x7f0c0049;
+        public static final int settings_form_user_textview_validcheckbox_connect=0x7f0c004a;
+        public static final int signup_alertdialog_signup_message_error=0x7f0c004b;
+        public static final int signup_alertdialog_signup_title_error=0x7f0c004c;
+        public static final int signup_form_user_textview_validcheckbox_validation=0x7f0c004d;
+        public static final int spends_actionbar_title=0x7f0c004e;
+        public static final int tabitem_textview_name=0x7f0c004f;
+        public static final int tabitem_textview_price=0x7f0c0050;
+        public static final int tabitem_title_textview_name=0x7f0c0051;
+        public static final int tabitem_title_textview_price=0x7f0c0052;
     }
     public static final class style {
         /**  Customize your theme here. 

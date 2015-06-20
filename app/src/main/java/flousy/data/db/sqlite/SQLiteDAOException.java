@@ -1,6 +1,6 @@
 package flousy.data.db.sqlite;
 
-import proadmin.data.dao.accessor.DataAccessorException;
+import flousy.data.dao.accessor.DataAccessorException;
 
 /**
  * Created by Samir on 13/06/2015.

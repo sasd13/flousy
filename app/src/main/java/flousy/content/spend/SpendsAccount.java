@@ -7,5 +7,15 @@ import flousy.content.Account;
  */
 public class SpendsAccount extends Account {
 
+    private ListSpends listSpends;
 
+    public SpendsAccount() {}
+
+    public ListSpends getListPayments() {
+        return this.listSpends;
+    }
+
+    public void setListSpends(ListSpends listSpends) {
+        this.listSpends = listSpends;
+    }
 }

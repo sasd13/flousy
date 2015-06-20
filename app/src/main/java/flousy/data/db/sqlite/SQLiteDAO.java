@@ -3,26 +3,20 @@ package flousy.data.db.sqlite;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
-import proadmin.content.id.ListIds;
-import proadmin.content.MapNotes;
-import proadmin.content.ListProjects;
-import proadmin.content.ListReports;
-import proadmin.content.ListStudents;
-import proadmin.content.ListYears;
-import proadmin.content.Squad;
-import proadmin.content.Project;
-import proadmin.content.Report;
-import proadmin.content.Student;
-import proadmin.content.Teacher;
-import proadmin.content.Year;
-import proadmin.content.ListSquads;
-import proadmin.content.id.ProjectId;
-import proadmin.content.id.ReportId;
-import proadmin.content.id.SquadId;
-import proadmin.content.id.StudentId;
-import proadmin.content.id.TeacherId;
-import proadmin.data.dao.accessor.DataAccessor;
-import proadmin.data.dao.accessor.DataAccessorType;
+import flousy.content.Client;
+import flousy.content.Phone;
+import flousy.content.finance.Income;
+import flousy.content.finance.ListIncomes;
+import flousy.content.finance.ListPayments;
+import flousy.content.finance.Payment;
+import flousy.content.finance.PaymentsAccount;
+import flousy.content.spend.Article;
+import flousy.content.spend.ListArticles;
+import flousy.content.spend.ListSpends;
+import flousy.content.spend.Spend;
+import flousy.content.spend.SpendsAccount;
+import flousy.data.dao.accessor.DataAccessor;
+import flousy.data.dao.accessor.DataAccessorType;
 
 public class SQLiteDAO implements DataAccessor {
 
@@ -33,26 +27,24 @@ public class SQLiteDAO implements DataAccessor {
 	private SQLiteDatabase db = null;
 	private DatabaseHandler dbHandler = null;
 
-	private TeacherDAO teacherDAO;
-    private YearDAO yearDAO;
-	private ProjectDAO projectDAO;
-	private ProjectHasYearDAO projectHasYearDAO;
-	private SquadDAO squadDAO;
-	private ClientDAO clientDAO;
-	private StudentHasSquadDAO studentHasSquadDAO;
-	private ReportDAO reportDAO;
+    private ClientDAO clientDAO;
 	private PhoneDAO phoneDAO;
+    private IncomeDAO incomeDAO;
+    private PaymentsAccountDAO paymentsAccountDAO;
+    private PaymentDAO paymentDAO;
+    private SpendsAccountDAO spendsAccountDAO;
+    private SpendDAO spendDAO;
+    private ArticleDAO articleDAO;
 
 	private SQLiteDAO() {
-        teacherDAO = new TeacherDAO();
-        yearDAO = new YearDAO();
-        projectDAO = new ProjectDAO();
-        projectHasYearDAO = new ProjectHasYearDAO();
-        squadDAO = new SquadDAO();
         clientDAO = new ClientDAO();
-        studentHasSquadDAO = new StudentHasSquadDAO();
-        reportDAO = new ReportDAO();
         phoneDAO = new PhoneDAO();
+        incomeDAO = new IncomeDAO();
+        paymentsAccountDAO = new PaymentsAccountDAO();
+        paymentDAO = new PaymentDAO();
+        spendsAccountDAO = new SpendsAccountDAO();
+        spendDAO = new SpendDAO();
+        articleDAO = new ArticleDAO();
     }
 
     public static synchronized SQLiteDAO getInstance() {
@@ -71,15 +63,14 @@ public class SQLiteDAO implements DataAccessor {
     public void open() {
         db = dbHandler.getWritableDatabase();
 
-        teacherDAO.setDb(db);
-        yearDAO.setDb(db);
-        projectDAO.setDb(db);
-        projectHasYearDAO.setDb(db);
-        squadDAO.setDb(db);
         clientDAO.setDb(db);
-        studentHasSquadDAO.setDb(db);
-        reportDAO.setDb(db);
         phoneDAO.setDb(db);
+        incomeDAO.setDb(db);
+        paymentsAccountDAO.setDb(db);
+        paymentDAO.setDb(db);
+        spendsAccountDAO.setDb(db);
+        spendDAO.setDb(db);
+        articleDAO.setDb(db);
 	}
 
     @Override
@@ -92,314 +83,184 @@ public class SQLiteDAO implements DataAccessor {
         return DataAccessorType.SQLITE;
     }
 
+
     @Override
-    public void insertTeacher(Teacher teacher) {
-        if (!teacherDAO.contains(teacher.getId()) && !teacherDAO.contains(teacher.getEmail())) {
-            teacherDAO.insert(teacher);
-        }
+    public void insertArticle(Article article, String spendId) {
+        articleDAO.insert(article, spendId);
     }
 
     @Override
-	public void updateTeacher(Teacher teacher) {
-        Teacher teacher2 = selectTeacher(teacher.getEmail());
-        if (teacher2.getId().equals(teacher.getId())) {
-            teacherDAO.update(teacher);
-        }
-	}
-
-    @Override
-	public void deleteTeacher(TeacherId teacherId) {
-        ListSquads listSquads = selectSquadsOfTeacher(teacherId);
-        for (Object squad : listSquads) {
-            deleteSquad(((Squad) squad).getId());
-        }
-
-		teacherDAO.delete(teacherId);
-	}
-
-    @Override
-	public Teacher selectTeacher(TeacherId teacherId) {
-		return teacherDAO.select(teacherId);
-	}
-
-    @Override
-	public Teacher selectTeacher(String email) {
-		return teacherDAO.select(email);
-	}
-
-    @Override
-    public void deleteYear(Year year) {
-        ListSquads listSquads = selectSquadsOfYear(year);
-        for (Object squad : listSquads) {
-            deleteSquad(((Squad) squad).getId());
-        }
-
-        ListProjects listProjects = selectProjectsOfYear(year);
-        for (Object project : listProjects) {
-            deleteProjectFromYear(((Project) project).getId(), year);
-        }
-
-        yearDAO.delete(year);
+    public void updateArticle(Article article) {
+        articleDAO.update(article);
     }
 
     @Override
-    public ListYears selectYears() {
-        return yearDAO.selectAll();
+    public void deleteArticle(Article article) {
+        articleDAO.delete(article);
     }
 
     @Override
-    public ListYears selectYearsOfProjectByDesc(ProjectId projectId) {
-        return projectHasYearDAO.selectAllOfProjectByDesc(projectId);
+    public Article selectArticle(String articleId) {
+        return null;
     }
 
     @Override
-    public Year selectYearCreationOfProject(ProjectId projectId) {
-        ListYears listYears = projectHasYearDAO.selectAllOfProjectByDesc(projectId);
-
-        return listYears.get(listYears.size() - 1);
+    public ListArticles selectArticlesOfSpend(String spendId) {
+        return null;
     }
 
     @Override
-	public void insertProject(Project project, Year year) {
-        if (!yearDAO.contains(year)) {
-            yearDAO.insert(year);
-        }
-
-        if (!projectDAO.contains(project.getId())) {
-            projectDAO.insert(project);
-        }
-
-        if (!projectHasYearDAO.contains(project.getId(), year)) {
-            projectHasYearDAO.insert(project.getId(), year);
-        }
-	}
-
-    @Override
-	public void updateProject(Project project) {
-		projectDAO.update(project);
-	}
-
-    @Override
-	public void deleteProject(ProjectId projectId) {
-		ListSquads listSquads = selectSquadsOfProject(projectId);
-        for (Object squad : listSquads) {
-            deleteSquad(((Squad) squad).getId());
-        }
-
-		projectHasYearDAO.deleteAllOfProject(projectId);
-		projectDAO.delete(projectId);
-	}
-
-    @Override
-	public void deleteProjectFromYear(ProjectId projectId, Year year) {
-        ListSquads listSquads = selectSquadsOfYearAndProject(year, projectId);
-        for (Object squad : listSquads) {
-            deleteSquad(((Squad) squad).getId());
-        }
-
-		projectHasYearDAO.delete(projectId, year);
-	}
-
-    @Override
-	public Project selectProject(ProjectId projectId) {
-		return projectDAO.select(projectId);
-	}
-
-    @Override
-    public ListProjects selectProjectsOfYear(Year year) {
-        ListProjects listProjects = new ListProjects();
-
-        ListIds listProjectsIds = projectHasYearDAO.selectAllOfYear(year);
-        for (Object projectId : listProjectsIds) {
-            listProjects.add(projectDAO.select((ProjectId) projectId));
-        }
-
-        return listProjects;
+    public void insertClient(Client client) {
+        clientDAO.insert(client);
     }
 
     @Override
-	public void insertSquad(Squad squad) {
-        if (!squadDAO.contains(squad.getId())) {
-            long rowId = squadDAO.insert(squad);
-
-            if (rowId > 0) {
-                for (Object student : squad.getListStudents()) {
-                    insertStudent((Student) student, squad.getId());
-                }
-
-                for (Object report : squad.getListReports()) {
-                    insertReport((Report) report);
-                }
-            }
-        }
-	}
-
-    @Override
-	public void updateSquad(Squad squad) {
-		squadDAO.update(squad);
-
-        for (Object student : squad.getListStudents()) {
-            updateStudent((Student) student);
-        }
-
-        for (Object report : squad.getListReports()) {
-            updateReport((Report) report);
-        }
-	}
-
-    @Override
-	public void deleteSquad(SquadId squadId) {
-        ListReports listReports = selectReportsOfSquad(squadId);
-        for (Object report : listReports) {
-            deleteReport(((Report) report).getId());
-        }
-
-        ListStudents listStudents = selectStudentsOfSquad(squadId);
-        for (Object student : listStudents) {
-            deleteStudentFromSquad(((Student) student).getId(), squadId);
-        }
-
-		squadDAO.delete(squadId);
-	}
-
-    @Override
-	public Squad selectSquad(SquadId squadId) {
-		return squadDAO.select(squadId);
-	}
-
-    @Override
-    public ListSquads selectSquadsOfTeacher(TeacherId teacherId) {
-        return squadDAO.selectAllOfTeacher(teacherId);
+    public void updateClient(Client client) {
+        clientDAO.update(client);
     }
 
     @Override
-    public ListSquads selectSquadsOfYear(Year year) {
-        return squadDAO.selectAllOfYear(year);
+    public void deleteClient(Client client) {
+        clientDAO.delete(client);
     }
 
     @Override
-    public ListSquads selectSquadsOfProject(ProjectId projectId) {
-        return squadDAO.selectAllOfProject(projectId);
+    public Client selectClient(String clientIdOrEmail) {
+        return clientDAO.select(clientIdOrEmail);
     }
 
     @Override
-    public ListSquads selectSquadsOfTeacherAndYear(TeacherId teacherId, Year year) {
-        return squadDAO.selectAllOfTeacherAndYear(teacherId, year);
+    public void insertIncome(Income income, String clientId) {
+        incomeDAO.insert(income, clientId);
     }
 
     @Override
-    public ListSquads selectSquadsOfTeacherAndProject(TeacherId teacherId, ProjectId projectId) {
-        return squadDAO.selectAllOfTeacherAndProject(teacherId, projectId);
-    }
-
-	@Override
-	public ListSquads selectSquadsOfYearAndProject(Year year, ProjectId projectId) {
-		return squadDAO.selectAllOfYearAndProject(year, projectId);
-	}
-
-    @Override
-    public ListSquads selectSquadsOfTeacherAndYearAndProjectAndYear(TeacherId teacherId, Year year, ProjectId projectId) {
-        return squadDAO.selectAllOfTeacherAndYearAndProject(teacherId, year, projectId);
+    public void updateIncome(Income income) {
+        incomeDAO.update(income);
     }
 
     @Override
-	public void insertStudent(Student student, SquadId squadId) {
-        if (!clientDAO.contains(student.getId()) && !clientDAO.contains(student.getEmail())) {
-            clientDAO.insert(student);
-        }
-
-        if (!studentHasSquadDAO.contains(student.getId(), squadId)) {
-            studentHasSquadDAO.insert(student.getId(), squadId);
-        }
-	}
-
-    @Override
-	public void updateStudent(Student student) {
-        Student student2 = selectStudent(student.getEmail());
-        if (student2.getId().equals(student.getId())) {
-            clientDAO.update(student);
-        }
-	}
-
-    @Override
-	public void deleteStudentFromSquad(StudentId studentId, SquadId squadId) {
-        ListReports listReports = reportDAO.selectAllOfSquadAndStudent(squadId, studentId);
-
-        //TODO
-
-		studentHasSquadDAO.delete(studentId, squadId);
-	}
-
-    @Override
-	public Student selectStudent(StudentId studentId) {
-		return clientDAO.select(studentId);
-	}
-
-    @Override
-    public Student selectStudent(String email) {
-        return clientDAO.select(email);
+    public void deleteIncome(Income income) {
+        incomeDAO.delete(income);
     }
 
     @Override
-	public ListStudents selectStudentsOfSquad(SquadId squadId) {
-        ListStudents listStudents = new ListStudents();
-
-        ListIds listIds = studentHasSquadDAO.selectAllOfSquad(squadId);
-        for (Object id : listIds) {
-            listStudents.add(clientDAO.select((StudentId) id));
-        }
-
-        return listStudents;
-	}
-
-    @Override
-	public void insertReport(Report report) {
-        if (!reportDAO.contains(report.getId())) {
-            reportDAO.insert(report);
-        }
-	}
-
-    @Override
-	public void updateReport(Report report) {
-		reportDAO.update(report);
-	}
-
-    @Override
-	public void deleteReport(ReportId reportId) {
-        phoneDAO.deleteAllOfReport(reportId);
-		reportDAO.delete(reportId);
-	}
-
-    @Override
-	public Report selectReport(ReportId reportId) {
-		return reportDAO.select(reportId);
-	}
-
-	@Override
-	public ListReports selectReportsOfSquad(SquadId squadId) {
-        return reportDAO.selectAllOfSquad(squadId);
-	}
-
-    @Override
-    public void insertNotes(MapNotes mapNotes, ReportId reportId) {
-        StudentId[] tabStudentsIds = mapNotes.getKeys();
-        for (StudentId studentId : tabStudentsIds) {
-            if (!phoneDAO.contains(reportId, studentId)) {
-                phoneDAO.insert(mapNotes.get(studentId), reportId, studentId);
-            }
-        }
+    public Income selectIncome(String incomeId) {
+        return incomeDAO.select(incomeId);
     }
 
     @Override
-    public void updateNotes(MapNotes mapNotes, ReportId reportId) {
-        StudentId[] tabStudentsIds = mapNotes.getKeys();
-        for (StudentId studentId : tabStudentsIds) {
-            phoneDAO.update(mapNotes.get(studentId), reportId, studentId);
-        }
+    public ListIncomes selectIncomesOfClient(String clientId) {
+        return incomeDAO.selectAllOfClient(clientId);
     }
 
     @Override
-	public MapNotes selectNotesOfReport(ReportId reportId) {
-        return phoneDAO.selectAllOfReport(reportId);
-	}
+    public void insertPayment(Payment payment, String paymentsAccountId) {
+        paymentDAO.insert(payment, paymentsAccountId);
+    }
+
+    @Override
+    public void updatePayment(Payment payment) {
+        paymentDAO.update(payment);
+    }
+
+    @Override
+    public void deletePayment(Payment payment) {
+        paymentDAO.delete(payment);
+    }
+
+    @Override
+    public Payment selectPayment(String paymentId) {
+        return paymentDAO.select(paymentId);
+    }
+
+    @Override
+    public ListPayments selectPaymentsOfPaymentsAccount(String paymentsAccountId) {
+        return paymentDAO.selectAllOfPaymentsAccount(paymentsAccountId);
+    }
+
+    @Override
+    public void insertPaymentsAccount(PaymentsAccount paymentsAccount, String clientId) {
+        paymentsAccountDAO.insert(paymentsAccount, clientId);
+    }
+
+    @Override
+    public void updatePaymentsAccount(PaymentsAccount paymentsAccount) {
+        paymentsAccountDAO.update(paymentsAccount);
+    }
+
+    @Override
+    public void deletePaymentsAccount(PaymentsAccount paymentsAccount) {
+        paymentsAccountDAO.delete(paymentsAccount);
+    }
+
+    @Override
+    public PaymentsAccount selectPaymentsAccount(String paymentsAccountOrClientId) {
+        return paymentsAccountDAO.select(paymentsAccountOrClientId);
+    }
+
+    @Override
+    public void insertPhone(Phone phone, String clientId) {
+        phoneDAO.insert(phone, clientId);
+    }
+
+    @Override
+    public void updatePhone(Phone phone, String clientId) {
+        phoneDAO.update(phone, clientId);
+    }
+
+    @Override
+    public void deletePhone(String clientId) {
+        phoneDAO.delete(clientId);
+    }
+
+    @Override
+    public Phone selectPhone(String clientId) {
+        return phoneDAO.select(clientId);
+    }
+
+    @Override
+    public void insertSpend(Spend spend, String spendsAccountId) {
+        spendDAO.insert(spend, spendsAccountId);
+    }
+
+    @Override
+    public void updateSpend(Spend spend) {
+        spendDAO.update(spend);
+    }
+
+    @Override
+    public void deleteSpend(Spend spend) {
+        spendDAO.delete(spend);
+    }
+
+    @Override
+    public Spend selectSpend(String spendId) {
+        return spendDAO.select(spendId);
+    }
+
+    @Override
+    public ListSpends selectSpendsOfSpendsAccount(String spendsAccountId) {
+        return spendDAO.selectAllOfSpendsAccount(spendsAccountId);
+    }
+
+    @Override
+    public void insertSpendsAccount(SpendsAccount spendsAccount, String clientId) {
+        spendsAccountDAO.insert(spendsAccount, clientId);
+    }
+
+    @Override
+    public void updateSpendsAccount(SpendsAccount spendsAccount) {
+        spendsAccountDAO.update(spendsAccount);
+    }
+
+    @Override
+    public void deleteSpendsAccount(SpendsAccount spendsAccount) {
+        spendsAccountDAO.delete(spendsAccount);
+    }
+
+    @Override
+    public SpendsAccount selectSpendsAccount(String spendsAccountOrClientId) {
+        return spendsAccountDAO.select(spendsAccountOrClientId);
+    }
 }

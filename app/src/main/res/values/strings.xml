@@ -94,7 +94,6 @@
     <!-- Form user -->
     <string name="form_user_textview_identity">Identité</string>
     <string name="form_user_textview_connection">Connexion</string>
-    <string name="form_user_textview_validcheckbox">Valider</string>
 
     <!-- Form article -->
     <string name="form_article_textview_article">@string/activity_article_name</string>

@@ -17,14 +17,10 @@ public class DrawerItemBase extends DrawerItem {
 
     public DrawerItemBase() {
         super(R.layout.draweritem);
-
-        this.intent = null;
     }
 
     public DrawerItemBase(int layoutResource) {
         super(layoutResource);
-
-        this.intent = null;
     }
 
     public Intent getIntent() {
@@ -36,21 +32,21 @@ public class DrawerItemBase extends DrawerItem {
     }
 
     @Override
-    public View inflate(ViewStub viewStub) {
-        View view = super.inflate(viewStub);
+    public void inflate(ViewStub viewStub) {
+        super.inflate(viewStub);
 
-        view.setOnClickListener(new View.OnClickListener() {
+        this.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (intent != null) {
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                try {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     view.getContext().startActivity(intent);
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
                 }
             }
         });
-        int color = view.getContext().getResources().getColor(R.color.background_material_light);
-        view.setOnTouchListener(new ColorOnTouchListener(color));
-
-        return view;
+        int color = this.view.getContext().getResources().getColor(R.color.background_material_light);
+        this.view.setOnTouchListener(new ColorOnTouchListener(color));
     }
 }

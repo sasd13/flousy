@@ -1,21 +1,18 @@
 package com.diderot.android.flousy;
 
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.recycler.grid.Grid;
-import flousy.gui.recycler.grid.GridItem;
+import flousy.gui.widget.recycler.grid.Grid;
 
 public class FinancesActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customOrange;
 
-    private Grid gridSubMenu;
+    private Grid grid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,49 +28,12 @@ public class FinancesActivity extends MotherActivity {
         actionBar.getTitleView().setText(R.string.activity_finances_name);
 
         //Set ActivityContent
+        this.grid = new Grid(this);
+
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.gridSubMenu = new Grid(this);
-        this.gridSubMenu.adapt(gridView);
+        this.grid.adapt(gridView);
 
-        //Add items
-        GridItem gridItem;
-        Resources resources = getResources();
 
-        for(int i=0; i<4; i++) {
-            gridItem = new GridItem();
-            gridItem.setColor(getActivityColor());
-            gridItem.setIntent(null);
-
-            switch(i) {
-                case 0:
-                    gridItem.setText("Dépenses");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_table));
-                    break;
-                case 1:
-                    gridItem.setText("Evolutions");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_evolution));
-                    gridItem.setIntent( new Intent(this,LineChartActivity.class));
-
-                    break;
-                case 2:
-                    gridItem.setText("Répartition");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_dividing));
-                    gridItem.setIntent( new Intent(this,ChartActivity.class));
-
-                    break;
-                case 3:
-                    gridItem.setText("Revenus");
-                    gridItem.setImage(resources.getDrawable(R.drawable.griditem_salary));
-                    break;
-            }
-
-            this.gridSubMenu.addItem(gridItem);
-        }
-
-        //Customize activity
-        customizeColor();
-        customizeText();
-        customizeDimensions();
     }
 
     @Override

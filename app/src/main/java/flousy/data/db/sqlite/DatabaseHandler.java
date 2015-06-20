@@ -8,115 +8,98 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     /**
-     * Table teacher
+     * Table clients
      */
-    public static final String TEACHER_TABLE_DROP = "DROP TABLE IF EXISTS " + TeacherDAO.TEACHER_TABLE_NAME + ";";
-    public static final String TEACHER_TABLE_CREATE =
-            "CREATE TABLE " + TeacherDAO.TEACHER_TABLE_NAME + " ("
-                    + TeacherDAO.TEACHER_ID + " TEXT PRIMARY KEY NOT NULL, "
-                    + TeacherDAO.TEACHER_FIRSTNAME + " TEXT NOT NULL, "
-                    + TeacherDAO.TEACHER_LASTNAME + " TEXT NOT NULL, "
-                    + TeacherDAO.TEACHER_EMAIL + " TEXT NOT NULL UNIQUE, "
-                    + TeacherDAO.TEACHER_PASSWORD + " TEXT NOT NULL);";
+    public static final String CLIENT_TABLE_DROP = "DROP TABLE IF EXISTS " + ClientDAO.CLIENT_TABLE_NAME + ";";
+    public static final String CLIENT_TABLE_CREATE =
+            "CREATE TABLE " + ClientDAO.CLIENT_TABLE_NAME + " ("
+                    + ClientDAO.CLIENT_ID + " TEXT PRIMARY KEY, "
+                    + ClientDAO.CLIENT_FIRSTNAME + " TEXT NOT NULL, "
+                    + ClientDAO.CLIENT_LASTNAME + " TEXT NOT NULL, "
+                    + ClientDAO.CLIENT_EMAIL + " TEXT NOT NULL UNIQUE, "
+                    + ClientDAO.CLIENT_PASSWORD + " TEXT NOT NULL);";
 
     /**
-     * Table year
+     * Table phones
      */
-    public static final String YEAR_TABLE_DROP = "DROP TABLE IF EXISTS " + YearDAO.YEAR_TABLE_NAME + ";";
-    public static final String YEAR_TABLE_CREATE =
-            "CREATE TABLE " + YearDAO.YEAR_TABLE_NAME + " ("
-                    + YearDAO.YEAR_YEAR + " INTEGER PRIMARY KEY NOT NULL);";
+    public static final String PHONE_TABLE_DROP = "DROP TABLE IF EXISTS " + PhoneDAO.PHONE_TABLE_NAME + ";";
+    public static final String PHONE_TABLE_CREATE =
+            "CREATE TABLE " + PhoneDAO.PHONE_TABLE_NAME + " ("
+                    + PhoneDAO.PHONE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + PhoneDAO.PHONE_INDEX + " INTEGER NOT NULL, "
+                    + PhoneDAO.PHONE_NUMBER + " TEXT NOT NULL, "
+                    + PhoneDAO.PHONE_CLIENT_ID + " TEXT NOT NULL, "
+                    + "FOREIGN KEY (" + PhoneDAO.PHONE_CLIENT_ID + ") REFERENCES " + ClientDAO.CLIENT_TABLE_NAME + "(" + ClientDAO.CLIENT_ID + "));";
 
     /**
-     * Table project
+     * Table incomes
      */
-    public static final String PROJECT_TABLE_DROP = "DROP TABLE IF EXISTS " + ProjectDAO.PROJECT_TABLE_NAME + ";";
-    public static final String PROJECT_TABLE_CREATE =
-            "CREATE TABLE " + ProjectDAO.PROJECT_TABLE_NAME + " ("
-                    + ProjectDAO.PROJECT_ID + " TEXT PRIMARY KEY NOT NULL, "
-                    + ProjectDAO.PROJECT_TITLE + " TEXT NOT NULL, "
-                    + ProjectDAO.PROJECT_GRADE + " TEXT NOT NULL, "
-                    + ProjectDAO.PROJECT_DESCRIPTION + " TEXT NOT NULL);";
+    public static final String INCOME_TABLE_DROP = "DROP TABLE IF EXISTS " + IncomeDAO.INCOME_TABLE_NAME + ";";
+    public static final String INCOME_TABLE_CREATE =
+            "CREATE TABLE " + IncomeDAO.INCOME_TABLE_NAME + " ("
+                    + IncomeDAO.INCOME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + IncomeDAO.INCOME_VALUE + " REAL NOT NULL, "
+                    + IncomeDAO.INCOME_START_DATE + " INTEGER NOT NULL, "
+                    + IncomeDAO.INCOME_END_DATE + " INTEGER, "
+                    + IncomeDAO.INCOME_PERIODICITY + " TEXT NOT NULL, "
+                    + IncomeDAO.INCOME_CLIENT_ID + " TEXT NOT NULL, "
+                    + "FOREIGN KEY (" + IncomeDAO.INCOME_CLIENT_ID + ") REFERENCES " + ClientDAO.CLIENT_TABLE_NAME + "(" + ClientDAO.CLIENT_ID + "));";
 
     /**
-     * Table student_has_squad
+     * Table payments_accounts
      */
-    public static final String PROJECT_HAS_YEAR_TABLE_DROP = "DROP TABLE IF EXISTS " + ProjectHasYearDAO.PROJECT_HAS_YEAR_TABLE_NAME + ";";
-    public static final String PROJECT_HAS_YEAR_TABLE_CREATE =
-            "CREATE TABLE " + ProjectHasYearDAO.PROJECT_HAS_YEAR_TABLE_NAME + " ("
-                    + ProjectHasYearDAO.PROJECT_HAS_YEAR_PROJECT_ID + " TEXT NOT NULL, "
-                    + ProjectHasYearDAO.PROJECT_HAS_YEAR_YEAR_YEAR +" INTEGER NOT NULL, "
-                    + "FOREIGN KEY (" + ProjectHasYearDAO.PROJECT_HAS_YEAR_PROJECT_ID + ") REFERENCES " + ProjectDAO.PROJECT_TABLE_NAME + "("+ ProjectDAO.PROJECT_ID + "), "
-                    + "FOREIGN KEY (" + ProjectHasYearDAO.PROJECT_HAS_YEAR_YEAR_YEAR + ") REFERENCES " + YearDAO.YEAR_TABLE_NAME + "("+ YearDAO.YEAR_YEAR + "), "
-                    + "PRIMARY KEY (" + ProjectHasYearDAO.PROJECT_HAS_YEAR_PROJECT_ID + ", " + ProjectHasYearDAO.PROJECT_HAS_YEAR_YEAR_YEAR + "));";
+    public static final String PAYMENTSACCOUNT_TABLE_DROP = "DROP TABLE IF EXISTS " + PaymentsAccountDAO.PAYMENTSACCOUNT_TABLE_NAME + ";";
+    public static final String PAYMENTSACCOUNT_TABLE_CREATE =
+            "CREATE TABLE " + PaymentsAccountDAO.PAYMENTSACCOUNT_TABLE_NAME + " ("
+                    + PaymentsAccountDAO.PAYMENTSACCOUNT_ID + " TEXT PRIMARY KEY, "
+                    + PaymentsAccountDAO.PAYMENTSACCOUNT_CLIENT_ID + " TEXT NOT NULL, "
+                    + "FOREIGN KEY (" + PaymentsAccountDAO.PAYMENTSACCOUNT_CLIENT_ID + ") REFERENCES " + ClientDAO.CLIENT_TABLE_NAME + "(" + ClientDAO.CLIENT_ID + "));";
 
     /**
-     * Table squad
+     * Table payments
      */
-    public static final String SQUAD_TABLE_DROP = "DROP TABLE IF EXISTS " + SquadDAO.SQUAD_TABLE_NAME + ";";
-    public static final String SQUAD_TABLE_CREATE =
-            "CREATE TABLE " + SquadDAO.SQUAD_TABLE_NAME + " ("
-                    + SquadDAO.SQUAD_ID + " TEXT PRIMARY KEY NOT NULL, "
-                    + SquadDAO.SQUAD_YEAR +" INTEGER NOT NULL, "
-                    + SquadDAO.SQUAD_PROJECT_ID +" TEXT NOT NULL, "
-                    + SquadDAO.SQUAD_TEACHER_ID +" TEXT NOT NULL, "
-                    + "FOREIGN KEY (" + SquadDAO.SQUAD_YEAR + ") REFERENCES " + YearDAO.YEAR_TABLE_NAME + "("+ YearDAO.YEAR_YEAR + "), "
-                    + "FOREIGN KEY (" + SquadDAO.SQUAD_PROJECT_ID + ") REFERENCES " + ProjectDAO.PROJECT_TABLE_NAME + "("+ ProjectDAO.PROJECT_ID + "), "
-                    + "FOREIGN KEY (" + SquadDAO.SQUAD_TEACHER_ID + ") REFERENCES " + TeacherDAO.TEACHER_TABLE_NAME + "("+ TeacherDAO.TEACHER_ID + "));";
+    public static final String PAYMENT_TABLE_DROP = "DROP TABLE IF EXISTS " + PaymentDAO.PAYMENT_TABLE_NAME + ";";
+    public static final String PAYMENT_TABLE_CREATE =
+            "CREATE TABLE " + PaymentDAO.PAYMENT_TABLE_NAME + " ("
+                    + PaymentDAO.PAYMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + PaymentDAO.PAYMENT_VALUE + " REAL NOT NULL, "
+                    + PaymentDAO.PAYMENT_DATE + " INTEGER NOT NULL, "
+                    + PaymentDAO.PAYMENT_ACCOUNT_ID + " TEXT NOT NULL, "
+                    + "FOREIGN KEY (" + PaymentDAO.PAYMENT_ACCOUNT_ID + ") REFERENCES " + PaymentsAccountDAO.PAYMENTSACCOUNT_TABLE_NAME + "(" + PaymentsAccountDAO.PAYMENTSACCOUNT_ID + "));";
 
     /**
-     * Table student
+     * Table spends_accounts
      */
-    public static final String STUDENT_TABLE_DROP = "DROP TABLE IF EXISTS " + ClientDAO.STUDENT_TABLE_NAME + ";";
-    public static final String STUDENT_TABLE_CREATE =
-            "CREATE TABLE " + ClientDAO.STUDENT_TABLE_NAME + " ("
-                    + ClientDAO.STUDENT_ID + " TEXT PRIMARY KEY NOT NULL, "
-                    + ClientDAO.STUDENT_FIRSTNAME + " TEXT NOT NULL, "
-                    + ClientDAO.STUDENT_LASTNAME + " TEXT NOT NULL, "
-                    + ClientDAO.STUDENT_EMAIL + " TEXT NOT NULL UNIQUE);";
+    public static final String SPENDSACCOUNT_TABLE_DROP = "DROP TABLE IF EXISTS " + SpendsAccountDAO.SPENDSACCOUNT_TABLE_NAME + ";";
+    public static final String SPENDSACCOUNT_TABLE_CREATE =
+            "CREATE TABLE " + SpendsAccountDAO.SPENDSACCOUNT_TABLE_NAME + " ("
+                    + SpendsAccountDAO.SPENDSACCOUNT_ID + " TEXT PRIMARY KEY, "
+                    + SpendsAccountDAO.SPENDSACCOUNT_CLIENT_ID + " TEXT NOT NULL, "
+                    + "FOREIGN KEY (" + SpendsAccountDAO.SPENDSACCOUNT_CLIENT_ID + ") REFERENCES " + ClientDAO.CLIENT_TABLE_NAME + "(" + ClientDAO.CLIENT_ID + "));";
 
     /**
-     * Table student_has_squad
+     * Table spends
      */
-    public static final String STUDENT_HAS_SQUAD_TABLE_DROP = "DROP TABLE IF EXISTS " + StudentHasSquadDAO.STUDENT_HAS_SQUAD_TABLE_NAME + ";";
-    public static final String STUDENT_HAS_SQUAD_TABLE_CREATE =
-            "CREATE TABLE " + StudentHasSquadDAO.STUDENT_HAS_SQUAD_TABLE_NAME + " ("
-                    + StudentHasSquadDAO.STUDENT_HAS_SQUAD_STUDENT_ID + " TEXT NOT NULL, "
-                    + StudentHasSquadDAO.STUDENT_HAS_SQUAD_SQUAD_ID +" TEXT NOT NULL, "
-                    + "FOREIGN KEY (" + StudentHasSquadDAO.STUDENT_HAS_SQUAD_STUDENT_ID + ") REFERENCES " + ClientDAO.STUDENT_TABLE_NAME + "("+ ClientDAO.STUDENT_ID + "), "
-                    + "FOREIGN KEY (" + StudentHasSquadDAO.STUDENT_HAS_SQUAD_SQUAD_ID + ") REFERENCES " + SquadDAO.SQUAD_TABLE_NAME + "("+ SquadDAO.SQUAD_ID + "), "
-                    + "PRIMARY KEY (" + StudentHasSquadDAO.STUDENT_HAS_SQUAD_STUDENT_ID + ", " + StudentHasSquadDAO.STUDENT_HAS_SQUAD_SQUAD_ID + "));";
+    public static final String SPEND_TABLE_DROP = "DROP TABLE IF EXISTS " + SpendDAO.SPEND_TABLE_NAME + ";";
+    public static final String SPEND_TABLE_CREATE =
+            "CREATE TABLE " + SpendDAO.SPEND_TABLE_NAME + " ("
+                    + SpendDAO.SPEND_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + SpendDAO.SPEND_DATE + " INTEGER NOT NULL, "
+                    + SpendDAO.SPEND_ACCOUNT_ID + " TEXT NOT NULL, "
+                    + "FOREIGN KEY (" + SpendDAO.SPEND_ACCOUNT_ID + ") REFERENCES " + SpendsAccountDAO.SPENDSACCOUNT_TABLE_NAME + "(" + SpendsAccountDAO.SPENDSACCOUNT_ID + "));";
 
     /**
-     * Table report
+     * Table articles
      */
-    public static final String REPORT_TABLE_DROP = "DROP TABLE IF EXISTS " + ReportDAO.REPORT_TABLE_NAME + ";";
-    public static final String REPORT_TABLE_CREATE =
-            "CREATE TABLE " + ReportDAO.REPORT_TABLE_NAME + " ("
-                    + ReportDAO.REPORT_ID + " TEXT PRIMARY KEY NOT NULL, "
-                    + ReportDAO.REPORT_NUMBER_WEEK + " INTEGER NOT NULL, "
-                    + ReportDAO.REPORT_PLANNING_NOTE + " INTEGER NOT NULL, "
-                    + ReportDAO.REPORT_PLANNING_COMMENT + " TEXT, "
-                    + ReportDAO.REPORT_COMMUNICATION_NOTE + " INTEGER NOT NULL, "
-                    + ReportDAO.REPORT_COMMUNICATION_COMMENT + " TEXT, "
-                    + ReportDAO.REPORT_COMMENT + " TEXT, "
-                    + ReportDAO.REPORT_SQUAD_ID + " TEXT NOT NULL, "
-                    + ReportDAO.REPORT_STUDENT_ID + " TEXT NOT NULL, "
-                    + "FOREIGN KEY (" + ReportDAO.REPORT_SQUAD_ID + ") REFERENCES " + SquadDAO.SQUAD_TABLE_NAME + "("+ SquadDAO.SQUAD_ID + "), "
-                    + "FOREIGN KEY (" + ReportDAO.REPORT_STUDENT_ID + ") REFERENCES " + ClientDAO.STUDENT_TABLE_NAME + "("+ ClientDAO.STUDENT_ID + "));";
-
-    /**
-     * Table note
-     */
-    public static final String NOTE_TABLE_DROP = "DROP TABLE IF EXISTS " + PhoneDAO.NOTE_TABLE_NAME + ";";
-    public static final String NOTE_TABLE_CREATE =
-            "CREATE TABLE " + PhoneDAO.NOTE_TABLE_NAME + " ("
-                    + PhoneDAO.NOTE_NOTE + " INTEGER NOT NULL, "
-                    + PhoneDAO.NOTE_STUDENT_ID + " TEXT NOT NULL, "
-                    + PhoneDAO.NOTE_REPORT_ID + " TEXT NOT NULL, "
-                    + "FOREIGN KEY (" + PhoneDAO.NOTE_STUDENT_ID + ") REFERENCES " + ClientDAO.STUDENT_TABLE_NAME + "("+ ClientDAO.STUDENT_ID + "), "
-                    + "FOREIGN KEY (" + PhoneDAO.NOTE_REPORT_ID + ") REFERENCES " + ReportDAO.REPORT_TABLE_NAME + "("+ ReportDAO.REPORT_ID + "), "
-                    + "PRIMARY KEY (" + PhoneDAO.NOTE_STUDENT_ID + ", " + PhoneDAO.NOTE_REPORT_ID + "));";
+    public static final String ARTICLE_TABLE_DROP = "DROP TABLE IF EXISTS " + ArticleDAO.ARTICLE_TABLE_NAME + ";";
+    public static final String ARTICLE_TABLE_CREATE =
+            "CREATE TABLE " + ArticleDAO.ARTICLE_TABLE_NAME + " ("
+                    + ArticleDAO.ARTICLE_ID + " TEXT PRIMARY KEY, "
+                    + ArticleDAO.ARTICLE_NAME + " TEXT NOT NULL, "
+                    + ArticleDAO.ARTICLE_PRICE + " REAL NOT NULL, "
+                    + ArticleDAO.ARTICLE_CATEGORY + " TEXT NOT NULL, "
+                    + ArticleDAO.ARTICLE_SPEND_ID + " TEXT NOT NULL, "
+                    + "FOREIGN KEY (" + ArticleDAO.ARTICLE_SPEND_ID + ") REFERENCES " + SpendDAO.SPEND_TABLE_NAME + "(" + SpendDAO.SPEND_ID + "));";
 
 
     public DatabaseHandler(Context context, String name, CursorFactory factory, int version) {
@@ -125,28 +108,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-        db.execSQL(TEACHER_TABLE_CREATE);
-        db.execSQL(YEAR_TABLE_CREATE);
-        db.execSQL(PROJECT_TABLE_CREATE);
-        db.execSQL(PROJECT_HAS_YEAR_TABLE_CREATE);
-		db.execSQL(SQUAD_TABLE_CREATE);
-		db.execSQL(STUDENT_TABLE_CREATE);
-		db.execSQL(STUDENT_HAS_SQUAD_TABLE_CREATE);
-		db.execSQL(REPORT_TABLE_CREATE);
-		db.execSQL(NOTE_TABLE_CREATE);
+        db.execSQL(CLIENT_TABLE_CREATE);
+        db.execSQL(PHONE_TABLE_CREATE);
+        db.execSQL(INCOME_TABLE_CREATE);
+        db.execSQL(PAYMENTSACCOUNT_TABLE_CREATE);
+        db.execSQL(PAYMENT_TABLE_CREATE);
+        db.execSQL(SPENDSACCOUNT_TABLE_CREATE);
+        db.execSQL(SPEND_TABLE_CREATE);
+        db.execSQL(ARTICLE_TABLE_CREATE);
 	}
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(NOTE_TABLE_DROP);
-        db.execSQL(REPORT_TABLE_DROP);
-        db.execSQL(STUDENT_HAS_SQUAD_TABLE_DROP);
-        db.execSQL(STUDENT_TABLE_DROP);
-        db.execSQL(SQUAD_TABLE_DROP);
-        db.execSQL(PROJECT_HAS_YEAR_TABLE_DROP);
-        db.execSQL(PROJECT_TABLE_DROP);
-        db.execSQL(YEAR_TABLE_DROP);
-        db.execSQL(TEACHER_TABLE_DROP);
+        db.execSQL(ARTICLE_TABLE_DROP);
+        db.execSQL(SPEND_TABLE_DROP);
+        db.execSQL(SPENDSACCOUNT_TABLE_DROP);
+        db.execSQL(PAYMENT_TABLE_DROP);
+        db.execSQL(PAYMENTSACCOUNT_TABLE_DROP);
+        db.execSQL(INCOME_TABLE_DROP);
+        db.execSQL(PHONE_TABLE_DROP);
+        db.execSQL(CLIENT_TABLE_DROP);
 
 		onCreate(db);
 	}

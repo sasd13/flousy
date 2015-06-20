@@ -21,26 +21,13 @@ class ArticleDAO extends AbstractTableDAO {
     public static final String ARTICLE_SPEND_ID = "article_spend_id";
 
     public long insert(Article article, String spendId) {
-        return db.insert(ARTICLE_TABLE_NAME, null, getInsertContentValues(article, spendId));
-    }
-
-    private ContentValues getInsertContentValues(Article article, String spendId) {
-        ContentValues values = new ContentValues();
-
-        values.put(ARTICLE_ID, article.getId());
-        values.put(ARTICLE_NAME, article.getName());
-        values.put(ARTICLE_PRICE, article.getPrice());
-        values.put(ARTICLE_CATEGORY, article.getCategory().toString());
+        ContentValues values = getContentValues(article);
         values.put(ARTICLE_SPEND_ID, spendId);
 
-        return values;
+        return db.insert(ARTICLE_TABLE_NAME, null, values);
     }
 
-    public long update(Article article, String spendId) {
-        return db.update(ARTICLE_TABLE_NAME, getUpdateContentValues(article), ARTICLE_ID + " = ?", new String[]{article.getId()});
-    }
-
-    private ContentValues getUpdateContentValues(Article article) {
+    private ContentValues getContentValues(Article article) {
         ContentValues values = new ContentValues();
 
         values.put(ARTICLE_ID, article.getId());
@@ -49,6 +36,10 @@ class ArticleDAO extends AbstractTableDAO {
         values.put(ARTICLE_CATEGORY, article.getCategory().toString());
 
         return values;
+    }
+
+    public long update(Article article) {
+        return db.update(ARTICLE_TABLE_NAME, getContentValues(article), ARTICLE_ID + " = ?", new String[]{article.getId()});
     }
 
     public long delete(Article article) {

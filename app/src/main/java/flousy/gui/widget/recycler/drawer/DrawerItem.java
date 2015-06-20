@@ -1,12 +1,11 @@
 package flousy.gui.widget.recycler.drawer;
 
-import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.diderot.android.flousy.R;
 
-import flousy.gui.recycler.RecyclerItem;
+import flousy.gui.widget.recycler.RecyclerItem;
 
 /**
  * <p>
@@ -21,9 +20,6 @@ public class DrawerItem extends RecyclerItem {
 
     public DrawerItem(int layoutResource) {
         super(layoutResource);
-
-        this.text = "Item";
-        this.textView = null;
     }
 
     public CharSequence getText() {
@@ -33,18 +29,18 @@ public class DrawerItem extends RecyclerItem {
     public void setText(CharSequence text) {
         this.text = text;
 
-        if (this.textView != null) {
+        try {
             this.textView.setText(this.text);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public View inflate(ViewStub viewStub) {
-        View view = super.inflate(viewStub);
+    public void inflate(ViewStub viewStub) {
+        super.inflate(viewStub);
 
-        this.textView = (TextView) view.findViewById(R.id.draweritem_textview);
+        this.textView = (TextView) this.view.findViewById(R.id.draweritem_textview);
         this.textView.setText(this.text);
-
-        return view;
     }
 }

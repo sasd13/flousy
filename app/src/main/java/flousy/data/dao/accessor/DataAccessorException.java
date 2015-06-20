@@ -1,11 +1,11 @@
 package flousy.data.dao.accessor;
 
-import proadmin.ProAdminException;
+import flousy.FlousyException;
 
 /**
  * Created by Samir on 11/06/2015.
  */
-public class DataAccessorException extends ProAdminException {
+public class DataAccessorException extends FlousyException{
 
     public DataAccessorException(String message) {
         super(message);

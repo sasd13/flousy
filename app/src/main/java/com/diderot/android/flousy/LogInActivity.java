@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.Menu;
@@ -14,34 +13,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.content.user.User;
-import flousy.tool.Session;
-import flousy.tool.FormValidator;
-import flousy.tool.FormValidatorCode;
+import flousy.constant.Extra;
+import flousy.gui.widget.dialog.CustomDialog;
+import flousy.gui.widget.dialog.CustomDialogBuilder;
+import flousy.session.Session;
 import flousy.gui.color.ColorOnTouchListener;
-import flousy.gui.widget.CustomDialogBuilder;
 
 public class LogInActivity extends MotherActivity {
 
-    private static int LOADING_TIME_OUT = 2000;
-    private Handler handler;
-    private Runnable runnable;
-
     private class ViewHolder {
         public EditText editTextLogin, editTextPassword;
-        public Button connectButton;
+        public Button buttonLogin;
     }
+
+    private static final int LOADING_TIME_OUT = 2000;
 
     private ViewHolder formUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
 
         setContentView(R.layout.activity_login_layout);
 
@@ -57,14 +48,13 @@ public class LogInActivity extends MotherActivity {
         this.formUser.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
         this.formUser.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
 
-        this.formUser.connectButton = (Button) findViewById(R.id.login_button_connect);
-        this.formUser.connectButton.setOnClickListener(new View.OnClickListener() {
+        this.formUser.buttonLogin = (Button) findViewById(R.id.login_button_connect);
+        this.formUser.buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (formUser.editTextLogin.getText().toString().trim().length() > 0
                         && formUser.editTextPassword.getText().toString().trim().length() > 0) {
-                    startConnection();
+                    login();
                 }
             }
         });
@@ -104,24 +94,21 @@ public class LogInActivity extends MotherActivity {
             }
         }
 
-        //Customize activity default
-        customizeColor();
-        customizeText();
-        customizeDimensions();
+        initialize();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        if(getIntent().hasExtra(EXTRA_CLOSE) && getIntent().getBooleanExtra(EXTRA_CLOSE, false) == true) {
-            getIntent().removeExtra(EXTRA_CLOSE);
+        if (getIntent().hasExtra(Extra.CLOSE) && getIntent().getBooleanExtra(Extra.CLOSE, false)) {
+            getIntent().removeExtra(Extra.CLOSE);
 
-            if(getIntent().hasExtra(MenuActivity.EXTRA_USER_FIRSTNAME)) {
+            if (getIntent().hasExtra(Extra.USER_FIRSTNAME)) {
                 Intent intent = new Intent(this, MenuActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(MenuActivity.EXTRA_WELCOME, true);
-                intent.putExtra(MenuActivity.EXTRA_USER_FIRSTNAME, getIntent().getCharSequenceExtra(MenuActivity.EXTRA_USER_FIRSTNAME));
+                intent.putExtra(Extra.WELCOME, true);
+                intent.putExtra(Extra.USER_FIRSTNAME, getIntent().getStringExtra(Extra.USER_FIRSTNAME));
 
                 startActivity(intent);
             }
@@ -146,62 +133,48 @@ public class LogInActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void login() {
+        String login = this.formUser.editTextLogin.getEditableText().toString();
+        String password = this.formUser.editTextPassword.getEditableText().toString();
+
+        if (Session.logIn(login, password)) {
+            goToMenuActivity();
+        } else {
+            CustomDialog.showOkDialog(
+                    this,
+                    getResources().getString(R.string.login_alertdialog_login_title_error),
+                    getResources().getString(R.string.login_alertdialog_login_message_error));
+        }
+    }
+
+    private void goToMenuActivity() {
+        CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
+        final AlertDialog dialog = builder.create();
+
+        final Intent intent = new Intent(this, MenuActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        Runnable runnable = new Runnable() {
+
+            @Override
+            public void run() {
+                startActivity(intent);
+                dialog.dismiss();
+                finish();
+            }
+        };
+
+        Handler handler = new Handler();
+        handler.postDelayed(runnable, LOADING_TIME_OUT);
+
+        dialog.show();
+    }
+
     @Override
     public void customizeColor() {
         super.customizeColor();
 
-        if(getContentView() != null) {
-            this.formUser.connectButton.setBackgroundColor(getActivityColor());
-            this.formUser.connectButton.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
-        }
+        this.formUser.buttonLogin.setBackgroundColor(getActivityColor());
+        this.formUser.buttonLogin.setOnTouchListener(new ColorOnTouchListener(getActivityColor()));
     }
-
-    public void startConnection() {
-        Session session = new Session(this);
-
-        String login = this.formUser.editTextLogin.getEditableText().toString();
-        String password = this.formUser.editTextPassword.getEditableText().toString();
-
-        boolean connected = false;
-        User u=null;
-        FormValidatorCode codeEmail = FormValidator.validEmail(login);
-        if(codeEmail == FormValidatorCode.OK) {
-            u = session.logIn(login, password);
-        }
-
-        if(u!=null && u.isConnceted())
-            connected = true;
-
-        if(connected == false) {
-            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-            builder.setTitle(R.string.login_alertdialog_login_title_error)
-                    .setMessage(R.string.login_alertdialog_login_message_error)
-                    .setNeutralButton(null);
-            AlertDialog dialog = builder.create();
-            dialog.show();
-        } else {
-            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
-            final AlertDialog dialog = builder.create();
-
-            final Intent intent = new Intent(this, MenuActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-            this.runnable = new Runnable() {
-
-                @Override
-                public void run() {
-                    startActivity(intent);
-                    dialog.dismiss();
-                    finish();
-                }
-            };
-
-            this.handler = new Handler();
-            this.handler.postDelayed(this.runnable, LOADING_TIME_OUT);
-            dialog.show();
-        }
-    }
-
-
-
 }

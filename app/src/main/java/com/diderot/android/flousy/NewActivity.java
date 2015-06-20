@@ -1,9 +1,5 @@
 package com.diderot.android.flousy;
 
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.widget.RecyclerView;
@@ -12,14 +8,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.recycler.grid.Grid;
-import flousy.gui.recycler.grid.GridItem;
+import flousy.gui.widget.recycler.grid.Grid;
 
 public class NewActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customGreen;
 
-    private Grid gridCategories;
+    private Grid grid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,16 +41,10 @@ public class NewActivity extends MotherActivity {
 
         //Set Activity content
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.gridCategories = new Grid(this);
-        this.gridCategories.adapt(gridView);
+        this.grid = new Grid(this);
+        this.grid.adapt(gridView);
 
-        //Add items
-        addCategoriesGridItems();
-
-        //Customize activity
-        customizeColor();
-        customizeText();
-        customizeDimensions();
+        initialize();
     }
 
 
@@ -73,64 +62,5 @@ public class NewActivity extends MotherActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return super.onOptionsItemSelected(item);
-    }
-
-    public void addCategoriesGridItems() {
-        GridItem gridItem;
-        Resources resources = getResources();
-
-        String nameCategory;
-        Drawable image;
-        Intent intent;
-
-        for(int i=0; i<8; i++) {
-            switch(i) {
-                case 0:
-                    nameCategory = "Nourriture";
-                    image = resources.getDrawable(R.drawable.griditem_food);
-                    break;
-                case 1:
-                    nameCategory = "Soins";
-                    image = resources.getDrawable(R.drawable.griditem_drug);
-                    break;
-                case 2:
-                    nameCategory = "Transports";
-                    image = resources.getDrawable(R.drawable.griditem_transport);
-                    break;
-                case 3:
-                    nameCategory = "Loisirs";
-                    image = resources.getDrawable(R.drawable.griditem_controller);
-                    break;
-                case 4:
-                    nameCategory = "Mode";
-                    image = resources.getDrawable(R.drawable.griditem_clothes);
-                    break;
-                case 5:
-                    nameCategory = "Courses";
-                    image = resources.getDrawable(R.drawable.griditem_shopping);
-                    break;
-                case 6:
-                    nameCategory = "Maison";
-                    image = resources.getDrawable(R.drawable.griditem_home);
-                    break;
-                default:
-                    nameCategory = "Autres";
-                    image = resources.getDrawable(R.drawable.griditem);
-                    break;
-            }
-
-            gridItem = new GridItem();
-            gridItem.setColor(getActivityColor());
-            gridItem.setText(nameCategory);
-            gridItem.setImage(image);
-            gridItem.setColor(getActivityColor());
-
-            intent = new Intent(this, ArticleActivity.class);
-            intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
-            intent.putExtra(EXTRA_CATEGORY_NAME, nameCategory);
-            gridItem.setIntent(intent);
-
-            this.gridCategories.addItem(gridItem);
-        }
     }
 }

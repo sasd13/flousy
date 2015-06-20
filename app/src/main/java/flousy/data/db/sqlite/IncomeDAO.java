@@ -24,10 +24,13 @@ class IncomeDAO extends AbstractTableDAO {
     public static final String INCOME_CLIENT_ID = "income_client_id";
 
     public long insert(Income income, String clientId) {
-        return db.insert(INCOME_TABLE_NAME, null, getInsertContentValues(income, clientId));
+        ContentValues values = getContentValues(income);
+        values.put(INCOME_CLIENT_ID, clientId);
+
+        return db.insert(INCOME_TABLE_NAME, null, values);
     }
 
-    private ContentValues getInsertContentValues(Income income, String clientId) {
+    private ContentValues getContentValues(Income income) {
         ContentValues values = new ContentValues();
 
         values.put(INCOME_ID, income.getId());
@@ -35,25 +38,16 @@ class IncomeDAO extends AbstractTableDAO {
         values.put(INCOME_START_DATE, income.getStartDate().getTime());
         values.put(INCOME_END_DATE, income.getEndDate().getTime());
         values.put(INCOME_PERIODICITY, income.getPeriodicity().toString());
-        values.put(INCOME_CLIENT_ID, clientId);
 
         return values;
     }
 
     public long update(Income income) {
-        return db.update(INCOME_TABLE_NAME, getUpdateContentValues(income), INCOME_ID + " = ?", new String[]{income.getId()});
+        return db.update(INCOME_TABLE_NAME, getContentValues(income), INCOME_ID + " = ?", new String[]{income.getId()});
     }
 
-    private ContentValues getUpdateContentValues(Income income) {
-        ContentValues values = new ContentValues();
-
-        values.put(INCOME_ID, income.getId());
-        values.put(INCOME_VALUE, income.getValue());
-        values.put(INCOME_START_DATE, income.getStartDate().getTime());
-        values.put(INCOME_END_DATE, income.getEndDate().getTime());
-        values.put(INCOME_PERIODICITY, income.getPeriodicity().toString());
-
-        return values;
+    public long delete(Income income) {
+        return db.delete(INCOME_TABLE_NAME, INCOME_ID + " = ?", new String[]{income.getId()});
     }
 
     public Income select(String incomeId) {

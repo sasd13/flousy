@@ -5,14 +5,15 @@ package flousy.constant;
  */
 public class Extra {
 
-    public static final String EXIT = "exit";
-    public static final String CLOSE = "close";
-    public static final String WELCOME = "welcome";
-    public static final String TEACHER_FIRSTNAME = "teacher_firstname";
-    public static final String YEAR = "year";
-    public static final String PROJECT_ID = "project_id";
-    public static final String SQUAD_ID = "squad_id";
-    public static final String REPORT_ID = "report_id";
+    public static final String EXIT = "EXIT";
+    public static final String CLOSE = "CLOSE";
+    public static final String WELCOME = "WELCOME";
+    public static final String ACTIVITY_COLOR = "ACTIVITY_COLOR";
+    public static final String USER_FIRSTNAME = "USER_FIRSTNAME";
+    public static final String CATEGORY_ID = "CATEGORY_ID";
+    public static final String CATEGORY_NAME = "CATEGORY_NAME";
+    public static final String ARTICLE_ID = "ARTICLE_ID";
+    public static final String ARTICLE_NAME = "ARTICLE_NAME";
 
     public static final String MODE = "mode";
     public static final int MODE_NEW = 1;

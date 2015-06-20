@@ -15,10 +15,6 @@ public class ListRecyclerItems implements Iterable {
         this.list = new ArrayList<>();
     }
 
-    public RecyclerItem get(int index) {
-        return this.list.get(index);
-    }
-
     public boolean add(RecyclerItem recyclerItem) {
         return this.list.add(recyclerItem);
     }
@@ -29,6 +25,10 @@ public class ListRecyclerItems implements Iterable {
 
     public RecyclerItem remove(int index) {
         return this.list.remove(index);
+    }
+
+    public RecyclerItem get(int index) {
+        return this.list.get(index);
     }
 
     public void clear() {

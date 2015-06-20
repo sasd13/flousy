@@ -3,66 +3,75 @@ package flousy.data.db.sqlite;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import flousy.content.Client;
+import flousy.content.finance.PaymentsAccount;
 
 /**
  * Created by Samir on 02/04/2015.
  */
 class PaymentsAccountDAO extends AbstractTableDAO {
 
-    public static final String CLIENT_TABLE_NAME = "clients";
+    public static final String PAYMENTSACCOUNT_TABLE_NAME = "payments_accounts";
 
-    public static final String CLIENT_ID = "client_id";
-    public static final String CLIENT_FIRSTNAME = "client_first_name";
-    public static final String CLIENT_LASTNAME = "client_last_name";
-    public static final String CLIENT_EMAIL = "client_email";
+    public static final String PAYMENTSACCOUNT_ID = "account_id";
+    public static final String PAYMENTSACCOUNT_CLIENT_ID = "account_client_id";
 
-    public long insert(Client client) {
-        return db.insert(CLIENT_TABLE_NAME, null, getContentValues(client));
+    public long insert(PaymentsAccount paymentsAccount, String clientId) {
+        ContentValues values = getContentValues(paymentsAccount);
+        values.put(PAYMENTSACCOUNT_CLIENT_ID, clientId);
+
+        return db.insert(PAYMENTSACCOUNT_TABLE_NAME, null, values);
     }
 
-    private ContentValues getContentValues(Client client) {
+    private ContentValues getContentValues(PaymentsAccount paymentsAccount) {
         ContentValues values = new ContentValues();
 
-        values.put(CLIENT_ID, client.getId().toString());
-        values.put(CLIENT_FIRSTNAME, client.getFirstName());
-        values.put(CLIENT_LASTNAME, client.getLastName());
-        values.put(CLIENT_EMAIL, client.getEmail());
+        values.put(PAYMENTSACCOUNT_ID, paymentsAccount.getId());
 
         return values;
     }
 
-    public long update(Client client) {
-        return db.update(CLIENT_TABLE_NAME, getContentValues(client), CLIENT_ID + " = ?", new String[]{client.getId()});
+    public long update(PaymentsAccount paymentsAccount) {
+        return db.update(PAYMENTSACCOUNT_TABLE_NAME, getContentValues(paymentsAccount), PAYMENTSACCOUNT_ID + " = ?",
+                new String[]{paymentsAccount.getId()});
     }
 
-    public Client select(String clientIdOrEmail) {
-        Client client = null;
+    public long delete(PaymentsAccount paymentsAccount) {
+        return db.delete(PAYMENTSACCOUNT_TABLE_NAME, PAYMENTSACCOUNT_ID + " = ?",
+                new String[]{paymentsAccount.getId()});
+    }
+
+    public PaymentsAccount select(String paymentsAccountIdOrClientId) {
+        PaymentsAccount paymentsAccount = null;
 
         Cursor cursor = db.rawQuery(
-                "select " + CLIENT_ID + ", " + CLIENT_FIRSTNAME + ", " + CLIENT_LASTNAME + ", " + CLIENT_EMAIL
-                        + " from " + CLIENT_TABLE_NAME
-                        + " where " + CLIENT_ID + " = ? or " + CLIENT_EMAIL + " = ?", new String[]{clientIdOrEmail, clientIdOrEmail});
+                "select " + PAYMENTSACCOUNT_ID
+                        + " from " + PAYMENTSACCOUNT_TABLE_NAME
+                        + " where " + PAYMENTSACCOUNT_ID + " = ? or " + PAYMENTSACCOUNT_CLIENT_ID + " = ?",
+                new String[]{paymentsAccountIdOrClientId, paymentsAccountIdOrClientId});
 
         if (cursor.moveToNext()) {
-            client = new Client();
-            client.setId(cursor.getString(0));
-            client.setFirstName(cursor.getString(1));
-            client.setLastName(cursor.getString(2));
-            client.setEmail(cursor.getString(3));
+            paymentsAccount = new PaymentsAccount();
+            paymentsAccount.setId(cursor.getString(0));
         }
         cursor.close();
 
-        return client;
+        try {
+            paymentsAccount.setListPayments(SQLiteDAO.getInstance().selectPaymentsOfPaymentsAccount(paymentsAccount.getId()));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
+        return paymentsAccount;
     }
 
-    public boolean contains(String clientIdOrEmail) {
+    public boolean contains(String paymentsAccountIdOrClientId) {
         boolean contains = false;
 
         Cursor cursor = db.rawQuery(
-                "select " + CLIENT_ID
-                        + " from " + CLIENT_TABLE_NAME
-                        + " where " + CLIENT_ID + " = ? or " + CLIENT_EMAIL + " = ?", new String[]{clientIdOrEmail, clientIdOrEmail});
+                "select " + PAYMENTSACCOUNT_ID
+                        + " from " + PAYMENTSACCOUNT_TABLE_NAME
+                        + " where " + PAYMENTSACCOUNT_ID + " = ? or " + PAYMENTSACCOUNT_CLIENT_ID + " = ?",
+                new String[]{paymentsAccountIdOrClientId, paymentsAccountIdOrClientId});
 
         if (cursor.moveToNext()) {
             contains = true;

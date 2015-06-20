@@ -1,28 +1,19 @@
 package com.diderot.android.flousy;
 
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-
-import flousy.beans.Produit;
+import flousy.constant.Extra;
 import flousy.gui.actionbar.ActionBar;
-import flousy.gui.recycler.tab.Tab;
-import flousy.gui.widget.recycler.tab.TabItem;
-import flousy.gui.widget.recycler.tab.TabItemTitle;
-import flousy.tool.Session;
+import flousy.gui.widget.recycler.tab.Tab;
 
 public class ConsultCategoryActivity extends MotherActivity {
 
-    private Tab tabArticles;
+    private Tab tab;
     private String  categoryName, articleName;
     private int articleId,categoryId;
-
-    WebService webService = new WebService(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,8 +22,8 @@ public class ConsultCategoryActivity extends MotherActivity {
         //Set ActivityContent
         setContentView(R.layout.recyclerview);
 
-        if(getIntent().hasExtra(EXTRA_ACTIVITY_COLOR)) {
-            int activityColorId = getIntent().getIntExtra(EXTRA_ACTIVITY_COLOR, APP_COLOR);
+        if(getIntent().hasExtra(Extra.ACTIVITY_COLOR)) {
+            int activityColorId = getIntent().getIntExtra(Extra.ACTIVITY_COLOR, APP_COLOR);
 
             //Set ActivityColor immediately after content view
             setActivityColor(activityColorId);
@@ -42,28 +33,23 @@ public class ConsultCategoryActivity extends MotherActivity {
         ActionBar actionBar = getCustomActionBar();
         actionBar.getTitleView().setText(R.string.activity_spends_name);
 
-        if(getIntent().hasExtra(EXTRA_CATEGORY_ID)) {
-            categoryId = getIntent().getIntExtra(EXTRA_CATEGORY_ID, 0);
+        if(getIntent().hasExtra(Extra.CATEGORY_ID)) {
+            categoryId = getIntent().getIntExtra(Extra.CATEGORY_ID, 0);
         }
 
-        if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
-            categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
+        if(getIntent().hasExtra(Extra.CATEGORY_NAME)) {
+            categoryName = getIntent().getStringExtra(Extra.CATEGORY_NAME);
 
             actionBar.getTitleView().setText(categoryName);
         }
 
         //Set Activity content
+        this.tab = new Tab(this);
+
         RecyclerView tabView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.tabArticles = new Tab(this);
-        this.tabArticles.adapt(tabView);
+        this.tab.adapt(tabView);
 
-        //Add items
-        addArticlesTabItems();
-
-        //Customize activity
-        customizeColor();
-        customizeText();
-        customizeDimensions();
+        initialize();
     }
 
 
@@ -83,47 +69,14 @@ public class ConsultCategoryActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addArticlesTabItems() {
-        Session session = new Session(this);
+    @Override
+    public void initialize() {
+        super.initialize();
 
-        TabItemTitle tabItemTitle = new TabItemTitle();
-        this.tabArticles.addItem(tabItemTitle);
-
-        //TODO
-        //tu as une veriable globale String idCategory qui contient l'id
-        //recuperer les produits de la base avec idCategory,
-        //puis les rajouter dans TabItem
-
-        TabItem tabItem;
-
-        Resources resources = getResources();
-        String nameArticle;
-        String priceArticle;
-        Intent intent;
-        String emailUser = session.getUserEmail();
-        int idUser = webService.chercherUtilisateur(emailUser);
-        ArrayList<Produit> listProduit = webService.ProduitCategorie(idUser, categoryId);
-
-        for (int i = 0; i < listProduit.size(); i++) {
-            tabItem = new TabItem();
-
-            nameArticle = listProduit.get(i).getNom();
-            tabItem.setNameText(nameArticle);
-
-            priceArticle = Float.toString(listProduit.get(i).getPrix());
-            tabItem.setPriceText(priceArticle);
-
-            intent = new Intent(this, ArticleActivity.class);
-            intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
-            intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
-            intent.putExtra(EXTRA_CATEGORY_ID, categoryId);
-            intent.putExtra(EXTRA_ARTICLE_NAME, nameArticle);
-            intent.putExtra(EXTRA_ARTICLE_ID, listProduit.get(i).getIdProduit());
-            tabItem.setIntent(intent);
-
-            this.tabArticles.addItem(tabItem);
-        }
-
+        addArticlesTabItems();
     }
 
+    public void addArticlesTabItems() {
+
+    }
 }

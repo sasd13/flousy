@@ -1,6 +1,5 @@
 package com.diderot.android.flousy;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -11,33 +10,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import flousy.beans.Produit;
-import flousy.beans.ProduitUtilisateur;
-import flousy.beans.Utilisateurs;
+import flousy.constant.Extra;
 import flousy.gui.actionbar.ActionBar;
 import flousy.gui.app.KeyboardManager;
-import flousy.tool.Session;
 
 public class ArticleActivity extends MotherActivity {
 
     private class ViewHolder {
-        public EditText nameEditText, priceEditText;
+        public EditText editTextName, editTextPrice;
     }
 
     private ViewHolder formArticle;
@@ -50,8 +30,8 @@ public class ArticleActivity extends MotherActivity {
 
         setContentView(R.layout.form_article_layout);
 
-        if(getIntent().hasExtra(EXTRA_ACTIVITY_COLOR)) {
-            int activityColor = getIntent().getIntExtra(EXTRA_ACTIVITY_COLOR, APP_COLOR);
+        if(getIntent().hasExtra(Extra.ACTIVITY_COLOR)) {
+            int activityColor = getIntent().getIntExtra(Extra.ACTIVITY_COLOR, APP_COLOR);
 
             //Set ActivityColor immediately after content view
             setActivityColor(activityColor);
@@ -64,25 +44,25 @@ public class ArticleActivity extends MotherActivity {
         //Set ActivityContent
         this.formArticle = new ViewHolder();
 
-        this.formArticle.nameEditText = (EditText) findViewById(R.id.form_article_edittext_name);
-        this.formArticle.priceEditText = (EditText) findViewById(R.id.form_article_edittext_price);
+        this.formArticle.editTextName = (EditText) findViewById(R.id.form_article_edittext_name);
+        this.formArticle.editTextPrice = (EditText) findViewById(R.id.form_article_edittext_price);
 
-        if(getIntent().hasExtra(EXTRA_CATEGORY_ID)) {
-            categoryId = getIntent().getIntExtra(EXTRA_CATEGORY_ID,1);
+        if (getIntent().hasExtra(Extra.CATEGORY_ID)) {
+            categoryId = getIntent().getIntExtra(Extra.CATEGORY_ID, 0);
         }
 
-        if(getIntent().hasExtra(EXTRA_CATEGORY_NAME)) {
-            categoryName = getIntent().getStringExtra(EXTRA_CATEGORY_NAME);
+        if(getIntent().hasExtra(Extra.CATEGORY_NAME)) {
+            categoryName = getIntent().getStringExtra(Extra.CATEGORY_NAME);
 
             actionBar.getTitleView().setText(categoryName);
         }
 
-        if(getIntent().hasExtra(EXTRA_ARTICLE_ID)) {
-            articleId = getIntent().getIntExtra(EXTRA_ARTICLE_ID,0);
+        if (getIntent().hasExtra(Extra.ARTICLE_ID)) {
+            articleId = getIntent().getIntExtra(Extra.ARTICLE_ID, 0);
         }
 
-        if(getIntent().hasExtra(EXTRA_ARTICLE_NAME)) {
-            articleName = getIntent().getStringExtra(EXTRA_ARTICLE_NAME);
+        if(getIntent().hasExtra(Extra.ARTICLE_NAME)) {
+            articleName = getIntent().getStringExtra(Extra.ARTICLE_NAME);
 
             actionBar.getSubTitleView().setText(articleName);
             actionBar.setSubTitleViewEnabled(true);
@@ -121,8 +101,8 @@ public class ArticleActivity extends MotherActivity {
                 }
             };
 
-            this.formArticle.nameEditText.setOnEditorActionListener(listener);
-            this.formArticle.priceEditText.setOnEditorActionListener(listener);
+            this.formArticle.editTextName.setOnEditorActionListener(listener);
+            this.formArticle.editTextPrice.setOnEditorActionListener(listener);
 
             loadArticle();
         } else {
@@ -136,8 +116,8 @@ public class ArticleActivity extends MotherActivity {
             buttonValid.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (formArticle.nameEditText.getText().toString().trim().length() > 0
-                            && formArticle.priceEditText.getText().toString().trim().length() > 0) {
+                    if (formArticle.editTextName.getText().toString().trim().length() > 0
+                            && formArticle.editTextPrice.getText().toString().trim().length() > 0) {
                         addArticle();
                     }
                 }
@@ -166,95 +146,23 @@ public class ArticleActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
     
-    Session session = new Session(this);
-    WebService webService = new WebService(this);
-    
     public void addArticle() {
-        String name = this.formArticle.nameEditText.getEditableText().toString().trim();
-        String price = this.formArticle.priceEditText.getEditableText().toString().trim();
-
-        String emailUser=session.getUserEmail();
-        int idUtilisateur=webService.chercherUtilisateur(emailUser);
-        Float prix= Float.parseFloat(price);
-        int idCategorie = webService.chercherproduitId(categoryName);
-        Produit produit = new Produit();
-        produit.setNom(name);
-        produit.setPrix(prix);
-        produit.setIdCategorie(idCategorie);
-
-
-        if(idCategorie!=-1)
-        {
-            int idProduit=webService.ajouterArticle(produit);
-            if(idProduit!=-1) {
-                produit.setIdProduit(idProduit);
-                ProduitUtilisateur produitUtilisateur= new ProduitUtilisateur();
-                produitUtilisateur.setIdCategorie(idCategorie);
-                produitUtilisateur.setIdProduit(idProduit);
-                produitUtilisateur.setIdUtilisateur(idUtilisateur);
-
-                if(webService.ajoutProduitUser(produitUtilisateur)){
-                    Intent intent = new Intent(this, NewActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        }
-
 
     }
 
     public void loadArticle() {
-        String price = "price";
-        String name = "name";
-      
 
-        Produit p =webService.produitByid(articleId);
-         float prix=p.getPrix();
-         name= p.getNom();
-         price =Float.toString(prix);
-
-        this.formArticle.nameEditText.setText(name, TextView.BufferType.EDITABLE);
-        this.formArticle.priceEditText.setText(price, TextView.BufferType.EDITABLE);
     }
 
     public void updateArticle() {
-        String name = this.formArticle.nameEditText.getEditableText().toString().trim();
-        String price = this.formArticle.priceEditText.getEditableText().toString().trim();
 
-        Produit p= new Produit();
-        p.setIdProduit(articleId);
-        p.setPrix(Float.parseFloat(price));
-        p.setNom(name);
-        p.setIdCategorie(categoryId);
-        if(webService.updateProduit(p)) {
-            backToLastActivity();
-        }
-    }
-
-    public void backToLastActivity() {
-        Intent intent = new Intent(this, ConsultCategoryActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(EXTRA_ACTIVITY_COLOR, getActivityColor());
-        intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
-        intent.putExtra(EXTRA_CATEGORY_ID, categoryId);
-
-        startActivity(intent);
-        finish();
     }
 
     public void deleteArticle() {
-        //int idArticle = Integer.parseInt(articleId);
-        if(webService.supprimerProduit(articleId)) {
-            backToLastActivity();
-        }
+
     }
 
     public void shareArticle() {
-        //TODO
-        //articleId
 
     }
 }

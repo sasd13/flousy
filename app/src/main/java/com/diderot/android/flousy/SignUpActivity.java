@@ -2,49 +2,43 @@ package com.diderot.android.flousy;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
-import flousy.beans.Utilisateurs;
+import flousy.constant.Extra;
+import flousy.content.Client;
+import flousy.data.dao.DataAccessorManager;
+import flousy.data.dao.accessor.DataAccessor;
+import flousy.form.FormException;
+import flousy.form.FormUserValidator;
 import flousy.gui.actionbar.ActionBar;
-import flousy.tool.DataManager;
-import flousy.tool.Session;
-import flousy.content.user.User;
-import flousy.gui.widget.CustomDialogBuilder;
-import flousy.tool.FormValidator;
+import flousy.gui.widget.dialog.CustomDialog;
+import flousy.gui.widget.dialog.CustomDialogBuilder;
+import flousy.session.Session;
 
 public class SignUpActivity extends MotherActivity {
 
-    private static int SIGNUP_TIME_OUT = 2000;
-    private Handler handler;
-    private Runnable runnable;
-
     private class ViewHolder {
-        public EditText firstNameEditText, lastNameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
-        public CheckBox validCheckBox;
+        public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
+        public CheckBox checkBoxValid;
     }
 
-    private ViewHolder form;
+    private static final int SIGNUP_TIME_OUT = 2000;
+
+    private ViewHolder formUser;
+
+    private DataAccessor dao = DataAccessorManager.getDao();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
-
-        //Set ActivityContent
         setContentView(R.layout.form_user_layout);
 
         //Set CustomActionBar
@@ -66,22 +60,16 @@ public class SignUpActivity extends MotherActivity {
         getDrawer().setEnabled(false);
 
         //Set User form
-        this.form = new ViewHolder();
+        this.formUser = new ViewHolder();
 
-        this.form.firstNameEditText = (EditText) findViewById(R.id.form_user_edittext_firstname);
-        this.form.lastNameEditText = (EditText) findViewById(R.id.form_user_edittext_lastname);
-        this.form.emailEditText = (EditText) findViewById(R.id.form_user_edittext_email);
-        this.form.passwordEditText = (EditText) findViewById(R.id.form_user_edittext_password);
-        this.form.confirmPasswordEditText = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
+        this.formUser.editTextFirstName = (EditText) findViewById(R.id.form_user_edittext_firstname);
+        this.formUser.editTextLastName = (EditText) findViewById(R.id.form_user_edittext_lastname);
+        this.formUser.editTextEmail = (EditText) findViewById(R.id.form_user_edittext_email);
+        this.formUser.editTextPassword = (EditText) findViewById(R.id.form_user_edittext_password);
+        this.formUser.editTextConfirmPassword = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
+        this.formUser.checkBoxValid = (CheckBox) findViewById(R.id.form_user_checkbox_valid);
 
-        this.form.validCheckBox = (CheckBox) findViewById(R.id.form_user_checkbox);
-        TextView validCheckBoxTextView = (TextView) findViewById(R.id.form_user_textview_validcheckbox);
-        validCheckBoxTextView.setText(R.string.signup_form_user_textview_validcheckbox_validation);
-
-        //Customize activity
-        customizeColor();
-        customizeText();
-        customizeDimensions();
+        initialize();
     }
 
     @Override
@@ -100,75 +88,64 @@ public class SignUpActivity extends MotherActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void signUp() {
-        Session session = new Session(this);
-        DataManager data = new DataManager(this);
-        WebService webService = new WebService(this);
-        String firstName = this.form.firstNameEditText.getEditableText().toString().trim();
-        String lastName = this.form.lastNameEditText.getEditableText().toString().trim();
-        String email = this.form.emailEditText.getEditableText().toString().trim();
-        String password = this.form.passwordEditText.getEditableText().toString().trim();
-        String confirmPassword = this.form.confirmPasswordEditText.getEditableText().toString().trim();
-        Boolean validCheckBox = this.form.validCheckBox.isChecked();
-        boolean signed = false;
+    private void signUp() {
+        try {
+            Client client = validForm();
 
-        String phoneNumber = "0000";
-        Drawable image = null;
-        if(!webService.existUserHTTPPost(email)){
-            Utilisateurs utilisateur = new Utilisateurs();
-            utilisateur.setNom(firstName);
-            utilisateur.setPrenom(lastName);
-            utilisateur.setEmail(email);
-            utilisateur.setPassword(password);
-            utilisateur.setSalaire(1000);
-            if(webService.inscriptionUserHTTPPost(utilisateur)){
-                User  user = new User(firstName, lastName, phoneNumber,email, password, image);
-                boolean valid = FormValidator.validUser(user);
-                if(valid == true && confirmPassword.compareTo(password) == 0 && validCheckBox == true) {
-                    signed = data.signUp(user);
-                }
-                CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
-                final AlertDialog dialog = builder.create();
+            this.dao.open();
+            this.dao.insertClient(client);
+            this.dao.close();
 
-                final Intent intent = new Intent(this, LogInActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(EXTRA_CLOSE, true);
-                intent.putExtra(EXTRA_USER_FIRSTNAME, user.getFirstName());
-
-                this.runnable = new Runnable() {
-
-                    @Override
-                    public void run() {
-                        startActivity(intent);
-                        dialog.dismiss();
-                        finish();
-                    }
-                };
-
-                this.handler = new Handler();
-                this.handler.postDelayed(this.runnable, SIGNUP_TIME_OUT);
-
-                dialog.show();
-                session.logIn(user.getEmail(), user.getPassword());
-            }
-
-        }else{
-            signed = false;
-            CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
-            builder.setTitle(R.string.signup_alertdialog_signup_title_error)
-                    .setMessage(R.string.signup_alertdialog_signup_message_error)
-                    .setNeutralButton(null);
-            AlertDialog dialog = builder.create();
-            dialog.show();
+            goToHomeActivity(client);
+        } catch (FormException e) {
+            CustomDialog.showOkDialog(this, "Form error", e.getMessage());
         }
-
     }
 
-<<<<<<< HEAD
-=======
+    private Client validForm() throws FormException {
+        Client client;
 
+        String firstName = this.formUser.editTextFirstName.getEditableText().toString().trim();
+        String lastName = this.formUser.editTextLastName.getEditableText().toString().trim();
+        String email = this.formUser.editTextEmail.getEditableText().toString().trim();
+        String password = this.formUser.editTextPassword.getEditableText().toString().trim();
+        String confirmPassword = this.formUser.editTextConfirmPassword.getEditableText().toString().trim();
+        Boolean checkBoxValid = this.formUser.checkBoxValid.isChecked();
 
+        FormUserValidator.validForm(firstName, lastName, email, password, confirmPassword, checkBoxValid);
 
+        client = new Client();
+        client.setFirstName(firstName);
+        client.setLastName(lastName);
+        client.setEmail(email);
+        client.setPassword(password);
 
->>>>>>> 3c36de6a2c620298634675416fe60adeec56a06d
+        return client;
+    }
+
+    private void goToHomeActivity(Client client) {
+        CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
+        final AlertDialog dialog = builder.create();
+
+        final Intent intent = new Intent(this, LogInActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(Extra.CLOSE, true);
+        intent.putExtra(Extra.USER_FIRSTNAME, client.getFirstName());
+
+        Runnable runnable = new Runnable() {
+
+            @Override
+            public void run() {
+                startActivity(intent);
+                dialog.dismiss();
+                finish();
+            }
+        };
+
+        Handler handler = new Handler();
+        handler.postDelayed(runnable, SIGNUP_TIME_OUT);
+
+        dialog.show();
+        Session.logIn(client.getEmail(), client.getPassword());
+    }
 }
