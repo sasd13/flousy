@@ -1,6 +1,6 @@
 package flousy.gui.widget.recycler.drawer;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.

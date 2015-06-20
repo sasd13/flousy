@@ -1,6 +1,6 @@
 package flousy.gui.widget.recycler.tab;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 import flousy.gui.widget.recycler.RecyclerItem;
 

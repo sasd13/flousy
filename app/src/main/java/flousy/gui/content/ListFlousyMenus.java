@@ -3,13 +3,13 @@ package flousy.gui.content;
 import android.content.Context;
 import android.content.Intent;
 
-import com.diderot.android.flousy.ConsultActivity;
-import com.diderot.android.flousy.FinancesActivity;
-import com.diderot.android.flousy.FriendsActivity;
-import com.diderot.android.flousy.NewActivity;
-import com.diderot.android.flousy.OffersActivity;
-import com.diderot.android.flousy.R;
-import com.diderot.android.flousy.SettingsActivity;
+import com.example.flousy.ConsultActivity;
+import com.example.flousy.FinancesActivity;
+import com.example.flousy.FriendsActivity;
+import com.example.flousy.NewActivity;
+import com.example.flousy.OffersActivity;
+import com.example.flousy.R;
+import com.example.flousy.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.Iterator;

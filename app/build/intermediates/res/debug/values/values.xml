@@ -244,8 +244,9 @@
     <dimen name="actionbar_imagebutton_actionup_horizontalpadding">7dp</dimen>
     <dimen name="activitybar_titled_textview_margin">7dp</dimen>
     <dimen name="activitycontent_padding">16dp</dimen>
-    <dimen name="button_horizontalpadding">20dp</dimen>
-    <dimen name="button_verticalpadding">10dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+    <dimen name="button_width">110dp</dimen>
+    <dimen name="button_width_large">140dp</dimen>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
@@ -362,10 +363,11 @@
     <string name="edittext_password_hint">Mot de passe</string>
     <string name="form_article_edittext_name_hint">Nom</string>
     <string name="form_article_edittext_price_hint">Prix</string>
-    <string name="form_article_textview_article">@string/activity_article_name</string>
+    <string name="form_article_textview_article">ARTICLE</string>
     <string name="form_article_textview_picture">Photo</string>
-    <string name="form_user_textview_connection">Connexion</string>
-    <string name="form_user_textview_identity">Identité</string>
+    <string name="form_user_textview_connection">CONNEXION</string>
+    <string name="form_user_textview_identity">IDENTITE</string>
+    <string name="form_user_textview_password">MOT DE PASSE</string>
     <string name="friends_activitybar_tabed_tab_contact">Contacts</string>
     <string name="friends_activitybar_tabed_tab_reception">Réceptions</string>
     <string name="friends_activitybar_tabed_tab_send">Envois</string>
@@ -384,7 +386,6 @@
     <string name="settings_alertdialog_logout_title">Déconnexion</string>
     <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
     <string name="settings_form_user_button_logout">Déconnexion</string>
-    <string name="settings_form_user_textview_validcheckbox_connect">Rester connecté</string>
     <string name="signup_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
     <string name="signup_alertdialog_signup_title_error">Erreur inscription</string>
     <string name="signup_form_user_textview_validcheckbox_validation">J\'atteste avoir lu le contrat d\'utilisation</string>

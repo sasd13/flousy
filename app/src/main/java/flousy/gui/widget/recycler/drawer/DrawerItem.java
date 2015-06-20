@@ -3,7 +3,7 @@ package flousy.gui.widget.recycler.drawer;
 import android.view.ViewStub;
 import android.widget.TextView;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 import flousy.gui.widget.recycler.RecyclerItem;
 

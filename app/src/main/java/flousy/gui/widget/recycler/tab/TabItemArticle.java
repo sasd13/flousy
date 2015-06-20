@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 import flousy.gui.color.ColorOnTouchListener;
 import flousy.gui.widget.recycler.RecyclerItem;

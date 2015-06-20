@@ -45,7 +45,6 @@
     <string name="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
 
     <!-- Activity Settings -->
-    <string name="settings_form_user_textview_validcheckbox_connect">Rester connecté</string>
     <string name="settings_form_user_button_logout">Déconnexion</string>
     <string name="settings_alertdialog_logout_title">Déconnexion</string>
     <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
@@ -92,16 +91,20 @@
     <string name="search_hint">Rechercher</string>
 
     <!-- Form user -->
-    <string name="form_user_textview_identity">Identité</string>
-    <string name="form_user_textview_connection">Connexion</string>
+    <string name="form_user_textview_identity">IDENTITE</string>
+    <string name="form_user_textview_connection">CONNEXION</string>
+    <string name="form_user_textview_password">MOT DE PASSE</string>
 
     <!-- Form article -->
-    <string name="form_article_textview_article">@string/activity_article_name</string>
+    <string name="form_article_textview_article">ARTICLE</string>
     <string name="form_article_edittext_name_hint">Nom</string>
     <string name="form_article_edittext_price_hint">Prix</string>
     <string name="form_article_textview_picture">Photo</string>
-    <!-- connexion Server -->
 
+    <!-- Menu -->
+    <string name="menu_item_action_drawer">Drawer</string>
+
+    <!-- connexion Server -->
     <string name="adressConnect">http://10.0.2.2:8080/WebProject</string>
 
     <!-- Tab articles -->

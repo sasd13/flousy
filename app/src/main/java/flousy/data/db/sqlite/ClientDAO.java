@@ -25,7 +25,7 @@ class ClientDAO extends AbstractTableDAO {
     private ContentValues getContentValues(Client client) {
         ContentValues values = new ContentValues();
 
-        values.put(CLIENT_ID, client.getId().toString());
+        values.put(CLIENT_ID, client.getId());
         values.put(CLIENT_FIRSTNAME, client.getFirstName());
         values.put(CLIENT_LASTNAME, client.getLastName());
         values.put(CLIENT_EMAIL, client.getEmail());

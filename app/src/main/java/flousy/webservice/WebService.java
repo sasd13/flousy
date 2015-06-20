@@ -2,7 +2,7 @@ package flousy.webservice;
 
 import android.content.Context;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

@@ -18,8 +18,9 @@
     <dimen name="activitybar_titled_textview_margin">7dp</dimen>
 
     <!-- Button -->
-    <dimen name="button_horizontalpadding">20dp</dimen>
-    <dimen name="button_verticalpadding">10dp</dimen>
+    <dimen name="button_width">110dp</dimen>
+    <dimen name="button_width_large">140dp</dimen>
+    <dimen name="button_height">40dp</dimen>
 
     <!-- Dialog -->
     <dimen name="customdialog_progressbar_padding">15dp</dimen>

@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 /**
  * Created by Samir on 09/03/2015.

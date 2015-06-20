@@ -3,8 +3,8 @@ package flousy.gui.widget.recycler.drawer;
 import android.view.View;
 import android.view.ViewStub;
 
-import com.diderot.android.flousy.MotherActivity;
-import com.diderot.android.flousy.R;
+import com.example.flousy.MotherActivity;
+import com.example.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.

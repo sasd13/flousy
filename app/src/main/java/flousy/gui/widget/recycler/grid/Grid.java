@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 import flousy.gui.widget.recycler.Recycler;
 

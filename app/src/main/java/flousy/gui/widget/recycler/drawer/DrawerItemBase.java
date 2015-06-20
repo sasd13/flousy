@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.view.ViewStub;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 import flousy.gui.color.ColorOnTouchListener;
 

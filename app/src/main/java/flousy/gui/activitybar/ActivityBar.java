@@ -3,7 +3,7 @@ package flousy.gui.activitybar;
 import android.view.View;
 import android.view.ViewStub;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 /**
  * Created by Samir on 11/03/2015.

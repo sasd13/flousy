@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 /**
  * Created by Samir on 22/03/2015.

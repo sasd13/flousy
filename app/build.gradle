@@ -5,8 +5,8 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.diderot.android.flousy"
-        minSdkVersion 8
+        applicationId "com.example.flousy"
+        minSdkVersion 9
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"

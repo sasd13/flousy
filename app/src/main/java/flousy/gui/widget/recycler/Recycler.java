@@ -3,7 +3,7 @@ package flousy.gui.widget.recycler;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
-import com.diderot.android.flousy.R;
+import com.example.flousy.R;
 
 /**
  * <b>AbstractRecycler is a container class for a squad of elements (RecyclerItem)</b>

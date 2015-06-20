@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.diderot.android.flousy"
+    package="com.example.flousy"
     android:installLocation="auto"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
-            android:name="com.diderot.android.flousy.SplashScreenActivity"
+            android:name="com.example.flousy.SplashScreenActivity"
             android:label="@string/activity_splashscreen_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
@@ -30,134 +30,134 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.LogInActivity"
+            android:name="com.example.flousy.LogInActivity"
             android:label="@string/activity_login_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.SignUpActivity"
+            android:name="com.example.flousy.SignUpActivity"
             android:label="@string/activity_signup_name"
-            android:parentActivityName="com.diderot.android.flousy.LogInActivity"
+            android:parentActivityName="com.example.flousy.LogInActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LogInActivity" />
+                android:value="com.example.flousy.LogInActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.RestorePasswordActivity"
+            android:name="com.example.flousy.RestorePasswordActivity"
             android:label="@string/activity_restorepassword_name"
-            android:parentActivityName="com.diderot.android.flousy.LogInActivity"
+            android:parentActivityName="com.example.flousy.LogInActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LogInActivity" />
+                android:value="com.example.flousy.LogInActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.MenuActivity"
+            android:name="com.example.flousy.MenuActivity"
             android:label="@string/activity_menu_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.NewActivity"
+            android:name="com.example.flousy.NewActivity"
             android:label="@string/activity_new_name"
-            android:parentActivityName="com.diderot.android.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.MenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity" />
+                android:value="com.example.flousy.MenuActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.ArticleActivity"
+            android:name="com.example.flousy.NewArticleActivity"
             android:label="@string/activity_article_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.ConsultActivity"
+            android:name="com.example.flousy.ConsultActivity"
             android:label="@string/activity_consult_name"
-            android:parentActivityName="com.diderot.android.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.MenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity" />
+                android:value="com.example.flousy.MenuActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.FinancesActivity"
+            android:name="com.example.flousy.FinancesActivity"
             android:label="@string/activity_finances_name"
-            android:parentActivityName="com.diderot.android.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.MenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity" />
+                android:value="com.example.flousy.MenuActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.ConsultCategoryActivity"
+            android:name="com.example.flousy.ConsultArticleActivity"
             android:label="@string/activity_finances_name"
-            android:parentActivityName="com.diderot.android.flousy.FinancesActivity"
+            android:parentActivityName="com.example.flousy.FinancesActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FinancesActivity" />
+                android:value="com.example.flousy.FinancesActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.FriendsActivity"
+            android:name="com.example.flousy.FriendsActivity"
             android:label="@string/activity_friends_name"
-            android:parentActivityName="com.diderot.android.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.MenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity" />
+                android:value="com.example.flousy.MenuActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.OffersActivity"
+            android:name="com.example.flousy.OffersActivity"
             android:label="@string/activity_offers_name"
-            android:parentActivityName="com.diderot.android.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.MenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity" />
+                android:value="com.example.flousy.MenuActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.SettingsActivity"
+            android:name="com.example.flousy.SettingsActivity"
             android:label="@string/activity_settings_name"
-            android:parentActivityName="com.diderot.android.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.MenuActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity" />
+                android:value="com.example.flousy.MenuActivity" />
         </activity>
         <activity
-            android:name="com.diderot.android.flousy.SearchResultsActivity"
+            android:name="com.example.flousy.SearchResultsActivity"
             android:label="@string/activity_settings_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
