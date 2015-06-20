@@ -381,6 +381,9 @@
     <string name="login_textview_signup">Inscription sur Flousy</string>
     <string name="menu_alertdialog_welcome_message">Salut</string>
     <string name="menu_alertdialog_welcome_title">Bienvenue</string>
+    <string name="menu_item_action_accept">Valider</string>
+    <string name="menu_item_action_drawer">Drawer</string>
+    <string name="menu_item_action_logout">Déconnecter</string>
     <string name="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
     <string name="search_hint">Rechercher</string>
     <string name="settings_alertdialog_logout_title">Déconnexion</string>
@@ -396,7 +399,7 @@
     <string name="tabitem_title_textview_price">PRIX</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/styles.xml -->
     <eat-comment/>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->

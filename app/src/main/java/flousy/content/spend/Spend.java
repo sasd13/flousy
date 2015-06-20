@@ -13,7 +13,8 @@ public class Spend {
 
     public Spend() {}
 
-    public Spend(Date date) {
+    public Spend(String id, Date date) {
+        this.id = id;
         this.date = date;
         this.listArticles = new ListArticles();
     }

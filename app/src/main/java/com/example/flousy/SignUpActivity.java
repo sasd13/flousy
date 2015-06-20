@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -18,6 +19,8 @@ import flousy.form.FormUserValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
 import flousy.session.Session;
+import flousy.util.IdGenerator;
+import flousy.util.IdGeneratorType;
 
 public class SignUpActivity extends MotherActivity {
 
@@ -50,18 +53,23 @@ public class SignUpActivity extends MotherActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_signup, menu);
 
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.action_valid:
+                signUp();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
     }
 
     private void signUp() {
@@ -91,6 +99,7 @@ public class SignUpActivity extends MotherActivity {
         FormUserValidator.validForm(firstName, lastName, email, password, confirmPassword, checkBoxValid);
 
         client = new Client();
+        client.setId(IdGenerator.get(this, IdGeneratorType.CLIENT));
         client.setFirstName(firstName);
         client.setLastName(lastName);
         client.setEmail(email);

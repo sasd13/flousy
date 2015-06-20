@@ -1,9 +1,0 @@
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:flousy="http://schemas.android.com/apk/res-auto">
-
-    <item android:id="@+id/action_drawer"
-        android:icon="@drawable/ic_action_drawer"
-        android:title="@string/menu_item_action_drawer"
-        flousy:showAsAction="ifRoom"/>
-</menu>

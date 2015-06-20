@@ -9,7 +9,13 @@ public class PaymentsAccount extends Account {
 
     private ListPayments listPayments;
 
-    public PaymentsAccount() {}
+    public PaymentsAccount() {
+        super();
+    }
+
+    public PaymentsAccount(String id) {
+        super(id);
+    }
 
     public ListPayments getListPayments() {
         return this.listPayments;

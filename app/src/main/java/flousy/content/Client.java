@@ -19,9 +19,10 @@ public class Client extends Person {
 
     public Client() {}
 
-    public Client(String firstName, String lastName, String email, Phone phone) {
+    public Client(String id, String firstName, String lastName, String email, Phone phone) {
         super(firstName, lastName);
 
+        this.id = id;
         this.email = email;
         this.phone = phone;
         this.listIncomes = new ListIncomes();

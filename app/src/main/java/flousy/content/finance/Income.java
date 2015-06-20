@@ -2,8 +2,6 @@ package flousy.content.finance;
 
 import java.util.Date;
 
-import flousy.content.id.IncomeId;
-
 /**
  * Created by Samir on 19/06/2015.
  */
@@ -17,7 +15,8 @@ public class Income {
 
     public Income() {}
 
-    public Income(double value, Date startDate, Date endDate, Periodicity periodicity) {
+    public Income(String id, double value, Date startDate, Date endDate, Periodicity periodicity) {
+        this.id = id;
         this.value = value;
         this.startDate = startDate;
         this.endDate = endDate;

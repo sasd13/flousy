@@ -13,7 +13,8 @@ public class Payment {
 
     public Payment() {}
 
-    public Payment(double value, Date date) {
+    public Payment(String id, double value, Date date) {
+        this.id = id;
         this.value = value;
         this.date = date;
     }

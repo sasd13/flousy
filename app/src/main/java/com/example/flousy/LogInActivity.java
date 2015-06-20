@@ -1,5 +1,6 @@
 package com.example.flousy;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
 import flousy.session.Session;
 
-public class LogInActivity extends MotherActivity {
+public class LogInActivity extends Activity {
 
     private class ViewHolder {
         public EditText editTextLogin, editTextPassword;
@@ -32,12 +33,6 @@ public class LogInActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-
-        //Hide ActionBar
-        getSupportActionBar().hide();
-
-        //Disable Drawer
-        getDrawer().setEnabled(false);
 
         this.formUser = new ViewHolder();
 

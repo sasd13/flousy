@@ -9,7 +9,13 @@ public class SpendsAccount extends Account {
 
     private ListSpends listSpends;
 
-    public SpendsAccount() {}
+    public SpendsAccount() {
+        super();
+    }
+
+    public SpendsAccount(String id) {
+        super(id);
+    }
 
     public ListSpends getListPayments() {
         return this.listSpends;

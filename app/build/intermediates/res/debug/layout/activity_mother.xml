@@ -5,12 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ViewStub
-        android:id="@+id/actionbar_viewstub"
-        android:layout="@layout/actionbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/actionbar_height"/>
-
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
