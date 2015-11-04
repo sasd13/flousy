@@ -3,13 +3,12 @@ package flousy.gui.content;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.flousy.ConsultActivity;
+import com.example.flousy.CustomerAccountActivity;
 import com.example.flousy.FinancesActivity;
+import com.example.flousy.SpendsActivity;
 import com.example.flousy.FriendsActivity;
-import com.example.flousy.NewActivity;
 import com.example.flousy.OffersActivity;
 import com.example.flousy.R;
-import com.example.flousy.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,16 +27,10 @@ public class ListFlousyMenus implements Iterable {
         this.list = new ArrayList<>();
 
         this.list.add(new FlousyMenu(
-                context.getResources().getString(R.string.activity_new_name),
+                context.getResources().getString(R.string.activity_spends_name),
                 context.getResources().getDrawable(R.drawable.griditem_new),
                 context.getResources().getColor(R.color.customGreen),
-                new Intent(context, NewActivity.class)));
-
-        this.list.add(new FlousyMenu(
-                context.getResources().getString(R.string.activity_consult_name),
-                context.getResources().getDrawable(R.drawable.griditem_consult),
-                context.getResources().getColor(R.color.customRed),
-                new Intent(context, ConsultActivity.class)));
+                new Intent(context, SpendsActivity.class)));
 
         this.list.add(new FlousyMenu(
                 context.getResources().getString(R.string.activity_finances_name),
@@ -58,10 +51,10 @@ public class ListFlousyMenus implements Iterable {
                 new Intent(context, OffersActivity.class)));
 
         this.list.add(new FlousyMenu(
-                context.getResources().getString(R.string.activity_settings_name),
+                context.getResources().getString(R.string.activity_customer_account_name),
                 context.getResources().getDrawable(R.drawable.griditem_settings),
                 context.getResources().getColor(R.color.customBrown),
-                new Intent(context, SettingsActivity.class)));
+                new Intent(context, CustomerAccountActivity.class)));
     }
 
     public static synchronized ListFlousyMenus getInstance(Context context) {

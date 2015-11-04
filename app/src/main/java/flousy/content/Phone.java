@@ -31,6 +31,10 @@ public class Phone {
     }
 
     public static Phone parse(String sPhone) {
+        if (sPhone == null) {
+            return null;
+        }
+
         Phone phone = new Phone();
 
         String[] tab = sPhone.split(SEPARATOR);

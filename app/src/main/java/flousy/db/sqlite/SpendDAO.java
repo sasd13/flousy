@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import java.sql.Timestamp;
 
+import flousy.content.customer.Account;
 import flousy.content.spend.ListSpends;
 import flousy.content.spend.Spend;
 import flousy.db.SpendTableAccessor;
@@ -21,6 +22,7 @@ class SpendDAO extends SQLiteTableDAO<Spend> implements SpendTableAccessor {
 
         values.put(SPEND_ID, spend.getId());
         values.put(SPEND_DATE, spend.getDate().toString());
+        values.put(SPEND_VALUE, spend.getValue());
 
         return values;
     }
@@ -31,13 +33,22 @@ class SpendDAO extends SQLiteTableDAO<Spend> implements SpendTableAccessor {
 
         spend.setId(cursor.getLong(cursor.getColumnIndex(SPEND_ID)));
         spend.setDate(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(SPEND_DATE))));
+        spend.setValue(cursor.getLong(cursor.getColumnIndex(SPEND_VALUE)));
 
         return spend;
     }
 
     @Override
     public long insert(Spend spend) {
-        return db.insert(SPEND_TABLE_NAME, null, getContentValues(spend));
+        return 0;
+    }
+
+    @Override
+    public long insert(Spend spend, Account account) {
+        ContentValues values = getContentValues(spend);
+        values.put(ACCOUNTS_ACCOUNT_ID, account.getId());
+
+        return db.insert(SPEND_TABLE_NAME, null, values);
     }
 
     @Override

@@ -5,7 +5,7 @@ import android.database.Cursor;
 
 import java.sql.Timestamp;
 
-import flousy.content.Period;
+import flousy.content.customer.Account;
 import flousy.content.finance.ListPayments;
 import flousy.content.finance.Payment;
 import flousy.db.PaymentTableAccessor;
@@ -40,7 +40,15 @@ class PaymentDAO extends SQLiteTableDAO<Payment> implements PaymentTableAccessor
 
     @Override
     public long insert(Payment payment) {
-        return db.insert(PAYMENT_TABLE_NAME, null, getContentValues(payment));
+        return 0;
+    }
+
+    @Override
+    public long insert(Payment payment, Account account) {
+        ContentValues values = getContentValues(payment);
+        values.put(ACCOUNTS_ACCOUNT_ID, account.getId());
+
+        return db.insert(PAYMENT_TABLE_NAME, null, values);
     }
 
     @Override

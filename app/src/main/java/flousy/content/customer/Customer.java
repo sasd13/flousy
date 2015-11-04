@@ -12,7 +12,7 @@ public class Customer extends Person {
     private String email;
     private String password;
     private Phone phone;
-    private CustomerAccount account;
+    private Account account;
 
     public long getId() {
         return this.id;
@@ -46,11 +46,11 @@ public class Customer extends Person {
         this.phone = phone;
     }
 
-    public CustomerAccount getAccount() {
+    public Account getAccount() {
         return this.account;
     }
 
-    public void setAccount(CustomerAccount account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
 }

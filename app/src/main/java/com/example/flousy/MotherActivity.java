@@ -106,7 +106,7 @@ public class MotherActivity extends ActionBarActivity {
 
     private void addDrawerItems() {
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
-        drawerItemTitle.setText(getResources().getString(R.string.activity_menu_name));
+        drawerItemTitle.setText(getResources().getString(R.string.activity_home_name));
         this.drawer.addItem(drawerItemTitle);
 
         ListFlousyMenus listFlousyMenus = ListFlousyMenus.getInstance(this);

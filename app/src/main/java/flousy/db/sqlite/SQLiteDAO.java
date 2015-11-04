@@ -3,12 +3,15 @@ package flousy.db.sqlite;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
+import java.util.Map;
+
+import flousy.content.customer.Account;
 import flousy.content.customer.Customer;
 import flousy.content.finance.Payment;
+import flousy.content.spend.Category;
 import flousy.content.spend.Product;
 import flousy.content.spend.Spend;
 import flousy.db.DBAccessor;
-import flousy.db.DBException;
 import flousy.util.FlousyCollection;
 
 public class SQLiteDAO implements DBAccessor {
@@ -22,14 +25,18 @@ public class SQLiteDAO implements DBAccessor {
 	private SQLiteDBHandler dbHandler = null;
 
     private CustomerDAO customerDAO;
+    private AccountDAO accountDAO;
     private PaymentDAO paymentDAO;
     private SpendDAO spendDAO;
+    private CategoryDAO categoryDAO;
     private ProductDAO productDAO;
 
 	private SQLiteDAO() {
         customerDAO = new CustomerDAO();
+        accountDAO = new AccountDAO();
         paymentDAO = new PaymentDAO();
         spendDAO = new SpendDAO();
+        categoryDAO = new CategoryDAO();
         productDAO = new ProductDAO();
     }
 
@@ -51,8 +58,10 @@ public class SQLiteDAO implements DBAccessor {
         db = dbHandler.getWritableDatabase();
 
         customerDAO.setDb(db);
+        accountDAO.setDb(db);
         paymentDAO.setDb(db);
         spendDAO.setDb(db);
+        categoryDAO.setDb(db);
         productDAO.setDb(db);
 	}
 
@@ -66,25 +75,42 @@ public class SQLiteDAO implements DBAccessor {
         return "SQLITE";
     }
 
-    public long insert(Object object) throws DBException {
+    @Override
+    public long insert(Object object) {
         switch (object.getClass().getSimpleName()) {
             case "Customer":
                 return customerDAO.insert((Customer) object);
-            case "Payment":
-                return paymentDAO.insert((Payment) object);
-            case "Spend":
-                return spendDAO.insert((Spend) object);
-            case "Product":
-                return productDAO.insert((Product) object);
+            case "Category":
+                return categoryDAO.insert((Category) object);
             default:
-                throw new DBException("insert failed : class " + object.getClass().getSimpleName());
+                return 0;
         }
     }
 
-    public void update(Object object) throws DBException {
+    @Override
+    public long insert(Object object, Map<Class, Object> map) {
+        switch (object.getClass().getSimpleName()) {
+            case "Account":
+                return accountDAO.insert((Account) object, (Customer) map.get(Customer.class));
+            case "Payment":
+                return paymentDAO.insert((Payment) object, (Account) map.get(Account.class));
+            case "Spend":
+                return spendDAO.insert((Spend) object, (Account) map.get(Account.class));
+            case "Product":
+                return productDAO.insert((Product) object, (Spend) map.get(Spend.class));
+            default:
+                return 0;
+        }
+    }
+
+    @Override
+    public void update(Object object) {
         switch (object.getClass().getSimpleName()) {
             case "Customer":
                 customerDAO.update((Customer) object);
+                break;
+            case "Account":
+                accountDAO.update((Account) object);
                 break;
             case "Payment":
                 paymentDAO.update((Payment) object);
@@ -92,34 +118,41 @@ public class SQLiteDAO implements DBAccessor {
             case "Spend":
                 spendDAO.update((Spend) object);
                 break;
+            case "Category":
+                categoryDAO.update((Category) object);
+                break;
             case "Product":
                 productDAO.update((Product) object);
                 break;
-            default:
-                throw new DBException("update failed : class " + object.getClass().getSimpleName());
         }
     }
 
-    public void delete(Object object) throws DBException {
+    @Override
+    public void delete(Object object) {
         switch (object.getClass().getSimpleName()) {
             case "Customer":
-                customerDAO.update((Customer) object);
+                customerDAO.delete((Customer) object);
+                break;
+            case "Account":
+                accountDAO.delete((Account) object);
                 break;
             case "Payment":
-                paymentDAO.update((Payment) object);
+                paymentDAO.delete((Payment) object);
                 break;
             case "Spend":
-                spendDAO.update((Spend) object);
+                spendDAO.delete((Spend) object);
+                break;
+            case "Category":
+                categoryDAO.delete((Category) object);
                 break;
             case "Product":
-                productDAO.update((Product) object);
+                productDAO.delete((Product) object);
                 break;
-            default:
-                throw new DBException("delete failed : class " + object.getClass().getSimpleName());
         }
     }
 
-    public Object select(String classSimpleName, long id) throws DBException {
+    @Override
+    public Object select(String classSimpleName, long id) {
         switch (classSimpleName) {
             case "Customer":
                 return customerDAO.select(id);
@@ -130,11 +163,12 @@ public class SQLiteDAO implements DBAccessor {
             case "Product":
                 return productDAO.select(id);
             default:
-                throw new DBException("select failed : class " + classSimpleName + ", id : " + id);
+                return null;
         }
     }
 
-    public FlousyCollection selectAll(String classSimpleName) throws DBException {
+    @Override
+    public FlousyCollection selectAll(String classSimpleName) {
         switch (classSimpleName) {
             case "Customer":
                 return customerDAO.selectAll();
@@ -145,7 +179,12 @@ public class SQLiteDAO implements DBAccessor {
             case "Product":
                 return productDAO.selectAll();
             default:
-                throw new DBException("select all failed : class " + classSimpleName);
+                return null;
         }
+    }
+
+    @Override
+    public Customer selectCustomerByEmail(String email) {
+        return customerDAO.selectByEmail(email);
     }
 }

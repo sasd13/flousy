@@ -30,87 +30,62 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.flousy.LogInActivity"
-            android:label="@string/activity_login_name"
+            android:name="com.example.flousy.CustomerLogActivity"
+            android:label="@string/activity_customer_log_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="com.example.flousy.SignUpActivity"
-            android:label="@string/activity_signup_name"
-            android:parentActivityName="com.example.flousy.LogInActivity"
+            android:name="com.example.flousy.CustomerAccountActivity"
+            android:label="@string/activity_customer_account_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.example.flousy.HomeActivity"
+            android:label="@string/activity_home_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.example.flousy.SpendsActivity"
+            android:label="@string/activity_spends_name"
+            android:parentActivityName="com.example.flousy.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.LogInActivity" />
+                android:value=".HomeActivity" />
         </activity>
         <activity
-            android:name="com.example.flousy.RestorePasswordActivity"
-            android:label="@string/activity_restorepassword_name"
-            android:parentActivityName="com.example.flousy.LogInActivity"
+            android:name="com.example.flousy.SpendsProductActivity"
+            android:label="@string/activity_spends_product_name"
+            android:parentActivityName="com.example.flousy.SpendsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.LogInActivity" />
-        </activity>
-        <activity
-            android:name="com.example.flousy.MenuActivity"
-            android:label="@string/activity_menu_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
-        <activity
-            android:name="com.example.flousy.NewActivity"
-            android:label="@string/activity_new_name"
-            android:parentActivityName="com.example.flousy.MenuActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.MenuActivity" />
-        </activity>
-        <activity
-            android:name="com.example.flousy.NewArticleActivity"
-            android:label="@string/activity_article_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
-        <activity
-            android:name="com.example.flousy.ConsultActivity"
-            android:label="@string/activity_consult_name"
-            android:parentActivityName="com.example.flousy.MenuActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.MenuActivity" />
+                android:value=".SpendsActivity" />
         </activity>
         <activity
             android:name="com.example.flousy.FinancesActivity"
             android:label="@string/activity_finances_name"
-            android:parentActivityName="com.example.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.MenuActivity" />
+                android:value=".HomeActivity" />
         </activity>
         <activity
-            android:name="com.example.flousy.ConsultArticleActivity"
-            android:label="@string/activity_finances_name"
+            android:name="com.example.flousy.FinancesPaymentActivity"
+            android:label="@string/activity_finances_payment_name"
             android:parentActivityName="com.example.flousy.FinancesActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
@@ -118,57 +93,31 @@
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.FinancesActivity" />
+                android:value=".FinancesActivity" />
         </activity>
         <activity
             android:name="com.example.flousy.FriendsActivity"
             android:label="@string/activity_friends_name"
-            android:parentActivityName="com.example.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.MenuActivity" />
+                android:value=".HomeActivity" />
         </activity>
         <activity
             android:name="com.example.flousy.OffersActivity"
             android:label="@string/activity_offers_name"
-            android:parentActivityName="com.example.flousy.MenuActivity"
+            android:parentActivityName="com.example.flousy.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.MenuActivity" />
-        </activity>
-        <activity
-            android:name="com.example.flousy.SettingsActivity"
-            android:label="@string/activity_settings_name"
-            android:parentActivityName="com.example.flousy.MenuActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.flousy.MenuActivity" />
-        </activity>
-        <activity
-            android:name="com.example.flousy.SearchResultsActivity"
-            android:label="@string/activity_settings_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+                android:value=".HomeActivity" />
         </activity>
         <activity android:name="org.achartengine.GraphicalActivity" />
         <activity

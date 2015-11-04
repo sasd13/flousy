@@ -9,18 +9,15 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
-    <string name="activity_login_name">Connexion</string>
-    <string name="activity_signup_name">Inscription</string>
-    <string name="activity_restorepassword_name">A l\'aide!</string>
-    <string name="activity_menu_name">Menu</string>
-    <string name="activity_new_name">Nouveau</string>
-    <string name="activity_article_name">Article</string>
-    <string name="activity_consult_name">Consulter</string>
-    <string name="activity_finances_name">Finances</string>
+    <string name="activity_customer_log_name">Connexion</string>
+    <string name="activity_customer_account_name">Compte</string>
+    <string name="activity_home_name">Menu</string>
     <string name="activity_spends_name">Dépenses</string>
+    <string name="activity_spends_product_name">Produit</string>
+    <string name="activity_finances_name">Finances</string>
+    <string name="activity_finances_payment_name">Paiment</string>
     <string name="activity_friends_name">Amis</string>
     <string name="activity_offers_name">Offres</string>
-    <string name="activity_settings_name">Paramètres</string>
 
     <!-- Activity Spends -->
     <string name="spends_actionbar_title">Dépenses</string>

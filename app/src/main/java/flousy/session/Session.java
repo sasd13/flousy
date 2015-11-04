@@ -35,13 +35,13 @@ public class Session {
 
     public static boolean logIn(String email, String password) {
         dao.open();
-        Customer customer = dao.selectClient(email);
+        Customer customer = dao.selectCustomerByEmail(email);
         dao.close();
 
         try {
             if(customer.getPassword().equals(password)) {
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString(SESSION_USER_ID, customer.getId());
+                editor.putString(SESSION_USER_ID, String.valueOf(customer.getId()));
 
                 return editor.commit();
             }

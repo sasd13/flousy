@@ -9,6 +9,7 @@ public class Spend {
 
     private long id;
     private Timestamp date;
+    private double value;
     private ListProducts listProducts;
 
     public Spend() {
@@ -29,6 +30,14 @@ public class Spend {
 
     public void setDate(Timestamp date) {
         this.date = date;
+    }
+
+    public double getValue() {
+        return this.value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 
     public ListProducts getListProducts() {

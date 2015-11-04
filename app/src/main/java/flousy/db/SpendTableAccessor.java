@@ -1,5 +1,6 @@
 package flousy.db;
 
+import flousy.content.customer.Account;
 import flousy.content.spend.Spend;
 
 /**
@@ -11,4 +12,8 @@ public interface SpendTableAccessor extends TableAccessor<Spend> {
 
     String SPEND_ID = "spend_id";
     String SPEND_DATE = "spend_date";
+    String SPEND_VALUE = "spend_value";
+    String ACCOUNTS_ACCOUNT_ID = "accounts_account_id";
+
+    long insert(Spend spend, Account account);
 }
