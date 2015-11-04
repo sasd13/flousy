@@ -5,15 +5,9 @@ package flousy.content;
  */
 public class Phone {
 
+    private static final String SEPARATOR = "-";
     private long index;
     private String number;
-
-    public Phone() {}
-
-    public Phone(long index, String number) {
-        this.index = index;
-        this.number = number;
-    }
 
     public long getIndex() {
         return this.index;
@@ -33,6 +27,16 @@ public class Phone {
 
     @Override
     public String toString() {
-        return "+(" + this.index + ") " + this.number;
+        return this.index + SEPARATOR + this.number;
+    }
+
+    public static Phone parse(String sPhone) {
+        Phone phone = new Phone();
+
+        String[] tab = sPhone.split(SEPARATOR);
+        phone.setIndex(Long.parseLong(tab[0]));
+        phone.setNumber(tab[1]);
+
+        return phone;
     }
 }

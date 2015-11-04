@@ -1,45 +1,41 @@
 package flousy.content.spend;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Created by Samir on 19/06/2015.
  */
 public class Spend {
 
-    private String id;
-    private Date date;
-    private ListArticles listArticles;
+    private long id;
+    private Timestamp date;
+    private ListProducts listProducts;
 
-    public Spend() {}
-
-    public Spend(String id, Date date) {
-        this.id = id;
-        this.date = date;
-        this.listArticles = new ListArticles();
+    public Spend() {
+        this.listProducts = new ListProducts();
     }
 
-    public String getId() {
+    public long getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return this.date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 
-    public ListArticles getListArticles() {
-        return this.listArticles;
+    public ListProducts getListProducts() {
+        return this.listProducts;
     }
 
-    public void setListArticles(ListArticles listArticles) {
-        this.listArticles = listArticles;
+    public void setListProducts(ListProducts listProducts) {
+        this.listProducts = listProducts;
     }
 }

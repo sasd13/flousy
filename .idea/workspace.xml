@@ -17,7 +17,229 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.diderot.android.flousy" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18a10cef-95b9-4d9f-a187-0f390fa901b7" name="Default" comment="" />
+    <list default="true" id="18a10cef-95b9-4d9f-a187-0f390fa901b7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/AccountTableAccessor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/customer/CustomerAccount.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/CustomerTableAccessor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/DBAccessor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/DBAccessorFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/DBException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/util/FlousyCollection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/util/FlousyList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/customer/ListCustomers.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListProducts.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/PaymentTableAccessor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/ProductTableAccessor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteDBHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/SpendTableAccessor.java" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$anim.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$bool.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$integer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\ConsultActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\ConsultArticleActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\FinancesActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\FriendsActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\LogInActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\LogInActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\LogInActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\LogInActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\LogInActivity$ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\LogInActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\MenuActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\MenuActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\MotherActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\NewActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\NewArticleActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\NewArticleActivity$ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\NewArticleActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\OffersActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$anim.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$array.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$bool.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$integer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R$xml.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\R.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\RestorePasswordActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SearchResultsActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SettingsActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SettingsActivity$ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SettingsActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SignUpActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SignUpActivity$ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SignUpActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SplashScreenActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\example\flousy\SplashScreenActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\FlousyException.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\constant\Extra.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\Account.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\Client.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\Period.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\Person.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\Phone.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\finance\Income.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\finance\ListIncomes.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\finance\ListPayments.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\finance\Payment.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\finance\PaymentsAccount.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\finance\Periodicity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\spend\Article.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\spend\Category.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\spend\ListArticles.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\spend\ListSpends.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\spend\Spend.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\spend\SpendsAccount.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\content\stat\Bilan.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\DataAccessorManager$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\DataAccessorManager.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\ArticleAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\ClientAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\DataAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\DataAccessorException.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\DataAccessorFactory$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\DataAccessorFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\DataAccessorType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\IncomeAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\PaymentAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\PaymentsAccountAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\PhoneAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\SpendAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\dao\accessor\SpendsAccountAccessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\AbstractTableDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\ArticleDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\ClientDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\DatabaseHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\IncomeDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\PaymentDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\PaymentsAccountDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\PhoneDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\SQLiteDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\SQLiteDAOException.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\SpendDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\data\db\sqlite\SpendsAccountDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\form\FormException.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\form\FormProjectValidator.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\form\FormUserValidator.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\activitybar\ActivityBar.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\activitybar\ActivityBarException.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\activitybar\ActivityBarFactory$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\activitybar\ActivityBarFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\activitybar\ActivityBarType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\activitybar\TitledActivityBar.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\app\KeyboardManager.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\color\ColorBrightness.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\color\ColorOnTouchListener.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\content\FlousyMenu.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\content\ListFlousyMenus.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\dialog\CustomDialog.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\dialog\CustomDialogBuilder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\ListRecyclerItems.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\Recycler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\RecyclerAdapter$ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\RecyclerAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\RecyclerAdapterDataObserver.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\RecyclerItem.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\drawer\Drawer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\drawer\DrawerItem.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\drawer\DrawerItemBase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\drawer\DrawerItemBase.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\drawer\DrawerItemMenu.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\drawer\DrawerItemTitle.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\grid\Grid.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\grid\GridItem$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\grid\GridItem.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\grid\SpacesItemDecoration.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\tab\Tab.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\tab\TabItemArticle$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\tab\TabItemArticle.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\recycler\tab\TabItemArticleTitle.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\gui\widget\spin\Spin.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\session\Session.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\util\IdGenerator$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\util\IdGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\util\IdGeneratorType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\webservice\WebService$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\webservice\WebService$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\flousy\webservice\WebService.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\finance\Income.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\finance\ListIncomes.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\finance\PaymentsAccount.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\spend\ListArticles.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\spend\SpendsAccount.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\stat\Bilan.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\ArticleAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\ClientAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\DataAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\DataAccessorException.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\DataAccessorFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\DataAccessorType.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\IncomeAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\PaymentAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\PaymentsAccountAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\PhoneAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\SpendAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\accessor\SpendsAccountAccessor.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\DatabaseHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\IncomeDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\PaymentsAccountDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\PhoneDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\SQLiteDAOException.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\SpendsAccountDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\util\IdGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\util\IdGeneratorType.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\Client.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/customer/Customer.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\finance\Periodicity.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/Periodicity.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\content\spend\Article.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Product.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\dao\DataAccessorManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/DBManager.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\AbstractTableDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteTableDAO.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\ArticleDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/ProductDAO.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\ClientDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/CustomerDAO.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\PaymentDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/PaymentDAO.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\SQLiteDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteDAO.java" />
+      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\flousy\data\db\sqlite\SpendDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SpendDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/Account.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/Account.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Category.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Category.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/ListPayments.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/ListPayments.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListSpends.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListSpends.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Payment.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Payment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/Period.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/Period.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/Person.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/Person.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/Phone.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/Phone.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/session/Session.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/session/Session.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SignUpActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SignUpActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Spend.java" afterPath="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Spend.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SplashScreenActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/uml/diagrams_class.mdj" afterPath="$PROJECT_DIR$/doc/uml/diagrams_class.mdj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="flousy.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/app/build/intermediates/assets/" />
@@ -60,7 +282,18 @@
     <favorites_list name="flousy" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="TableAccessor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/TableAccessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.28960818">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1179,57 +1412,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/LogInActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/SignUpActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_new_article.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_consult_article.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/MotherActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/ConsultActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/ConsultArticleActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FinancesActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/FriendsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/NewActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/NewArticleActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/diderot/android/flousy/OffersActivity.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/db/sqlite/ClientDAO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_signup.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/util/IdGeneratorType.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Income.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Payment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Periodicity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Article.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Product.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Spend.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/Client.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/Account.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/customer/CustomerAccount.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/ListContent.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/ListContents.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/FlousyCollection.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/FlousyList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListCategories.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListProducts.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListSpends.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/Person.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/customer/Customer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/TableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/ArticleAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/ProductTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/DBAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/CustomerTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/DBAccessorFactory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/PaymentTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/AccountTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/dao/accessor/SpendTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/data/DBManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/AbstractTableDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/ClientDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/Phone.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/ListPayments.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/PeriodicPayment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/Period.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/PaymentsAccount.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/SpendsAccount.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/util/IdGenerator.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/ConsultActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/ConsultArticleActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/MenuActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/FriendsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/RestorePasswordActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SearchResultsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SignUpActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SplashScreenActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/FinancesActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/NewActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/NewArticleActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/OffersActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/MotherActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/LogInActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/CustomerTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Category.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/customer/ListCustomers.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/SpendTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/CustomerDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/ProductDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SpendDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/ProductTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/TableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/DBAccessorFactory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteTableDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/PaymentTableAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Payment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/PaymentDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/DBException.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/DatabaseHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/DBHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/DatabaseHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteDBHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/DBAccessor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/DBManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteDAO.java" />
       </list>
     </option>
   </component>
@@ -1252,10 +1485,19 @@
           <State>
             <id>Android Lint</id>
           </State>
+          <State>
+            <id>Compiler issuesJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>AndroidLintAppCompatResource</id>
+            <id>ConstantConditions</id>
           </State>
         </selected-state>
       </profile-state>
@@ -1287,6 +1529,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1307,46 +1551,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flousy" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flousy" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1407,7 +1611,133 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="session" />
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sqlite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flousy" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1429,24 +1759,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flousy" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1716,11 +2030,11 @@
       <recent name="com.android" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="flousy.util" />
-      <recent name="flousy.session" />
+      <recent name="flousy.db" />
+      <recent name="flousy.content.customer" />
       <recent name="flousy.data.dao.accessor" />
-      <recent name="flousy" />
-      <recent name="flousy.data.db.sqlite" />
+      <recent name="flousy.content" />
+      <recent name="flousy.content.finance" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -2009,7 +2323,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3132137" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -2018,28 +2332,28 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39477977" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2560423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2560423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38336053" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38336053" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
@@ -2067,439 +2381,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_restorepassword.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_searchresults.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splashscreen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/draweritem.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/draweritem_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2785714">
-          <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
-          <folding>
-            <element signature="e#215#247#0" expanded="false" />
-            <element signature="e#637#674#0" expanded="false" />
-            <element signature="e#758#782#0" expanded="false" />
-            <element signature="e#1029#1063#0" expanded="false" />
-            <element signature="e#1168#1198#0" expanded="false" />
-            <element signature="e#1595#1625#0" expanded="false" />
-            <element signature="e#1651#1684#0" expanded="false" />
-            <element signature="e#1774#1798#0" expanded="false" />
-            <element signature="e#2226#2256#0" expanded="false" />
-            <element signature="e#2282#2314#0" expanded="false" />
-            <element signature="e#2404#2428#0" expanded="false" />
-            <element signature="e#2793#2821#0" expanded="false" />
-            <element signature="e#2847#2886#0" expanded="false" />
-            <element signature="e#2970#2994#0" expanded="false" />
-            <element signature="e#3192#3226#0" expanded="false" />
-            <element signature="e#3333#3363#0" expanded="false" />
-            <element signature="e#3756#3786#0" expanded="false" />
-            <element signature="e#3812#3841#0" expanded="false" />
-            <element signature="e#3920#3944#0" expanded="false" />
-            <element signature="e#4342#4370#0" expanded="false" />
-            <element signature="e#4396#4433#0" expanded="false" />
-            <element signature="e#4517#4541#0" expanded="false" />
-            <element signature="e#4777#4811#0" expanded="false" />
-            <element signature="e#4916#4946#0" expanded="false" />
-            <element signature="e#5342#5372#0" expanded="false" />
-            <element signature="e#5398#5430#0" expanded="false" />
-            <element signature="e#5505#5529#0" expanded="false" />
-            <element signature="e#5963#5993#0" expanded="false" />
-            <element signature="e#6019#6058#0" expanded="false" />
-            <element signature="e#6133#6157#0" expanded="false" />
-            <element signature="e#6580#6608#0" expanded="false" />
-            <element signature="e#6887#6931#0" expanded="false" />
-            <element signature="e#6975#7019#0" expanded="false" />
-            <element signature="e#7373#7433#0" expanded="false" />
-            <element signature="e#7467#7491#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7875">
-          <caret line="55" column="39" selection-start-line="31" selection-start-column="8" selection-end-line="55" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_article.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5928571">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-          <folding>
-            <element signature="e#252#284#0" expanded="false" />
-            <element signature="e#831#855#0" expanded="false" />
-            <element signature="e#1105#1139#0" expanded="false" />
-            <element signature="e#1246#1276#0" expanded="false" />
-            <element signature="e#1607#1637#0" expanded="false" />
-            <element signature="e#1727#1768#0" expanded="false" />
-            <element signature="e#1835#1859#0" expanded="false" />
-            <element signature="e#2221#2251#0" expanded="false" />
-            <element signature="e#2341#2383#0" expanded="false" />
-            <element signature="e#2459#2483#0" expanded="false" />
-            <element signature="e#2916#2938#0" expanded="false" />
-            <element signature="e#2973#2995#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_consult_article.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-          <folding>
-            <element signature="e#252#284#0" expanded="false" />
-            <element signature="e#829#853#0" expanded="false" />
-            <element signature="e#1103#1137#0" expanded="false" />
-            <element signature="e#1244#1274#0" expanded="false" />
-            <element signature="e#1603#1633#0" expanded="false" />
-            <element signature="e#1723#1764#0" expanded="false" />
-            <element signature="e#1831#1855#0" expanded="false" />
-            <element signature="e#2217#2247#0" expanded="false" />
-            <element signature="e#2337#2379#0" expanded="false" />
-            <element signature="e#2455#2479#0" expanded="false" />
-            <element signature="e#2912#2934#0" expanded="false" />
-            <element signature="e#2969#2991#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activitybar_titled.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/customdialog_load.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20272572">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/data/db/sqlite/ClientDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15178572">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62390673">
-          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19318181">
-          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_signup.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3380682">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding>
-            <element signature="e#243#276#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/util/IdGeneratorType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48295453">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Income.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Periodicity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3380682">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Payment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Spend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Period.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57954544">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Phone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/finance/PaymentsAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/SpendsAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42897728">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/session/Session.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3475298">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-          <folding>
-            <element signature="e#775#776#0" expanded="true" />
-            <element signature="e#830#831#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/util/IdGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3180428">
-          <caret line="106" column="45" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28977272">
-          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/ConsultActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/ConsultArticleActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/FinancesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/FriendsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/MenuActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2507,7 +2397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2515,7 +2404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2523,7 +2411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2531,7 +2418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2539,7 +2425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2547,15 +2432,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="80" column="11" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/SignUpActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2563,20 +2439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7613636">
           <caret line="140" column="37" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
-          <folding>
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1884#1885#0" expanded="true" />
-            <element signature="e#2374#2375#0" expanded="true" />
-            <element signature="e#2407#2408#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/SplashScreenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19318181">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2584,6 +2446,341 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9176136">
           <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/SignUpActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/SplashScreenActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/session/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38330495">
+          <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+          <folding>
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/flousy/ConsultActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-21/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321976">
+          <caret line="352" column="18" selection-start-line="352" selection-start-column="18" selection-end-line="352" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/util/FlousyCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14480409">
+          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/util/FlousyList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20272572">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/constant/Extra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListSpends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20272572">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListCategories.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23168655">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Periodicity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/customer/CustomerAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/finance/ListPayments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28960818">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Phone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14480409">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/Period.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7972743">
+          <caret line="46" column="80" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
+          <folding>
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28960818">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/customer/ListCustomers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028960818">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/ListProducts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20272572">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/customer/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/CustomerDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="23" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/ProductDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.681431">
+          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SpendDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.681431">
+          <caret line="80" column="23" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/finance/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/PaymentTableAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37649062">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/PaymentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75298125">
+          <caret line="35" column="79" selection-start-line="35" selection-start-column="79" selection-end-line="35" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/content/spend/Spend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.318569">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/SpendTableAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3475298">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/ProductTableAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40545145">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteTableDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4923339">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteDBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20272572">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/sqlite/SQLiteDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9267462">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/AccountTableAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/CustomerTableAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28960818">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/DBAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/DBException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20272572">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/DBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20272572">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/DBAccessorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20272572">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/flousy/db/TableAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28960818">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>

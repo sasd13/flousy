@@ -11,9 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import flousy.constant.Extra;
-import flousy.content.Client;
-import flousy.data.dao.DataAccessorManager;
-import flousy.data.dao.accessor.DataAccessor;
+import flousy.content.customer.Customer;
+import flousy.db.DBManager;
+import flousy.db.DBAccessor;
 import flousy.form.FormException;
 import flousy.form.FormUserValidator;
 import flousy.gui.widget.dialog.CustomDialog;
@@ -33,7 +33,7 @@ public class SignUpActivity extends MotherActivity {
 
     private ViewHolder formUser;
 
-    private DataAccessor dao = DataAccessorManager.getDao();
+    private DBAccessor dao = DBManager.getDao();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,20 +74,20 @@ public class SignUpActivity extends MotherActivity {
 
     private void signUp() {
         try {
-            Client client = validForm();
+            Customer customer = validForm();
 
             this.dao.open();
-            this.dao.insertClient(client);
+            this.dao.insertClient(customer);
             this.dao.close();
 
-            goToHomeActivity(client);
+            goToHomeActivity(customer);
         } catch (FormException e) {
             CustomDialog.showOkDialog(this, "Form error", e.getMessage());
         }
     }
 
-    private Client validForm() throws FormException {
-        Client client;
+    private Customer validForm() throws FormException {
+        Customer customer;
 
         String firstName = this.formUser.editTextFirstName.getEditableText().toString().trim();
         String lastName = this.formUser.editTextLastName.getEditableText().toString().trim();
@@ -98,24 +98,24 @@ public class SignUpActivity extends MotherActivity {
 
         FormUserValidator.validForm(firstName, lastName, email, password, confirmPassword, checkBoxValid);
 
-        client = new Client();
-        client.setId(IdGenerator.get(this, IdGeneratorType.CLIENT));
-        client.setFirstName(firstName);
-        client.setLastName(lastName);
-        client.setEmail(email);
-        client.setPassword(password);
+        customer = new Customer();
+        customer.setId(IdGenerator.get(this, IdGeneratorType.CLIENT));
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setEmail(email);
+        customer.setPassword(password);
 
-        return client;
+        return customer;
     }
 
-    private void goToHomeActivity(Client client) {
+    private void goToHomeActivity(Customer customer) {
         CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
         final AlertDialog dialog = builder.create();
 
         final Intent intent = new Intent(this, LogInActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(Extra.CLOSE, true);
-        intent.putExtra(Extra.USER_FIRSTNAME, client.getFirstName());
+        intent.putExtra(Extra.USER_FIRSTNAME, customer.getFirstName());
 
         Runnable runnable = new Runnable() {
 
@@ -131,6 +131,6 @@ public class SignUpActivity extends MotherActivity {
         handler.postDelayed(runnable, SIGNUP_TIME_OUT);
 
         dialog.show();
-        Session.logIn(client.getEmail(), client.getPassword());
+        Session.logIn(customer.getEmail(), customer.getPassword());
     }
 }
