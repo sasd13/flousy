@@ -9,10 +9,17 @@ class DBAccessorFactory {
 
     private DBAccessorFactory() {}
 
-    public static DBAccessor create(String dbType) {
-        switch (dbType) {
-            case "SQLITE": default:
-                return SQLiteDAO.getInstance();
+    public static DBAccessor create(String type) {
+        if ("MYSQL".equalsIgnoreCase(type)) {
+
+        } else if ("POSTGRESQL".equalsIgnoreCase(type)) {
+
+        } else if ("ORACLE".equalsIgnoreCase(type)) {
+
+        } else if ("SQLSERVER".equalsIgnoreCase(type)) {
+
         }
+
+        return SQLiteDAO.getInstance();
     }
 }

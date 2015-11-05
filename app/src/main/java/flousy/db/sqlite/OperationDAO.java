@@ -5,6 +5,9 @@ import android.database.Cursor;
 
 import java.sql.Timestamp;
 
+import flousy.bean.operation.IOperation;
+import flousy.bean.operation.OperationException;
+import flousy.bean.operation.OperationFactory;
 import flousy.bean.trading.ITradingAccount;
 import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.trading.TradingException;
@@ -23,7 +26,9 @@ class OperationDAO extends SQLiteTableDAO<TrafficOperation> implements Operation
 
         values.put(OPERATION_ID, trafficOperation.getId());
         values.put(OPERATION_DATE, trafficOperation.getDate().toString());
-        values.put(OPERATION_TYPE, trafficOperation.getTrafficType());
+        values.put(OPERATION_TRAFFICTYPE, trafficOperation.getTrafficType());
+        values.put(OPERATION_NAME, trafficOperation.getName());
+        values.put(OPERATION_OPERATIONTYPE, trafficOperation.getOperationType());
         values.put(OPERATION_VALUE, trafficOperation.getValue());
 
         return values;
@@ -33,15 +38,20 @@ class OperationDAO extends SQLiteTableDAO<TrafficOperation> implements Operation
     protected TrafficOperation extractCursorValues(Cursor cursor) {
         TrafficOperation trafficOperation = null;
 
-        String trafficType = cursor.getString(cursor.getColumnIndex(OPERATION_TYPE));
+        String trafficType = cursor.getString(cursor.getColumnIndex(OPERATION_TRAFFICTYPE));
 
         try {
             trafficOperation = (TrafficOperation) TrafficFactory.create(trafficType);
 
             trafficOperation.setId(cursor.getLong(cursor.getColumnIndex(OPERATION_ID)));
             trafficOperation.setDate(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_DATE))));
-            trafficOperation.setValue(cursor.getLong(cursor.getColumnIndex(OPERATION_VALUE)));
-        } catch (TradingException e) {
+            trafficOperation.setName(cursor.getString(cursor.getColumnIndex(OPERATION_NAME)));
+
+            IOperation operation = OperationFactory.create(cursor.getString(cursor.getColumnIndex(OPERATION_OPERATIONTYPE)));
+            operation.setValue(cursor.getLong(cursor.getColumnIndex(OPERATION_VALUE)));
+
+            trafficOperation.setOperation(operation);
+        } catch (TradingException | OperationException e) {
             e.printStackTrace();
         }
 
@@ -86,22 +96,6 @@ class OperationDAO extends SQLiteTableDAO<TrafficOperation> implements Operation
         cursor.close();
 
         return trafficOperation;
-    }
-
-    @Override
-    public ListTrafficOperations selectAll() {
-        ListTrafficOperations listTrafficOperations = new ListTrafficOperations();
-
-        Cursor cursor = db.rawQuery(
-                "select *"
-                        + " from " + OPERATION_TABLE_NAME, null);
-
-        while (cursor.moveToNext()) {
-            listTrafficOperations.add(extractCursorValues(cursor));
-        }
-        cursor.close();
-
-        return listTrafficOperations;
     }
 
     @Override

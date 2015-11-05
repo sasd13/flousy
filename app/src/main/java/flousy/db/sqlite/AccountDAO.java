@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 
 import flousy.bean.trading.ITradingAccount;
 import flousy.bean.customer.Customer;
-import flousy.bean.trading.ListTradingAccounts;
 import flousy.bean.trading.TradingAccountFactory;
 import flousy.bean.trading.TradingException;
 import flousy.db.AccountTableAccessor;
@@ -31,19 +30,20 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
 
     @Override
     protected ITradingAccount extractCursorValues(Cursor cursor) {
-        ITradingAccount iTradingAccount = null;
+        ITradingAccount tradingAccount = null;
 
         String accountType = cursor.getString(cursor.getColumnIndex(ACCOUNT_TYPE));
 
         try {
-            iTradingAccount = TradingAccountFactory.create(accountType);
-            iTradingAccount.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNT_ID)));
-            iTradingAccount.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
+            tradingAccount = TradingAccountFactory.create(accountType);
+
+            tradingAccount.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNT_ID)));
+            tradingAccount.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
         } catch (TradingException e) {
             e.printStackTrace();
         }
 
-        return iTradingAccount;
+        return tradingAccount;
     }
 
     @Override
@@ -84,22 +84,6 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
         cursor.close();
 
         return tradingAccount;
-    }
-
-    @Override
-    public ListTradingAccounts selectAll() {
-        ListTradingAccounts listTradingAccounts = new ListTradingAccounts();
-
-        Cursor cursor = db.rawQuery(
-                "select *"
-                        + " from " + ACCOUNT_TABLE_NAME, null);
-
-        while (cursor.moveToNext()) {
-            listTradingAccounts.add(extractCursorValues(cursor));
-        }
-        cursor.close();
-
-        return listTradingAccounts;
     }
 
     @Override

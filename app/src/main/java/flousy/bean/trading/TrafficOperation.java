@@ -84,6 +84,10 @@ public class TrafficOperation implements IOperation, ITraffic {
         this.operation.setValue(value);
     }
 
+    public IOperation getOperation() {
+        return this.operation;
+    }
+
     public void setOperation(IOperation operation) {
         this.operation = operation;
     }

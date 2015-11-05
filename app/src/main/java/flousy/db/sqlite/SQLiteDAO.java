@@ -8,11 +8,8 @@ import flousy.bean.ListProducts;
 import flousy.bean.customer.Customer;
 import flousy.bean.Category;
 import flousy.bean.Product;
-import flousy.bean.customer.IAccount;
-import flousy.bean.customer.ListCustomers;
 import flousy.bean.operation.spend.Spend;
 import flousy.bean.trading.ITradingAccount;
-import flousy.bean.trading.ListTradingAccounts;
 import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.trading.TrafficOperation;
 import flousy.db.DBAccessor;
@@ -77,27 +74,57 @@ public class SQLiteDAO implements DBAccessor {
 
     @Override
     public long insertCustomer(Customer customer) {
-        return customerDAO.insert(customer);
+        long id = customerDAO.insert(customer);
+
+        if (id > 0) {
+            customer.setId(id);
+        }
+
+        return id;
     }
 
     @Override
     public long insertAccount(ITradingAccount tradingAccount, Customer customer) {
-        return accountDAO.insert(tradingAccount, customer);
+        long id = accountDAO.insert(tradingAccount, customer);
+
+        if (id > 0) {
+            tradingAccount.setId(id);
+        }
+
+        return id;
     }
 
     @Override
     public long insertOperation(TrafficOperation trafficOperation, ITradingAccount tradingAccount) {
-        return operationDAO.insert(trafficOperation, tradingAccount);
+        long id = operationDAO.insert(trafficOperation, tradingAccount);
+
+        if (id > 0) {
+            trafficOperation.setId(id);
+        }
+
+        return id;
     }
 
     @Override
     public long insertCategory(Category category) {
-        return categoryDAO.insert(category);
+        long id = categoryDAO.insert(category);
+
+        if (id > 0) {
+            category.setId(id);
+        }
+
+        return id;
     }
 
     @Override
     public long insertProduct(Product product, TrafficOperation trafficOperation) {
-        return productDAO.insert(product, trafficOperation);
+        long id = productDAO.insert(product, trafficOperation);
+
+        if (id > 0) {
+            product.setId(id);
+        }
+
+        return id;
     }
 
     @Override
@@ -156,7 +183,6 @@ public class SQLiteDAO implements DBAccessor {
 
         if (customer != null) {
             ITradingAccount tradingAccount = accountDAO.selectAccountByCustomer(id);
-
             customer.setAccount(tradingAccount);
         }
 
@@ -182,14 +208,11 @@ public class SQLiteDAO implements DBAccessor {
     public TrafficOperation selectOperation(long id) {
         TrafficOperation trafficOperation = operationDAO.select(id);
 
-        if (trafficOperation != null && trafficOperation.getTrafficType().equalsIgnoreCase("SPEND")) {
+        if (trafficOperation != null && "SPEND".equalsIgnoreCase(trafficOperation.getTrafficType())) {
             ListProducts listProducts = productDAO.selectProductsByOperation(id);
 
-            Spend spend = new Spend();
-            trafficOperation.setOperation(spend);
-
             for (Product product : listProducts) {
-                spend.getListPurchases().add(product);
+                ((Spend) trafficOperation.getOperation()).getListPurchases().add(product);
             }
         }
 
@@ -203,22 +226,14 @@ public class SQLiteDAO implements DBAccessor {
 
     @Override
     public Product selectProduct(long id) {
-        return productDAO.select(id);
-    }
+        Product product = productDAO.select(id);
 
-    @Override
-    public ListCustomers selectAllCustomers() {
-        return customerDAO.selectAll();
-    }
+        if (product != null) {
+            Category category = categoryDAO.select(product.getCategory().getId());
+            product.setCategory(category);
+        }
 
-    @Override
-    public ListTradingAccounts selectAllAccounts() {
-        return accountDAO.selectAll();
-    }
-
-    @Override
-    public ListTrafficOperations selectAllOperations() {
-        return operationDAO.selectAll();
+        return product;
     }
 
     @Override
@@ -227,12 +242,14 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public ListProducts selectAllProducts() {
-        return productDAO.selectAll();
-    }
-
-    @Override
     public Customer selectCustomerByEmail(String email) {
-        return customerDAO.selectByEmail(email);
+        Customer customer = customerDAO.selectByEmail(email);
+
+        if (customer != null) {
+            ITradingAccount tradingAccount = accountDAO.selectAccountByCustomer(customer.getId());
+            customer.setAccount(tradingAccount);
+        }
+
+        return customer;
     }
 }

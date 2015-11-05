@@ -5,7 +5,6 @@ import android.database.Cursor;
 
 import flousy.bean.Phone;
 import flousy.bean.customer.Customer;
-import flousy.bean.customer.ListCustomers;
 import flousy.db.CustomerTableAccessor;
 
 /**
@@ -22,7 +21,7 @@ class CustomerDAO extends SQLiteTableDAO<Customer> implements CustomerTableAcces
         values.put(CUSTOMER_LASTNAME, customer.getLastName());
         values.put(CUSTOMER_EMAIL, customer.getEmail());
         values.put(CUSTOMER_PASSWORD, customer.getPassword());
-        values.put(CUSTOMER_PHONE, customer.getPhone().toString());
+        values.put(CUSTOMER_PHONE, customer.getPhone().toString(true));
 
         return values;
     }
@@ -88,21 +87,5 @@ class CustomerDAO extends SQLiteTableDAO<Customer> implements CustomerTableAcces
         cursor.close();
 
         return customer;
-    }
-
-    @Override
-    public ListCustomers selectAll() {
-        ListCustomers listCustomers = new ListCustomers();
-
-        Cursor cursor = db.rawQuery(
-                "select *"
-                        + " from " + CUSTOMER_TABLE_NAME, null);
-
-        while (cursor.moveToNext()) {
-            listCustomers.add(extractCursorValues(cursor));
-        }
-        cursor.close();
-
-        return listCustomers;
     }
 }

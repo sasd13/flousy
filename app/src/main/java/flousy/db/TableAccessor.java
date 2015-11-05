@@ -12,6 +12,4 @@ public interface TableAccessor<T> {
     void delete(T t);
 
     T select(long id);
-
-    Iterable<T> selectAll();
 }

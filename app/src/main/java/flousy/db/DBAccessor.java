@@ -4,13 +4,9 @@ import android.content.Context;
 
 import flousy.bean.Category;
 import flousy.bean.ListCategories;
-import flousy.bean.ListProducts;
 import flousy.bean.Product;
 import flousy.bean.customer.Customer;
-import flousy.bean.customer.ListCustomers;
 import flousy.bean.trading.ITradingAccount;
-import flousy.bean.trading.ListTradingAccounts;
-import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.trading.TrafficOperation;
 
 /**
@@ -66,15 +62,7 @@ public interface DBAccessor {
 
     Product selectProduct(long id);
 
-    ListCustomers selectAllCustomers();
-
-    ListTradingAccounts selectAllAccounts();
-
-    ListTrafficOperations selectAllOperations();
-
     ListCategories selectAllCategories();
-
-    ListProducts selectAllProducts();
 
     Customer selectCustomerByEmail(String email);
 }

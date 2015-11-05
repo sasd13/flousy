@@ -66,8 +66,8 @@ public class CheckingTradingAccount implements ITradingAccount {
 
     @Override
     public void update(Observable observable, Object data) {
-        for (ITraffic ITraffic : this.listTrafficOperations) {
-            this.sold += ((TrafficOperation) ITraffic).getValue();
+        for (TrafficOperation trafficOperation : this.listTrafficOperations) {
+            this.sold += trafficOperation.getValue();
         }
     }
 

@@ -47,7 +47,9 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
             "CREATE TABLE " + OperationTableAccessor.OPERATION_TABLE_NAME + " ("
                     + OperationTableAccessor.OPERATION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + OperationTableAccessor.OPERATION_DATE + " TEXT NOT NULL, "
-                    + OperationTableAccessor.OPERATION_TYPE + " TEXT NOT NULL, "
+                    + OperationTableAccessor.OPERATION_TRAFFICTYPE + " TEXT NOT NULL, "
+                    + OperationTableAccessor.OPERATION_NAME + " TEXT NOT NULL, "
+                    + OperationTableAccessor.OPERATION_OPERATIONTYPE + " TEXT NOT NULL, "
                     + OperationTableAccessor.OPERATION_VALUE + " REAL NOT NULL, "
                     + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
                     + " FOREIGN KEY (" + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
