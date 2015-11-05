@@ -1,6 +1,7 @@
 package flousy.db;
 
 import flousy.bean.trading.ITradingAccount;
+import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.trading.TrafficOperation;
 
 /**
@@ -17,4 +18,6 @@ public interface OperationTableAccessor extends TableAccessor<TrafficOperation> 
     String ACCOUNTS_ACCOUNT_ID = "accounts_account_id";
 
     long insert(TrafficOperation trafficOperation, ITradingAccount tradingAccount);
+
+    ListTrafficOperations selectOperationsByAccount(long accountId);
 }

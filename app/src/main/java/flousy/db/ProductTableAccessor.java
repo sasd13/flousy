@@ -1,5 +1,6 @@
 package flousy.db;
 
+import flousy.bean.ListProducts;
 import flousy.bean.Product;
 import flousy.bean.trading.TrafficOperation;
 
@@ -17,4 +18,6 @@ public interface ProductTableAccessor extends TableAccessor<Product> {
     String OPERATIONS_OPERATION_ID = "operations_operation_id";
 
     long insert(Product product, TrafficOperation trafficOperation);
+
+    ListProducts selectProductsByOperation(long operationId);
 }

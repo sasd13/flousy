@@ -9,7 +9,7 @@ public class OperationFactory {
 
     private OperationFactory() {}
 
-    public static Operation create(String type) throws OperationException {
+    public static IOperation create(String type) throws OperationException {
         if ("PAYMENT".equalsIgnoreCase(type)) {
             return new Payment();
         } else if ("SPEND".equalsIgnoreCase(type)) {

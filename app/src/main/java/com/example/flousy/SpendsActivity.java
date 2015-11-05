@@ -56,7 +56,7 @@ public class SpendsActivity extends MotherActivity {
     private void addCategoriesGridItems() {
         this.grid.clearItems();
 
-        ListCategories listCategories = (ListCategories) this.dao.selectAll(Category.class.getSimpleName());
+        ListCategories listCategories = (ListCategories) this.dao.selectAllCategories();
 
         GridItem gridItem;
         Intent intent;

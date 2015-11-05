@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import flousy.db.AccountTableAccessor;
 import flousy.db.CategoryTableAccessor;
 import flousy.db.CustomerTableAccessor;
-import flousy.db.PaymentTableAccessor;
 import flousy.db.ProductTableAccessor;
 import flousy.db.OperationTableAccessor;
 
@@ -34,30 +33,22 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String ACCOUNT_TABLE_CREATE =
             "CREATE TABLE " + AccountTableAccessor.ACCOUNT_TABLE_NAME + " ("
                     + AccountTableAccessor.ACCOUNT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + AccountTableAccessor.ACCOUNT_DATEOPENING + " TEXT NOT NULL, "
+                    + AccountTableAccessor.ACCOUNT_TYPE + " TEXT NOT NULL, "
+                    + AccountTableAccessor.ACCOUNT_SOLD + " REAL NOT NULL, "
                     + AccountTableAccessor.CUSTOMERS_CUSTOMER_ID + " INTEGER NOT NULL, "
                     + " FOREIGN KEY (" + AccountTableAccessor.CUSTOMERS_CUSTOMER_ID + ") REFERENCES " + CustomerTableAccessor.CUSTOMER_TABLE_NAME + "("+ CustomerTableAccessor.CUSTOMER_ID + "));";
 
     /**
      * Table payments
      */
-    public static final String PAYMENT_TABLE_DROP = "DROP TABLE IF EXISTS " + PaymentTableAccessor.PAYMENT_TABLE_NAME + ";";
-    public static final String PAYMENT_TABLE_CREATE =
-            "CREATE TABLE " + PaymentTableAccessor.PAYMENT_TABLE_NAME + " ("
-                    + PaymentTableAccessor.PAYMENT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + PaymentTableAccessor.PAYMENT_DATE + " TEXT NOT NULL, "
-                    + PaymentTableAccessor.PAYMENT_VALUE + " REAL NOT NULL, "
-                    + PaymentTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + PaymentTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
-
-    /**
-     * Table spends
-     */
-    public static final String SPEND_TABLE_DROP = "DROP TABLE IF EXISTS " + OperationTableAccessor.SPEND_TABLE_NAME + ";";
-    public static final String SPEND_TABLE_CREATE =
-            "CREATE TABLE " + OperationTableAccessor.SPEND_TABLE_NAME + " ("
-                    + OperationTableAccessor.SPEND_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + OperationTableAccessor.SPEND_DATE + " TEXT NOT NULL, "
-                    + OperationTableAccessor.SPEND_VALUE + " REAL NOT NULL, "
+    public static final String OPERATION_TABLE_DROP = "DROP TABLE IF EXISTS " + OperationTableAccessor.OPERATION_TABLE_NAME + ";";
+    public static final String OPERATION_TABLE_CREATE =
+            "CREATE TABLE " + OperationTableAccessor.OPERATION_TABLE_NAME + " ("
+                    + OperationTableAccessor.OPERATION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + OperationTableAccessor.OPERATION_DATE + " TEXT NOT NULL, "
+                    + OperationTableAccessor.OPERATION_TYPE + " TEXT NOT NULL, "
+                    + OperationTableAccessor.OPERATION_VALUE + " REAL NOT NULL, "
                     + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
                     + " FOREIGN KEY (" + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
 
@@ -79,9 +70,9 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + ProductTableAccessor.PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + ProductTableAccessor.PRODUCT_NAME + " TEXT NOT NULL, "
                     + ProductTableAccessor.PRODUCT_PRICE + " REAL NOT NULL, "
-                    + ProductTableAccessor.SPENDS_SPEND_ID + " INTEGER NOT NULL, "
+                    + ProductTableAccessor.OPERATIONS_OPERATION_ID + " INTEGER NOT NULL, "
                     + ProductTableAccessor.CATEGORIES_CATEGORY_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + ProductTableAccessor.SPENDS_SPEND_ID + ") REFERENCES " + OperationTableAccessor.SPEND_TABLE_NAME + "("+ OperationTableAccessor.SPEND_ID + "), "
+                    + " FOREIGN KEY (" + ProductTableAccessor.OPERATIONS_OPERATION_ID + ") REFERENCES " + OperationTableAccessor.OPERATION_TABLE_NAME + "("+ OperationTableAccessor.OPERATION_ID + "), "
                     + " FOREIGN KEY (" + ProductTableAccessor.CATEGORIES_CATEGORY_ID + ") REFERENCES " + CategoryTableAccessor.CATEGORY_TABLE_NAME + "("+ CategoryTableAccessor.CATEGORY_ID + "));";
 
 
@@ -94,8 +85,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
         db.execSQL(CUSTOMER_TABLE_CREATE);
         db.execSQL(ACCOUNT_TABLE_CREATE);
-        db.execSQL(PAYMENT_TABLE_CREATE);
-        db.execSQL(SPEND_TABLE_CREATE);
+        db.execSQL(OPERATION_TABLE_CREATE);
         db.execSQL(CATEGORY_TABLE_CREATE);
         db.execSQL(PRODUCT_TABLE_CREATE);
 	}
@@ -104,8 +94,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(PRODUCT_TABLE_DROP);
         db.execSQL(CATEGORY_TABLE_DROP);
-        db.execSQL(SPEND_TABLE_DROP);
-        db.execSQL(PAYMENT_TABLE_DROP);
+        db.execSQL(OPERATION_TABLE_DROP);
         db.execSQL(ACCOUNT_TABLE_DROP);
         db.execSQL(CUSTOMER_TABLE_DROP);
 

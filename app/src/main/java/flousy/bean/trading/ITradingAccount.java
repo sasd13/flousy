@@ -14,7 +14,7 @@ public interface ITradingAccount extends IAccount, Observer {
 
     double getSold();
 
-    ListTraffics getListTraffics();
+    ListTrafficOperations getListTrafficOperations();
 
     Diary getDiary();
 }

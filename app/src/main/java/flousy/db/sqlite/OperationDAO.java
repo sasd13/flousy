@@ -103,4 +103,21 @@ class OperationDAO extends SQLiteTableDAO<TrafficOperation> implements Operation
 
         return listTrafficOperations;
     }
+
+    @Override
+    public ListTrafficOperations selectOperationsByAccount(long accountId) {
+        ListTrafficOperations listTrafficOperations = new ListTrafficOperations();
+
+        Cursor cursor = db.rawQuery(
+                "select *"
+                        + " from " + OPERATION_TABLE_NAME
+                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?", new String[]{String.valueOf(accountId)});
+
+        while (cursor.moveToNext()) {
+            listTrafficOperations.add(extractCursorValues(cursor));
+        }
+        cursor.close();
+
+        return listTrafficOperations;
+    }
 }

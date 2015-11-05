@@ -17,4 +17,6 @@ public interface AccountTableAccessor extends TableAccessor<ITradingAccount> {
     String CUSTOMERS_CUSTOMER_ID = "customers_customer_id";
 
     long insert(ITradingAccount tradingAccount, Customer customer);
+
+    ITradingAccount selectAccountByCustomer(long customerId);
 }

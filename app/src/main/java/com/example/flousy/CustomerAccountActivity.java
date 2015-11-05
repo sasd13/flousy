@@ -75,7 +75,7 @@ public class CustomerAccountActivity extends MotherActivity {
             Customer customer = validForm();
 
             this.dao.open();
-            this.dao.insert(customer);
+            this.dao.insertCustomer(customer);
             this.dao.close();
 
             goToHomeActivity(customer);

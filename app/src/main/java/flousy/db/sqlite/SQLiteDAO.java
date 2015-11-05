@@ -3,15 +3,17 @@ package flousy.db.sqlite;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
-import java.util.Map;
-
-import flousy.bean.trading.CheckingTradingAccount;
+import flousy.bean.ListCategories;
+import flousy.bean.ListProducts;
 import flousy.bean.customer.Customer;
-import flousy.bean.operation.payment.Payment;
 import flousy.bean.Category;
 import flousy.bean.Product;
+import flousy.bean.customer.IAccount;
+import flousy.bean.customer.ListCustomers;
 import flousy.bean.operation.spend.Spend;
 import flousy.bean.trading.ITradingAccount;
+import flousy.bean.trading.ListTradingAccounts;
+import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.trading.TrafficOperation;
 import flousy.db.DBAccessor;
 
@@ -69,123 +71,164 @@ public class SQLiteDAO implements DBAccessor {
 	}
 
     @Override
-    public String getType() {
+    public String getDBType() {
         return "SQLITE";
     }
 
     @Override
-    public long insert(Customer customer) {
+    public long insertCustomer(Customer customer) {
         return customerDAO.insert(customer);
     }
 
     @Override
-    public long insert(ITradingAccount tradingAccount, Customer customer) {
+    public long insertAccount(ITradingAccount tradingAccount, Customer customer) {
         return accountDAO.insert(tradingAccount, customer);
     }
 
     @Override
-    public long insert(TrafficOperation trafficOperation, ITradingAccount tradingAccount) {
+    public long insertOperation(TrafficOperation trafficOperation, ITradingAccount tradingAccount) {
         return operationDAO.insert(trafficOperation, tradingAccount);
     }
 
     @Override
-    public long insert(Category category) {
+    public long insertCategory(Category category) {
         return categoryDAO.insert(category);
     }
 
     @Override
-    public long insert(Product product, TrafficOperation trafficOperation) {
+    public long insertProduct(Product product, TrafficOperation trafficOperation) {
         return productDAO.insert(product, trafficOperation);
     }
 
     @Override
-    public void update(Customer customer) {
+    public void updateCustomer(Customer customer) {
         customerDAO.update(customer);
     }
 
     @Override
-    public void update(ITradingAccount tradingAccount) {
+    public void updateAccount(ITradingAccount tradingAccount) {
         accountDAO.update(tradingAccount);
     }
 
     @Override
-    public void update(TrafficOperation trafficOperation) {
+    public void updateOperation(TrafficOperation trafficOperation) {
         operationDAO.update(trafficOperation);
     }
 
     @Override
-    public void update(Category category) {
+    public void updateCategory(Category category) {
         categoryDAO.update(category);
     }
 
     @Override
-    public void update(Product product) {
+    public void updateProduct(Product product) {
         productDAO.update(product);
     }
 
     @Override
-    public void delete(Customer customer) {
+    public void deleteCustomer(Customer customer) {
         customerDAO.delete(customer);
     }
 
     @Override
-    public void delete(ITradingAccount tradingAccount) {
+    public void deleteAccount(ITradingAccount tradingAccount) {
         accountDAO.delete(tradingAccount);
     }
 
     @Override
-    public void delete(TrafficOperation trafficOperation) {
+    public void deleteOperation(TrafficOperation trafficOperation) {
         operationDAO.delete(trafficOperation);
     }
 
     @Override
-    public void delete(Category category) {
+    public void deleteCategory(Category category) {
         categoryDAO.delete(category);
     }
 
     @Override
-    public void delete(Product product) {
+    public void deleteProduct(Product product) {
         productDAO.delete(product);
     }
 
     @Override
-    public Object select(Class className, long id) {
-        if (className == Customer.class) {
-            return customerDAO.select(id);
-        } else if (className == Tr)
-    }
+    public Customer selectCustomer(long id) {
+        Customer customer = customerDAO.select(id);
 
-    @Override
-    public Iterable selectAll(Class className) {
-        return null;
-    }
+        if (customer != null) {
+            ITradingAccount tradingAccount = accountDAO.selectAccountByCustomer(id);
 
-    @Override
-    public Object select(Class className, long id) {
-        switch (classSimpleName) {
-            case "Customer":
-                return customerDAO.select(id);
-            case "Product":
-                return productDAO.select(id);
-            default:
-                return null;
+            customer.setAccount(tradingAccount);
         }
+
+        return customer;
     }
 
     @Override
-    public Iterable selectAll(String classSimpleName) {
-        switch (classSimpleName) {
-            case "Customer":
-                return customerDAO.selectAll();
-            case "Payment":
-                return paymentDAO.selectAll();
-            case "Spend":
-                return operationDAO.selectAll();
-            case "Product":
-                return productDAO.selectAll();
-            default:
-                return null;
+    public ITradingAccount selectAccount(long id) {
+        ITradingAccount tradingAccount = accountDAO.select(id);
+
+        if (tradingAccount != null) {
+            ListTrafficOperations listTrafficOperations = operationDAO.selectOperationsByAccount(id);
+
+            for (TrafficOperation trafficOperation : listTrafficOperations) {
+                tradingAccount.getListTrafficOperations().add(trafficOperation);
+            }
         }
+
+        return tradingAccount;
+    }
+
+    @Override
+    public TrafficOperation selectOperation(long id) {
+        TrafficOperation trafficOperation = operationDAO.select(id);
+
+        if (trafficOperation != null && trafficOperation.getTrafficType().equalsIgnoreCase("SPEND")) {
+            ListProducts listProducts = productDAO.selectProductsByOperation(id);
+
+            Spend spend = new Spend();
+            trafficOperation.setOperation(spend);
+
+            for (Product product : listProducts) {
+                spend.getListPurchases().add(product);
+            }
+        }
+
+        return trafficOperation;
+    }
+
+    @Override
+    public Category selectCategory(long id) {
+        return categoryDAO.select(id);
+    }
+
+    @Override
+    public Product selectProduct(long id) {
+        return productDAO.select(id);
+    }
+
+    @Override
+    public ListCustomers selectAllCustomers() {
+        return customerDAO.selectAll();
+    }
+
+    @Override
+    public ListTradingAccounts selectAllAccounts() {
+        return accountDAO.selectAll();
+    }
+
+    @Override
+    public ListTrafficOperations selectAllOperations() {
+        return operationDAO.selectAll();
+    }
+
+    @Override
+    public ListCategories selectAllCategories() {
+        return categoryDAO.selectAll();
+    }
+
+    @Override
+    public ListProducts selectAllProducts() {
+        return productDAO.selectAll();
     }
 
     @Override

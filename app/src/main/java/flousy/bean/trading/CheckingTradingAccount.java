@@ -13,16 +13,16 @@ public class CheckingTradingAccount implements ITradingAccount {
     private long id;
     private Timestamp dateOpening;
     private double sold;
-    private ListTraffics listTraffics;
+    private ListTrafficOperations listTrafficOperations;
     private Diary diary;
 
     public CheckingTradingAccount() {
         this.dateOpening = new Timestamp(System.currentTimeMillis());
         this.sold = 0;
-        this.listTraffics = new ListTraffics();
+        this.listTrafficOperations = new ListTrafficOperations();
         this.diary = new Diary();
 
-        this.listTraffics.addObserver(this);
+        this.listTrafficOperations.addObserver(this);
     }
 
     @Override
@@ -55,8 +55,8 @@ public class CheckingTradingAccount implements ITradingAccount {
     }
 
     @Override
-    public ListTraffics getListTraffics() {
-        return this.listTraffics;
+    public ListTrafficOperations getListTrafficOperations() {
+        return this.listTrafficOperations;
     }
 
     @Override
@@ -66,10 +66,8 @@ public class CheckingTradingAccount implements ITradingAccount {
 
     @Override
     public void update(Observable observable, Object data) {
-        for (ITraffic ITraffic : this.listTraffics) {
-            if (ITraffic.getTrafficType() == "OPERATION") {
-                this.sold += ((TrafficOperation) ITraffic).getValue();
-            }
+        for (ITraffic ITraffic : this.listTrafficOperations) {
+            this.sold += ((TrafficOperation) ITraffic).getValue();
         }
     }
 

@@ -101,4 +101,21 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
 
         return listTradingAccounts;
     }
+
+    @Override
+    public ITradingAccount selectAccountByCustomer(long customerId) {
+        ITradingAccount tradingAccount = null;
+
+        Cursor cursor = db.rawQuery(
+                "select *"
+                        + " from " + ACCOUNT_TABLE_NAME
+                        + " where " + CUSTOMERS_CUSTOMER_ID + " = ?", new String[]{String.valueOf(customerId)});
+
+        if (cursor.moveToNext()) {
+            tradingAccount = extractCursorValues(cursor);
+        }
+        cursor.close();
+
+        return tradingAccount;
+    }
 }

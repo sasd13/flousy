@@ -96,4 +96,21 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
 
         return listProducts;
     }
+
+    @Override
+    public ListProducts selectProductsByOperation(long operationId) {
+        ListProducts listProducts = new ListProducts();
+
+        Cursor cursor = db.rawQuery(
+                "select *"
+                        + " from " + PRODUCT_TABLE_NAME
+                        + " where " + OPERATIONS_OPERATION_ID + " = ?", new String[]{String.valueOf(operationId)});
+
+        while (cursor.moveToNext()) {
+            listProducts.add(extractCursorValues(cursor));
+        }
+        cursor.close();
+
+        return listProducts;
+    }
 }
