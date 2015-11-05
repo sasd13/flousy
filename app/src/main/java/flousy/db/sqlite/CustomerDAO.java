@@ -3,11 +3,10 @@ package flousy.db.sqlite;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import flousy.content.Phone;
-import flousy.content.customer.Customer;
-import flousy.content.customer.ListCustomers;
+import flousy.bean.Phone;
+import flousy.bean.customer.Customer;
+import flousy.bean.customer.ListCustomers;
 import flousy.db.CustomerTableAccessor;
-import flousy.util.FlousyCollection;
 
 /**
  * Created by Samir on 02/04/2015.
@@ -92,18 +91,18 @@ class CustomerDAO extends SQLiteTableDAO<Customer> implements CustomerTableAcces
     }
 
     @Override
-    public FlousyCollection<Customer> selectAll() {
-        FlousyCollection<Customer> collection = new ListCustomers();
+    public ListCustomers selectAll() {
+        ListCustomers listCustomers = new ListCustomers();
 
         Cursor cursor = db.rawQuery(
                 "select *"
                         + " from " + CUSTOMER_TABLE_NAME, null);
 
         while (cursor.moveToNext()) {
-            collection.add(extractCursorValues(cursor));
+            listCustomers.add(extractCursorValues(cursor));
         }
         cursor.close();
 
-        return collection;
+        return listCustomers;
     }
 }

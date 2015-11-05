@@ -1,6 +1,6 @@
 package flousy.db;
 
-import flousy.content.spend.Category;
+import flousy.bean.Category;
 
 /**
  * Created by Samir on 11/06/2015.

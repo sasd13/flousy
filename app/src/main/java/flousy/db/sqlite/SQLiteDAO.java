@@ -5,14 +5,15 @@ import android.content.Context;
 
 import java.util.Map;
 
-import flousy.content.customer.Account;
-import flousy.content.customer.Customer;
-import flousy.content.finance.Payment;
-import flousy.content.spend.Category;
-import flousy.content.spend.Product;
-import flousy.content.spend.Spend;
+import flousy.bean.trading.CheckingTradingAccount;
+import flousy.bean.customer.Customer;
+import flousy.bean.operation.payment.Payment;
+import flousy.bean.Category;
+import flousy.bean.Product;
+import flousy.bean.operation.spend.Spend;
+import flousy.bean.trading.ITradingAccount;
+import flousy.bean.trading.TrafficOperation;
 import flousy.db.DBAccessor;
-import flousy.util.FlousyCollection;
 
 public class SQLiteDAO implements DBAccessor {
 
@@ -26,16 +27,14 @@ public class SQLiteDAO implements DBAccessor {
 
     private CustomerDAO customerDAO;
     private AccountDAO accountDAO;
-    private PaymentDAO paymentDAO;
-    private SpendDAO spendDAO;
+    private OperationDAO operationDAO;
     private CategoryDAO categoryDAO;
     private ProductDAO productDAO;
 
 	private SQLiteDAO() {
         customerDAO = new CustomerDAO();
         accountDAO = new AccountDAO();
-        paymentDAO = new PaymentDAO();
-        spendDAO = new SpendDAO();
+        operationDAO = new OperationDAO();
         categoryDAO = new CategoryDAO();
         productDAO = new ProductDAO();
     }
@@ -59,8 +58,7 @@ public class SQLiteDAO implements DBAccessor {
 
         customerDAO.setDb(db);
         accountDAO.setDb(db);
-        paymentDAO.setDb(db);
-        spendDAO.setDb(db);
+        operationDAO.setDb(db);
         categoryDAO.setDb(db);
         productDAO.setDb(db);
 	}
@@ -76,90 +74,97 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public long insert(Object object) {
-        switch (object.getClass().getSimpleName()) {
-            case "Customer":
-                return customerDAO.insert((Customer) object);
-            case "Category":
-                return categoryDAO.insert((Category) object);
-            default:
-                return 0;
-        }
+    public long insert(Customer customer) {
+        return customerDAO.insert(customer);
     }
 
     @Override
-    public long insert(Object object, Map<Class, Object> map) {
-        switch (object.getClass().getSimpleName()) {
-            case "Account":
-                return accountDAO.insert((Account) object, (Customer) map.get(Customer.class));
-            case "Payment":
-                return paymentDAO.insert((Payment) object, (Account) map.get(Account.class));
-            case "Spend":
-                return spendDAO.insert((Spend) object, (Account) map.get(Account.class));
-            case "Product":
-                return productDAO.insert((Product) object, (Spend) map.get(Spend.class));
-            default:
-                return 0;
-        }
+    public long insert(ITradingAccount tradingAccount, Customer customer) {
+        return accountDAO.insert(tradingAccount, customer);
     }
 
     @Override
-    public void update(Object object) {
-        switch (object.getClass().getSimpleName()) {
-            case "Customer":
-                customerDAO.update((Customer) object);
-                break;
-            case "Account":
-                accountDAO.update((Account) object);
-                break;
-            case "Payment":
-                paymentDAO.update((Payment) object);
-                break;
-            case "Spend":
-                spendDAO.update((Spend) object);
-                break;
-            case "Category":
-                categoryDAO.update((Category) object);
-                break;
-            case "Product":
-                productDAO.update((Product) object);
-                break;
-        }
+    public long insert(TrafficOperation trafficOperation, ITradingAccount tradingAccount) {
+        return operationDAO.insert(trafficOperation, tradingAccount);
     }
 
     @Override
-    public void delete(Object object) {
-        switch (object.getClass().getSimpleName()) {
-            case "Customer":
-                customerDAO.delete((Customer) object);
-                break;
-            case "Account":
-                accountDAO.delete((Account) object);
-                break;
-            case "Payment":
-                paymentDAO.delete((Payment) object);
-                break;
-            case "Spend":
-                spendDAO.delete((Spend) object);
-                break;
-            case "Category":
-                categoryDAO.delete((Category) object);
-                break;
-            case "Product":
-                productDAO.delete((Product) object);
-                break;
-        }
+    public long insert(Category category) {
+        return categoryDAO.insert(category);
     }
 
     @Override
-    public Object select(String classSimpleName, long id) {
+    public long insert(Product product, TrafficOperation trafficOperation) {
+        return productDAO.insert(product, trafficOperation);
+    }
+
+    @Override
+    public void update(Customer customer) {
+        customerDAO.update(customer);
+    }
+
+    @Override
+    public void update(ITradingAccount tradingAccount) {
+        accountDAO.update(tradingAccount);
+    }
+
+    @Override
+    public void update(TrafficOperation trafficOperation) {
+        operationDAO.update(trafficOperation);
+    }
+
+    @Override
+    public void update(Category category) {
+        categoryDAO.update(category);
+    }
+
+    @Override
+    public void update(Product product) {
+        productDAO.update(product);
+    }
+
+    @Override
+    public void delete(Customer customer) {
+        customerDAO.delete(customer);
+    }
+
+    @Override
+    public void delete(ITradingAccount tradingAccount) {
+        accountDAO.delete(tradingAccount);
+    }
+
+    @Override
+    public void delete(TrafficOperation trafficOperation) {
+        operationDAO.delete(trafficOperation);
+    }
+
+    @Override
+    public void delete(Category category) {
+        categoryDAO.delete(category);
+    }
+
+    @Override
+    public void delete(Product product) {
+        productDAO.delete(product);
+    }
+
+    @Override
+    public Object select(Class className, long id) {
+        if (className == Customer.class) {
+            return customerDAO.select(id);
+        } else if (className == Tr)
+    }
+
+    @Override
+    public Iterable selectAll(Class className) {
+        return null;
+    }
+
+    @Override
+    public Object select(Class className, long id) {
         switch (classSimpleName) {
             case "Customer":
                 return customerDAO.select(id);
-            case "Payment":
-                return paymentDAO.select(id);
-            case "Spend":
-                return spendDAO.select(id);
             case "Product":
                 return productDAO.select(id);
             default:
@@ -168,14 +173,14 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public FlousyCollection selectAll(String classSimpleName) {
+    public Iterable selectAll(String classSimpleName) {
         switch (classSimpleName) {
             case "Customer":
                 return customerDAO.selectAll();
             case "Payment":
                 return paymentDAO.selectAll();
             case "Spend":
-                return spendDAO.selectAll();
+                return operationDAO.selectAll();
             case "Product":
                 return productDAO.selectAll();
             default:

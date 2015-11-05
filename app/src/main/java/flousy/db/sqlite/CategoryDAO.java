@@ -3,10 +3,9 @@ package flousy.db.sqlite;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import flousy.content.spend.Category;
-import flousy.content.spend.ListCategories;
+import flousy.bean.Category;
+import flousy.bean.ListCategories;
 import flousy.db.CategoryTableAccessor;
-import flousy.util.FlousyCollection;
 
 /**
  * Created by Samir on 02/04/2015.
@@ -66,18 +65,18 @@ class CategoryDAO extends SQLiteTableDAO<Category> implements CategoryTableAcces
     }
 
     @Override
-    public FlousyCollection<Category> selectAll() {
-        FlousyCollection<Category> collection = new ListCategories();
+    public ListCategories selectAll() {
+        ListCategories listCategories = new ListCategories();
 
         Cursor cursor = db.rawQuery(
                 "select *"
                         + " from " + CATEGORY_TABLE_NAME, null);
 
         while (cursor.moveToNext()) {
-            collection.add(extractCursorValues(cursor));
+            listCategories.add(extractCursorValues(cursor));
         }
         cursor.close();
 
-        return collection;
+        return listCategories;
     }
 }

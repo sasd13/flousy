@@ -1,7 +1,5 @@
 package flousy.db;
 
-import flousy.util.FlousyCollection;
-
 /**
  * Created by Samir on 11/06/2015.
  */
@@ -15,5 +13,5 @@ public interface TableAccessor<T> {
 
     T select(long id);
 
-    FlousyCollection<T> selectAll();
+    Iterable<T> selectAll();
 }

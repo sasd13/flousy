@@ -11,7 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import flousy.constant.Extra;
-import flousy.content.customer.Customer;
+import flousy.bean.customer.Customer;
 import flousy.db.DBManager;
 import flousy.db.DBAccessor;
 import flousy.form.FormCustomerValidator;

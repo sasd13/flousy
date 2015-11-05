@@ -1,6 +1,6 @@
 package flousy.db;
 
-import flousy.content.customer.Customer;
+import flousy.bean.customer.Customer;
 
 /**
  * Created by Samir on 11/06/2015.

@@ -3,12 +3,11 @@ package flousy.db.sqlite;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import flousy.content.spend.Category;
-import flousy.content.spend.ListProducts;
-import flousy.content.spend.Product;
-import flousy.content.spend.Spend;
+import flousy.bean.Category;
+import flousy.bean.ListProducts;
+import flousy.bean.Product;
+import flousy.bean.trading.TrafficOperation;
 import flousy.db.ProductTableAccessor;
-import flousy.util.FlousyCollection;
 
 /**
  * Created by Samir on 02/04/2015.
@@ -48,9 +47,9 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
     }
 
     @Override
-    public long insert(Product product, Spend spend) {
+    public long insert(Product product, TrafficOperation trafficOperation) {
         ContentValues values = getContentValues(product);
-        values.put(SPENDS_SPEND_ID, spend.getId());
+        values.put(OPERATIONS_OPERATION_ID, trafficOperation.getId());
 
         return db.insert(PRODUCT_TABLE_NAME, null, values);
     }
@@ -83,18 +82,18 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
     }
 
     @Override
-    public FlousyCollection<Product> selectAll() {
-        FlousyCollection<Product> collection = new ListProducts();
+    public ListProducts selectAll() {
+        ListProducts listProducts = new ListProducts();
 
         Cursor cursor = db.rawQuery(
                 "select *"
                         + " from " + PRODUCT_TABLE_NAME, null);
 
         while (cursor.moveToNext()) {
-            collection.add(extractCursorValues(cursor));
+            listProducts.add(extractCursorValues(cursor));
         }
         cursor.close();
 
-        return collection;
+        return listProducts;
     }
 }

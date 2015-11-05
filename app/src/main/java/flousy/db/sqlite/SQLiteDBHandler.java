@@ -10,7 +10,7 @@ import flousy.db.CategoryTableAccessor;
 import flousy.db.CustomerTableAccessor;
 import flousy.db.PaymentTableAccessor;
 import flousy.db.ProductTableAccessor;
-import flousy.db.SpendTableAccessor;
+import flousy.db.OperationTableAccessor;
 
 public class SQLiteDBHandler extends SQLiteOpenHelper {
 
@@ -52,14 +52,14 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     /**
      * Table spends
      */
-    public static final String SPEND_TABLE_DROP = "DROP TABLE IF EXISTS " + SpendTableAccessor.SPEND_TABLE_NAME + ";";
+    public static final String SPEND_TABLE_DROP = "DROP TABLE IF EXISTS " + OperationTableAccessor.SPEND_TABLE_NAME + ";";
     public static final String SPEND_TABLE_CREATE =
-            "CREATE TABLE " + SpendTableAccessor.SPEND_TABLE_NAME + " ("
-                    + SpendTableAccessor.SPEND_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + SpendTableAccessor.SPEND_DATE + " TEXT NOT NULL, "
-                    + SpendTableAccessor.SPEND_VALUE + " REAL NOT NULL, "
-                    + SpendTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + SpendTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
+            "CREATE TABLE " + OperationTableAccessor.SPEND_TABLE_NAME + " ("
+                    + OperationTableAccessor.SPEND_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + OperationTableAccessor.SPEND_DATE + " TEXT NOT NULL, "
+                    + OperationTableAccessor.SPEND_VALUE + " REAL NOT NULL, "
+                    + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
+                    + " FOREIGN KEY (" + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
 
     /**
      * Table categories
@@ -81,7 +81,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + ProductTableAccessor.PRODUCT_PRICE + " REAL NOT NULL, "
                     + ProductTableAccessor.SPENDS_SPEND_ID + " INTEGER NOT NULL, "
                     + ProductTableAccessor.CATEGORIES_CATEGORY_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + ProductTableAccessor.SPENDS_SPEND_ID + ") REFERENCES " + SpendTableAccessor.SPEND_TABLE_NAME + "("+ SpendTableAccessor.SPEND_ID + "), "
+                    + " FOREIGN KEY (" + ProductTableAccessor.SPENDS_SPEND_ID + ") REFERENCES " + OperationTableAccessor.SPEND_TABLE_NAME + "("+ OperationTableAccessor.SPEND_ID + "), "
                     + " FOREIGN KEY (" + ProductTableAccessor.CATEGORIES_CATEGORY_ID + ") REFERENCES " + CategoryTableAccessor.CATEGORY_TABLE_NAME + "("+ CategoryTableAccessor.CATEGORY_ID + "));";
 
 

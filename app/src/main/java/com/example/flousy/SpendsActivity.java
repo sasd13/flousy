@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import flousy.content.spend.Category;
-import flousy.content.spend.ListCategories;
+import flousy.bean.Category;
+import flousy.bean.ListCategories;
 import flousy.db.DBAccessor;
 import flousy.db.DBManager;
 import flousy.gui.widget.recycler.grid.Grid;
