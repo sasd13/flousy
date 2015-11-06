@@ -18,4 +18,9 @@ public class Credit extends TrafficOperation {
         setName(name);
         setValue(value);
     }
+
+    @Override
+    public String getTrafficOperationType() {
+        return "CREDIT";
+    }
 }

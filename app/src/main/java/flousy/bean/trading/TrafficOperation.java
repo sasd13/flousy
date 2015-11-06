@@ -85,6 +85,7 @@ public abstract class TrafficOperation implements ITrafficOperation {
                 + "date: " + this.date.toString() + ", "
                 + "traffic: " + getTrafficType() + ", "
                 + "name: " + this.name + ", "
+                + "type: " + getTrafficOperationType() + ", "
                 + "operation: " + this.operation.toString() + "]";
     }
 }

@@ -17,5 +17,10 @@ public class Debit extends TrafficOperation {
         setName(name);
     }
 
+    @Override
+    public String getTrafficOperationType() {
+        return "DEBIT";
+    }
+
     public ListPurchases getListPurchases() { return ((Spend) getOperation()).getListPurchases(); }
 }

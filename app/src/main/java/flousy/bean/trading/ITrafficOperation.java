@@ -8,4 +8,5 @@ import flousy.bean.traffic.ITraffic;
  */
 public interface ITrafficOperation extends IOperation, ITraffic {
 
+    String getTrafficOperationType();
 }
