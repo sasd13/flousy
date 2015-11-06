@@ -23,13 +23,13 @@ public class Period {
     @Override
     public String toString() {
         return "["
-                + "firstdate: " + this.firstDate.toString() + ", "
-                + "lastdate: " + this.lastDate.toString() + "]";
+                + "firstdate: " + String.valueOf(this.firstDate) + ", "
+                + "lastdate: " + String.valueOf(this.lastDate) + "]";
     }
 
     public String toString(boolean combine) {
         if (combine) {
-            return this.firstDate + SEPARATOR + this.lastDate;
+            return String.valueOf(this.firstDate) + SEPARATOR + String.valueOf(this.lastDate);
         } else {
             return toString();
         }

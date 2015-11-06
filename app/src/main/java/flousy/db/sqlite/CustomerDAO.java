@@ -3,7 +3,6 @@ package flousy.db.sqlite;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import flousy.bean.Phone;
 import flousy.bean.customer.Customer;
 import flousy.db.CustomerTableAccessor;
 
@@ -21,7 +20,6 @@ class CustomerDAO extends SQLiteTableDAO<Customer> implements CustomerTableAcces
         values.put(CUSTOMER_LASTNAME, customer.getLastName());
         values.put(CUSTOMER_EMAIL, customer.getEmail());
         values.put(CUSTOMER_PASSWORD, customer.getPassword());
-        values.put(CUSTOMER_PHONE, customer.getPhone().toString(true));
 
         return values;
     }
@@ -35,7 +33,6 @@ class CustomerDAO extends SQLiteTableDAO<Customer> implements CustomerTableAcces
         customer.setLastName(cursor.getString(cursor.getColumnIndex(CUSTOMER_LASTNAME)));
         customer.setEmail(cursor.getString(cursor.getColumnIndex(CUSTOMER_EMAIL)));
         customer.setPassword(cursor.getString(cursor.getColumnIndex(CUSTOMER_PASSWORD)));
-        customer.setPhone(Phone.parse(cursor.getString(cursor.getColumnIndex(CUSTOMER_PHONE))));
 
         return customer;
     }

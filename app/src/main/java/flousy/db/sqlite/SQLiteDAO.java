@@ -11,7 +11,7 @@ import flousy.bean.Product;
 import flousy.bean.trading.ITradingAccount;
 import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.trading.ITrafficOperation;
-import flousy.bean.trading.debit.Debit;
+import flousy.bean.trading.Debit;
 import flousy.db.DBAccessor;
 
 public class SQLiteDAO implements DBAccessor {
@@ -201,11 +201,15 @@ public class SQLiteDAO implements DBAccessor {
     public ITrafficOperation selectOperation(long id) {
         ITrafficOperation trafficOperation = operationDAO.select(id);
 
-        if (trafficOperation != null && "SPEND".equalsIgnoreCase(trafficOperation.getTrafficType())) {
+        if (trafficOperation != null) {
             ListProducts listProducts = productDAO.selectProductsByOperation(id);
 
-            for (Product product : listProducts) {
-                ((Debit) trafficOperation).getListPurchases().add(product);
+            if (!listProducts.isEmpty()) {
+                if ("DEBIT".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
+                    for (Product product : listProducts) {
+                        ((Debit) trafficOperation).getListPurchases().add(product);
+                    }
+                }
             }
         }
 

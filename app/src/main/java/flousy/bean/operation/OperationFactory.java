@@ -1,8 +1,5 @@
 package flousy.bean.operation;
 
-import flousy.bean.operation.payment.Payment;
-import flousy.bean.operation.spend.Spend;
-
 /**
  * Created by Samir on 05/11/2015.
  */

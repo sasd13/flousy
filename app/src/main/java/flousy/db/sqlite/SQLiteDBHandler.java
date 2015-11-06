@@ -23,8 +23,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + CustomerTableAccessor.CUSTOMER_FIRSTNAME + " TEXT NOT NULL, "
                     + CustomerTableAccessor.CUSTOMER_LASTNAME + " TEXT NOT NULL, "
                     + CustomerTableAccessor.CUSTOMER_EMAIL + " TEXT NOT NULL UNIQUE, "
-                    + CustomerTableAccessor.CUSTOMER_PASSWORD + " TEXT NOT NULL, "
-                    + CustomerTableAccessor.CUSTOMER_PHONE + " TEXT);";
+                    + CustomerTableAccessor.CUSTOMER_PASSWORD + " TEXT NOT NULL);";
 
     /**
      * Table accounts

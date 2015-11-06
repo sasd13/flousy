@@ -26,7 +26,7 @@ public abstract class Operation implements IOperation {
     @Override
     public String toString() {
         return "["
-                + "type: " + getOperationType()
+                + "type: " + getOperationType() + ", "
                 + "value: " + this.value + "]";
     }
 }

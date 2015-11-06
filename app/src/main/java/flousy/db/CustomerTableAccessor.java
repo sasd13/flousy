@@ -14,7 +14,6 @@ public interface CustomerTableAccessor extends TableAccessor<Customer> {
     String CUSTOMER_LASTNAME = "customer_lastname";
     String CUSTOMER_EMAIL = "customer_email";
     String CUSTOMER_PASSWORD = "customer_password";
-    String CUSTOMER_PHONE = "customer_phone";
 
     Customer selectByEmail(String email);
 }

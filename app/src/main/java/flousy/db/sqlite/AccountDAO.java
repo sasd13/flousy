@@ -21,7 +21,7 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
         ContentValues values = new ContentValues();
 
         values.put(ACCOUNT_ID, tradingAccount.getId());
-        values.put(ACCOUNT_DATEOPENING, tradingAccount.getDateOpening().toString());
+        values.put(ACCOUNT_DATEOPENING, String.valueOf(tradingAccount.getDateOpening()));
         values.put(ACCOUNT_TYPE, tradingAccount.getTradingAccountType());
         values.put(ACCOUNT_SOLD, tradingAccount.getSold());
 

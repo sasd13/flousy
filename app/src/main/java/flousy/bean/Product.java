@@ -56,6 +56,6 @@ public class Product {
                 + "id: " + this.id + ", "
                 + "name: " + this.name + ", "
                 + "price: " + this.price + ", "
-                + "category: " + this.category.toString() + "]";
+                + "category: " + String.valueOf(this.category) + "]";
     }
 }

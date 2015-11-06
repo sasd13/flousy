@@ -22,7 +22,7 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
         ContentValues values = new ContentValues();
 
         values.put(OPERATION_ID, trafficOperation.getId());
-        values.put(OPERATION_DATE, trafficOperation.getDate().toString());
+        values.put(OPERATION_DATE, String.valueOf(trafficOperation.getDate()));
         values.put(OPERATION_TRAFFICTYPE, trafficOperation.getTrafficType());
         values.put(OPERATION_NAME, trafficOperation.getName());
         values.put(OPERATION_OPERATIONTYPE, trafficOperation.getOperationType());

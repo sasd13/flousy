@@ -82,10 +82,10 @@ public abstract class TrafficOperation implements ITrafficOperation {
     public String toString() {
         return "["
                 + "id: " + this.id + ", "
-                + "date: " + this.date.toString() + ", "
+                + "date: " + String.valueOf(this.date) + ", "
                 + "traffic: " + getTrafficType() + ", "
                 + "name: " + this.name + ", "
                 + "type: " + getTrafficOperationType() + ", "
-                + "operation: " + this.operation.toString() + "]";
+                + "operation: " + String.valueOf(this.operation) + "]";
     }
 }

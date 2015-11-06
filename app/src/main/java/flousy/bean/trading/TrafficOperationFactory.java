@@ -1,8 +1,5 @@
 package flousy.bean.trading;
 
-import flousy.bean.trading.credit.Credit;
-import flousy.bean.trading.debit.Debit;
-
 /**
  * Created by Samir on 05/11/2015.
  */

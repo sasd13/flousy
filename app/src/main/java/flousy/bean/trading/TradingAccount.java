@@ -70,7 +70,7 @@ public abstract class TradingAccount implements ITradingAccount {
     public String toString() {
         return "["
                 + "id: " + this.id + ", "
-                + "dateopening: " + this.dateOpening.toString() + ", "
+                + "dateopening: " + String.valueOf(this.dateOpening) + ", "
                 + "type: " + getTradingAccountType() + ", "
                 + "sold: " + this.sold + "]";
     }

@@ -1,7 +1,6 @@
 package flousy.bean.customer;
 
 import flousy.bean.Person;
-import flousy.bean.Phone;
 
 /**
  * Created by Samir on 19/06/2015.
@@ -10,7 +9,6 @@ public class Customer extends Person {
 
     private long id;
     private String email, password;
-    private Phone phone;
 
     public Customer() {
         super();
@@ -47,21 +45,12 @@ public class Customer extends Person {
         this.password = password;
     }
 
-    public Phone getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(Phone phone) {
-        this.phone = phone;
-    }
-
     @Override
     public String toString() {
         return "["
                 + "person: " + super.toString() + ", "
                 + "id: " + this.id + ", "
                 + "email: " + this.email + ", "
-                + "password: " + this.password + ", "
-                + "phone: " + this.phone.toString() + "]";
+                + "password: " + this.password + "]";
     }
 }
