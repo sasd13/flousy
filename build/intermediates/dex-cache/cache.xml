@@ -9,13 +9,6 @@
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-ed58832ee2ef5d5e24e08be453e32903b3e9ecda.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\libs\FloussyBeans.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="de31b44cf99de7ea70d739ea73e4664e82b20e87">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\FloussyBeans-6846965e114e21f62e70686da9a619775ce208b5.jar" />
-    </item>
-    <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -35,13 +28,6 @@
         revision="21.1.2"
         sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-f81086357d1252656150ae60f5dae25a3982517f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\libs\achartengine-1.1.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9932e3fb9fbe54e80873e77f72a99f79e33b3250">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\achartengine-1.1.0-fc00062ff9cd2b6259f177e76e6c7771b25d7dc2.jar" />
     </item>
     <item
         jar="C:\Users\Samir\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"

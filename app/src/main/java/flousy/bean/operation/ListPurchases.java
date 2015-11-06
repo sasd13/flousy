@@ -9,9 +9,9 @@ import flousy.util.ObservableList;
 public class ListPurchases extends ObservableList<Product> {
 
     @Override
-    public Product get(Object object) {
+    public Product get(Object id) {
         for (Product product : this.list) {
-            if (product.getId() == (long) object) {
+            if (product.getId() == (long) id) {
                 return product;
             }
         }

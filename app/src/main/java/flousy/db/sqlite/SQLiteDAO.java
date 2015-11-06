@@ -190,6 +190,7 @@ public class SQLiteDAO implements DBAccessor {
             ListTrafficOperations listTrafficOperations = operationDAO.selectOperationsByAccount(id);
 
             for (ITrafficOperation trafficOperation : listTrafficOperations) {
+                trafficOperation = selectOperation(trafficOperation.getId());
                 tradingAccount.getListTrafficOperations().add(trafficOperation);
             }
         }
@@ -207,6 +208,7 @@ public class SQLiteDAO implements DBAccessor {
             if (!listProducts.isEmpty()) {
                 if ("DEBIT".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
                     for (Product product : listProducts) {
+                        product = selectProduct(product.getId());
                         ((Debit) trafficOperation).getListPurchases().add(product);
                     }
                 }
@@ -234,12 +236,23 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public ListCategories selectAllCategories() {
-        return categoryDAO.selectAll();
+    public Customer selectCustomerByEmail(String email) {
+        return customerDAO.selectByEmail(email);
     }
 
     @Override
-    public Customer selectCustomerByEmail(String email) {
-        return customerDAO.selectByEmail(email);
+    public ITradingAccount selectAccountByCustomer(long customerId) {
+        ITradingAccount tradingAccount = accountDAO.selectAccountByCustomer(customerId);
+
+        if (tradingAccount != null) {
+            tradingAccount = selectAccount(tradingAccount.getId());
+        }
+
+        return tradingAccount;
+    }
+
+    @Override
+    public ListCategories selectAllCategories() {
+        return categoryDAO.selectAll();
     }
 }

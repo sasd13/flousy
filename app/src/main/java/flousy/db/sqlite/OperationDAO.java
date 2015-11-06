@@ -23,9 +23,8 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
 
         values.put(OPERATION_ID, trafficOperation.getId());
         values.put(OPERATION_DATE, String.valueOf(trafficOperation.getDate()));
-        values.put(OPERATION_TRAFFICTYPE, trafficOperation.getTrafficType());
+        values.put(OPERATION_TYPE, trafficOperation.getTrafficType());
         values.put(OPERATION_NAME, trafficOperation.getName());
-        values.put(OPERATION_OPERATIONTYPE, trafficOperation.getOperationType());
         values.put(OPERATION_VALUE, trafficOperation.getValue());
 
         return values;
@@ -35,10 +34,10 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
     protected ITrafficOperation extractCursorValues(Cursor cursor) {
         ITrafficOperation trafficOperation = null;
 
-        String trafficType = cursor.getString(cursor.getColumnIndex(OPERATION_TRAFFICTYPE));
+        String trafficOperationType = cursor.getString(cursor.getColumnIndex(OPERATION_TYPE));
 
         try {
-            trafficOperation = TrafficOperationFactory.create(trafficType);
+            trafficOperation = TrafficOperationFactory.create(trafficOperationType);
 
             trafficOperation.setId(cursor.getLong(cursor.getColumnIndex(OPERATION_ID)));
             trafficOperation.setDate(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_DATE))));

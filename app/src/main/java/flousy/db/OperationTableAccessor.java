@@ -13,9 +13,8 @@ public interface OperationTableAccessor extends TableAccessor<ITrafficOperation>
 
     String OPERATION_ID = "operation_id";
     String OPERATION_DATE = "operation_date";
-    String OPERATION_TRAFFICTYPE = "operation_traffictype";
+    String OPERATION_TYPE = "operation_type";
     String OPERATION_NAME = "operation_name";
-    String OPERATION_OPERATIONTYPE = "operation_operationtype";
     String OPERATION_VALUE = "operation_value";
     String ACCOUNTS_ACCOUNT_ID = "accounts_account_id";
 

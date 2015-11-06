@@ -6,7 +6,7 @@ import flousy.bean.traffic.ITraffic;
 /**
  * Created by Samir on 06/11/2015.
  */
-public interface ITrafficOperation extends IOperation, ITraffic {
+public interface ITrafficOperation extends ITraffic, IOperation {
 
     String getTrafficOperationType();
 }

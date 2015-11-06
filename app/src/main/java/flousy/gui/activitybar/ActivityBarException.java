@@ -1,13 +1,18 @@
 package flousy.gui.activitybar;
 
-import flousy.FlousyException;
-
 /**
  * Created by Samir on 20/06/2015.
  */
-public class ActivityBarException extends FlousyException {
+public class ActivityBarException extends Exception {
+
+    private String message;
 
     public ActivityBarException(String message) {
-        super(message);
+        this.message = message;
+    }
+
+    @Override
+    public String getMessage() {
+        return this.message;
     }
 }

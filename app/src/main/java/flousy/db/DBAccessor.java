@@ -62,7 +62,9 @@ public interface DBAccessor {
 
     Product selectProduct(long id);
 
-    ListCategories selectAllCategories();
-
     Customer selectCustomerByEmail(String email);
+
+    ITradingAccount selectAccountByCustomer(long customerId);
+
+    ListCategories selectAllCategories();
 }

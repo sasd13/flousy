@@ -39,16 +39,15 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + " FOREIGN KEY (" + AccountTableAccessor.CUSTOMERS_CUSTOMER_ID + ") REFERENCES " + CustomerTableAccessor.CUSTOMER_TABLE_NAME + "("+ CustomerTableAccessor.CUSTOMER_ID + "));";
 
     /**
-     * Table payments
+     * Table operations
      */
     public static final String OPERATION_TABLE_DROP = "DROP TABLE IF EXISTS " + OperationTableAccessor.OPERATION_TABLE_NAME + ";";
     public static final String OPERATION_TABLE_CREATE =
             "CREATE TABLE " + OperationTableAccessor.OPERATION_TABLE_NAME + " ("
                     + OperationTableAccessor.OPERATION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + OperationTableAccessor.OPERATION_DATE + " TEXT NOT NULL, "
-                    + OperationTableAccessor.OPERATION_TRAFFICTYPE + " TEXT NOT NULL, "
+                    + OperationTableAccessor.OPERATION_TYPE + " TEXT NOT NULL, "
                     + OperationTableAccessor.OPERATION_NAME + " TEXT NOT NULL, "
-                    + OperationTableAccessor.OPERATION_OPERATIONTYPE + " TEXT NOT NULL, "
                     + OperationTableAccessor.OPERATION_VALUE + " REAL NOT NULL, "
                     + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
                     + " FOREIGN KEY (" + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
@@ -71,10 +70,10 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + ProductTableAccessor.PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + ProductTableAccessor.PRODUCT_NAME + " TEXT NOT NULL, "
                     + ProductTableAccessor.PRODUCT_PRICE + " REAL NOT NULL, "
-                    + ProductTableAccessor.OPERATIONS_OPERATION_ID + " INTEGER NOT NULL, "
                     + ProductTableAccessor.CATEGORIES_CATEGORY_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + ProductTableAccessor.OPERATIONS_OPERATION_ID + ") REFERENCES " + OperationTableAccessor.OPERATION_TABLE_NAME + "("+ OperationTableAccessor.OPERATION_ID + "), "
-                    + " FOREIGN KEY (" + ProductTableAccessor.CATEGORIES_CATEGORY_ID + ") REFERENCES " + CategoryTableAccessor.CATEGORY_TABLE_NAME + "("+ CategoryTableAccessor.CATEGORY_ID + "));";
+                    + ProductTableAccessor.OPERATIONS_OPERATION_ID + " INTEGER NOT NULL, "
+                    + " FOREIGN KEY (" + ProductTableAccessor.CATEGORIES_CATEGORY_ID + ") REFERENCES " + CategoryTableAccessor.CATEGORY_TABLE_NAME + "("+ CategoryTableAccessor.CATEGORY_ID + "), "
+                    + " FOREIGN KEY (" + ProductTableAccessor.OPERATIONS_OPERATION_ID + ") REFERENCES " + OperationTableAccessor.OPERATION_TABLE_NAME + "("+ OperationTableAccessor.OPERATION_ID + "));";
 
 
 

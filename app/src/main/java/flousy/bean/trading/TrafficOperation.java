@@ -74,7 +74,7 @@ public abstract class TrafficOperation implements ITrafficOperation {
         this.operation.setValue(value);
     }
 
-    public IOperation getOperation() {
+    protected IOperation getOperation() {
         return this.operation;
     }
 
@@ -83,9 +83,8 @@ public abstract class TrafficOperation implements ITrafficOperation {
         return "["
                 + "id: " + this.id + ", "
                 + "date: " + String.valueOf(this.date) + ", "
-                + "traffic: " + getTrafficType() + ", "
-                + "name: " + this.name + ", "
                 + "type: " + getTrafficOperationType() + ", "
-                + "operation: " + String.valueOf(this.operation) + "]";
+                + "name: " + this.name + ", "
+                + "value: " + getValue() + "]";
     }
 }
