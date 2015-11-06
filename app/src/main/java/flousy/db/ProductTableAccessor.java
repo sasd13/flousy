@@ -2,7 +2,7 @@ package flousy.db;
 
 import flousy.bean.ListProducts;
 import flousy.bean.Product;
-import flousy.bean.trading.TrafficOperation;
+import flousy.bean.trading.ITrafficOperation;
 
 /**
  * Created by Samir on 11/06/2015.
@@ -17,7 +17,7 @@ public interface ProductTableAccessor extends TableAccessor<Product> {
     String CATEGORIES_CATEGORY_ID = "categories_category_id";
     String OPERATIONS_OPERATION_ID = "operations_operation_id";
 
-    long insert(Product product, TrafficOperation trafficOperation);
+    long insert(Product product, ITrafficOperation trafficOperation);
 
     ListProducts selectProductsByOperation(long operationId);
 }

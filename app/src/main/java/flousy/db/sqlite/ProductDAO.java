@@ -6,7 +6,7 @@ import android.database.Cursor;
 import flousy.bean.Category;
 import flousy.bean.ListProducts;
 import flousy.bean.Product;
-import flousy.bean.trading.TrafficOperation;
+import flousy.bean.trading.ITrafficOperation;
 import flousy.db.ProductTableAccessor;
 
 /**
@@ -47,7 +47,7 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
     }
 
     @Override
-    public long insert(Product product, TrafficOperation trafficOperation) {
+    public long insert(Product product, ITrafficOperation trafficOperation) {
         ContentValues values = getContentValues(product);
         values.put(OPERATIONS_OPERATION_ID, trafficOperation.getId());
 

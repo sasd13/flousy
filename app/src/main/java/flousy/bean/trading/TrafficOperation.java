@@ -7,20 +7,15 @@ import flousy.bean.operation.IOperation;
 /**
  * Created by Samir on 19/06/2015.
  */
-public class TrafficOperation implements IOperation, ITraffic {
+public abstract class TrafficOperation implements ITrafficOperation {
 
     private long id;
     private Timestamp date;
     private String name;
     private IOperation operation;
 
-    public TrafficOperation() {
+    protected TrafficOperation(IOperation operation) {
         this.date = new Timestamp(System.currentTimeMillis());
-    }
-
-    public TrafficOperation(IOperation operation) {
-        this();
-
         this.operation = operation;
     }
 
@@ -61,12 +56,7 @@ public class TrafficOperation implements IOperation, ITraffic {
 
     @Override
     public String getDiaryEntry() {
-        return "["
-                + "id: " + this.id + ", "
-                + "date: " + this.date.toString() + ", "
-                + "traffic: " + getTrafficType() + ", "
-                + "name: " + this.name + ", "
-                + "operation: " + this.operation.toString() + "]";
+        return toString();
     }
 
     @Override
@@ -88,7 +78,13 @@ public class TrafficOperation implements IOperation, ITraffic {
         return this.operation;
     }
 
-    public void setOperation(IOperation operation) {
-        this.operation = operation;
+    @Override
+    public String toString() {
+        return "["
+                + "id: " + this.id + ", "
+                + "date: " + this.date.toString() + ", "
+                + "traffic: " + getTrafficType() + ", "
+                + "name: " + this.name + ", "
+                + "operation: " + this.operation.toString() + "]";
     }
 }

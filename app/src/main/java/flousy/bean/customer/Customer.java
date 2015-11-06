@@ -11,18 +11,16 @@ public class Customer extends Person {
     private long id;
     private String email, password;
     private Phone phone;
-    private IAccount account;
 
     public Customer() {
         super();
     }
 
-    public Customer(String firstName, String lastName, String email, String password, IAccount account) {
+    public Customer(String firstName, String lastName, String email, String password) {
         super(firstName, lastName);
 
         this.email = email;
         this.password = password;
-        this.account = account;
     }
 
     public long getId() {
@@ -57,12 +55,6 @@ public class Customer extends Person {
         this.phone = phone;
     }
 
-    public IAccount getAccount() {
-        return this.account;
-    }
-
-    public void setAccount(IAccount account) { this.account = account; }
-
     @Override
     public String toString() {
         return "["
@@ -70,7 +62,6 @@ public class Customer extends Person {
                 + "id: " + this.id + ", "
                 + "email: " + this.email + ", "
                 + "password: " + this.password + ", "
-                + "phone: " + this.phone.toString() + ", "
-                + "account: " + this.account.toString() + "]";
+                + "phone: " + this.phone.toString() + "]";
     }
 }

@@ -7,7 +7,7 @@ import flousy.bean.ListCategories;
 import flousy.bean.Product;
 import flousy.bean.customer.Customer;
 import flousy.bean.trading.ITradingAccount;
-import flousy.bean.trading.TrafficOperation;
+import flousy.bean.trading.ITrafficOperation;
 
 /**
  * Created by Samir on 05/11/2015.
@@ -26,17 +26,17 @@ public interface DBAccessor {
 
     long insertAccount(ITradingAccount tradingAccount, Customer customer);
 
-    long insertOperation(TrafficOperation trafficOperation, ITradingAccount tradingAccount);
+    long insertOperation(ITrafficOperation trafficOperation, ITradingAccount tradingAccount);
 
     long insertCategory(Category category);
 
-    long insertProduct(Product product, TrafficOperation trafficOperation);
+    long insertProduct(Product product, ITrafficOperation trafficOperation);
 
     void updateCustomer(Customer customer);
 
     void updateAccount(ITradingAccount tradingAccount);
 
-    void updateOperation(TrafficOperation trafficOperation);
+    void updateOperation(ITrafficOperation trafficOperation);
 
     void updateCategory(Category category);
 
@@ -46,7 +46,7 @@ public interface DBAccessor {
 
     void deleteAccount(ITradingAccount tradingAccount);
 
-    void deleteOperation(TrafficOperation trafficOperation);
+    void deleteOperation(ITrafficOperation trafficOperation);
 
     void deleteCategory(Category category);
 
@@ -56,7 +56,7 @@ public interface DBAccessor {
 
     ITradingAccount selectAccount(long id);
 
-    TrafficOperation selectOperation(long id);
+    ITrafficOperation selectOperation(long id);
 
     Category selectCategory(long id);
 

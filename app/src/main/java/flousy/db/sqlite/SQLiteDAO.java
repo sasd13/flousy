@@ -8,10 +8,10 @@ import flousy.bean.ListProducts;
 import flousy.bean.customer.Customer;
 import flousy.bean.Category;
 import flousy.bean.Product;
-import flousy.bean.operation.spend.Spend;
 import flousy.bean.trading.ITradingAccount;
 import flousy.bean.trading.ListTrafficOperations;
-import flousy.bean.trading.TrafficOperation;
+import flousy.bean.trading.ITrafficOperation;
+import flousy.bean.trading.debit.Debit;
 import flousy.db.DBAccessor;
 
 public class SQLiteDAO implements DBAccessor {
@@ -95,7 +95,7 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public long insertOperation(TrafficOperation trafficOperation, ITradingAccount tradingAccount) {
+    public long insertOperation(ITrafficOperation trafficOperation, ITradingAccount tradingAccount) {
         long id = operationDAO.insert(trafficOperation, tradingAccount);
 
         if (id > 0) {
@@ -117,7 +117,7 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public long insertProduct(Product product, TrafficOperation trafficOperation) {
+    public long insertProduct(Product product, ITrafficOperation trafficOperation) {
         long id = productDAO.insert(product, trafficOperation);
 
         if (id > 0) {
@@ -138,7 +138,7 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public void updateOperation(TrafficOperation trafficOperation) {
+    public void updateOperation(ITrafficOperation trafficOperation) {
         operationDAO.update(trafficOperation);
     }
 
@@ -163,7 +163,7 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public void deleteOperation(TrafficOperation trafficOperation) {
+    public void deleteOperation(ITrafficOperation trafficOperation) {
         operationDAO.delete(trafficOperation);
     }
 
@@ -179,14 +179,7 @@ public class SQLiteDAO implements DBAccessor {
 
     @Override
     public Customer selectCustomer(long id) {
-        Customer customer = customerDAO.select(id);
-
-        if (customer != null) {
-            ITradingAccount tradingAccount = accountDAO.selectAccountByCustomer(id);
-            customer.setAccount(tradingAccount);
-        }
-
-        return customer;
+        return customerDAO.select(id);
     }
 
     @Override
@@ -196,7 +189,7 @@ public class SQLiteDAO implements DBAccessor {
         if (tradingAccount != null) {
             ListTrafficOperations listTrafficOperations = operationDAO.selectOperationsByAccount(id);
 
-            for (TrafficOperation trafficOperation : listTrafficOperations) {
+            for (ITrafficOperation trafficOperation : listTrafficOperations) {
                 tradingAccount.getListTrafficOperations().add(trafficOperation);
             }
         }
@@ -205,14 +198,14 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public TrafficOperation selectOperation(long id) {
-        TrafficOperation trafficOperation = operationDAO.select(id);
+    public ITrafficOperation selectOperation(long id) {
+        ITrafficOperation trafficOperation = operationDAO.select(id);
 
         if (trafficOperation != null && "SPEND".equalsIgnoreCase(trafficOperation.getTrafficType())) {
             ListProducts listProducts = productDAO.selectProductsByOperation(id);
 
             for (Product product : listProducts) {
-                ((Spend) trafficOperation.getOperation()).getListPurchases().add(product);
+                ((Debit) trafficOperation).getListPurchases().add(product);
             }
         }
 
@@ -243,13 +236,6 @@ public class SQLiteDAO implements DBAccessor {
 
     @Override
     public Customer selectCustomerByEmail(String email) {
-        Customer customer = customerDAO.selectByEmail(email);
-
-        if (customer != null) {
-            ITradingAccount tradingAccount = accountDAO.selectAccountByCustomer(customer.getId());
-            customer.setAccount(tradingAccount);
-        }
-
-        return customer;
+        return customerDAO.selectByEmail(email);
     }
 }
