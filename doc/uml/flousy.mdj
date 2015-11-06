@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "customer",
+					"name": "user",
 					"visible": true,
 					"defaultDiagram": true,
 					"ownedViews": [
@@ -86,7 +86,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Customer",
+											"text": "User",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -111,7 +111,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from customer)",
+											"text": "(from user)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -482,7 +482,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from customer)",
+											"text": "(from user)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1267,7 +1267,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "ListCustomers",
+											"text": "ListUsers",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1292,7 +1292,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from customer)",
+											"text": "(from user)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -1576,7 +1576,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from customer)",
+											"text": "(from user)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -8858,11 +8858,11 @@
 											"containerExtending": false,
 											"left": -264,
 											"top": 1200,
-											"width": 72.22998046875,
+											"width": 76,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from flousy)",
+											"text": "(from trading)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -9143,11 +9143,11 @@
 											"containerExtending": false,
 											"left": -1008,
 											"top": 264,
-											"width": 72.22998046875,
+											"width": 76,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from flousy)",
+											"text": "(from trading)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -10561,11 +10561,11 @@
 											"containerExtending": false,
 											"left": -168,
 											"top": -96,
-											"width": 72.22998046875,
+											"width": 76,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from flousy)",
+											"text": "(from trading)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -10990,7 +10990,7 @@
 											"containerExtending": false,
 											"left": -81,
 											"top": -33,
-											"width": 81.30712890625,
+											"width": 83,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -11018,7 +11018,7 @@
 											"containerExtending": false,
 											"left": -81,
 											"top": -33,
-											"width": 90.6953125,
+											"width": 92,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -12218,11 +12218,11 @@
 											"containerExtending": false,
 											"left": 168,
 											"top": 0,
-											"width": 72.22998046875,
+											"width": 76,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from flousy)",
+											"text": "(from trading)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -12502,11 +12502,11 @@
 											"containerExtending": false,
 											"left": -96,
 											"top": 24,
-											"width": 72.22998046875,
+											"width": 76,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from flousy)",
+											"text": "(from trading)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -15755,7 +15755,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFQ2Hhc28Vz+bo="
 							},
-							"name": "customer",
+							"name": "user",
 							"ownedElements": [
 								{
 									"_type": "UMLClass",
@@ -15763,7 +15763,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFQ2HVMwMVQ4II="
 									},
-									"name": "Customer",
+									"name": "User",
 									"ownedElements": [
 										{
 											"_type": "UMLGeneralization",
@@ -16048,7 +16048,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFQ2HVMwMVQ4II="
 									},
-									"name": "ListCustomers",
+									"name": "ListUsers",
 									"visibility": "public",
 									"isAbstract": false,
 									"isFinalSpecialization": false,
@@ -18142,7 +18142,7 @@
 											"containerExtending": false,
 											"left": 0,
 											"top": 0,
-											"width": 81.30712890625,
+											"width": 83,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -18170,7 +18170,7 @@
 											"containerExtending": false,
 											"left": 0,
 											"top": 0,
-											"width": 90.6953125,
+											"width": 92,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,

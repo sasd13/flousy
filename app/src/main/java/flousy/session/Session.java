@@ -3,7 +3,7 @@ package flousy.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import flousy.bean.customer.Customer;
+import flousy.bean.user.User;
 import flousy.db.DBManager;
 import flousy.db.DBAccessor;
 
@@ -35,13 +35,13 @@ public class Session {
 
     public static boolean logIn(String email, String password) {
         dao.open();
-        Customer customer = dao.selectCustomerByEmail(email);
+        User user = dao.selectUserByEmail(email);
         dao.close();
 
         try {
-            if(customer.getPassword().equals(password)) {
+            if(user.getPassword().equals(password)) {
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString(SESSION_USER_ID, String.valueOf(customer.getId()));
+                editor.putString(SESSION_USER_ID, String.valueOf(user.getId()));
 
                 return editor.commit();
             }

@@ -6,7 +6,7 @@ import android.database.Cursor;
 import java.sql.Timestamp;
 
 import flousy.bean.trading.ITradingAccount;
-import flousy.bean.customer.Customer;
+import flousy.bean.user.User;
 import flousy.bean.trading.TradingAccountFactory;
 import flousy.bean.trading.TradingException;
 import flousy.db.AccountTableAccessor;
@@ -52,9 +52,9 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
     }
 
     @Override
-    public long insert(ITradingAccount tradingAccount, Customer customer) {
+    public long insert(ITradingAccount tradingAccount, User user) {
         ContentValues values = getContentValues(tradingAccount);
-        values.put(CUSTOMERS_CUSTOMER_ID, customer.getId());
+        values.put(USERS_USER_ID, user.getId());
         
         return db.insert(ACCOUNT_TABLE_NAME, null, values);
     }
@@ -87,13 +87,13 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
     }
 
     @Override
-    public ITradingAccount selectAccountByCustomer(long customerId) {
+    public ITradingAccount selectAccountByUser(long userId) {
         ITradingAccount tradingAccount = null;
 
         Cursor cursor = db.rawQuery(
                 "select *"
                         + " from " + ACCOUNT_TABLE_NAME
-                        + " where " + CUSTOMERS_CUSTOMER_ID + " = ?", new String[]{String.valueOf(customerId)});
+                        + " where " + USERS_USER_ID + " = ?", new String[]{String.valueOf(userId)});
 
         if (cursor.moveToNext()) {
             tradingAccount = extractCursorValues(cursor);

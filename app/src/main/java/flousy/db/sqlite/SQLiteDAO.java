@@ -5,7 +5,7 @@ import android.content.Context;
 
 import flousy.bean.ListCategories;
 import flousy.bean.ListProducts;
-import flousy.bean.customer.Customer;
+import flousy.bean.user.User;
 import flousy.bean.Category;
 import flousy.bean.Product;
 import flousy.bean.trading.ITradingAccount;
@@ -24,14 +24,14 @@ public class SQLiteDAO implements DBAccessor {
 	private SQLiteDatabase db = null;
 	private SQLiteDBHandler dbHandler = null;
 
-    private CustomerDAO customerDAO;
+    private UserDAO userDAO;
     private AccountDAO accountDAO;
     private OperationDAO operationDAO;
     private CategoryDAO categoryDAO;
     private ProductDAO productDAO;
 
 	private SQLiteDAO() {
-        customerDAO = new CustomerDAO();
+        userDAO = new UserDAO();
         accountDAO = new AccountDAO();
         operationDAO = new OperationDAO();
         categoryDAO = new CategoryDAO();
@@ -55,7 +55,7 @@ public class SQLiteDAO implements DBAccessor {
     public void open() {
         db = dbHandler.getWritableDatabase();
 
-        customerDAO.setDb(db);
+        userDAO.setDb(db);
         accountDAO.setDb(db);
         operationDAO.setDb(db);
         categoryDAO.setDb(db);
@@ -73,19 +73,19 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public long insertCustomer(Customer customer) {
-        long id = customerDAO.insert(customer);
+    public long insertUser(User user) {
+        long id = userDAO.insert(user);
 
         if (id > 0) {
-            customer.setId(id);
+            user.setId(id);
         }
 
         return id;
     }
 
     @Override
-    public long insertAccount(ITradingAccount tradingAccount, Customer customer) {
-        long id = accountDAO.insert(tradingAccount, customer);
+    public long insertAccount(ITradingAccount tradingAccount, User user) {
+        long id = accountDAO.insert(tradingAccount, user);
 
         if (id > 0) {
             tradingAccount.setId(id);
@@ -128,8 +128,8 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public void updateCustomer(Customer customer) {
-        customerDAO.update(customer);
+    public void updateUser(User user) {
+        userDAO.update(user);
     }
 
     @Override
@@ -153,8 +153,8 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public void deleteCustomer(Customer customer) {
-        customerDAO.delete(customer);
+    public void deleteUser(User user) {
+        userDAO.delete(user);
     }
 
     @Override
@@ -178,21 +178,23 @@ public class SQLiteDAO implements DBAccessor {
     }
 
     @Override
-    public Customer selectCustomer(long id) {
-        return customerDAO.select(id);
+    public User selectUser(long id) {
+        return userDAO.select(id);
     }
 
     @Override
     public ITradingAccount selectAccount(long id) {
         ITradingAccount tradingAccount = accountDAO.select(id);
 
-        if (tradingAccount != null) {
-            ListTrafficOperations listTrafficOperations = operationDAO.selectOperationsByAccount(id);
+        try {
+            ListTrafficOperations listTrafficOperations = operationDAO.selectOperationsByAccount(tradingAccount.getId());
 
             for (ITrafficOperation trafficOperation : listTrafficOperations) {
                 trafficOperation = selectOperation(trafficOperation.getId());
                 tradingAccount.getListTrafficOperations().add(trafficOperation);
             }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
 
         return tradingAccount;
@@ -202,8 +204,8 @@ public class SQLiteDAO implements DBAccessor {
     public ITrafficOperation selectOperation(long id) {
         ITrafficOperation trafficOperation = operationDAO.select(id);
 
-        if (trafficOperation != null) {
-            ListProducts listProducts = productDAO.selectProductsByOperation(id);
+        try {
+            ListProducts listProducts = productDAO.selectProductsByOperation(trafficOperation.getId());
 
             if (!listProducts.isEmpty()) {
                 if ("DEBIT".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
@@ -213,6 +215,8 @@ public class SQLiteDAO implements DBAccessor {
                     }
                 }
             }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
 
         return trafficOperation;
@@ -227,25 +231,34 @@ public class SQLiteDAO implements DBAccessor {
     public Product selectProduct(long id) {
         Product product = productDAO.select(id);
 
-        if (product != null) {
+        try {
             Category category = categoryDAO.select(product.getCategory().getId());
             product.setCategory(category);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
 
         return product;
     }
 
     @Override
-    public Customer selectCustomerByEmail(String email) {
-        return customerDAO.selectByEmail(email);
+    public User selectUserByEmail(String email) {
+        return userDAO.selectByEmail(email);
     }
 
     @Override
-    public ITradingAccount selectAccountByCustomer(long customerId) {
-        ITradingAccount tradingAccount = accountDAO.selectAccountByCustomer(customerId);
+    public boolean containsUserByEmail(String email) {
+        return userDAO.contains(email);
+    }
 
-        if (tradingAccount != null) {
+    @Override
+    public ITradingAccount selectAccountByUser(long userId) {
+        ITradingAccount tradingAccount = accountDAO.selectAccountByUser(userId);
+
+        try {
             tradingAccount = selectAccount(tradingAccount.getId());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
 
         return tradingAccount;

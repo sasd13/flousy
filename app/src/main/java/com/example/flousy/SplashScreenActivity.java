@@ -35,7 +35,7 @@ public class SplashScreenActivity extends Activity {
         if (Session.isUserLogged()) {
             attachActivity(HomeActivity.class, SPLASH_TIME_OUT);
         } else {
-            attachActivity(CustomerLogActivity.class, SPLASH_TIME_OUT);
+            attachActivity(UserLogActivity.class, SPLASH_TIME_OUT);
         }
     }
 

@@ -9,8 +9,8 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
-    <string name="activity_customer_log_name">Connexion</string>
-    <string name="activity_customer_account_name">Compte</string>
+    <string name="activity_user_log_name">Connexion</string>
+    <string name="activity_user_account_name">Compte</string>
     <string name="activity_home_name">Menu</string>
     <string name="activity_spends_name">Dépenses</string>
     <string name="activity_spends_product_name">Produit</string>

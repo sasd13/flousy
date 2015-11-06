@@ -15,7 +15,7 @@ public class Extra {
     public static final int MODE_NEW = 1;
     public static final int MODE_CONSULT = 2;
 
-    public static final String CUSTOMER_FIRSTNAME = "CUSTOMER_FIRSTNAME";
+    public static final String USER_FIRSTNAME = "USER_FIRSTNAME";
 
     public static final String PRODUCT_ID = "PRODUCT_ID";
     public static final String PRODUCT_NAME = "PRODUCT_NAME";

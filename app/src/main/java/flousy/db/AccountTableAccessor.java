@@ -1,6 +1,6 @@
 package flousy.db;
 
-import flousy.bean.customer.Customer;
+import flousy.bean.user.User;
 import flousy.bean.trading.ITradingAccount;
 
 /**
@@ -14,9 +14,9 @@ public interface AccountTableAccessor extends TableAccessor<ITradingAccount> {
     String ACCOUNT_DATEOPENING = "account_dateopening";
     String ACCOUNT_TYPE = "account_type";
     String ACCOUNT_SOLD = "account_sold";
-    String CUSTOMERS_CUSTOMER_ID = "customers_customer_id";
+    String USERS_USER_ID = "users_user_id";
 
-    long insert(ITradingAccount tradingAccount, Customer customer);
+    long insert(ITradingAccount tradingAccount, User user);
 
-    ITradingAccount selectAccountByCustomer(long customerId);
+    ITradingAccount selectAccountByUser(long userId);
 }

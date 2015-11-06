@@ -14,8 +14,8 @@ import flousy.gui.activitybar.ActivityBar;
 import flousy.gui.activitybar.ActivityBarException;
 import flousy.gui.activitybar.ActivityBarFactory;
 import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.content.FlousyMenu;
-import flousy.gui.content.ListFlousyMenus;
+import flousy.gui.content.HomeItem;
+import flousy.gui.content.ListHomeItems;
 import flousy.gui.widget.recycler.drawer.DrawerItemMenu;
 import flousy.gui.widget.recycler.drawer.Drawer;
 import flousy.gui.widget.recycler.drawer.DrawerItemTitle;
@@ -109,15 +109,15 @@ public class MotherActivity extends ActionBarActivity {
         drawerItemTitle.setText(getResources().getString(R.string.activity_home_name));
         this.drawer.addItem(drawerItemTitle);
 
-        ListFlousyMenus listFlousyMenus = ListFlousyMenus.getInstance(this);
+        ListHomeItems listHomeItems = ListHomeItems.getInstance(this);
 
         DrawerItemMenu drawerItemMenu;
-        for(Object flousyMenu : listFlousyMenus) {
+        for(Object flousyMenu : listHomeItems) {
             drawerItemMenu = new DrawerItemMenu();
 
-            drawerItemMenu.setColor(((FlousyMenu) flousyMenu).getColor());
-            drawerItemMenu.setText(((FlousyMenu) flousyMenu).getName());
-            drawerItemMenu.setIntent(((FlousyMenu) flousyMenu).getIntent());
+            drawerItemMenu.setColor(((HomeItem) flousyMenu).getColor());
+            drawerItemMenu.setText(((HomeItem) flousyMenu).getName());
+            drawerItemMenu.setIntent(((HomeItem) flousyMenu).getIntent());
 
             this.drawer.addItem(drawerItemMenu);
         }

@@ -10,8 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import flousy.constant.Extra;
-import flousy.gui.content.FlousyMenu;
-import flousy.gui.content.ListFlousyMenus;
+import flousy.gui.content.HomeItem;
+import flousy.gui.content.ListHomeItems;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
 import flousy.gui.widget.recycler.grid.Grid;
@@ -36,6 +36,8 @@ public class HomeActivity extends MotherActivity {
 
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         this.grid.adapt(gridView);
+
+        createGridMenu();
     }
 
     @Override
@@ -64,7 +66,7 @@ public class HomeActivity extends MotherActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_valid:
+            case R.id.action_logout:
                 logOut();
                 break;
             default:
@@ -82,26 +84,26 @@ public class HomeActivity extends MotherActivity {
         }
     }
 
-    private void createGridForFlousyMenus() {
+    private void createGridMenu() {
         this.grid.clearItems();
 
-        ListFlousyMenus listFlousyMenus = ListFlousyMenus.getInstance(this);
+        ListHomeItems listHomeItems = ListHomeItems.getInstance(this);
 
         GridItem gridItem;
-        for(Object flousyMenu : listFlousyMenus) {
+        for(HomeItem homeItem : listHomeItems) {
             gridItem = new GridItem();
 
-            gridItem.setColor(((FlousyMenu) flousyMenu).getColor());
-            gridItem.setImage(((FlousyMenu) flousyMenu).getImage());
-            gridItem.setText(((FlousyMenu) flousyMenu).getName());
-            gridItem.setIntent(((FlousyMenu) flousyMenu).getIntent());
+            gridItem.setColor(homeItem.getColor());
+            gridItem.setImage(homeItem.getImage());
+            gridItem.setText(homeItem.getName());
+            gridItem.setIntent(homeItem.getIntent());
 
             this.grid.addItem(gridItem);
         }
     }
 
     private void showWelcome() {
-        String firstName = getIntent().getStringExtra(Extra.CUSTOMER_FIRSTNAME);
+        String firstName = getIntent().getStringExtra(Extra.USER_FIRSTNAME);
         CustomDialog.showOkDialog(
                 this,
                 getResources().getString(R.string.menu_alertdialog_welcome_title),
@@ -112,7 +114,7 @@ public class HomeActivity extends MotherActivity {
         CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
         final AlertDialog dialog = builder.create();
 
-        final Intent intent = new Intent(this, CustomerLogActivity.class);
+        final Intent intent = new Intent(this, UserLogActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         Runnable runnable = new Runnable() {

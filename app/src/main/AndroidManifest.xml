@@ -4,8 +4,6 @@
     package="com.example.flousy"
     android:installLocation="auto">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,17 +23,22 @@
         </activity>
 
         <activity
-            android:name=".CustomerLogActivity"
-            android:label="@string/activity_customer_log_name"
+            android:name=".UserLogActivity"
+            android:label="@string/activity_user_log_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
-            android:name=".CustomerAccountActivity"
-            android:label="@string/activity_customer_account_name"
+            android:name=".UserAccountActivity"
+            android:label="@string/activity_user_account_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".UserLogActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
         </activity>
 
         <activity
@@ -48,9 +51,9 @@
         <activity
             android:name=".SpendsActivity"
             android:label="@string/activity_spends_name"
-            android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -60,9 +63,9 @@
         <activity
             android:name=".SpendsProductActivity"
             android:label="@string/activity_spends_product_name"
-            android:parentActivityName=".SpendsActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".SpendsActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -72,9 +75,9 @@
         <activity
             android:name=".FinancesActivity"
             android:label="@string/activity_finances_name"
-            android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -84,9 +87,9 @@
         <activity
             android:name=".FinancesPaymentActivity"
             android:label="@string/activity_finances_payment_name"
-            android:parentActivityName=".FinancesActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".FinancesActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -96,9 +99,9 @@
         <activity
             android:name=".FriendsActivity"
             android:label="@string/activity_friends_name"
-            android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -108,16 +111,14 @@
         <activity
             android:name=".OffersActivity"
             android:label="@string/activity_offers_name"
-            android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
         </activity>
-
-        <activity android:name="org.achartengine.GraphicalActivity"/>
 
     </application>
 

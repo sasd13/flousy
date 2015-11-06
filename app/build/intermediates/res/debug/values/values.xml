@@ -329,8 +329,6 @@
     <eat-comment/>
     <string name="actionbar_textview_subtitle">Sous-titre</string>
     <string name="actionbar_textview_title">Titre</string>
-    <string name="activity_customer_account_name">Compte</string>
-    <string name="activity_customer_log_name">Connexion</string>
     <string name="activity_finances_name">Finances</string>
     <string name="activity_finances_payment_name">Paiment</string>
     <string name="activity_friends_name">Amis</string>
@@ -339,6 +337,8 @@
     <string name="activity_spends_name">Dépenses</string>
     <string name="activity_spends_product_name">Produit</string>
     <string name="activity_splashscreen_name">@string/app_name</string>
+    <string name="activity_user_account_name">Compte</string>
+    <string name="activity_user_log_name">Connexion</string>
     <string name="activitybar_titled_textview">Titre</string>
     <string name="adressConnect">http://10.0.2.2:8080/WebProject</string>
     <string name="alertdialog_button_cancel">Annuler</string>

@@ -2,7 +2,7 @@ package flousy.bean.trading;
 
 import java.util.Observer;
 
-import flousy.bean.customer.IAccount;
+import flousy.bean.user.IAccount;
 import flousy.util.Diary;
 
 /**

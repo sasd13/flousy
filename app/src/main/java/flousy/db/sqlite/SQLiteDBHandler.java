@@ -7,23 +7,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import flousy.db.AccountTableAccessor;
 import flousy.db.CategoryTableAccessor;
-import flousy.db.CustomerTableAccessor;
+import flousy.db.UserTableAccessor;
 import flousy.db.ProductTableAccessor;
 import flousy.db.OperationTableAccessor;
 
 public class SQLiteDBHandler extends SQLiteOpenHelper {
 
     /**
-     * Table customers
+     * Table users
      */
-    public static final String CUSTOMER_TABLE_DROP = "DROP TABLE IF EXISTS " + CustomerTableAccessor.CUSTOMER_TABLE_NAME + ";";
-    public static final String CUSTOMER_TABLE_CREATE =
-            "CREATE TABLE " + CustomerTableAccessor.CUSTOMER_TABLE_NAME + " ("
-                    + CustomerTableAccessor.CUSTOMER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + CustomerTableAccessor.CUSTOMER_FIRSTNAME + " TEXT NOT NULL, "
-                    + CustomerTableAccessor.CUSTOMER_LASTNAME + " TEXT NOT NULL, "
-                    + CustomerTableAccessor.CUSTOMER_EMAIL + " TEXT NOT NULL UNIQUE, "
-                    + CustomerTableAccessor.CUSTOMER_PASSWORD + " TEXT NOT NULL);";
+    public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + UserTableAccessor.USER_TABLE_NAME + ";";
+    public static final String USER_TABLE_CREATE =
+            "CREATE TABLE " + UserTableAccessor.USER_TABLE_NAME + " ("
+                    + UserTableAccessor.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + UserTableAccessor.USER_FIRSTNAME + " TEXT NOT NULL, "
+                    + UserTableAccessor.USER_LASTNAME + " TEXT NOT NULL, "
+                    + UserTableAccessor.USER_EMAIL + " TEXT NOT NULL UNIQUE, "
+                    + UserTableAccessor.USER_PASSWORD + " TEXT NOT NULL);";
 
     /**
      * Table accounts
@@ -35,8 +35,8 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + AccountTableAccessor.ACCOUNT_DATEOPENING + " TEXT NOT NULL, "
                     + AccountTableAccessor.ACCOUNT_TYPE + " TEXT NOT NULL, "
                     + AccountTableAccessor.ACCOUNT_SOLD + " REAL NOT NULL, "
-                    + AccountTableAccessor.CUSTOMERS_CUSTOMER_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + AccountTableAccessor.CUSTOMERS_CUSTOMER_ID + ") REFERENCES " + CustomerTableAccessor.CUSTOMER_TABLE_NAME + "("+ CustomerTableAccessor.CUSTOMER_ID + "));";
+                    + AccountTableAccessor.USERS_USER_ID + " INTEGER NOT NULL, "
+                    + " FOREIGN KEY (" + AccountTableAccessor.USERS_USER_ID + ") REFERENCES " + UserTableAccessor.USER_TABLE_NAME + "("+ UserTableAccessor.USER_ID + "));";
 
     /**
      * Table operations
@@ -83,7 +83,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CUSTOMER_TABLE_CREATE);
+        db.execSQL(USER_TABLE_CREATE);
         db.execSQL(ACCOUNT_TABLE_CREATE);
         db.execSQL(OPERATION_TABLE_CREATE);
         db.execSQL(CATEGORY_TABLE_CREATE);
@@ -96,7 +96,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
         db.execSQL(CATEGORY_TABLE_DROP);
         db.execSQL(OPERATION_TABLE_DROP);
         db.execSQL(ACCOUNT_TABLE_DROP);
-        db.execSQL(CUSTOMER_TABLE_DROP);
+        db.execSQL(USER_TABLE_DROP);
 
 		onCreate(db);
 	}

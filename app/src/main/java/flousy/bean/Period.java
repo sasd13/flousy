@@ -36,12 +36,15 @@ public class Period {
     }
 
     public static Period parse(String sPeriod) {
-        if (sPeriod == null) {
-            return null;
+        Period period = null;
+
+        try {
+            String[] tab = sPeriod.split(SEPARATOR);
+            period = new Period(Timestamp.valueOf(tab[0]), Timestamp.valueOf(tab[1]));
+        } catch (NullPointerException | IllegalArgumentException e) {
+            e.printStackTrace();
         }
 
-        String[] tab = sPeriod.split(SEPARATOR);
-
-        return new Period(Timestamp.valueOf(tab[0]), Timestamp.valueOf(tab[1]));
+        return period;
     }
 }
