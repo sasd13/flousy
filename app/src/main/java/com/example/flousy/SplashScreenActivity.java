@@ -11,7 +11,7 @@ import flousy.session.Session;
 
 public class SplashScreenActivity extends Activity {
 
-    private static final int SPLASH_TIME_OUT = 3000;
+    private static final int SPLASHSCREEN_TIMEOUT = 3000;
     private Handler handler;
     private Runnable runnable;
 
@@ -32,9 +32,9 @@ public class SplashScreenActivity extends Activity {
         Session.start(this);
 
         if (Session.isUserLoggedIn()) {
-            goToActivity(HomeActivity.class, SPLASH_TIME_OUT);
+            goToActivity(HomeActivity.class, SPLASHSCREEN_TIMEOUT);
         } else {
-            goToActivity(UserLogActivity.class, SPLASH_TIME_OUT);
+            goToActivity(UserLogActivity.class, SPLASHSCREEN_TIMEOUT);
         }
     }
 

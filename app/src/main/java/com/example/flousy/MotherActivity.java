@@ -1,7 +1,10 @@
 package com.example.flousy;
 
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.RecyclerView;
@@ -9,15 +12,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
 
+import flousy.constant.Extra;
 import flousy.gui.content.HomeMenuItem;
 import flousy.gui.content.ListHomeMenuItems;
+import flousy.gui.widget.dialog.CustomDialog;
+import flousy.gui.widget.dialog.CustomDialogBuilder;
 import flousy.gui.widget.recycler.drawer.DrawerItemHomeMenu;
 import flousy.gui.widget.recycler.drawer.Drawer;
 import flousy.gui.widget.recycler.drawer.DrawerItemTitle;
+import flousy.session.Session;
 
 public abstract class MotherActivity extends ActionBarActivity {
 
     public static final int APP_COLOR = R.color.customGreenApp;
+    private static final int LOGOUT_TIMEOUT = 2000;
 
     private int color;
     private Drawer drawer;
@@ -52,9 +60,14 @@ public abstract class MotherActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_logout:
+                logOut();
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+        return true;
     }
 
     @Override
@@ -99,6 +112,38 @@ public abstract class MotherActivity extends ActionBarActivity {
 
             this.drawer.addItem(drawerItemHomeMenu);
         }
+    }
+
+    private void logOut() {
+        if (Session.logOut()) {
+            goToHomeActivityAndExit();
+        } else {
+            CustomDialog.showOkDialog(this, "Error logout", "You have not been logged out");
+        }
+    }
+
+    private void goToHomeActivityAndExit() {
+        CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
+        final AlertDialog dialog = builder.create();
+
+        final Intent intent = new Intent(this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra(Extra.EXIT, true);
+
+        Runnable runnable = new Runnable() {
+
+            @Override
+            public void run() {
+                startActivity(intent);
+                dialog.dismiss();
+                finish();
+            }
+        };
+
+        Handler handler = new Handler();
+        handler.postDelayed(runnable, LOGOUT_TIMEOUT);
+
+        dialog.show();
     }
 
     public void setActionBarEnabled(boolean enabled) {

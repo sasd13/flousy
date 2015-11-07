@@ -23,7 +23,7 @@ public class UserLogActivity extends Activity {
         public Button buttonLogin;
     }
 
-    private static final int LOADING_TIME_OUT = 2000;
+    private static final int LOGIN_TIMEOUT = 2000;
 
     private FormLogInViewHolder formLogIn;
 
@@ -81,13 +81,12 @@ public class UserLogActivity extends Activity {
             @Override
             public void run() {
                 startActivity(intent);
-
                 dialog.dismiss();
             }
         };
 
         Handler handler = new Handler();
-        handler.postDelayed(runnable, LOADING_TIME_OUT);
+        handler.postDelayed(runnable, LOGIN_TIMEOUT);
 
         dialog.show();
     }
@@ -99,7 +98,7 @@ public class UserLogActivity extends Activity {
         };
 
         SpannableString text;
-        for(TextView textView : textViews) {
+        for (TextView textView : textViews) {
             text = new SpannableString(textView.getText().toString());
             text.setSpan(new UnderlineSpan(), 0, text.length(), 0);
             textView.setText(text);

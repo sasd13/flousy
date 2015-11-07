@@ -27,7 +27,7 @@ public class UserAccountActivity extends MotherActivity {
         public CheckBox checkBoxValidTerms;
     }
 
-    private static final int SIGNUP_TIME_OUT = 2000;
+    private static final int SIGNUP_TIMEOUT = 2000;
 
     private FormViewHolder formUser;
 
@@ -153,13 +153,12 @@ public class UserAccountActivity extends MotherActivity {
             @Override
             public void run() {
                 startActivity(intent);
-
                 dialog.dismiss();
             }
         };
 
         Handler handler = new Handler();
-        handler.postDelayed(runnable, SIGNUP_TIME_OUT);
+        handler.postDelayed(runnable, SIGNUP_TIMEOUT);
 
         dialog.show();
     }
