@@ -9,7 +9,7 @@ public class ListProducts extends List<Product> {
 
     @Override
     public Product get(Object id) {
-        for (Product product : this.list) {
+        for (Product product : getList()) {
             if (product.getId() == (long) id) {
                 return product;
             }

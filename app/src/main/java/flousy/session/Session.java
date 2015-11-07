@@ -25,7 +25,7 @@ public class Session {
         dao = DBManager.getDao();
     }
 
-    public static boolean isUserLogged() {
+    public static boolean isUserLoggedIn() {
         return preferences.contains(SESSION_USER_ID);
     }
 
@@ -34,12 +34,10 @@ public class Session {
     }
 
     public static boolean logIn(String email, String password) {
-        dao.open();
         User user = dao.selectUserByEmail(email);
-        dao.close();
 
         try {
-            if(user.getPassword().equals(password)) {
+            if (user.getPassword().equals(password)) {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString(SESSION_USER_ID, String.valueOf(user.getId()));
 

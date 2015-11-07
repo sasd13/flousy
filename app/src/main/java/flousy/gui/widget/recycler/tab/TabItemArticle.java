@@ -20,7 +20,6 @@ public class TabItemArticle extends RecyclerItem {
 
     private CharSequence name, price;
     private Intent intent;
-
     private TextView textViewName, textViewPrice;
 
     public TabItemArticle() {
@@ -67,24 +66,26 @@ public class TabItemArticle extends RecyclerItem {
     public void inflate(ViewStub viewStub) {
         super.inflate(viewStub);
 
-        this.textViewName = (TextView) this.view.findViewById(R.id.tabitem_textview_name);
+        this.textViewName = (TextView) getView().findViewById(R.id.tabitem_textview_name);
         this.textViewName.setText(this.name);
 
-        this.textViewPrice = (TextView) this.view.findViewById(R.id.tabitem_textview_price);
+        this.textViewPrice = (TextView) getView().findViewById(R.id.tabitem_textview_price);
         this.textViewPrice.setText(this.price);
 
-        view.setOnClickListener(new View.OnClickListener() {
+        getView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                     view.getContext().startActivity(intent);
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
             }
         });
-        int color = this.view.getContext().getResources().getColor(R.color.background_material_light);
-        this.view.setOnTouchListener(new ColorOnTouchListener(color));
+
+        int color = getView().getContext().getResources().getColor(R.color.background_material_light);
+        getView().setOnTouchListener(new ColorOnTouchListener(color));
     }
 }

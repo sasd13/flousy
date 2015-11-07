@@ -9,7 +9,7 @@ public class ListCategories extends List<Category> {
 
     @Override
     public Category get(Object id) {
-        for (Category category : this.list) {
+        for (Category category : getList()) {
             if (category.getId() == (long) id) {
                 return category;
             }

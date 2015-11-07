@@ -9,7 +9,7 @@ public class ListAccounts extends List<IAccount> {
 
     @Override
     public IAccount get(Object id) {
-        for (IAccount account : this.list) {
+        for (IAccount account : getList()) {
             if (account.getId() == (long) id) {
                 return account;
             }

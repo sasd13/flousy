@@ -29,7 +29,7 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
     }
 
     @Override
-    protected ITradingAccount extractCursorValues(Cursor cursor) {
+    protected ITradingAccount getCursorValues(Cursor cursor) {
         ITradingAccount tradingAccount = null;
 
         String accountType = cursor.getString(cursor.getColumnIndex(ACCOUNT_TYPE));
@@ -55,31 +55,31 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
     public long insert(ITradingAccount tradingAccount, User user) {
         ContentValues values = getContentValues(tradingAccount);
         values.put(USERS_USER_ID, user.getId());
-        
-        return db.insert(ACCOUNT_TABLE_NAME, null, values);
+
+        return getDB().insert(ACCOUNT_TABLE_NAME, null, values);
     }
 
     @Override
     public void update(ITradingAccount tradingAccount) {
-        db.update(ACCOUNT_TABLE_NAME, getContentValues(tradingAccount), ACCOUNT_ID + " = ?", new String[]{String.valueOf(tradingAccount.getId())});
+        getDB().update(ACCOUNT_TABLE_NAME, getContentValues(tradingAccount), ACCOUNT_ID + " = ?", new String[]{String.valueOf(tradingAccount.getId())});
     }
 
     @Override
     public void delete(ITradingAccount tradingAccount) {
-        db.delete(ACCOUNT_TABLE_NAME, ACCOUNT_ID + " = ?", new String[]{String.valueOf(tradingAccount.getId())});
+        getDB().delete(ACCOUNT_TABLE_NAME, ACCOUNT_ID + " = ?", new String[]{String.valueOf(tradingAccount.getId())});
     }
 
     @Override
     public ITradingAccount select(long id) {
         ITradingAccount tradingAccount = null;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + ACCOUNT_TABLE_NAME
                         + " where " + ACCOUNT_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
-            tradingAccount = extractCursorValues(cursor);
+            tradingAccount = getCursorValues(cursor);
         }
         cursor.close();
 
@@ -90,13 +90,13 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
     public ITradingAccount selectAccountByUser(long userId) {
         ITradingAccount tradingAccount = null;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + ACCOUNT_TABLE_NAME
                         + " where " + USERS_USER_ID + " = ?", new String[]{String.valueOf(userId)});
 
         if (cursor.moveToNext()) {
-            tradingAccount = extractCursorValues(cursor);
+            tradingAccount = getCursorValues(cursor);
         }
         cursor.close();
 

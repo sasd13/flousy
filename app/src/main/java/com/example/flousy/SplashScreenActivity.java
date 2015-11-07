@@ -21,8 +21,7 @@ public class SplashScreenActivity extends Activity {
 
         setContentView(R.layout.activity_splashscreen);
 
-        ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_app_logo));
+        createLogo();
     }
 
     @Override
@@ -32,33 +31,33 @@ public class SplashScreenActivity extends Activity {
         DBManager.start(this);
         Session.start(this);
 
-        if (Session.isUserLogged()) {
-            attachActivity(HomeActivity.class, SPLASH_TIME_OUT);
+        if (Session.isUserLoggedIn()) {
+            goToActivity(HomeActivity.class, SPLASH_TIME_OUT);
         } else {
-            attachActivity(UserLogActivity.class, SPLASH_TIME_OUT);
+            goToActivity(UserLogActivity.class, SPLASH_TIME_OUT);
         }
     }
 
-    /**
-     * Stop calling post delayed activity on user action
-     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
 
-        detachActivity();
-        finish();
+        stopGoToActivity();
     }
 
     @Override
     protected void onUserLeaveHint() {
         super.onUserLeaveHint();
 
-        detachActivity();
-        finish();
+        stopGoToActivity();
     }
 
-    private void attachActivity(Class<?> activityClass, int timeOut) {
+    private void createLogo() {
+        ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_app_logo));
+    }
+
+    private void goToActivity(Class<?> activityClass, int timeOut) {
         final Intent intent = new Intent(this, activityClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
@@ -67,7 +66,6 @@ public class SplashScreenActivity extends Activity {
             @Override
             public void run() {
                 startActivity(intent);
-                finish();
             }
         };
 
@@ -75,7 +73,7 @@ public class SplashScreenActivity extends Activity {
         this.handler.postDelayed(this.runnable, timeOut);
     }
 
-    private void detachActivity() {
+    private void stopGoToActivity() {
         try {
             this.handler.removeCallbacks(this.runnable);
         } catch (NullPointerException e) {

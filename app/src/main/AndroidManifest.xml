@@ -11,10 +11,11 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.example.flousy.SplashScreenActivity"
+            android:name=".SplashScreenActivity"
             android:label="@string/activity_splashscreen_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:noHistory="true">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +27,8 @@
             android:name=".UserLogActivity"
             android:label="@string/activity_user_log_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:noHistory="true">
         </activity>
 
         <activity
@@ -34,11 +36,7 @@
             android:label="@string/activity_user_account_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".UserLogActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
+            android:noHistory="true">
         </activity>
 
         <activity
@@ -82,18 +80,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
-        </activity>
-
-        <activity
-            android:name=".FinancesPaymentActivity"
-            android:label="@string/activity_finances_payment_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".FinancesActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FinancesActivity" />
         </activity>
 
         <activity

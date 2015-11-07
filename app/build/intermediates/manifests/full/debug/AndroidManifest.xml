@@ -17,6 +17,7 @@
         <activity
             android:name="com.example.flousy.SplashScreenActivity"
             android:label="@string/activity_splashscreen_name"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
@@ -30,20 +31,16 @@
         <activity
             android:name="com.example.flousy.UserLogActivity"
             android:label="@string/activity_user_log_name"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name="com.example.flousy.UserAccountActivity"
             android:label="@string/activity_user_account_name"
-            android:parentActivityName="com.example.flousy.UserLogActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
         </activity>
         <activity
             android:name="com.example.flousy.HomeActivity"
@@ -86,18 +83,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
-        </activity>
-        <activity
-            android:name="com.example.flousy.FinancesPaymentActivity"
-            android:label="@string/activity_finances_payment_name"
-            android:parentActivityName="com.example.flousy.FinancesActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".FinancesActivity" />
         </activity>
         <activity
             android:name="com.example.flousy.FriendsActivity"

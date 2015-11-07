@@ -31,7 +31,7 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
     @NonNull
     @Override
     public AlertDialog create() {
-        if(this.dialogType == TYPE_LOAD) {
+        if (this.dialogType == TYPE_LOAD) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             setView(inflater.inflate(R.layout.customdialog_load, null));
         }

@@ -22,11 +22,7 @@ public class FinancesActivity extends MotherActivity {
         //Set ActivityColor immediately after content view
         setColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set ActivityContent
-        this.grid = new Grid(this);
-
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.grid.adapt(gridView);
+        createGridFinances();
     }
 
     @Override
@@ -40,5 +36,12 @@ public class FinancesActivity extends MotherActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void createGridFinances() {
+        this.grid = new Grid(this);
+
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
+        this.grid.adapt(gridView);
     }
 }

@@ -7,27 +7,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewStub;
 
-import flousy.gui.activitybar.ActivityBar;
-import flousy.gui.activitybar.ActivityBarException;
-import flousy.gui.activitybar.ActivityBarFactory;
-import flousy.gui.activitybar.ActivityBarType;
-import flousy.gui.content.HomeItem;
-import flousy.gui.content.ListHomeItems;
-import flousy.gui.widget.recycler.drawer.DrawerItemMenu;
+import flousy.gui.content.HomeMenuItem;
+import flousy.gui.content.ListHomeMenuItems;
+import flousy.gui.widget.recycler.drawer.DrawerItemHomeMenu;
 import flousy.gui.widget.recycler.drawer.Drawer;
 import flousy.gui.widget.recycler.drawer.DrawerItemTitle;
 
-public class MotherActivity extends ActionBarActivity {
+public abstract class MotherActivity extends ActionBarActivity {
 
     public static final int APP_COLOR = R.color.customGreenApp;
 
     private int color;
     private Drawer drawer;
-    private ActivityBar activityBar;
-    private View contentView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,12 +32,7 @@ public class MotherActivity extends ActionBarActivity {
         //Create Color with app color
         this.color = getResources().getColor(APP_COLOR);
 
-        //Create Drawer
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        this.drawer = new Drawer(this, drawerLayout);
-
-        RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer_view);
-        this.drawer.adapt(drawerView);
+        createDrawer();
     }
 
     @Override
@@ -73,7 +61,7 @@ public class MotherActivity extends ActionBarActivity {
     public void setContentView(int layoutResource) {
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
         viewStub.setLayoutResource(layoutResource);
-        this.contentView = viewStub.inflate();
+        viewStub.inflate();
     }
 
     public int getColor() {
@@ -88,38 +76,28 @@ public class MotherActivity extends ActionBarActivity {
         return this.drawer;
     }
 
-    public ActivityBar getActivityBar() {
-        return this.activityBar;
-    }
+    private void createDrawer() {
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        this.drawer = new Drawer(this, drawerLayout);
 
-    public ActivityBar createActivityBar(ActivityBarType type) {
-        try {
-            this.activityBar = ActivityBarFactory.create(type);
-            this.activityBar.inflate((ViewStub) findViewById(R.id.activitybar_viewstub));
-            this.activityBar.setColor(this.color);
-        } catch (ActivityBarException e) {
-            e.printStackTrace();
-        }
+        RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer_view);
+        this.drawer.adapt(drawerView);
 
-        return this.activityBar;
-    }
-
-    private void addDrawerItems() {
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
         drawerItemTitle.setText(getResources().getString(R.string.activity_home_name));
         this.drawer.addItem(drawerItemTitle);
 
-        ListHomeItems listHomeItems = ListHomeItems.getInstance(this);
+        ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
 
-        DrawerItemMenu drawerItemMenu;
-        for(Object flousyMenu : listHomeItems) {
-            drawerItemMenu = new DrawerItemMenu();
+        DrawerItemHomeMenu drawerItemHomeMenu;
+        for(HomeMenuItem homeMenuItem : listHomeMenuItems) {
+            drawerItemHomeMenu = new DrawerItemHomeMenu();
 
-            drawerItemMenu.setColor(((HomeItem) flousyMenu).getColor());
-            drawerItemMenu.setText(((HomeItem) flousyMenu).getName());
-            drawerItemMenu.setIntent(((HomeItem) flousyMenu).getIntent());
+            drawerItemHomeMenu.setColor(homeMenuItem.getColor());
+            drawerItemHomeMenu.setText(homeMenuItem.getName());
+            drawerItemHomeMenu.setIntent(homeMenuItem.getIntent());
 
-            this.drawer.addItem(drawerItemMenu);
+            this.drawer.addItem(drawerItemHomeMenu);
         }
     }
 

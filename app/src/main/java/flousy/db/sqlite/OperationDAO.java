@@ -31,7 +31,7 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
     }
 
     @Override
-    protected ITrafficOperation extractCursorValues(Cursor cursor) {
+    protected ITrafficOperation getCursorValues(Cursor cursor) {
         ITrafficOperation trafficOperation = null;
 
         String trafficOperationType = cursor.getString(cursor.getColumnIndex(OPERATION_TYPE));
@@ -60,30 +60,30 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
         ContentValues values = getContentValues(trafficOperation);
         values.put(ACCOUNTS_ACCOUNT_ID, tradingAccount.getId());
 
-        return db.insert(OPERATION_TABLE_NAME, null, values);
+        return getDB().insert(OPERATION_TABLE_NAME, null, values);
     }
 
     @Override
     public void update(ITrafficOperation trafficOperation) {
-        db.update(OPERATION_TABLE_NAME, getContentValues(trafficOperation), OPERATION_ID + " = ?", new String[]{String.valueOf(trafficOperation.getId())});
+        getDB().update(OPERATION_TABLE_NAME, getContentValues(trafficOperation), OPERATION_ID + " = ?", new String[]{String.valueOf(trafficOperation.getId())});
     }
 
     @Override
     public void delete(ITrafficOperation trafficOperation) {
-        db.delete(OPERATION_TABLE_NAME, OPERATION_ID + " = ?", new String[]{String.valueOf(trafficOperation.getId())});
+        getDB().delete(OPERATION_TABLE_NAME, OPERATION_ID + " = ?", new String[]{String.valueOf(trafficOperation.getId())});
     }
 
     @Override
     public ITrafficOperation select(long id) {
         ITrafficOperation trafficOperation = null;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + OPERATION_TABLE_NAME
                         + " where " + OPERATION_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
-            trafficOperation = extractCursorValues(cursor);
+            trafficOperation = getCursorValues(cursor);
         }
         cursor.close();
 
@@ -94,13 +94,13 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
     public ListTrafficOperations selectOperationsByAccount(long accountId) {
         ListTrafficOperations listITrafficOperations = new ListTrafficOperations();
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + OPERATION_TABLE_NAME
                         + " where " + ACCOUNTS_ACCOUNT_ID + " = ?", new String[]{String.valueOf(accountId)});
 
         while (cursor.moveToNext()) {
-            listITrafficOperations.add(extractCursorValues(cursor));
+            listITrafficOperations.add(getCursorValues(cursor));
         }
         cursor.close();
 

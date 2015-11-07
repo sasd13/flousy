@@ -9,7 +9,7 @@ public class ListTraffics extends ObservableList<ITraffic> {
 
     @Override
     public ITraffic get(Object id) {
-        for (ITraffic ITraffic : this.list) {
+        for (ITraffic ITraffic : getList()) {
             if (ITraffic.getId() == (long) id) {
                 return ITraffic;
             }

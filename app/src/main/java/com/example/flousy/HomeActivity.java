@@ -10,8 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import flousy.constant.Extra;
-import flousy.gui.content.HomeItem;
-import flousy.gui.content.ListHomeItems;
+import flousy.gui.content.HomeMenuItem;
+import flousy.gui.content.ListHomeMenuItems;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
 import flousy.gui.widget.recycler.grid.Grid;
@@ -31,13 +31,7 @@ public class HomeActivity extends MotherActivity {
         //Set ActivityContent
         setContentView(R.layout.recyclerview);
 
-        //Set Activity content
-        this.grid = new Grid(this);
-
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.grid.adapt(gridView);
-
-        createGridMenu();
+        createGridHomeMenu();
     }
 
     @Override
@@ -84,19 +78,22 @@ public class HomeActivity extends MotherActivity {
         }
     }
 
-    private void createGridMenu() {
-        this.grid.clearItems();
+    private void createGridHomeMenu() {
+        this.grid = new Grid(this);
 
-        ListHomeItems listHomeItems = ListHomeItems.getInstance(this);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
+        this.grid.adapt(gridView);
+
+        ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
 
         GridItem gridItem;
-        for(HomeItem homeItem : listHomeItems) {
+        for(HomeMenuItem homeMenuItem : listHomeMenuItems) {
             gridItem = new GridItem();
 
-            gridItem.setColor(homeItem.getColor());
-            gridItem.setImage(homeItem.getImage());
-            gridItem.setText(homeItem.getName());
-            gridItem.setIntent(homeItem.getIntent());
+            gridItem.setColor(homeMenuItem.getColor());
+            gridItem.setImage(homeMenuItem.getImage());
+            gridItem.setText(homeMenuItem.getName());
+            gridItem.setIntent(homeMenuItem.getIntent());
 
             this.grid.addItem(gridItem);
         }

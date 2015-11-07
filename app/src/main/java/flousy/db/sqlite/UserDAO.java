@@ -25,7 +25,7 @@ class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
     }
 
     @Override
-    protected User extractCursorValues(Cursor cursor) {
+    protected User getCursorValues(Cursor cursor) {
         User user = new User();
 
         user.setId(cursor.getLong(cursor.getColumnIndex(USER_ID)));
@@ -39,30 +39,30 @@ class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
 
     @Override
     public long insert(User user) {
-        return db.insert(USER_TABLE_NAME, null, getContentValues(user));
+        return getDB().insert(USER_TABLE_NAME, null, getContentValues(user));
     }
 
     @Override
     public void update(User user) {
-        db.update(USER_TABLE_NAME, getContentValues(user), USER_ID + " = ?", new String[]{String.valueOf(user.getId())});
+        getDB().update(USER_TABLE_NAME, getContentValues(user), USER_ID + " = ?", new String[]{String.valueOf(user.getId())});
     }
 
     @Override
     public void delete(User user) {
-        db.delete(USER_TABLE_NAME, USER_ID + " = ?", new String[]{String.valueOf(user.getId())});
+        getDB().delete(USER_TABLE_NAME, USER_ID + " = ?", new String[]{String.valueOf(user.getId())});
     }
 
     @Override
     public User select(long id) {
         User user = null;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + USER_TABLE_NAME
                         + " where " + USER_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
-            user = extractCursorValues(cursor);
+            user = getCursorValues(cursor);
         }
         cursor.close();
 
@@ -73,13 +73,13 @@ class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
     public User selectByEmail(String email) {
         User user = null;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + USER_TABLE_NAME
                         + " where " + USER_EMAIL + " = ?", new String[]{email});
 
         if (cursor.moveToNext()) {
-            user = extractCursorValues(cursor);
+            user = getCursorValues(cursor);
         }
         cursor.close();
 
@@ -90,7 +90,7 @@ class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
     public boolean contains(String email) {
         boolean contains = false;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + USER_TABLE_NAME
                         + " where " + USER_EMAIL + " = ?", new String[]{email});

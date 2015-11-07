@@ -14,8 +14,7 @@ public class CustomDialog {
     }
 
     public static void showOkDialog(Context context, String title, String message, DialogInterface.OnClickListener neutralListener) {
-        CustomDialogBuilder builder;
-        builder = new CustomDialogBuilder(context, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
+        CustomDialogBuilder builder = new CustomDialogBuilder(context, CustomDialogBuilder.TYPE_ONEBUTTON_OK);
         builder.setTitle(title)
                 .setMessage(message)
                 .setNeutralButton(neutralListener);
@@ -25,8 +24,7 @@ public class CustomDialog {
     }
 
     public static void showYesNoDialog(Context context, String title, String message, DialogInterface.OnClickListener positiveListener) {
-        CustomDialogBuilder builder;
-        builder = new CustomDialogBuilder(context, CustomDialogBuilder.TYPE_TWOBUTTON_YESNO);
+        CustomDialogBuilder builder = new CustomDialogBuilder(context, CustomDialogBuilder.TYPE_TWOBUTTON_YESNO);
         builder.setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(positiveListener)
@@ -37,8 +35,7 @@ public class CustomDialog {
     }
 
     public static void showOkCancelDialog(Context context, String title, String message, DialogInterface.OnClickListener positiveListener) {
-        CustomDialogBuilder builder;
-        builder = new CustomDialogBuilder(context, CustomDialogBuilder.TYPE_TWOBUTTON_OKCANCEL);
+        CustomDialogBuilder builder = new CustomDialogBuilder(context, CustomDialogBuilder.TYPE_TWOBUTTON_OKCANCEL);
         builder.setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(positiveListener)

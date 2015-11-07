@@ -1,6 +1,5 @@
 package flousy.db.sqlite;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
 import flousy.bean.ListCategories;
@@ -20,9 +19,6 @@ public class SQLiteDAO implements DataAccessor {
     private static final String NOM = "database.db";
 
     private static SQLiteDAO instance = null;
-
-	private SQLiteDatabase db = null;
-	private SQLiteDBHandler dbHandler = null;
 
     private UserDAO userDAO;
     private AccountDAO accountDAO;
@@ -48,24 +44,14 @@ public class SQLiteDAO implements DataAccessor {
 
     @Override
     public void init(Context context) {
-        dbHandler = new SQLiteDBHandler(context, NOM, null, VERSION);
+        SQLiteDBHandler dbHandler = new SQLiteDBHandler(context, NOM, null, VERSION);
+
+        userDAO.setDBHandler(dbHandler);
+        accountDAO.setDBHandler(dbHandler);
+        operationDAO.setDBHandler(dbHandler);
+        categoryDAO.setDBHandler(dbHandler);
+        productDAO.setDBHandler(dbHandler);
     }
-
-    @Override
-    public void open() {
-        db = dbHandler.getWritableDatabase();
-
-        userDAO.setDb(db);
-        accountDAO.setDb(db);
-        operationDAO.setDb(db);
-        categoryDAO.setDb(db);
-        productDAO.setDb(db);
-	}
-
-    @Override
-	public void close() {
-        db.close();
-	}
 
     @Override
     public String getDBType() {
@@ -74,117 +60,194 @@ public class SQLiteDAO implements DataAccessor {
 
     @Override
     public long insertUser(User user) {
-        long id = userDAO.insert(user);
+        long id = 0;
 
+        userDAO.open();
+
+        id = userDAO.insert(user);
         if (id > 0) {
             user.setId(id);
         }
+
+        userDAO.close();
 
         return id;
     }
 
     @Override
     public long insertAccount(ITradingAccount tradingAccount, User user) {
-        long id = accountDAO.insert(tradingAccount, user);
+        long id = 0;
 
+        accountDAO.open();
+
+        id = accountDAO.insert(tradingAccount, user);
         if (id > 0) {
             tradingAccount.setId(id);
         }
+
+        accountDAO.close();
 
         return id;
     }
 
     @Override
     public long insertOperation(ITrafficOperation trafficOperation, ITradingAccount tradingAccount) {
-        long id = operationDAO.insert(trafficOperation, tradingAccount);
+        long id = 0;
 
+        operationDAO.open();
+
+        id = operationDAO.insert(trafficOperation, tradingAccount);
         if (id > 0) {
             trafficOperation.setId(id);
         }
+
+        operationDAO.close();
 
         return id;
     }
 
     @Override
     public long insertCategory(Category category) {
-        long id = categoryDAO.insert(category);
+        long id = 0;
 
+        categoryDAO.open();
+
+        id = categoryDAO.insert(category);
         if (id > 0) {
             category.setId(id);
         }
+
+        categoryDAO.close();
 
         return id;
     }
 
     @Override
     public long insertProduct(Product product, ITrafficOperation trafficOperation) {
-        long id = productDAO.insert(product, trafficOperation);
+        long id = 0;
 
+        productDAO.open();
+
+        id = productDAO.insert(product, trafficOperation);
         if (id > 0) {
             product.setId(id);
         }
+
+        productDAO.close();
 
         return id;
     }
 
     @Override
     public void updateUser(User user) {
+        userDAO.open();
+
         userDAO.update(user);
+
+        userDAO.close();
     }
 
     @Override
     public void updateAccount(ITradingAccount tradingAccount) {
+        accountDAO.open();
+
         accountDAO.update(tradingAccount);
+
+        accountDAO.close();
     }
 
     @Override
     public void updateOperation(ITrafficOperation trafficOperation) {
+        operationDAO.open();
+
         operationDAO.update(trafficOperation);
+
+        operationDAO.close();
     }
 
     @Override
     public void updateCategory(Category category) {
+        categoryDAO.open();
+
         categoryDAO.update(category);
+
+        categoryDAO.close();
     }
 
     @Override
     public void updateProduct(Product product) {
+        productDAO.open();
+
         productDAO.update(product);
+
+        productDAO.close();
     }
 
     @Override
     public void deleteUser(User user) {
+        userDAO.open();
+
         userDAO.delete(user);
+
+        userDAO.close();
     }
 
     @Override
     public void deleteAccount(ITradingAccount tradingAccount) {
+        accountDAO.open();
+
         accountDAO.delete(tradingAccount);
+
+        accountDAO.close();
     }
 
     @Override
     public void deleteOperation(ITrafficOperation trafficOperation) {
+        operationDAO.open();
+
         operationDAO.delete(trafficOperation);
+
+        operationDAO.close();
     }
 
     @Override
     public void deleteCategory(Category category) {
+        categoryDAO.open();
+
         categoryDAO.delete(category);
+
+        categoryDAO.close();
     }
 
     @Override
     public void deleteProduct(Product product) {
+        productDAO.open();
+
         productDAO.delete(product);
+
+        productDAO.close();
     }
 
     @Override
     public User selectUser(long id) {
-        return userDAO.select(id);
+        User user = null;
+
+        userDAO.open();
+
+        user = userDAO.select(id);
+
+        userDAO.close();
+
+        return user;
     }
 
     @Override
     public ITradingAccount selectAccount(long id) {
-        ITradingAccount tradingAccount = accountDAO.select(id);
+        ITradingAccount tradingAccount = null;
+
+        accountDAO.open();
+
+        tradingAccount = accountDAO.select(id);
 
         try {
             ListTrafficOperations listTrafficOperations = operationDAO.selectOperationsByAccount(tradingAccount.getId());
@@ -197,12 +260,18 @@ public class SQLiteDAO implements DataAccessor {
             e.printStackTrace();
         }
 
+        accountDAO.close();
+
         return tradingAccount;
     }
 
     @Override
     public ITrafficOperation selectOperation(long id) {
-        ITrafficOperation trafficOperation = operationDAO.select(id);
+        ITrafficOperation trafficOperation = null;
+
+        operationDAO.open();
+
+        trafficOperation = operationDAO.select(id);
 
         try {
             ListProducts listProducts = productDAO.selectProductsByOperation(trafficOperation.getId());
@@ -219,17 +288,31 @@ public class SQLiteDAO implements DataAccessor {
             e.printStackTrace();
         }
 
+        operationDAO.close();
+
         return trafficOperation;
     }
 
     @Override
     public Category selectCategory(long id) {
-        return categoryDAO.select(id);
+        Category category = null;
+
+        categoryDAO.open();
+
+        category = categoryDAO.select(id);
+
+        categoryDAO.close();
+
+        return category;
     }
 
     @Override
     public Product selectProduct(long id) {
-        Product product = productDAO.select(id);
+        Product product = null;
+
+        productDAO.open();
+
+        product = productDAO.select(id);
 
         try {
             Category category = categoryDAO.select(product.getCategory().getId());
@@ -238,22 +321,44 @@ public class SQLiteDAO implements DataAccessor {
             e.printStackTrace();
         }
 
+        productDAO.close();
+
         return product;
     }
 
     @Override
     public User selectUserByEmail(String email) {
-        return userDAO.selectByEmail(email);
+        User user = null;
+
+        userDAO.open();
+
+        user = userDAO.selectByEmail(email);
+
+        userDAO.close();
+
+        return user;
     }
 
     @Override
     public boolean containsUserByEmail(String email) {
-        return userDAO.contains(email);
+        boolean contains = false;
+
+        userDAO.open();
+
+        contains = userDAO.contains(email);
+
+        userDAO.close();
+
+        return contains;
     }
 
     @Override
     public ITradingAccount selectAccountByUser(long userId) {
-        ITradingAccount tradingAccount = accountDAO.selectAccountByUser(userId);
+        ITradingAccount tradingAccount = null;
+
+        accountDAO.open();
+
+        tradingAccount = accountDAO.selectAccountByUser(userId);
 
         try {
             tradingAccount = selectAccount(tradingAccount.getId());
@@ -261,11 +366,21 @@ public class SQLiteDAO implements DataAccessor {
             e.printStackTrace();
         }
 
+        accountDAO.close();
+
         return tradingAccount;
     }
 
     @Override
     public ListCategories selectAllCategories() {
-        return categoryDAO.selectAll();
+        ListCategories listCategories = null;
+
+        categoryDAO.open();
+
+        listCategories = categoryDAO.selectAll();
+
+        categoryDAO.close();
+
+        return listCategories;
     }
 }

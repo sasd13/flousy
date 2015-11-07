@@ -22,9 +22,7 @@ public class Grid extends Recycler {
 
     @Override
     public void adapt(RecyclerView recyclerView) {
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
+        super.adapt(recyclerView);
 
         // add spaces item decoration
         int space = context.getResources().getDimensionPixelSize(R.dimen.grid_items_space);
@@ -37,7 +35,5 @@ public class Grid extends Recycler {
 
         // use a staggered grid layout manager
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));
-
-        super.adapt(recyclerView);
     }
 }

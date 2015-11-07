@@ -9,7 +9,7 @@ public class ListTradingAccounts extends List<ITradingAccount> {
 
     @Override
     public ITradingAccount get(Object id) {
-        for (ITradingAccount tradingAccount : this.list) {
+        for (ITradingAccount tradingAccount : getList()) {
             if (tradingAccount.getId() == (long) id) {
                 return tradingAccount;
             }

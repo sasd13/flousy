@@ -27,7 +27,7 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
     }
 
     @Override
-    protected Product extractCursorValues(Cursor cursor) {
+    protected Product getCursorValues(Cursor cursor) {
         Product product = new Product();
 
         product.setId(cursor.getLong(cursor.getColumnIndex(PRODUCT_ID)));
@@ -51,30 +51,30 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
         ContentValues values = getContentValues(product);
         values.put(OPERATIONS_OPERATION_ID, trafficOperation.getId());
 
-        return db.insert(PRODUCT_TABLE_NAME, null, values);
+        return getDB().insert(PRODUCT_TABLE_NAME, null, values);
     }
 
     @Override
     public void update(Product product) {
-        db.update(PRODUCT_TABLE_NAME, getContentValues(product), PRODUCT_ID + " = ?", new String[]{String.valueOf(product.getId())});
+        getDB().update(PRODUCT_TABLE_NAME, getContentValues(product), PRODUCT_ID + " = ?", new String[]{String.valueOf(product.getId())});
     }
 
     @Override
     public void delete(Product product) {
-        db.delete(PRODUCT_TABLE_NAME, PRODUCT_ID + " = ?", new String[]{String.valueOf(product.getId())});
+        getDB().delete(PRODUCT_TABLE_NAME, PRODUCT_ID + " = ?", new String[]{String.valueOf(product.getId())});
     }
 
     @Override
     public Product select(long id) {
         Product product = null;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + PRODUCT_TABLE_NAME
                         + " where " + PRODUCT_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
-            product = extractCursorValues(cursor);
+            product = getCursorValues(cursor);
         }
         cursor.close();
 
@@ -85,13 +85,13 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
     public ListProducts selectProductsByOperation(long operationId) {
         ListProducts listProducts = new ListProducts();
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + PRODUCT_TABLE_NAME
                         + " where " + OPERATIONS_OPERATION_ID + " = ?", new String[]{String.valueOf(operationId)});
 
         while (cursor.moveToNext()) {
-            listProducts.add(extractCursorValues(cursor));
+            listProducts.add(getCursorValues(cursor));
         }
         cursor.close();
 

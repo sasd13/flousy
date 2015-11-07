@@ -9,15 +9,22 @@ import android.database.sqlite.SQLiteDatabase;
  */
 abstract class SQLiteTableDAO<T> {
 
-    protected SQLiteDatabase db;
+    private SQLiteDatabase db;
+    private SQLiteDBHandler dbHandler;
 
     protected SQLiteTableDAO() {}
 
-    public void setDb(SQLiteDatabase db) {
-        this.db = db;
+    protected SQLiteDatabase getDB() { return this.db; }
+
+    public void setDBHandler(SQLiteDBHandler dbHandler) {
+        this.dbHandler = dbHandler;
     }
+
+    public void open() { this.db = this.dbHandler.getWritableDatabase(); }
+
+    public void close() { this.db.close(); }
 
     protected abstract ContentValues getContentValues(T t);
 
-    protected abstract T extractCursorValues(Cursor cursor);
+    protected abstract T getCursorValues(Cursor cursor);
 }

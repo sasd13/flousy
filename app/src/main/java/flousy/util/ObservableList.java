@@ -10,7 +10,7 @@ import java.util.Observable;
  */
 public abstract class ObservableList<T> extends Observable implements Iterable<T> {
 
-    protected List<T> list;
+    private List<T> list;
 
     protected ObservableList() { this.list = new ArrayList<>(); }
 
@@ -45,6 +45,10 @@ public abstract class ObservableList<T> extends Observable implements Iterable<T
 
         setChanged();
         notifyObservers();
+    }
+
+    public List<T> getList() {
+        return this.list;
     }
 
     @Override

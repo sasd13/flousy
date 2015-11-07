@@ -30,7 +30,6 @@ public class UserAccountActivity extends MotherActivity {
     private static final int SIGNUP_TIME_OUT = 2000;
 
     private FormViewHolder formUser;
-    private FormValidator formValidator;
 
     private DataAccessor dao = DBManager.getDao();
 
@@ -40,14 +39,7 @@ public class UserAccountActivity extends MotherActivity {
 
         setContentView(R.layout.activity_user_account);
 
-        this.formUser = new FormViewHolder();
-
-        this.formUser.editTextFirstName = (EditText) findViewById(R.id.form_user_edittext_firstname);
-        this.formUser.editTextLastName = (EditText) findViewById(R.id.form_user_edittext_lastname);
-        this.formUser.editTextEmail = (EditText) findViewById(R.id.form_user_edittext_email);
-        this.formUser.editTextPassword = (EditText) findViewById(R.id.form_user_edittext_password);
-        this.formUser.editTextConfirmPassword = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
-        this.formUser.checkBoxValidTerms = (CheckBox) findViewById(R.id.form_user_checkbox_validterms);
+        createFormUser();
     }
 
     @Override
@@ -71,34 +63,41 @@ public class UserAccountActivity extends MotherActivity {
         return true;
     }
 
-    private void signUp() {
-        if (validForm()) {
-            User user = getUserFromForm();
+    private void createFormUser() {
+        this.formUser = new FormViewHolder();
 
-            this.dao.open();
+        this.formUser.editTextFirstName = (EditText) findViewById(R.id.form_user_edittext_firstname);
+        this.formUser.editTextLastName = (EditText) findViewById(R.id.form_user_edittext_lastname);
+        this.formUser.editTextEmail = (EditText) findViewById(R.id.form_user_edittext_email);
+        this.formUser.editTextPassword = (EditText) findViewById(R.id.form_user_edittext_password);
+        this.formUser.editTextConfirmPassword = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
+        this.formUser.checkBoxValidTerms = (CheckBox) findViewById(R.id.form_user_checkbox_validterms);
+    }
+
+    private void signUp() {
+        String[] tabFormErrors = validFormUser();
+
+        if (tabFormErrors.length == 0) {
+            User user = getUserFromForm();
 
             boolean containsUserEmail = this.dao.containsUserByEmail(user.getEmail());
 
             if (!containsUserEmail) {
                 createNewUser(user);
 
-                this.dao.close();
-
                 Session.logIn(user.getEmail(), user.getPassword());
 
-                goToHomeActivity(user.getFirstName());
+                goToHomeActivityWithWelcome(user.getFirstName());
             } else {
-                this.dao.close();
-
                 CustomDialog.showOkDialog(this, "User error", "Email (" + user.getEmail() + ") already exists");
             }
         } else {
-            CustomDialog.showOkDialog(this, "Form error", this.formValidator.getErrors()[0]);
+            CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
         }
     }
 
-    private boolean validForm() {
-        this.formValidator = new FormValidator();
+    private String[] validFormUser() {
+        FormValidator formValidator = new FormValidator();
 
         String firstName = this.formUser.editTextFirstName.getEditableText().toString().trim();
         String lastName = this.formUser.editTextLastName.getEditableText().toString().trim();
@@ -114,7 +113,7 @@ public class UserAccountActivity extends MotherActivity {
         formValidator.validConfirmPassword(password, confirmPassword, "confirmpassword");
         formValidator.validCheckBox(validTerms, "terms");
 
-        return formValidator.hasValidated();
+        return formValidator.getErrors();
     }
 
     private User getUserFromForm() {
@@ -140,13 +139,13 @@ public class UserAccountActivity extends MotherActivity {
         this.dao.insertAccount(checkingTradingAccount, user);
     }
 
-    private void goToHomeActivity(String firstName) {
+    private void goToHomeActivityWithWelcome(String firstName) {
         CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
         final AlertDialog dialog = builder.create();
 
-        final Intent intent = new Intent(this, UserLogActivity.class);
+        final Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(Extra.CLOSE, true);
+        intent.putExtra(Extra.WELCOME, true);
         intent.putExtra(Extra.USER_FIRSTNAME, firstName);
 
         Runnable runnable = new Runnable() {
@@ -154,8 +153,8 @@ public class UserAccountActivity extends MotherActivity {
             @Override
             public void run() {
                 startActivity(intent);
+
                 dialog.dismiss();
-                finish();
             }
         };
 

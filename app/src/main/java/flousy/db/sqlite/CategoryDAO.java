@@ -23,7 +23,7 @@ class CategoryDAO extends SQLiteTableDAO<Category> implements CategoryTableAcces
     }
 
     @Override
-    protected Category extractCursorValues(Cursor cursor) {
+    protected Category getCursorValues(Cursor cursor) {
         Category category = new Category();
 
         category.setId(cursor.getLong(cursor.getColumnIndex(CATEGORY_ID)));
@@ -34,30 +34,30 @@ class CategoryDAO extends SQLiteTableDAO<Category> implements CategoryTableAcces
 
     @Override
     public long insert(Category category) {
-        return db.insert(CATEGORY_TABLE_NAME, null, getContentValues(category));
+        return getDB().insert(CATEGORY_TABLE_NAME, null, getContentValues(category));
     }
 
     @Override
     public void update(Category category) {
-        db.update(CATEGORY_TABLE_NAME, getContentValues(category), CATEGORY_ID + " = ?", new String[]{String.valueOf(category.getId())});
+        getDB().update(CATEGORY_TABLE_NAME, getContentValues(category), CATEGORY_ID + " = ?", new String[]{String.valueOf(category.getId())});
     }
 
     @Override
     public void delete(Category category) {
-        db.delete(CATEGORY_TABLE_NAME, CATEGORY_ID + " = ?", new String[]{String.valueOf(category.getId())});
+        getDB().delete(CATEGORY_TABLE_NAME, CATEGORY_ID + " = ?", new String[]{String.valueOf(category.getId())});
     }
 
     @Override
     public Category select(long id) {
         Category category = null;
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + CATEGORY_TABLE_NAME
                         + " where " + CATEGORY_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
-            category = extractCursorValues(cursor);
+            category = getCursorValues(cursor);
         }
         cursor.close();
 
@@ -68,12 +68,12 @@ class CategoryDAO extends SQLiteTableDAO<Category> implements CategoryTableAcces
     public ListCategories selectAll() {
         ListCategories listCategories = new ListCategories();
 
-        Cursor cursor = db.rawQuery(
+        Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + CATEGORY_TABLE_NAME, null);
 
         while (cursor.moveToNext()) {
-            listCategories.add(extractCursorValues(cursor));
+            listCategories.add(getCursorValues(cursor));
         }
         cursor.close();
 

@@ -8,7 +8,7 @@ import java.util.Iterator;
  */
 public abstract class List<T> implements Iterable<T> {
 
-    protected java.util.List<T> list;
+    private java.util.List<T> list;
 
     protected List() { this.list = new ArrayList<>(); }
 
@@ -28,9 +28,11 @@ public abstract class List<T> implements Iterable<T> {
 
     public boolean isEmpty() { return this.list.isEmpty(); }
 
-    private void clear() {
+    public void clear() {
         this.list.clear();
     }
+
+    protected java.util.List<T> getList() { return this.list; }
 
     @Override
     public Iterator<T> iterator() {

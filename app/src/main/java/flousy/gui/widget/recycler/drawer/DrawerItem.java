@@ -40,7 +40,7 @@ public class DrawerItem extends RecyclerItem {
     public void inflate(ViewStub viewStub) {
         super.inflate(viewStub);
 
-        this.textView = (TextView) this.view.findViewById(R.id.draweritem_textview);
+        this.textView = (TextView) getView().findViewById(R.id.draweritem_textview);
         this.textView.setText(this.text);
     }
 }

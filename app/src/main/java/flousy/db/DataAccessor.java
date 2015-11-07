@@ -16,10 +16,6 @@ public interface DataAccessor {
 
     void init(Context context);
 
-    void open();
-
-    void close();
-
     String getDBType();
 
     long insertUser(User user);

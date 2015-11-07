@@ -9,7 +9,7 @@ public class ListUsers extends List<User> {
 
     @Override
     public User get(Object id) {
-        for (User user : this.list) {
+        for (User user : getList()) {
             if (user.getId() == (long) id) {
                 return user;
             }
