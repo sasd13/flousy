@@ -92,11 +92,11 @@
     <string name="form_user_textview_connection">CONNEXION</string>
     <string name="form_user_textview_password">MOT DE PASSE</string>
 
-    <!-- Form article -->
-    <string name="form_article_textview_article">ARTICLE</string>
-    <string name="form_article_edittext_name_hint">Nom</string>
-    <string name="form_article_edittext_price_hint">Prix</string>
-    <string name="form_article_textview_picture">Photo</string>
+    <!-- Form product -->
+    <string name="form_product_textview_product">PRODUIT</string>
+    <string name="form_product_edittext_name_hint">Nom</string>
+    <string name="form_product_edittext_price_hint">Prix</string>
+    <string name="form_product_textview_picture">Photo</string>
 
     <!-- Menu -->
     <string name="menu_item_action_drawer">Drawer</string>
@@ -106,7 +106,7 @@
     <!-- connexion Server -->
     <string name="adressConnect">http://10.0.2.2:8080/WebProject</string>
 
-    <!-- Tab articles -->
+    <!-- Tab products -->
     <string name="tabitem_title_textview_name">NOM</string>
     <string name="tabitem_title_textview_price">PRIX</string>
     <string name="tabitem_textview_name">Nom</string>

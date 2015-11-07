@@ -16,13 +16,10 @@ import flousy.gui.widget.recycler.grid.GridItem;
 
 public class HomeActivity extends MotherActivity {
 
-    private Grid grid;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set ActivityContent
         setContentView(R.layout.recyclerview);
 
         createGridHomeMenu();
@@ -60,15 +57,15 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void createGridHomeMenu() {
-        this.grid = new Grid(this);
+        Grid grid = new Grid(this);
 
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.grid.adapt(gridView);
+        grid.adapt(gridView);
 
         ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
 
         GridItem gridItem;
-        for(HomeMenuItem homeMenuItem : listHomeMenuItems) {
+        for (HomeMenuItem homeMenuItem : listHomeMenuItems) {
             gridItem = new GridItem();
 
             gridItem.setColor(homeMenuItem.getColor());
@@ -76,7 +73,7 @@ public class HomeActivity extends MotherActivity {
             gridItem.setText(homeMenuItem.getName());
             gridItem.setIntent(homeMenuItem.getIntent());
 
-            this.grid.addItem(gridItem);
+            grid.addItem(gridItem);
         }
     }
 

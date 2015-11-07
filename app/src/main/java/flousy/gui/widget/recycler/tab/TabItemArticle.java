@@ -23,7 +23,7 @@ public class TabItemArticle extends RecyclerItem {
     private TextView textViewName, textViewPrice;
 
     public TabItemArticle() {
-        super(R.layout.tabitem_article);
+        super(R.layout.tabitem_product);
     }
 
     public CharSequence getName() {

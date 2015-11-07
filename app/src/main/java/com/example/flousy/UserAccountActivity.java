@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import flousy.bean.trading.CheckingTradingAccount;
+import flousy.bean.trading.ITradingAccount;
+import flousy.bean.trading.TradingAccountFactory;
+import flousy.bean.trading.TradingException;
 import flousy.constant.Extra;
 import flousy.bean.user.User;
 import flousy.db.DBManager;
@@ -22,14 +24,14 @@ import flousy.session.Session;
 
 public class UserAccountActivity extends MotherActivity {
 
-    private class FormViewHolder {
+    private class FormUserViewHolder {
         public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
         public CheckBox checkBoxValidTerms;
     }
 
     private static final int SIGNUP_TIMEOUT = 2000;
 
-    private FormViewHolder formUser;
+    private FormUserViewHolder formUser;
 
     private DataAccessor dao = DBManager.getDao();
 
@@ -37,7 +39,7 @@ public class UserAccountActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_user_account);
+        setContentView(R.layout.activity_useraccount);
 
         createFormUser();
     }
@@ -64,7 +66,7 @@ public class UserAccountActivity extends MotherActivity {
     }
 
     private void createFormUser() {
-        this.formUser = new FormViewHolder();
+        this.formUser = new FormUserViewHolder();
 
         this.formUser.editTextFirstName = (EditText) findViewById(R.id.form_user_edittext_firstname);
         this.formUser.editTextLastName = (EditText) findViewById(R.id.form_user_edittext_lastname);
@@ -89,7 +91,7 @@ public class UserAccountActivity extends MotherActivity {
 
                 goToHomeActivityWithWelcome(user.getFirstName());
             } else {
-                CustomDialog.showOkDialog(this, "User error", "Email (" + user.getEmail() + ") already exists");
+                CustomDialog.showOkDialog(this, "Sign error", "Email (" + user.getEmail() + ") already exists");
             }
         } else {
             CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
@@ -133,10 +135,14 @@ public class UserAccountActivity extends MotherActivity {
     }
 
     private void createNewUser(User user) {
-        CheckingTradingAccount checkingTradingAccount = new CheckingTradingAccount();
+        try {
+            ITradingAccount tradingAccount = TradingAccountFactory.create("CHECKING");
 
-        this.dao.insertUser(user);
-        this.dao.insertAccount(checkingTradingAccount, user);
+            this.dao.insertUser(user);
+            this.dao.insertAccount(tradingAccount, user);
+        } catch (TradingException e) {
+            e.printStackTrace();
+        }
     }
 
     private void goToHomeActivityWithWelcome(String firstName) {

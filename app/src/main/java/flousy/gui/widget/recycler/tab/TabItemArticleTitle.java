@@ -10,6 +10,6 @@ import flousy.gui.widget.recycler.RecyclerItem;
 public class TabItemArticleTitle extends RecyclerItem {
 
     public TabItemArticleTitle() {
-        super(R.layout.tabitem_article_title);
+        super(R.layout.tabitem_product_title);
     }
 }

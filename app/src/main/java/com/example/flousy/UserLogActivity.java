@@ -19,8 +19,8 @@ import flousy.session.Session;
 public class UserLogActivity extends Activity {
 
     private class FormLogInViewHolder {
-        public EditText editTextLogin, editTextPassword;
-        public Button buttonLogin;
+        public EditText editTextEmail, editTextPassword;
+        public Button buttonConnect;
     }
 
     private static final int LOGIN_TIMEOUT = 2000;
@@ -31,7 +31,7 @@ public class UserLogActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_user_log);
+        setContentView(R.layout.activity_userlog);
 
         createFormLogIn();
         customizeView();
@@ -40,14 +40,15 @@ public class UserLogActivity extends Activity {
     private void createFormLogIn() {
         this.formLogIn = new FormLogInViewHolder();
 
-        this.formLogIn.editTextLogin = (EditText) findViewById(R.id.login_edittext_email);
+        this.formLogIn.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
         this.formLogIn.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
 
-        this.formLogIn.buttonLogin = (Button) findViewById(R.id.login_button_connect);
-        this.formLogIn.buttonLogin.setOnClickListener(new View.OnClickListener() {
+        this.formLogIn.buttonConnect = (Button) findViewById(R.id.login_button_connect);
+        this.formLogIn.buttonConnect.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                if (formLogIn.editTextLogin.getText().toString().trim().length() > 0
+                if (formLogIn.editTextEmail.getText().toString().trim().length() > 0
                         && formLogIn.editTextPassword.getText().toString().trim().length() > 0) {
                     logIn();
                 }
@@ -56,7 +57,7 @@ public class UserLogActivity extends Activity {
     }
 
     private void logIn() {
-        String login = this.formLogIn.editTextLogin.getEditableText().toString();
+        String login = this.formLogIn.editTextEmail.getEditableText().toString();
         String password = this.formLogIn.editTextPassword.getEditableText().toString();
 
         if (Session.logIn(login, password)) {

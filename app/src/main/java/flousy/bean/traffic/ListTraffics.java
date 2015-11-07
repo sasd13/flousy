@@ -7,6 +7,8 @@ import flousy.util.ObservableList;
  */
 public class ListTraffics extends ObservableList<ITraffic> {
 
+    public ListTraffics() { super(); }
+
     @Override
     public ITraffic get(Object id) {
         for (ITraffic ITraffic : getList()) {

@@ -12,6 +12,7 @@ import flousy.session.Session;
 public class SplashScreenActivity extends Activity {
 
     private static final int SPLASHSCREEN_TIMEOUT = 3000;
+
     private Handler handler;
     private Runnable runnable;
 
@@ -53,8 +54,8 @@ public class SplashScreenActivity extends Activity {
     }
 
     private void createLogo() {
-        ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_app_logo));
+        ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
+        imageViewLogo.setImageDrawable(getResources().getDrawable(R.drawable.ic_app_logo));
     }
 
     private void goToActivity(Class<?> activityClass, int timeOut) {

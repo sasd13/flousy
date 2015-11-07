@@ -7,6 +7,8 @@ import flousy.util.List;
  */
 public class ListTradingAccounts extends List<ITradingAccount> {
 
+    public ListTradingAccounts() { super(); }
+
     @Override
     public ITradingAccount get(Object id) {
         for (ITradingAccount tradingAccount : getList()) {

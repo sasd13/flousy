@@ -1609,11 +1609,11 @@ containing a value of this type.
         public static final int end=0x7f0a0014;
         public static final int expand_activities_button=0x7f0a0022;
         public static final int expanded_menu=0x7f0a0028;
-        public static final int form_article_dividerview_1=0x7f0a004b;
-        public static final int form_article_edittext_name=0x7f0a004c;
-        public static final int form_article_edittext_price=0x7f0a004d;
-        public static final int form_article_imagebutton_picture=0x7f0a004e;
-        public static final int form_article_textview_article=0x7f0a004a;
+        public static final int form_product_dividerview_1=0x7f0a004b;
+        public static final int form_product_edittext_name=0x7f0a004c;
+        public static final int form_product_edittext_price=0x7f0a004d;
+        public static final int form_product_imagebutton_picture=0x7f0a004e;
+        public static final int form_product_textview_product=0x7f0a004a;
         public static final int form_user_checkbox_valid_textview=0x7f0a005e;
         public static final int form_user_checkbox_validterms=0x7f0a005d;
         public static final int form_user_dividerview_1=0x7f0a0052;
@@ -1669,7 +1669,7 @@ containing a value of this type.
         public static final int split_action_bar=0x7f0a0007;
         public static final int submit_area=0x7f0a003c;
         public static final int tabMode=0x7f0a000b;
-        public static final int tabitem_layout_article=0x7f0a006e;
+        public static final int tabitem_layout_product=0x7f0a006e;
         public static final int tabitem_textview_name=0x7f0a006f;
         public static final int tabitem_textview_price=0x7f0a0070;
         public static final int tabitem_title_layout_titles=0x7f0a0071;
@@ -1714,8 +1714,8 @@ containing a value of this type.
         public static final int activity_mother=0x7f030019;
         public static final int activity_spends_product=0x7f03001a;
         public static final int activity_splashscreen=0x7f03001b;
-        public static final int activity_user_account=0x7f03001c;
-        public static final int activity_user_log=0x7f03001d;
+        public static final int activity_useraccount=0x7f03001c;
+        public static final int activity_userlog=0x7f03001d;
         public static final int activitybar_titled=0x7f03001e;
         public static final int customdialog_load=0x7f03001f;
         public static final int draweritem=0x7f030020;
@@ -1725,8 +1725,8 @@ containing a value of this type.
         public static final int recyclerview=0x7f030024;
         public static final int recyclerviewitem=0x7f030025;
         public static final int support_simple_spinner_dropdown_item=0x7f030026;
-        public static final int tabitem_article=0x7f030027;
-        public static final int tabitem_article_title=0x7f030028;
+        public static final int tabitem_product=0x7f030027;
+        public static final int tabitem_product_title=0x7f030028;
     }
     public static final class menu {
         public static final int menu_menu=0x7f0e0000;
@@ -1780,10 +1780,10 @@ containing a value of this type.
         public static final int edittext_firstname_hint=0x7f0c002c;
         public static final int edittext_lastname_hint=0x7f0c002d;
         public static final int edittext_password_hint=0x7f0c002e;
-        public static final int form_article_edittext_name_hint=0x7f0c002f;
-        public static final int form_article_edittext_price_hint=0x7f0c0030;
-        public static final int form_article_textview_article=0x7f0c0031;
-        public static final int form_article_textview_picture=0x7f0c0032;
+        public static final int form_product_edittext_name_hint=0x7f0c002f;
+        public static final int form_product_edittext_price_hint=0x7f0c0030;
+        public static final int form_product_textview_picture=0x7f0c0031;
+        public static final int form_product_textview_product=0x7f0c0032;
         public static final int form_user_textview_connection=0x7f0c0033;
         public static final int form_user_textview_identity=0x7f0c0034;
         public static final int form_user_textview_password=0x7f0c0035;

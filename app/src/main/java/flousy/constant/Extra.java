@@ -17,9 +17,9 @@ public class Extra {
 
     public static final String USER_FIRSTNAME = "USER_FIRSTNAME";
 
-    public static final String PRODUCT_ID = "PRODUCT_ID";
-    public static final String PRODUCT_NAME = "PRODUCT_NAME";
-
     public static final String CATEGORY_ID = "CATEGORY_ID";
     public static final String CATEGORY_NAME = "CATEGORY_NAME";
+
+    public static final String PRODUCT_ID = "PRODUCT_ID";
+    public static final String PRODUCT_NAME = "PRODUCT_NAME";
 }

@@ -7,6 +7,8 @@ import flousy.util.List;
  */
 public class ListProducts extends List<Product> {
 
+    public ListProducts() { super(); }
+
     @Override
     public Product get(Object id) {
         for (Product product : getList()) {

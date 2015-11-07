@@ -7,6 +7,8 @@ import flousy.util.List;
  */
 public class ListCategories extends List<Category> {
 
+    public ListCategories() { super(); }
+
     @Override
     public Category get(Object id) {
         for (Category category : getList()) {

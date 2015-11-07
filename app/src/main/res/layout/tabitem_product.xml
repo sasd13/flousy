@@ -6,7 +6,7 @@
     android:weightSum="7">
 
     <LinearLayout
-        android:id="@+id/tabitem_layout_article"
+        android:id="@+id/tabitem_layout_product"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -37,9 +37,8 @@
         android:id="@+id/draweritem_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
-        android:layout_below="@id/tabitem_layout_article"
+        android:layout_below="@id/tabitem_layout_product"
         android:background="@color/primary_material_light"/>
 
 </RelativeLayout>
 
-<!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/layout/tabitem_article.xml -->
