@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class FormValidator {
 
-    public static int passwordLength = 6;
+    public int passwordLength = 6;
 
     private Map<String, String> mapErrors;
 
@@ -56,7 +56,7 @@ public class FormValidator {
 
     public void validConfirmPassword(String password, String confirmPassword, String errorKey) {
         try {
-            if (!password.equalsIgnoreCase(confirmPassword)) {
+            if (!password.equals(confirmPassword)) {
                 this.mapErrors.put(errorKey, " password is not confirmed");
             }
         } catch (NullPointerException e) {
