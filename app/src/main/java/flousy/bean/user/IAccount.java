@@ -6,7 +6,7 @@ import java.util.Observer;
 /**
  * Created by Samir on 05/11/2015.
  */
-public interface IAccount extends Observer {
+public interface IAccount {
 
     long getId();
 

@@ -1,4 +1,4 @@
-package flousy.util;
+package flousy.bean.trading;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Samir on 19/06/2015.
  */
-public class Diary implements Iterable {
+public class Diary implements Iterable<String> {
 
     private List<String> list;
 
@@ -23,7 +23,7 @@ public class Diary implements Iterable {
         this.list.remove(s);
     }
 
-    public String getLast() {
+    public String getLastEntry() {
         if (isEmpty()) {
             return null;
         }
@@ -31,10 +31,10 @@ public class Diary implements Iterable {
         return this.list.get(size() - 1);
     }
 
-    public String[] getLasts(int size) {
+    public String[] getLastEntries(int size) {
         List l = this.list.subList(Math.max(size() - size, 0), size);
 
-        return (String[]) l.toArray();
+        return (String[]) l.toArray(new String[0]);
     }
 
     public int size() {
@@ -48,7 +48,7 @@ public class Diary implements Iterable {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<String> iterator() {
         return this.list.iterator();
     }
 }

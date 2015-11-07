@@ -3,8 +3,6 @@ package flousy.bean.trading;
 import java.sql.Timestamp;
 import java.util.Observable;
 
-import flousy.util.Diary;
-
 /**
  * Created by Samir on 04/11/2015.
  */

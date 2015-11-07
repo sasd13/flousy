@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 import flousy.bean.Category;
 import flousy.bean.ListCategories;
-import flousy.db.DBAccessor;
+import flousy.db.DataAccessor;
 import flousy.db.DBManager;
 import flousy.gui.widget.recycler.grid.Grid;
 import flousy.gui.widget.recycler.grid.GridItem;
@@ -19,7 +19,7 @@ public class SpendsActivity extends MotherActivity {
 
     private Grid grid;
 
-    private DBAccessor dao = DBManager.getDao();
+    private DataAccessor dao = DBManager.getDao();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -12,9 +12,9 @@ import flousy.bean.trading.ITradingAccount;
 import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.trading.ITrafficOperation;
 import flousy.bean.trading.Debit;
-import flousy.db.DBAccessor;
+import flousy.db.DataAccessor;
 
-public class SQLiteDAO implements DBAccessor {
+public class SQLiteDAO implements DataAccessor {
 
     private static final int VERSION = 1;
     private static final String NOM = "database.db";

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import flousy.bean.user.User;
 import flousy.db.DBManager;
-import flousy.db.DBAccessor;
+import flousy.db.DataAccessor;
 
 /**
  * Created by Samir on 15/03/2015.
@@ -16,7 +16,7 @@ public class Session {
     private static final String SESSION_USER_ID = "session_user_id";
 
     private static SharedPreferences preferences;
-    private static DBAccessor dao;
+    private static DataAccessor dao;
 
     protected Session() {}
     

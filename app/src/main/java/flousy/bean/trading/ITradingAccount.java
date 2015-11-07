@@ -3,7 +3,6 @@ package flousy.bean.trading;
 import java.util.Observer;
 
 import flousy.bean.user.IAccount;
-import flousy.util.Diary;
 
 /**
  * Created by Samir on 05/11/2015.

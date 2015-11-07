@@ -5,11 +5,11 @@ import flousy.db.sqlite.SQLiteDAO;
 /**
  * Created by Samir on 11/06/2015.
  */
-class DBAccessorFactory {
+class DataAccessorFactory {
 
-    private DBAccessorFactory() {}
+    private DataAccessorFactory() {}
 
-    public static DBAccessor create(String type) {
+    public static DataAccessor create(String type) {
         if ("MYSQL".equalsIgnoreCase(type)) {
 
         } else if ("POSTGRESQL".equalsIgnoreCase(type)) {

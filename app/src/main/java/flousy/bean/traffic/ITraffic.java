@@ -20,6 +20,4 @@ public interface ITraffic {
     String getName();
 
     void setName(String name);
-
-    String getDiaryEntry();
 }

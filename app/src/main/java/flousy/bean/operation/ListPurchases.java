@@ -8,6 +8,8 @@ import flousy.util.ObservableList;
  */
 public class ListPurchases extends ObservableList<Product> {
 
+    public ListPurchases() { super(); }
+
     @Override
     public Product get(Object id) {
         for (Product product : this.list) {

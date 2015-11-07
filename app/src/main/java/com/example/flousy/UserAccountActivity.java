@@ -14,7 +14,7 @@ import flousy.bean.trading.CheckingTradingAccount;
 import flousy.constant.Extra;
 import flousy.bean.user.User;
 import flousy.db.DBManager;
-import flousy.db.DBAccessor;
+import flousy.db.DataAccessor;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
@@ -32,7 +32,7 @@ public class UserAccountActivity extends MotherActivity {
     private FormViewHolder formUser;
     private FormValidator formValidator;
 
-    private DBAccessor dao = DBManager.getDao();
+    private DataAccessor dao = DBManager.getDao();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

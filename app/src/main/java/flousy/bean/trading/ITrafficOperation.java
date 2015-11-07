@@ -9,4 +9,6 @@ import flousy.bean.traffic.ITraffic;
 public interface ITrafficOperation extends ITraffic, IOperation {
 
     String getTrafficOperationType();
+
+    String getDiaryEntry();
 }

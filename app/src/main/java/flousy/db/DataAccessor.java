@@ -12,7 +12,7 @@ import flousy.bean.trading.ITrafficOperation;
 /**
  * Created by Samir on 05/11/2015.
  */
-public interface DBAccessor {
+public interface DataAccessor {
 
     void init(Context context);
 
