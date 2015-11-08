@@ -18,13 +18,11 @@ public class SpendsProductActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set ActivityContent
         setContentView(R.layout.recyclerview);
 
         if (getIntent().hasExtra(Extra.ACTIVITY_COLOR)) {
             int activityColorId = getIntent().getIntExtra(Extra.ACTIVITY_COLOR, APP_COLOR);
 
-            //Set ActivityColor immediately after content view
             setColor(activityColorId);
         }
 
@@ -36,7 +34,6 @@ public class SpendsProductActivity extends MotherActivity {
             categoryName = getIntent().getStringExtra(Extra.CATEGORY_NAME);
         }
 
-        //Set Activity content
         this.tab = new Tab(this);
 
         RecyclerView tabView = (RecyclerView) findViewById(R.id.recyclerview);

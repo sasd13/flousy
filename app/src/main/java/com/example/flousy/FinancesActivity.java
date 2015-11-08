@@ -11,15 +11,12 @@ public class FinancesActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customOrange;
 
-    private Grid grid;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.recyclerview);
 
-        //Set ActivityColor immediately after content view
         setColor(getResources().getColor(ACTIVITY_COLOR));
 
         createGridFinances();
@@ -39,9 +36,9 @@ public class FinancesActivity extends MotherActivity {
     }
 
     private void createGridFinances() {
-        this.grid = new Grid(this);
+        Grid grid = new Grid(this);
 
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.grid.adapt(gridView);
+        grid.adapt(gridView);
     }
 }

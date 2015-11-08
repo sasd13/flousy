@@ -723,7 +723,7 @@ int string hello_blank_fragment 0x7f0c003a
 int string hello_world 0x7f0c003b
 int string login_alertdialog_login_message_error 0x7f0c003c
 int string login_alertdialog_login_title_error 0x7f0c003d
-int string login_button_login 0x7f0c003e
+int string login_button_connect 0x7f0c003e
 int string login_textview_restorepassword 0x7f0c003f
 int string login_textview_signup 0x7f0c0040
 int string menu_alertdialog_welcome_message 0x7f0c0041

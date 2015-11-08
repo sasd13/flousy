@@ -28,7 +28,7 @@
     <string name="friends_activitybar_tabed_tab_contact">Contacts</string>
 
     <!-- Activity LogIn -->
-    <string name="login_button_login">Connexion</string>
+    <string name="login_button_connect">Connexion</string>
     <string name="login_textview_signup">Inscription sur Flousy</string>
     <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
     <string name="login_alertdialog_login_title_error">Erreur connexion</string>

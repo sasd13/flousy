@@ -34,10 +34,8 @@ public abstract class MotherActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set content view
         super.setContentView(R.layout.activity_mother);
 
-        //Create Color with app color
         this.color = getResources().getColor(APP_COLOR);
 
         createDrawer();
@@ -103,7 +101,7 @@ public abstract class MotherActivity extends ActionBarActivity {
         ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
 
         DrawerItemHomeMenu drawerItemHomeMenu;
-        for(HomeMenuItem homeMenuItem : listHomeMenuItems) {
+        for (HomeMenuItem homeMenuItem : listHomeMenuItems) {
             drawerItemHomeMenu = new DrawerItemHomeMenu();
 
             drawerItemHomeMenu.setColor(homeMenuItem.getColor());

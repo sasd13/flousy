@@ -12,7 +12,6 @@ public class OffersActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set activity color immediately after content view
         setColor(getResources().getColor(ACTIVITY_COLOR));
     }
 

@@ -12,7 +12,6 @@ public class FriendsActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Set ActivityColor immediately after content view
         setColor(getResources().getColor(ACTIVITY_COLOR));
     }
 

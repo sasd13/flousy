@@ -56,7 +56,7 @@
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/view_margintop_medium"
-            android:text="@string/login_button_login"
+            android:text="@string/login_button_connect"
             android:textColor="@color/white"
             android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"

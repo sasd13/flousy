@@ -17,8 +17,6 @@ public class SpendsActivity extends MotherActivity {
 
     public static final int ACTIVITY_COLOR = R.color.customRed;
 
-    private Grid grid;
-
     private DataAccessor dao = DBManager.getDao();
 
     @Override
@@ -27,17 +25,9 @@ public class SpendsActivity extends MotherActivity {
 
         setContentView(R.layout.recyclerview);
 
-        //Set ActivityColor immediately after content view
         setColor(getResources().getColor(ACTIVITY_COLOR));
 
-        //Set ActivityContent
-        this.grid = new Grid(this);
-
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.grid.adapt(gridView);
-
-        //Add items
-        addCategoriesGridItems();
+        creadGridCategories();
     }
 
     @Override
@@ -53,23 +43,25 @@ public class SpendsActivity extends MotherActivity {
         }
     }
 
-    private void addCategoriesGridItems() {
-        this.grid.clearItems();
+    private void creadGridCategories() {
+        Grid grid = new Grid(this);
 
-        ListCategories listCategories = (ListCategories) this.dao.selectAllCategories();
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
+        grid.adapt(gridView);
+
+        ListCategories listCategories = this.dao.selectAllCategories();
 
         GridItem gridItem;
-        Intent intent;
-        for(Category category : listCategories) {
+        Intent intent = new Intent(this, SpendsProductActivity.class);
+
+        for (Category category : listCategories) {
             gridItem = new GridItem();
 
-            gridItem.setColor(R.color.transparent);
+            gridItem.setColor(getResources().getColor(R.color.transparent));
             gridItem.setText(category.getName());
-
-            intent = new Intent(this, SpendsProductActivity.class);
             gridItem.setIntent(intent);
 
-            this.grid.addItem(gridItem);
+            grid.addItem(gridItem);
         }
     }
 }

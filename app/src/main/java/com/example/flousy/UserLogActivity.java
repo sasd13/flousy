@@ -57,10 +57,10 @@ public class UserLogActivity extends Activity {
     }
 
     private void logIn() {
-        String login = this.formLogIn.editTextEmail.getEditableText().toString();
-        String password = this.formLogIn.editTextPassword.getEditableText().toString();
+        String email = this.formLogIn.editTextEmail.getText().toString();
+        String password = this.formLogIn.editTextPassword.getText().toString();
 
-        if (Session.logIn(login, password)) {
+        if (Session.logIn(email, password)) {
             goToHomeActivity();
         } else {
             CustomDialog.showOkDialog(

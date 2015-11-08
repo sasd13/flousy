@@ -1795,7 +1795,7 @@ containing a value of this type.
         public static final int hello_world=0x7f0c003b;
         public static final int login_alertdialog_login_message_error=0x7f0c003c;
         public static final int login_alertdialog_login_title_error=0x7f0c003d;
-        public static final int login_button_login=0x7f0c003e;
+        public static final int login_button_connect=0x7f0c003e;
         public static final int login_textview_restorepassword=0x7f0c003f;
         public static final int login_textview_signup=0x7f0c0040;
         public static final int menu_alertdialog_welcome_message=0x7f0c0041;

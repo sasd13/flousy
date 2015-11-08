@@ -101,11 +101,11 @@ public class UserAccountActivity extends MotherActivity {
     private String[] validFormUser() {
         FormValidator formValidator = new FormValidator();
 
-        String firstName = this.formUser.editTextFirstName.getEditableText().toString().trim();
-        String lastName = this.formUser.editTextLastName.getEditableText().toString().trim();
-        String email = this.formUser.editTextEmail.getEditableText().toString().trim();
-        String password = this.formUser.editTextPassword.getEditableText().toString().trim();
-        String confirmPassword = this.formUser.editTextConfirmPassword.getEditableText().toString().trim();
+        String firstName = this.formUser.editTextFirstName.getText().toString().trim();
+        String lastName = this.formUser.editTextLastName.getText().toString().trim();
+        String email = this.formUser.editTextEmail.getText().toString().trim();
+        String password = this.formUser.editTextPassword.getText().toString().trim();
+        String confirmPassword = this.formUser.editTextConfirmPassword.getText().toString().trim();
         Boolean validTerms = this.formUser.checkBoxValidTerms.isChecked();
 
         formValidator.validName(firstName, "firstname");
@@ -121,10 +121,10 @@ public class UserAccountActivity extends MotherActivity {
     private User getUserFromForm() {
         User user = new User();
 
-        String firstName = this.formUser.editTextFirstName.getEditableText().toString().trim();
-        String lastName = this.formUser.editTextLastName.getEditableText().toString().trim();
-        String email = this.formUser.editTextEmail.getEditableText().toString().trim();
-        String password = this.formUser.editTextPassword.getEditableText().toString().trim();
+        String firstName = this.formUser.editTextFirstName.getText().toString().trim();
+        String lastName = this.formUser.editTextLastName.getText().toString().trim();
+        String email = this.formUser.editTextEmail.getText().toString().trim();
+        String password = this.formUser.editTextPassword.getText().toString().trim();
 
         user.setFirstName(firstName);
         user.setLastName(lastName);
