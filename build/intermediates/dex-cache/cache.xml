@@ -37,25 +37,11 @@
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient-android\4.3.5.1\eecbb0b998e77629862a13d957d552b3be58fc4e\httpclient-android-4.3.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="eecbb0b998e77629862a13d957d552b3be58fc4e">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\httpclient-android-4.3.5.1-7801d766e9994fb140a58e3a91d2b7ff6ca738fd.jar" />
-    </item>
-    <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-7ee555de202cfb4fc114a15befe86df68389ea5a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\gson-2.2.4-d41e29bb9005efcf409ca6948c881ae3abab196f.jar" />
     </item>
 
 </items>

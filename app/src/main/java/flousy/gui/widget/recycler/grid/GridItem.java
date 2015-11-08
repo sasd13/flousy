@@ -163,6 +163,7 @@ public class GridItem extends RecyclerItem {
      */
     public void setIntent(Intent intent) {
         this.intent = intent;
+        this.intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
     @Override
@@ -184,8 +185,6 @@ public class GridItem extends RecyclerItem {
             @Override
             public void onClick(View view) {
                 try {
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
                     view.getContext().startActivity(intent);
                 } catch (NullPointerException e) {
                     e.printStackTrace();
