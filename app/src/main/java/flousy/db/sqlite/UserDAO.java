@@ -3,7 +3,7 @@ package flousy.db.sqlite;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import flousy.bean.user.User;
+import flousy.beans.core.User;
 import flousy.db.UserTableAccessor;
 
 /**

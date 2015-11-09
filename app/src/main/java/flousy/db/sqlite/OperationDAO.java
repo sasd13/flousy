@@ -5,77 +5,68 @@ import android.database.Cursor;
 
 import java.sql.Timestamp;
 
-import flousy.bean.trading.ITradingAccount;
-import flousy.bean.trading.ListTrafficOperations;
-import flousy.bean.trading.TradingException;
-import flousy.bean.trading.ITrafficOperation;
-import flousy.bean.trading.TrafficOperationFactory;
+import flousy.beans.core.Account;
+import flousy.beans.core.ListOperations;
+import flousy.beans.core.Operation;
+import flousy.beans.core.OperationType;
 import flousy.db.OperationTableAccessor;
 
 /**
  * Created by Samir on 02/04/2015.
  */
-class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements OperationTableAccessor {
+class OperationDAO extends SQLiteTableDAO<Operation> implements OperationTableAccessor {
 
     @Override
-    protected ContentValues getContentValues(ITrafficOperation trafficOperation) {
+    protected ContentValues getContentValues(Operation operation) {
         ContentValues values = new ContentValues();
 
-        values.put(OPERATION_ID, trafficOperation.getId());
-        values.put(OPERATION_DATE, String.valueOf(trafficOperation.getDate()));
-        values.put(OPERATION_TYPE, trafficOperation.getTrafficType());
-        values.put(OPERATION_NAME, trafficOperation.getName());
-        values.put(OPERATION_VALUE, trafficOperation.getValue());
+        values.put(OPERATION_ID, operation.getId());
+        values.put(OPERATION_DATE, String.valueOf(operation.getDate()));
+        values.put(OPERATION_TYPE, String.valueOf(operation.getType()));
+        values.put(OPERATION_NAME, operation.getName());
+        values.put(OPERATION_VALUE, operation.getValue());
 
         return values;
     }
 
     @Override
-    protected ITrafficOperation getCursorValues(Cursor cursor) {
-        ITrafficOperation trafficOperation = null;
+    protected Operation getCursorValues(Cursor cursor) {
+        Operation operation = new Operation(OperationType.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_TYPE))));
 
-        String trafficOperationType = cursor.getString(cursor.getColumnIndex(OPERATION_TYPE));
+        operation.setId(cursor.getLong(cursor.getColumnIndex(OPERATION_ID)));
+        operation.setDate(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_DATE))));
+        operation.setName(cursor.getString(cursor.getColumnIndex(OPERATION_NAME)));
+        operation.setValue(cursor.getLong(cursor.getColumnIndex(OPERATION_VALUE)));
 
-        try {
-            trafficOperation = TrafficOperationFactory.create(trafficOperationType);
-
-            trafficOperation.setId(cursor.getLong(cursor.getColumnIndex(OPERATION_ID)));
-            trafficOperation.setDate(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_DATE))));
-            trafficOperation.setName(cursor.getString(cursor.getColumnIndex(OPERATION_NAME)));
-            trafficOperation.setValue(cursor.getLong(cursor.getColumnIndex(OPERATION_VALUE)));
-        } catch (TradingException e) {
-            e.printStackTrace();
-        }
-
-        return trafficOperation;
+        return operation;
     }
 
     @Override
-    public long insert(ITrafficOperation trafficOperation) {
+    public long insert(Operation operation) {
         return 0;
     }
 
     @Override
-    public long insert(ITrafficOperation trafficOperation, ITradingAccount tradingAccount) {
-        ContentValues values = getContentValues(trafficOperation);
-        values.put(ACCOUNTS_ACCOUNT_ID, tradingAccount.getId());
+    public long insert(Operation operation, Account account) {
+        ContentValues values = getContentValues(operation);
+        values.put(ACCOUNTS_ACCOUNT_ID, account.getId());
 
         return getDB().insert(OPERATION_TABLE_NAME, null, values);
     }
 
     @Override
-    public void update(ITrafficOperation trafficOperation) {
-        getDB().update(OPERATION_TABLE_NAME, getContentValues(trafficOperation), OPERATION_ID + " = ?", new String[]{String.valueOf(trafficOperation.getId())});
+    public void update(Operation operation) {
+        getDB().update(OPERATION_TABLE_NAME, getContentValues(operation), OPERATION_ID + " = ?", new String[]{String.valueOf(operation.getId())});
     }
 
     @Override
-    public void delete(ITrafficOperation trafficOperation) {
-        getDB().delete(OPERATION_TABLE_NAME, OPERATION_ID + " = ?", new String[]{String.valueOf(trafficOperation.getId())});
+    public void delete(Operation operation) {
+        getDB().delete(OPERATION_TABLE_NAME, OPERATION_ID + " = ?", new String[]{String.valueOf(operation.getId())});
     }
 
     @Override
-    public ITrafficOperation select(long id) {
-        ITrafficOperation trafficOperation = null;
+    public Operation select(long id) {
+        Operation operation = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
@@ -83,21 +74,21 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
                         + " where " + OPERATION_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
-            trafficOperation = getCursorValues(cursor);
+            operation = getCursorValues(cursor);
         }
         cursor.close();
 
-        return trafficOperation;
+        return operation;
     }
 
     @Override
-    public ListTrafficOperations selectByAccount(long accountId) {
+    public ListOperations selectByAccount(long accountId) {
         return selectByAccount(accountId, false);
     }
 
     @Override
-    public ListTrafficOperations selectByAccount(long accountId, boolean ascOrdered) {
-        ListTrafficOperations listITrafficOperations = new ListTrafficOperations();
+    public ListOperations selectByAccount(long accountId, boolean ascOrdered) {
+        ListOperations listITrafficOperations = new ListOperations();
 
         String order = ascOrdered ? "ASC" : "DESC";
 

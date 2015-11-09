@@ -2,15 +2,10 @@ package flousy.db.sqlite;
 
 import android.content.Context;
 
-import flousy.bean.ListCategories;
-import flousy.bean.ListProducts;
-import flousy.bean.user.User;
-import flousy.bean.Category;
-import flousy.bean.Product;
-import flousy.bean.trading.ITradingAccount;
-import flousy.bean.trading.ListTrafficOperations;
-import flousy.bean.trading.ITrafficOperation;
-import flousy.bean.trading.Debit;
+import flousy.beans.core.User;
+import flousy.beans.core.Account;
+import flousy.beans.core.ListOperations;
+import flousy.beans.core.Operation;
 import flousy.db.DataAccessor;
 
 public class SQLiteDAO implements DataAccessor {
@@ -23,15 +18,11 @@ public class SQLiteDAO implements DataAccessor {
     private UserDAO userDAO;
     private AccountDAO accountDAO;
     private OperationDAO operationDAO;
-    private CategoryDAO categoryDAO;
-    private ProductDAO productDAO;
 
 	private SQLiteDAO() {
         userDAO = new UserDAO();
         accountDAO = new AccountDAO();
         operationDAO = new OperationDAO();
-        categoryDAO = new CategoryDAO();
-        productDAO = new ProductDAO();
     }
 
     public static synchronized SQLiteDAO getInstance() {
@@ -54,23 +45,6 @@ public class SQLiteDAO implements DataAccessor {
         userDAO.setDBHandler(dbHandler);
         accountDAO.setDBHandler(dbHandler);
         operationDAO.setDBHandler(dbHandler);
-        categoryDAO.setDBHandler(dbHandler);
-        productDAO.setDBHandler(dbHandler);
-
-        insertCategoriesIfNotExist();
-    }
-
-    protected void insertCategoriesIfNotExist() {
-        categoryDAO.insert(new Category("Gastronomie"));
-        categoryDAO.insert(new Category("Multimedia"));
-        categoryDAO.insert(new Category("Mode"));
-        categoryDAO.insert(new Category("Accessoire"));
-        categoryDAO.insert(new Category("Loisir"));
-        categoryDAO.insert(new Category("Culture"));
-        categoryDAO.insert(new Category("Course"));
-        categoryDAO.insert(new Category("Maison"));
-        categoryDAO.insert(new Category("Sante"));
-        categoryDAO.insert(new Category("Autre"));
     }
 
     @Override
@@ -90,14 +64,18 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public long insertAccount(ITradingAccount tradingAccount, User user) {
+    public long insertAccount(Account account, User user) {
         long id = 0;
 
         accountDAO.open();
 
-        id = accountDAO.insert(tradingAccount, user);
+        id = accountDAO.insert(account, user);
         if (id > 0) {
-            tradingAccount.setId(id);
+            account.setId(id);
+
+            for (Operation operation : account.getListOperations()) {
+                insertOperation(operation, account);
+            }
         }
 
         accountDAO.close();
@@ -106,33 +84,17 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public long insertOperation(ITrafficOperation trafficOperation, ITradingAccount tradingAccount) {
+    public long insertOperation(Operation operation, Account account) {
         long id = 0;
 
         operationDAO.open();
 
-        id = operationDAO.insert(trafficOperation, tradingAccount);
+        id = operationDAO.insert(operation, account);
         if (id > 0) {
-            trafficOperation.setId(id);
+            operation.setId(id);
         }
 
         operationDAO.close();
-
-        return id;
-    }
-
-    @Override
-    public long insertProduct(Product product, ITrafficOperation trafficOperation) {
-        long id = 0;
-
-        productDAO.open();
-
-        id = productDAO.insert(product, trafficOperation);
-        if (id > 0) {
-            product.setId(id);
-        }
-
-        productDAO.close();
 
         return id;
     }
@@ -147,30 +109,21 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void updateAccount(ITradingAccount tradingAccount) {
+    public void updateAccount(Account account) {
         accountDAO.open();
 
-        accountDAO.update(tradingAccount);
+        accountDAO.update(account);
 
         accountDAO.close();
     }
 
     @Override
-    public void updateOperation(ITrafficOperation trafficOperation) {
+    public void updateOperation(Operation operation) {
         operationDAO.open();
 
-        operationDAO.update(trafficOperation);
+        operationDAO.update(operation);
 
         operationDAO.close();
-    }
-
-    @Override
-    public void updateProduct(Product product) {
-        productDAO.open();
-
-        productDAO.update(product);
-
-        productDAO.close();
     }
 
     @Override
@@ -183,30 +136,21 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void deleteAccount(ITradingAccount tradingAccount) {
+    public void deleteAccount(Account account) {
         accountDAO.open();
 
-        accountDAO.delete(tradingAccount);
+        accountDAO.delete(account);
 
         accountDAO.close();
     }
 
     @Override
-    public void deleteOperation(ITrafficOperation trafficOperation) {
+    public void deleteOperation(Operation operation) {
         operationDAO.open();
 
-        operationDAO.delete(trafficOperation);
+        operationDAO.delete(operation);
 
         operationDAO.close();
-    }
-
-    @Override
-    public void deleteProduct(Product product) {
-        productDAO.open();
-
-        productDAO.delete(product);
-
-        productDAO.close();
     }
 
     @Override
@@ -223,88 +167,35 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public ITradingAccount selectAccount(long id) {
-        ITradingAccount tradingAccount = null;
+    public Account selectAccount(long id) {
+        Account account = null;
 
         accountDAO.open();
 
-        tradingAccount = accountDAO.select(id);
+        account = accountDAO.select(id);
 
         try {
-            ListTrafficOperations listTrafficOperations = operationDAO.selectByAccount(tradingAccount.getId());
-
-            for (ITrafficOperation trafficOperation : listTrafficOperations) {
-                trafficOperation = selectOperation(trafficOperation.getId());
-                tradingAccount.getListTrafficOperations().add(trafficOperation);
-            }
+            account.setListOperations(operationDAO.selectByAccount(account.getId()));
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
         accountDAO.close();
 
-        return tradingAccount;
+        return account;
     }
 
     @Override
-    public ITrafficOperation selectOperation(long id) {
-        ITrafficOperation trafficOperation = null;
+    public Operation selectOperation(long id) {
+        Operation operation = null;
 
         operationDAO.open();
 
-        trafficOperation = operationDAO.select(id);
-
-        try {
-            ListProducts listProducts = productDAO.selectByOperation(trafficOperation.getId());
-
-            if (!listProducts.isEmpty()) {
-                if ("DEBIT".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
-                    for (Product product : listProducts) {
-                        product = selectProduct(product.getId());
-                        ((Debit) trafficOperation).getListPurchases().add(product);
-                    }
-                }
-            }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+        operation = operationDAO.select(id);
 
         operationDAO.close();
 
-        return trafficOperation;
-    }
-
-    @Override
-    public Category selectCategory(long id) {
-        Category category = null;
-
-        categoryDAO.open();
-
-        category = categoryDAO.select(id);
-
-        categoryDAO.close();
-
-        return category;
-    }
-
-    @Override
-    public Product selectProduct(long id) {
-        Product product = null;
-
-        productDAO.open();
-
-        product = productDAO.select(id);
-
-        try {
-            Category category = categoryDAO.select(product.getCategory().getId());
-            product.setCategory(category);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-
-        productDAO.close();
-
-        return product;
+        return operation;
     }
 
     @Override
@@ -334,56 +225,34 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public ITradingAccount selectAccountByUser(long userId) {
-        ITradingAccount tradingAccount = null;
+    public Account selectAccountByUser(long userId) {
+        Account account = null;
 
         accountDAO.open();
 
-        tradingAccount = accountDAO.selectByUser(userId);
+        account = accountDAO.selectByUser(userId);
 
         try {
-            tradingAccount = selectAccount(tradingAccount.getId());
+            account = selectAccount(account.getId());
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
         accountDAO.close();
 
-        return tradingAccount;
+        return account;
     }
 
     @Override
-    public ListTrafficOperations selectOperationsByAccount(long accountId) {
-        ListTrafficOperations listTrafficOperations = null;
+    public ListOperations selectOperationsByAccount(long accountId) {
+        ListOperations listOperations = null;
 
         operationDAO.open();
 
-        listTrafficOperations = operationDAO.selectByAccount(accountId);
+        listOperations = operationDAO.selectByAccount(accountId);
 
-        for (ITrafficOperation trafficOperation : listTrafficOperations) {
-            if ("DEBIT".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
-                ListProducts listProducts = productDAO.selectByOperation(trafficOperation.getId());
+        operationDAO.close();
 
-                for (Product product : listProducts) {
-                    product = selectProduct(product.getId());
-                    ((Debit) trafficOperation).getListPurchases().add(product);
-                }
-            }
-        }
-
-        return listTrafficOperations;
-    }
-
-    @Override
-    public ListCategories selectAllCategories() {
-        ListCategories listCategories = null;
-
-        categoryDAO.open();
-
-        listCategories = categoryDAO.selectAll();
-
-        categoryDAO.close();
-
-        return listCategories;
+        return listOperations;
     }
 }

@@ -3,11 +3,9 @@ package flousy.gui.content;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.flousy.UserAccountActivity;
+import com.example.flousy.SignActivity;
 import com.example.flousy.FinancesActivity;
-import com.example.flousy.SpendsActivity;
-import com.example.flousy.FriendsActivity;
-import com.example.flousy.OffersActivity;
+import com.example.flousy.AccountActivity;
 import com.example.flousy.R;
 
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ public class ListHomeMenuItems implements Iterable<HomeMenuItem> {
                 context.getResources().getString(R.string.activity_spends_name),
                 context.getResources().getDrawable(R.drawable.griditem_new),
                 context.getResources().getColor(R.color.customGreen),
-                new Intent(context, SpendsActivity.class)));
+                new Intent(context, AccountActivity.class)));
 
         this.list.add(new HomeMenuItem(
                 context.getResources().getString(R.string.activity_finances_name),
@@ -39,22 +37,10 @@ public class ListHomeMenuItems implements Iterable<HomeMenuItem> {
                 new Intent(context, FinancesActivity.class)));
 
         this.list.add(new HomeMenuItem(
-                context.getResources().getString(R.string.activity_friends_name),
-                context.getResources().getDrawable(R.drawable.griditem_friends),
-                context.getResources().getColor(R.color.customBlue),
-                new Intent(context, FriendsActivity.class)));
-
-        this.list.add(new HomeMenuItem(
-                context.getResources().getString(R.string.activity_offers_name),
-                context.getResources().getDrawable(R.drawable.griditem_offers),
-                context.getResources().getColor(R.color.customPurple),
-                new Intent(context, OffersActivity.class)));
-
-        this.list.add(new HomeMenuItem(
                 context.getResources().getString(R.string.activity_user_account_name),
                 context.getResources().getDrawable(R.drawable.griditem_settings),
                 context.getResources().getColor(R.color.customBrown),
-                new Intent(context, UserAccountActivity.class)));
+                new Intent(context, SignActivity.class)));
     }
 
     public static synchronized ListHomeMenuItems getInstance(Context context) {

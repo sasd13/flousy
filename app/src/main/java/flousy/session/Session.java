@@ -3,8 +3,8 @@ package flousy.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import flousy.bean.trading.ITradingAccount;
-import flousy.bean.user.User;
+import flousy.beans.core.Account;
+import flousy.beans.core.User;
 import flousy.db.DBManager;
 import flousy.db.DataAccessor;
 
@@ -44,11 +44,11 @@ public class Session {
 
         try {
             if (user.getPassword().equals(password)) {
-                ITradingAccount tradingAccount = dao.selectAccountByUser(user.getId());
+                Account account = dao.selectAccountByUser(user.getId());
 
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString(SESSION_USER_ID, String.valueOf(user.getId()));
-                editor.putString(SESSION_ACCOUNT_ID, String.valueOf(tradingAccount.getId()));
+                editor.putString(SESSION_ACCOUNT_ID, String.valueOf(account.getId()));
 
                 return editor.commit();
             }

@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".UserLogActivity"
+            android:name=".LogActivity"
             android:label="@string/activity_user_log_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
@@ -32,7 +32,7 @@
         </activity>
 
         <activity
-            android:name=".UserAccountActivity"
+            android:name=".SignActivity"
             android:label="@string/activity_user_account_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
@@ -47,7 +47,7 @@
         </activity>
 
         <activity
-            android:name=".SpendsActivity"
+            android:name=".AccountActivity"
             android:label="@string/activity_spends_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
@@ -59,44 +59,8 @@
         </activity>
 
         <activity
-            android:name=".SpendActivity"
-            android:label="@string/activity_spends_product_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".SpendsActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SpendsActivity" />
-        </activity>
-
-        <activity
             android:name=".FinancesActivity"
             android:label="@string/activity_finances_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".HomeActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
-        </activity>
-
-        <activity
-            android:name=".FriendsActivity"
-            android:label="@string/activity_friends_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".HomeActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
-        </activity>
-
-        <activity
-            android:name=".OffersActivity"
-            android:label="@string/activity_offers_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".HomeActivity">

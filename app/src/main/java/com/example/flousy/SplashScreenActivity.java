@@ -35,7 +35,7 @@ public class SplashScreenActivity extends Activity {
         if (Session.isUserLoggedIn()) {
             goToActivity(HomeActivity.class, SPLASHSCREEN_TIMEOUT);
         } else {
-            goToActivity(UserLogActivity.class, SPLASHSCREEN_TIMEOUT);
+            goToActivity(LogActivity.class, SPLASHSCREEN_TIMEOUT);
         }
     }
 

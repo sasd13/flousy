@@ -62,6 +62,10 @@ public class HomeActivity extends MotherActivity {
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         grid.adapt(gridView);
 
+        fillGrid(grid);
+    }
+
+    private void fillGrid(Grid grid) {
         ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
 
         GridItem gridItem;
@@ -86,7 +90,7 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void exit() {
-        Intent intent = new Intent(this, UserLogActivity.class);
+        Intent intent = new Intent(this, LogActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         startActivity(intent);

@@ -2,14 +2,10 @@ package flousy.db;
 
 import android.content.Context;
 
-import flousy.bean.Category;
-import flousy.bean.ListCategories;
-import flousy.bean.ListProducts;
-import flousy.bean.Product;
-import flousy.bean.trading.ListTrafficOperations;
-import flousy.bean.user.User;
-import flousy.bean.trading.ITradingAccount;
-import flousy.bean.trading.ITrafficOperation;
+import flousy.beans.core.Account;
+import flousy.beans.core.ListOperations;
+import flousy.beans.core.Operation;
+import flousy.beans.core.User;
 
 /**
  * Created by Samir on 05/11/2015.
@@ -22,45 +18,33 @@ public interface DataAccessor {
 
     long insertUser(User user);
 
-    long insertAccount(ITradingAccount tradingAccount, User user);
+    long insertAccount(Account account, User user);
 
-    long insertOperation(ITrafficOperation trafficOperation, ITradingAccount tradingAccount);
-
-    long insertProduct(Product product, ITrafficOperation trafficOperation);
+    long insertOperation(Operation operation, Account account);
 
     void updateUser(User user);
 
-    void updateAccount(ITradingAccount tradingAccount);
+    void updateAccount(Account account);
 
-    void updateOperation(ITrafficOperation trafficOperation);
-
-    void updateProduct(Product product);
+    void updateOperation(Operation operation);
 
     void deleteUser(User user);
 
-    void deleteAccount(ITradingAccount tradingAccount);
+    void deleteAccount(Account account);
 
-    void deleteOperation(ITrafficOperation trafficOperation);
-
-    void deleteProduct(Product product);
+    void deleteOperation(Operation operation);
 
     User selectUser(long id);
 
-    ITradingAccount selectAccount(long id);
+    Account selectAccount(long id);
 
-    ITrafficOperation selectOperation(long id);
-
-    Category selectCategory(long id);
-
-    Product selectProduct(long id);
+    Operation selectOperation(long id);
 
     User selectUserByEmail(String email);
 
     boolean containsUserByEmail(String email);
 
-    ITradingAccount selectAccountByUser(long userId);
+    Account selectAccountByUser(long userId);
 
-    ListTrafficOperations selectOperationsByAccount(long accountId);
-
-    ListCategories selectAllCategories();
+    ListOperations selectOperationsByAccount(long accountId);
 }

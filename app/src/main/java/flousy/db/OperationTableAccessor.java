@@ -1,13 +1,13 @@
 package flousy.db;
 
-import flousy.bean.trading.ITradingAccount;
-import flousy.bean.trading.ITrafficOperation;
-import flousy.bean.trading.ListTrafficOperations;
+import flousy.beans.core.Account;
+import flousy.beans.core.ListOperations;
+import flousy.beans.core.Operation;
 
 /**
  * Created by Samir on 11/06/2015.
  */
-public interface OperationTableAccessor extends TableAccessor<ITrafficOperation> {
+public interface OperationTableAccessor extends TableAccessor<Operation> {
 
     String OPERATION_TABLE_NAME = "operations";
 
@@ -18,9 +18,9 @@ public interface OperationTableAccessor extends TableAccessor<ITrafficOperation>
     String OPERATION_VALUE = "operation_value";
     String ACCOUNTS_ACCOUNT_ID = "accounts_account_id";
 
-    long insert(ITrafficOperation trafficOperation, ITradingAccount tradingAccount);
+    long insert(Operation operation, Account account);
 
-    ListTrafficOperations selectByAccount(long accountId);
+    ListOperations selectByAccount(long accountId);
 
-    ListTrafficOperations selectByAccount(long accountId, boolean ascOrdered);
+    ListOperations selectByAccount(long accountId, boolean ascOrdered);
 }

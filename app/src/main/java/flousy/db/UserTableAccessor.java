@@ -1,6 +1,6 @@
 package flousy.db;
 
-import flousy.bean.user.User;
+import flousy.beans.core.User;
 
 /**
  * Created by Samir on 11/06/2015.

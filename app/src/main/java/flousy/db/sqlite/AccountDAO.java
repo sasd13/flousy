@@ -5,73 +5,63 @@ import android.database.Cursor;
 
 import java.sql.Timestamp;
 
-import flousy.bean.trading.ITradingAccount;
-import flousy.bean.user.User;
-import flousy.bean.trading.TradingAccountFactory;
-import flousy.bean.trading.TradingException;
+import flousy.beans.core.Account;
+import flousy.beans.core.User;
 import flousy.db.AccountTableAccessor;
 
 /**
  * Created by Samir on 02/04/2015.
  */
-class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTableAccessor {
+class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableAccessor {
 
     @Override
-    protected ContentValues getContentValues(ITradingAccount tradingAccount) {
+    protected ContentValues getContentValues(Account account) {
         ContentValues values = new ContentValues();
 
-        values.put(ACCOUNT_ID, tradingAccount.getId());
-        values.put(ACCOUNT_DATEOPENING, String.valueOf(tradingAccount.getDateOpening()));
-        values.put(ACCOUNT_TYPE, tradingAccount.getTradingAccountType());
-        values.put(ACCOUNT_SOLD, tradingAccount.getSold());
+        values.put(ACCOUNT_ID, account.getId());
+        values.put(ACCOUNT_DATEOPENING, String.valueOf(account.getDateOpening()));
+        values.put(ACCOUNT_SOLD, account.getSold());
 
         return values;
     }
 
     @Override
-    protected ITradingAccount getCursorValues(Cursor cursor) {
-        ITradingAccount tradingAccount = null;
+    protected Account getCursorValues(Cursor cursor) {
+        Account account = new Account();
 
-        String accountType = cursor.getString(cursor.getColumnIndex(ACCOUNT_TYPE));
+        account.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNT_ID)));
+        account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
+        account.setSold(cursor.getDouble(cursor.getColumnIndex(ACCOUNT_SOLD)));
 
-        try {
-            tradingAccount = TradingAccountFactory.create(accountType);
-
-            tradingAccount.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNT_ID)));
-            tradingAccount.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
-        } catch (TradingException e) {
-            e.printStackTrace();
-        }
-
-        return tradingAccount;
+        return account;
     }
 
     @Override
-    public long insert(ITradingAccount tradingAccount) {
+    public long insert(Account account) {
         return 0;
     }
 
     @Override
-    public long insert(ITradingAccount tradingAccount, User user) {
-        ContentValues values = getContentValues(tradingAccount);
+    public long insert(Account account, User user) {
+        ContentValues values = getContentValues(account);
         values.put(USERS_USER_ID, user.getId());
 
         return getDB().insert(ACCOUNT_TABLE_NAME, null, values);
     }
 
     @Override
-    public void update(ITradingAccount tradingAccount) {
-        getDB().update(ACCOUNT_TABLE_NAME, getContentValues(tradingAccount), ACCOUNT_ID + " = ?", new String[]{String.valueOf(tradingAccount.getId())});
+    public void update(Account account) {
+        getDB().update(ACCOUNT_TABLE_NAME, getContentValues(account), ACCOUNT_ID + " = ?", new String[]{String.valueOf(account.getId())});
     }
 
     @Override
-    public void delete(ITradingAccount tradingAccount) {
-        getDB().delete(ACCOUNT_TABLE_NAME, ACCOUNT_ID + " = ?", new String[]{String.valueOf(tradingAccount.getId())});
+    public void delete(Account account) {
+        getDB().delete(ACCOUNT_TABLE_NAME, ACCOUNT_ID + " = ?", new String[]{String.valueOf(account.getId())});
     }
 
     @Override
-    public ITradingAccount select(long id) {
-        ITradingAccount tradingAccount = null;
+    public Account select(long id) {
+        Account account = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
@@ -79,16 +69,16 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
                         + " where " + ACCOUNT_ID + " = ?", new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
-            tradingAccount = getCursorValues(cursor);
+            account = getCursorValues(cursor);
         }
         cursor.close();
 
-        return tradingAccount;
+        return account;
     }
 
     @Override
-    public ITradingAccount selectByUser(long userId) {
-        ITradingAccount tradingAccount = null;
+    public Account selectByUser(long userId) {
+        Account account = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
@@ -96,10 +86,10 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
                         + " where " + USERS_USER_ID + " = ?", new String[]{String.valueOf(userId)});
 
         if (cursor.moveToNext()) {
-            tradingAccount = getCursorValues(cursor);
+            account = getCursorValues(cursor);
         }
         cursor.close();
 
-        return tradingAccount;
+        return account;
     }
 }
