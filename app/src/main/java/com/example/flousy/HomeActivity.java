@@ -62,10 +62,10 @@ public class HomeActivity extends MotherActivity {
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         grid.adapt(gridView);
 
-        fillGrid(grid);
+        fillGridHomeMenu(grid);
     }
 
-    private void fillGrid(Grid grid) {
+    private void fillGridHomeMenu(Grid grid) {
         ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
 
         GridItem gridItem;

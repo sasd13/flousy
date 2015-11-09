@@ -29,9 +29,9 @@ public class SignActivity extends MotherActivity {
 
     private static final int SIGNUP_TIMEOUT = 2000;
 
-    private FormUserViewHolder formUser;
-
     private DataAccessor dao = DBManager.getDao();
+
+    private FormUserViewHolder formUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class SignActivity extends MotherActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_valid:
-                signUp();
+                signNewUser();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -74,7 +74,7 @@ public class SignActivity extends MotherActivity {
         this.formUser.checkBoxValidTerms = (CheckBox) findViewById(R.id.form_user_checkbox_validterms);
     }
 
-    private void signUp() {
+    private void signNewUser() {
         String[] tabFormErrors = validFormUser();
 
         if (tabFormErrors.length == 0) {

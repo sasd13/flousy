@@ -25,12 +25,6 @@ public class ListHomeMenuItems implements Iterable<HomeMenuItem> {
         this.list = new ArrayList<>();
 
         this.list.add(new HomeMenuItem(
-                context.getResources().getString(R.string.activity_spends_name),
-                context.getResources().getDrawable(R.drawable.griditem_new),
-                context.getResources().getColor(R.color.customGreen),
-                new Intent(context, AccountActivity.class)));
-
-        this.list.add(new HomeMenuItem(
                 context.getResources().getString(R.string.activity_finances_name),
                 context.getResources().getDrawable(R.drawable.griditem_finances),
                 context.getResources().getColor(R.color.customOrange),

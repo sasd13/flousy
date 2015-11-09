@@ -94,6 +94,10 @@ public abstract class MotherActivity extends ActionBarActivity {
         RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer_view);
         this.drawer.adapt(drawerView);
 
+        fillDrawer();
+    }
+
+    private void fillDrawer() {
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
         drawerItemTitle.setText(getResources().getString(R.string.activity_home_name));
         this.drawer.addItem(drawerItemTitle);

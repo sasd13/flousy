@@ -17,8 +17,8 @@ public class User extends Person {
     public User(String firstName, String lastName, String email, String password) {
         super(firstName, lastName);
 
-        setEmail(email);
-        setPassword(password);
+        this.email = email;
+        this.password = password;
     }
 
     public long getId() {

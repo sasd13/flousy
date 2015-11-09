@@ -14,14 +14,15 @@ public class Operation {
     private double value;
 
     public Operation(OperationType type) {
-        setDate(new Timestamp(System.currentTimeMillis()));
+        this.date = new Timestamp(System.currentTimeMillis());
+        this.type = type;
     }
 
-    protected Operation(OperationType type, String name, double value) {
+    public Operation(OperationType type, String name, double value) {
         this(type);
 
-        setName(name);
-        setValue(value);
+        this.name = name;
+        this.value = value;
     }
 
     public long getId() {

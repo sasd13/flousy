@@ -10,8 +10,8 @@ import flousy.beans.core.Operation;
 import flousy.db.DataAccessor;
 import flousy.db.DBManager;
 import flousy.gui.widget.recycler.tab.Tab;
-import flousy.gui.widget.recycler.tab.TabItemSpend;
-import flousy.gui.widget.recycler.tab.TabItemSpendTitle;
+import flousy.gui.widget.recycler.tab.TabItemOperation;
+import flousy.gui.widget.recycler.tab.TabItemOperationTitle;
 import flousy.session.Session;
 
 public class AccountActivity extends MotherActivity {
@@ -28,7 +28,7 @@ public class AccountActivity extends MotherActivity {
 
         setColor(getResources().getColor(ACTIVITY_COLOR));
 
-        createTabSpends();
+        createTabOperations();
     }
 
     @Override
@@ -39,35 +39,44 @@ public class AccountActivity extends MotherActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case 0:
+                startNewOperation();
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+        return true;
     }
 
-    private void createTabSpends() {
+    private void createTabOperations() {
         Tab tab = new Tab(this);
 
         RecyclerView tabView = (RecyclerView) findViewById(R.id.recyclerview);
         tab.adapt(tabView);
 
-        fillTab(tab);
+        fillTabOperations(tab);
     }
 
-    private void fillTab(Tab tab) {
-        tab.addItem(new TabItemSpendTitle());
+    private void fillTabOperations(Tab tab) {
+        tab.addItem(new TabItemOperationTitle());
 
         long accountId = Long.parseLong(Session.getAccountId());
         ListOperations listOperations = this.dao.selectOperationsByAccount(accountId);
 
-        TabItemSpend tabItemSpend;
+        TabItemOperation tabItemOperation;
         for (Operation operation : listOperations) {
-            tabItemSpend = new TabItemSpend();
+            tabItemOperation = new TabItemOperation();
 
-            tabItemSpend.setDate(String.valueOf(operation.getDate().toString()));
-            tabItemSpend.setName(operation.getName());
-            tabItemSpend.setValue(String.valueOf(operation.getValue()));
+            tabItemOperation.setDate(String.valueOf(operation.getDate()));
+            tabItemOperation.setName(operation.getName());
+            tabItemOperation.setValue(String.valueOf(operation.getValue()));
 
-            tab.addItem(tabItemSpend);
+            tab.addItem(tabItemOperation);
         }
+    }
+
+    private void startNewOperation() {
+
     }
 }
