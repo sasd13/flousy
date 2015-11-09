@@ -59,7 +59,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String CATEGORY_TABLE_CREATE =
             "CREATE TABLE " + CategoryTableAccessor.CATEGORY_TABLE_NAME + " ("
                     + CategoryTableAccessor.CATEGORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + CategoryTableAccessor.CATEGORY_NAME + " TEXT NOT NULL);";
+                    + CategoryTableAccessor.CATEGORY_NAME + " TEXT NOT NULL UNIQUE );";
 
     /**
      * Table products

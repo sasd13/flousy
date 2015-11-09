@@ -1,21 +1,22 @@
 package com.example.flousy;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import flousy.bean.Category;
-import flousy.bean.ListCategories;
+import flousy.bean.trading.ITrafficOperation;
+import flousy.bean.trading.ListTrafficOperations;
 import flousy.db.DataAccessor;
 import flousy.db.DBManager;
-import flousy.gui.widget.recycler.grid.Grid;
-import flousy.gui.widget.recycler.grid.GridItem;
+import flousy.gui.widget.recycler.tab.Tab;
+import flousy.gui.widget.recycler.tab.TabItemSpend;
+import flousy.gui.widget.recycler.tab.TabItemSpendTitle;
+import flousy.session.Session;
 
 public class SpendsActivity extends MotherActivity {
 
-    public static final int ACTIVITY_COLOR = R.color.customRed;
+    public static final int ACTIVITY_COLOR = R.color.customGreen;
 
     private DataAccessor dao = DBManager.getDao();
 
@@ -27,7 +28,7 @@ public class SpendsActivity extends MotherActivity {
 
         setColor(getResources().getColor(ACTIVITY_COLOR));
 
-        creadGridCategories();
+        createTabSpends();
     }
 
     @Override
@@ -43,25 +44,28 @@ public class SpendsActivity extends MotherActivity {
         }
     }
 
-    private void creadGridCategories() {
-        Grid grid = new Grid(this);
+    private void createTabSpends() {
+        Tab tab = new Tab(this);
 
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        grid.adapt(gridView);
+        RecyclerView tabView = (RecyclerView) findViewById(R.id.recyclerview);
+        tab.adapt(tabView);
 
-        ListCategories listCategories = this.dao.selectAllCategories();
+        tab.addItem(new TabItemSpendTitle());
 
-        GridItem gridItem;
-        Intent intent = new Intent(this, SpendsProductActivity.class);
+        long accountId = Long.parseLong(Session.getAccountId());
+        ListTrafficOperations listTrafficOperations = this.dao.selectOperationsByAccount(accountId);
 
-        for (Category category : listCategories) {
-            gridItem = new GridItem();
+        TabItemSpend tabItemSpend;
+        for (ITrafficOperation trafficOperation : listTrafficOperations) {
+            if ("SPEND".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
+                tabItemSpend = new TabItemSpend();
 
-            gridItem.setColor(getResources().getColor(R.color.transparent));
-            gridItem.setText(category.getName());
-            gridItem.setIntent(intent);
+                tabItemSpend.setDate(String.valueOf(trafficOperation.getDate().toString()));
+                tabItemSpend.setName(trafficOperation.getName());
+                tabItemSpend.setValue(String.valueOf(trafficOperation.getValue()));
 
-            grid.addItem(gridItem);
+                tab.addItem(tabItemSpend);
+            }
         }
     }
 }

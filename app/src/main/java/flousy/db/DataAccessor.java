@@ -4,7 +4,9 @@ import android.content.Context;
 
 import flousy.bean.Category;
 import flousy.bean.ListCategories;
+import flousy.bean.ListProducts;
 import flousy.bean.Product;
+import flousy.bean.trading.ListTrafficOperations;
 import flousy.bean.user.User;
 import flousy.bean.trading.ITradingAccount;
 import flousy.bean.trading.ITrafficOperation;
@@ -14,17 +16,15 @@ import flousy.bean.trading.ITrafficOperation;
  */
 public interface DataAccessor {
 
-    void init(Context context);
-
     String getDBType();
+
+    void init(Context context);
 
     long insertUser(User user);
 
     long insertAccount(ITradingAccount tradingAccount, User user);
 
     long insertOperation(ITrafficOperation trafficOperation, ITradingAccount tradingAccount);
-
-    long insertCategory(Category category);
 
     long insertProduct(Product product, ITrafficOperation trafficOperation);
 
@@ -34,8 +34,6 @@ public interface DataAccessor {
 
     void updateOperation(ITrafficOperation trafficOperation);
 
-    void updateCategory(Category category);
-
     void updateProduct(Product product);
 
     void deleteUser(User user);
@@ -43,8 +41,6 @@ public interface DataAccessor {
     void deleteAccount(ITradingAccount tradingAccount);
 
     void deleteOperation(ITrafficOperation trafficOperation);
-
-    void deleteCategory(Category category);
 
     void deleteProduct(Product product);
 
@@ -63,6 +59,8 @@ public interface DataAccessor {
     boolean containsUserByEmail(String email);
 
     ITradingAccount selectAccountByUser(long userId);
+
+    ListTrafficOperations selectOperationsByAccount(long accountId);
 
     ListCategories selectAllCategories();
 }

@@ -91,13 +91,21 @@ class OperationDAO extends SQLiteTableDAO<ITrafficOperation> implements Operatio
     }
 
     @Override
-    public ListTrafficOperations selectOperationsByAccount(long accountId) {
+    public ListTrafficOperations selectByAccount(long accountId) {
+        return selectByAccount(accountId, false);
+    }
+
+    @Override
+    public ListTrafficOperations selectByAccount(long accountId, boolean ascOrdered) {
         ListTrafficOperations listITrafficOperations = new ListTrafficOperations();
+
+        String order = ascOrdered ? "ASC" : "DESC";
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + OPERATION_TABLE_NAME
-                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?", new String[]{String.valueOf(accountId)});
+                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?"
+                        + " order by " + OPERATION_DATE + " " + order, new String[]{String.valueOf(accountId)});
 
         while (cursor.moveToNext()) {
             listITrafficOperations.add(getCursorValues(cursor));

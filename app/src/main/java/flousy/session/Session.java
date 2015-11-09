@@ -3,6 +3,7 @@ package flousy.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import flousy.bean.trading.ITradingAccount;
 import flousy.bean.user.User;
 import flousy.db.DBManager;
 import flousy.db.DataAccessor;
@@ -14,6 +15,7 @@ public class Session {
 
     private static final String SESSION_PREFERENCES = "session_preferences";
     private static final String SESSION_USER_ID = "session_user_id";
+    private static final String SESSION_ACCOUNT_ID = "session_account_id";
 
     private static SharedPreferences preferences;
     private static DataAccessor dao;
@@ -33,13 +35,20 @@ public class Session {
         return preferences.getString(SESSION_USER_ID, null);
     }
 
+    public static String getAccountId() {
+        return preferences.getString(SESSION_ACCOUNT_ID, null);
+    }
+
     public static boolean logIn(String email, String password) {
         User user = dao.selectUserByEmail(email);
 
         try {
             if (user.getPassword().equals(password)) {
+                ITradingAccount tradingAccount = dao.selectAccountByUser(user.getId());
+
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString(SESSION_USER_ID, String.valueOf(user.getId()));
+                editor.putString(SESSION_ACCOUNT_ID, String.valueOf(tradingAccount.getId()));
 
                 return editor.commit();
             }
@@ -52,7 +61,7 @@ public class Session {
 
     public static boolean logOut() {
         SharedPreferences.Editor editor = preferences.edit();
-        editor.remove(SESSION_USER_ID);
+        editor.clear();
 
         return editor.commit();
     }

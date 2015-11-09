@@ -20,5 +20,7 @@ public interface OperationTableAccessor extends TableAccessor<ITrafficOperation>
 
     long insert(ITrafficOperation trafficOperation, ITradingAccount tradingAccount);
 
-    ListTrafficOperations selectOperationsByAccount(long accountId);
+    ListTrafficOperations selectByAccount(long accountId);
+
+    ListTrafficOperations selectByAccount(long accountId, boolean ascOrdered);
 }

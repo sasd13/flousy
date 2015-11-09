@@ -19,5 +19,5 @@ public interface ProductTableAccessor extends TableAccessor<Product> {
 
     long insert(Product product, ITrafficOperation trafficOperation);
 
-    ListProducts selectProductsByOperation(long operationId);
+    ListProducts selectByOperation(long operationId);
 }

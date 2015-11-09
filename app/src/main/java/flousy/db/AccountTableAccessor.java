@@ -18,5 +18,5 @@ public interface AccountTableAccessor extends TableAccessor<ITradingAccount> {
 
     long insert(ITradingAccount tradingAccount, User user);
 
-    ITradingAccount selectAccountByUser(long userId);
+    ITradingAccount selectByUser(long userId);
 }

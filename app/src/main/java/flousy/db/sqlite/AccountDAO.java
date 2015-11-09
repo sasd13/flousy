@@ -87,7 +87,7 @@ class AccountDAO extends SQLiteTableDAO<ITradingAccount> implements AccountTable
     }
 
     @Override
-    public ITradingAccount selectAccountByUser(long userId) {
+    public ITradingAccount selectByUser(long userId) {
         ITradingAccount tradingAccount = null;
 
         Cursor cursor = getDB().rawQuery(

@@ -17,18 +17,10 @@
             android:layout_height="match_parent">
 
             <ViewStub
-                android:id="@+id/activitybar_viewstub"
-                android:layout="@layout/activitybar_titled"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"/>
-
-            <ViewStub
                 android:id="@+id/activitycontent_viewstub"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:layout_below="@id/activitybar_viewstub"/>
+                android:layout_centerInParent="true"/>
 
         </RelativeLayout>
 

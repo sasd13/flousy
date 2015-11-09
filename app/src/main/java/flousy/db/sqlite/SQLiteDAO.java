@@ -43,6 +43,11 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
+    public String getDBType() {
+        return "SQLITE";
+    }
+
+    @Override
     public void init(Context context) {
         SQLiteDBHandler dbHandler = new SQLiteDBHandler(context, NOM, null, VERSION);
 
@@ -51,11 +56,21 @@ public class SQLiteDAO implements DataAccessor {
         operationDAO.setDBHandler(dbHandler);
         categoryDAO.setDBHandler(dbHandler);
         productDAO.setDBHandler(dbHandler);
+
+        insertCategoriesIfNotExist();
     }
 
-    @Override
-    public String getDBType() {
-        return "SQLITE";
+    protected void insertCategoriesIfNotExist() {
+        categoryDAO.insert(new Category("Gastronomie"));
+        categoryDAO.insert(new Category("Multimedia"));
+        categoryDAO.insert(new Category("Mode"));
+        categoryDAO.insert(new Category("Accessoire"));
+        categoryDAO.insert(new Category("Loisir"));
+        categoryDAO.insert(new Category("Culture"));
+        categoryDAO.insert(new Category("Course"));
+        categoryDAO.insert(new Category("Maison"));
+        categoryDAO.insert(new Category("Sante"));
+        categoryDAO.insert(new Category("Autre"));
     }
 
     @Override
@@ -107,22 +122,6 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public long insertCategory(Category category) {
-        long id = 0;
-
-        categoryDAO.open();
-
-        id = categoryDAO.insert(category);
-        if (id > 0) {
-            category.setId(id);
-        }
-
-        categoryDAO.close();
-
-        return id;
-    }
-
-    @Override
     public long insertProduct(Product product, ITrafficOperation trafficOperation) {
         long id = 0;
 
@@ -166,15 +165,6 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void updateCategory(Category category) {
-        categoryDAO.open();
-
-        categoryDAO.update(category);
-
-        categoryDAO.close();
-    }
-
-    @Override
     public void updateProduct(Product product) {
         productDAO.open();
 
@@ -211,15 +201,6 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void deleteCategory(Category category) {
-        categoryDAO.open();
-
-        categoryDAO.delete(category);
-
-        categoryDAO.close();
-    }
-
-    @Override
     public void deleteProduct(Product product) {
         productDAO.open();
 
@@ -250,7 +231,7 @@ public class SQLiteDAO implements DataAccessor {
         tradingAccount = accountDAO.select(id);
 
         try {
-            ListTrafficOperations listTrafficOperations = operationDAO.selectOperationsByAccount(tradingAccount.getId());
+            ListTrafficOperations listTrafficOperations = operationDAO.selectByAccount(tradingAccount.getId());
 
             for (ITrafficOperation trafficOperation : listTrafficOperations) {
                 trafficOperation = selectOperation(trafficOperation.getId());
@@ -274,7 +255,7 @@ public class SQLiteDAO implements DataAccessor {
         trafficOperation = operationDAO.select(id);
 
         try {
-            ListProducts listProducts = productDAO.selectProductsByOperation(trafficOperation.getId());
+            ListProducts listProducts = productDAO.selectByOperation(trafficOperation.getId());
 
             if (!listProducts.isEmpty()) {
                 if ("DEBIT".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
@@ -358,7 +339,7 @@ public class SQLiteDAO implements DataAccessor {
 
         accountDAO.open();
 
-        tradingAccount = accountDAO.selectAccountByUser(userId);
+        tradingAccount = accountDAO.selectByUser(userId);
 
         try {
             tradingAccount = selectAccount(tradingAccount.getId());
@@ -369,6 +350,28 @@ public class SQLiteDAO implements DataAccessor {
         accountDAO.close();
 
         return tradingAccount;
+    }
+
+    @Override
+    public ListTrafficOperations selectOperationsByAccount(long accountId) {
+        ListTrafficOperations listTrafficOperations = null;
+
+        operationDAO.open();
+
+        listTrafficOperations = operationDAO.selectByAccount(accountId);
+
+        for (ITrafficOperation trafficOperation : listTrafficOperations) {
+            if ("DEBIT".equalsIgnoreCase(trafficOperation.getTrafficOperationType())) {
+                ListProducts listProducts = productDAO.selectByOperation(trafficOperation.getId());
+
+                for (Product product : listProducts) {
+                    product = selectProduct(product.getId());
+                    ((Debit) trafficOperation).getListPurchases().add(product);
+                }
+            }
+        }
+
+        return listTrafficOperations;
     }
 
     @Override

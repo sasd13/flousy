@@ -82,7 +82,7 @@ class ProductDAO extends SQLiteTableDAO<Product> implements ProductTableAccessor
     }
 
     @Override
-    public ListProducts selectProductsByOperation(long operationId) {
+    public ListProducts selectByOperation(long operationId) {
         ListProducts listProducts = new ListProducts();
 
         Cursor cursor = getDB().rawQuery(

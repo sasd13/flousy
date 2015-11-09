@@ -61,7 +61,7 @@
                 android:value=".HomeActivity" />
         </activity>
         <activity
-            android:name="com.example.flousy.SpendsProductActivity"
+            android:name="com.example.flousy.SpendActivity"
             android:label="@string/activity_spends_product_name"
             android:parentActivityName="com.example.flousy.SpendsActivity"
             android:screenOrientation="portrait"

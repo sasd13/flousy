@@ -106,11 +106,13 @@
     <!-- connexion Server -->
     <string name="adressConnect">http://10.0.2.2:8080/WebProject</string>
 
-    <!-- Tab products -->
+    <!-- Tab -->
+    <string name="tabitem_title_textview_date">DATE</string>
     <string name="tabitem_title_textview_name">NOM</string>
     <string name="tabitem_title_textview_price">PRIX</string>
+    <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_name">Nom</string>
-    <string name="tabitem_textview_price">Prix</string>
+    <string name="tabitem_textview_price">Price</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
