@@ -24,10 +24,8 @@ import flousy.session.Session;
 
 public abstract class MotherActivity extends ActionBarActivity {
 
-    public static final int APP_COLOR = R.color.customGreenApp;
     private static final int LOGOUT_TIMEOUT = 2000;
 
-    private int color;
     private Drawer drawer;
 
     @Override
@@ -35,8 +33,6 @@ public abstract class MotherActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         super.setContentView(R.layout.activity_mother);
-
-        this.color = getResources().getColor(APP_COLOR);
 
         createDrawer();
     }
@@ -58,14 +54,9 @@ public abstract class MotherActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_logout:
-                logOut();
-                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-        return true;
     }
 
     @Override
@@ -73,14 +64,6 @@ public abstract class MotherActivity extends ActionBarActivity {
         ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
         viewStub.setLayoutResource(layoutResource);
         viewStub.inflate();
-    }
-
-    public int getColor() {
-        return this.color;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
     }
 
     public Drawer getDrawer() {
@@ -116,7 +99,7 @@ public abstract class MotherActivity extends ActionBarActivity {
         }
     }
 
-    private void logOut() {
+    public void logOut() {
         if (Session.logOut()) {
             goToHomeActivityAndExit();
         } else {

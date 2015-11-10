@@ -99,9 +99,11 @@
     <string name="form_product_textview_picture">Photo</string>
 
     <!-- Menu -->
-    <string name="menu_item_action_drawer">Drawer</string>
     <string name="menu_item_action_accept">Valider</string>
     <string name="menu_item_action_logout">Déconnecter</string>
+    <string name="menu_item_action_new">Nouveau</string>
+    <string name="menu_item_action_edit">Modifier</string>
+    <string name="menu_item_action_discard">Supprimer</string>
 
     <!-- connexion Server -->
     <string name="adressConnect">http://10.0.2.2:8080/WebProject</string>

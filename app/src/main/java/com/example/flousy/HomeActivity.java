@@ -16,6 +16,8 @@ import flousy.gui.widget.recycler.grid.GridItem;
 
 public class HomeActivity extends MotherActivity {
 
+    private Grid grid;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +45,7 @@ public class HomeActivity extends MotherActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_menu, menu);
+        inflater.inflate(R.menu.menu_home, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -51,21 +53,26 @@ public class HomeActivity extends MotherActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_home_action_logout:
+                logOut();
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+        return true;
     }
 
     private void createGridHomeMenu() {
-        Grid grid = new Grid(this);
+        this.grid = new Grid(this);
 
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        grid.adapt(gridView);
+        this.grid.adapt(gridView);
 
-        fillGridHomeMenu(grid);
+        fillGridHomeMenu();
     }
 
-    private void fillGridHomeMenu(Grid grid) {
+    private void fillGridHomeMenu() {
         ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
 
         GridItem gridItem;
@@ -77,7 +84,7 @@ public class HomeActivity extends MotherActivity {
             gridItem.setText(homeMenuItem.getName());
             gridItem.setIntent(homeMenuItem.getIntent());
 
-            grid.addItem(gridItem);
+            this.grid.addItem(gridItem);
         }
     }
 

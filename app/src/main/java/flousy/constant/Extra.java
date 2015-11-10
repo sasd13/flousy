@@ -11,7 +11,11 @@ public class Extra {
 
     public static final String MODE = "MODE";
     public static final int MODE_NEW = 1;
-    public static final int MODE_CONSULT = 2;
+    public static final int MODE_EDIT = 2;
+
+    public static final long NULL_ID = -1;
 
     public static final String USER_FIRSTNAME = "USER_FIRSTNAME";
+
+    public static final String OPERATION_ID = "OPERATION_ID";
 }

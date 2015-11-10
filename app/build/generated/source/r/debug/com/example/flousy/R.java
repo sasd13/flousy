@@ -1570,13 +1570,11 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0a001f;
         public static final int action_bar_title=0x7f0a001e;
         public static final int action_context_bar=0x7f0a0032;
-        public static final int action_logout=0x7f0a0076;
         public static final int action_menu_divider=0x7f0a0002;
         public static final int action_menu_presenter=0x7f0a0003;
         public static final int action_mode_bar=0x7f0a002e;
         public static final int action_mode_bar_stub=0x7f0a002d;
         public static final int action_mode_close_button=0x7f0a0020;
-        public static final int action_valid=0x7f0a0077;
         public static final int actionbar_imagebutton_actiondrawer=0x7f0a0045;
         public static final int actionbar_imagebutton_actionfirst=0x7f0a0044;
         public static final int actionbar_imagebutton_actionsecond=0x7f0a0043;
@@ -1639,6 +1637,12 @@ containing a value of this type.
         public static final int login_edittext_email=0x7f0a005e;
         public static final int login_edittext_password=0x7f0a005f;
         public static final int login_textview_signup=0x7f0a0061;
+        public static final int menu_account_action_new=0x7f0a0076;
+        public static final int menu_home_action_logout=0x7f0a0077;
+        public static final int menu_operation_action_accept=0x7f0a0078;
+        public static final int menu_operation_action_discard=0x7f0a007a;
+        public static final int menu_operation_action_edit=0x7f0a0079;
+        public static final int menu_sign_action_accept=0x7f0a007b;
         public static final int middle=0x7f0a0015;
         public static final int never=0x7f0a0019;
         public static final int none=0x7f0a000e;
@@ -1732,8 +1736,10 @@ containing a value of this type.
         public static final int tabitem_spend_title=0x7f030029;
     }
     public static final class menu {
-        public static final int menu_menu=0x7f0e0000;
-        public static final int menu_signup=0x7f0e0001;
+        public static final int menu_account=0x7f0e0000;
+        public static final int menu_home=0x7f0e0001;
+        public static final int menu_operation=0x7f0e0002;
+        public static final int menu_sign=0x7f0e0003;
     }
     public static final class string {
         public static final int abc_action_bar_home_description=0x7f0c0000;
@@ -1804,23 +1810,25 @@ containing a value of this type.
         public static final int menu_alertdialog_welcome_message=0x7f0c0041;
         public static final int menu_alertdialog_welcome_title=0x7f0c0042;
         public static final int menu_item_action_accept=0x7f0c0043;
-        public static final int menu_item_action_drawer=0x7f0c0044;
-        public static final int menu_item_action_logout=0x7f0c0045;
-        public static final int new_actionbar_textview_subtitle=0x7f0c0046;
-        public static final int search_hint=0x7f0c0047;
-        public static final int settings_alertdialog_logout_title=0x7f0c0048;
-        public static final int settings_alertdialog_lougout_message_error=0x7f0c0049;
-        public static final int settings_form_user_button_logout=0x7f0c004a;
-        public static final int signup_alertdialog_signup_message_error=0x7f0c004b;
-        public static final int signup_alertdialog_signup_title_error=0x7f0c004c;
-        public static final int signup_form_user_textview_validcheckbox_validation=0x7f0c004d;
-        public static final int spends_actionbar_title=0x7f0c004e;
-        public static final int tabitem_textview_date=0x7f0c004f;
-        public static final int tabitem_textview_name=0x7f0c0050;
-        public static final int tabitem_textview_price=0x7f0c0051;
-        public static final int tabitem_title_textview_date=0x7f0c0052;
-        public static final int tabitem_title_textview_name=0x7f0c0053;
-        public static final int tabitem_title_textview_price=0x7f0c0054;
+        public static final int menu_item_action_discard=0x7f0c0044;
+        public static final int menu_item_action_edit=0x7f0c0045;
+        public static final int menu_item_action_logout=0x7f0c0046;
+        public static final int menu_item_action_new=0x7f0c0047;
+        public static final int new_actionbar_textview_subtitle=0x7f0c0048;
+        public static final int search_hint=0x7f0c0049;
+        public static final int settings_alertdialog_logout_title=0x7f0c004a;
+        public static final int settings_alertdialog_lougout_message_error=0x7f0c004b;
+        public static final int settings_form_user_button_logout=0x7f0c004c;
+        public static final int signup_alertdialog_signup_message_error=0x7f0c004d;
+        public static final int signup_alertdialog_signup_title_error=0x7f0c004e;
+        public static final int signup_form_user_textview_validcheckbox_validation=0x7f0c004f;
+        public static final int spends_actionbar_title=0x7f0c0050;
+        public static final int tabitem_textview_date=0x7f0c0051;
+        public static final int tabitem_textview_name=0x7f0c0052;
+        public static final int tabitem_textview_price=0x7f0c0053;
+        public static final int tabitem_title_textview_date=0x7f0c0054;
+        public static final int tabitem_title_textview_name=0x7f0c0055;
+        public static final int tabitem_title_textview_price=0x7f0c0056;
     }
     public static final class style {
         /**  Customize your theme here. 

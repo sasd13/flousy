@@ -9,15 +9,13 @@ import flousy.gui.widget.recycler.grid.Grid;
 
 public class FinancesActivity extends MotherActivity {
 
-    public static final int ACTIVITY_COLOR = R.color.customOrange;
+    private Grid grid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.recyclerview);
-
-        setColor(getResources().getColor(ACTIVITY_COLOR));
 
         createGridFinances();
     }
@@ -36,9 +34,15 @@ public class FinancesActivity extends MotherActivity {
     }
 
     private void createGridFinances() {
-        Grid grid = new Grid(this);
+        this.grid = new Grid(this);
 
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        grid.adapt(gridView);
+        this.grid.adapt(gridView);
+
+        fillGridFinances();
+    }
+
+    private void fillGridFinances() {
+        this.grid.clearItems();
     }
 }

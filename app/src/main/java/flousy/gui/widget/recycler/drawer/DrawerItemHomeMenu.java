@@ -3,7 +3,6 @@ package flousy.gui.widget.recycler.drawer;
 import android.view.View;
 import android.view.ViewStub;
 
-import com.example.flousy.MotherActivity;
 import com.example.flousy.R;
 
 /**
@@ -38,7 +37,7 @@ public class DrawerItemHomeMenu extends DrawerItemIntentable {
 
         this.colorView = getView().findViewById(R.id.draweritem_menu_colorview);
         if (this.color == 0) {
-            this.color = getView().getContext().getResources().getColor(MotherActivity.APP_COLOR);
+            this.color = getView().getContext().getResources().getColor(R.color.customGreenApp);
         }
         this.colorView.setBackgroundColor(this.color);
     }

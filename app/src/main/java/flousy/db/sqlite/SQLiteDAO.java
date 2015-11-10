@@ -174,12 +174,6 @@ public class SQLiteDAO implements DataAccessor {
 
         account = accountDAO.select(id);
 
-        try {
-            account.setListOperations(operationDAO.selectByAccount(account.getId()));
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-
         accountDAO.close();
 
         return account;
@@ -239,6 +233,19 @@ public class SQLiteDAO implements DataAccessor {
         }
 
         accountDAO.close();
+
+        return account;
+    }
+
+    @Override
+    public Account selectAccountWithOperations(long id) {
+        Account account = selectAccount(id);
+
+        try {
+            account.setListOperations(operationDAO.selectByAccount(account.getId()));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
         return account;
     }

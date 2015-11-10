@@ -31,10 +31,11 @@ class OperationDAO extends SQLiteTableDAO<Operation> implements OperationTableAc
 
     @Override
     protected Operation getCursorValues(Cursor cursor) {
-        Operation operation = new Operation(OperationType.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_TYPE))));
+        Operation operation = new Operation();
 
         operation.setId(cursor.getLong(cursor.getColumnIndex(OPERATION_ID)));
         operation.setDate(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_DATE))));
+        operation.setType(OperationType.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_TYPE))));
         operation.setName(cursor.getString(cursor.getColumnIndex(OPERATION_NAME)));
         operation.setValue(cursor.getLong(cursor.getColumnIndex(OPERATION_VALUE)));
 

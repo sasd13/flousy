@@ -4,6 +4,7 @@ import android.util.Patterns;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Created by Samir on 13/03/2015.
@@ -11,6 +12,7 @@ import java.util.Map;
 public class FormValidator {
 
     public int passwordLength = 6;
+    public String numberRegex = "[0-9]+([.][0-9]{1,2})?";
 
     private Map<String, String> mapErrors;
 
@@ -57,7 +59,17 @@ public class FormValidator {
     public void validConfirmPassword(String password, String confirmPassword, String errorKey) {
         try {
             if (!password.equals(confirmPassword)) {
-                this.mapErrors.put(errorKey, " password is not confirmed");
+                this.mapErrors.put(errorKey, "password is not confirmed");
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void validNumber(String number, String errorKey) {
+        try {
+            if (Pattern.compile(numberRegex).matcher(number).matches()) {
+                this.mapErrors.put(errorKey, errorKey + " is not valid");
             }
         } catch (NullPointerException e) {
             e.printStackTrace();

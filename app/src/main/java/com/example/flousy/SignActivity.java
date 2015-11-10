@@ -30,7 +30,6 @@ public class SignActivity extends MotherActivity {
     private static final int SIGNUP_TIMEOUT = 2000;
 
     private DataAccessor dao = DBManager.getDao();
-
     private FormUserViewHolder formUser;
 
     @Override
@@ -45,7 +44,7 @@ public class SignActivity extends MotherActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_signup, menu);
+        inflater.inflate(R.menu.menu_sign, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -53,8 +52,8 @@ public class SignActivity extends MotherActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_valid:
-                signNewUser();
+            case R.id.menu_sign_action_accept:
+                signUp();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -74,7 +73,7 @@ public class SignActivity extends MotherActivity {
         this.formUser.checkBoxValidTerms = (CheckBox) findViewById(R.id.form_user_checkbox_validterms);
     }
 
-    private void signNewUser() {
+    private void signUp() {
         String[] tabFormErrors = validFormUser();
 
         if (tabFormErrors.length == 0) {
@@ -83,7 +82,7 @@ public class SignActivity extends MotherActivity {
             boolean containsUserEmail = this.dao.containsUserByEmail(user.getEmail());
 
             if (!containsUserEmail) {
-                createNewUser(user);
+                createUser(user);
 
                 Session.logIn(user.getEmail(), user.getPassword());
 
@@ -132,7 +131,7 @@ public class SignActivity extends MotherActivity {
         return user;
     }
 
-    private void createNewUser(User user) {
+    private void createUser(User user) {
         Account account = new Account();
 
         this.dao.insertUser(user);

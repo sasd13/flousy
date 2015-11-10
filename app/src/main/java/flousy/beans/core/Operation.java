@@ -13,14 +13,14 @@ public class Operation {
     private String name;
     private double value;
 
-    public Operation(OperationType type) {
+    public Operation() {
         this.date = new Timestamp(System.currentTimeMillis());
-        this.type = type;
     }
 
     public Operation(OperationType type, String name, double value) {
-        this(type);
+        this();
 
+        this.type = type;
         this.name = name;
         this.value = value;
     }
