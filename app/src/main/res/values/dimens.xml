@@ -46,10 +46,10 @@
     <dimen name="textsize_xxlarge">20sp</dimen>
 
     <!-- View -->
-    <dimen name="view_margintop_small">7dp</dimen><!-- DIFF ldpi : 5 -->
-    <dimen name="view_margintop_medium">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
-    <dimen name="view_margintop_large">20dp</dimen><!-- DIFF ldpi : 15 -->
-    <dimen name="viewgroup_margintop">30dp</dimen>
+    <dimen name="view_margin_small">7dp</dimen><!-- DIFF ldpi : 5 -->
+    <dimen name="view_margin_medium">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
+    <dimen name="view_margin_large">20dp</dimen><!-- DIFF ldpi : 15 -->
+    <dimen name="viewgroup_margin">30dp</dimen>
     <dimen name="dividerview_margintop">7dp</dimen>
     <dimen name="dividerview_height_small">1dp</dimen>
     <dimen name="dividerview_height_medium">2dp</dimen>

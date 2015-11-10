@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,7 +21,7 @@ import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
 import flousy.session.Session;
 
-public class SignActivity extends MotherActivity {
+public class SignActivity extends ActionBarActivity {
 
     private class FormUserViewHolder {
         public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;

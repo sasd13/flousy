@@ -9,31 +9,33 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="8">
+        android:weightSum="12">
 
         <TextView
             android:id="@+id/tabitem_title_textview_date"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="5"
+            android:layout_weight="4"
             android:paddingLeft="@dimen/activitycontent_padding"
             android:gravity="left|bottom"
             android:text="@string/tabitem_title_textview_date"
             android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:ellipsize="none"/>
 
         <TextView
             android:id="@+id/tabitem_title_textview_name"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="5"
+            android:layout_weight="6"
             android:paddingLeft="@dimen/activitycontent_padding"
             android:gravity="left|bottom"
             android:text="@string/tabitem_title_textview_name"
             android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:ellipsize="none"/>
 
         <TextView
             android:id="@+id/tabitem_title_textview_value"
@@ -44,7 +46,8 @@
             android:text="@string/tabitem_title_textview_value"
             android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:ellipsize="none"/>
 
     </LinearLayout>
 

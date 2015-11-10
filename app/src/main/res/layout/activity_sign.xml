@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_dividerview_1"
             android:background="@drawable/edit_text_holo_light"
-            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_firstname_hint"
             android:inputType="textPersonName|textCapWords"
             android:textSize="@dimen/textsize_medium"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_edittext_firstname"
             android:background="@drawable/edit_text_holo_light"
-            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_lastname_hint"
             android:inputType="textPersonName|textCapWords"
             android:textSize="@dimen/textsize_medium"
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_edittext_lastname"
-            android:layout_marginTop="@dimen/viewgroup_margintop"
+            android:layout_marginTop="@dimen/viewgroup_margin"
             android:text="@string/form_user_textview_connection"
             android:textColor="@color/customGreenApp"
             android:textSize="@dimen/textsize_medium"
@@ -80,41 +80,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_dividerview_2"
             android:background="@drawable/edit_text_holo_light"
-            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_email_hint"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
             android:singleLine="true"/>
 
-        <TextView
-            android:id="@+id/sign_form_user_textview_password"
-            android:tag="customize_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/sign_form_user_edittext_email"
-            android:layout_marginTop="@dimen/viewgroup_margintop"
-            android:text="@string/form_user_textview_password"
-            android:textColor="@color/customGreenApp"
-            android:textSize="@dimen/textsize_medium"
-            android:textStyle="bold|italic"/>
-
-        <View
-            android:id="@+id/sign_form_user_dividerview_3"
-            android:tag="customize_3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dividerview_height_medium"
-            android:layout_below="@id/sign_form_user_textview_password"
-            android:layout_marginTop="@dimen/dividerview_margintop"
-            android:background="@color/customGreenApp"/>
-
         <EditText
             android:id="@+id/sign_form_user_edittext_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sign_form_user_dividerview_3"
+            android:layout_below="@id/sign_form_user_edittext_email"
             android:background="@drawable/edit_text_holo_light"
-            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_password_hint"
             android:inputType="textPassword"
             android:textSize="@dimen/textsize_medium"
@@ -127,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_edittext_password"
             android:background="@drawable/edit_text_holo_light"
-            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_confirmpassword_hint"
             android:inputType="textPassword"
             android:textSize="@dimen/textsize_medium"
@@ -140,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_edittext_confirmpassword"
-            android:layout_marginTop="@dimen/viewgroup_margintop">
+            android:layout_marginTop="@dimen/viewgroup_margin">
 
             <CheckBox
                 android:id="@+id/sign_form_user_checkbox_terms"

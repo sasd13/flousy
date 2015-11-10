@@ -285,10 +285,10 @@
     <dimen name="textsize_small">12sp</dimen>
     <dimen name="textsize_xlarge">18sp</dimen>
     <dimen name="textsize_xxlarge">20sp</dimen>
-    <dimen name="view_margintop_large">20dp</dimen>
-    <dimen name="view_margintop_medium">12dp</dimen>
-    <dimen name="view_margintop_small">7dp</dimen>
-    <dimen name="viewgroup_margintop">30dp</dimen>
+    <dimen name="view_margin_large">20dp</dimen>
+    <dimen name="view_margin_medium">12dp</dimen>
+    <dimen name="view_margin_small">7dp</dimen>
+    <dimen name="viewgroup_margin">30dp</dimen>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <item name="action_bar_activity_content" type="id"/>
@@ -383,7 +383,7 @@
     <string name="sign_alertdialog_sign_error_title">Erreur inscription</string>
     <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_name">Nom</string>
-    <string name="tabitem_textview_value">Price</string>
+    <string name="tabitem_textview_value">0.0</string>
     <string name="tabitem_title_textview_date">DATE</string>
     <string name="tabitem_title_textview_name">NOM</string>
     <string name="tabitem_title_textview_value">PRIX</string>

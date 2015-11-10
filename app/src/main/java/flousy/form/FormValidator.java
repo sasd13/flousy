@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class FormValidator {
 
     public int passwordLength = 6;
-    public String numberRegex = "[0-9]+([.][0-9]{1,2})?";
+    public String numberRegex = "[0-9]+([.,][0-9]{1,2})?";
 
     private Map<String, String> mapErrors;
 

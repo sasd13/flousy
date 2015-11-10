@@ -45,10 +45,10 @@
     <dimen name="textsize_xxlarge">29sp</dimen>
 
     <!-- View -->
-    <dimen name="view_margintop_small">9dp</dimen><!-- DIFF ldpi : 5 -->
-    <dimen name="view_margintop_medium">16dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
-    <dimen name="view_margintop_large">27dp</dimen><!-- DIFF ldpi : 15 -->
-    <dimen name="viewgroup_margintop">53dp</dimen>
+    <dimen name="view_margin_small">9dp</dimen><!-- DIFF ldpi : 5 -->
+    <dimen name="view_margin_medium">16dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
+    <dimen name="view_margin_large">27dp</dimen><!-- DIFF ldpi : 15 -->
+    <dimen name="viewgroup_margin">53dp</dimen>
     <dimen name="dividerview_margintop">9dp</dimen>
     <dimen name="dividerview_height_small">1dp</dimen>
     <dimen name="dividerview_height_medium">3dp</dimen>

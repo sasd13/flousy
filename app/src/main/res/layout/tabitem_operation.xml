@@ -9,27 +9,29 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="8">
+        android:weightSum="12">
 
         <TextView
             android:id="@+id/tabitem_textview_date"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:paddingLeft="@dimen/activitycontent_padding"
             android:gravity="left|center_vertical"
             android:text="@string/tabitem_textview_date"
-            android:textSize="@dimen/textsize_medium"/>
+            android:textSize="@dimen/textsize_medium"
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/tabitem_textview_name"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_weight="3"
+            android:layout_weight="6"
             android:paddingLeft="@dimen/activitycontent_padding"
             android:gravity="left|center_vertical"
             android:text="@string/tabitem_textview_name"
-            android:textSize="@dimen/textsize_medium"/>
+            android:textSize="@dimen/textsize_medium"
+            android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/tabitem_textview_value"
@@ -39,7 +41,8 @@
             android:paddingRight="@dimen/activitycontent_padding"
             android:gravity="right|center_vertical"
             android:text="@string/tabitem_textview_value"
-            android:textSize="@dimen/textsize_medium"/>
+            android:textSize="@dimen/textsize_medium"
+            android:ellipsize="end"/>
 
     </LinearLayout>
 

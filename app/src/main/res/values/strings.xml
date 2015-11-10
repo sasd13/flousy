@@ -95,6 +95,6 @@
     <string name="tabitem_title_textview_value">PRIX</string>
     <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_name">Nom</string>
-    <string name="tabitem_textview_value">Price</string>
+    <string name="tabitem_textview_value">0.0</string>
 
 </resources>

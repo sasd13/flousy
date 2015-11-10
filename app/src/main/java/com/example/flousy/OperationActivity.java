@@ -163,10 +163,10 @@ public class OperationActivity extends MotherActivity {
         FormValidator formValidator = new FormValidator();
 
         String name = this.formOperation.editTextName.getText().toString().trim();
-        String value = this.formOperation.editTextValue.getText().toString().trim();
+        //String value = this.formOperation.editTextValue.getText().toString().trim();
 
         formValidator.validName(name, "name");
-        formValidator.validNumber(value, "value");
+        //formValidator.validNumber(value, "value");
 
         return formValidator.getErrors();
     }
