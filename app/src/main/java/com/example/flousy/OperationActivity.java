@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.sql.Timestamp;
+
 import flousy.beans.core.Account;
 import flousy.beans.core.Operation;
 import flousy.beans.core.OperationType;
@@ -50,12 +52,11 @@ public class OperationActivity extends MotherActivity {
         this.dao = DBManager.getDao();
 
         this.extraMode = getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW);
-
         if (this.extraMode == Extra.MODE_EDIT) {
             this.operationId = getIntent().getLongExtra(Extra.OPERATION_ID, Extra.NULL_ID);
-
-            fillFormOperation();
         }
+
+        fillFormOperation();
     }
 
     @Override
@@ -106,12 +107,20 @@ public class OperationActivity extends MotherActivity {
         this.formOperation.editTextName = (EditText) findViewById(R.id.form_operation_edittext_name);
         this.formOperation.editTextValue = (EditText) findViewById(R.id.form_operation_edittext_value);
 
-        this.formOperation.radioGroupType = (RadioGroup) findViewById(0);
-        this.formOperation.radioButtonDebit = (RadioButton) findViewById(0);
-        this.formOperation.radioButtonCredit = (RadioButton) findViewById(0);
+        this.formOperation.radioGroupType = (RadioGroup) findViewById(R.id.form_operation_radiogroup_type);
+        this.formOperation.radioButtonDebit = (RadioButton) findViewById(R.id.form_operation_radiobutton_type_debit);
+        this.formOperation.radioButtonCredit = (RadioButton) findViewById(R.id.form_operation_radiobutton_type_credit);
     }
 
     private void fillFormOperation() {
+        if (this.extraMode == Extra.MODE_EDIT) {
+            prepareEditFormOperation();
+        } else {
+            prepareNewFormOperation();
+        }
+    }
+
+    private void prepareEditFormOperation() {
         Operation operation = this.dao.selectOperation(this.operationId);
 
         this.formOperation.textViewDate.setText(String.valueOf(operation.getDate()));
@@ -122,10 +131,15 @@ public class OperationActivity extends MotherActivity {
             case CREDIT:
                 this.formOperation.radioButtonCredit.setChecked(true);
                 break;
-            case DEBIT: default:
+            case DEBIT:
                 this.formOperation.radioButtonDebit.setChecked(true);
                 break;
         }
+    }
+
+    private void prepareNewFormOperation() {
+        this.formOperation.textViewDate.setText(String.valueOf(new Timestamp(System.currentTimeMillis())));
+        this.formOperation.radioButtonDebit.setChecked(true);
     }
 
     private void createOperation() {
@@ -133,7 +147,9 @@ public class OperationActivity extends MotherActivity {
 
         if (tabFormErrors.length == 0) {
             Operation operation = getOperationFromForm();
-            Account account = this.dao.selectAccount(Long.parseLong(Session.getAccountId()));
+
+            long accountId = Long.parseLong(Session.getAccountId());
+            Account account = this.dao.selectAccount(accountId);
 
             this.dao.insertOperation(operation, account);
 
@@ -213,6 +229,8 @@ public class OperationActivity extends MotherActivity {
         Operation operation = this.dao.selectOperation(this.operationId);
 
         this.dao.deleteOperation(operation);
+
+        CustomDialog.showOkDialog(this, "Operation", "Operation deleted");
 
         goToAccountActivity();
     }
