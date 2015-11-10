@@ -128,11 +128,11 @@ public class OperationActivity extends MotherActivity {
         this.formOperation.editTextValue.setText(String.valueOf(operation.getValue()), TextView.BufferType.EDITABLE);
 
         switch (operation.getType()) {
-            case CREDIT:
-                this.formOperation.radioButtonCredit.setChecked(true);
-                break;
             case DEBIT:
                 this.formOperation.radioButtonDebit.setChecked(true);
+                break;
+            case CREDIT:
+                this.formOperation.radioButtonCredit.setChecked(true);
                 break;
         }
     }
@@ -181,11 +181,11 @@ public class OperationActivity extends MotherActivity {
         operation.setValue(Double.valueOf(value));
 
         switch (this.formOperation.radioGroupType.getCheckedRadioButtonId()) {
-            case 0:
-                operation.setType(OperationType.CREDIT);
-                break;
-            case 1: default:
+            case R.id.form_operation_radiobutton_type_debit:
                 operation.setType(OperationType.DEBIT);
+                break;
+            case R.id.form_operation_radiobutton_type_credit:
+                operation.setType(OperationType.CREDIT);
                 break;
         }
 
