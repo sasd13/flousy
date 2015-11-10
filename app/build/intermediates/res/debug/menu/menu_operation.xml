@@ -7,11 +7,6 @@
         android:title="@string/menu_item_action_accept"
         flousy:showAsAction="ifRoom"/>
 
-    <item android:id="@+id/menu_operation_action_edit"
-        android:icon="@drawable/ic_action_edit"
-        android:title="@string/menu_item_action_edit"
-        flousy:showAsAction="ifRoom"/>
-
     <item android:id="@+id/menu_operation_action_discard"
         android:icon="@drawable/ic_action_discard"
         android:title="@string/menu_item_action_discard"

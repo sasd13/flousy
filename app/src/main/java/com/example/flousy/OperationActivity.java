@@ -31,6 +31,7 @@ public class OperationActivity extends MotherActivity {
 
     private DataAccessor dao;
     private long operationId;
+    private int extraMode;
     private FormOperationViewHolder formOperation;
 
     @Override
@@ -48,7 +49,9 @@ public class OperationActivity extends MotherActivity {
 
         this.dao = DBManager.getDao();
 
-        if (getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW) == Extra.MODE_EDIT) {
+        this.extraMode = getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW);
+
+        if (this.extraMode == Extra.MODE_EDIT) {
             this.operationId = getIntent().getLongExtra(Extra.OPERATION_ID, Extra.NULL_ID);
 
             fillFormOperation();
@@ -67,8 +70,7 @@ public class OperationActivity extends MotherActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        if (getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW) == Extra.MODE_NEW) {
-            menu.findItem(R.id.menu_operation_action_edit).setVisible(false);
+        if (this.extraMode == Extra.MODE_NEW) {
             menu.findItem(R.id.menu_operation_action_discard).setVisible(false);
         } else {
             menu.findItem(R.id.menu_operation_action_accept).setVisible(false);
@@ -81,10 +83,11 @@ public class OperationActivity extends MotherActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_operation_action_accept:
-                createOperation();
-                break;
-            case R.id.menu_operation_action_edit:
-                updateOperation();
+                if (this.extraMode == Extra.MODE_NEW) {
+                    createOperation();
+                } else {
+                    updateOperation();
+                }
                 break;
             case R.id.menu_operation_action_discard:
                 deleteOperation();

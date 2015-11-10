@@ -1640,9 +1640,8 @@ containing a value of this type.
         public static final int menu_account_action_new=0x7f0a0076;
         public static final int menu_home_action_logout=0x7f0a0077;
         public static final int menu_operation_action_accept=0x7f0a0078;
-        public static final int menu_operation_action_discard=0x7f0a007a;
-        public static final int menu_operation_action_edit=0x7f0a0079;
-        public static final int menu_sign_action_accept=0x7f0a007b;
+        public static final int menu_operation_action_discard=0x7f0a0079;
+        public static final int menu_sign_action_accept=0x7f0a007a;
         public static final int middle=0x7f0a0015;
         public static final int never=0x7f0a0019;
         public static final int none=0x7f0a000e;

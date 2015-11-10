@@ -576,9 +576,8 @@ int id login_textview_signup 0x7f0a0061
 int id menu_account_action_new 0x7f0a0076
 int id menu_home_action_logout 0x7f0a0077
 int id menu_operation_action_accept 0x7f0a0078
-int id menu_operation_action_discard 0x7f0a007a
-int id menu_operation_action_edit 0x7f0a0079
-int id menu_sign_action_accept 0x7f0a007b
+int id menu_operation_action_discard 0x7f0a0079
+int id menu_sign_action_accept 0x7f0a007a
 int id middle 0x7f0a0015
 int id never 0x7f0a0019
 int id none 0x7f0a000e
