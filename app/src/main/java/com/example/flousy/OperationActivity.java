@@ -32,8 +32,8 @@ public class OperationActivity extends MotherActivity {
     }
 
     private DataAccessor dao;
-    private long operationId;
     private int extraMode;
+    private long operationId;
     private FormOperationViewHolder formOperation;
 
     @Override
@@ -148,7 +148,7 @@ public class OperationActivity extends MotherActivity {
         if (tabFormErrors.length == 0) {
             Operation operation = getOperationFromForm();
 
-            long accountId = Long.parseLong(Session.getAccountId());
+            long accountId = Session.getAccountId();
             Account account = this.dao.selectAccount(accountId);
 
             this.dao.insertOperation(operation, account);

@@ -30,7 +30,7 @@
     <dimen name="griditem_verticalmargin_external">19dp</dimen>
     <dimen name="griditem_verticalmargin_internal">9dp</dimen>
     <dimen name="log_textview_restorepassword_padding">9dp</dimen>
-    <dimen name="log_textview_signup_padding">9dp</dimen>
+    <dimen name="log_textview_sign_padding">9dp</dimen>
     <dimen name="splashscreen_progressbar_margin">27dp</dimen>
     <dimen name="textsize_large">21sp</dimen>
     <dimen name="textsize_medium">19sp</dimen>

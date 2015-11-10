@@ -18,14 +18,14 @@ import flousy.session.Session;
 
 public class LogActivity extends Activity {
 
-    private class FormLogInViewHolder {
+    private class FormLogViewHolder {
         public EditText editTextEmail, editTextPassword;
         public Button buttonConnect;
     }
 
     private static final int LOGIN_TIMEOUT = 2000;
 
-    private FormLogInViewHolder formLogIn;
+    private FormLogViewHolder formLog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,23 +33,23 @@ public class LogActivity extends Activity {
 
         setContentView(R.layout.activity_log);
 
-        createFormLogIn();
+        createFormLog();
         customizeView();
     }
 
-    private void createFormLogIn() {
-        this.formLogIn = new FormLogInViewHolder();
+    private void createFormLog() {
+        this.formLog = new FormLogViewHolder();
 
-        this.formLogIn.editTextEmail = (EditText) findViewById(R.id.log_edittext_email);
-        this.formLogIn.editTextPassword = (EditText) findViewById(R.id.log_edittext_password);
+        this.formLog.editTextEmail = (EditText) findViewById(R.id.log_edittext_email);
+        this.formLog.editTextPassword = (EditText) findViewById(R.id.log_edittext_password);
 
-        this.formLogIn.buttonConnect = (Button) findViewById(R.id.log_button_connect);
-        this.formLogIn.buttonConnect.setOnClickListener(new View.OnClickListener() {
+        this.formLog.buttonConnect = (Button) findViewById(R.id.log_button_connect);
+        this.formLog.buttonConnect.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (formLogIn.editTextEmail.getText().toString().trim().length() > 0
-                        && formLogIn.editTextPassword.getText().toString().trim().length() > 0) {
+                if (formLog.editTextEmail.getText().toString().trim().length() > 0
+                        && formLog.editTextPassword.getText().toString().trim().length() > 0) {
                     logIn();
                 }
             }
@@ -57,16 +57,16 @@ public class LogActivity extends Activity {
     }
 
     private void logIn() {
-        String email = this.formLogIn.editTextEmail.getText().toString();
-        String password = this.formLogIn.editTextPassword.getText().toString();
+        String email = this.formLog.editTextEmail.getText().toString().trim();
+        String password = this.formLog.editTextPassword.getText().toString().trim();
 
         if (Session.logIn(email, password)) {
             goToHomeActivity();
         } else {
             CustomDialog.showOkDialog(
                     this,
-                    getResources().getString(R.string.log_alertdialog_login_title_error),
-                    getResources().getString(R.string.log_alertdialog_login_message_error));
+                    getResources().getString(R.string.log_alertdialog_log_error_title),
+                    getResources().getString(R.string.log_alertdialog_log_error_message));
         }
     }
 
@@ -110,7 +110,7 @@ public class LogActivity extends Activity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(LogActivity.this, SignActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                             startActivity(intent);
                         }

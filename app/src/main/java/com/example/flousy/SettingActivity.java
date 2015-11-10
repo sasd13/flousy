@@ -39,7 +39,7 @@ public class SettingActivity extends MotherActivity {
 
         this.dao = DBManager.getDao();
 
-        this.userId = Long.parseLong(Session.getUserId());
+        this.userId = Session.getUserId();
 
         fillFormUser();
     }

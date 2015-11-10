@@ -33,14 +33,14 @@ public class Drawer extends Recycler {
     }
 
     public boolean isOpened() {
-        return this.drawerLayout.isDrawerOpen(this.recyclerView);
+        return this.drawerLayout.isDrawerOpen(getRecyclerView());
     }
 
     public void setOpened(boolean opened) {
         if (opened) {
-            this.drawerLayout.openDrawer(this.recyclerView);
+            this.drawerLayout.openDrawer(getRecyclerView());
         } else {
-            this.drawerLayout.closeDrawer(this.recyclerView);
+            this.drawerLayout.closeDrawer(getRecyclerView());
         }
     }
 

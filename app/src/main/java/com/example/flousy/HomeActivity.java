@@ -25,6 +25,7 @@ public class HomeActivity extends MotherActivity {
         setContentView(R.layout.recyclerview);
 
         createGridHomeMenu();
+        fillGridHomeMenu();
     }
 
     @Override
@@ -68,8 +69,6 @@ public class HomeActivity extends MotherActivity {
 
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         this.grid.adapt(gridView);
-
-        fillGridHomeMenu();
     }
 
     private void fillGridHomeMenu() {
@@ -90,6 +89,7 @@ public class HomeActivity extends MotherActivity {
 
     private void showWelcome() {
         String firstName = getIntent().getStringExtra(Extra.USER_FIRSTNAME);
+
         CustomDialog.showOkDialog(
                 this,
                 getResources().getString(R.string.home_alertdialog_welcome_title),

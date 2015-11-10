@@ -75,8 +75,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:padding="@dimen/log_textview_signup_padding"
-            android:text="@string/log_textview_signup"
+            android:padding="@dimen/log_textview_sign_padding"
+            android:text="@string/log_textview_sign"
             android:textSize="@dimen/textsize_medium"
             android:clickable="true"/>
 

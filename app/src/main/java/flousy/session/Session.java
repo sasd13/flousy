@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import flousy.beans.core.Account;
 import flousy.beans.core.User;
+import flousy.constant.Extra;
 import flousy.db.DBManager;
 import flousy.db.DataAccessor;
 
@@ -31,12 +32,12 @@ public class Session {
         return preferences.contains(SESSION_USER_ID);
     }
 
-    public static String getUserId() {
-        return preferences.getString(SESSION_USER_ID, null);
+    public static long getUserId() {
+        return preferences.getLong(SESSION_USER_ID, Extra.NULL_ID);
     }
 
-    public static String getAccountId() {
-        return preferences.getString(SESSION_ACCOUNT_ID, null);
+    public static long getAccountId() {
+        return preferences.getLong(SESSION_ACCOUNT_ID, Extra.NULL_ID);
     }
 
     public static boolean logIn(String email, String password) {
@@ -47,8 +48,8 @@ public class Session {
                 Account account = dao.selectAccountByUser(user.getId());
 
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString(SESSION_USER_ID, String.valueOf(user.getId()));
-                editor.putString(SESSION_ACCOUNT_ID, String.valueOf(account.getId()));
+                editor.putLong(SESSION_USER_ID, user.getId());
+                editor.putLong(SESSION_ACCOUNT_ID, account.getId());
 
                 return editor.commit();
             }

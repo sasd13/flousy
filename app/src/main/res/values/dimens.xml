@@ -10,7 +10,7 @@
 
     <!-- Activity Log -->
     <dimen name="log_textview_restorepassword_padding">7dp</dimen>
-    <dimen name="log_textview_signup_padding">7dp</dimen>
+    <dimen name="log_textview_sign_padding">7dp</dimen>
 
     <!-- Button -->
     <dimen name="button_width">110dp</dimen>

@@ -23,7 +23,7 @@ public abstract class Recycler {
     protected Context context;
     private ListRecyclerItems listRecyclerItems;
     private RecyclerAdapter recyclerAdapter;
-    protected RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
     protected Recycler(Context context) {
         this.context = context;
@@ -67,6 +67,10 @@ public abstract class Recycler {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    public RecyclerView getRecyclerView() {
+        return this.recyclerView;
     }
 
     public void adapt(RecyclerView recyclerView) {

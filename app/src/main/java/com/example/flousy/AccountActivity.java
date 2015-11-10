@@ -73,7 +73,7 @@ public class AccountActivity extends MotherActivity {
 
         this.tab.addItem(new TabItemOperationTitle());
 
-        long accountId = Long.parseLong(Session.getAccountId());
+        long accountId = Session.getAccountId();
         ListOperations listOperations = this.dao.selectOperationsByAccount(accountId);
 
         TabItemOperation tabItemOperation;

@@ -35,6 +35,7 @@ public abstract class MotherActivity extends ActionBarActivity {
         super.setContentView(R.layout.activity_mother);
 
         createDrawer();
+        fillDrawer();
     }
 
     @Override
@@ -76,8 +77,6 @@ public abstract class MotherActivity extends ActionBarActivity {
 
         RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer_view);
         this.drawer.adapt(drawerView);
-
-        fillDrawer();
     }
 
     private void fillDrawer() {

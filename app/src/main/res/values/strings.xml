@@ -14,19 +14,19 @@
     <string name="activity_home_name">Menu</string>
     <string name="activity_account_name">Compte</string>
     <string name="activity_operation_name">Opération</string>
-    <string name="activity_finance_name">Opération</string>
+    <string name="activity_finance_name">Finances</string>
     <string name="activity_setting_name">Options</string>
 
     <!-- Activity Log -->
     <string name="log_button_connect">Connexion</string>
-    <string name="log_textview_signup">Inscription sur Flousy</string>
+    <string name="log_textview_sign">Inscription sur Flousy</string>
     <string name="log_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="log_alertdialog_login_title_error">Erreur connexion</string>
-    <string name="log_alertdialog_login_message_error">Identifiants invalides</string>
+    <string name="log_alertdialog_log_error_title">Erreur connexion</string>
+    <string name="log_alertdialog_log_error_message">Identifiants invalides</string>
 
     <!-- Activity Sign -->
-    <string name="sign_alertdialog_signup_title_error">Erreur inscription</string>
-    <string name="sign_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
+    <string name="sign_alertdialog_sign_error_title">Erreur inscription</string>
+    <string name="sign_alertdialog_sign_error_message">Remplir le formulaire d\'inscription</string>
 
     <!-- Activity Home -->
     <string name="home_alertdialog_welcome_title">Bienvenue</string>
@@ -49,8 +49,8 @@
     <string name="alertdialog_button_cancel">Annuler</string>
 
     <!-- Drawer -->
-    <string name="draweritem_textview">Item</string>
     <string name="draweritem_title_textview">Title</string>
+    <string name="draweritem_textview">Item</string>
 
     <!-- EditText -->
     <string name="edittext_firstname_hint">Prénom</string>

@@ -18,6 +18,7 @@ public class FinanceActivity extends MotherActivity {
         setContentView(R.layout.recyclerview);
 
         createGridFinances();
+        fillGridFinances();
     }
 
     @Override
@@ -38,8 +39,6 @@ public class FinanceActivity extends MotherActivity {
 
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
         this.grid.adapt(gridView);
-
-        fillGridFinances();
     }
 
     private void fillGridFinances() {

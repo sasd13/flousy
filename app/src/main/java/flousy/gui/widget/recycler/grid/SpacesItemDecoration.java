@@ -11,6 +11,7 @@ import android.view.View;
  * Created by Samir on 28/03/2015.
  */
 public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
+
     private int space;
 
     public SpacesItemDecoration(int space) {
