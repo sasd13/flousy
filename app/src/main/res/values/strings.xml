@@ -9,50 +9,28 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen_name">@string/app_name</string>
-    <string name="activity_user_log_name">Connexion</string>
-    <string name="activity_user_account_name">Compte</string>
+    <string name="activity_log_name">Connexion</string>
+    <string name="activity_sign_name">Inscription</string>
     <string name="activity_home_name">Menu</string>
-    <string name="activity_spends_name">Dépenses</string>
-    <string name="activity_spends_product_name">Produit</string>
-    <string name="activity_finances_name">Finances</string>
-    <string name="activity_finances_payment_name">Paiment</string>
-    <string name="activity_friends_name">Amis</string>
-    <string name="activity_offers_name">Offres</string>
+    <string name="activity_account_name">Compte</string>
+    <string name="activity_operation_name">Opération</string>
+    <string name="activity_finance_name">Opération</string>
+    <string name="activity_setting_name">Options</string>
 
-    <!-- Activity Spends -->
-    <string name="spends_actionbar_title">Dépenses</string>
+    <!-- Activity Log -->
+    <string name="log_button_connect">Connexion</string>
+    <string name="log_textview_signup">Inscription sur Flousy</string>
+    <string name="log_textview_restorepassword">Mot de passe oublié ?</string>
+    <string name="log_alertdialog_login_title_error">Erreur connexion</string>
+    <string name="log_alertdialog_login_message_error">Identifiants invalides</string>
 
-    <!-- Activity Friends -->
-    <string name="friends_activitybar_tabed_tab_reception">Réceptions</string>
-    <string name="friends_activitybar_tabed_tab_send">Envois</string>
-    <string name="friends_activitybar_tabed_tab_contact">Contacts</string>
+    <!-- Activity Sign -->
+    <string name="sign_alertdialog_signup_title_error">Erreur inscription</string>
+    <string name="sign_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
 
-    <!-- Activity LogIn -->
-    <string name="login_button_connect">Connexion</string>
-    <string name="login_textview_signup">Inscription sur Flousy</string>
-    <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="login_alertdialog_login_title_error">Erreur connexion</string>
-    <string name="login_alertdialog_login_message_error">Identifiants invalides</string>
-
-    <!-- Activity Menu -->
-    <string name="menu_alertdialog_welcome_title">Bienvenue</string>
-    <string name="menu_alertdialog_welcome_message">Salut</string>
-
-    <!-- Activity New -->
-    <string name="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
-
-    <!-- Activity Settings -->
-    <string name="settings_form_user_button_logout">Déconnexion</string>
-    <string name="settings_alertdialog_logout_title">Déconnexion</string>
-    <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
-
-    <!-- Activity SignUp -->
-    <string name="signup_form_user_textview_validcheckbox_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
-    <string name="signup_alertdialog_signup_title_error">Erreur inscription</string>
-    <string name="signup_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
-
-    <!-- ActivityBar -->
-    <string name="activitybar_titled_textview">Titre</string>
+    <!-- Activity Home -->
+    <string name="home_alertdialog_welcome_title">Bienvenue</string>
+    <string name="home_alertdialog_welcome_message">Salut</string>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
@@ -91,12 +69,18 @@
     <string name="form_user_textview_identity">IDENTITE</string>
     <string name="form_user_textview_connection">CONNEXION</string>
     <string name="form_user_textview_password">MOT DE PASSE</string>
+    <string name="form_user_textview_terms">J\'atteste avoir lu le contrat d\'utilisation</string>
 
-    <!-- Form product -->
-    <string name="form_product_textview_product">PRODUIT</string>
-    <string name="form_product_edittext_name_hint">Nom</string>
-    <string name="form_product_edittext_price_hint">Prix</string>
-    <string name="form_product_textview_picture">Photo</string>
+    <!-- Form operation -->
+    <string name="form_operation_textview_date">DATE</string>
+    <string name="form_operation_textview_date_hint">2015</string>
+    <string name="form_operation_textview_type">TYPE</string>
+    <string name="form_operation_radiobutton_type_debit">Débit</string>
+    <string name="form_operation_radiobutton_type_credit">Crédit</string>
+    <string name="form_operation_textview_name">NOM</string>
+    <string name="form_operation_edittext_name_hint">Nom</string>
+    <string name="form_operation_textview_value">MONTANT</string>
+    <string name="form_operation_edittext_value_hint">0.0</string>
 
     <!-- Menu -->
     <string name="menu_item_action_accept">Valider</string>
@@ -105,18 +89,12 @@
     <string name="menu_item_action_edit">Modifier</string>
     <string name="menu_item_action_discard">Supprimer</string>
 
-    <!-- connexion Server -->
-    <string name="adressConnect">http://10.0.2.2:8080/WebProject</string>
-
     <!-- Tab -->
     <string name="tabitem_title_textview_date">DATE</string>
     <string name="tabitem_title_textview_name">NOM</string>
-    <string name="tabitem_title_textview_price">PRIX</string>
+    <string name="tabitem_title_textview_value">PRIX</string>
     <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_name">Nom</string>
-    <string name="tabitem_textview_price">Price</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tabitem_textview_value">Price</string>
 
 </resources>

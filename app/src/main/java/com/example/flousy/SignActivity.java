@@ -29,16 +29,23 @@ public class SignActivity extends MotherActivity {
 
     private static final int SIGNUP_TIMEOUT = 2000;
 
-    private DataAccessor dao = DBManager.getDao();
+    private DataAccessor dao;
     private FormUserViewHolder formUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_useraccount);
+        setContentView(R.layout.activity_sign);
 
         createFormUser();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        this.dao = DBManager.getDao();
     }
 
     @Override
@@ -65,12 +72,12 @@ public class SignActivity extends MotherActivity {
     private void createFormUser() {
         this.formUser = new FormUserViewHolder();
 
-        this.formUser.editTextFirstName = (EditText) findViewById(R.id.form_user_edittext_firstname);
-        this.formUser.editTextLastName = (EditText) findViewById(R.id.form_user_edittext_lastname);
-        this.formUser.editTextEmail = (EditText) findViewById(R.id.form_user_edittext_email);
-        this.formUser.editTextPassword = (EditText) findViewById(R.id.form_user_edittext_password);
-        this.formUser.editTextConfirmPassword = (EditText) findViewById(R.id.form_user_edittext_confirmpassword);
-        this.formUser.checkBoxValidTerms = (CheckBox) findViewById(R.id.form_user_checkbox_validterms);
+        this.formUser.editTextFirstName = (EditText) findViewById(R.id.sign_form_user_edittext_firstname);
+        this.formUser.editTextLastName = (EditText) findViewById(R.id.sign_form_user_edittext_lastname);
+        this.formUser.editTextEmail = (EditText) findViewById(R.id.sign_form_user_edittext_email);
+        this.formUser.editTextPassword = (EditText) findViewById(R.id.sign_form_user_edittext_password);
+        this.formUser.editTextConfirmPassword = (EditText) findViewById(R.id.sign_form_user_edittext_confirmpassword);
+        this.formUser.checkBoxValidTerms = (CheckBox) findViewById(R.id.sign_form_user_checkbox_terms);
     }
 
     private void signUp() {

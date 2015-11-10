@@ -1,21 +1,16 @@
 <resources>
     <!-- ActionBar -->
     <dimen name="actionbar_height">55dp</dimen>
-    <dimen name="actionbar_imagebutton_actionup_horizontalpadding">7dp</dimen>
-    <dimen name="actionbar_imagebutton_action_horizontalpadding">14dp</dimen>
 
     <!-- Activity -->
     <dimen name="activitycontent_padding">16dp</dimen><!-- Default screen margins, per the Android Design guidelines. -->
 
-    <!-- Activity LogIn -->
-    <dimen name="login_textview_restorepassword_padding">7dp</dimen>
-    <dimen name="login_textview_signup_padding">7dp</dimen>
-
     <!-- Activity SplashScreen -->
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
 
-    <!-- ActivityBar -->
-    <dimen name="activitybar_titled_textview_margin">7dp</dimen>
+    <!-- Activity Log -->
+    <dimen name="log_textview_restorepassword_padding">7dp</dimen>
+    <dimen name="log_textview_signup_padding">7dp</dimen>
 
     <!-- Button -->
     <dimen name="button_width">110dp</dimen>

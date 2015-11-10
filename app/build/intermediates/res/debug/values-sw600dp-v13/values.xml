@@ -10,9 +10,6 @@
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values-sw600dp/dimens.xml -->
     <eat-comment/>
     <dimen name="actionbar_height">73dp</dimen>
-    <dimen name="actionbar_imagebutton_action_horizontalpadding">19dp</dimen>
-    <dimen name="actionbar_imagebutton_actionup_horizontalpadding">9dp</dimen>
-    <dimen name="activitybar_titled_textview_margin">9dp</dimen>
     <dimen name="activitycontent_padding">21dp</dimen>
     <dimen name="button_horizontalpadding">27dp</dimen>
     <dimen name="button_verticalpadding">13dp</dimen>
@@ -27,19 +24,19 @@
     <dimen name="draweritem_menu_colorview_width">21dp</dimen>
     <dimen name="draweritem_textview_height">80dp</dimen>
     <dimen name="draweritem_title_textview_paddingtop">40dp</dimen>
+    <dimen name="form_user_checkbox_horizontalmargin">9dp</dimen>
     <dimen name="grid_items_space">16dp</dimen>
     <dimen name="griditem_size">160dp</dimen>
     <dimen name="griditem_verticalmargin_external">19dp</dimen>
     <dimen name="griditem_verticalmargin_internal">9dp</dimen>
-    <dimen name="login_textview_restorepassword_padding">9dp</dimen>
-    <dimen name="login_textview_signup_padding">9dp</dimen>
+    <dimen name="log_textview_restorepassword_padding">9dp</dimen>
+    <dimen name="log_textview_signup_padding">9dp</dimen>
     <dimen name="splashscreen_progressbar_margin">27dp</dimen>
     <dimen name="textsize_large">21sp</dimen>
     <dimen name="textsize_medium">19sp</dimen>
     <dimen name="textsize_small">16sp</dimen>
     <dimen name="textsize_xlarge">24sp</dimen>
     <dimen name="textsize_xxlarge">29sp</dimen>
-    <dimen name="userform_checkbox_horizontalmargin">9dp</dimen>
     <dimen name="view_margintop_large">27dp</dimen>
     <dimen name="view_margintop_medium">16dp</dimen>
     <dimen name="view_margintop_small">9dp</dimen>

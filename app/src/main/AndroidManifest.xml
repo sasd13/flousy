@@ -25,7 +25,7 @@
 
         <activity
             android:name=".LogActivity"
-            android:label="@string/activity_user_log_name"
+            android:label="@string/activity_log_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:noHistory="true">
@@ -33,7 +33,7 @@
 
         <activity
             android:name=".SignActivity"
-            android:label="@string/activity_user_account_name"
+            android:label="@string/activity_sign_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:noHistory="true">
@@ -48,7 +48,7 @@
 
         <activity
             android:name=".AccountActivity"
-            android:label="@string/activity_spends_name"
+            android:label="@string/activity_account_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".HomeActivity">
@@ -59,8 +59,20 @@
         </activity>
 
         <activity
-            android:name=".FinancesActivity"
-            android:label="@string/activity_finances_name"
+            android:name=".FinanceActivity"
+            android:label="@string/activity_finance_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+
+        <activity
+            android:name=".SettingActivity"
+            android:label="@string/activity_setting_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".HomeActivity">

@@ -3,9 +3,9 @@ package flousy.gui.content;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.flousy.SignActivity;
-import com.example.flousy.FinancesActivity;
 import com.example.flousy.AccountActivity;
+import com.example.flousy.SettingActivity;
+import com.example.flousy.FinanceActivity;
 import com.example.flousy.R;
 
 import java.util.ArrayList;
@@ -25,16 +25,22 @@ public class ListHomeMenuItems implements Iterable<HomeMenuItem> {
         this.list = new ArrayList<>();
 
         this.list.add(new HomeMenuItem(
-                context.getResources().getString(R.string.activity_finances_name),
-                context.getResources().getDrawable(R.drawable.griditem_finances),
-                context.getResources().getColor(R.color.customOrange),
-                new Intent(context, FinancesActivity.class)));
+                context.getResources().getString(R.string.activity_account_name),
+                context.getResources().getDrawable(R.drawable.griditem_new),
+                context.getResources().getColor(R.color.customGreen),
+                new Intent(context, AccountActivity.class)));
 
         this.list.add(new HomeMenuItem(
-                context.getResources().getString(R.string.activity_user_account_name),
+                context.getResources().getString(R.string.activity_finance_name),
+                context.getResources().getDrawable(R.drawable.griditem_finances),
+                context.getResources().getColor(R.color.customOrange),
+                new Intent(context, FinanceActivity.class)));
+
+        this.list.add(new HomeMenuItem(
+                context.getResources().getString(R.string.activity_setting_name),
                 context.getResources().getDrawable(R.drawable.griditem_settings),
                 context.getResources().getColor(R.color.customBrown),
-                new Intent(context, SignActivity.class)));
+                new Intent(context, SettingActivity.class)));
     }
 
     public static synchronized ListHomeMenuItems getInstance(Context context) {
@@ -43,24 +49,6 @@ public class ListHomeMenuItems implements Iterable<HomeMenuItem> {
         }
 
         return instance;
-    }
-
-    public HomeMenuItem get(int index) {
-        return this.list.get(index);
-    }
-
-    public HomeMenuItem get(String name) {
-        for (HomeMenuItem homeMenuItem : this.list) {
-            if (homeMenuItem.getName().equalsIgnoreCase(name)) {
-                return homeMenuItem;
-            }
-        }
-
-        return null;
-    }
-
-    public int size() {
-        return this.list.size();
     }
 
     @Override

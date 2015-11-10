@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activitycontent_padding"
+    android:scrollbars="vertical"
+    android:scrollbarStyle="outsideOverlay">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/form_operation_textview_date_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="@string/form_operation_textview_date"
+            android:textColor="@color/customRed"
+            android:textSize="@dimen/textsize_medium"
+            android:textStyle="bold|italic"/>
+
+        <View
+            android:id="@+id/form_operation_dividerview_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerview_height_medium"
+            android:layout_below="@id/form_operation_textview_date_title"
+            android:layout_marginTop="@dimen/dividerview_margintop"
+            android:background="@color/customRed"/>
+
+        <TextView
+            android:id="@+id/form_operation_textview_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/form_operation_dividerview_1"
+            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:text="@string/form_operation_textview_date_hint"
+            android:textColor="@color/customRed"
+            android:textSize="@dimen/textsize_medium"
+            android:textStyle="bold|italic"/>
+
+        <TextView
+            android:id="@+id/form_operation_textview_type_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/form_operation_textview_date"
+            android:layout_marginTop="@dimen/viewgroup_margintop"
+            android:text="@string/form_operation_textview_type"
+            android:textColor="@color/customRed"
+            android:textSize="@dimen/textsize_medium"
+            android:textStyle="bold|italic"/>
+
+        <View
+            android:id="@+id/form_operation_dividerview_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerview_height_medium"
+            android:layout_below="@id/form_operation_textview_type_title"
+            android:layout_marginTop="@dimen/dividerview_margintop"
+            android:background="@color/customRed"/>
+
+        <RadioGroup
+            android:id="@+id/form_operation_radiogroup_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/form_operation_dividerview_2"
+            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="3dp" >
+
+            <RadioButton
+                android:id="@+id/form_operation_radiobutton_type_debit"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="@string/form_operation_radiobutton_type_debit" />
+
+            <RadioButton
+                android:id="@+id/form_operation_radiobutton_type_credit"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:text="@string/form_operation_radiobutton_type_credit" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/form_operation_textview_name_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/form_operation_radiogroup_type"
+            android:layout_marginTop="@dimen/viewgroup_margintop"
+            android:text="@string/form_operation_textview_name"
+            android:textColor="@color/customRed"
+            android:textSize="@dimen/textsize_medium"
+            android:textStyle="bold|italic"/>
+
+        <View
+            android:id="@+id/form_operation_dividerview_3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerview_height_medium"
+            android:layout_below="@id/form_operation_textview_name_title"
+            android:layout_marginTop="@dimen/dividerview_margintop"
+            android:background="@color/customRed"/>
+
+        <EditText
+            android:id="@+id/form_operation_edittext_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/form_operation_dividerview_3"
+            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:background="@drawable/edit_text_holo_light"
+            android:hint="@string/form_operation_edittext_name_hint"
+            android:inputType="text"
+            android:textSize="@dimen/textsize_medium"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/form_operation_textview_value_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/form_operation_edittext_name"
+            android:layout_marginTop="@dimen/viewgroup_margintop"
+            android:text="@string/form_operation_textview_value"
+            android:textColor="@color/customRed"
+            android:textSize="@dimen/textsize_medium"
+            android:textStyle="bold|italic"/>
+
+        <View
+            android:id="@+id/form_operation_dividerview_4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerview_height_medium"
+            android:layout_below="@id/form_operation_textview_value_title"
+            android:layout_marginTop="@dimen/dividerview_margintop"
+            android:background="@color/customRed"/>
+
+        <EditText
+            android:id="@+id/form_operation_edittext_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/form_operation_dividerview_4"
+            android:layout_marginTop="@dimen/view_margintop_medium"
+            android:background="@drawable/edit_text_holo_light"
+            android:hint="@string/form_operation_edittext_value_hint"
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/textsize_medium"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+
+    </RelativeLayout>
+
+</ScrollView>

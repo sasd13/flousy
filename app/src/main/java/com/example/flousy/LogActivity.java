@@ -31,7 +31,7 @@ public class LogActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_userlog);
+        setContentView(R.layout.activity_log);
 
         createFormLogIn();
         customizeView();
@@ -40,10 +40,10 @@ public class LogActivity extends Activity {
     private void createFormLogIn() {
         this.formLogIn = new FormLogInViewHolder();
 
-        this.formLogIn.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
-        this.formLogIn.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
+        this.formLogIn.editTextEmail = (EditText) findViewById(R.id.log_edittext_email);
+        this.formLogIn.editTextPassword = (EditText) findViewById(R.id.log_edittext_password);
 
-        this.formLogIn.buttonConnect = (Button) findViewById(R.id.login_button_connect);
+        this.formLogIn.buttonConnect = (Button) findViewById(R.id.log_button_connect);
         this.formLogIn.buttonConnect.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -65,8 +65,8 @@ public class LogActivity extends Activity {
         } else {
             CustomDialog.showOkDialog(
                     this,
-                    getResources().getString(R.string.login_alertdialog_login_title_error),
-                    getResources().getString(R.string.login_alertdialog_login_message_error));
+                    getResources().getString(R.string.log_alertdialog_login_title_error),
+                    getResources().getString(R.string.log_alertdialog_login_message_error));
         }
     }
 
@@ -95,7 +95,7 @@ public class LogActivity extends Activity {
     private void customizeView() {
         //Add underline and link for textViews
         TextView[] textViews = {
-                (TextView) findViewById(R.id.login_textview_signup)
+                (TextView) findViewById(R.id.log_textview_signup)
         };
 
         SpannableString text;
@@ -105,7 +105,7 @@ public class LogActivity extends Activity {
             textView.setText(text);
 
             switch (textView.getId()) {
-                case R.id.login_textview_signup :
+                case R.id.log_textview_signup :
                     textView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

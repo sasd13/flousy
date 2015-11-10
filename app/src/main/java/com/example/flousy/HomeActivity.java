@@ -92,8 +92,8 @@ public class HomeActivity extends MotherActivity {
         String firstName = getIntent().getStringExtra(Extra.USER_FIRSTNAME);
         CustomDialog.showOkDialog(
                 this,
-                getResources().getString(R.string.menu_alertdialog_welcome_title),
-                getResources().getString(R.string.menu_alertdialog_welcome_message) + " " + firstName + " !");
+                getResources().getString(R.string.home_alertdialog_welcome_title),
+                getResources().getString(R.string.home_alertdialog_welcome_message) + " " + firstName + " !");
     }
 
     private void exit() {

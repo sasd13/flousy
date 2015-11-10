@@ -38,7 +38,7 @@ public class OperationActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.recyclerview);
+        setContentView(R.layout.activity_operation);
 
         createFormOperation();
     }
@@ -102,9 +102,9 @@ public class OperationActivity extends MotherActivity {
     private void createFormOperation() {
         this.formOperation = new FormOperationViewHolder();
 
-        this.formOperation.textViewDate = (TextView) findViewById(0);
-        this.formOperation.editTextName = (EditText) findViewById(0);
-        this.formOperation.editTextValue = (EditText) findViewById(0);
+        this.formOperation.textViewDate = (TextView) findViewById(R.id.form_operation_textview_date);
+        this.formOperation.editTextName = (EditText) findViewById(R.id.form_operation_edittext_name);
+        this.formOperation.editTextValue = (EditText) findViewById(R.id.form_operation_edittext_value);
 
         this.formOperation.radioGroupType = (RadioGroup) findViewById(0);
         this.formOperation.radioButtonDebit = (RadioButton) findViewById(0);
