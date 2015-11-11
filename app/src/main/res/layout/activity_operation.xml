@@ -144,6 +144,7 @@
             android:background="@drawable/edit_text_holo_light"
             android:hint="@string/form_operation_edittext_value_hint"
             android:inputType="numberDecimal"
+            android:numeric="decimal"
             android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
             android:singleLine="true"/>

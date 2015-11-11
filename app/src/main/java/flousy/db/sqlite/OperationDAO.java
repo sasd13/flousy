@@ -39,7 +39,7 @@ public class OperationDAO extends SQLiteTableDAO<Operation> implements Operation
         operation.setDate(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_DATE))));
         operation.setType(OperationType.valueOf(cursor.getString(cursor.getColumnIndex(OPERATION_TYPE))));
         operation.setName(cursor.getString(cursor.getColumnIndex(OPERATION_NAME)));
-        operation.setValue(cursor.getLong(cursor.getColumnIndex(OPERATION_VALUE)));
+        operation.setValue(cursor.getDouble(cursor.getColumnIndex(OPERATION_VALUE)));
 
         return operation;
     }

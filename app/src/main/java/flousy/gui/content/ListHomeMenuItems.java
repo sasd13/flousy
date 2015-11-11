@@ -5,7 +5,6 @@ import android.content.Intent;
 
 import com.example.flousy.AccountActivity;
 import com.example.flousy.SettingActivity;
-import com.example.flousy.FinanceActivity;
 import com.example.flousy.R;
 
 import java.util.ArrayList;
@@ -29,12 +28,6 @@ public class ListHomeMenuItems implements Iterable<HomeMenuItem> {
                 context.getResources().getDrawable(R.drawable.griditem_new),
                 context.getResources().getColor(R.color.customGreen),
                 new Intent(context, AccountActivity.class)));
-
-        this.list.add(new HomeMenuItem(
-                context.getResources().getString(R.string.activity_finance_name),
-                context.getResources().getDrawable(R.drawable.griditem_finances),
-                context.getResources().getColor(R.color.customOrange),
-                new Intent(context, FinanceActivity.class)));
 
         this.list.add(new HomeMenuItem(
                 context.getResources().getString(R.string.activity_setting_name),

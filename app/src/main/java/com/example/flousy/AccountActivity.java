@@ -8,6 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 import flousy.beans.core.Account;
 import flousy.beans.core.Operation;
 import flousy.constant.Extra;
@@ -75,7 +77,9 @@ public class AccountActivity extends MotherActivity {
     }
 
     private void fillTextViewSold(Account account) {
-        this.textViewSold.setText(String.valueOf(account.getSold()));
+        DecimalFormat df = new DecimalFormat("#.##");
+
+        this.textViewSold.setText(String.valueOf(df.format(account.getSold())));
     }
 
     private void fillTabOperations(Account account) {

@@ -73,18 +73,6 @@
                 android:value=".AccountActivity" />
         </activity>
         <activity
-            android:name="com.example.flousy.FinanceActivity"
-            android:label="@string/activity_finance_name"
-            android:parentActivityName="com.example.flousy.HomeActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
-        </activity>
-        <activity
             android:name="com.example.flousy.SettingActivity"
             android:label="@string/activity_setting_name"
             android:parentActivityName="com.example.flousy.HomeActivity"
