@@ -12,13 +12,15 @@ import flousy.db.AccountTableAccessor;
 /**
  * Created by Samir on 02/04/2015.
  */
-class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableAccessor {
+public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableAccessor {
+
+    public AccountDAO(SQLiteDBHandler dbHandler) { super(dbHandler); }
 
     @Override
     protected ContentValues getContentValues(Account account) {
         ContentValues values = new ContentValues();
 
-        values.put(ACCOUNT_ID, account.getId());
+        //values.put(ACCOUNT_ID, account.getId()); //autoincrement
         values.put(ACCOUNT_DATEOPENING, String.valueOf(account.getDateOpening()));
         values.put(ACCOUNT_SOLD, account.getSold());
 

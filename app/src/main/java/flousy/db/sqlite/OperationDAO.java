@@ -14,13 +14,15 @@ import flousy.db.OperationTableAccessor;
 /**
  * Created by Samir on 02/04/2015.
  */
-class OperationDAO extends SQLiteTableDAO<Operation> implements OperationTableAccessor {
+public class OperationDAO extends SQLiteTableDAO<Operation> implements OperationTableAccessor {
+
+    public OperationDAO(SQLiteDBHandler dbHandler) { super(dbHandler); }
 
     @Override
     protected ContentValues getContentValues(Operation operation) {
         ContentValues values = new ContentValues();
 
-        values.put(OPERATION_ID, operation.getId());
+        //values.put(OPERATION_ID, operation.getId()); //autoincrement
         values.put(OPERATION_DATE, String.valueOf(operation.getDate()));
         values.put(OPERATION_TYPE, String.valueOf(operation.getType()));
         values.put(OPERATION_NAME, operation.getName());
@@ -89,7 +91,7 @@ class OperationDAO extends SQLiteTableDAO<Operation> implements OperationTableAc
 
     @Override
     public ListOperations selectByAccount(long accountId, boolean ascOrdered) {
-        ListOperations listITrafficOperations = new ListOperations();
+        ListOperations listOperations = new ListOperations();
 
         String order = ascOrdered ? "ASC" : "DESC";
 
@@ -100,10 +102,10 @@ class OperationDAO extends SQLiteTableDAO<Operation> implements OperationTableAc
                         + " order by " + OPERATION_DATE + " " + order, new String[]{String.valueOf(accountId)});
 
         while (cursor.moveToNext()) {
-            listITrafficOperations.add(getCursorValues(cursor));
+            listOperations.add(getCursorValues(cursor));
         }
         cursor.close();
 
-        return listITrafficOperations;
+        return listOperations;
     }
 }

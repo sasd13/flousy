@@ -14,8 +14,8 @@ import android.widget.EditText;
 import flousy.beans.core.Account;
 import flousy.constant.Extra;
 import flousy.beans.core.User;
-import flousy.db.DBManager;
 import flousy.db.DataAccessor;
+import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
@@ -30,7 +30,6 @@ public class SignActivity extends ActionBarActivity {
 
     private static final int SIGNUP_TIMEOUT = 2000;
 
-    private DataAccessor dao;
     private FormUserViewHolder formUser;
 
     @Override
@@ -40,13 +39,6 @@ public class SignActivity extends ActionBarActivity {
         setContentView(R.layout.activity_sign);
 
         createFormUser();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        this.dao = DBManager.getDao();
     }
 
     @Override
@@ -87,7 +79,7 @@ public class SignActivity extends ActionBarActivity {
         if (tabFormErrors.length == 0) {
             User user = getUserFromForm();
 
-            boolean containsUserEmail = this.dao.containsUserByEmail(user.getEmail());
+            boolean containsUserEmail = DataAccessorFactory.get().containsUserByEmail(user.getEmail());
 
             if (!containsUserEmail) {
                 createUser(user);
@@ -142,8 +134,10 @@ public class SignActivity extends ActionBarActivity {
     private void createUser(User user) {
         Account account = new Account();
 
-        this.dao.insertUser(user);
-        this.dao.insertAccount(account, user);
+        DataAccessor dao = DataAccessorFactory.get();
+
+        dao.insertUser(user);
+        dao.insertAccount(account, user);
     }
 
     private void goToHomeActivityWithWelcome(String firstName) {

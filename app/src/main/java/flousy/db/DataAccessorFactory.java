@@ -1,25 +1,24 @@
 package flousy.db;
 
+import flousy.db.DataAccessor;
 import flousy.db.sqlite.SQLiteDAO;
 
 /**
- * Created by Samir on 11/06/2015.
+ * Created by Samir on 11/11/2015.
  */
-class DataAccessorFactory {
+public class DataAccessorFactory {
 
     private DataAccessorFactory() {}
 
-    public static DataAccessor create(String type) {
-        if ("MYSQL".equalsIgnoreCase(type)) {
+    public static DataAccessor get() {
+        return get("SQLITE");
+    }
 
-        } else if ("POSTGRESQL".equalsIgnoreCase(type)) {
-
-        } else if ("ORACLE".equalsIgnoreCase(type)) {
-
-        } else if ("SQLSERVER".equalsIgnoreCase(type)) {
-
+    public static DataAccessor get(String dbType) {
+        if ("SQLITE".equalsIgnoreCase(dbType)) {
+            return SQLiteDAO.getInstance();
         }
 
-        return SQLiteDAO.getInstance();
+        return null;
     }
 }

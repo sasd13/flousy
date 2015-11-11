@@ -13,7 +13,7 @@ public class Extra {
     public static final int MODE_NEW = 1;
     public static final int MODE_EDIT = 2;
 
-    public static final long NULL_ID = -1;
+    public static final long NULL_ID = 0;
 
     public static final String USER_FIRSTNAME = "USER_FIRSTNAME";
 

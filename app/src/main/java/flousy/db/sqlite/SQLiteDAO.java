@@ -19,11 +19,7 @@ public class SQLiteDAO implements DataAccessor {
     private AccountDAO accountDAO;
     private OperationDAO operationDAO;
 
-	private SQLiteDAO() {
-        userDAO = new UserDAO();
-        accountDAO = new AccountDAO();
-        operationDAO = new OperationDAO();
-    }
+	private SQLiteDAO() {}
 
     public static synchronized SQLiteDAO getInstance() {
         if (instance == null) {
@@ -42,9 +38,9 @@ public class SQLiteDAO implements DataAccessor {
     public void init(Context context) {
         SQLiteDBHandler dbHandler = new SQLiteDBHandler(context, NOM, null, VERSION);
 
-        userDAO.setDBHandler(dbHandler);
-        accountDAO.setDBHandler(dbHandler);
-        operationDAO.setDBHandler(dbHandler);
+        userDAO = new UserDAO(dbHandler);
+        accountDAO = new AccountDAO(dbHandler);
+        operationDAO = new OperationDAO(dbHandler);
     }
 
     @Override
@@ -72,10 +68,6 @@ public class SQLiteDAO implements DataAccessor {
         id = accountDAO.insert(account, user);
         if (id > 0) {
             account.setId(id);
-
-            for (Operation operation : account.getListOperations()) {
-                insertOperation(operation, account);
-            }
         }
 
         accountDAO.close();
@@ -211,7 +203,7 @@ public class SQLiteDAO implements DataAccessor {
 
         userDAO.open();
 
-        contains = userDAO.contains(email);
+        contains = userDAO.containsByEmail(email);
 
         userDAO.close();
 
@@ -226,23 +218,18 @@ public class SQLiteDAO implements DataAccessor {
 
         account = accountDAO.selectByUser(userId);
 
-        try {
-            account = selectAccount(account.getId());
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-
         accountDAO.close();
 
         return account;
     }
 
     @Override
-    public Account selectAccountWithOperations(long id) {
-        Account account = selectAccount(id);
+    public Account selectAccountByUserWithOperations(long userId) {
+        Account account = selectAccountByUser(userId);
 
         try {
-            account.setListOperations(operationDAO.selectByAccount(account.getId()));
+            ListOperations listOperations = selectOperationsByAccount(account.getId());
+            account.setListOperations(listOperations);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }

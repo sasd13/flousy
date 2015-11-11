@@ -324,6 +324,8 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="account_textview_sold">0.0</string>
+    <string name="account_textview_sold_title">SOLDE</string>
     <string name="actionbar_textview_subtitle">Sous-titre</string>
     <string name="actionbar_textview_title">Titre</string>
     <string name="activity_account_name">Compte</string>
@@ -373,11 +375,11 @@
     <string name="log_button_connect">Connexion</string>
     <string name="log_textview_restorepassword">Mot de passe oublié ?</string>
     <string name="log_textview_sign">Inscription sur Flousy</string>
-    <string name="menu_item_action_accept">Valider</string>
-    <string name="menu_item_action_discard">Supprimer</string>
-    <string name="menu_item_action_edit">Modifier</string>
-    <string name="menu_item_action_logout">Déconnecter</string>
-    <string name="menu_item_action_new">Nouveau</string>
+    <string name="menuitem_action_accept">Valider</string>
+    <string name="menuitem_action_discard">Supprimer</string>
+    <string name="menuitem_action_edit">Modifier</string>
+    <string name="menuitem_action_logout">Déconnecter</string>
+    <string name="menuitem_action_new">Nouveau</string>
     <string name="search_hint">Rechercher</string>
     <string name="sign_alertdialog_sign_error_message">Remplir le formulaire d\'inscription</string>
     <string name="sign_alertdialog_sign_error_title">Erreur inscription</string>

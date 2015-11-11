@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
-import flousy.db.DBManager;
+import flousy.db.DataAccessorFactory;
 import flousy.session.Session;
 
 public class SplashScreenActivity extends Activity {
@@ -29,7 +29,7 @@ public class SplashScreenActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        DBManager.start(this);
+        DataAccessorFactory.get().init(this);
         Session.start(this);
 
         if (Session.isUserLoggedIn()) {

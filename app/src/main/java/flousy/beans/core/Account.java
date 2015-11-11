@@ -55,6 +55,12 @@ public class Account implements Observer {
     }
 
     public void update(Observable observable, Object data) {
+        update();
+    }
+
+    public void update() {
+        this.sold = 0;
+
         for (Operation operation : this.listOperations) {
             this.sold += operation.getValue();
         }

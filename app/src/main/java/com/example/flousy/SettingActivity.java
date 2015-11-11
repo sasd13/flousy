@@ -8,8 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import flousy.beans.core.User;
-import flousy.db.DBManager;
 import flousy.db.DataAccessor;
+import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.session.Session;
@@ -20,8 +20,6 @@ public class SettingActivity extends MotherActivity {
         public EditText editTextFirstName, editTextLastName, editTextEmail;
     }
 
-    private DataAccessor dao;
-    private long userId;
     private FormUserViewHolder formUser;
 
     @Override
@@ -37,11 +35,9 @@ public class SettingActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        this.dao = DBManager.getDao();
+        User user = DataAccessorFactory.get().selectUser(Session.getUserId());
 
-        this.userId = Session.getUserId();
-
-        fillFormUser();
+        fillFormUser(user);
     }
 
     @Override
@@ -73,9 +69,7 @@ public class SettingActivity extends MotherActivity {
         this.formUser.editTextEmail = (EditText) findViewById(R.id.setting_form_user_edittext_email);
     }
 
-    private void fillFormUser() {
-        User user = this.dao.selectUser(this.userId);
-
+    private void fillFormUser(User user) {
         this.formUser.editTextFirstName.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
         this.formUser.editTextLastName.setText(user.getLastName(), TextView.BufferType.EDITABLE);
         this.formUser.editTextEmail.setText(user.getEmail(), TextView.BufferType.EDITABLE);
@@ -87,14 +81,20 @@ public class SettingActivity extends MotherActivity {
         if (tabFormErrors.length == 0) {
             String email = this.formUser.editTextEmail.getText().toString().trim();
 
-            boolean containsUserEmail = this.dao.containsUserByEmail(email);
+            DataAccessor dao = DataAccessorFactory.get();
+
+            boolean containsUserEmail = dao.containsUserByEmail(email);
 
             if (!containsUserEmail) {
-                User user = editUserWithForm();
-
-                this.dao.updateUser(user);
+                saveChanges();
             } else {
-                CustomDialog.showOkDialog(this, "Update error", "Email (" + email + ") already exists");
+                User user = dao.selectUserByEmail(email);
+
+                if (user.getId() == Session.getUserId()) {
+                    saveChanges();
+                } else {
+                    CustomDialog.showOkDialog(this, "Update error", "Email (" + email + ") already exists");
+                }
             }
         } else {
             CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
@@ -115,8 +115,14 @@ public class SettingActivity extends MotherActivity {
         return formValidator.getErrors();
     }
 
+    private void saveChanges() {
+        User user = editUserWithForm();
+
+        DataAccessorFactory.get().updateUser(user);
+    }
+
     private User editUserWithForm() {
-        User user = this.dao.selectUser(this.userId);
+        User user = DataAccessorFactory.get().selectUser(Session.getUserId());
 
         User userFromForm = getUserFromForm();
         user.setFirstName(userFromForm.getFirstName());

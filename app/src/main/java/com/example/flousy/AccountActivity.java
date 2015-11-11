@@ -6,12 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-import flousy.beans.core.ListOperations;
+import flousy.beans.core.Account;
 import flousy.beans.core.Operation;
 import flousy.constant.Extra;
-import flousy.db.DataAccessor;
-import flousy.db.DBManager;
+import flousy.db.DataAccessorFactory;
 import flousy.gui.widget.recycler.tab.Tab;
 import flousy.gui.widget.recycler.tab.TabItemOperation;
 import flousy.gui.widget.recycler.tab.TabItemOperationTitle;
@@ -19,15 +19,16 @@ import flousy.session.Session;
 
 public class AccountActivity extends MotherActivity {
 
-    private DataAccessor dao;
+    private TextView textViewSold;
     private Tab tab;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.recyclerview);
+        setContentView(R.layout.activity_account);
 
+        createTextViewSold();
         createTabOperations();
     }
 
@@ -35,9 +36,10 @@ public class AccountActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        this.dao = DBManager.getDao();
+        Account account = DataAccessorFactory.get().selectAccountByUserWithOperations(Session.getUserId());
 
-        fillTabOperations();
+        fillTextViewSold(account);
+        fillTabOperations(account);
     }
 
     @Override
@@ -61,24 +63,29 @@ public class AccountActivity extends MotherActivity {
         return true;
     }
 
+    private void createTextViewSold() {
+        this.textViewSold = (TextView) findViewById(R.id.account_textview_sold);
+    }
+
     private void createTabOperations() {
         this.tab = new Tab(this);
 
-        RecyclerView tabView = (RecyclerView) findViewById(R.id.recyclerview);
+        RecyclerView tabView = (RecyclerView) findViewById(R.id.account_recyclerview);
         this.tab.adapt(tabView);
     }
 
-    private void fillTabOperations() {
+    private void fillTextViewSold(Account account) {
+        this.textViewSold.setText(String.valueOf(account.getSold()));
+    }
+
+    private void fillTabOperations(Account account) {
         this.tab.clearItems();
 
         this.tab.addItem(new TabItemOperationTitle());
 
-        long accountId = Session.getAccountId();
-        ListOperations listOperations = this.dao.selectOperationsByAccount(accountId);
-
         TabItemOperation tabItemOperation;
         Intent intent;
-        for (Operation operation : listOperations) {
+        for (Operation operation : account.getListOperations()) {
             tabItemOperation = new TabItemOperation();
 
             tabItemOperation.setDate(String.valueOf(operation.getDate()));

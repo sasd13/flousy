@@ -76,10 +76,10 @@ public class CustomDialogBuilder extends AlertDialog.Builder {
 
     public CustomDialogBuilder setNegativeButton(DialogInterface.OnClickListener listener) {
         switch (this.dialogType) {
-            case TYPE_TWOBUTTON_YESNO :
+            case TYPE_TWOBUTTON_YESNO:
                 super.setNegativeButton(R.string.alertdialog_button_no, listener);
                 break;
-            case TYPE_TWOBUTTON_OKCANCEL :
+            case TYPE_TWOBUTTON_OKCANCEL:
                 super.setNegativeButton(R.string.alertdialog_button_cancel, listener);
                 break;
         }

@@ -32,6 +32,10 @@
     <string name="home_alertdialog_welcome_title">Bienvenue</string>
     <string name="home_alertdialog_welcome_message">Salut</string>
 
+    <!-- Activity Account -->
+    <string name="account_textview_sold_title">SOLDE</string>
+    <string name="account_textview_sold">0.0</string>
+
     <!-- Application -->
     <string name="app_name">Flousy</string>
 
@@ -83,11 +87,11 @@
     <string name="form_operation_edittext_value_hint">0.0</string>
 
     <!-- Menu -->
-    <string name="menu_item_action_accept">Valider</string>
-    <string name="menu_item_action_logout">Déconnecter</string>
-    <string name="menu_item_action_new">Nouveau</string>
-    <string name="menu_item_action_edit">Modifier</string>
-    <string name="menu_item_action_discard">Supprimer</string>
+    <string name="menuitem_action_accept">Valider</string>
+    <string name="menuitem_action_logout">Déconnecter</string>
+    <string name="menuitem_action_new">Nouveau</string>
+    <string name="menuitem_action_edit">Modifier</string>
+    <string name="menuitem_action_discard">Supprimer</string>
 
     <!-- Tab -->
     <string name="tabitem_title_textview_date">DATE</string>

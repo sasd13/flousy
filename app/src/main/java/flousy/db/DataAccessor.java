@@ -46,7 +46,7 @@ public interface DataAccessor {
 
     Account selectAccountByUser(long userId);
 
-    Account selectAccountWithOperations(long id);
+    Account selectAccountByUserWithOperations(long userId);
 
     ListOperations selectOperationsByAccount(long accountId);
 }

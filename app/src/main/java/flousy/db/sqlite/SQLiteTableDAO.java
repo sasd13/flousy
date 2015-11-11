@@ -7,18 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by Samir on 05/06/2015.
  */
-abstract class SQLiteTableDAO<T> {
+public abstract class SQLiteTableDAO<T> {
 
     private SQLiteDatabase db;
     private SQLiteDBHandler dbHandler;
 
-    protected SQLiteTableDAO() {}
-
-    protected SQLiteDatabase getDB() { return this.db; }
-
-    public void setDBHandler(SQLiteDBHandler dbHandler) {
+    protected SQLiteTableDAO(SQLiteDBHandler dbHandler) {
         this.dbHandler = dbHandler;
     }
+
+    protected SQLiteDatabase getDB() { return this.db; }
 
     public void open() { this.db = this.dbHandler.getWritableDatabase(); }
 

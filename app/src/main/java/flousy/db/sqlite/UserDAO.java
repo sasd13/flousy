@@ -9,13 +9,15 @@ import flousy.db.UserTableAccessor;
 /**
  * Created by Samir on 02/04/2015.
  */
-class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
+public class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
+
+    public UserDAO(SQLiteDBHandler dbHandler) { super(dbHandler); }
 
     @Override
     protected ContentValues getContentValues(User user) {
         ContentValues values = new ContentValues();
 
-        values.put(USER_ID, user.getId());
+        //values.put(USER_ID, user.getId()); //autoincrement
         values.put(USER_FIRSTNAME, user.getFirstName());
         values.put(USER_LASTNAME, user.getLastName());
         values.put(USER_EMAIL, user.getEmail());
@@ -39,7 +41,7 @@ class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
 
     @Override
     public long insert(User user) {
-        return getDB().insert(USER_TABLE_NAME, null, getContentValues(user));
+        return getDB().insertOrThrow(USER_TABLE_NAME, null, getContentValues(user));
     }
 
     @Override
@@ -87,7 +89,7 @@ class UserDAO extends SQLiteTableDAO<User> implements UserTableAccessor {
     }
 
     @Override
-    public boolean contains(String email) {
+    public boolean containsByEmail(String email) {
         boolean contains = false;
 
         Cursor cursor = getDB().rawQuery(

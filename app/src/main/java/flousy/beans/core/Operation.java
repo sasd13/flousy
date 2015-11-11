@@ -20,9 +20,10 @@ public class Operation {
     public Operation(OperationType type, String name, double value) {
         this();
 
-        this.type = type;
         this.name = name;
-        this.value = value;
+
+        setType(type);
+        setValue(value);
     }
 
     public long getId() {
@@ -41,12 +42,12 @@ public class Operation {
         this.date = date;
     }
 
-    public OperationType getType() {
-        return this.type;
-    }
+    public OperationType getType() { return this.type; }
 
     public void setType(OperationType type) {
         this.type = type;
+
+        update();
     }
 
     public String getName() {
@@ -63,17 +64,30 @@ public class Operation {
 
     public void setValue(double value) {
         this.value = value;
+
+        update();
     }
 
-    public String getDiaryEntry() {
-        return toString();
+    private void update() {
+        try {
+            switch (this.type) {
+                case DEBIT:
+                    setValue(0 - Math.abs(this.value));
+                    break;
+                case CREDIT:
+                    setValue(Math.abs(this.value));
+                    break;
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     public String toString() {
         return "["
                 + "id: " + this.id + ", "
                 + "date: " + String.valueOf(this.date) + ", "
-                + "type: " + String.valueOf(this.type) + ", "
+                + "type: " + getType() + ", "
                 + "name: " + this.name + ", "
                 + "value: " + this.value + "]";
     }

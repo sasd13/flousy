@@ -4,6 +4,6 @@
 
     <item android:id="@+id/menu_account_action_new"
         android:icon="@drawable/ic_action_new"
-        android:title="@string/menu_item_action_logout"
+        android:title="@string/menuitem_action_logout"
         flousy:showAsAction="ifRoom"/>
 </menu><!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/menu/menu_account.xml -->

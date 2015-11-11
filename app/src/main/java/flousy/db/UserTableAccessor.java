@@ -17,5 +17,5 @@ public interface UserTableAccessor extends TableAccessor<User> {
 
     User selectByEmail(String email);
 
-    boolean contains(String email);
+    boolean containsByEmail(String email);
 }

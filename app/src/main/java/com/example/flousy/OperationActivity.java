@@ -16,8 +16,8 @@ import flousy.beans.core.Account;
 import flousy.beans.core.Operation;
 import flousy.beans.core.OperationType;
 import flousy.constant.Extra;
-import flousy.db.DBManager;
 import flousy.db.DataAccessor;
+import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.session.Session;
@@ -31,9 +31,6 @@ public class OperationActivity extends MotherActivity {
         public RadioButton radioButtonDebit, radioButtonCredit;
     }
 
-    private DataAccessor dao;
-    private int extraMode;
-    private long operationId;
     private FormOperationViewHolder formOperation;
 
     @Override
@@ -49,14 +46,13 @@ public class OperationActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        this.dao = DBManager.getDao();
+        if (getExtraMode() == Extra.MODE_NEW) {
+            fillNewFormOperation();
+        } else {
+            Operation operation = DataAccessorFactory.get().selectOperation(getOperationIdFromIntent());
 
-        this.extraMode = getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW);
-        if (this.extraMode == Extra.MODE_EDIT) {
-            this.operationId = getIntent().getLongExtra(Extra.OPERATION_ID, Extra.NULL_ID);
+            fillEditFormOperation(operation);
         }
-
-        fillFormOperation();
     }
 
     @Override
@@ -71,10 +67,8 @@ public class OperationActivity extends MotherActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        if (this.extraMode == Extra.MODE_NEW) {
+        if (getExtraMode() == Extra.MODE_NEW) {
             menu.findItem(R.id.menu_operation_action_discard).setVisible(false);
-        } else {
-            menu.findItem(R.id.menu_operation_action_accept).setVisible(false);
         }
 
         return true;
@@ -84,7 +78,7 @@ public class OperationActivity extends MotherActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_operation_action_accept:
-                if (this.extraMode == Extra.MODE_NEW) {
+                if (getExtraMode() == Extra.MODE_NEW) {
                     createOperation();
                 } else {
                     updateOperation();
@@ -112,20 +106,18 @@ public class OperationActivity extends MotherActivity {
         this.formOperation.radioButtonCredit = (RadioButton) findViewById(R.id.form_operation_radiobutton_type_credit);
     }
 
-    private void fillFormOperation() {
-        if (this.extraMode == Extra.MODE_EDIT) {
-            prepareEditFormOperation();
-        } else {
-            prepareNewFormOperation();
-        }
+    private int getExtraMode() {
+        return getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW);
     }
 
-    private void prepareEditFormOperation() {
-        Operation operation = this.dao.selectOperation(this.operationId);
+    private long getOperationIdFromIntent() {
+        return getIntent().getLongExtra(Extra.OPERATION_ID, Extra.NULL_ID);
+    }
 
+    private void fillEditFormOperation(Operation operation) {
         this.formOperation.textViewDate.setText(String.valueOf(operation.getDate()));
         this.formOperation.editTextName.setText(operation.getName(), TextView.BufferType.EDITABLE);
-        this.formOperation.editTextValue.setText(String.valueOf(operation.getValue()), TextView.BufferType.EDITABLE);
+        this.formOperation.editTextValue.setText(String.valueOf(Math.abs(operation.getValue())), TextView.BufferType.EDITABLE);
 
         switch (operation.getType()) {
             case DEBIT:
@@ -137,7 +129,7 @@ public class OperationActivity extends MotherActivity {
         }
     }
 
-    private void prepareNewFormOperation() {
+    private void fillNewFormOperation() {
         this.formOperation.textViewDate.setText(String.valueOf(new Timestamp(System.currentTimeMillis())));
         this.formOperation.radioButtonDebit.setChecked(true);
     }
@@ -148,10 +140,14 @@ public class OperationActivity extends MotherActivity {
         if (tabFormErrors.length == 0) {
             Operation operation = getOperationFromForm();
 
-            long accountId = Session.getAccountId();
-            Account account = this.dao.selectAccount(accountId);
+            DataAccessor dao = DataAccessorFactory.get();
 
-            this.dao.insertOperation(operation, account);
+            Account account = dao.selectAccountByUserWithOperations(Session.getUserId());
+
+            dao.insertOperation(operation, account);
+
+            account.getListOperations().add(operation);
+            dao.updateAccount(account);
 
             goToAccountActivity();
         } else {
@@ -178,7 +174,7 @@ public class OperationActivity extends MotherActivity {
         String value = this.formOperation.editTextValue.getText().toString().trim();
 
         operation.setName(name);
-        operation.setValue(Double.valueOf(value));
+        operation.setValue(Double.parseDouble(value));
 
         switch (this.formOperation.radioGroupType.getCheckedRadioButtonId()) {
             case R.id.form_operation_radiobutton_type_debit:
@@ -204,9 +200,16 @@ public class OperationActivity extends MotherActivity {
         String[] tabFormErrors = validFormOperation();
 
         if (tabFormErrors.length == 0) {
-            Operation operation = editOperationWithForm();
+            DataAccessor dao = DataAccessorFactory.get();
 
-            this.dao.updateOperation(operation);
+            Account account = dao.selectAccountByUserWithOperations(Session.getUserId());
+
+            Operation operation = account.getListOperations().get(getOperationIdFromIntent());
+            editOperationWithForm(operation);
+            dao.updateOperation(operation);
+
+            account.update();
+            dao.updateAccount(account);
 
             goToAccountActivity();
         } else {
@@ -214,21 +217,23 @@ public class OperationActivity extends MotherActivity {
         }
     }
 
-    private Operation editOperationWithForm() {
-        Operation operation = this.dao.selectOperation(this.operationId);
-
+    private void editOperationWithForm(Operation operation) {
         Operation operationFromForm = getOperationFromForm();
+
         operation.setName(operationFromForm.getName());
         operation.setValue(operationFromForm.getValue());
-        operation.setType(operationFromForm.getType());
-
-        return operation;
     }
 
     private void deleteOperation() {
-        Operation operation = this.dao.selectOperation(this.operationId);
+        DataAccessor dao = DataAccessorFactory.get();
 
-        this.dao.deleteOperation(operation);
+        Account account = dao.selectAccountByUserWithOperations(Session.getUserId());
+
+        Operation operation = account.getListOperations().get(getOperationIdFromIntent());
+        dao.deleteOperation(operation);
+
+        account.update();
+        dao.updateAccount(account);
 
         CustomDialog.showOkDialog(this, "Operation", "Operation deleted");
 
