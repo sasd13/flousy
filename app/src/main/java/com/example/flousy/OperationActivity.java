@@ -1,5 +1,6 @@
 package com.example.flousy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -170,12 +171,6 @@ public class OperationActivity extends MotherActivity {
     private Operation getOperationFromForm() {
         Operation operation = new Operation();
 
-        String name = this.formOperation.editTextName.getText().toString().trim();
-        String value = this.formOperation.editTextValue.getText().toString().trim();
-
-        operation.setName(name);
-        operation.setValue(Double.parseDouble(value));
-
         switch (this.formOperation.radioGroupType.getCheckedRadioButtonId()) {
             case R.id.form_operation_radiobutton_type_debit:
                 operation.setType(OperationType.DEBIT);
@@ -184,6 +179,12 @@ public class OperationActivity extends MotherActivity {
                 operation.setType(OperationType.CREDIT);
                 break;
         }
+
+        String name = this.formOperation.editTextName.getText().toString().trim();
+        String value = this.formOperation.editTextValue.getText().toString().trim();
+
+        operation.setName(name);
+        operation.setValue(Double.parseDouble(value));
 
         return operation;
     }
@@ -220,11 +221,26 @@ public class OperationActivity extends MotherActivity {
     private void editOperationWithForm(Operation operation) {
         Operation operationFromForm = getOperationFromForm();
 
+        operation.setType(operationFromForm.getType());
         operation.setName(operationFromForm.getName());
         operation.setValue(operationFromForm.getValue());
     }
 
     private void deleteOperation() {
+        CustomDialog.showYesNoDialog(
+                this,
+                "Operation",
+                "Confirm ?",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        confirmDeleteOperation();
+                    }
+                }
+        );
+    }
+
+    private void confirmDeleteOperation() {
         DataAccessor dao = DataAccessorFactory.get();
 
         Account account = dao.selectAccountByUserWithOperations(Session.getUserId());
@@ -232,7 +248,7 @@ public class OperationActivity extends MotherActivity {
         Operation operation = account.getListOperations().get(getOperationIdFromIntent());
         dao.deleteOperation(operation);
 
-        account.update();
+        account.getListOperations().remove(operation);
         dao.updateAccount(account);
 
         CustomDialog.showOkDialog(this, "Operation", "Operation deleted");

@@ -116,20 +116,19 @@ public class SettingActivity extends MotherActivity {
     }
 
     private void saveChanges() {
-        User user = editUserWithForm();
+        DataAccessor dao = DataAccessorFactory.get();
 
-        DataAccessorFactory.get().updateUser(user);
+        User user = dao.selectUser(Session.getUserId());
+        editUserWithForm(user);
+        dao.updateUser(user);
     }
 
-    private User editUserWithForm() {
-        User user = DataAccessorFactory.get().selectUser(Session.getUserId());
-
+    private void editUserWithForm(User user) {
         User userFromForm = getUserFromForm();
+
         user.setFirstName(userFromForm.getFirstName());
         user.setLastName(userFromForm.getLastName());
         user.setEmail(userFromForm.getEmail());
-
-        return user;
     }
 
     private User getUserFromForm() {

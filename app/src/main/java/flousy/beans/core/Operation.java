@@ -72,10 +72,10 @@ public class Operation {
         try {
             switch (this.type) {
                 case DEBIT:
-                    setValue(0 - Math.abs(this.value));
+                    this.value = 0 - Math.abs(this.value);
                     break;
                 case CREDIT:
-                    setValue(Math.abs(this.value));
+                    this.value = Math.abs(this.value);
                     break;
             }
         } catch (NullPointerException e) {
