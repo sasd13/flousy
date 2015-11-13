@@ -19,7 +19,7 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
     protected ContentValues getContentValues(Transaction transaction) {
         ContentValues values = new ContentValues();
 
-        //values.put(TRANSACTION_ID, transaction.getId());
+        //values.put(TRANSACTION_ID, transaction.getId()); //autoincrement
         values.put(TRANSACTION_DATEREALIZATION, String.valueOf(transaction.getDateRealization()));
         values.put(TRANSACTION_TITLE, transaction.getTitle());
         values.put(TRANSACTION_VALUE, transaction.getValue());

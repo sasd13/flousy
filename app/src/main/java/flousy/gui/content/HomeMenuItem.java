@@ -5,24 +5,26 @@ import android.graphics.drawable.Drawable;
 
 public class HomeMenuItem {
 
-    private String name;
+    private String text;
     private Drawable image;
     private int color;
     private Intent intent;
 
-    public HomeMenuItem(String name, Drawable image, int color, Intent intent) {
-        setName(name);
-        setImage(image);
-        setColor(color);
-        setIntent(intent);
+    public HomeMenuItem() {}
+
+    public HomeMenuItem(String text, Drawable image, int color, Intent intent) {
+        this.text = text;
+        this.image = image;
+        this.color = color;
+        this.intent = intent;
     }
 
-    public String getName() {
-        return this.name;
+    public String getText() {
+        return this.text;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public Drawable getImage() {
@@ -47,6 +49,5 @@ public class HomeMenuItem {
 
     public void setIntent(Intent intent) {
         this.intent = intent;
-        this.intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 }

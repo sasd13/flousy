@@ -13,7 +13,7 @@ import android.view.ViewStub;
 
 import flousy.constant.Extra;
 import flousy.gui.content.HomeMenuItem;
-import flousy.gui.content.ListHomeMenuItems;
+import flousy.gui.content.HomeMenuItems;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
 import flousy.gui.widget.recycler.drawer.DrawerItemHomeMenu;
@@ -79,14 +79,14 @@ public abstract class MotherActivity extends ActionBarActivity {
         drawerItemTitle.setText(getResources().getString(R.string.activity_home_name));
         this.drawer.addItem(drawerItemTitle);
 
-        ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
+        HomeMenuItems homeMenuItems = HomeMenuItems.getInstance(this);
 
         DrawerItemHomeMenu drawerItemHomeMenu;
-        for (HomeMenuItem homeMenuItem : listHomeMenuItems) {
+        for (HomeMenuItem homeMenuItem : homeMenuItems.getItems()) {
             drawerItemHomeMenu = new DrawerItemHomeMenu();
 
             drawerItemHomeMenu.setColor(homeMenuItem.getColor());
-            drawerItemHomeMenu.setText(homeMenuItem.getName());
+            drawerItemHomeMenu.setText(homeMenuItem.getText());
             drawerItemHomeMenu.setIntent(homeMenuItem.getIntent());
 
             this.drawer.addItem(drawerItemHomeMenu);

@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import flousy.constant.Extra;
 import flousy.gui.content.HomeMenuItem;
-import flousy.gui.content.ListHomeMenuItems;
+import flousy.gui.content.HomeMenuItems;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.recycler.grid.Grid;
 import flousy.gui.widget.recycler.grid.GridItem;
@@ -72,15 +72,15 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void fillGridHomeMenu() {
-        ListHomeMenuItems listHomeMenuItems = ListHomeMenuItems.getInstance(this);
+        HomeMenuItems homeMenuItems = HomeMenuItems.getInstance(this);
 
         GridItem gridItem;
-        for (HomeMenuItem homeMenuItem : listHomeMenuItems) {
+        for (HomeMenuItem homeMenuItem : homeMenuItems.getItems()) {
             gridItem = new GridItem();
 
-            gridItem.setColor(homeMenuItem.getColor());
+            gridItem.setText(homeMenuItem.getText());
             gridItem.setImage(homeMenuItem.getImage());
-            gridItem.setText(homeMenuItem.getName());
+            gridItem.setColor(homeMenuItem.getColor());
             gridItem.setIntent(homeMenuItem.getIntent());
 
             this.grid.addItem(gridItem);
