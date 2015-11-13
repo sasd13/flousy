@@ -137,7 +137,7 @@ public class TransactionActivity extends MotherActivity {
         if (tabFormErrors.length == 0) {
             Transaction transaction = getTransactionFromForm();
 
-            DataAccessor  dao = DataAccessorFactory.get();
+            DataAccessor dao = DataAccessorFactory.get();
 
             Account account = dao.selectAccount(Session.getAccountId());
 

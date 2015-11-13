@@ -2,6 +2,8 @@ package flousy.db;
 
 import android.content.Context;
 
+import java.util.List;
+
 import flousy.beans.Account;
 import flousy.beans.Transaction;
 
@@ -30,4 +32,6 @@ public interface DataAccessor {
     boolean containsAccountByUserEmail(String userEmail);
 
     Account selectAccountWithTransactions(long id);
+
+    List<Transaction> selectTransactionsByAccount(long accountId);
 }

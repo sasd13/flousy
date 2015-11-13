@@ -7,17 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 public abstract class SQLiteTableDAO<T> {
 
     private SQLiteDatabase db;
-    private SQLiteDBHandler dbHandler;
 
-    protected SQLiteTableDAO(SQLiteDBHandler dbHandler) {
-        this.dbHandler = dbHandler;
-    }
+    protected SQLiteTableDAO() {}
 
     protected SQLiteDatabase getDB() { return this.db; }
 
-    public void open() { this.db = this.dbHandler.getWritableDatabase(); }
-
-    public void close() { this.db.close(); }
+    public void setDB(SQLiteDatabase db) { this.db = db; }
 
     protected abstract ContentValues getContentValues(T t);
 

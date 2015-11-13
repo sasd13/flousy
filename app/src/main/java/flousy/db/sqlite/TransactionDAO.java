@@ -13,7 +13,7 @@ import flousy.db.TransactionTableAccessor;
 
 public class TransactionDAO extends SQLiteTableDAO<Transaction> implements TransactionTableAccessor {
 
-    public TransactionDAO(SQLiteDBHandler dbHandler) { super(dbHandler); }
+    public TransactionDAO() { super(); }
 
     @Override
     protected ContentValues getContentValues(Transaction transaction) {

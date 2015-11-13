@@ -10,7 +10,7 @@ import flousy.db.AccountTableAccessor;
 
 public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableAccessor {
 
-    public AccountDAO(SQLiteDBHandler dbHandler) { super(dbHandler); }
+    public AccountDAO() { super(); }
 
     @Override
     protected ContentValues getContentValues(Account account) {

@@ -1,6 +1,7 @@
 package flousy.db.sqlite;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public class SQLiteDAO implements DataAccessor {
     private static final String NOM = "database.db";
 
     private static SQLiteDAO instance = null;
+
+    private SQLiteDBHandler dbHandler;
+    private SQLiteDatabase db;
 
     private AccountDAO accountDAO;
     private TransactionDAO transactionDAO;
@@ -35,69 +39,80 @@ public class SQLiteDAO implements DataAccessor {
 
     @Override
     public void init(Context context) {
-        SQLiteDBHandler dbHandler = new SQLiteDBHandler(context, NOM, null, VERSION);
+        dbHandler = new SQLiteDBHandler(context, NOM, null, VERSION);
 
-        accountDAO = new AccountDAO(dbHandler);
-        transactionDAO = new TransactionDAO(dbHandler);
+        accountDAO = new AccountDAO();
+        transactionDAO = new TransactionDAO();
+    }
+
+    protected void open() {
+        db = dbHandler.getWritableDatabase();
+
+        accountDAO.setDB(db);
+        transactionDAO.setDB(db);
+    }
+
+    protected void close() {
+        db.close();
     }
 
     @Override
     public void insertAccount(Account account) {
-        accountDAO.open();
+        open();
 
         accountDAO.insert(account);
 
-        accountDAO.close();
+        close();
     }
 
     @Override
     public void insertTransaction(Transaction transaction, Account account) {
-        transactionDAO.open();
+        open();
 
         long id = transactionDAO.insert(transaction, account);
         if (id > 0) {
             transaction.setId(id);
         }
 
-        transactionDAO.close();
+        close();
     }
 
     @Override
     public void updateAccount(Account account) {
-        accountDAO.open();
+        open();
 
         accountDAO.update(account);
 
-        accountDAO.close();
+        close();
     }
 
     @Override
     public void updateTransaction(Transaction transaction) {
-        transactionDAO.open();
+        open();
 
         transactionDAO.update(transaction);
 
-        transactionDAO.close();
+        close();
     }
 
     @Override
     public void deleteTransaction(Transaction transaction) {
-        transactionDAO.open();
+        open();
 
         transactionDAO.delete(transaction);
 
-        transactionDAO.close();
+        close();
     }
 
     @Override
     public Account selectAccount(long id) {
         Account account = null;
 
-        accountDAO.open();
+        open();
 
         account = accountDAO.select(id);
 
-        accountDAO.close();
+        close();
 
         return account;
     }
@@ -106,11 +121,11 @@ public class SQLiteDAO implements DataAccessor {
     public Transaction selectTransaction(long id) {
         Transaction transaction = null;
 
-        transactionDAO.open();
+        open();
 
         transaction = transactionDAO.select(id);
 
-        transactionDAO.close();
+        close();
 
         return transaction;
     }
@@ -119,11 +134,11 @@ public class SQLiteDAO implements DataAccessor {
     public Account selectAccountByUserEmail(String userEmail) {
         Account account = null;
 
-        accountDAO.open();
+        open();
 
         account = accountDAO.selectByUserEmail(userEmail);
 
-        accountDAO.close();
+        close();
 
         return account;
     }
@@ -132,11 +147,11 @@ public class SQLiteDAO implements DataAccessor {
     public boolean containsAccountByUserEmail(String userEmail) {
         boolean contains = false;
 
-        accountDAO.open();
+        open();
 
         contains = accountDAO.containsByUserEmail(userEmail);
 
-        accountDAO.close();
+        close();
 
         return contains;
     }
@@ -145,10 +160,10 @@ public class SQLiteDAO implements DataAccessor {
     public Account selectAccountWithTransactions(long id) {
         Account account = selectAccount(id);
 
-        transactionDAO.open();
+        open();
 
         try {
-            List<Transaction> listTransactions = transactionDAO.selectByAccount(account.getId());
+            List<Transaction> listTransactions = selectTransactionsByAccount(account.getId());
             for (Transaction transaction : listTransactions) {
                 account.addTransaction(transaction);
             }
@@ -156,8 +171,21 @@ public class SQLiteDAO implements DataAccessor {
             e.printStackTrace();
         }
 
-        transactionDAO.close();
+        close();
 
         return account;
+    }
+
+    @Override
+    public List<Transaction> selectTransactionsByAccount(long accountId) {
+        List<Transaction> listTransactions = null;
+
+        open();
+
+        listTransactions = transactionDAO.selectByAccount(accountId);
+
+        close();
+
+        return listTransactions;
     }
 }
