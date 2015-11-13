@@ -81,15 +81,6 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void deleteAccount(Account account) {
-        accountDAO.open();
-
-        accountDAO.delete(account);
-
-        accountDAO.close();
-    }
-
-    @Override
     public void deleteTransaction(Transaction transaction) {
         transactionDAO.open();
 
@@ -154,14 +145,18 @@ public class SQLiteDAO implements DataAccessor {
     public Account selectAccountWithTransactions(long id) {
         Account account = selectAccount(id);
 
+        transactionDAO.open();
+
         try {
-            List<Transaction> listTransactions = transactionDAO.selectByAccount(id);
+            List<Transaction> listTransactions = transactionDAO.selectByAccount(account.getId());
             for (Transaction transaction : listTransactions) {
                 account.addTransaction(transaction);
             }
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+
+        transactionDAO.close();
 
         return account;
     }

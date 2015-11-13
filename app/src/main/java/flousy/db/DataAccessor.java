@@ -19,8 +19,6 @@ public interface DataAccessor {
 
     void updateTransaction(Transaction transaction);
 
-    void deleteAccount(Account account);
-
     void deleteTransaction(Transaction transaction);
 
     Account selectAccount(long id);

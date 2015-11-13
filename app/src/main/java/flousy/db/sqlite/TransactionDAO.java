@@ -42,7 +42,7 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
     @Override
     public long insert(Transaction transaction, Account account) {
         ContentValues values = getContentValues(transaction);
-        values.put(ACCOUNTS_ACCOUNT_ID, account.getUserEmail());
+        values.put(ACCOUNTS_ACCOUNT_ID, account.getId());
 
         return getDB().insert(TRANSACTION_TABLE_NAME, null, values);
     }

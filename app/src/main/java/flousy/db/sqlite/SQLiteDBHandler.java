@@ -21,7 +21,8 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + AccountTableAccessor.ACCOUNT_USERFIRSTNAME + " TEXT NOT NULL, "
                     + AccountTableAccessor.ACCOUNT_USERLASTNAME + " TEXT NOT NULL, "
                     + AccountTableAccessor.ACCOUNT_USEREMAIL + " TEXT NOT NULL UNIQUE, "
-                    + AccountTableAccessor.ACCOUNT_USERPASSWORD + " TEXT NOT NULL);";
+                    + AccountTableAccessor.ACCOUNT_USERPASSWORD + " TEXT NOT NULL, "
+                    + AccountTableAccessor.ACCOUNT_CLOSED + " INTEGER NOT NULL);";
 
     /**
      * Table transactions

@@ -89,7 +89,14 @@ public class SettingActivity extends MotherActivity {
                 editAccountWithForm(account);
                 dao.updateAccount(account);
             } else {
-                CustomDialog.showOkDialog(this, "Update error", "Email (" + email + ") already exists");
+                Account account = dao.selectAccountByUserEmail(email);
+
+                if (account.getId() == Session.getAccountId()) {
+                    editAccountWithForm(account);
+                    dao.updateAccount(account);
+                } else {
+                    CustomDialog.showOkDialog(this, "Update error", "Email (" + email + ") already exists");
+                }
             }
         } else {
             CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);

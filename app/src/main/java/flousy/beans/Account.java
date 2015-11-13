@@ -9,10 +9,12 @@ public class Account {
     private long id;
     private Timestamp dateOpening;
     private String userFirstName, userLastName, userEmail, userPassword;
+    private boolean closed;
     private List<Transaction> listTransactions;
 
     public Account() {
         this.dateOpening = new Timestamp(System.currentTimeMillis());
+        this.closed = false;
         this.listTransactions = new ArrayList<>();
     }
 
@@ -64,6 +66,14 @@ public class Account {
         this.userPassword = userPassword;
     }
 
+    public boolean isClosed() {
+        return this.closed;
+    }
+
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
+
     public void addTransaction(Transaction transaction) {
         this.listTransactions.add(transaction);
     }
@@ -86,8 +96,8 @@ public class Account {
         return this.listTransactions.toArray(new Transaction[0]);
     }
 
-    public long getSold() {
-        long sold = 0;
+    public double getSold() {
+        double sold = 0;
 
         for (Transaction transaction : this.listTransactions) {
             sold += transaction.getValue();
