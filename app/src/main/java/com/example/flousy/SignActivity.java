@@ -13,7 +13,6 @@ import android.widget.EditText;
 
 import flousy.beans.Account;
 import flousy.constant.Extra;
-import flousy.beans.User;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;
@@ -23,14 +22,14 @@ import flousy.session.Session;
 
 public class SignActivity extends ActionBarActivity {
 
-    private class FormUserViewHolder {
+    private class FormAccountViewHolder {
         public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
         public CheckBox checkBoxValidTerms;
     }
 
     private static final int SIGNUP_TIMEOUT = 2000;
 
-    private FormUserViewHolder formUser;
+    private FormAccountViewHolder formAccount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class SignActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_sign);
 
-        createFormUser();
+        createFormAccount();
     }
 
     @Override
@@ -62,48 +61,48 @@ public class SignActivity extends ActionBarActivity {
         return true;
     }
 
-    private void createFormUser() {
-        this.formUser = new FormUserViewHolder();
+    private void createFormAccount() {
+        this.formAccount = new FormAccountViewHolder();
 
-        this.formUser.editTextFirstName = (EditText) findViewById(R.id.sign_form_user_edittext_firstname);
-        this.formUser.editTextLastName = (EditText) findViewById(R.id.sign_form_user_edittext_lastname);
-        this.formUser.editTextEmail = (EditText) findViewById(R.id.sign_form_user_edittext_email);
-        this.formUser.editTextPassword = (EditText) findViewById(R.id.sign_form_user_edittext_password);
-        this.formUser.editTextConfirmPassword = (EditText) findViewById(R.id.sign_form_user_edittext_confirmpassword);
-        this.formUser.checkBoxValidTerms = (CheckBox) findViewById(R.id.sign_form_user_checkbox_terms);
+        this.formAccount.editTextFirstName = (EditText) findViewById(R.id.sign_form_user_edittext_firstname);
+        this.formAccount.editTextLastName = (EditText) findViewById(R.id.sign_form_user_edittext_lastname);
+        this.formAccount.editTextEmail = (EditText) findViewById(R.id.sign_form_user_edittext_email);
+        this.formAccount.editTextPassword = (EditText) findViewById(R.id.sign_form_user_edittext_password);
+        this.formAccount.editTextConfirmPassword = (EditText) findViewById(R.id.sign_form_user_edittext_confirmpassword);
+        this.formAccount.checkBoxValidTerms = (CheckBox) findViewById(R.id.sign_form_user_checkbox_terms);
     }
 
     private void signUp() {
-        String[] tabFormErrors = validFormUser();
+        String[] tabFormErrors = validFormAccount();
 
         if (tabFormErrors.length == 0) {
-            User user = getUserFromForm();
+            Account account = getAccountFromForm();
 
-            boolean containsUserEmail = DataAccessorFactory.get().containsUserByEmail(user.getEmail());
+            DataAccessor dao = DataAccessorFactory.get();
 
-            if (!containsUserEmail) {
-                createUser(user);
+            if (!dao.containsAccountByUserEmail(account.getUserEmail())) {
+                dao.insertAccount(account);
 
-                Session.logIn(user.getEmail(), user.getPassword());
+                Session.logIn(account.getUserEmail(), account.getUserPassword());
 
-                goToHomeActivityWithWelcome(user.getFirstName());
+                goToHomeActivityWithWelcome(account.getUserFirstName());
             } else {
-                CustomDialog.showOkDialog(this, "Sign error", "Email (" + user.getEmail() + ") already exists");
+                CustomDialog.showOkDialog(this, "Sign error", "Email (" + account.getUserEmail() + ") already exists");
             }
         } else {
             CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
         }
     }
 
-    private String[] validFormUser() {
+    private String[] validFormAccount() {
         FormValidator formValidator = new FormValidator();
 
-        String firstName = this.formUser.editTextFirstName.getText().toString().trim();
-        String lastName = this.formUser.editTextLastName.getText().toString().trim();
-        String email = this.formUser.editTextEmail.getText().toString().trim();
-        String password = this.formUser.editTextPassword.getText().toString().trim();
-        String confirmPassword = this.formUser.editTextConfirmPassword.getText().toString().trim();
-        Boolean validTerms = this.formUser.checkBoxValidTerms.isChecked();
+        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
+        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
+        String email = this.formAccount.editTextEmail.getText().toString().trim();
+        String password = this.formAccount.editTextPassword.getText().toString().trim();
+        String confirmPassword = this.formAccount.editTextConfirmPassword.getText().toString().trim();
+        Boolean validTerms = this.formAccount.checkBoxValidTerms.isChecked();
 
         formValidator.validName(firstName, "firstname");
         formValidator.validName(lastName, "lastname");
@@ -115,39 +114,30 @@ public class SignActivity extends ActionBarActivity {
         return formValidator.getErrors();
     }
 
-    private User getUserFromForm() {
-        User user = new User();
-
-        String firstName = this.formUser.editTextFirstName.getText().toString().trim();
-        String lastName = this.formUser.editTextLastName.getText().toString().trim();
-        String email = this.formUser.editTextEmail.getText().toString().trim();
-        String password = this.formUser.editTextPassword.getText().toString().trim();
-
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setPassword(password);
-
-        return user;
-    }
-
-    private void createUser(User user) {
+    private Account getAccountFromForm() {
         Account account = new Account();
 
-        DataAccessor dao = DataAccessorFactory.get();
+        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
+        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
+        String email = this.formAccount.editTextEmail.getText().toString().trim();
+        String password = this.formAccount.editTextPassword.getText().toString().trim();
 
-        dao.insertUser(user);
-        dao.insertAccount(account, user);
+        account.setUserFirstName(firstName);
+        account.setUserLastName(lastName);
+        account.setUserEmail(email);
+        account.setUserPassword(password);
+
+        return account;
     }
 
-    private void goToHomeActivityWithWelcome(String firstName) {
+    private void goToHomeActivityWithWelcome(String userFirstName) {
         CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
         final AlertDialog dialog = builder.create();
 
         final Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(Extra.WELCOME, true);
-        intent.putExtra(Extra.USER_FIRSTNAME, firstName);
+        intent.putExtra(Extra.USER_FIRSTNAME, userFirstName);
 
         Runnable runnable = new Runnable() {
 

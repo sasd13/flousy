@@ -32,7 +32,7 @@ public class SplashScreenActivity extends Activity {
         DataAccessorFactory.get().init(this);
         Session.start(this);
 
-        if (Session.isUserLoggedIn()) {
+        if (Session.isStarted()) {
             goToActivity(HomeActivity.class, SPLASHSCREEN_TIMEOUT);
         } else {
             goToActivity(LogActivity.class, SPLASHSCREEN_TIMEOUT);

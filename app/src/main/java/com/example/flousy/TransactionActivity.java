@@ -13,12 +13,14 @@ import android.widget.TextView;
 
 import java.sql.Timestamp;
 
+import flousy.beans.Account;
 import flousy.beans.Transaction;
-import flousy.beans.TransactionManager;
 import flousy.constant.Extra;
+import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
+import flousy.session.Session;
 
 public class TransactionActivity extends MotherActivity {
 
@@ -117,7 +119,7 @@ public class TransactionActivity extends MotherActivity {
         this.formTransaction.editTextTitle.setText(transaction.getTitle(), TextView.BufferType.EDITABLE);
         this.formTransaction.editTextValue.setText(String.valueOf(Math.abs(transaction.getValue())), TextView.BufferType.EDITABLE);
 
-        if (transaction.getValue() < 0) {
+        if (transaction.getValue() <= 0) {
             this.formTransaction.radioButtonDebit.setChecked(true);
         } else {
             this.formTransaction.radioButtonCredit.setChecked(true);
@@ -135,7 +137,11 @@ public class TransactionActivity extends MotherActivity {
         if (tabFormErrors.length == 0) {
             Transaction transaction = getTransactionFromForm();
 
-            TransactionManager.createTransaction(transaction);
+            DataAccessor  dao = DataAccessorFactory.get();
+
+            Account account = dao.selectAccount(Session.getAccountId());
+
+            dao.insertTransaction(transaction, account);
 
             goToAccountActivity();
         } else {
@@ -186,15 +192,24 @@ public class TransactionActivity extends MotherActivity {
         String[] tabFormErrors = validFormTransaction();
 
         if (tabFormErrors.length == 0) {
-            Transaction transaction = getTransactionFromForm();
-            transaction.setId(getTransactionIdFromIntent());
+            DataAccessor dao = DataAccessorFactory.get();
 
-            TransactionManager.updateTransaction(transaction);
+            Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
+
+            editTransactionWithForm(transaction);
+            dao.updateTransaction(transaction);
 
             goToAccountActivity();
         } else {
             CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
         }
+    }
+
+    private void editTransactionWithForm(Transaction transaction) {
+        Transaction transactionFromForm = getTransactionFromForm();
+
+        transaction.setTitle(transactionFromForm.getTitle());
+        transaction.setValue(transactionFromForm.getValue());
     }
 
     private void deleteTransaction() {
@@ -212,10 +227,11 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void confirmDeleteTransaction() {
-        Transaction transaction = getTransactionFromForm();
-        transaction.setId(getTransactionIdFromIntent());
+        DataAccessor dao = DataAccessorFactory.get();
 
-        TransactionManager.removeTransaction(transaction);
+        Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
+
+        dao.deleteTransaction(transaction);
 
         CustomDialog.showOkDialog(this, "Transaction", "Transaction deleted");
 

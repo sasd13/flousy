@@ -2,11 +2,8 @@ package flousy.db;
 
 import android.content.Context;
 
-import java.util.List;
-
 import flousy.beans.Account;
 import flousy.beans.Transaction;
-import flousy.beans.User;
 
 public interface DataAccessor {
 
@@ -14,19 +11,13 @@ public interface DataAccessor {
 
     void init(Context context);
 
-    long insertUser(User user);
+    void insertAccount(Account account);
 
-    long insertAccount(Account account, User user);
-
-    long insertTransaction(Transaction transaction, Account account);
-
-    void updateUser(User user);
+    void insertTransaction(Transaction transaction, Account account);
 
     void updateAccount(Account account);
 
     void updateTransaction(Transaction transaction);
-
-    void deleteUser(User user);
 
     void deleteAccount(Account account);
 
@@ -36,13 +27,9 @@ public interface DataAccessor {
 
     Transaction selectTransaction(long id);
 
-    User selectUser(String email);
+    Account selectAccountByUserEmail(String userEmail);
 
-    boolean containsUserByEmail(String email);
+    boolean containsAccountByUserEmail(String userEmail);
 
-    Account selectAccountByUser(String userEmail);
-
-    Account selectAccountByUserWithTransactions(String userEmail);
-
-    List<Transaction> selectTransactionsByAccount(long accountId);
+    Account selectAccountWithTransactions(long id);
 }

@@ -12,7 +12,6 @@ import java.text.DecimalFormat;
 
 import flousy.beans.Account;
 import flousy.beans.Transaction;
-import flousy.beans.TransactionManager;
 import flousy.constant.Extra;
 import flousy.db.DataAccessorFactory;
 import flousy.gui.widget.recycler.tab.Tab;
@@ -39,8 +38,7 @@ public class AccountActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        Account account = DataAccessorFactory.get().selectAccountByUserWithTransactions(Session.getUserEmail());
-        TransactionManager.setAccount(account);
+        Account account = DataAccessorFactory.get().selectAccountWithTransactions(Session.getAccountId());
 
         fillTextViewSold(account);
         fillTabTransactions(account);
@@ -91,7 +89,7 @@ public class AccountActivity extends MotherActivity {
 
         TabItemTransaction tabItemTransaction;
         Intent intent;
-        for (Transaction transaction : account.getListTransactions()) {
+        for (Transaction transaction : account.getTransactions()) {
             tabItemTransaction = new TabItemTransaction();
 
             tabItemTransaction.setDate(String.valueOf(transaction.getDateRealization()));

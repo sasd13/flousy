@@ -1,7 +1,6 @@
 package flousy.db;
 
 import flousy.beans.Account;
-import flousy.beans.User;
 
 public interface AccountTableAccessor {
 
@@ -9,9 +8,12 @@ public interface AccountTableAccessor {
 
     String ACCOUNT_ID = "account_id";
     String ACCOUNT_DATEOPENING = "account_dateopening";
-    String USERS_USER_EMAIL = "users_user_email";
+    String ACCOUNT_USERFIRSTNAME = "account_userfirstname";
+    String ACCOUNT_USERLASTNAME = "account_userlastname";
+    String ACCOUNT_USEREMAIL = "account_useremail";
+    String ACCOUNT_USERPASSWORD = "account_userpassword";
 
-    long insert(Account account, User user);
+    void insert(Account account);
 
     void update(Account account);
 
@@ -19,5 +21,7 @@ public interface AccountTableAccessor {
 
     Account select(long id);
 
-    Account selectByUser(String userEmail);
+    Account selectByUserEmail(String userEmail);
+
+    boolean containsByUserEmail(String userEmail);
 }

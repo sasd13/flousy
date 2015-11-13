@@ -6,21 +6,9 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import flousy.db.AccountTableAccessor;
-import flousy.db.UserTableAccessor;
 import flousy.db.TransactionTableAccessor;
 
 public class SQLiteDBHandler extends SQLiteOpenHelper {
-
-    /**
-     * Table users
-     */
-    public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + UserTableAccessor.USER_TABLE_NAME + ";";
-    public static final String USER_TABLE_CREATE =
-            "CREATE TABLE " + UserTableAccessor.USER_TABLE_NAME + " ("
-                    + UserTableAccessor.USER_EMAIL + " TEXT PRIMARY KEY, "
-                    + UserTableAccessor.USER_FIRSTNAME + " TEXT NOT NULL, "
-                    + UserTableAccessor.USER_LASTNAME + " TEXT NOT NULL, "
-                    + UserTableAccessor.USER_PASSWORD + " TEXT NOT NULL);";
 
     /**
      * Table accounts
@@ -30,8 +18,10 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
             "CREATE TABLE " + AccountTableAccessor.ACCOUNT_TABLE_NAME + " ("
                     + AccountTableAccessor.ACCOUNT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + AccountTableAccessor.ACCOUNT_DATEOPENING + " TEXT NOT NULL, "
-                    + AccountTableAccessor.USERS_USER_EMAIL + " TEXT NOT NULL, "
-                    + " FOREIGN KEY (" + AccountTableAccessor.USERS_USER_EMAIL + ") REFERENCES " + UserTableAccessor.USER_TABLE_NAME + "("+ UserTableAccessor.USER_EMAIL + "));";
+                    + AccountTableAccessor.ACCOUNT_USERFIRSTNAME + " TEXT NOT NULL, "
+                    + AccountTableAccessor.ACCOUNT_USERLASTNAME + " TEXT NOT NULL, "
+                    + AccountTableAccessor.ACCOUNT_USEREMAIL + " TEXT NOT NULL UNIQUE, "
+                    + AccountTableAccessor.ACCOUNT_USERPASSWORD + " TEXT NOT NULL);";
 
     /**
      * Table transactions
@@ -53,7 +43,6 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-        db.execSQL(USER_TABLE_CREATE);
         db.execSQL(ACCOUNT_TABLE_CREATE);
         db.execSQL(TRANSACTION_TABLE_CREATE);
 	}
@@ -62,7 +51,6 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(TRANSACTION_TABLE_DROP);
         db.execSQL(ACCOUNT_TABLE_DROP);
-        db.execSQL(USER_TABLE_DROP);
 
 		onCreate(db);
 	}

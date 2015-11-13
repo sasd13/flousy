@@ -19,7 +19,7 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
     protected ContentValues getContentValues(Transaction transaction) {
         ContentValues values = new ContentValues();
 
-        //values.put(TRANSACTION_ID, transaction.getId()); //autoincrement
+        //values.put(TRANSACTION_ID, transaction.getId());
         values.put(TRANSACTION_DATEREALIZATION, String.valueOf(transaction.getDateRealization()));
         values.put(TRANSACTION_TITLE, transaction.getTitle());
         values.put(TRANSACTION_VALUE, transaction.getValue());
@@ -42,7 +42,7 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
     @Override
     public long insert(Transaction transaction, Account account) {
         ContentValues values = getContentValues(transaction);
-        values.put(ACCOUNTS_ACCOUNT_ID, account.getId());
+        values.put(ACCOUNTS_ACCOUNT_ID, account.getUserEmail());
 
         return getDB().insert(TRANSACTION_TABLE_NAME, null, values);
     }

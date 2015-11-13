@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.beans.User;
+import flousy.beans.Account;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;
@@ -16,11 +16,11 @@ import flousy.session.Session;
 
 public class SettingActivity extends MotherActivity {
 
-    private class FormUserViewHolder {
+    private class FormAccountViewHolder {
         public EditText editTextFirstName, editTextLastName, editTextEmail;
     }
 
-    private FormUserViewHolder formUser;
+    private FormAccountViewHolder formAccount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,16 +28,16 @@ public class SettingActivity extends MotherActivity {
 
         setContentView(R.layout.activity_setting);
 
-        createFormUser();
+        createFormAccount();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        User user = DataAccessorFactory.get().selectUser(Session.getUserEmail());
+        Account account = DataAccessorFactory.get().selectAccount(Session.getAccountId());
 
-        fillFormUser(user);
+        fillFormAccount(account);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class SettingActivity extends MotherActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_sign_action_accept:
-                updateUser();
+                updateAccount();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -61,32 +61,33 @@ public class SettingActivity extends MotherActivity {
         return true;
     }
 
-    private void createFormUser() {
-        this.formUser = new FormUserViewHolder();
+    private void createFormAccount() {
+        this.formAccount = new FormAccountViewHolder();
 
-        this.formUser.editTextFirstName = (EditText) findViewById(R.id.setting_form_user_edittext_firstname);
-        this.formUser.editTextLastName = (EditText) findViewById(R.id.setting_form_user_edittext_lastname);
-        this.formUser.editTextEmail = (EditText) findViewById(R.id.setting_form_user_edittext_email);
+        this.formAccount.editTextFirstName = (EditText) findViewById(R.id.setting_form_user_edittext_firstname);
+        this.formAccount.editTextLastName = (EditText) findViewById(R.id.setting_form_user_edittext_lastname);
+        this.formAccount.editTextEmail = (EditText) findViewById(R.id.setting_form_user_edittext_email);
     }
 
-    private void fillFormUser(User user) {
-        this.formUser.editTextFirstName.setText(user.getFirstName(), TextView.BufferType.EDITABLE);
-        this.formUser.editTextLastName.setText(user.getLastName(), TextView.BufferType.EDITABLE);
-        this.formUser.editTextEmail.setText(user.getEmail(), TextView.BufferType.EDITABLE);
+    private void fillFormAccount(Account account) {
+        this.formAccount.editTextFirstName.setText(account.getUserFirstName(), TextView.BufferType.EDITABLE);
+        this.formAccount.editTextLastName.setText(account.getUserLastName(), TextView.BufferType.EDITABLE);
+        this.formAccount.editTextEmail.setText(account.getUserEmail(), TextView.BufferType.EDITABLE);
     }
 
-    private void updateUser() {
-        String[] tabFormErrors = validFormUser();
+    private void updateAccount() {
+        String[] tabFormErrors = validFormAccount();
 
         if (tabFormErrors.length == 0) {
-            String email = this.formUser.editTextEmail.getText().toString().trim();
+            String email = this.formAccount.editTextEmail.getText().toString().trim();
 
             DataAccessor dao = DataAccessorFactory.get();
 
-            boolean containsUserEmail = dao.containsUserByEmail(email);
+            if (!dao.containsAccountByUserEmail(email)) {
+                Account account = dao.selectAccount(Session.getAccountId());
 
-            if (!containsUserEmail) {
-                saveChanges();
+                editAccountWithForm(account);
+                dao.updateAccount(account);
             } else {
                 CustomDialog.showOkDialog(this, "Update error", "Email (" + email + ") already exists");
             }
@@ -95,12 +96,12 @@ public class SettingActivity extends MotherActivity {
         }
     }
 
-    private String[] validFormUser() {
+    private String[] validFormAccount() {
         FormValidator formValidator = new FormValidator();
 
-        String firstName = this.formUser.editTextFirstName.getText().toString().trim();
-        String lastName = this.formUser.editTextLastName.getText().toString().trim();
-        String email = this.formUser.editTextEmail.getText().toString().trim();
+        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
+        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
+        String email = this.formAccount.editTextEmail.getText().toString().trim();
 
         formValidator.validName(firstName, "firstname");
         formValidator.validName(lastName, "lastname");
@@ -109,33 +110,25 @@ public class SettingActivity extends MotherActivity {
         return formValidator.getErrors();
     }
 
-    private void saveChanges() {
-        DataAccessor dao = DataAccessorFactory.get();
+    private void editAccountWithForm(Account account) {
+        Account accountFromForm = getAccountFromForm();
 
-        User user = dao.selectUser(Session.getUserEmail());
-        editUserWithForm(user);
-        dao.updateUser(user);
+        account.setUserFirstName(accountFromForm.getUserFirstName());
+        account.setUserLastName(accountFromForm.getUserLastName());
+        account.setUserEmail(accountFromForm.getUserEmail());
     }
 
-    private void editUserWithForm(User user) {
-        User userFromForm = getUserFromForm();
+    private Account getAccountFromForm() {
+        Account account = new Account();
 
-        user.setFirstName(userFromForm.getFirstName());
-        user.setLastName(userFromForm.getLastName());
-        user.setEmail(userFromForm.getEmail());
-    }
+        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
+        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
+        String email = this.formAccount.editTextEmail.getText().toString().trim();
 
-    private User getUserFromForm() {
-        User user = new User();
+        account.setUserFirstName(firstName);
+        account.setUserLastName(lastName);
+        account.setUserEmail(email);
 
-        String firstName = this.formUser.editTextFirstName.getText().toString().trim();
-        String lastName = this.formUser.editTextLastName.getText().toString().trim();
-        String email = this.formUser.editTextEmail.getText().toString().trim();
-
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-
-        return user;
+        return account;
     }
 }
