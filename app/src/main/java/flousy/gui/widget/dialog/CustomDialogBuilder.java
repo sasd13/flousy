@@ -8,9 +8,6 @@ import android.view.LayoutInflater;
 
 import com.example.flousy.R;
 
-/**
- * Created by Samir on 09/03/2015.
- */
 public class CustomDialogBuilder extends AlertDialog.Builder {
 
     public static final int TYPE_LOAD = 0;

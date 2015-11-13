@@ -1,21 +1,23 @@
 package flousy.db;
 
-import flousy.beans.core.User;
+import flousy.beans.User;
 
-/**
- * Created by Samir on 11/06/2015.
- */
-public interface UserTableAccessor extends TableAccessor<User> {
+public interface UserTableAccessor {
 
     String USER_TABLE_NAME = "users";
 
-    String USER_ID = "user_id";
     String USER_FIRSTNAME = "user_firstname";
     String USER_LASTNAME = "user_lastname";
     String USER_EMAIL = "user_email";
     String USER_PASSWORD = "user_password";
 
-    User selectByEmail(String email);
+    long insert(User user);
+
+    void update(User user);
+
+    void delete(User user);
+
+    User select(String email);
 
     boolean containsByEmail(String email);
 }

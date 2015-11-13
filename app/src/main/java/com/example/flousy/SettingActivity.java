@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.beans.core.User;
+import flousy.beans.User;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;
@@ -35,7 +35,7 @@ public class SettingActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        User user = DataAccessorFactory.get().selectUser(Session.getUserId());
+        User user = DataAccessorFactory.get().selectUser(Session.getUserEmail());
 
         fillFormUser(user);
     }
@@ -88,13 +88,7 @@ public class SettingActivity extends MotherActivity {
             if (!containsUserEmail) {
                 saveChanges();
             } else {
-                User user = dao.selectUserByEmail(email);
-
-                if (user.getId() == Session.getUserId()) {
-                    saveChanges();
-                } else {
-                    CustomDialog.showOkDialog(this, "Update error", "Email (" + email + ") already exists");
-                }
+                CustomDialog.showOkDialog(this, "Update error", "Email (" + email + ") already exists");
             }
         } else {
             CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
@@ -118,7 +112,7 @@ public class SettingActivity extends MotherActivity {
     private void saveChanges() {
         DataAccessor dao = DataAccessorFactory.get();
 
-        User user = dao.selectUser(Session.getUserId());
+        User user = dao.selectUser(Session.getUserEmail());
         editUserWithForm(user);
         dao.updateUser(user);
     }

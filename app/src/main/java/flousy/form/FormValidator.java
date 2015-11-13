@@ -6,9 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-/**
- * Created by Samir on 13/03/2015.
- */
 public class FormValidator {
 
     public int passwordLength = 6;
@@ -19,8 +16,6 @@ public class FormValidator {
     public FormValidator() { this.mapErrors = new HashMap<>(); }
 
     public String[] getErrors() { return this.mapErrors.values().toArray(new String[0]); }
-
-    public boolean hasValidated() { return this.mapErrors.isEmpty(); }
 
     public void validName(String name, String errorKey) {
         try {

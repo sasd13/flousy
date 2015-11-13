@@ -8,12 +8,11 @@ import android.view.ViewStub;
 
 import com.example.flousy.R;
 
-/**
- * Created by Samir on 22/03/2015.
- */
+import java.util.List;
+
 public class RecyclerAdapter extends RecyclerView.Adapter {
 
-    private ListRecyclerItems listRecyclerItems;
+    private List<RecyclerItem> listRecyclerItems;
     private int recyclerItemLayout;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,7 +26,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public RecyclerAdapter(ListRecyclerItems listRecyclerItems, int recyclerItemLayout) {
+    public RecyclerAdapter(List<RecyclerItem> listRecyclerItems, int recyclerItemLayout) {
         this.listRecyclerItems = listRecyclerItems;
         this.recyclerItemLayout = recyclerItemLayout;
     }

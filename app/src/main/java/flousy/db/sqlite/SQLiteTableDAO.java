@@ -4,9 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-/**
- * Created by Samir on 05/06/2015.
- */
 public abstract class SQLiteTableDAO<T> {
 
     private SQLiteDatabase db;

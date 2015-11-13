@@ -3,9 +3,6 @@ package flousy.gui.content;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
-/**
- * Created by Samir on 06/04/2015.
- */
 public class HomeMenuItem {
 
     private String name;

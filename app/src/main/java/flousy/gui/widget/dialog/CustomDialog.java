@@ -4,9 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-/**
- * Created by Samir on 09/06/2015.
- */
 public class CustomDialog {
 
     public static void showOkDialog(Context context, String title, String message) {

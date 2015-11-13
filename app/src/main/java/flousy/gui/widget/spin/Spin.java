@@ -6,9 +6,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-/**
- * Created by Samir on 15/06/2015.
- */
 public class Spin {
 
     private Spinner spinner;

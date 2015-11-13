@@ -1,8 +1,5 @@
 package flousy.gui.color;
 
-/**
- * Created by Samir on 11/03/2015.
- */
 public class ColorBrightness {
 
     private ColorBrightness() {}

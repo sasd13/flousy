@@ -2,7 +2,6 @@ package com.example.flousy;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -67,10 +66,6 @@ public abstract class MotherActivity extends ActionBarActivity {
         viewStub.inflate();
     }
 
-    public Drawer getDrawer() {
-        return this.drawer;
-    }
-
     private void createDrawer() {
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.drawer = new Drawer(this, drawerLayout);
@@ -128,25 +123,5 @@ public abstract class MotherActivity extends ActionBarActivity {
         handler.postDelayed(runnable, LOGOUT_TIMEOUT);
 
         dialog.show();
-    }
-
-    public void setActionBarEnabled(boolean enabled) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            try {
-                if (enabled) {
-                    getActionBar().show();
-                } else {
-                    getActionBar().hide();
-                }
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-            }
-        } else {
-            if (enabled) {
-                getSupportActionBar().show();
-            } else {
-                getSupportActionBar().hide();
-            }
-        }
     }
 }

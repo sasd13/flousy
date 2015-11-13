@@ -3,9 +3,6 @@ package flousy.gui.color;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * Created by Samir on 12/03/2015.
- */
 public class ColorOnTouchListener implements View.OnTouchListener {
 
     private int color;

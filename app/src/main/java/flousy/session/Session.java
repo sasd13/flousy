@@ -3,18 +3,14 @@ package flousy.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import flousy.beans.core.Account;
-import flousy.beans.core.User;
+import flousy.beans.User;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
 
-/**
- * Created by Samir on 15/03/2015.
- */
 public class Session {
 
     private static final String SESSION_PREFERENCES = "session_preferences";
-    private static final String SESSION_USER_ID = "session_user_id";
+    private static final String SESSION_USER_EMAIL = "session_user_email";
 
     private static SharedPreferences preferences;
 
@@ -25,24 +21,22 @@ public class Session {
     }
 
     public static boolean isUserLoggedIn() {
-        return preferences.contains(SESSION_USER_ID);
+        return preferences.contains(SESSION_USER_EMAIL);
     }
 
-    public static long getUserId() {
-        return preferences.getLong(SESSION_USER_ID, 0);
+    public static String getUserEmail() {
+        return preferences.getString(SESSION_USER_EMAIL, null);
     }
 
     public static boolean logIn(String email, String password) {
         DataAccessor dao = DataAccessorFactory.get();
 
-        User user = dao.selectUserByEmail(email);
+        User user = dao.selectUser(email);
 
         try {
             if (user.getPassword().equals(password)) {
-                Account account = dao.selectAccountByUser(user.getId());
-
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putLong(SESSION_USER_ID, user.getId());
+                editor.putString(SESSION_USER_EMAIL, user.getEmail());
 
                 return editor.commit();
             }

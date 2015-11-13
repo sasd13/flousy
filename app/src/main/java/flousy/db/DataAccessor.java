@@ -2,14 +2,12 @@ package flousy.db;
 
 import android.content.Context;
 
-import flousy.beans.core.Account;
-import flousy.beans.core.ListOperations;
-import flousy.beans.core.Operation;
-import flousy.beans.core.User;
+import java.util.List;
 
-/**
- * Created by Samir on 05/11/2015.
- */
+import flousy.beans.Account;
+import flousy.beans.Transaction;
+import flousy.beans.User;
+
 public interface DataAccessor {
 
     String getDBType();
@@ -20,33 +18,31 @@ public interface DataAccessor {
 
     long insertAccount(Account account, User user);
 
-    long insertOperation(Operation operation, Account account);
+    long insertTransaction(Transaction transaction, Account account);
 
     void updateUser(User user);
 
     void updateAccount(Account account);
 
-    void updateOperation(Operation operation);
+    void updateTransaction(Transaction transaction);
 
     void deleteUser(User user);
 
     void deleteAccount(Account account);
 
-    void deleteOperation(Operation operation);
-
-    User selectUser(long id);
+    void deleteTransaction(Transaction transaction);
 
     Account selectAccount(long id);
 
-    Operation selectOperation(long id);
+    Transaction selectTransaction(long id);
 
-    User selectUserByEmail(String email);
+    User selectUser(String email);
 
     boolean containsUserByEmail(String email);
 
-    Account selectAccountByUser(long userId);
+    Account selectAccountByUser(String userEmail);
 
-    Account selectAccountByUserWithOperations(long userId);
+    Account selectAccountByUserWithTransactions(String userEmail);
 
-    ListOperations selectOperationsByAccount(long accountId);
+    List<Transaction> selectTransactionsByAccount(long accountId);
 }

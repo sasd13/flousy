@@ -1,12 +1,8 @@
 package flousy.constant;
 
-/**
- * Created by Samir on 09/06/2015.
- */
 public class Extra {
 
     public static final String EXIT = "EXIT";
-    public static final String CLOSE = "CLOSE";
     public static final String WELCOME = "WELCOME";
 
     public static final String MODE = "MODE";
@@ -17,5 +13,5 @@ public class Extra {
 
     public static final String USER_FIRSTNAME = "USER_FIRSTNAME";
 
-    public static final String OPERATION_ID = "OPERATION_ID";
+    public static final String TRANSACTION_ID = "TRANSACTION_ID";
 }

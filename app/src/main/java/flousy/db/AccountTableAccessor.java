@@ -1,21 +1,23 @@
 package flousy.db;
 
-import flousy.beans.core.Account;
-import flousy.beans.core.User;
+import flousy.beans.Account;
+import flousy.beans.User;
 
-/**
- * Created by Samir on 11/06/2015.
- */
-public interface AccountTableAccessor extends TableAccessor<Account> {
+public interface AccountTableAccessor {
 
     String ACCOUNT_TABLE_NAME = "accounts";
 
     String ACCOUNT_ID = "account_id";
     String ACCOUNT_DATEOPENING = "account_dateopening";
-    String ACCOUNT_SOLD = "account_sold";
-    String USERS_USER_ID = "users_user_id";
+    String USERS_USER_EMAIL = "users_user_email";
 
     long insert(Account account, User user);
 
-    Account selectByUser(long userId);
+    void update(Account account);
+
+    void delete(Account account);
+
+    Account select(long id);
+
+    Account selectByUser(String userEmail);
 }

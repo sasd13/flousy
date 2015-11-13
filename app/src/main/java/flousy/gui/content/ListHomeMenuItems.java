@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by Samir on 30/03/2015.
- */
 public class ListHomeMenuItems implements Iterable<HomeMenuItem> {
 
     private static ListHomeMenuItems instance = null;

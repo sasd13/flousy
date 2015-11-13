@@ -13,7 +13,7 @@
     <string name="activity_sign_name">Inscription</string>
     <string name="activity_home_name">Menu</string>
     <string name="activity_account_name">Compte</string>
-    <string name="activity_operation_name">Opération</string>
+    <string name="activity_transaction_name">Transaction</string>
     <string name="activity_finance_name">Finances</string>
     <string name="activity_setting_name">Options</string>
 
@@ -75,16 +75,16 @@
     <string name="form_user_textview_password">MOT DE PASSE</string>
     <string name="form_user_textview_terms">J\'atteste avoir lu le contrat d\'utilisation</string>
 
-    <!-- Form operation -->
-    <string name="form_operation_textview_date">DATE</string>
-    <string name="form_operation_textview_date_hint">2015</string>
-    <string name="form_operation_textview_type">TYPE</string>
-    <string name="form_operation_radiobutton_type_debit">Débit</string>
-    <string name="form_operation_radiobutton_type_credit">Crédit</string>
-    <string name="form_operation_textview_name">NOM</string>
-    <string name="form_operation_edittext_name_hint">Nom</string>
-    <string name="form_operation_textview_value">MONTANT</string>
-    <string name="form_operation_edittext_value_hint">0.0</string>
+    <!-- Form transaction -->
+    <string name="form_transaction_textview_daterealization">DATE</string>
+    <string name="form_transaction_textview_daterealization_hint">2015</string>
+    <string name="form_transaction_textview_type">TYPE</string>
+    <string name="form_transaction_radiobutton_type_debit">Débit</string>
+    <string name="form_transaction_radiobutton_type_credit">Crédit</string>
+    <string name="form_transaction_textview_title">INTITULE</string>
+    <string name="form_transaction_edittext_title_hint">Intitulé</string>
+    <string name="form_transaction_textview_value">MONTANT</string>
+    <string name="form_transaction_edittext_value_hint">0.0</string>
 
     <!-- Menu -->
     <string name="menuitem_action_accept">Valider</string>
@@ -95,10 +95,10 @@
 
     <!-- Tab -->
     <string name="tabitem_title_textview_date">DATE</string>
-    <string name="tabitem_title_textview_name">NOM</string>
+    <string name="tabitem_title_textview_title">INTITULE</string>
     <string name="tabitem_title_textview_value">PRIX</string>
-    <string name="tabitem_textview_date">Date</string>
-    <string name="tabitem_textview_name">Nom</string>
+    <string name="tabitem_textview_daterealization">Date</string>
+    <string name="tabitem_textview_title">Intitulé</string>
     <string name="tabitem_textview_value">0.0</string>
 
 </resources>

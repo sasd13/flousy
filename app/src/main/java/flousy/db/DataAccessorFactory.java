@@ -3,9 +3,6 @@ package flousy.db;
 import flousy.db.DataAccessor;
 import flousy.db.sqlite.SQLiteDAO;
 
-/**
- * Created by Samir on 11/11/2015.
- */
 public class DataAccessorFactory {
 
     private DataAccessorFactory() {}

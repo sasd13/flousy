@@ -5,6 +5,9 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.flousy.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <b>AbstractRecycler is a container class for a squad of elements (RecyclerItem)</b>
  * <p>
@@ -21,13 +24,13 @@ import com.example.flousy.R;
 public abstract class Recycler {
 
     protected Context context;
-    private ListRecyclerItems listRecyclerItems;
+    private List<RecyclerItem> listRecyclerItems;
     private RecyclerAdapter recyclerAdapter;
     private RecyclerView recyclerView;
 
     protected Recycler(Context context) {
         this.context = context;
-        this.listRecyclerItems = new ListRecyclerItems();
+        this.listRecyclerItems = new ArrayList<>();
         this.recyclerAdapter = new RecyclerAdapter(this.listRecyclerItems, R.layout.recyclerviewitem);
     }
 

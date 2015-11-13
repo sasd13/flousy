@@ -2,9 +2,6 @@ package flousy.gui.widget.recycler.drawer;
 
 import com.example.flousy.R;
 
-/**
- * Created by Samir on 22/03/2015.
- */
 public class DrawerItemTitle extends DrawerItem {
 
     public DrawerItemTitle() {

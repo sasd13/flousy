@@ -5,13 +5,10 @@ import android.database.Cursor;
 
 import java.sql.Timestamp;
 
-import flousy.beans.core.Account;
-import flousy.beans.core.User;
+import flousy.beans.Account;
+import flousy.beans.User;
 import flousy.db.AccountTableAccessor;
 
-/**
- * Created by Samir on 02/04/2015.
- */
 public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableAccessor {
 
     public AccountDAO(SQLiteDBHandler dbHandler) { super(dbHandler); }
@@ -22,7 +19,6 @@ public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableA
 
         //values.put(ACCOUNT_ID, account.getId()); //autoincrement
         values.put(ACCOUNT_DATEOPENING, String.valueOf(account.getDateOpening()));
-        values.put(ACCOUNT_SOLD, account.getSold());
 
         return values;
     }
@@ -33,20 +29,14 @@ public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableA
 
         account.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNT_ID)));
         account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
-        account.setSold(cursor.getDouble(cursor.getColumnIndex(ACCOUNT_SOLD)));
 
         return account;
     }
 
     @Override
-    public long insert(Account account) {
-        return 0;
-    }
-
-    @Override
     public long insert(Account account, User user) {
         ContentValues values = getContentValues(account);
-        values.put(USERS_USER_ID, user.getId());
+        values.put(USERS_USER_EMAIL, user.getEmail());
 
         return getDB().insert(ACCOUNT_TABLE_NAME, null, values);
     }
@@ -79,13 +69,13 @@ public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableA
     }
 
     @Override
-    public Account selectByUser(long userId) {
+    public Account selectByUser(String userEmail) {
         Account account = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + ACCOUNT_TABLE_NAME
-                        + " where " + USERS_USER_ID + " = ?", new String[]{String.valueOf(userId)});
+                        + " where " + USERS_USER_EMAIL + " = ?", new String[]{String.valueOf(userEmail)});
 
         if (cursor.moveToNext()) {
             account = getCursorValues(cursor);

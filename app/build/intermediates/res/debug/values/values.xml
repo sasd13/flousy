@@ -332,10 +332,10 @@
     <string name="activity_finance_name">Finances</string>
     <string name="activity_home_name">Menu</string>
     <string name="activity_log_name">Connexion</string>
-    <string name="activity_operation_name">Opération</string>
     <string name="activity_setting_name">Options</string>
     <string name="activity_sign_name">Inscription</string>
     <string name="activity_splashscreen_name">@string/app_name</string>
+    <string name="activity_transaction_name">Transaction</string>
     <string name="alertdialog_button_cancel">Annuler</string>
     <string name="alertdialog_button_no">Non</string>
     <string name="alertdialog_button_ok">OK</string>
@@ -353,15 +353,15 @@
     <string name="edittext_firstname_hint">Prénom</string>
     <string name="edittext_lastname_hint">Nom</string>
     <string name="edittext_password_hint">Mot de passe</string>
-    <string name="form_operation_edittext_name_hint">Nom</string>
-    <string name="form_operation_edittext_value_hint">0.0</string>
-    <string name="form_operation_radiobutton_type_credit">Crédit</string>
-    <string name="form_operation_radiobutton_type_debit">Débit</string>
-    <string name="form_operation_textview_date">DATE</string>
-    <string name="form_operation_textview_date_hint">2015</string>
-    <string name="form_operation_textview_name">NOM</string>
-    <string name="form_operation_textview_type">TYPE</string>
-    <string name="form_operation_textview_value">MONTANT</string>
+    <string name="form_transaction_edittext_title_hint">Intitulé</string>
+    <string name="form_transaction_edittext_value_hint">0.0</string>
+    <string name="form_transaction_radiobutton_type_credit">Crédit</string>
+    <string name="form_transaction_radiobutton_type_debit">Débit</string>
+    <string name="form_transaction_textview_daterealization">DATE</string>
+    <string name="form_transaction_textview_daterealization_hint">2015</string>
+    <string name="form_transaction_textview_title">INTITULE</string>
+    <string name="form_transaction_textview_type">TYPE</string>
+    <string name="form_transaction_textview_value">MONTANT</string>
     <string name="form_user_textview_connection">CONNEXION</string>
     <string name="form_user_textview_identity">IDENTITE</string>
     <string name="form_user_textview_password">MOT DE PASSE</string>
@@ -383,11 +383,11 @@
     <string name="search_hint">Rechercher</string>
     <string name="sign_alertdialog_sign_error_message">Remplir le formulaire d\'inscription</string>
     <string name="sign_alertdialog_sign_error_title">Erreur inscription</string>
-    <string name="tabitem_textview_date">Date</string>
-    <string name="tabitem_textview_name">Nom</string>
+    <string name="tabitem_textview_daterealization">Date</string>
+    <string name="tabitem_textview_title">Intitulé</string>
     <string name="tabitem_textview_value">0.0</string>
     <string name="tabitem_title_textview_date">DATE</string>
-    <string name="tabitem_title_textview_name">NOM</string>
+    <string name="tabitem_title_textview_title">INTITULE</string>
     <string name="tabitem_title_textview_value">PRIX</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/styles.xml -->
     <eat-comment/>

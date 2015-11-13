@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import flousy.db.AccountTableAccessor;
 import flousy.db.UserTableAccessor;
-import flousy.db.OperationTableAccessor;
+import flousy.db.TransactionTableAccessor;
 
 public class SQLiteDBHandler extends SQLiteOpenHelper {
 
@@ -17,10 +17,9 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String USER_TABLE_DROP = "DROP TABLE IF EXISTS " + UserTableAccessor.USER_TABLE_NAME + ";";
     public static final String USER_TABLE_CREATE =
             "CREATE TABLE " + UserTableAccessor.USER_TABLE_NAME + " ("
-                    + UserTableAccessor.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + UserTableAccessor.USER_EMAIL + " TEXT PRIMARY KEY, "
                     + UserTableAccessor.USER_FIRSTNAME + " TEXT NOT NULL, "
                     + UserTableAccessor.USER_LASTNAME + " TEXT NOT NULL, "
-                    + UserTableAccessor.USER_EMAIL + " TEXT NOT NULL UNIQUE, "
                     + UserTableAccessor.USER_PASSWORD + " TEXT NOT NULL);";
 
     /**
@@ -31,23 +30,21 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
             "CREATE TABLE " + AccountTableAccessor.ACCOUNT_TABLE_NAME + " ("
                     + AccountTableAccessor.ACCOUNT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + AccountTableAccessor.ACCOUNT_DATEOPENING + " TEXT NOT NULL, "
-                    + AccountTableAccessor.ACCOUNT_SOLD + " REAL NOT NULL, "
-                    + AccountTableAccessor.USERS_USER_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + AccountTableAccessor.USERS_USER_ID + ") REFERENCES " + UserTableAccessor.USER_TABLE_NAME + "("+ UserTableAccessor.USER_ID + "));";
+                    + AccountTableAccessor.USERS_USER_EMAIL + " TEXT NOT NULL, "
+                    + " FOREIGN KEY (" + AccountTableAccessor.USERS_USER_EMAIL + ") REFERENCES " + UserTableAccessor.USER_TABLE_NAME + "("+ UserTableAccessor.USER_EMAIL + "));";
 
     /**
-     * Table operations
+     * Table transactions
      */
-    public static final String OPERATION_TABLE_DROP = "DROP TABLE IF EXISTS " + OperationTableAccessor.OPERATION_TABLE_NAME + ";";
-    public static final String OPERATION_TABLE_CREATE =
-            "CREATE TABLE " + OperationTableAccessor.OPERATION_TABLE_NAME + " ("
-                    + OperationTableAccessor.OPERATION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + OperationTableAccessor.OPERATION_DATE + " TEXT NOT NULL, "
-                    + OperationTableAccessor.OPERATION_TYPE + " TEXT NOT NULL, "
-                    + OperationTableAccessor.OPERATION_NAME + " TEXT NOT NULL, "
-                    + OperationTableAccessor.OPERATION_VALUE + " REAL NOT NULL, "
-                    + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
-                    + " FOREIGN KEY (" + OperationTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
+    public static final String TRANSACTION_TABLE_DROP = "DROP TABLE IF EXISTS " + TransactionTableAccessor.TRANSACTION_TABLE_NAME + ";";
+    public static final String TRANSACTION_TABLE_CREATE =
+            "CREATE TABLE " + TransactionTableAccessor.TRANSACTION_TABLE_NAME + " ("
+                    + TransactionTableAccessor.TRANSACTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + TransactionTableAccessor.TRANSACTION_DATEREALIZATION + " TEXT NOT NULL, "
+                    + TransactionTableAccessor.TRANSACTION_TITLE + " TEXT NOT NULL, "
+                    + TransactionTableAccessor.TRANSACTION_VALUE + " REAL NOT NULL, "
+                    + TransactionTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
+                    + " FOREIGN KEY (" + TransactionTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
 
 
     public SQLiteDBHandler(Context context, String name, CursorFactory factory, int version) {
@@ -58,12 +55,12 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
         db.execSQL(USER_TABLE_CREATE);
         db.execSQL(ACCOUNT_TABLE_CREATE);
-        db.execSQL(OPERATION_TABLE_CREATE);
+        db.execSQL(TRANSACTION_TABLE_CREATE);
 	}
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(OPERATION_TABLE_DROP);
+        db.execSQL(TRANSACTION_TABLE_DROP);
         db.execSQL(ACCOUNT_TABLE_DROP);
         db.execSQL(USER_TABLE_DROP);
 

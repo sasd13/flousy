@@ -8,9 +8,6 @@ import com.example.flousy.R;
 
 import flousy.gui.color.ColorOnTouchListener;
 
-/**
- * Created by Samir on 22/03/2015.
- */
 public class DrawerItemIntentable extends DrawerItem {
 
     private Intent intent;

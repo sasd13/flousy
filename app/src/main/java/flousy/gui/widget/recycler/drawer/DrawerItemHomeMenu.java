@@ -5,9 +5,6 @@ import android.view.ViewStub;
 
 import com.example.flousy.R;
 
-/**
- * Created by Samir on 22/03/2015.
- */
 public class DrawerItemHomeMenu extends DrawerItemIntentable {
 
     private int color;
