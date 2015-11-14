@@ -111,7 +111,7 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private long getTransactionIdFromIntent() {
-        return getIntent().getLongExtra(Extra.TRANSACTION_ID, Extra.NULL_ID);
+        return getIntent().getLongExtra(Extra.TRANSACTION_ID, 0);
     }
 
     private void fillEditFormTransaction(Transaction transaction) {

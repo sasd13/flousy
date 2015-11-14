@@ -45,14 +45,14 @@ public class SQLiteDAO implements DataAccessor {
         transactionDAO = new TransactionDAO();
     }
 
-    protected void open() {
+    private void open() {
         db = dbHandler.getWritableDatabase();
 
         accountDAO.setDB(db);
         transactionDAO.setDB(db);
     }
 
-    protected void close() {
+    private void close() {
         db.close();
     }
 
