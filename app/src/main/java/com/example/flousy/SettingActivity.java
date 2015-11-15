@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.beans.Account;
+import flousy.bean.Account;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
 import flousy.form.FormValidator;

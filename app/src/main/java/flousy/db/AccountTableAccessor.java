@@ -1,6 +1,6 @@
 package flousy.db;
 
-import flousy.beans.Account;
+import flousy.bean.Account;
 
 public interface AccountTableAccessor {
 
@@ -12,11 +12,13 @@ public interface AccountTableAccessor {
     String ACCOUNT_USERLASTNAME = "account_userlastname";
     String ACCOUNT_USEREMAIL = "account_useremail";
     String ACCOUNT_USERPASSWORD = "account_userpassword";
-    String ACCOUNT_CLOSED = "account_closed";
+    String ACCOUNT_DELETED = "account_deleted";
 
     void insert(Account account);
 
     void update(Account account);
+
+    void delete(long id);
 
     Account select(long id);
 

@@ -4,8 +4,8 @@ import android.content.Context;
 
 import java.util.List;
 
-import flousy.beans.Account;
-import flousy.beans.Transaction;
+import flousy.bean.Account;
+import flousy.bean.Transaction;
 
 public interface DataAccessor {
 
@@ -15,6 +15,8 @@ public interface DataAccessor {
 
     void updateAccount(Account account);
 
+    void deleteAccount(long id);
+
     Account selectAccount(long id);
 
     Account selectAccountByUserEmail(String userEmail);
@@ -23,7 +25,7 @@ public interface DataAccessor {
 
     Account selectAccountWithTransactions(long id);
 
-    void insertTransaction(Transaction transaction);
+    void insertTransaction(Transaction transaction, long accountId);
 
     void updateTransaction(Transaction transaction);
 

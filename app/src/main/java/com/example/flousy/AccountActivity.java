@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-import flousy.beans.Account;
-import flousy.beans.Transaction;
+import flousy.bean.Account;
+import flousy.bean.Transaction;
 import flousy.constant.Extra;
 import flousy.db.DataAccessorFactory;
 import flousy.gui.widget.recycler.tab.Tab;

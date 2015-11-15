@@ -3,7 +3,7 @@ package flousy.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import flousy.beans.Account;
+import flousy.bean.Account;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
 

@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import flousy.beans.Transaction;
+import flousy.bean.Transaction;
 import flousy.db.TransactionTableAccessor;
 
 public class TransactionDAO extends SQLiteTableDAO<Transaction> implements TransactionTableAccessor {
@@ -39,9 +39,10 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
     }
 
     @Override
-    public long insert(Transaction transaction) {
+    public long insert(Transaction transaction, long accountId) {
         ContentValues values = getContentValues(transaction);
-        values.put(ACCOUNTS_ACCOUNT_ID, transaction.getAccount().getId());
+        values.put(TRANSACTION_DELETED, false);
+        values.put(ACCOUNTS_ACCOUNT_ID, accountId);
 
         return getDB().insert(TRANSACTION_TABLE_NAME, null, values);
     }
@@ -53,17 +54,30 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
 
     @Override
     public void delete(long id) {
-        getDB().delete(TRANSACTION_TABLE_NAME, TRANSACTION_ID + " = ?", new String[]{String.valueOf(id)});
+        Transaction transaction = select(id);
+
+        try {
+            ContentValues values = getContentValues(transaction);
+            values.put(TRANSACTION_DELETED, true);
+
+            getDB().update(TRANSACTION_TABLE_NAME, values, TRANSACTION_ID + " = ?", new String[]{String.valueOf(id)});
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public Transaction select(long id) {
+        return select(id, true);
+    }
+
+    public Transaction select(long id, boolean excludeDeleted) {
         Transaction transaction = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + TRANSACTION_TABLE_NAME
-                        + " where " + TRANSACTION_ID + " = ?", new String[]{String.valueOf(id)});
+                        + " where " + TRANSACTION_ID + " = ?" + getConditionDeleted(excludeDeleted), new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
             transaction = getCursorValues(cursor);
@@ -73,6 +87,10 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
         return transaction;
     }
 
+    private String getConditionDeleted(boolean excludeDeleted) {
+        return (excludeDeleted) ? " and " + TRANSACTION_DELETED + " = 0" : "";
+    }
+
     @Override
     public List<Transaction> selectByAccount(long accountId) {
         return selectByAccount(accountId, false);
@@ -80,6 +98,10 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
 
     @Override
     public List<Transaction> selectByAccount(long accountId, boolean ascOrderedByDateRealization) {
+        return selectByAccount(accountId, ascOrderedByDateRealization, true);
+    }
+
+    public List<Transaction> selectByAccount(long accountId, boolean ascOrderedByDateRealization, boolean excludeDeleted) {
         List<Transaction> listTransactions = new ArrayList<>();
 
         String order = ascOrderedByDateRealization ? "ASC" : "DESC";
@@ -87,7 +109,7 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + TRANSACTION_TABLE_NAME
-                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?"
+                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?" + getConditionDeleted(excludeDeleted)
                         + " order by " + TRANSACTION_DATEREALIZATION + " " + order, new String[]{String.valueOf(accountId)});
 
         while (cursor.moveToNext()) {

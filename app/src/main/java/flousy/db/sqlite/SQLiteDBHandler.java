@@ -20,9 +20,9 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + AccountTableAccessor.ACCOUNT_DATEOPENING + " TEXT NOT NULL, "
                     + AccountTableAccessor.ACCOUNT_USERFIRSTNAME + " TEXT NOT NULL, "
                     + AccountTableAccessor.ACCOUNT_USERLASTNAME + " TEXT NOT NULL, "
-                    + AccountTableAccessor.ACCOUNT_USEREMAIL + " TEXT NOT NULL UNIQUE, "
+                    + AccountTableAccessor.ACCOUNT_USEREMAIL + " TEXT NOT NULL, "
                     + AccountTableAccessor.ACCOUNT_USERPASSWORD + " TEXT NOT NULL, "
-                    + AccountTableAccessor.ACCOUNT_CLOSED + " INTEGER NOT NULL);";
+                    + AccountTableAccessor.ACCOUNT_DELETED + " INTEGER NOT NULL);";
 
     /**
      * Table transactions
@@ -34,6 +34,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                     + TransactionTableAccessor.TRANSACTION_DATEREALIZATION + " TEXT NOT NULL, "
                     + TransactionTableAccessor.TRANSACTION_TITLE + " TEXT NOT NULL, "
                     + TransactionTableAccessor.TRANSACTION_VALUE + " REAL NOT NULL, "
+                    + TransactionTableAccessor.TRANSACTION_DELETED + " INTEGER NOT NULL, "
                     + TransactionTableAccessor.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
                     + " FOREIGN KEY (" + TransactionTableAccessor.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountTableAccessor.ACCOUNT_TABLE_NAME + "("+ AccountTableAccessor.ACCOUNT_ID + "));";
 

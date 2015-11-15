@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import flousy.beans.Account;
+import flousy.bean.Account;
 import flousy.constant.Extra;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;

@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import java.sql.Timestamp;
 
-import flousy.beans.Account;
-import flousy.beans.Transaction;
+import flousy.bean.Account;
+import flousy.bean.Transaction;
 import flousy.constant.Extra;
 import flousy.db.DataAccessor;
 import flousy.db.DataAccessorFactory;
@@ -140,9 +140,8 @@ public class TransactionActivity extends MotherActivity {
             DataAccessor dao = DataAccessorFactory.get();
 
             Account account = dao.selectAccount(Session.getAccountId());
-            transaction.setAccount(account);
 
-            dao.insertTransaction(transaction);
+            dao.insertTransaction(transaction, account.getId());
 
             goToAccountActivity();
         } else {

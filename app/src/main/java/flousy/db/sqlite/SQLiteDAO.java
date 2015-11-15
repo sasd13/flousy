@@ -5,8 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.List;
 
-import flousy.beans.Account;
-import flousy.beans.Transaction;
+import flousy.bean.Account;
+import flousy.bean.Transaction;
 import flousy.db.DataAccessor;
 
 public class SQLiteDAO implements DataAccessor {
@@ -65,6 +65,15 @@ public class SQLiteDAO implements DataAccessor {
         open();
 
         accountDAO.update(account);
+
+        close();
+    }
+
+    @Override
+    public void deleteAccount(long id) {
+        open();
+
+        accountDAO.delete(id);
 
         close();
     }
@@ -129,10 +138,10 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void insertTransaction(Transaction transaction) {
+    public void insertTransaction(Transaction transaction, long accountId) {
         open();
 
-        long id = transactionDAO.insert(transaction);
+        long id = transactionDAO.insert(transaction, accountId);
         if (id > 0) {
             transaction.setId(id);
         }
