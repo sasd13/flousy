@@ -87,10 +87,10 @@ public class SignActivity extends ActionBarActivity {
 
                 goToHomeActivityWithWelcome(account.getUserFirstName());
             } else {
-                CustomDialog.showOkDialog(this, "Sign error", "Email (" + account.getUserEmail() + ") already exists");
+                CustomDialog.showOkDialog(this, "Error sign", "Email (" + account.getUserEmail() + ") already exists");
             }
         } else {
-            CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
+            CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
     }
 

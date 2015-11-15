@@ -15,7 +15,9 @@ public class FormValidator {
 
     public FormValidator() { this.mapErrors = new HashMap<>(); }
 
-    public String[] getErrors() { return this.mapErrors.values().toArray(new String[0]); }
+    public String[] getErrors() {
+        return this.mapErrors.values().toArray(new String[this.mapErrors.size()]);
+    }
 
     public void validName(String name, String errorKey) {
         try {

@@ -58,6 +58,10 @@ public abstract class Recycler {
         return this.listRecyclerItems.get(index);
     }
 
+    public RecyclerItem[] getItems() {
+        return this.listRecyclerItems.toArray(new RecyclerItem[size()]);
+    }
+
     public int size() {
         return this.listRecyclerItems.size();
     }

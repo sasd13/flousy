@@ -644,7 +644,7 @@ int layout activity_splashscreen 0x7f03001c
 int layout activity_transaction 0x7f03001d
 int layout customdialog_load 0x7f03001e
 int layout draweritem 0x7f03001f
-int layout draweritem_menu 0x7f030020
+int layout draweritem_homemenu 0x7f030020
 int layout draweritem_title 0x7f030021
 int layout griditem 0x7f030022
 int layout recyclerview 0x7f030023

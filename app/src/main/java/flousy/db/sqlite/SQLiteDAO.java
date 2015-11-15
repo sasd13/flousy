@@ -33,11 +33,6 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public String getDBType() {
-        return "SQLITE";
-    }
-
-    @Override
     public void init(Context context) {
         dbHandler = new SQLiteDBHandler(context, NOM, null, VERSION);
 
@@ -66,18 +61,6 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void insertTransaction(Transaction transaction, Account account) {
-        open();
-
-        long id = transactionDAO.insert(transaction, account);
-        if (id > 0) {
-            transaction.setId(id);
-        }
-
-        close();
-    }
-
-    @Override
     public void updateAccount(Account account) {
         open();
 
@@ -87,26 +70,8 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public void updateTransaction(Transaction transaction) {
-        open();
-
-        transactionDAO.update(transaction);
-
-        close();
-    }
-
-    @Override
-    public void deleteTransaction(Transaction transaction) {
-        open();
-
-        transactionDAO.delete(transaction);
-
-        close();
-    }
-
-    @Override
     public Account selectAccount(long id) {
-        Account account = null;
+        Account account;
 
         open();
 
@@ -118,21 +83,8 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
-    public Transaction selectTransaction(long id) {
-        Transaction transaction = null;
-
-        open();
-
-        transaction = transactionDAO.select(id);
-
-        close();
-
-        return transaction;
-    }
-
-    @Override
     public Account selectAccountByUserEmail(String userEmail) {
-        Account account = null;
+        Account account;
 
         open();
 
@@ -145,7 +97,7 @@ public class SQLiteDAO implements DataAccessor {
 
     @Override
     public boolean containsAccountByUserEmail(String userEmail) {
-        boolean contains = false;
+        boolean contains;
 
         open();
 
@@ -177,8 +129,51 @@ public class SQLiteDAO implements DataAccessor {
     }
 
     @Override
+    public void insertTransaction(Transaction transaction) {
+        open();
+
+        long id = transactionDAO.insert(transaction);
+        if (id > 0) {
+            transaction.setId(id);
+        }
+
+        close();
+    }
+
+    @Override
+    public void updateTransaction(Transaction transaction) {
+        open();
+
+        transactionDAO.update(transaction);
+
+        close();
+    }
+
+    @Override
+    public void deleteTransaction(long id) {
+        open();
+
+        transactionDAO.delete(id);
+
+        close();
+    }
+
+    @Override
+    public Transaction selectTransaction(long id) {
+        Transaction transaction;
+
+        open();
+
+        transaction = transactionDAO.select(id);
+
+        close();
+
+        return transaction;
+    }
+
+    @Override
     public List<Transaction> selectTransactionsByAccount(long accountId) {
-        List<Transaction> listTransactions = null;
+        List<Transaction> listTransactions;
 
         open();
 

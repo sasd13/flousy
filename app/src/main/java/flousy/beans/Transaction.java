@@ -8,6 +8,7 @@ public class Transaction {
     private Timestamp dateRealization;
     private String title;
     private double value;
+    private Account account;
 
     public Transaction() {
         this.dateRealization = new Timestamp(System.currentTimeMillis());
@@ -43,6 +44,14 @@ public class Transaction {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public Account getAccount() {
+        return this.account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public String toString() {

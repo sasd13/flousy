@@ -11,7 +11,7 @@ public class DrawerItemHomeMenu extends DrawerItemIntentable {
     private View colorView;
 
     public DrawerItemHomeMenu() {
-        super(R.layout.draweritem_menu);
+        super(R.layout.draweritem_homemenu);
     }
 
     public int getColor() {

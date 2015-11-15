@@ -93,7 +93,7 @@ public class Account {
     }
 
     public Transaction[] getTransactions() {
-        return this.listTransactions.toArray(new Transaction[0]);
+        return this.listTransactions.toArray(new Transaction[this.listTransactions.size()]);
     }
 
     public double getSold() {

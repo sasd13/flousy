@@ -2,7 +2,6 @@ package flousy.db;
 
 import java.util.List;
 
-import flousy.beans.Account;
 import flousy.beans.Transaction;
 
 public interface TransactionTableAccessor {
@@ -15,11 +14,11 @@ public interface TransactionTableAccessor {
     String TRANSACTION_VALUE = "transaction_value";
     String ACCOUNTS_ACCOUNT_ID = "accounts_account_id";
 
-    long insert(Transaction transaction, Account account);
+    long insert(Transaction transaction);
 
     void update(Transaction transaction);
 
-    void delete(Transaction transaction);
+    void delete(long id);
 
     Transaction select(long id);
 

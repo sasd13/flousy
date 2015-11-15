@@ -13,7 +13,7 @@ public class DrawerItemIntentable extends DrawerItem {
     private Intent intent;
 
     public DrawerItemIntentable() {
-        super(R.layout.draweritem);
+        super();
     }
 
     public DrawerItemIntentable(int layoutResource) {

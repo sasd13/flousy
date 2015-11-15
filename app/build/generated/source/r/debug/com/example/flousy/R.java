@@ -1712,7 +1712,7 @@ containing a value of this type.
         public static final int activity_transaction=0x7f03001d;
         public static final int customdialog_load=0x7f03001e;
         public static final int draweritem=0x7f03001f;
-        public static final int draweritem_menu=0x7f030020;
+        public static final int draweritem_homemenu=0x7f030020;
         public static final int draweritem_title=0x7f030021;
         public static final int griditem=0x7f030022;
         public static final int recyclerview=0x7f030023;

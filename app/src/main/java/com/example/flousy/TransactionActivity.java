@@ -140,12 +140,13 @@ public class TransactionActivity extends MotherActivity {
             DataAccessor dao = DataAccessorFactory.get();
 
             Account account = dao.selectAccount(Session.getAccountId());
+            transaction.setAccount(account);
 
-            dao.insertTransaction(transaction, account);
+            dao.insertTransaction(transaction);
 
             goToAccountActivity();
         } else {
-            CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
+            CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
     }
 
@@ -201,7 +202,7 @@ public class TransactionActivity extends MotherActivity {
 
             goToAccountActivity();
         } else {
-            CustomDialog.showOkDialog(this, "Form error", tabFormErrors[0]);
+            CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
     }
 
@@ -227,11 +228,7 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void confirmDeleteTransaction() {
-        DataAccessor dao = DataAccessorFactory.get();
-
-        Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
-
-        dao.deleteTransaction(transaction);
+        DataAccessorFactory.get().deleteTransaction(getTransactionIdFromIntent());
 
         CustomDialog.showOkDialog(this, "Transaction", "Transaction deleted");
 

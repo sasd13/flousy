@@ -18,6 +18,8 @@ public class DrawerItem extends RecyclerItem {
     private CharSequence text;
     private TextView textView;
 
+    public DrawerItem() { super(R.layout.draweritem); }
+
     public DrawerItem(int layoutResource) {
         super(layoutResource);
     }
