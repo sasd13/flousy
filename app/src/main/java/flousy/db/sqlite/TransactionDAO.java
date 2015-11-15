@@ -68,16 +68,16 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
 
     @Override
     public Transaction select(long id) {
-        return select(id, true);
+        return select(id, false);
     }
 
-    public Transaction select(long id, boolean excludeDeleted) {
+    public Transaction select(long id, boolean includeDeleted) {
         Transaction transaction = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + TRANSACTION_TABLE_NAME
-                        + " where " + TRANSACTION_ID + " = ?" + getConditionDeleted(excludeDeleted), new String[]{String.valueOf(id)});
+                        + " where " + TRANSACTION_ID + " = ?" + getConditionDeleted(includeDeleted), new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
             transaction = getCursorValues(cursor);
@@ -87,8 +87,8 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
         return transaction;
     }
 
-    private String getConditionDeleted(boolean excludeDeleted) {
-        return (excludeDeleted) ? " and " + TRANSACTION_DELETED + " = 0" : "";
+    private String getConditionDeleted(boolean includeDeleted) {
+        return (includeDeleted) ? "" : " and " + TRANSACTION_DELETED + " = 0";
     }
 
     @Override
@@ -98,10 +98,10 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
 
     @Override
     public List<Transaction> selectByAccount(long accountId, boolean ascOrderedByDateRealization) {
-        return selectByAccount(accountId, ascOrderedByDateRealization, true);
+        return selectByAccount(accountId, ascOrderedByDateRealization, false);
     }
 
-    public List<Transaction> selectByAccount(long accountId, boolean ascOrderedByDateRealization, boolean excludeDeleted) {
+    public List<Transaction> selectByAccount(long accountId, boolean ascOrderedByDateRealization, boolean includeDeleted) {
         List<Transaction> listTransactions = new ArrayList<>();
 
         String order = ascOrderedByDateRealization ? "ASC" : "DESC";
@@ -109,7 +109,7 @@ public class TransactionDAO extends SQLiteTableDAO<Transaction> implements Trans
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + TRANSACTION_TABLE_NAME
-                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?" + getConditionDeleted(excludeDeleted)
+                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?" + getConditionDeleted(includeDeleted)
                         + " order by " + TRANSACTION_DATEREALIZATION + " " + order, new String[]{String.valueOf(accountId)});
 
         while (cursor.moveToNext()) {

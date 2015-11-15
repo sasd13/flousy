@@ -69,16 +69,16 @@ public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableA
 
     @Override
     public Account select(long id) {
-        return select(id, true);
+        return select(id, false);
     }
 
-    public Account select(long id, boolean excludeDeleted) {
+    public Account select(long id, boolean includeDeleted) {
         Account account = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + ACCOUNT_TABLE_NAME
-                        + " where " + ACCOUNT_ID + " = ?" + getConditionDeleted(excludeDeleted), new String[]{String.valueOf(id)});
+                        + " where " + ACCOUNT_ID + " = ?" + getConditionDeleted(includeDeleted), new String[]{String.valueOf(id)});
 
         if (cursor.moveToNext()) {
             account = getCursorValues(cursor);
@@ -88,22 +88,22 @@ public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableA
         return account;
     }
 
-    private String getConditionDeleted(boolean excludeDeleted) {
-        return (excludeDeleted) ? " and " + ACCOUNT_DELETED + " = 0" : "";
+    private String getConditionDeleted(boolean includeDeleted) {
+        return (includeDeleted) ? "" : " and " + ACCOUNT_DELETED + " = 0";
     }
 
     @Override
     public Account selectByUserEmail(String userEmail) {
-        return selectByUserEmail(userEmail, true);
+        return selectByUserEmail(userEmail, false);
     }
 
-    public Account selectByUserEmail(String userEmail, boolean excludeDeleted) {
+    public Account selectByUserEmail(String userEmail, boolean includeDeleted) {
         Account account = null;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + ACCOUNT_TABLE_NAME
-                        + " where " + ACCOUNT_USEREMAIL + " = ?" + getConditionDeleted(excludeDeleted), new String[]{String.valueOf(userEmail)});
+                        + " where " + ACCOUNT_USEREMAIL + " = ?" + getConditionDeleted(includeDeleted), new String[]{String.valueOf(userEmail)});
 
         if (cursor.moveToNext()) {
             account = getCursorValues(cursor);
@@ -115,16 +115,16 @@ public class AccountDAO extends SQLiteTableDAO<Account> implements AccountTableA
 
     @Override
     public boolean containsByUserEmail(String userEmail) {
-        return containsByUserEmail(userEmail, true);
+        return containsByUserEmail(userEmail, false);
     }
 
-    public boolean containsByUserEmail(String userEmail, boolean excludeDeleted) {
+    public boolean containsByUserEmail(String userEmail, boolean includeDeleted) {
         boolean contains = false;
 
         Cursor cursor = getDB().rawQuery(
                 "select *"
                         + " from " + ACCOUNT_TABLE_NAME
-                        + " where " + ACCOUNT_USEREMAIL + " = ?" + getConditionDeleted(excludeDeleted), new String[]{String.valueOf(userEmail)});
+                        + " where " + ACCOUNT_USEREMAIL + " = ?" + getConditionDeleted(includeDeleted), new String[]{String.valueOf(userEmail)});
 
         if (cursor.moveToNext()) {
             contains = true;
