@@ -12,12 +12,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import flousy.bean.Account;
+import flousy.bean.Customer;
 import flousy.bean.Transaction;
 import flousy.constant.Extra;
-import flousy.db.DataAccessor;
-import flousy.db.DataAccessorFactory;
+import flousy.db.dao.DAO;
+import flousy.db.dao.DAOFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.session.Session;
@@ -49,7 +51,7 @@ public class TransactionActivity extends MotherActivity {
         if (getExtraMode() == Extra.MODE_NEW) {
             fillNewFormTransaction();
         } else {
-            Transaction transaction = DataAccessorFactory.get().selectTransaction(getTransactionIdFromIntent());
+            Transaction transaction = DAOFactory.get().selectTransaction(getTransactionIdFromIntent());
 
             fillEditFormTransaction(transaction);
         }
@@ -137,9 +139,11 @@ public class TransactionActivity extends MotherActivity {
         if (tabFormErrors.length == 0) {
             Transaction transaction = getTransactionFromForm();
 
-            DataAccessor dao = DataAccessorFactory.get();
+            DAO dao = DAOFactory.get();
 
-            Account account = dao.selectAccount(Session.getAccountId());
+            Customer customer = dao.selectCustomer(Session.getCustomerId());
+            List<Account> list = dao.selectAccountsByCustomer(customer.getId());
+            Account account = list.get(0);
 
             dao.insertTransaction(transaction, account.getId());
 
@@ -192,7 +196,7 @@ public class TransactionActivity extends MotherActivity {
         String[] tabFormErrors = validFormTransaction();
 
         if (tabFormErrors.length == 0) {
-            DataAccessor dao = DataAccessorFactory.get();
+            DAO dao = DAOFactory.get();
 
             Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
 
@@ -227,7 +231,7 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void confirmDeleteTransaction() {
-        DataAccessorFactory.get().deleteTransaction(getTransactionIdFromIntent());
+        DAOFactory.get().deleteTransaction(getTransactionIdFromIntent());
 
         CustomDialog.showOkDialog(this, "Transaction", "Transaction deleted");
 

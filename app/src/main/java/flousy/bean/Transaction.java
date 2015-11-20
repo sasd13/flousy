@@ -8,6 +8,7 @@ public class Transaction {
     private Timestamp dateRealization;
     private String title;
     private double value;
+    private Account account;
 
     public Transaction() {
         this.dateRealization = new Timestamp(System.currentTimeMillis());
@@ -45,11 +46,19 @@ public class Transaction {
         this.value = value;
     }
 
+    public Account getAccount() {
+        return this.account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
     public String toString() {
         return "["
                 + "id: " + this.id + ", "
                 + "daterealization: " + String.valueOf(this.dateRealization) + ", "
-                + "title: " + this.title + ", "
-                + "value: " + this.value + "]";
+                + "value: " + this.value + ", "
+                + "title: " + this.title + "]";
     }
 }

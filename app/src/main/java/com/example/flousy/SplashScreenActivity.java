@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
-import flousy.db.DataAccessorFactory;
+import flousy.db.dao.DAOFactory;
 import flousy.session.Session;
 
 public class SplashScreenActivity extends Activity {
@@ -29,7 +29,7 @@ public class SplashScreenActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        DataAccessorFactory.get().init(this);
+        DAOFactory.get().init(this);
         Session.start(this);
 
         if (Session.isStarted()) {

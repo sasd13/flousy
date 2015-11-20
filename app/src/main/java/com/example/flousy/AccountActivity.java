@@ -9,11 +9,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 import flousy.bean.Account;
 import flousy.bean.Transaction;
 import flousy.constant.Extra;
-import flousy.db.DataAccessorFactory;
+import flousy.db.dao.DAO;
+import flousy.db.dao.DAOFactory;
 import flousy.gui.widget.recycler.tab.Tab;
 import flousy.gui.widget.recycler.tab.TabItemTransaction;
 import flousy.gui.widget.recycler.tab.TabItemTransactionTitle;
@@ -38,7 +40,10 @@ public class AccountActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        Account account = DataAccessorFactory.get().selectAccountWithTransactions(Session.getAccountId());
+        DAO dao = DAOFactory.get();
+
+        List<Account> list = dao.selectAccountsByCustomer(Session.getCustomerId());
+        Account account = list.get(0);
 
         fillTextViewSold(account);
         fillTabTransactions(account);

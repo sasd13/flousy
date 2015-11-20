@@ -8,7 +8,8 @@ public class Account {
 
     private long id;
     private Timestamp dateOpening;
-    private String userFirstName, userLastName, userEmail, userPassword;
+    private boolean closed;
+    private Customer customer;
     private List<Transaction> transactions;
 
     public Account() {
@@ -32,40 +33,26 @@ public class Account {
         this.dateOpening = dateOpening;
     }
 
-    public String getUserFirstName() {
-            return this.userFirstName;
-        }
-
-    public void setUserFirstName(String userFirstName) {
-            this.userFirstName = userFirstName;
-        }
-
-    public String getUserLastName() {
-            return this.userLastName;
-        }
-
-    public void setUserLastName(String userLastName) {
-            this.userLastName = userLastName;
-        }
-
-    public String getUserEmail() {
-            return this.userEmail;
-        }
-
-    public void setUserEmail(String userEmail) {
-            this.userEmail = userEmail;
-        }
-
-    public String getUserPassword() {
-        return this.userPassword;
+    public boolean isClosed() {
+        return closed;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setClosed(boolean closed) {
+        this.closed = closed;
+    }
+
+    public Customer getCustomer() {
+        return this.customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public void addTransaction(Transaction transaction) {
         this.transactions.add(transaction);
+
+        transaction.setAccount(this);
     }
 
     public void removeTransaction(Transaction transaction) {
@@ -90,10 +77,6 @@ public class Account {
     public String toString() {
         return "["
                 + "id: " + this.id + ", "
-                + "dateopening: " + String.valueOf(this.dateOpening) + ", "
-                + "userfirstname: " + this.userLastName + ", "
-                + "userlastname: " + this.userLastName + ", "
-                + "useremail: " + this.userEmail + ", "
-                + "userpassword: " + this.userPassword + "]";
+                + "dateopening: " + String.valueOf(this.dateOpening) + "]";
     }
 }

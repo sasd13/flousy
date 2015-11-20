@@ -3,14 +3,14 @@ package flousy.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import flousy.bean.Account;
-import flousy.db.DataAccessor;
-import flousy.db.DataAccessorFactory;
+import flousy.bean.Customer;
+import flousy.db.dao.DAO;
+import flousy.db.dao.DAOFactory;
 
 public class Session {
 
     private static final String SESSION_PREFERENCES = "session_preferences";
-    private static final String SESSION_ACCOUNT_ID = "session_account_id";
+    private static final String SESSION_CUSTOMER_ID = "session_customer_id";
 
     private static SharedPreferences preferences;
 
@@ -21,22 +21,22 @@ public class Session {
     }
 
     public static boolean isStarted() {
-        return preferences.contains(SESSION_ACCOUNT_ID);
+        return preferences.contains(SESSION_CUSTOMER_ID);
     }
 
-    public static long getAccountId() {
-        return preferences.getLong(SESSION_ACCOUNT_ID, 0);
+    public static long getCustomerId() {
+        return preferences.getLong(SESSION_CUSTOMER_ID, 0);
     }
 
     public static boolean logIn(String email, String password) {
-        DataAccessor dao = DataAccessorFactory.get();
+        DAO dao = DAOFactory.get();
 
-        Account account = dao.selectAccountByUserEmail(email);
+        Customer customer = dao.selectCustomerByEmail(email);
 
         try {
-            if (account.getUserPassword().equals(password)) {
+            if (customer.getPassword().equals(password)) {
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putLong(SESSION_ACCOUNT_ID, account.getId());
+                editor.putLong(SESSION_CUSTOMER_ID, customer.getId());
 
                 return editor.commit();
             }

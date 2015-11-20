@@ -11,10 +11,10 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import flousy.bean.Account;
+import flousy.bean.Customer;
 import flousy.constant.Extra;
-import flousy.db.DataAccessor;
-import flousy.db.DataAccessorFactory;
+import flousy.db.dao.DAO;
+import flousy.db.dao.DAOFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
@@ -22,14 +22,14 @@ import flousy.session.Session;
 
 public class SignActivity extends ActionBarActivity {
 
-    private class FormAccountViewHolder {
+    private class FormCustomerViewHolder {
         public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
         public CheckBox checkBoxValidTerms;
     }
 
     private static final int SIGNUP_TIMEOUT = 2000;
 
-    private FormAccountViewHolder formAccount;
+    private FormCustomerViewHolder formCustomer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class SignActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_sign);
 
-        createFormAccount();
+        createFormCustomer();
     }
 
     @Override
@@ -61,48 +61,48 @@ public class SignActivity extends ActionBarActivity {
         return true;
     }
 
-    private void createFormAccount() {
-        this.formAccount = new FormAccountViewHolder();
+    private void createFormCustomer() {
+        this.formCustomer = new FormCustomerViewHolder();
 
-        this.formAccount.editTextFirstName = (EditText) findViewById(R.id.sign_form_user_edittext_firstname);
-        this.formAccount.editTextLastName = (EditText) findViewById(R.id.sign_form_user_edittext_lastname);
-        this.formAccount.editTextEmail = (EditText) findViewById(R.id.sign_form_user_edittext_email);
-        this.formAccount.editTextPassword = (EditText) findViewById(R.id.sign_form_user_edittext_password);
-        this.formAccount.editTextConfirmPassword = (EditText) findViewById(R.id.sign_form_user_edittext_confirmpassword);
-        this.formAccount.checkBoxValidTerms = (CheckBox) findViewById(R.id.sign_form_user_checkbox_terms);
+        this.formCustomer.editTextFirstName = (EditText) findViewById(R.id.sign_form_user_edittext_firstname);
+        this.formCustomer.editTextLastName = (EditText) findViewById(R.id.sign_form_user_edittext_lastname);
+        this.formCustomer.editTextEmail = (EditText) findViewById(R.id.sign_form_user_edittext_email);
+        this.formCustomer.editTextPassword = (EditText) findViewById(R.id.sign_form_user_edittext_password);
+        this.formCustomer.editTextConfirmPassword = (EditText) findViewById(R.id.sign_form_user_edittext_confirmpassword);
+        this.formCustomer.checkBoxValidTerms = (CheckBox) findViewById(R.id.sign_form_user_checkbox_terms);
     }
 
     private void signUp() {
-        String[] tabFormErrors = validFormAccount();
+        String[] tabFormErrors = validFormCustomer();
 
         if (tabFormErrors.length == 0) {
-            Account account = getAccountFromForm();
+            Customer customer = getCustomerFromForm();
 
-            DataAccessor dao = DataAccessorFactory.get();
+            DAO dao = DAOFactory.get();
 
-            if (!dao.containsAccountByUserEmail(account.getUserEmail())) {
-                dao.insertAccount(account);
+            if (!dao.containsCustomerByEmail(customer.getEmail())) {
+                dao.insertCustomer(customer);
 
-                Session.logIn(account.getUserEmail(), account.getUserPassword());
+                Session.logIn(customer.getEmail(), customer.getPassword());
 
-                goToHomeActivityWithWelcome(account.getUserFirstName());
+                goToHomeActivityWithWelcome(customer.getFirstName());
             } else {
-                CustomDialog.showOkDialog(this, "Error sign", "Email (" + account.getUserEmail() + ") already exists");
+                CustomDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
             }
         } else {
             CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
     }
 
-    private String[] validFormAccount() {
+    private String[] validFormCustomer() {
         FormValidator formValidator = new FormValidator();
 
-        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
-        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
-        String email = this.formAccount.editTextEmail.getText().toString().trim();
-        String password = this.formAccount.editTextPassword.getText().toString().trim();
-        String confirmPassword = this.formAccount.editTextConfirmPassword.getText().toString().trim();
-        Boolean validTerms = this.formAccount.checkBoxValidTerms.isChecked();
+        String firstName = this.formCustomer.editTextFirstName.getText().toString().trim();
+        String lastName = this.formCustomer.editTextLastName.getText().toString().trim();
+        String email = this.formCustomer.editTextEmail.getText().toString().trim();
+        String password = this.formCustomer.editTextPassword.getText().toString().trim();
+        String confirmPassword = this.formCustomer.editTextConfirmPassword.getText().toString().trim();
+        Boolean validTerms = this.formCustomer.checkBoxValidTerms.isChecked();
 
         formValidator.validName(firstName, "firstname");
         formValidator.validName(lastName, "lastname");
@@ -114,20 +114,20 @@ public class SignActivity extends ActionBarActivity {
         return formValidator.getErrors();
     }
 
-    private Account getAccountFromForm() {
-        Account account = new Account();
+    private Customer getCustomerFromForm() {
+        Customer customer = new Customer();
 
-        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
-        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
-        String email = this.formAccount.editTextEmail.getText().toString().trim();
-        String password = this.formAccount.editTextPassword.getText().toString().trim();
+        String firstName = this.formCustomer.editTextFirstName.getText().toString().trim();
+        String lastName = this.formCustomer.editTextLastName.getText().toString().trim();
+        String email = this.formCustomer.editTextEmail.getText().toString().trim();
+        String password = this.formCustomer.editTextPassword.getText().toString().trim();
 
-        account.setUserFirstName(firstName);
-        account.setUserLastName(lastName);
-        account.setUserEmail(email);
-        account.setUserPassword(password);
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setEmail(email);
+        customer.setPassword(password);
 
-        return account;
+        return customer;
     }
 
     private void goToHomeActivityWithWelcome(String userFirstName) {

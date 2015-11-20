@@ -7,20 +7,20 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import flousy.bean.Account;
-import flousy.db.DataAccessor;
-import flousy.db.DataAccessorFactory;
+import flousy.bean.Customer;
+import flousy.db.dao.DAO;
+import flousy.db.dao.DAOFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.session.Session;
 
 public class SettingActivity extends MotherActivity {
 
-    private class FormAccountViewHolder {
+    private class FormCustomerViewHolder {
         public EditText editTextFirstName, editTextLastName, editTextEmail;
     }
 
-    private FormAccountViewHolder formAccount;
+    private FormCustomerViewHolder formCustomer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,16 +28,16 @@ public class SettingActivity extends MotherActivity {
 
         setContentView(R.layout.activity_setting);
 
-        createFormAccount();
+        createFormCustomer();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Account account = DataAccessorFactory.get().selectAccount(Session.getAccountId());
+        Customer customer = DAOFactory.get().selectCustomer(Session.getCustomerId());
 
-        fillFormAccount(account);
+        fillFormCustomer(customer);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class SettingActivity extends MotherActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_sign_action_accept:
-                updateAccount();
+                updateCustomer();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -61,39 +61,39 @@ public class SettingActivity extends MotherActivity {
         return true;
     }
 
-    private void createFormAccount() {
-        this.formAccount = new FormAccountViewHolder();
+    private void createFormCustomer() {
+        this.formCustomer = new FormCustomerViewHolder();
 
-        this.formAccount.editTextFirstName = (EditText) findViewById(R.id.setting_form_user_edittext_firstname);
-        this.formAccount.editTextLastName = (EditText) findViewById(R.id.setting_form_user_edittext_lastname);
-        this.formAccount.editTextEmail = (EditText) findViewById(R.id.setting_form_user_edittext_email);
+        this.formCustomer.editTextFirstName = (EditText) findViewById(R.id.setting_form_user_edittext_firstname);
+        this.formCustomer.editTextLastName = (EditText) findViewById(R.id.setting_form_user_edittext_lastname);
+        this.formCustomer.editTextEmail = (EditText) findViewById(R.id.setting_form_user_edittext_email);
     }
 
-    private void fillFormAccount(Account account) {
-        this.formAccount.editTextFirstName.setText(account.getUserFirstName(), TextView.BufferType.EDITABLE);
-        this.formAccount.editTextLastName.setText(account.getUserLastName(), TextView.BufferType.EDITABLE);
-        this.formAccount.editTextEmail.setText(account.getUserEmail(), TextView.BufferType.EDITABLE);
+    private void fillFormCustomer(Customer customer) {
+        this.formCustomer.editTextFirstName.setText(customer.getFirstName(), TextView.BufferType.EDITABLE);
+        this.formCustomer.editTextLastName.setText(customer.getLastName(), TextView.BufferType.EDITABLE);
+        this.formCustomer.editTextEmail.setText(customer.getEmail(), TextView.BufferType.EDITABLE);
     }
 
-    private void updateAccount() {
-        String[] tabFormErrors = validFormAccount();
+    private void updateCustomer() {
+        String[] tabFormErrors = validFormCustomer();
 
         if (tabFormErrors.length == 0) {
-            String email = this.formAccount.editTextEmail.getText().toString().trim();
+            String email = this.formCustomer.editTextEmail.getText().toString().trim();
 
-            DataAccessor dao = DataAccessorFactory.get();
+            DAO dao = DAOFactory.get();
 
-            if (!dao.containsAccountByUserEmail(email)) {
-                Account account = dao.selectAccount(Session.getAccountId());
+            if (!dao.containsCustomerByEmail(email)) {
+                Customer customer = dao.selectCustomer(Session.getCustomerId());
 
-                editAccountWithForm(account);
-                dao.updateAccount(account);
+                editCustomerWithForm(customer);
+                dao.updateCustomer(customer);
             } else {
-                Account account = dao.selectAccountByUserEmail(email);
+                Customer customer = dao.selectCustomerByEmail(email);
 
-                if (account.getId() == Session.getAccountId()) {
-                    editAccountWithForm(account);
-                    dao.updateAccount(account);
+                if (customer.getId() == Session.getCustomerId()) {
+                    editCustomerWithForm(customer);
+                    dao.updateCustomer(customer);
                 } else {
                     CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
                 }
@@ -103,12 +103,12 @@ public class SettingActivity extends MotherActivity {
         }
     }
 
-    private String[] validFormAccount() {
+    private String[] validFormCustomer() {
         FormValidator formValidator = new FormValidator();
 
-        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
-        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
-        String email = this.formAccount.editTextEmail.getText().toString().trim();
+        String firstName = this.formCustomer.editTextFirstName.getText().toString().trim();
+        String lastName = this.formCustomer.editTextLastName.getText().toString().trim();
+        String email = this.formCustomer.editTextEmail.getText().toString().trim();
 
         formValidator.validName(firstName, "firstname");
         formValidator.validName(lastName, "lastname");
@@ -117,25 +117,25 @@ public class SettingActivity extends MotherActivity {
         return formValidator.getErrors();
     }
 
-    private void editAccountWithForm(Account account) {
-        Account accountFromForm = getAccountFromForm();
+    private void editCustomerWithForm(Customer customer) {
+        Customer customerFromForm = getCustomerFromForm();
 
-        account.setUserFirstName(accountFromForm.getUserFirstName());
-        account.setUserLastName(accountFromForm.getUserLastName());
-        account.setUserEmail(accountFromForm.getUserEmail());
+        customer.setFirstName(customerFromForm.getFirstName());
+        customer.setLastName(customerFromForm.getLastName());
+        customer.setEmail(customerFromForm.getEmail());
     }
 
-    private Account getAccountFromForm() {
-        Account account = new Account();
+    private Customer getCustomerFromForm() {
+        Customer customer = new Customer();
 
-        String firstName = this.formAccount.editTextFirstName.getText().toString().trim();
-        String lastName = this.formAccount.editTextLastName.getText().toString().trim();
-        String email = this.formAccount.editTextEmail.getText().toString().trim();
+        String firstName = this.formCustomer.editTextFirstName.getText().toString().trim();
+        String lastName = this.formCustomer.editTextLastName.getText().toString().trim();
+        String email = this.formCustomer.editTextEmail.getText().toString().trim();
 
-        account.setUserFirstName(firstName);
-        account.setUserLastName(lastName);
-        account.setUserEmail(email);
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setEmail(email);
 
-        return account;
+        return customer;
     }
 }
