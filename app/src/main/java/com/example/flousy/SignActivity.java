@@ -13,8 +13,8 @@ import android.widget.EditText;
 
 import flousy.bean.Customer;
 import flousy.constant.Extra;
-import flousy.db.dao.DAO;
-import flousy.db.dao.DAOFactory;
+import flousy.db.DAO;
+import flousy.db.DAOFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.gui.widget.dialog.CustomDialogBuilder;
@@ -82,6 +82,7 @@ public class SignActivity extends ActionBarActivity {
 
             if (!dao.containsCustomerByEmail(customer.getEmail())) {
                 dao.insertCustomer(customer);
+                dao.insertAccount(customer.getAccount(), customer.getId());
 
                 Session.logIn(customer.getEmail(), customer.getPassword());
 

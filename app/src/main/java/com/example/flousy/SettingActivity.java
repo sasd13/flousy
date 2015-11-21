@@ -8,8 +8,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import flousy.bean.Customer;
-import flousy.db.dao.DAO;
-import flousy.db.dao.DAOFactory;
+import flousy.db.DAO;
+import flousy.db.DAOFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.session.Session;

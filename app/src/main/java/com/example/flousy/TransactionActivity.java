@@ -12,14 +12,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 import flousy.bean.Account;
-import flousy.bean.Customer;
 import flousy.bean.Transaction;
 import flousy.constant.Extra;
-import flousy.db.dao.DAO;
-import flousy.db.dao.DAOFactory;
+import flousy.db.DAO;
+import flousy.db.DAOFactory;
 import flousy.form.FormValidator;
 import flousy.gui.widget.dialog.CustomDialog;
 import flousy.session.Session;
@@ -141,9 +139,7 @@ public class TransactionActivity extends MotherActivity {
 
             DAO dao = DAOFactory.get();
 
-            Customer customer = dao.selectCustomer(Session.getCustomerId());
-            List<Account> list = dao.selectAccountsByCustomer(customer.getId());
-            Account account = list.get(0);
+            Account account = dao.selectAccountByCustomer(Session.getCustomerId());
 
             dao.insertTransaction(transaction, account.getId());
 

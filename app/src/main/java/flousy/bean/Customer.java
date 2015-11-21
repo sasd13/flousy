@@ -1,16 +1,15 @@
 package flousy.bean;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Customer {
 
     private long id;
     private String firstName, lastName, email, password;
-    private List<Account> accounts;
+    private Account account;
 
     public Customer() {
-        this.accounts = new ArrayList<>();
+        this.account = new Account();
+
+        this.account.setCustomer(this);
     }
 
     public long getId() {
@@ -43,7 +42,7 @@ public class Customer {
 
     public void setEmail(String email) {
             this.email = email;
-        }
+    }
 
     public String getPassword() {
         return this.password;
@@ -53,18 +52,8 @@ public class Customer {
         this.password = password;
     }
 
-    public void addAccount(Account account) {
-        this.accounts.add(account);
-
-        account.setCustomer(this);
-    }
-
-    public void removeAccount(Account account) {
-        this.accounts.remove(account);
-    }
-
-    public Account[] getAccounts() {
-        return this.accounts.toArray(new Account[this.accounts.size()]);
+    public Account getAccount() {
+        return this.account;
     }
 
     @Override

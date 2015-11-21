@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
-import flousy.db.dao.DAOFactory;
+import flousy.db.DAOFactory;
 import flousy.session.Session;
 
 public class SplashScreenActivity extends Activity {
