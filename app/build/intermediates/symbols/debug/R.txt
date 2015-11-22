@@ -737,6 +737,7 @@ int string tabitem_textview_value 0x7f0c004d
 int string tabitem_title_textview_date 0x7f0c004e
 int string tabitem_title_textview_title 0x7f0c004f
 int string tabitem_title_textview_value 0x7f0c0050
+int string toast_saved 0x7f0c0051
 int style AppTheme 0x7f0d0000
 int style Base_TextAppearance_AppCompat 0x7f0d0001
 int style Base_TextAppearance_AppCompat_Body1 0x7f0d0002

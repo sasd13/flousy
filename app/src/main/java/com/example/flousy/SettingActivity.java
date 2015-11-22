@@ -6,6 +6,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import flousy.bean.Customer;
 import flousy.db.DAO;
@@ -86,14 +87,12 @@ public class SettingActivity extends MotherActivity {
             if (!dao.containsCustomerByEmail(email)) {
                 Customer customer = dao.selectCustomer(Session.getCustomerId());
 
-                editCustomerWithForm(customer);
-                dao.updateCustomer(customer);
+                performUpdate(customer, dao);
             } else {
                 Customer customer = dao.selectCustomerByEmail(email);
 
                 if (customer.getId() == Session.getCustomerId()) {
-                    editCustomerWithForm(customer);
-                    dao.updateCustomer(customer);
+                    performUpdate(customer, dao);
                 } else {
                     CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
                 }
@@ -115,6 +114,13 @@ public class SettingActivity extends MotherActivity {
         formValidator.validEmail(email, "email");
 
         return formValidator.getErrors();
+    }
+
+    private void performUpdate(Customer customer, DAO dao) {
+        editCustomerWithForm(customer);
+        dao.updateCustomer(customer);
+
+        Toast.makeText(this, R.string.toast_saved, Toast.LENGTH_SHORT).show();
     }
 
     private void editCustomerWithForm(Customer customer) {

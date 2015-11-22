@@ -389,6 +389,7 @@
     <string name="tabitem_title_textview_date">DATE</string>
     <string name="tabitem_title_textview_title">INTITULE</string>
     <string name="tabitem_title_textview_value">PRIX</string>
+    <string name="toast_saved">Enregistré</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

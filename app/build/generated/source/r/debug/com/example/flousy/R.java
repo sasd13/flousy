@@ -1809,6 +1809,7 @@ containing a value of this type.
         public static final int tabitem_title_textview_date=0x7f0c004e;
         public static final int tabitem_title_textview_title=0x7f0c004f;
         public static final int tabitem_title_textview_value=0x7f0c0050;
+        public static final int toast_saved=0x7f0c0051;
     }
     public static final class style {
         /**  Customize your theme here. 

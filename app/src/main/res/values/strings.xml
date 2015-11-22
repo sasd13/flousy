@@ -12,10 +12,10 @@
     <string name="activity_log_name">Connexion</string>
     <string name="activity_sign_name">Inscription</string>
     <string name="activity_home_name">Menu</string>
+    <string name="activity_setting_name">Options</string>
     <string name="activity_account_name">Compte</string>
     <string name="activity_transaction_name">Transaction</string>
     <string name="activity_finance_name">Finances</string>
-    <string name="activity_setting_name">Options</string>
 
     <!-- Activity Log -->
     <string name="log_button_connect">Connexion</string>
@@ -100,5 +100,8 @@
     <string name="tabitem_textview_daterealization">Date</string>
     <string name="tabitem_textview_title">Intitulé</string>
     <string name="tabitem_textview_value">0.0</string>
+
+    <!-- Toast -->
+    <string name="toast_saved">Enregistré</string>
 
 </resources>
