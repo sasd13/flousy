@@ -6,6 +6,7 @@ import android.database.Cursor;
 import java.sql.Timestamp;
 
 import flousy.bean.Account;
+import flousy.bean.Customer;
 
 public class SQLiteAccountDAO extends SQLiteTableDAO<Account> implements flousy.db.AccountDAO {
 
@@ -16,6 +17,7 @@ public class SQLiteAccountDAO extends SQLiteTableDAO<Account> implements flousy.
         //values.put(ACCOUNT_ID, account.getId()); //autoincrement
         values.put(ACCOUNT_DATEOPENING, String.valueOf(account.getDateOpening()));
         values.put(ACCOUNT_CLOSED, account.isClosed());
+        values.put(CUSTOMERS_CUSTOMER_ID, account.getCustomer().getId());
 
         return values;
     }
@@ -28,15 +30,16 @@ public class SQLiteAccountDAO extends SQLiteTableDAO<Account> implements flousy.
         account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
         account.setClosed(cursor.getLong(cursor.getColumnIndex(ACCOUNT_CLOSED)) == 1);
 
+        Customer customer = new Customer();
+        customer.setId(cursor.getLong(cursor.getColumnIndex(CUSTOMERS_CUSTOMER_ID)));
+        account.setCustomer(customer);
+
         return account;
     }
 
     @Override
-    public long insert(Account account, long customerId) {
-        ContentValues values = getContentValues(account);
-        values.put(CUSTOMERS_CUSTOMER_ID, customerId);
-
-        return getDB().insert(ACCOUNT_TABLE_NAME, null, values);
+    public long insert(Account account) {
+        return getDB().insert(ACCOUNT_TABLE_NAME, null, getContentValues(account));
     }
 
     @Override

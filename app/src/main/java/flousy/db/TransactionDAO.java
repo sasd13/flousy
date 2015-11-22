@@ -14,7 +14,7 @@ public interface TransactionDAO {
     String TRANSACTION_VALUE = "transaction_value";
     String ACCOUNTS_ACCOUNT_ID = "accounts_account_id";
 
-    long insert(Transaction transaction, long accountId);
+    long insert(Transaction transaction);
 
     void update(Transaction transaction);
 

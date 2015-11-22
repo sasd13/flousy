@@ -11,7 +11,7 @@ public interface AccountDAO {
     String ACCOUNT_CLOSED = "account_closed";
     String CUSTOMERS_CUSTOMER_ID = "customers_customer_id";
 
-    long insert(Account account, long customerId);
+    long insert(Account account);
 
     void update(Account account);
 

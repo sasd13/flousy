@@ -89,12 +89,12 @@ public abstract class DAO {
         return contains;
     }
 
-    public long insertAccount(Account account, long customerId) {
+    public long insertAccount(Account account) {
         long id;
 
         open();
 
-        id = accountDAO.insert(account, customerId);
+        id = accountDAO.insert(account);
         if (id > 0) {
             account.setId(id);
         }
@@ -178,12 +178,12 @@ public abstract class DAO {
         return account;
     }
 
-    public long insertTransaction(Transaction transaction, long accountId) {
+    public long insertTransaction(Transaction transaction) {
         long id;
 
         open();
 
-        id = transactionDAO.insert(transaction, accountId);
+        id = transactionDAO.insert(transaction);
         if (id > 0) {
             transaction.setId(id);
         }

@@ -82,7 +82,7 @@ public class SignActivity extends ActionBarActivity {
 
             if (!dao.containsCustomerByEmail(customer.getEmail())) {
                 dao.insertCustomer(customer);
-                dao.insertAccount(customer.getAccount(), customer.getId());
+                dao.insertAccount(customer.getAccount());
 
                 Session.logIn(customer.getEmail(), customer.getPassword());
 

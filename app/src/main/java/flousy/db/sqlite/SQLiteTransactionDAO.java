@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import flousy.bean.Account;
 import flousy.bean.Transaction;
 
 public class SQLiteTransactionDAO extends SQLiteTableDAO<Transaction> implements flousy.db.TransactionDAO {
@@ -19,6 +20,7 @@ public class SQLiteTransactionDAO extends SQLiteTableDAO<Transaction> implements
         values.put(TRANSACTION_DATEREALIZATION, String.valueOf(transaction.getDateRealization()));
         values.put(TRANSACTION_TITLE, transaction.getTitle());
         values.put(TRANSACTION_VALUE, transaction.getValue());
+        values.put(ACCOUNTS_ACCOUNT_ID, transaction.getAccount().getId());
 
         return values;
     }
@@ -32,15 +34,16 @@ public class SQLiteTransactionDAO extends SQLiteTableDAO<Transaction> implements
         transaction.setTitle(cursor.getString(cursor.getColumnIndex(TRANSACTION_TITLE)));
         transaction.setValue(cursor.getDouble(cursor.getColumnIndex(TRANSACTION_VALUE)));
 
+        Account account = new Account();
+        account.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNTS_ACCOUNT_ID)));
+        transaction.setAccount(account);
+
         return transaction;
     }
 
     @Override
-    public long insert(Transaction transaction, long accountId) {
-        ContentValues values = getContentValues(transaction);
-        values.put(ACCOUNTS_ACCOUNT_ID, accountId);
-
-        return getDB().insert(TRANSACTION_TABLE_NAME, null, values);
+    public long insert(Transaction transaction) {
+        return getDB().insert(TRANSACTION_TABLE_NAME, null, getContentValues(transaction));
     }
 
     @Override
