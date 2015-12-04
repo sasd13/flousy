@@ -42,11 +42,23 @@ public class TransactionActivity extends MotherActivity {
         createFormTransaction();
     }
 
+    private void createFormTransaction() {
+        this.formTransaction = new FormTransactionViewHolder();
+
+        this.formTransaction.textViewDateRealization = (TextView) findViewById(R.id.form_transaction_textview_daterealization);
+        this.formTransaction.editTextTitle = (EditText) findViewById(R.id.form_transaction_edittext_title);
+        this.formTransaction.editTextValue = (EditText) findViewById(R.id.form_transaction_edittext_value);
+
+        this.formTransaction.radioGroupType = (RadioGroup) findViewById(R.id.form_transaction_radiogroup_type);
+        this.formTransaction.radioButtonDebit = (RadioButton) findViewById(R.id.form_transaction_radiobutton_type_debit);
+        this.formTransaction.radioButtonCredit = (RadioButton) findViewById(R.id.form_transaction_radiobutton_type_credit);
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
 
-        if (getExtraMode() == Extra.MODE_NEW) {
+        if (hasExtraModeNew()) {
             fillNewFormTransaction();
         } else {
             Transaction transaction = DAOFactory.get().selectTransaction(getTransactionIdFromIntent());
@@ -55,8 +67,33 @@ public class TransactionActivity extends MotherActivity {
         }
     }
 
+    private boolean hasExtraModeNew() {
+        return getExtraMode() == Extra.MODE_NEW;
+    }
+
+    private int getExtraMode() {
+        return getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW);
+    }
+
+    private void fillNewFormTransaction() {
+        this.formTransaction.textViewDateRealization.setText(String.valueOf(new Timestamp(System.currentTimeMillis())));
+        this.formTransaction.radioButtonDebit.setChecked(true);
+    }
+
     private long getTransactionIdFromIntent() {
         return getIntent().getLongExtra(Extra.TRANSACTION_ID, 0);
+    }
+
+    private void fillEditFormTransaction(Transaction transaction) {
+        this.formTransaction.textViewDateRealization.setText(String.valueOf(transaction.getDateRealization()));
+        this.formTransaction.editTextTitle.setText(transaction.getTitle(), TextView.BufferType.EDITABLE);
+        this.formTransaction.editTextValue.setText(String.valueOf(Math.abs(transaction.getValue())), TextView.BufferType.EDITABLE);
+
+        if (transaction.getValue() <= 0) {
+            this.formTransaction.radioButtonDebit.setChecked(true);
+        } else {
+            this.formTransaction.radioButtonCredit.setChecked(true);
+        }
     }
 
     @Override
@@ -71,7 +108,7 @@ public class TransactionActivity extends MotherActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        if (getExtraMode() == Extra.MODE_NEW) {
+        if (hasExtraModeNew()) {
             menu.findItem(R.id.menu_transaction_action_discard).setVisible(false);
         }
 
@@ -95,59 +132,18 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void createOrUpdateTransaction() {
-        if (getExtraMode() == Extra.MODE_NEW) {
+        if (hasExtraModeNew()) {
             createTransaction();
         } else {
             updateTransaction();
         }
     }
 
-    private int getExtraMode() {
-        return getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW);
-    }
-
-    private void createFormTransaction() {
-        this.formTransaction = new FormTransactionViewHolder();
-
-        this.formTransaction.textViewDateRealization = (TextView) findViewById(R.id.form_transaction_textview_daterealization);
-        this.formTransaction.editTextTitle = (EditText) findViewById(R.id.form_transaction_edittext_title);
-        this.formTransaction.editTextValue = (EditText) findViewById(R.id.form_transaction_edittext_value);
-
-        this.formTransaction.radioGroupType = (RadioGroup) findViewById(R.id.form_transaction_radiogroup_type);
-        this.formTransaction.radioButtonDebit = (RadioButton) findViewById(R.id.form_transaction_radiobutton_type_debit);
-        this.formTransaction.radioButtonCredit = (RadioButton) findViewById(R.id.form_transaction_radiobutton_type_credit);
-    }
-
-    private void fillEditFormTransaction(Transaction transaction) {
-        this.formTransaction.textViewDateRealization.setText(String.valueOf(transaction.getDateRealization()));
-        this.formTransaction.editTextTitle.setText(transaction.getTitle(), TextView.BufferType.EDITABLE);
-        this.formTransaction.editTextValue.setText(String.valueOf(Math.abs(transaction.getValue())), TextView.BufferType.EDITABLE);
-
-        if (transaction.getValue() <= 0) {
-            this.formTransaction.radioButtonDebit.setChecked(true);
-        } else {
-            this.formTransaction.radioButtonCredit.setChecked(true);
-        }
-    }
-
-    private void fillNewFormTransaction() {
-        this.formTransaction.textViewDateRealization.setText(String.valueOf(new Timestamp(System.currentTimeMillis())));
-        this.formTransaction.radioButtonDebit.setChecked(true);
-    }
-
     private void createTransaction() {
         String[] tabFormErrors = validFormTransaction();
 
         if (tabFormErrors.length == 0) {
-            Transaction transaction = getTransactionFromForm();
-
-            DAO dao = DAOFactory.get();
-
-            Account account = dao.selectAccountByCustomer(Session.getCustomerId());
-            account.addTransaction(transaction);
-
-            dao.insertTransaction(transaction);
-
+            performCreateTransaction();
             goToAccountActivity();
         } else {
             CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
@@ -164,6 +160,17 @@ public class TransactionActivity extends MotherActivity {
         //formValidator.validNumber(value, "value");
 
         return formValidator.getErrors();
+    }
+
+    private void performCreateTransaction() {
+        Transaction transaction = getTransactionFromForm();
+
+        DAO dao = DAOFactory.get();
+
+        Account account = dao.selectAccountByCustomer(Session.getCustomerId());
+        account.addTransaction(transaction);
+
+        dao.insertTransaction(transaction);
     }
 
     private Transaction getTransactionFromForm() {
@@ -197,17 +204,20 @@ public class TransactionActivity extends MotherActivity {
         String[] tabFormErrors = validFormTransaction();
 
         if (tabFormErrors.length == 0) {
-            DAO dao = DAOFactory.get();
-
-            Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
-
-            editTransactionWithForm(transaction);
-            dao.updateTransaction(transaction);
-
+            performUpdateTransaction();
             goToAccountActivity();
         } else {
             CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
+    }
+
+    private void performUpdateTransaction() {
+        DAO dao = DAOFactory.get();
+
+        Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
+
+        editTransactionWithForm(transaction);
+        dao.updateTransaction(transaction);
     }
 
     private void editTransactionWithForm(Transaction transaction) {
@@ -225,17 +235,16 @@ public class TransactionActivity extends MotherActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        confirmDeleteTransaction();
+                        performDeleteTransaction();
+                        goToAccountActivity();
                     }
                 }
         );
     }
 
-    private void confirmDeleteTransaction() {
+    private void performDeleteTransaction() {
         DAOFactory.get().deleteTransaction(getTransactionIdFromIntent());
 
         CustomDialog.showOkDialog(this, "Transaction", "Transaction deleted");
-
-        goToAccountActivity();
     }
 }

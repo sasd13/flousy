@@ -67,18 +67,18 @@ public class SplashScreenActivity extends Activity {
         stopGoToActivity();
     }
 
-    @Override
-    protected void onUserLeaveHint() {
-        super.onUserLeaveHint();
-
-        stopGoToActivity();
-    }
-
     private void stopGoToActivity() {
         try {
             this.handler.removeCallbacks(this.runnable);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        super.onUserLeaveHint();
+
+        stopGoToActivity();
     }
 }
