@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.example.flousy"
+        applicationId "com.sasd13.flousy"
         minSdkVersion 9
         targetSdkVersion 21
         versionCode 1

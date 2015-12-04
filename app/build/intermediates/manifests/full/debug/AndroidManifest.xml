@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flousy"
+    package="com.sasd13.flousy"
     android:installLocation="auto"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.flousy.SplashScreenActivity"
+            android:name="com.sasd13.flousy.SplashScreenActivity"
             android:label="@string/activity_splashscreen_name"
             android:noHistory="true"
             android:screenOrientation="portrait"
@@ -29,29 +29,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.flousy.LogActivity"
+            android:name="com.sasd13.flousy.LogActivity"
             android:label="@string/activity_log_name"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="com.example.flousy.SignActivity"
+            android:name="com.sasd13.flousy.SignActivity"
             android:label="@string/activity_sign_name"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="com.example.flousy.HomeActivity"
+            android:name="com.sasd13.flousy.HomeActivity"
             android:label="@string/activity_home_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
-            android:name="com.example.flousy.AccountActivity"
+            android:name="com.sasd13.flousy.AccountActivity"
             android:label="@string/activity_account_name"
-            android:parentActivityName="com.example.flousy.HomeActivity"
+            android:parentActivityName="com.sasd13.flousy.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
@@ -61,9 +61,9 @@
                 android:value=".HomeActivity" />
         </activity>
         <activity
-            android:name="com.example.flousy.TransactionActivity"
+            android:name="com.sasd13.flousy.TransactionActivity"
             android:label="@string/activity_transaction_name"
-            android:parentActivityName="com.example.flousy.AccountActivity"
+            android:parentActivityName="com.sasd13.flousy.AccountActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 
@@ -73,9 +73,9 @@
                 android:value=".AccountActivity" />
         </activity>
         <activity
-            android:name="com.example.flousy.SettingActivity"
+            android:name="com.sasd13.flousy.SettingActivity"
             android:label="@string/activity_setting_name"
-            android:parentActivityName="com.example.flousy.HomeActivity"
+            android:parentActivityName="com.sasd13.flousy.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
 

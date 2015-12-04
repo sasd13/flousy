@@ -31,7 +31,7 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 		ADDED from AndroidManifest.xml:9:9
 	android:theme
 		ADDED from AndroidManifest.xml:11:9
-activity#com.example.flousy.SplashScreenActivity
+activity#com.sasd13.flousy.SplashScreenActivity
 ADDED from AndroidManifest.xml:13:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:16:13
@@ -53,7 +53,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:22:17
 	android:name
 		ADDED from AndroidManifest.xml:22:27
-activity#com.example.flousy.LogActivity
+activity#com.sasd13.flousy.LogActivity
 ADDED from AndroidManifest.xml:26:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:29:13
@@ -65,7 +65,7 @@ ADDED from AndroidManifest.xml:26:9
 		ADDED from AndroidManifest.xml:30:13
 	android:name
 		ADDED from AndroidManifest.xml:27:13
-activity#com.example.flousy.SignActivity
+activity#com.sasd13.flousy.SignActivity
 ADDED from AndroidManifest.xml:34:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:37:13
@@ -77,7 +77,7 @@ ADDED from AndroidManifest.xml:34:9
 		ADDED from AndroidManifest.xml:38:13
 	android:name
 		ADDED from AndroidManifest.xml:35:13
-activity#com.example.flousy.HomeActivity
+activity#com.sasd13.flousy.HomeActivity
 ADDED from AndroidManifest.xml:42:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:45:13
@@ -87,7 +87,7 @@ ADDED from AndroidManifest.xml:42:9
 		ADDED from AndroidManifest.xml:46:13
 	android:name
 		ADDED from AndroidManifest.xml:43:13
-activity#com.example.flousy.AccountActivity
+activity#com.sasd13.flousy.AccountActivity
 ADDED from AndroidManifest.xml:49:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:52:13
@@ -105,7 +105,7 @@ ADDED from AndroidManifest.xml:56:13
 		ADDED from AndroidManifest.xml:58:17
 	android:name
 		ADDED from AndroidManifest.xml:57:17
-activity#com.example.flousy.TransactionActivity
+activity#com.sasd13.flousy.TransactionActivity
 ADDED from AndroidManifest.xml:61:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:64:13
@@ -117,7 +117,7 @@ ADDED from AndroidManifest.xml:61:9
 		ADDED from AndroidManifest.xml:65:13
 	android:name
 		ADDED from AndroidManifest.xml:62:13
-activity#com.example.flousy.SettingActivity
+activity#com.sasd13.flousy.SettingActivity
 ADDED from AndroidManifest.xml:73:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:76:13

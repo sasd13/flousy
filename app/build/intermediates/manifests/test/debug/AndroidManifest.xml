@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flousy.test">
+    package="com.sasd13.flousy.test">
 
     <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="21" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.example.flousy"
+                     android:targetPackage="com.sasd13.flousy"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.example.flousy"/>
+                     android:label="Tests for com.sasd13.flousy"/>
 </manifest>
