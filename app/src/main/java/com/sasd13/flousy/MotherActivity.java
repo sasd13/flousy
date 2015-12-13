@@ -78,9 +78,7 @@ public abstract class MotherActivity extends ActionBarActivity {
     protected void onPause() {
         super.onPause();
 
-        if (this.drawer.isOpened()) {
-            this.drawer.setOpened(false);
-        }
+        this.drawer.setOpened(false);
     }
 
     @Override

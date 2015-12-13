@@ -25,10 +25,6 @@ public class Drawer extends Recycler {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }
 
-    public boolean isOpened() {
-        return this.drawerLayout.isDrawerOpen(getRecyclerView());
-    }
-
     public void setOpened(boolean opened) {
         if (opened) {
             this.drawerLayout.openDrawer(getRecyclerView());

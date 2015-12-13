@@ -11,121 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="977a1b3e-e54f-4d57-b9ca-ade128ab1fd7" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$anim.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$bool.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$integer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\appcompat\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\android\support\v7\cardview\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\AccountActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\HomeActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\LogActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\LogActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\LogActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\LogActivity$FormLogViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\LogActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\MotherActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\MotherActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$anim.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$bool.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$integer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$styleable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R$xml.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SettingActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SettingActivity$FormCustomerViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SettingActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SignActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SignActivity$FormCustomerViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SignActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SplashScreenActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\SplashScreenActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\TransactionActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\TransactionActivity$FormTransactionViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\TransactionActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\bean\Account.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\bean\Customer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\bean\Transaction.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\constant\Extra.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\AccountDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\CustomerDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\DAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\DAOFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\TransactionDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\sqlite\SQLiteAccountDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\sqlite\SQLiteCustomerDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\sqlite\SQLiteDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\sqlite\SQLiteDBHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\sqlite\SQLiteTableDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\db\sqlite\SQLiteTransactionDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\form\FormValidator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\color\ColorBrightness.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\color\ColorOnTouchListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\content\HomeMenuItem.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\content\HomeMenuItems.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\dialog\CustomDialog.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\dialog\CustomDialogBuilder.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\Recycler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\RecyclerAdapter$ViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\RecyclerAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\RecyclerAdapterDataObserver.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\RecyclerItem.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\drawer\Drawer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItem.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItemHomeMenu.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItemIntentable$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItemIntentable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItemTitle.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\grid\Grid.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\grid\GridItem$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\grid\GridItem.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\grid\SpacesItemDecoration.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\tab\Tab.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\tab\TabItemTransaction$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\tab\TabItemTransaction.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\recycler\tab\TabItemTransactionTitle.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\gui\widget\spin\Spin.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\debug\com\sasd13\flousy\session\Session.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\classes\test\debug\com\sasd13\flousy\test\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\res\debug\layout\draweritem_homemenu.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\res\debug\layout\draweritem_title.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\res\debug\layout\recyclerview.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\res\debug\layout\recyclerviewitem.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\res\debug\layout\tabitem_transaction.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\res\debug\layout\tabitem_transaction_title.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\res\debug\xml\searchable.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\tab\TabItemTransactionTitle.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\tabitem_transaction_title.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\xml\searchable.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\draweritem_homemenu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/draweritemhomemenu.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\draweritem_title.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/draweritemtitle.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\recyclerview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\recyclerviewitem.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycleritem.xml" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\tabitem_transaction.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tabitemtransaction.xml" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\.idea\libraries\appcompat_v7_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\.idea\libraries\cardview_v7_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\.idea\libraries\recyclerview_v7_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\.idea\libraries\support_annotations_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\.idea\libraries\support_v4_21_0_3.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
@@ -133,61 +23,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-test.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-test.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/color/ColorBrightness.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/color/ColorBrightness.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAOFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAOFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/Drawer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/Drawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemHomeMenu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemHomeMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemIntentable.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemIntentable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemTitle.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemTitle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/Grid.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/Grid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/GridItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/GridItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItems.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItems.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/LogActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/LogActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/cardview/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/cardview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/sasd13/flousy/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/sasd13/flousy/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/Recycler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/Recycler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTableDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTableDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/spin/Spin.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/spin/Spin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SplashScreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/Tab.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/Tab.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_account.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_account.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_log.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_log.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_log.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_log.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_mother.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_mother.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mother.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_setting.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_setting.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_sign.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_sign.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_splashscreen.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_splashscreen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splashscreen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splashscreen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_transaction.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_transaction.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_transaction.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_transaction.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/draweritem.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/draweritem.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/draweritem.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/draweritem.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-sw600dp-v13/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-sw600dp-v13/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flousy.iws" />
@@ -1365,9 +1203,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/color/ColorBrightness.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/Recycler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/Drawer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemIntentable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/GridItem.java" />
@@ -1389,7 +1225,6 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/LogActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SplashScreenActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/Tab.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/Grid.java" />
@@ -1401,6 +1236,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/Recycler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/Drawer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java" />
       </list>
     </option>
   </component>
@@ -1443,8 +1281,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1465,8 +1302,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1692,17 +1530,16 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23338369" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1717,6 +1554,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1728,121 +1566,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/color/ColorOnTouchListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialogBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerAdapterDataObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20272572">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/Drawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemTitle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11584327">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemIntentable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3339012">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21805792">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/spin/Spin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/Recycler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66609883">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/SpacesItemDecoration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28960818">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2069,14 +1796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItems.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2084,6 +1803,142 @@
           <folding>
             <element signature="e#515#574#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTransactionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tabitemtransaction.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37857142">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+          <folding>
+            <element signature="e#717#748#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5711744">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9497207">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialogBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerAdapterDataObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/spin/Spin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/Recycler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/Drawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2095,10 +1950,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemTitle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11584327">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemIntentable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/GridItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5979557">
+        <state vertical-scroll-proportion="0.0">
           <caret line="145" column="29" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/grid/SpacesItemDecoration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2107,6 +1994,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7018739">
+          <caret line="74" column="99" selection-start-line="74" selection-start-column="99" selection-end-line="74" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -2130,8 +2033,10 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="79" selection-start-line="55" selection-start-column="79" selection-end-line="55" selection-end-column="79" />
-          <folding />
+          <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+          <folding>
+            <element signature="e#1905#1953#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2159,66 +2064,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTransactionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49063033">
           <caret line="170" column="40" selection-start-line="170" selection-start-column="40" selection-end-line="170" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3270869">
-          <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tabitemtransaction.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37857142">
-          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-          <folding>
-            <element signature="e#717#748#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21805792">
-          <caret line="74" column="99" selection-start-line="74" selection-start-column="99" selection-end-line="74" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5711744">
-          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9497207">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding />
         </state>
       </provider>

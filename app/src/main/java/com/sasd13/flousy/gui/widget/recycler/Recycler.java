@@ -49,39 +49,19 @@ public abstract class Recycler {
     public void addItem(RecyclerItem recyclerItem) {
         this.listRecyclerItems.add(recyclerItem);
 
-        try {
-            this.recyclerAdapter.notifyDataSetChanged();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+        this.recyclerAdapter.notifyDataSetChanged();
     }
 
     public void removeItem(RecyclerItem recyclerItem) {
         this.listRecyclerItems.remove(recyclerItem);
 
-        try {
-            this.recyclerAdapter.notifyDataSetChanged();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public RecyclerItem[] getItems() {
-        return this.listRecyclerItems.toArray(new RecyclerItem[size()]);
-    }
-
-    public int size() {
-        return this.listRecyclerItems.size();
+        this.recyclerAdapter.notifyDataSetChanged();
     }
 
     public void clearItems() {
         this.listRecyclerItems.clear();
 
-        try {
-            this.recyclerAdapter.notifyDataSetChanged();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+        this.recyclerAdapter.notifyDataSetChanged();
     }
 
     public RecyclerView getRecyclerView() {
