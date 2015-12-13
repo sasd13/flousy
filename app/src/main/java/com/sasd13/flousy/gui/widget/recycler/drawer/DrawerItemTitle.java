@@ -5,7 +5,7 @@ import com.sasd13.flousy.R;
 public class DrawerItemTitle extends DrawerItem {
 
     public DrawerItemTitle() {
-        super(R.layout.draweritem_title);
+        super(R.layout.draweritemtitle);
     }
 
     @Override

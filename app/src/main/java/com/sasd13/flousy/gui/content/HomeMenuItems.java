@@ -18,14 +18,14 @@ public class HomeMenuItems {
         this.tab = new HomeMenuItem[SIZE];
 
         this.tab[0] = new HomeMenuItem(
-                context.getResources().getString(R.string.activity_account_name),
+                context.getResources().getString(R.string.activity_account),
                 context.getResources().getDrawable(R.drawable.griditem_new),
                 context.getResources().getColor(R.color.customGreen),
                 new Intent(context, AccountActivity.class)
         );
 
         this.tab[1] = new HomeMenuItem(
-                context.getResources().getString(R.string.activity_setting_name),
+                context.getResources().getString(R.string.activity_setting),
                 context.getResources().getDrawable(R.drawable.griditem_settings),
                 context.getResources().getColor(R.color.customBrown),
                 new Intent(context, SettingActivity.class)

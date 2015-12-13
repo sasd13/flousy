@@ -17,19 +17,12 @@ public class Drawer extends Recycler {
 
     private DrawerLayout drawerLayout;
 
-    public Drawer(Context context, DrawerLayout drawerLayout) {
-        super(context);
+    public Drawer(Context context, RecyclerView recyclerView, DrawerLayout drawerLayout) {
+        super(context, recyclerView);
 
         this.drawerLayout = drawerLayout;
-    }
 
-    @Override
-    public void adapt(RecyclerView recyclerView) {
-        super.adapt(recyclerView);
-
-        // use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
     }
 
     public boolean isOpened() {
@@ -41,14 +34,6 @@ public class Drawer extends Recycler {
             this.drawerLayout.openDrawer(getRecyclerView());
         } else {
             this.drawerLayout.closeDrawer(getRecyclerView());
-        }
-    }
-
-    public void setEnabled(boolean enabled) {
-        if (enabled) {
-            this.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-        } else {
-            this.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
     }
 }

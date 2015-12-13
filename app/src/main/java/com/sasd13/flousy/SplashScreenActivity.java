@@ -26,7 +26,7 @@ public class SplashScreenActivity extends Activity {
     }
 
     private void createLogo() {
-        ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview_logo);
+        ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
         imageViewLogo.setImageDrawable(getResources().getDrawable(R.drawable.ic_app_logo));
     }
 

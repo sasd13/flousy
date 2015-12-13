@@ -16,24 +16,14 @@ import com.sasd13.flousy.gui.widget.recycler.Recycler;
  */
 public class Grid extends Recycler {
 
-    public Grid(Context context) {
-        super(context);
-    }
-
-    @Override
-    public void adapt(RecyclerView recyclerView) {
-        super.adapt(recyclerView);
+    public Grid(Context context, RecyclerView recyclerView) {
+        super(context, recyclerView);
 
         // add spaces item decoration
         int space = context.getResources().getDimensionPixelSize(R.dimen.grid_items_space);
         recyclerView.addItemDecoration(new SpacesItemDecoration(space));
 
-        int spanCount = context.getResources().getInteger(R.integer.grid_numcolumns);
-
-        // use a grid layout manager
-        //recyclerView.setLayoutManager(new GridLayoutManager(getContext(), spanCount));
-
-        // use a staggered grid layout manager
+        int spanCount = context.getResources().getInteger(R.integer.grid_columns_number);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));
     }
 }

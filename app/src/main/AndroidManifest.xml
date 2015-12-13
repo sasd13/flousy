@@ -7,12 +7,12 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/app"
         android:theme="@style/AppTheme">
 
         <activity
             android:name=".SplashScreenActivity"
-            android:label="@string/activity_splashscreen_name"
+            android:label="@string/activity_splashscreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:noHistory="true">
@@ -25,7 +25,7 @@
 
         <activity
             android:name=".LogActivity"
-            android:label="@string/activity_log_name"
+            android:label="@string/activity_log"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:noHistory="true">
@@ -33,7 +33,7 @@
 
         <activity
             android:name=".SignActivity"
-            android:label="@string/activity_sign_name"
+            android:label="@string/activity_sign"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:noHistory="true">
@@ -41,14 +41,14 @@
 
         <activity
             android:name=".HomeActivity"
-            android:label="@string/activity_home_name"
+            android:label="@string/activity_home"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
             android:name=".AccountActivity"
-            android:label="@string/activity_account_name"
+            android:label="@string/activity_account"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".HomeActivity">
@@ -60,7 +60,7 @@
 
         <activity
             android:name=".TransactionActivity"
-            android:label="@string/activity_transaction_name"
+            android:label="@string/activity_transaction"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".AccountActivity">
@@ -72,7 +72,7 @@
 
         <activity
             android:name=".SettingActivity"
-            android:label="@string/activity_setting_name"
+            android:label="@string/activity_setting"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".HomeActivity">

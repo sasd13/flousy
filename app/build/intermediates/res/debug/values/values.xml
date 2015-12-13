@@ -240,7 +240,7 @@
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="actionbar_height">55dp</dimen>
-    <dimen name="activitycontent_padding">16dp</dimen>
+    <dimen name="activity_padding">16dp</dimen>
     <dimen name="button_height">40dp</dimen>
     <dimen name="button_width">110dp</dimen>
     <dimen name="button_width_large">140dp</dimen>
@@ -268,10 +268,9 @@
     <dimen name="dividerview_margintop">7dp</dimen>
     <dimen name="drawer_padding">10dp</dimen>
     <dimen name="drawer_width">240dp</dimen>
-    <dimen name="draweritem_menu_colorview_height">42dp</dimen>
-    <dimen name="draweritem_menu_colorview_width">16dp</dimen>
-    <dimen name="draweritem_textview_height">60dp</dimen>
-    <dimen name="draweritem_title_textview_paddingtop">30dp</dimen>
+    <dimen name="draweritemhomemenu_view_color_height">42dp</dimen>
+    <dimen name="draweritemhomemenu_view_color_width">16dp</dimen>
+    <dimen name="draweritemtitle_textview_paddingtop">30dp</dimen>
     <dimen name="form_user_checkbox_horizontalmargin">7dp</dimen>
     <dimen name="grid_items_space">12dp</dimen>
     <dimen name="griditem_size">120dp</dimen>
@@ -279,6 +278,8 @@
     <dimen name="griditem_verticalmargin_internal">7dp</dimen>
     <dimen name="log_textview_restorepassword_padding">7dp</dimen>
     <dimen name="log_textview_sign_padding">7dp</dimen>
+    <dimen name="recycleritem_padding">16dp</dimen>
+    <dimen name="recycleritem_title_paddingtop">20dp</dimen>
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
     <dimen name="textsize_large">16sp</dimen>
     <dimen name="textsize_medium">14sp</dimen>
@@ -303,7 +304,7 @@
     <integer name="abc_max_action_buttons">2</integer>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
-    <integer name="grid_numcolumns">2</integer>
+    <integer name="grid_columns_number">2</integer>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -325,70 +326,69 @@
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="account_textview_sold">0.0</string>
-    <string name="account_textview_sold_title">SOLDE</string>
+    <string name="account_textview_sold_title">SOLDE :</string>
     <string name="actionbar_textview_subtitle">Sous-titre</string>
     <string name="actionbar_textview_title">Titre</string>
-    <string name="activity_account_name">Compte</string>
-    <string name="activity_finance_name">Finances</string>
-    <string name="activity_home_name">Menu</string>
-    <string name="activity_log_name">Connexion</string>
-    <string name="activity_setting_name">Options</string>
-    <string name="activity_sign_name">Inscription</string>
-    <string name="activity_splashscreen_name">@string/app_name</string>
-    <string name="activity_transaction_name">Transaction</string>
+    <string name="activity_account">Compte</string>
+    <string name="activity_finance">Finances</string>
+    <string name="activity_home">Menu</string>
+    <string name="activity_log">Connexion</string>
+    <string name="activity_setting">Options</string>
+    <string name="activity_sign">Inscription</string>
+    <string name="activity_splashscreen">@string/app</string>
+    <string name="activity_transaction">Transaction</string>
     <string name="alertdialog_button_cancel">Annuler</string>
     <string name="alertdialog_button_no">Non</string>
     <string name="alertdialog_button_ok">OK</string>
     <string name="alertdialog_button_yes">Oui</string>
-    <string name="alertdialog_careful_title">Attention</string>
-    <string name="alertdialog_confirm_message">Confirmer ?</string>
+    <string name="alertdialog_message_confirm">Confirmer ?</string>
     <string name="alertdialog_message_error">Une erreur est survenue</string>
+    <string name="alertdialog_title_careful">Attention</string>
     <string name="alertdialog_title_error">Erreur</string>
-    <string name="app_name">Flousy</string>
+    <string name="app">Flousy</string>
     <string name="button_save">Enregistrer</string>
-    <string name="draweritem_textview">Item</string>
-    <string name="draweritem_title_textview">Title</string>
-    <string name="edittext_confirmpassword_hint">Confirmer</string>
-    <string name="edittext_email_hint">Adresse email</string>
-    <string name="edittext_firstname_hint">Prénom</string>
-    <string name="edittext_lastname_hint">Nom</string>
-    <string name="edittext_password_hint">Mot de passe</string>
-    <string name="form_transaction_edittext_title_hint">Intitulé</string>
-    <string name="form_transaction_edittext_value_hint">0.0</string>
+    <string name="draweritem_textview_item">Item</string>
+    <string name="draweritemtitle_textview_title">Title</string>
+    <string name="edittext_hint_confirmpassword">Confirmer</string>
+    <string name="edittext_hint_email">Adresse email</string>
+    <string name="edittext_hint_firstname">Prénom</string>
+    <string name="edittext_hint_lastname">Nom</string>
+    <string name="edittext_hint_password">Mot de passe</string>
+    <string name="form_textview_connection">CONNEXION</string>
+    <string name="form_textview_date">DATE</string>
+    <string name="form_textview_hint_date">2015</string>
+    <string name="form_textview_identity">IDENTITE</string>
+    <string name="form_textview_password">MOT DE PASSE</string>
+    <string name="form_textview_terms">J\'atteste avoir lu le contrat d\'utilisation</string>
+    <string name="form_transaction_edittext_hint_title">Intitulé</string>
+    <string name="form_transaction_edittext_hint_value">0.0</string>
     <string name="form_transaction_radiobutton_type_credit">Crédit</string>
     <string name="form_transaction_radiobutton_type_debit">Débit</string>
-    <string name="form_transaction_textview_daterealization">DATE</string>
-    <string name="form_transaction_textview_daterealization_hint">2015</string>
     <string name="form_transaction_textview_title">INTITULE</string>
     <string name="form_transaction_textview_type">TYPE</string>
     <string name="form_transaction_textview_value">MONTANT</string>
-    <string name="form_user_textview_connection">CONNEXION</string>
-    <string name="form_user_textview_identity">IDENTITE</string>
-    <string name="form_user_textview_password">MOT DE PASSE</string>
-    <string name="form_user_textview_terms">J\'atteste avoir lu le contrat d\'utilisation</string>
     <string name="griditem_textview">Item</string>
     <string name="hello_world">Hello world!</string>
-    <string name="home_alertdialog_welcome_message">Salut</string>
-    <string name="home_alertdialog_welcome_title">Bienvenue</string>
-    <string name="log_alertdialog_log_error_message">Identifiants invalides</string>
-    <string name="log_alertdialog_log_error_title">Erreur connexion</string>
+    <string name="home_alertdialog_message_welcome">Salut</string>
+    <string name="home_alertdialog_title_welcome">Bienvenue</string>
+    <string name="log_alertdialog_message_error_log">Identifiants invalides</string>
+    <string name="log_alertdialog_title_error_log">Erreur connexion</string>
     <string name="log_button_connect">Connexion</string>
     <string name="log_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="log_textview_sign">Inscription sur Flousy</string>
+    <string name="log_textview_sign">Inscription sur @string/app</string>
     <string name="menuitem_action_accept">Valider</string>
     <string name="menuitem_action_discard">Supprimer</string>
     <string name="menuitem_action_edit">Modifier</string>
     <string name="menuitem_action_logout">Déconnecter</string>
     <string name="menuitem_action_new">Nouveau</string>
-    <string name="search_hint">Rechercher</string>
-    <string name="sign_alertdialog_sign_error_message">Remplir le formulaire d\'inscription</string>
-    <string name="sign_alertdialog_sign_error_title">Erreur inscription</string>
-    <string name="tabitem_textview_daterealization">Date</string>
+    <string name="sign_alertdialog_message_error_sign">Remplir le formulaire d\'inscription</string>
+    <string name="sign_alertdialog_title_error_sign">Erreur inscription</string>
+    <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_title">Intitulé</string>
     <string name="tabitem_textview_value">0.0</string>
-    <string name="tabitem_title_textview_date">DATE</string>
-    <string name="tabitem_title_textview_title">INTITULE</string>
-    <string name="tabitem_title_textview_value">PRIX</string>
+    <string name="tabitemtitle_textview_date">DATE</string>
+    <string name="tabitemtitle_textview_title">INTITULE</string>
+    <string name="tabitemtitle_textview_value">PRIX</string>
     <string name="toast_saved">Enregistré</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/styles.xml -->
     <eat-comment/>

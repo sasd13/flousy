@@ -14,8 +14,6 @@ public abstract class DAO {
     protected AccountDAO accountDAO;
     protected TransactionDAO transactionDAO;
 
-    protected DAO() {}
-
     public abstract void init(Context context);
 
     protected abstract void open();

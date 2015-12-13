@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activitycontent_padding"
+    android:padding="@dimen/activity_padding"
     android:weightSum="9"
     android:gravity="center">
 
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_holo_light"
-            android:hint="@string/edittext_email_hint"
+            android:hint="@string/edittext_hint_email"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:background="@drawable/edit_text_holo_light"
-            android:hint="@string/edittext_password_hint"
+            android:hint="@string/edittext_hint_password"
             android:inputType="textPassword"
             android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"

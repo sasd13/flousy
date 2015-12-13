@@ -12,12 +12,12 @@ public abstract class RecyclerItem {
         this.layoutResource = layoutResource;
     }
 
+    public View getView() {
+        return this.view;
+    }
+
     public void inflate(ViewStub viewStub) {
         viewStub.setLayoutResource(this.layoutResource);
         this.view = viewStub.inflate();
-    }
-
-    public View getView() {
-        return this.view;
     }
 }

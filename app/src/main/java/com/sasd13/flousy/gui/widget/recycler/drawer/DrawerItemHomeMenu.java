@@ -11,11 +11,7 @@ public class DrawerItemHomeMenu extends DrawerItemIntentable {
     private View colorView;
 
     public DrawerItemHomeMenu() {
-        super(R.layout.draweritem_homemenu);
-    }
-
-    public int getColor() {
-        return this.color;
+        super(R.layout.draweritemhomemenu);
     }
 
     public void setColor(int color) {
@@ -32,10 +28,18 @@ public class DrawerItemHomeMenu extends DrawerItemIntentable {
     public void inflate(ViewStub viewStub) {
         super.inflate(viewStub);
 
-        this.colorView = getView().findViewById(R.id.draweritem_menu_colorview);
+        findViews();
+        bindViews();
+    }
+
+    private void findViews() {
+        this.colorView = getView().findViewById(R.id.draweritemhomemenu_view_color);
+    }
+
+    private void bindViews() {
         if (this.color == 0) {
             this.color = getView().getContext().getResources().getColor(R.color.customGreenApp);
         }
-        this.colorView.setBackgroundColor(this.color);
+        setColor(this.color);
     }
 }

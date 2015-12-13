@@ -82,15 +82,6 @@ public class GridItem extends RecyclerItem {
     }
 
     /**
-     * Get color
-     *
-     * @return int
-     */
-    public int getColor() {
-        return this.color;
-    }
-
-    /**
      * Set color
      *
      * @param color
@@ -104,13 +95,6 @@ public class GridItem extends RecyclerItem {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Get image
-     *
-     * @return Drawable
-     */
-    public Drawable getImage() { return this.image; }
 
     /**
      * Set image
@@ -128,13 +112,6 @@ public class GridItem extends RecyclerItem {
     }
 
     /**
-     * Get text
-     *
-     * @return CharSequence
-     */
-    public CharSequence getText() { return this.text; }
-
-    /**
      * Set text
      *
      * @param text
@@ -150,13 +127,6 @@ public class GridItem extends RecyclerItem {
     }
 
     /**
-     * Get intent
-     *
-     * @return Intent
-     */
-    public Intent getIntent() { return this.intent; }
-
-    /**
      * Set intent
      *
      * @param intent
@@ -170,17 +140,28 @@ public class GridItem extends RecyclerItem {
     public void inflate(ViewStub viewStub) {
         super.inflate(viewStub);
 
+        findViews();
+        bindViews();
+        setOnClickListener();
+        setOnTouchListener();
+    }
+
+    private void findViews() {
+        this.imageView = (ImageView) getView().findViewById(R.id.griditem_imageview);
+        this.textView = (TextView) getView().findViewById(R.id.griditem_textview);
+    }
+
+    private void bindViews() {
         if (this.color == 0) {
             this.color = getView().getContext().getResources().getColor(R.color.customOrange);
         }
-        getView().setBackgroundColor(this.color);
+        setColor(this.color);
 
-        this.imageView = (ImageView) getView().findViewById(R.id.griditem_imageview);
-        this.imageView.setImageDrawable(this.image);
+        setImage(this.image);
+        setText(this.text);
+    }
 
-        this.textView = (TextView) getView().findViewById(R.id.griditem_textview);
-        this.textView.setText(this.text);
-
+    private void setOnClickListener() {
         getView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -191,7 +172,9 @@ public class GridItem extends RecyclerItem {
                 }
             }
         });
+    }
 
+    private void setOnTouchListener() {
         getView().setOnTouchListener(new ColorOnTouchListener(this.color));
     }
 }

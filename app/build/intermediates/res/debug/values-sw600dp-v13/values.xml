@@ -10,7 +10,7 @@
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values-sw600dp/dimens.xml -->
     <eat-comment/>
     <dimen name="actionbar_height">73dp</dimen>
-    <dimen name="activitycontent_padding">21dp</dimen>
+    <dimen name="activity_padding">21dp</dimen>
     <dimen name="button_horizontalpadding">27dp</dimen>
     <dimen name="button_verticalpadding">13dp</dimen>
     <dimen name="customdialog_progressbar_padding">20dp</dimen>
@@ -20,10 +20,10 @@
     <dimen name="dividerview_margintop">9dp</dimen>
     <dimen name="drawer_padding">13dp</dimen>
     <dimen name="drawer_width">320dp</dimen>
-    <dimen name="draweritem_menu_colorview_height">56dp</dimen>
-    <dimen name="draweritem_menu_colorview_width">21dp</dimen>
     <dimen name="draweritem_textview_height">80dp</dimen>
-    <dimen name="draweritem_title_textview_paddingtop">40dp</dimen>
+    <dimen name="draweritemhomemenu_view_color_height">56dp</dimen>
+    <dimen name="draweritemhomemenu_view_color_width">21dp</dimen>
+    <dimen name="draweritemtitle_textview_paddingtop">40dp</dimen>
     <dimen name="form_user_checkbox_horizontalmargin">9dp</dimen>
     <dimen name="grid_items_space">16dp</dimen>
     <dimen name="griditem_size">160dp</dimen>
@@ -46,5 +46,5 @@
     <integer name="abc_max_action_buttons">5</integer>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values-sw600dp/dimens.xml -->
     <eat-comment/>
-    <integer name="grid_numcolumns">2</integer>
+    <integer name="grid_columns_number">2</integer>
 </resources>

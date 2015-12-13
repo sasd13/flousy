@@ -16,7 +16,6 @@ import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.DAOFactory;
 import com.sasd13.flousy.gui.widget.recycler.tab.Tab;
 import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransaction;
-import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransactionTitle;
 import com.sasd13.flousy.session.Session;
 
 public class AccountActivity extends MotherActivity {
@@ -39,10 +38,9 @@ public class AccountActivity extends MotherActivity {
     }
 
     private void createTabTransactions() {
-        this.tab = new Tab(this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.account_recyclerview);
 
-        RecyclerView tabView = (RecyclerView) findViewById(R.id.account_recyclerview);
-        this.tab.adapt(tabView);
+        this.tab = new Tab(this, recyclerView);
     }
 
     @Override
@@ -63,8 +61,6 @@ public class AccountActivity extends MotherActivity {
 
     private void fillTabTransactions(Account account) {
         this.tab.clearItems();
-
-        this.tab.addItem(new TabItemTransactionTitle());
 
         addTransactionsToTab(account);
     }

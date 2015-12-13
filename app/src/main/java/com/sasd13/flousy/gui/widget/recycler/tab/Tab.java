@@ -14,15 +14,9 @@ import com.sasd13.flousy.gui.widget.recycler.Recycler;
  */
 public class Tab extends Recycler {
 
-    public Tab(Context context) {
-        super(context);
-    }
+    public Tab(Context context, RecyclerView recyclerView) {
+        super(context, recyclerView);
 
-    @Override
-    public void adapt(RecyclerView recyclerView) {
-        super.adapt(recyclerView);
-
-        // use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }
 }

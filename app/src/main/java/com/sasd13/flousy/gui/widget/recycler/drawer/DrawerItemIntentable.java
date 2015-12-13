@@ -20,10 +20,6 @@ public class DrawerItemIntentable extends DrawerItem {
         super(layoutResource);
     }
 
-    public Intent getIntent() {
-        return this.intent;
-    }
-
     public void setIntent(Intent intent) {
         this.intent = intent;
         this.intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -33,6 +29,11 @@ public class DrawerItemIntentable extends DrawerItem {
     public void inflate(ViewStub viewStub) {
         super.inflate(viewStub);
 
+        setOnClickListener();
+        setOnTouchListener();
+    }
+
+    private void setOnClickListener() {
         getView().setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -44,7 +45,9 @@ public class DrawerItemIntentable extends DrawerItem {
                 }
             }
         });
+    }
 
+    private void setOnTouchListener() {
         int color = getView().getContext().getResources().getColor(R.color.background_material_light);
         getView().setOnTouchListener(new ColorOnTouchListener(color));
     }

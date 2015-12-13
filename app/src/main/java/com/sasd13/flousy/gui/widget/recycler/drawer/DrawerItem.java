@@ -24,10 +24,6 @@ public class DrawerItem extends RecyclerItem {
         super(layoutResource);
     }
 
-    public CharSequence getText() {
-        return this.text;
-    }
-
     public void setText(CharSequence text) {
         this.text = text;
 
@@ -42,7 +38,15 @@ public class DrawerItem extends RecyclerItem {
     public void inflate(ViewStub viewStub) {
         super.inflate(viewStub);
 
+        findViews();
+        bindViews();
+    }
+
+    private void findViews() {
         this.textView = (TextView) getView().findViewById(R.id.draweritem_textview);
-        this.textView.setText(this.text);
+    }
+
+    private void bindViews() {
+        setText(this.text);
     }
 }

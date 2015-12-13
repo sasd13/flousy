@@ -1,6 +1,5 @@
 package com.sasd13.flousy.gui.widget.dialog;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
@@ -16,8 +15,7 @@ public class CustomDialog {
                 .setMessage(message)
                 .setNeutralButton(neutralListener);
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        builder.create().show();
     }
 
     public static void showYesNoDialog(Context context, String title, String message, DialogInterface.OnClickListener positiveListener) {
@@ -27,8 +25,7 @@ public class CustomDialog {
                 .setPositiveButton(positiveListener)
                 .setNegativeButton(null);
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        builder.create().show();
     }
 
     public static void showOkCancelDialog(Context context, String title, String message, DialogInterface.OnClickListener positiveListener) {
@@ -38,7 +35,6 @@ public class CustomDialog {
                 .setPositiveButton(positiveListener)
                 .setNegativeButton(null);
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        builder.create().show();
     }
 }

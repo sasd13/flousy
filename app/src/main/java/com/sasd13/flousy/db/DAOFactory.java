@@ -4,8 +4,6 @@ import com.sasd13.flousy.db.sqlite.SQLiteDAO;
 
 public class DAOFactory {
 
-    private DAOFactory() {}
-
     public static DAO get() {
         return get(SQLiteDAO.class);
     }

@@ -9,10 +9,12 @@
     <TextView
         android:id="@+id/draweritem_textview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/draweritem_textview_height"
-        android:paddingLeft="@dimen/activitycontent_padding"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/recycleritem_padding"
+        android:paddingTop="@dimen/recycleritem_padding"
+        android:paddingBottom="@dimen/recycleritem_padding"
         android:gravity="left|center_vertical"
-        android:text="@string/draweritem_textview"
+        android:text="@string/draweritem_textview_item"
         android:textSize="@dimen/textsize_large"/>
 
     <View

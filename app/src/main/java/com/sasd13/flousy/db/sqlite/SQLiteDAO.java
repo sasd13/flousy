@@ -15,8 +15,6 @@ public class SQLiteDAO extends DAO {
     private SQLiteDBHandler dbHandler;
     private SQLiteDatabase db;
 
-    private SQLiteDAO() { super(); }
-
     public static synchronized SQLiteDAO getInstance() {
         if (instance == null) {
             instance = new SQLiteDAO();

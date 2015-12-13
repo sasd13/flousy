@@ -39,22 +39,21 @@ public abstract class MotherActivity extends ActionBarActivity {
 
     @Override
     public void setContentView(int layoutResource) {
-        ViewStub viewStub = (ViewStub) findViewById(R.id.activitycontent_viewstub);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.activity_viewstub);
         viewStub.setLayoutResource(layoutResource);
         viewStub.inflate();
     }
 
     private void createDrawer() {
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        this.drawer = new Drawer(this, drawerLayout);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.drawer_recyclerview);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_drawerlayout);
 
-        RecyclerView drawerView = (RecyclerView) findViewById(R.id.drawer_view);
-        this.drawer.adapt(drawerView);
+        this.drawer = new Drawer(this, recyclerView, drawerLayout);
     }
 
     private void fillDrawer() {
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
-        drawerItemTitle.setText(getResources().getString(R.string.activity_home_name));
+        drawerItemTitle.setText(getResources().getString(R.string.activity_home));
         this.drawer.addItem(drawerItemTitle);
 
         addHomeMenuItemsToDrawer();

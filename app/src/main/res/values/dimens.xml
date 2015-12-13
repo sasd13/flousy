@@ -3,7 +3,7 @@
     <dimen name="actionbar_height">55dp</dimen>
 
     <!-- Activity -->
-    <dimen name="activitycontent_padding">16dp</dimen><!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_padding">16dp</dimen><!-- Default screen margins, per the Android Design guidelines. -->
 
     <!-- Activity SplashScreen -->
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
@@ -23,20 +23,23 @@
     <!-- Drawer -->
     <dimen name="drawer_width">240dp</dimen>
     <dimen name="drawer_padding">10dp</dimen>
-    <dimen name="draweritem_textview_height">60dp</dimen>
-    <dimen name="draweritem_menu_colorview_width">16dp</dimen>
-    <dimen name="draweritem_menu_colorview_height">42dp</dimen>
-    <dimen name="draweritem_title_textview_paddingtop">30dp</dimen>
+    <dimen name="draweritemhomemenu_view_color_width">16dp</dimen>
+    <dimen name="draweritemhomemenu_view_color_height">42dp</dimen>
+    <dimen name="draweritemtitle_textview_paddingtop">30dp</dimen>
 
     <!-- Form user -->
     <dimen name="form_user_checkbox_horizontalmargin">7dp</dimen>
 
     <!-- Grid -->
-    <integer name="grid_numcolumns">2</integer>
+    <integer name="grid_columns_number">2</integer>
     <dimen name="grid_items_space">12dp</dimen>
     <dimen name="griditem_size">120dp</dimen>
     <dimen name="griditem_verticalmargin_external">14dp</dimen>
     <dimen name="griditem_verticalmargin_internal">7dp</dimen>
+
+    <!-- Recycler -->
+    <dimen name="recycleritem_padding">16dp</dimen>
+    <dimen name="recycleritem_title_paddingtop">20dp</dimen>
 
     <!-- Text -->
     <dimen name="textsize_small">12sp</dimen>

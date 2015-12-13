@@ -10,8 +10,6 @@ public class HomeMenuItem {
     private int color;
     private Intent intent;
 
-    public HomeMenuItem() {}
-
     public HomeMenuItem(String text, Drawable image, int color, Intent intent) {
         this.text = text;
         this.image = image;

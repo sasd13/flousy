@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activitycontent_padding"
+    android:padding="@dimen/activity_padding"
     android:scrollbars="vertical"
     android:scrollbarStyle="outsideOverlay">
 
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="@string/form_transaction_textview_daterealization"
+            android:text="@string/form_textview_date"
             android:textColor="@color/customRed"
             android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"/>
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/form_transaction_dividerview_1"
             android:layout_marginTop="@dimen/view_margin_medium"
-            android:text="@string/form_transaction_textview_daterealization_hint"
+            android:text="@string/form_textview_hint_date"
             android:textColor="@color/customRed"
             android:textSize="@dimen/textsize_medium"/>
 
@@ -110,7 +110,7 @@
             android:layout_below="@id/form_transaction_dividerview_3"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:background="@drawable/edit_text_holo_light"
-            android:hint="@string/form_transaction_edittext_title_hint"
+            android:hint="@string/form_transaction_edittext_hint_title"
             android:inputType="textCapSentences"
             android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
@@ -142,7 +142,7 @@
             android:layout_below="@id/form_transaction_dividerview_4"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:background="@drawable/edit_text_holo_light"
-            android:hint="@string/form_transaction_edittext_value_hint"
+            android:hint="@string/form_transaction_edittext_hint_value"
             android:inputType="numberDecimal"
             android:numeric="decimal"
             android:textSize="@dimen/textsize_medium"

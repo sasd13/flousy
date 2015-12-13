@@ -2,8 +2,6 @@ package com.sasd13.flousy.gui.color;
 
 public class ColorBrightness {
 
-    private ColorBrightness() {}
-
     public static int colorDarker(int color) {
         float[] hsv = new float[3];
 

@@ -22,17 +22,16 @@ public class HomeActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.recyclerview);
+        setContentView(R.layout.recycler);
 
         createGridHomeMenu();
         fillGridHomeMenu();
     }
 
     private void createGridHomeMenu() {
-        this.grid = new Grid(this);
-
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
-        this.grid.adapt(gridView);
+
+        this.grid = new Grid(this, gridView);
     }
 
     private void fillGridHomeMenu() {
@@ -71,8 +70,8 @@ public class HomeActivity extends MotherActivity {
 
         CustomDialog.showOkDialog(
                 this,
-                getResources().getString(R.string.home_alertdialog_welcome_title),
-                getResources().getString(R.string.home_alertdialog_welcome_message) + " " + firstName + " !");
+                getResources().getString(R.string.home_alertdialog_title_welcome),
+                getResources().getString(R.string.home_alertdialog_title_welcome) + " " + firstName + " !");
     }
 
     private void exit() {

@@ -65,8 +65,8 @@ public class LogActivity extends Activity {
         } else {
             CustomDialog.showOkDialog(
                     this,
-                    getResources().getString(R.string.log_alertdialog_log_error_title),
-                    getResources().getString(R.string.log_alertdialog_log_error_message));
+                    getResources().getString(R.string.log_alertdialog_title_error_log),
+                    getResources().getString(R.string.log_alertdialog_message_error_log));
         }
     }
 

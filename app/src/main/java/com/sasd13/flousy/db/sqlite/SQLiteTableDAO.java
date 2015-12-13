@@ -8,8 +8,6 @@ public abstract class SQLiteTableDAO<T> {
 
     private SQLiteDatabase db;
 
-    protected SQLiteTableDAO() {}
-
     protected SQLiteDatabase getDB() { return this.db; }
 
     public void setDB(SQLiteDatabase db) { this.db = db; }

@@ -168,7 +168,7 @@ public class TransactionActivity extends MotherActivity {
         DAO dao = DAOFactory.get();
 
         Account account = dao.selectAccountByCustomer(Session.getCustomerId());
-        account.addTransaction(transaction);
+        transaction.setAccount(account);
 
         dao.insertTransaction(transaction);
     }

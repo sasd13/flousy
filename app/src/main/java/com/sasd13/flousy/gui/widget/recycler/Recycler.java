@@ -14,8 +14,8 @@ import java.util.List;
  * A container has :
  * <ul>
  * <li>A context for the adaptor inflater (RecyclerAdapter)</li>
- * <li>A list of elements (AbstractRecycler!item) (</li>
- * <li>A layout resource (XML) for items</li>
+ * <li>A layout resource (XML)</li>
+ * <li>A list of items</li>
  * </ul>
  * </p>
  *
@@ -24,14 +24,26 @@ import java.util.List;
 public abstract class Recycler {
 
     protected Context context;
+    private RecyclerView recyclerView;
     private List<RecyclerItem> listRecyclerItems;
     private RecyclerAdapter recyclerAdapter;
-    private RecyclerView recyclerView;
 
-    protected Recycler(Context context) {
+    protected Recycler(Context context, RecyclerView recyclerView) {
         this.context = context;
+        this.recyclerView = recyclerView;
         this.listRecyclerItems = new ArrayList<>();
-        this.recyclerAdapter = new RecyclerAdapter(this.listRecyclerItems, R.layout.recyclerviewitem);
+        this.recyclerAdapter = new RecyclerAdapter(this.listRecyclerItems, R.layout.recycleritem);
+
+        adapt();
+    }
+
+    private void adapt() {
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        this.recyclerView.setHasFixedSize(false);
+
+        this.recyclerAdapter.registerAdapterDataObserver(new RecyclerAdapterDataObserver(this.recyclerView));
+        this.recyclerView.setAdapter(this.recyclerAdapter);
     }
 
     public void addItem(RecyclerItem recyclerItem) {
@@ -54,10 +66,6 @@ public abstract class Recycler {
         }
     }
 
-    public RecyclerItem getItem(int index) {
-        return this.listRecyclerItems.get(index);
-    }
-
     public RecyclerItem[] getItems() {
         return this.listRecyclerItems.toArray(new RecyclerItem[size()]);
     }
@@ -78,16 +86,5 @@ public abstract class Recycler {
 
     public RecyclerView getRecyclerView() {
         return this.recyclerView;
-    }
-
-    public void adapt(RecyclerView recyclerView) {
-        this.recyclerView = recyclerView;
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(false);
-
-        this.recyclerAdapter.registerAdapterDataObserver(new RecyclerAdapterDataObserver(recyclerView));
-        recyclerView.setAdapter(this.recyclerAdapter);
     }
 }
