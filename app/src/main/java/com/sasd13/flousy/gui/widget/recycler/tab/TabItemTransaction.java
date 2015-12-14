@@ -5,10 +5,9 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
 
+import com.sasd13.androidx.gui.color.ColorOnTouchListener;
+import com.sasd13.androidx.gui.widget.recycler.RecyclerItem;
 import com.sasd13.flousy.R;
-
-import com.sasd13.flousy.gui.color.ColorOnTouchListener;
-import com.sasd13.flousy.gui.widget.recycler.RecyclerItem;
 
 /**
  * <p>

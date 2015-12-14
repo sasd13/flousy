@@ -1,7 +1,0 @@
-<resources>
-    <!-- View -->
-    <dimen name="view_margin_small">5dp</dimen><!-- DIFF mdpi : 7 -->
-    <dimen name="view_margin_medium">7dp</dimen><!-- Default view margin top --><!-- DIFF mdpi : 12 -->
-    <dimen name="view_margin_large">15dp</dimen><!-- DIFF mdpi : 20 -->
-
-</resources>

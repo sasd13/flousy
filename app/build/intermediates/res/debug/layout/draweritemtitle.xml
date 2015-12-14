@@ -16,14 +16,16 @@
         android:text="@string/draweritemtitle_textview_title"
         android:textSize="@dimen/textsize_medium"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:ellipsize="end"/>
 
     <View
-        android:id="@+id/draweritem_title_dividerview"
+        android:id="@+id/draweritemtitle_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_medium"
         android:layout_marginTop="@dimen/dividerview_margintop"
         android:background="@color/black"/>
 
 </LinearLayout>
-<!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/layout/draweritemtitle.xml -->
+<!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidx/androidx/res/layout/draweritemtitle.xml -->

@@ -7,12 +7,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidx.gui.widget.recycler.grid.Grid;
+import com.sasd13.androidx.gui.widget.recycler.grid.GridItem;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.gui.content.HomeMenuItem;
-import com.sasd13.flousy.gui.content.HomeMenuItems;
-import com.sasd13.flousy.gui.widget.dialog.CustomDialog;
-import com.sasd13.flousy.gui.widget.recycler.grid.Grid;
-import com.sasd13.flousy.gui.widget.recycler.grid.GridItem;
+import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
+import com.sasd13.flousy.gui.content.homemenu.HomeMenu;
 
 public class HomeActivity extends MotherActivity {
 
@@ -29,16 +29,16 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void createGridHomeMenu() {
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recyclerview);
+        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_recyclerview);
 
         this.grid = new Grid(this, gridView);
     }
 
     private void fillGridHomeMenu() {
-        HomeMenuItems homeMenuItems = HomeMenuItems.getInstance(this);
+        HomeMenu homeMenu = HomeMenu.getInstance(this);
 
         GridItem gridItem;
-        for (HomeMenuItem homeMenuItem : homeMenuItems.getItems()) {
+        for (HomeMenuItem homeMenuItem : homeMenu.getItems()) {
             gridItem = new GridItem();
 
             gridItem.setText(homeMenuItem.getText());

@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.sasd13.flousy.gui.widget.dialog.CustomDialog;
-import com.sasd13.flousy.gui.widget.dialog.CustomDialogBuilder;
+import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidx.gui.widget.dialog.CustomDialogBuilder;
 import com.sasd13.flousy.session.Session;
 
 public class LogActivity extends Activity {

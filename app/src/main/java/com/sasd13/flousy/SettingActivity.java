@@ -8,11 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sasd13.androidx.form.FormValidator;
+import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.form.FormValidator;
-import com.sasd13.flousy.gui.widget.dialog.CustomDialog;
 import com.sasd13.flousy.session.Session;
 
 public class SettingActivity extends MotherActivity {

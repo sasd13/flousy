@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
+import com.sasd13.androidx.gui.widget.recycler.tab.Tab;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.gui.widget.recycler.tab.Tab;
 import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransaction;
 import com.sasd13.flousy.session.Session;
 

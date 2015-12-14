@@ -1,9 +1,4 @@
 <resources>
-    <!-- ActionBar -->
-    <dimen name="actionbar_height">55dp</dimen>
-
-    <!-- Activity -->
-    <dimen name="activity_padding">16dp</dimen><!-- Default screen margins, per the Android Design guidelines. -->
 
     <!-- Activity SplashScreen -->
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
@@ -12,49 +7,11 @@
     <dimen name="log_textview_restorepassword_padding">7dp</dimen>
     <dimen name="log_textview_sign_padding">7dp</dimen>
 
-    <!-- Button -->
-    <dimen name="button_width">110dp</dimen>
-    <dimen name="button_width_large">140dp</dimen>
-    <dimen name="button_height">40dp</dimen>
-
-    <!-- Dialog -->
-    <dimen name="customdialog_progressbar_padding">15dp</dimen>
-
     <!-- Drawer -->
-    <dimen name="drawer_width">240dp</dimen>
-    <dimen name="drawer_padding">10dp</dimen>
     <dimen name="draweritemhomemenu_view_color_width">16dp</dimen>
     <dimen name="draweritemhomemenu_view_color_height">42dp</dimen>
-    <dimen name="draweritemtitle_textview_paddingtop">30dp</dimen>
 
     <!-- Form user -->
     <dimen name="form_user_checkbox_horizontalmargin">7dp</dimen>
 
-    <!-- Grid -->
-    <integer name="grid_columns_number">2</integer>
-    <dimen name="grid_items_space">12dp</dimen>
-    <dimen name="griditem_size">120dp</dimen>
-    <dimen name="griditem_verticalmargin_external">14dp</dimen>
-    <dimen name="griditem_verticalmargin_internal">7dp</dimen>
-
-    <!-- Recycler -->
-    <dimen name="recycleritem_padding">16dp</dimen>
-    <dimen name="recycleritem_title_paddingtop">20dp</dimen>
-
-    <!-- Text -->
-    <dimen name="textsize_small">12sp</dimen>
-    <dimen name="textsize_medium">14sp</dimen><!-- Default Android text size -->
-    <dimen name="textsize_large">16sp</dimen>
-    <dimen name="textsize_xlarge">18sp</dimen>
-    <dimen name="textsize_xxlarge">20sp</dimen>
-
-    <!-- View -->
-    <dimen name="view_margin_small">7dp</dimen><!-- DIFF ldpi : 5 -->
-    <dimen name="view_margin_medium">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
-    <dimen name="view_margin_large">20dp</dimen><!-- DIFF ldpi : 15 -->
-    <dimen name="viewgroup_margin">30dp</dimen>
-    <dimen name="dividerview_margintop">7dp</dimen>
-    <dimen name="dividerview_height_small">1dp</dimen>
-    <dimen name="dividerview_height_medium">2dp</dimen>
-    <dimen name="dividerview_height_large">3dp</dimen>
 </resources>

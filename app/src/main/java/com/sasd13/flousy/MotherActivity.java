@@ -11,14 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
 
+import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidx.gui.widget.dialog.CustomDialogBuilder;
+import com.sasd13.androidx.gui.widget.recycler.drawer.Drawer;
+import com.sasd13.androidx.gui.widget.recycler.drawer.DrawerItemTitle;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.gui.content.HomeMenuItem;
-import com.sasd13.flousy.gui.content.HomeMenuItems;
-import com.sasd13.flousy.gui.widget.dialog.CustomDialog;
-import com.sasd13.flousy.gui.widget.dialog.CustomDialogBuilder;
+import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
+import com.sasd13.flousy.gui.content.homemenu.HomeMenu;
 import com.sasd13.flousy.gui.widget.recycler.drawer.DrawerItemHomeMenu;
-import com.sasd13.flousy.gui.widget.recycler.drawer.Drawer;
-import com.sasd13.flousy.gui.widget.recycler.drawer.DrawerItemTitle;
 import com.sasd13.flousy.session.Session;
 
 public abstract class MotherActivity extends ActionBarActivity {
@@ -60,10 +60,10 @@ public abstract class MotherActivity extends ActionBarActivity {
     }
 
     private void addHomeMenuItemsToDrawer() {
-        HomeMenuItems homeMenuItems = HomeMenuItems.getInstance(this);
+        HomeMenu homeMenu = HomeMenu.getInstance(this);
 
         DrawerItemHomeMenu drawerItemHomeMenu;
-        for (HomeMenuItem homeMenuItem : homeMenuItems.getItems()) {
+        for (HomeMenuItem homeMenuItem : homeMenu.getItems()) {
             drawerItemHomeMenu = new DrawerItemHomeMenu();
 
             drawerItemHomeMenu.setColor(homeMenuItem.getColor());

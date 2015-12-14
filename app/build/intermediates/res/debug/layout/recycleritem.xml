@@ -6,10 +6,10 @@
     android:layout_height="wrap_content">
 
     <ViewStub
-        android:id="@+id/recyclerviewitem_viewstub"
+        android:id="@+id/recycleritem_viewstub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
 </FrameLayout>
-<!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/layout/recycleritem.xml -->
+<!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidx/androidx/res/layout/recycleritem.xml -->

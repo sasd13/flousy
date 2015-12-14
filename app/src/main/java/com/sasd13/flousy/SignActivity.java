@@ -11,13 +11,13 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.sasd13.androidx.form.FormValidator;
+import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidx.gui.widget.dialog.CustomDialogBuilder;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.form.FormValidator;
-import com.sasd13.flousy.gui.widget.dialog.CustomDialog;
-import com.sasd13.flousy.gui.widget.dialog.CustomDialogBuilder;
 import com.sasd13.flousy.session.Session;
 
 public class SignActivity extends ActionBarActivity {

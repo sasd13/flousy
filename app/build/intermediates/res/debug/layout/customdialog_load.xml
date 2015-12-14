@@ -12,4 +12,4 @@
         android:layout_centerInParent="true"
         android:padding="@dimen/customdialog_progressbar_padding"/>
 
-</RelativeLayout><!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/layout/customdialog_load.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidx/androidx/res/layout/customdialog_load.xml -->
