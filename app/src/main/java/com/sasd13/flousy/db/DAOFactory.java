@@ -4,11 +4,11 @@ import com.sasd13.flousy.db.sqlite.SQLiteDAO;
 
 public class DAOFactory {
 
-    public static DAO get() {
-        return get(SQLiteDAO.class);
+    public static DAO make() {
+        return make(SQLiteDAO.class);
     }
 
-    public static DAO get(Class daoClass) {
+    public static DAO make(Class daoClass) {
         return SQLiteDAO.getInstance();
     }
 }

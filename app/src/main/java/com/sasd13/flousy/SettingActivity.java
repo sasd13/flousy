@@ -44,7 +44,7 @@ public class SettingActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        Customer customer = DAOFactory.get().selectCustomer(Session.getCustomerId());
+        Customer customer = DAOFactory.make().selectCustomer(Session.getCustomerId());
 
         fillFormCustomer(customer);
     }
@@ -103,7 +103,7 @@ public class SettingActivity extends MotherActivity {
     private void tryToPerformUpdateCustomer() {
         String email = this.formCustomer.editTextEmail.getText().toString().trim();
 
-        DAO dao = DAOFactory.get();
+        DAO dao = DAOFactory.make();
 
         if (!dao.containsCustomerByEmail(email)) {
             Customer customer = dao.selectCustomer(Session.getCustomerId());

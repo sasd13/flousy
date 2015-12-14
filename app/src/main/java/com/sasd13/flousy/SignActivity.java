@@ -105,7 +105,7 @@ public class SignActivity extends ActionBarActivity {
     private void tryToPerformSignUp() {
         Customer customer = getCustomerFromForm();
 
-        DAO dao = DAOFactory.get();
+        DAO dao = DAOFactory.make();
 
         if (!dao.containsCustomerByEmail(customer.getEmail())) {
             performSignUp(customer, dao);

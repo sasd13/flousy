@@ -28,7 +28,7 @@ public class Session {
     }
 
     public static boolean logIn(String email, String password) {
-        Customer customer = DAOFactory.get().selectCustomerByEmail(email);
+        Customer customer = DAOFactory.make().selectCustomerByEmail(email);
 
         try {
             if (customer.getPassword().equals(password)) {

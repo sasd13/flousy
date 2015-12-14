@@ -34,7 +34,7 @@ public class SplashScreenActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        DAOFactory.get().init(this);
+        DAOFactory.make().init(this);
         Session.start(this);
 
         if (Session.isStarted()) {

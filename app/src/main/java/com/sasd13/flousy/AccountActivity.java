@@ -47,7 +47,7 @@ public class AccountActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        Account account = DAOFactory.get().selectAccountByCustomerWithTransactions(Session.getCustomerId());
+        Account account = DAOFactory.make().selectAccountByCustomerWithTransactions(Session.getCustomerId());
 
         fillTextViewSold(account);
         fillTabTransactions(account);
