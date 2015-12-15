@@ -107,7 +107,9 @@ public class SignActivity extends ActionBarActivity {
 
         DAO dao = DAOFactory.make();
 
-        if (!dao.containsCustomerByEmail(customer.getEmail())) {
+        dao.open();
+
+        if (dao.selectCustomerByEmail(customer.getEmail()) == null) {
             performSignUp(customer, dao);
 
             Session.logIn(customer.getEmail(), customer.getPassword());
@@ -116,6 +118,8 @@ public class SignActivity extends ActionBarActivity {
         } else {
             CustomDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
         }
+
+        dao.close();
     }
 
     private Customer getCustomerFromForm() {

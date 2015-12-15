@@ -61,7 +61,11 @@ public class TransactionActivity extends MotherActivity {
         if (hasExtraModeNew()) {
             fillNewFormTransaction();
         } else {
-            Transaction transaction = DAOFactory.make().selectTransaction(getTransactionIdFromIntent());
+            DAO dao = DAOFactory.make();
+
+            dao.open();
+            Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
+            dao.close();
 
             fillEditFormTransaction(transaction);
         }
@@ -167,10 +171,14 @@ public class TransactionActivity extends MotherActivity {
 
         DAO dao = DAOFactory.make();
 
+        dao.open();
+
         Account account = dao.selectAccountByCustomer(Session.getCustomerId());
         transaction.setAccount(account);
 
         dao.insertTransaction(transaction);
+
+        dao.close();
     }
 
     private Transaction getTransactionFromForm() {
@@ -214,10 +222,14 @@ public class TransactionActivity extends MotherActivity {
     private void performUpdateTransaction() {
         DAO dao = DAOFactory.make();
 
+        dao.open();
+
         Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
 
         editTransactionWithForm(transaction);
         dao.updateTransaction(transaction);
+
+        dao.close();
     }
 
     private void editTransactionWithForm(Transaction transaction) {
@@ -243,7 +255,11 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void performDeleteTransaction() {
-        DAOFactory.make().deleteTransaction(getTransactionIdFromIntent());
+        DAO dao = DAOFactory.make();
+
+        dao.open();
+        dao.deleteTransaction(getTransactionIdFromIntent());
+        dao.close();
 
         CustomDialog.showOkDialog(this, "Transaction", "Transaction deleted");
     }

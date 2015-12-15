@@ -11,329 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="977a1b3e-e54f-4d57-b9ca-ade128ab1fd7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/androidx_.xml" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\form\FormValidator.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\color\ColorBrightness.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\color\ColorOnTouchListener.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\dialog\CustomDialog.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\dialog\CustomDialogBuilder.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\Recycler.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\RecyclerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\RecyclerAdapterDataObserver.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\RecyclerItem.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\drawer\Drawer.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItem.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItemIntentable.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\drawer\DrawerItemTitle.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\grid\Grid.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\grid\GridItem.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\grid\SpacesItemDecoration.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\recycler\tab\Tab.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\widget\spin\Spin.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_check_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\btn_radio_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\drawer_shadow.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_accept.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_cancel.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_logout.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\ic_action_select_all.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_multiline_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_multiline_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_multiline_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_multiline_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-hdpi\textfield_multiline_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_check_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\btn_radio_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\drawer_shadow.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_accept.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_cancel.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_logout.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\ic_action_select_all.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_multiline_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_multiline_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_multiline_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_multiline_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-mdpi\textfield_multiline_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_check_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\btn_radio_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\drawer_shadow.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_accept.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_logout.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\ic_action_select_all.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_multiline_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_multiline_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_multiline_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_multiline_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-hdpi\textfield_multiline_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_check_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\btn_radio_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\drawer_shadow.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_accept.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_logout.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\ic_action_select_all.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_multiline_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_multiline_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_multiline_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_multiline_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-mdpi\textfield_multiline_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_check_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\btn_radio_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\drawer_shadow.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_accept.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_logout.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\ic_action_select_all.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_multiline_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_multiline_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_multiline_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_multiline_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-sw600dp-xhdpi\textfield_multiline_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_check_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\btn_radio_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\drawer_shadow.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_accept.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_cancel.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_logout.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\ic_action_select_all.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_multiline_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_multiline_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_multiline_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_multiline_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xhdpi\textfield_multiline_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_check_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_off_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_off_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_off_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_off_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_off_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_on_disabled_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_on_disabled_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_on_focused_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_on_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\btn_radio_on_pressed_holo_light.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\drawer_shadow.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\griditem.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_accept.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_calendar.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_cancel.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_discard.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_drawer.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_edit.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_logout.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_new.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\ic_action_select_all.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_multiline_activated_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_multiline_default_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_multiline_disabled_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_multiline_disabled_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable-xxhdpi\textfield_multiline_focused_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable\btn_check_holo_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable\btn_radio_holo_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\drawable\edit_text_holo_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\customdialog_load.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\draweritem.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\draweritemtitle.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\griditem.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\recycler.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\layout\recycleritem.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\values-ldpi\dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\res\values\colors.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\content\HomeMenuItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/homemenu/HomeMenuItem.java" />
-      <change type="MOVED" beforePath="C:\Users\Samir\Projects\GitHub\flousy\app\src\main\java\com\sasd13\flousy\gui\content\HomeMenuItems.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/homemenu/HomeMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
@@ -342,39 +19,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemHomeMenu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemHomeMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/LogActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/LogActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/sasd13/flousy/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/sasd13/flousy/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/CustomerDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/CustomerDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteAccountDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteAccountDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteCustomerDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteCustomerDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDBHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDBHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/session/Session.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/session/Session.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SettingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SettingActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SignActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SignActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/btn_check_holo_light.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/btn_check_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/btn_radio_holo_light.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/btn_radio_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/customdialog_load.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/customdialog_load.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/draweritem.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/draweritem.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/draweritemtitle.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/draweritemtitle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/edit_text_holo_light.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/edit_text_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/griditem.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/griditem.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/apk/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/recycler.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/recycler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/recycleritem.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/recycleritem.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ldpi-v4/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-ldpi-v4/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-sw600dp-v13/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-sw600dp-v13/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flousy.iws" />
@@ -1550,12 +1204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/flousy/SettingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/flousy/bean/Account.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDAO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTableDAO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/color/ColorBrightness.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/HomeMenuItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/dialog/CustomDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/RecyclerItem.java" />
@@ -1585,7 +1233,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/Drawer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAOFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SplashScreenActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/session/Session.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/homemenu/HomeMenuItem.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
@@ -1593,14 +1240,21 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemHomeMenu.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/tab/TabItemTransaction.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/LogActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/MotherActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/CustomerDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteCustomerDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDBHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteAccountDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SettingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SignActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/session/Session.java" />
       </list>
     </option>
   </component>
@@ -1643,7 +1297,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1668,8 +1322,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1901,7 +1555,6 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1910,6 +1563,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23338369" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1921,7 +1575,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1933,9 +1587,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/draweritemhomemenu.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5925926">
           <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
@@ -1947,18 +1598,11 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTransactionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tabitemtransaction.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tabitemtransaction.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37857142">
           <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
@@ -1967,61 +1611,14 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAOFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11584327">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/AccountDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTableDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/content/homemenu/HomeMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2056,14 +1653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/session/Session.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21805792">
-          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2076,7 +1665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2089,33 +1677,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2135,43 +1710,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="21" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SignActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="142" column="27" selection-start-line="142" selection-start-column="27" selection-end-line="142" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SplashScreenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94207835">
-          <caret line="153" column="21" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/gui/widget/recycler/drawer/DrawerItemHomeMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2182,6 +1724,189 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/bean/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17662337">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/AccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/CustomerDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.5042589">
+          <caret line="127" column="1" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
+          <folding>
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#808#809#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#893#894#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1287#1288#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1371#1372#0" expanded="true" />
+            <element signature="e#1408#1409#0" expanded="true" />
+            <element signature="e#1453#1454#0" expanded="true" />
+            <element signature="e#1497#1498#0" expanded="true" />
+            <element signature="e#2503#2504#0" expanded="true" />
+            <element signature="e#2553#2554#0" expanded="true" />
+            <element signature="e#2599#2600#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+            <element signature="e#2693#2694#0" expanded="true" />
+            <element signature="e#2741#2742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/DAOFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/TransactionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="10" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteDBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3424191">
+          <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTableDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteAccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5809199">
+          <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteCustomerDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1873934">
+          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/db/sqlite/SQLiteTransactionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40545145">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/AccountActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55324674">
+          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SignActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/SplashScreenActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/TransactionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="231" column="20" selection-start-line="231" selection-start-column="20" selection-end-line="231" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/sasd13/flousy/session/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5090909">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

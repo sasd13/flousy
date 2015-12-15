@@ -44,7 +44,11 @@ public class SettingActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        Customer customer = DAOFactory.make().selectCustomer(Session.getCustomerId());
+        DAO dao = DAOFactory.make();
+
+        dao.open();
+        Customer customer = dao.selectCustomer(Session.getCustomerId());
+        dao.close();
 
         fillFormCustomer(customer);
     }
@@ -105,7 +109,9 @@ public class SettingActivity extends MotherActivity {
 
         DAO dao = DAOFactory.make();
 
-        if (!dao.containsCustomerByEmail(email)) {
+        dao.open();
+
+        if (dao.selectCustomerByEmail(email) == null) {
             Customer customer = dao.selectCustomer(Session.getCustomerId());
 
             performUpdateCustomer(customer, dao);
@@ -118,6 +124,8 @@ public class SettingActivity extends MotherActivity {
                 CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
             }
         }
+
+        dao.close();
     }
 
     private void performUpdateCustomer(Customer customer, DAO dao) {

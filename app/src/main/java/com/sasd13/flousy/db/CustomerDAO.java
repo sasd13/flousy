@@ -21,6 +21,4 @@ public interface CustomerDAO {
     Customer select(long id);
 
     Customer selectByEmail(String email);
-
-    boolean containsByEmail(String email);
 }

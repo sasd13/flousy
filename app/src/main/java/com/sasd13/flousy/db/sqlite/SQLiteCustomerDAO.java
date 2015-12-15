@@ -81,21 +81,4 @@ public class SQLiteCustomerDAO extends SQLiteTableDAO<Customer> implements com.s
 
         return customer;
     }
-
-    @Override
-    public boolean containsByEmail(String email) {
-        boolean contains = false;
-
-        Cursor cursor = getDB().rawQuery(
-                "select *"
-                        + " from " + CUSTOMER_TABLE_NAME
-                        + " where " + CUSTOMER_EMAIL + " = ?", new String[]{String.valueOf(email)});
-
-        if (cursor.moveToNext()) {
-            contains = true;
-        }
-        cursor.close();
-
-        return contains;
-    }
 }

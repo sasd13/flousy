@@ -18,10 +18,10 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String CUSTOMER_TABLE_CREATE =
             "CREATE TABLE " + CustomerDAO.CUSTOMER_TABLE_NAME + " ("
                     + CustomerDAO.CUSTOMER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + CustomerDAO.CUSTOMER_FIRSTNAME + " TEXT NOT NULL, "
-                    + CustomerDAO.CUSTOMER_LASTNAME + " TEXT NOT NULL, "
-                    + CustomerDAO.CUSTOMER_EMAIL + " TEXT NOT NULL, "
-                    + CustomerDAO.CUSTOMER_PASSWORD + " TEXT NOT NULL);";
+                    + CustomerDAO.CUSTOMER_FIRSTNAME + " VARCHAR(255) NOT NULL, "
+                    + CustomerDAO.CUSTOMER_LASTNAME + " VARCHAR(255) NOT NULL, "
+                    + CustomerDAO.CUSTOMER_EMAIL + " VARCHAR(255) NOT NULL, "
+                    + CustomerDAO.CUSTOMER_PASSWORD + " VARCHAR(255) NOT NULL);";
 
     /**
      * Table accounts
@@ -30,8 +30,8 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String ACCOUNT_TABLE_CREATE =
             "CREATE TABLE " + AccountDAO.ACCOUNT_TABLE_NAME + " ("
                     + AccountDAO.ACCOUNT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + AccountDAO.ACCOUNT_DATEOPENING + " TEXT NOT NULL, "
-                    + AccountDAO.ACCOUNT_CLOSED + " INTEGER NOT NULL, "
+                    + AccountDAO.ACCOUNT_DATEOPENING + " VARCHAR(255) NOT NULL, "
+                    + AccountDAO.ACCOUNT_CLOSED + " INT NOT NULL, "
                     + AccountDAO.CUSTOMERS_CUSTOMER_ID + " INTEGER NOT NULL, "
                     + " FOREIGN KEY (" + AccountDAO.CUSTOMERS_CUSTOMER_ID + ") REFERENCES " + CustomerDAO.CUSTOMER_TABLE_NAME + "("+ CustomerDAO.CUSTOMER_ID + "));";
 
@@ -42,9 +42,9 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String TRANSACTION_TABLE_CREATE =
             "CREATE TABLE " + TransactionDAO.TRANSACTION_TABLE_NAME + " ("
                     + TransactionDAO.TRANSACTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + TransactionDAO.TRANSACTION_DATEREALIZATION + " TEXT NOT NULL, "
-                    + TransactionDAO.TRANSACTION_TITLE + " TEXT NOT NULL, "
-                    + TransactionDAO.TRANSACTION_VALUE + " REAL NOT NULL, "
+                    + TransactionDAO.TRANSACTION_DATEREALIZATION + " VARCHAR(255) NOT NULL, "
+                    + TransactionDAO.TRANSACTION_TITLE + " VARCHAR(255) NOT NULL, "
+                    + TransactionDAO.TRANSACTION_VALUE + " DOUBLE NOT NULL, "
                     + TransactionDAO.ACCOUNTS_ACCOUNT_ID + " INTEGER NOT NULL, "
                     + " FOREIGN KEY (" + TransactionDAO.ACCOUNTS_ACCOUNT_ID + ") REFERENCES " + AccountDAO.ACCOUNT_TABLE_NAME + "("+ AccountDAO.ACCOUNT_ID + "));";
 

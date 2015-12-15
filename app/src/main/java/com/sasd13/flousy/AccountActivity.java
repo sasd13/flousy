@@ -14,6 +14,7 @@ import com.sasd13.androidx.gui.widget.recycler.tab.Tab;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
+import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
 import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransaction;
 import com.sasd13.flousy.session.Session;
@@ -47,7 +48,11 @@ public class AccountActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        Account account = DAOFactory.make().selectAccountByCustomerWithTransactions(Session.getCustomerId());
+        DAO dao = DAOFactory.make();
+
+        dao.open();
+        Account account = dao.selectAccountByCustomerWithTransactions(Session.getCustomerId());
+        dao.close();
 
         fillTextViewSold(account);
         fillTabTransactions(account);

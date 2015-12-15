@@ -28,7 +28,7 @@ public class SQLiteAccountDAO extends SQLiteTableDAO<Account> implements com.sas
 
         account.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNT_ID)));
         account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
-        account.setClosed(cursor.getLong(cursor.getColumnIndex(ACCOUNT_CLOSED)) == 1);
+        account.setClosed(cursor.getInt(cursor.getColumnIndex(ACCOUNT_CLOSED)) == 1);
 
         Customer customer = new Customer();
         customer.setId(cursor.getLong(cursor.getColumnIndex(CUSTOMERS_CUSTOMER_ID)));

@@ -16,154 +16,74 @@ public abstract class DAO {
 
     public abstract void init(Context context);
 
-    protected abstract void open();
+    public abstract void open();
 
-    protected abstract void close();
+    public abstract void close();
 
     public long insertCustomer(Customer customer) {
-        long id;
-
-        open();
-
-        id = customerDAO.insert(customer);
+        long id = customerDAO.insert(customer);
         if (id > 0) {
             customer.setId(id);
         }
-
-        close();
 
         return id;
     }
 
     public void updateCustomer(Customer customer) {
-        open();
-
         customerDAO.update(customer);
-
-        close();
     }
 
     public void deleteCustomer(long id) {
-        open();
-
         customerDAO.delete(id);
-
-        close();
     }
 
     public Customer selectCustomer(long id) {
-        Customer customer;
-
-        open();
-
-        customer = customerDAO.select(id);
-
-        close();
-
-        return customer;
+        return customerDAO.select(id);
     }
 
     public Customer selectCustomerByEmail(String email) {
-        Customer customer;
-
-        open();
-
-        customer = customerDAO.selectByEmail(email);
-
-        close();
-
-        return customer;
-    }
-
-    public boolean containsCustomerByEmail(String email) {
-        boolean contains;
-
-        open();
-
-        contains = customerDAO.containsByEmail(email);
-
-        close();
-
-        return contains;
+        return customerDAO.selectByEmail(email);
     }
 
     public long insertAccount(Account account) {
-        long id;
-
-        open();
-
-        id = accountDAO.insert(account);
+        long id = accountDAO.insert(account);
         if (id > 0) {
             account.setId(id);
         }
-
-        close();
 
         return id;
     }
 
     public void updateAccount(Account account) {
-        open();
-
         accountDAO.update(account);
-
-        close();
     }
 
     public void deleteAccount(long id) {
-        open();
-
         accountDAO.delete(id);
-
-        close();
     }
 
     public Account selectAccount(long id) {
-        Account account;
-
-        open();
-
-        account = accountDAO.select(id);
-
-        close();
-
-        return account;
+        return accountDAO.select(id);
     }
 
     public Account selectAccountWithTransactions(long id) {
-        Account account;
-
-        open();
-
-        account = accountDAO.select(id);
+        Account account = accountDAO.select(id);
 
         try {
             addTransactionsOfAccount(account);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
-        close();
 
         return account;
     }
 
     public Account selectAccountByCustomer(long customerId) {
-        Account account;
-
-        open();
-
-        account = accountDAO.selectByCustomer(customerId);
-
-        close();
-
-        return account;
+        return accountDAO.selectByCustomer(customerId);
     }
 
     public Account selectAccountByCustomerWithTransactions(long customerId) {
         Account account = selectAccountByCustomer(customerId);
-
-        open();
 
         try {
             addTransactionsOfAccount(account);
@@ -171,64 +91,32 @@ public abstract class DAO {
             e.printStackTrace();
         }
 
-        close();
-
         return account;
     }
 
     public long insertTransaction(Transaction transaction) {
-        long id;
-
-        open();
-
-        id = transactionDAO.insert(transaction);
+        long id = transactionDAO.insert(transaction);
         if (id > 0) {
             transaction.setId(id);
         }
-
-        close();
 
         return id;
     }
 
     public void updateTransaction(Transaction transaction) {
-        open();
-
         transactionDAO.update(transaction);
-
-        close();
     }
 
     public void deleteTransaction(long id) {
-        open();
-
         transactionDAO.delete(id);
-
-        close();
     }
 
     public Transaction selectTransaction(long id) {
-        Transaction transaction;
-
-        open();
-
-        transaction = transactionDAO.select(id);
-
-        close();
-
-        return transaction;
+        return transactionDAO.select(id);
     }
 
     public List<Transaction> selectTransactionsByAccount(long accountId) {
-        List<Transaction> listTransactions;
-
-        open();
-
-        listTransactions = transactionDAO.selectByAccount(accountId);
-
-        close();
-
-        return listTransactions;
+        return transactionDAO.selectByAccount(accountId);
     }
 
     private void addTransactionsOfAccount(Account account) {

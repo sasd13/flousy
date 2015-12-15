@@ -33,7 +33,7 @@ public class SQLiteDAO extends DAO {
     }
 
     @Override
-    protected void open() {
+    public void open() {
         db = dbHandler.getWritableDatabase();
 
         ((SQLiteCustomerDAO) customerDAO).setDB(db);
@@ -42,7 +42,7 @@ public class SQLiteDAO extends DAO {
     }
 
     @Override
-    protected void close() {
+    public void close() {
         db.close();
     }
 }

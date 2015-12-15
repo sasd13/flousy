@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
 
 public class Session {
@@ -28,7 +29,11 @@ public class Session {
     }
 
     public static boolean logIn(String email, String password) {
-        Customer customer = DAOFactory.make().selectCustomerByEmail(email);
+        DAO dao = DAOFactory.make();
+
+        dao.open();
+        Customer customer = dao.selectCustomerByEmail(email);
+        dao.close();
 
         try {
             if (customer.getPassword().equals(password)) {
