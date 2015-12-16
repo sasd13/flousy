@@ -1,6 +1,5 @@
 package com.sasd13.flousy;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,7 +12,7 @@ import android.widget.EditText;
 
 import com.sasd13.androidx.form.FormValidator;
 import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidx.gui.widget.dialog.CustomDialogBuilder;
+import com.sasd13.androidx.gui.widget.dialog.WaitDialog;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.DAO;
@@ -144,8 +143,7 @@ public class SignActivity extends ActionBarActivity {
     }
 
     private void goToHomeActivityWithWelcome(String userFirstName) {
-        CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
-        final AlertDialog dialog = builder.create();
+        final WaitDialog waitDialog = new WaitDialog(this);
 
         final Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -157,13 +155,13 @@ public class SignActivity extends ActionBarActivity {
             @Override
             public void run() {
                 startActivity(intent);
-                dialog.dismiss();
+                waitDialog.dismiss();
             }
         };
 
         Handler handler = new Handler();
         handler.postDelayed(runnable, SIGNUP_TIMEOUT);
 
-        dialog.show();
+        waitDialog.show();
     }
 }

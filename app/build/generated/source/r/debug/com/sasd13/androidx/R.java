@@ -649,6 +649,7 @@ public final class R {
 		public static final int menuitem_action_refresh = 0x7f0b0046;
 		public static final int toast_saved = 0x7f0b004f;
 		public static final int toast_updated = 0x7f0b0050;
+		public static final int waitdialog_message_wait = 0x7f0b0051;
 	}
 	public static final class style {
 		public static final int AppTheme = 0x7f0c0000;

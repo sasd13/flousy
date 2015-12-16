@@ -1,7 +1,6 @@
 package com.sasd13.flousy;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidx.gui.widget.dialog.CustomDialogBuilder;
+import com.sasd13.androidx.gui.widget.dialog.WaitDialog;
 import com.sasd13.flousy.session.Session;
 
 public class LogActivity extends Activity {
@@ -71,8 +70,7 @@ public class LogActivity extends Activity {
     }
 
     private void goToHomeActivity() {
-        CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
-        final AlertDialog dialog = builder.create();
+        final WaitDialog waitDialog = new WaitDialog(this);
 
         final Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -82,14 +80,14 @@ public class LogActivity extends Activity {
             @Override
             public void run() {
                 startActivity(intent);
-                dialog.dismiss();
+                waitDialog.dismiss();
             }
         };
 
         Handler handler = new Handler();
         handler.postDelayed(runnable, LOGIN_TIMEOUT);
 
-        dialog.show();
+        waitDialog.show();
     }
 
     private void customizeView() {

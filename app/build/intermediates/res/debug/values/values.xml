@@ -428,6 +428,7 @@
     <eat-comment/>
     <string name="toast_saved">Enregistré</string>
     <string name="toast_updated">Actualisé</string>
+    <string name="waitdialog_message_wait">Please wait...</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

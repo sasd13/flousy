@@ -135,6 +135,7 @@
     <string name="menuitem_action_refresh">Actualiser</string>
     <string name="toast_saved">Enregistré</string>
     <string name="toast_updated">Actualisé</string>
+    <string name="waitdialog_message_wait">Please wait...</string>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>

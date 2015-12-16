@@ -619,6 +619,7 @@ int string menuitem_action_new 0x7f05002b
 int string menuitem_action_refresh 0x7f05002c
 int string toast_saved 0x7f05002d
 int string toast_updated 0x7f05002e
+int string waitdialog_message_wait 0x7f05002f
 int style AppTheme 0x7f090065
 int style Base_TextAppearance_AppCompat 0x7f090027
 int style Base_TextAppearance_AppCompat_Body1 0x7f090028

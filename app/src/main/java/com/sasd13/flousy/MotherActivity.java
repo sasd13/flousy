@@ -1,6 +1,5 @@
 package com.sasd13.flousy;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,7 +11,7 @@ import android.view.MenuItem;
 import android.view.ViewStub;
 
 import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidx.gui.widget.dialog.CustomDialogBuilder;
+import com.sasd13.androidx.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidx.gui.widget.recycler.drawer.Drawer;
 import com.sasd13.androidx.gui.widget.recycler.drawer.DrawerItemTitle;
 import com.sasd13.flousy.constant.Extra;
@@ -103,8 +102,7 @@ public abstract class MotherActivity extends ActionBarActivity {
     }
 
     private void goToHomeActivityAndExit() {
-        CustomDialogBuilder builder = new CustomDialogBuilder(this, CustomDialogBuilder.TYPE_LOAD);
-        final AlertDialog dialog = builder.create();
+        final WaitDialog waitDialog = new WaitDialog(this);
 
         final Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -115,7 +113,7 @@ public abstract class MotherActivity extends ActionBarActivity {
             @Override
             public void run() {
                 startActivity(intent);
-                dialog.dismiss();
+                waitDialog.dismiss();
                 finish();
             }
         };
@@ -123,6 +121,6 @@ public abstract class MotherActivity extends ActionBarActivity {
         Handler handler = new Handler();
         handler.postDelayed(runnable, LOGOUT_TIMEOUT);
 
-        dialog.show();
+        waitDialog.show();
     }
 }

@@ -1816,6 +1816,7 @@ containing a value of this type.
         public static final int tabitemtitle_textview_value=0x7f0b004e;
         public static final int toast_saved=0x7f0b004f;
         public static final int toast_updated=0x7f0b0050;
+        public static final int waitdialog_message_wait=0x7f0b0051;
     }
     public static final class style {
         /**  Customize your theme here. 
