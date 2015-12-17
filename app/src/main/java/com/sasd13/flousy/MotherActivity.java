@@ -10,10 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
 
-import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidx.gui.widget.dialog.WaitDialog;
-import com.sasd13.androidx.gui.widget.recycler.drawer.Drawer;
-import com.sasd13.androidx.gui.widget.recycler.drawer.DrawerItemTitle;
+import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
+import com.sasd13.androidex.gui.widget.recycler.drawer.Drawer;
+import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemTitle;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenu;

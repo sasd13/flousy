@@ -7,9 +7,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidx.gui.widget.recycler.grid.Grid;
-import com.sasd13.androidx.gui.widget.recycler.grid.GridItem;
+import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
+import com.sasd13.androidex.gui.widget.recycler.grid.GridItem;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenu;

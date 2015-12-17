@@ -8,8 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sasd13.androidx.form.FormValidator;
-import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
@@ -83,7 +82,7 @@ public class SettingActivity extends MotherActivity {
     private void updateCustomer() {
         String[] tabFormErrors = validFormCustomer();
 
-        if (tabFormErrors.length == 0) {
+        if (true) {
             tryToPerformUpdateCustomer();
         } else {
             CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
@@ -91,17 +90,9 @@ public class SettingActivity extends MotherActivity {
     }
 
     private String[] validFormCustomer() {
-        FormValidator formValidator = new FormValidator();
+        //TODO
 
-        String firstName = this.formCustomer.editTextFirstName.getText().toString().trim();
-        String lastName = this.formCustomer.editTextLastName.getText().toString().trim();
-        String email = this.formCustomer.editTextEmail.getText().toString().trim();
-
-        formValidator.validName(firstName, "firstname");
-        formValidator.validName(lastName, "lastname");
-        formValidator.validEmail(email, "email");
-
-        return formValidator.getErrors();
+        return null;
     }
 
     private void tryToPerformUpdateCustomer() {

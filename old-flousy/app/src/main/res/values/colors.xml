@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00000000</color>
+    <item name="black" type="color">#000000</item>
+    <item name="white" type="color">#FFFFFF</item>
+    <item name="blue" type="color">#FF33B5E5</item>
+    <item name="brown" type="color">#BF8273</item>
+    <item name="green" type="color">#FF99CC00</item>
+    <item name="orange" type="color">#FFFFBB33</item>
+    <item name="pink" type="color">#FD6C9E</item>
+    <item name="purple" type="color">#FFAA66CC</item>
+    <item name="red" type="color">#FFFF4444</item>
+    <item name="yellow" type="color">#FFF200</item>
+
+    <item name="darkBlue" type="color">#FF0099CC</item>
+    <item name="darkBrown" type="color">#BF8273</item>
+    <item name="darkGreen" type="color">#FF669900</item>
+    <item name="darkOrange" type="color">#FFFF8800</item>
+    <item name="darkPink" type="color">#C50f3C</item>
+    <item name="darkPurple" type="color">#FF9933CC</item>
+    <item name="darkRed" type="color">#FFCC0000</item>
+    <item name="darkYellow" type="color">#E3D700</item>
+
+    <item name="lightGreenApp" type="color">#8A9E99</item>
+    <item name="lightBlue" type="color">#8DC9E8</item>
+    <item name="lightBrown" type="color">#CAAC97</item>
+    <item name="lightGreen" type="color">#A1D88B</item>
+    <item name="lightOrange" type="color">#FFC775</item>
+    <item name="lightPink" type="color">#f8A4BB</item>
+    <item name="lightPurple" type="color">#CEA8D2</item>
+    <item name="lightRed" type="color">#FE686A</item>
+    <item name="lightYellow" type="color">#F2EB85</item>
+
+    <item name="customGreenApp" type="color">#1D3632</item>
+    <item name="customBlue" type="color">#0077B3</item>
+    <item name="customBrown" type="color">#99604C</item>
+    <item name="customGreen" type="color">#40994F</item>
+    <item name="customOrange" type="color">#d98716</item>
+    <item name="customPink" type="color">#D95777</item>
+    <item name="customPurple" type="color">#8C518C</item>
+    <item name="customRed" type="color">#D94436</item>
+    <item name="customYellow" type="color">#FFFF4C</item>
+
+    <integer-array name="androidcolors">
+        <item>@color/black</item>
+        <item>@color/white</item>
+        <item>@color/blue</item>
+        <item>@color/brown</item>
+        <item>@color/green</item>
+        <item>@color/orange</item>
+        <item>@color/pink</item>
+        <item>@color/purple</item>
+        <item>@color/red</item>
+        <item>@color/yellow</item>
+        <item>@color/darkBlue</item>
+        <item>@color/darkBrown</item>
+        <item>@color/darkGreen</item>
+        <item>@color/darkOrange</item>
+        <item>@color/darkPink</item>
+        <item>@color/darkPurple</item>
+        <item>@color/darkRed</item>
+        <item>@color/darkYellow</item>
+        <item>@color/lightGreenApp</item>
+        <item>@color/lightBlue</item>
+        <item>@color/lightBrown</item>
+        <item>@color/lightGreen</item>
+        <item>@color/lightOrange</item>
+        <item>@color/lightPink</item>
+        <item>@color/lightPurple</item>
+        <item>@color/lightRed</item>
+        <item>@color/lightYellow</item>
+        <item>@color/customGreenApp</item>
+        <item>@color/customBlue</item>
+        <item>@color/customBrown</item>
+        <item>@color/customGreen</item>
+        <item>@color/customOrange</item>
+        <item>@color/customPink</item>
+        <item>@color/customPurple</item>
+        <item>@color/customRed</item>
+        <item>@color/customYellow</item>
+    </integer-array>
+
+</resources>

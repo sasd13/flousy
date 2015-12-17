@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 import java.sql.Timestamp;
 
-import com.sasd13.androidx.form.FormValidator;
-import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
@@ -146,7 +145,7 @@ public class TransactionActivity extends MotherActivity {
     private void createTransaction() {
         String[] tabFormErrors = validFormTransaction();
 
-        if (tabFormErrors.length == 0) {
+        if (true) {
             performCreateTransaction();
             goToAccountActivity();
         } else {
@@ -155,15 +154,9 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private String[] validFormTransaction() {
-        FormValidator formValidator = new FormValidator();
+        //TODO
 
-        String title = this.formTransaction.editTextTitle.getText().toString().trim();
-        //String value = this.formTransaction.editTextValue.getText().toString().trim();
-
-        formValidator.validName(title, "title");
-        //formValidator.validNumber(value, "value");
-
-        return formValidator.getErrors();
+        return null;
     }
 
     private void performCreateTransaction() {

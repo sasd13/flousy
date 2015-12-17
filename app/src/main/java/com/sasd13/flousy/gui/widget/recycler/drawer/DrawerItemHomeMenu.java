@@ -3,7 +3,7 @@ package com.sasd13.flousy.gui.widget.recycler.drawer;
 import android.view.View;
 import android.view.ViewStub;
 
-import com.sasd13.androidx.gui.widget.recycler.drawer.DrawerItemIntentable;
+import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemIntentable;
 import com.sasd13.flousy.R;
 
 public class DrawerItemHomeMenu extends DrawerItemIntentable {

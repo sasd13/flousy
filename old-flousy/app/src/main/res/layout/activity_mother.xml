@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewStub
+        android:id="@+id/actionbar_viewstub"
+        android:layout="@layout/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionbar_height"/>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- The main content view -->
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ViewStub
+                android:id="@+id/activitybar_viewstub"
+                android:layout="@layout/activitybar_titled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"/>
+
+            <ViewStub
+                android:id="@+id/activitycontent_viewstub"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_below="@id/activitybar_viewstub"/>
+
+        </RelativeLayout>
+
+        <!-- The navigation drawer -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/drawer_view"
+            android:layout_width="@dimen/drawer_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:paddingLeft="@dimen/drawer_padding"
+            android:paddingRight="@dimen/drawer_padding"
+            android:background="@color/background_material_light"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="outsideOverlay"/>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

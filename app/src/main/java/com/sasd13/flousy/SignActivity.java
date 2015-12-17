@@ -10,9 +10,8 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.sasd13.androidx.form.FormValidator;
-import com.sasd13.androidx.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidx.gui.widget.dialog.WaitDialog;
+import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.DAO;
@@ -74,7 +73,7 @@ public class SignActivity extends ActionBarActivity {
     private void signUp() {
         String[] tabFormErrors = validFormCustomer();
 
-        if (tabFormErrors.length == 0) {
+        if (true) {
             tryToPerformSignUp();
         } else {
             CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
@@ -82,23 +81,9 @@ public class SignActivity extends ActionBarActivity {
     }
 
     private String[] validFormCustomer() {
-        FormValidator formValidator = new FormValidator();
+        //TODO
 
-        String firstName = this.formCustomer.editTextFirstName.getText().toString().trim();
-        String lastName = this.formCustomer.editTextLastName.getText().toString().trim();
-        String email = this.formCustomer.editTextEmail.getText().toString().trim();
-        String password = this.formCustomer.editTextPassword.getText().toString().trim();
-        String confirmPassword = this.formCustomer.editTextConfirmPassword.getText().toString().trim();
-        Boolean validTerms = this.formCustomer.checkBoxValidTerms.isChecked();
-
-        formValidator.validName(firstName, "firstname");
-        formValidator.validName(lastName, "lastname");
-        formValidator.validEmail(email, "email");
-        formValidator.validPassword(password, "password");
-        formValidator.validConfirmPassword(password, confirmPassword, "confirmpassword");
-        formValidator.validCheckBox(validTerms, "terms");
-
-        return formValidator.getErrors();
+        return null;
     }
 
     private void tryToPerformSignUp() {
