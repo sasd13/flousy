@@ -3,18 +3,17 @@ package com.sasd13.flousy;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.ImageView;
 
+import com.sasd13.androidex.session.Session;
+import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.session.Session;
 
 public class SplashScreenActivity extends Activity {
 
-    private static final int SPLASHSCREEN_TIMEOUT = 3000;
+    private static final int TIMEOUT = 3000;
 
-    private Handler handler;
-    private Runnable runnable;
+    private TaskPlanner taskPlanner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,29 +34,27 @@ public class SplashScreenActivity extends Activity {
         super.onStart();
 
         DAOFactory.make().init(this);
-        Session.start(this);
+        Session.init(this);
 
         if (Session.isStarted()) {
-            goToActivity(HomeActivity.class, SPLASHSCREEN_TIMEOUT);
+            goToActivity(HomeActivity.class);
         } else {
-            goToActivity(LogActivity.class, SPLASHSCREEN_TIMEOUT);
+            goToActivity(LogActivity.class);
         }
     }
 
-    private void goToActivity(Class<?> activityClass, int timeOut) {
-        final Intent intent = new Intent(this, activityClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        this.runnable = new Runnable() {
-
+    private void goToActivity(final Class<?> mClass) {
+        taskPlanner = new TaskPlanner(new Runnable() {
             @Override
             public void run() {
+                Intent intent = new Intent(SplashScreenActivity.this, mClass);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(intent);
             }
-        };
+        }, TIMEOUT);
 
-        this.handler = new Handler();
-        this.handler.postDelayed(this.runnable, timeOut);
+        taskPlanner.start();
     }
 
     @Override
@@ -69,7 +66,7 @@ public class SplashScreenActivity extends Activity {
 
     private void stopGoToActivity() {
         try {
-            this.handler.removeCallbacks(this.runnable);
+            taskPlanner.stop();
         } catch (NullPointerException e) {
             e.printStackTrace();
         }

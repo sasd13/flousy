@@ -10,15 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewStub;
 
-import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.drawer.Drawer;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemTitle;
+import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenu;
 import com.sasd13.flousy.gui.widget.recycler.drawer.DrawerItemHomeMenu;
-import com.sasd13.flousy.session.Session;
 
 public abstract class MotherActivity extends ActionBarActivity {
 
@@ -94,11 +93,8 @@ public abstract class MotherActivity extends ActionBarActivity {
     }
 
     public void logOut() {
-        if (Session.logOut()) {
-            goToHomeActivityAndExit();
-        } else {
-            CustomDialog.showOkDialog(this, "Error logout", "You have not been logged out");
-        }
+        Session.logOut();
+        goToHomeActivityAndExit();
     }
 
     private void goToHomeActivityAndExit() {

@@ -9,10 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.session.Session;
 
 public class SettingActivity extends MotherActivity {
 
@@ -46,7 +46,7 @@ public class SettingActivity extends MotherActivity {
         DAO dao = DAOFactory.make();
 
         dao.open();
-        Customer customer = dao.selectCustomer(Session.getCustomerId());
+        Customer customer = dao.selectCustomer(Session.getId());
         dao.close();
 
         fillFormCustomer(customer);
@@ -103,13 +103,13 @@ public class SettingActivity extends MotherActivity {
         dao.open();
 
         if (dao.selectCustomerByEmail(email) == null) {
-            Customer customer = dao.selectCustomer(Session.getCustomerId());
+            Customer customer = dao.selectCustomer(Session.getId());
 
             performUpdateCustomer(customer, dao);
         } else {
             Customer customer = dao.selectCustomerByEmail(email);
 
-            if (customer.getId() == Session.getCustomerId()) {
+            if (customer.getId() == Session.getId()) {
                 performUpdateCustomer(customer, dao);
             } else {
                 CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
@@ -123,7 +123,7 @@ public class SettingActivity extends MotherActivity {
         editCustomerWithForm(customer);
         dao.updateCustomer(customer);
 
-        Toast.makeText(this, R.string.toast_saved, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
     }
 
     private void editCustomerWithForm(Customer customer) {

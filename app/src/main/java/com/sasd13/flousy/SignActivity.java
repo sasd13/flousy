@@ -12,11 +12,11 @@ import android.widget.EditText;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
+import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.session.Session;
 
 public class SignActivity extends ActionBarActivity {
 
@@ -96,7 +96,7 @@ public class SignActivity extends ActionBarActivity {
         if (dao.selectCustomerByEmail(customer.getEmail()) == null) {
             performSignUp(customer, dao);
 
-            Session.logIn(customer.getEmail(), customer.getPassword());
+            Session.logIn(customer.getId());
 
             goToHomeActivityWithWelcome(customer.getFirstName());
         } else {

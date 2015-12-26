@@ -337,40 +337,32 @@
     <string name="activity_sign">Inscription</string>
     <string name="activity_splashscreen">@string/app_name</string>
     <string name="activity_transaction">Transaction</string>
-    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidex/androidex/res/values/values.xml -->
-    <eat-comment/>
-    <string name="alertdialog_button_cancel">Annuler</string>
-    <string name="alertdialog_button_no">Non</string>
-    <string name="alertdialog_button_ok">OK</string>
-    <string name="alertdialog_button_yes">Oui</string>
-    <string name="alertdialog_message_confirm">Confirmer ?</string>
-    <string name="alertdialog_message_error">Une erreur est survenue</string>
-    <string name="alertdialog_title_careful">Attention</string>
-    <string name="alertdialog_title_error">Erreur</string>
-    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string name="app_name">Flousy</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidex/androidex/res/values/values.xml -->
     <eat-comment/>
+    <string name="button_cancel">Annuler</string>
+    <string name="button_no">Non</string>
+    <string name="button_ok">OK</string>
     <string name="button_save">Enregistrer</string>
+    <string name="button_yes">Oui</string>
     <string name="draweritem_textview_item">Item</string>
-    <string name="draweritemtitle_textview_title">Title</string>
+    <string name="draweritemtitle_textview_title">Titre</string>
     <string name="edittext_hint_confirmpassword">Confirmer</string>
     <string name="edittext_hint_email">Email</string>
     <string name="edittext_hint_firstname">Prénom</string>
     <string name="edittext_hint_lastname">Nom</string>
     <string name="edittext_hint_password">Mot de passe</string>
-    <string name="form_textview_connection">CONNEXION</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="form_textview_date">DATE</string>
     <string name="form_textview_hint_date">2015</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidex/androidex/res/values/values.xml -->
     <eat-comment/>
-    <string name="form_textview_identity">IDENTITE</string>
-    <string name="form_textview_password">MOT DE PASSE</string>
     <string name="form_textview_terms">J\'atteste avoir lu le contrat d\'utilisation</string>
+    <string name="form_textview_title_connection">CONNEXION</string>
     <string name="form_textview_title_email">EMAIL</string>
+    <string name="form_textview_title_identity">IDENTITE</string>
+    <string name="form_textview_title_password">MOT DE PASSE</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="form_transaction_edittext_hint_title">Intitulé</string>
@@ -400,6 +392,14 @@
     <string name="menuitem_action_logout">Déconnecter</string>
     <string name="menuitem_action_new">Nouveau</string>
     <string name="menuitem_action_refresh">Actualiser</string>
+    <string name="message_confirm">Confirmer ?</string>
+    <string name="message_error_connectivity">Veuillez activer votre connexion</string>
+    <string name="message_error_login">Connexion impossible</string>
+    <string name="message_error_logout">Deconnexion impossible</string>
+    <string name="message_error_update">Echec de la mise à jour</string>
+    <string name="message_saved">Enregistré</string>
+    <string name="message_updated">Actualisé</string>
+    <string name="message_wait">Veuillez patienter...</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="sign_alertdialog_message_error_sign">Remplir le formulaire d\'inscription</string>
@@ -412,9 +412,8 @@
     <string name="tabitemtitle_textview_value">PRIX</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidex/androidex/res/values/values.xml -->
     <eat-comment/>
-    <string name="toast_saved">Enregistré</string>
-    <string name="toast_updated">Actualisé</string>
-    <string name="waitdialog_message_wait">Please wait...</string>
+    <string name="title_careful">Attention</string>
+    <string name="title_error">Erreur</string>
     <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

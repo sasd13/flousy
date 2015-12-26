@@ -15,7 +15,7 @@
             android:id="@+id/sign_form_user_textview_identity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/form_textview_identity"
+            android:text="@string/form_textview_title_identity"
             android:textColor="@color/customGreenApp"
             android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_edittext_lastname"
             android:layout_marginTop="@dimen/viewgroup_margin"
-            android:text="@string/form_textview_connection"
+            android:text="@string/form_textview_title_connection"
             android:textColor="@color/customGreenApp"
             android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"/>

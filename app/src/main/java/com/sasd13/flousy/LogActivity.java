@@ -3,7 +3,6 @@ package com.sasd13.flousy;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
@@ -13,7 +12,11 @@ import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
-import com.sasd13.flousy.session.Session;
+import com.sasd13.androidex.session.Session;
+import com.sasd13.androidex.util.TaskPlanner;
+import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.db.DAO;
+import com.sasd13.flousy.db.DAOFactory;
 
 public class LogActivity extends Activity {
 
@@ -22,7 +25,7 @@ public class LogActivity extends Activity {
         public Button buttonConnect;
     }
 
-    private static final int LOGIN_TIMEOUT = 2000;
+    private static final int TIMEOUT = 2000;
 
     private FormLogViewHolder formLog;
 
@@ -59,7 +62,13 @@ public class LogActivity extends Activity {
         String email = this.formLog.editTextEmail.getText().toString().trim();
         String password = this.formLog.editTextPassword.getText().toString().trim();
 
-        if (Session.logIn(email, password)) {
+        DAO dao = DAOFactory.make();
+        dao.open();
+        Customer customer = dao.selectCustomerByEmail(email);
+        dao.close();
+
+        if (customer != null && password.equals(customer.getPassword())) {
+            Session.logIn(customer.getId());
             goToHomeActivity();
         } else {
             CustomDialog.showOkDialog(
@@ -72,21 +81,18 @@ public class LogActivity extends Activity {
     private void goToHomeActivity() {
         final WaitDialog waitDialog = new WaitDialog(this);
 
-        final Intent intent = new Intent(this, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        Runnable runnable = new Runnable() {
-
+        TaskPlanner taskPlanner = new TaskPlanner(new Runnable() {
             @Override
             public void run() {
+                Intent intent = new Intent(LogActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(intent);
                 waitDialog.dismiss();
             }
-        };
+        }, TIMEOUT);
 
-        Handler handler = new Handler();
-        handler.postDelayed(runnable, LOGIN_TIMEOUT);
-
+        taskPlanner.start();
         waitDialog.show();
     }
 

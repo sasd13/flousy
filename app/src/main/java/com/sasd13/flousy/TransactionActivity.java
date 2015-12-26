@@ -14,12 +14,12 @@ import android.widget.TextView;
 import java.sql.Timestamp;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.DAO;
 import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.session.Session;
 
 public class TransactionActivity extends MotherActivity {
 
@@ -166,7 +166,7 @@ public class TransactionActivity extends MotherActivity {
 
         dao.open();
 
-        Account account = dao.selectAccountByCustomer(Session.getCustomerId());
+        Account account = dao.selectAccountByCustomer(Session.getId());
         transaction.setAccount(account);
 
         dao.insertTransaction(transaction);
