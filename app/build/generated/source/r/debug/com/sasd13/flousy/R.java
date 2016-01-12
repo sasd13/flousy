@@ -1506,7 +1506,7 @@ containing a value of this type.
         public static final int listMode=0x7f090009;
         public static final int list_item=0x7f090025;
         public static final int log_button_connect=0x7f090049;
-        public static final int log_edittext_email=0x7f090047;
+        public static final int log_edittext_number=0x7f090047;
         public static final int log_edittext_password=0x7f090048;
         public static final int log_textview_signup=0x7f09004a;
         public static final int menu_account_action_new=0x7f090080;

@@ -4,23 +4,22 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
+import com.sasd13.flousy.db.TransactionDAO;
 
-public class SQLiteTransactionDAO extends SQLiteTableDAO<Transaction> implements com.sasd13.flousy.db.TransactionDAO {
+public class SQLiteTransactionDAO extends SQLiteEntityDAO<Transaction> implements TransactionDAO {
 
     @Override
     protected ContentValues getContentValues(Transaction transaction) {
         ContentValues values = new ContentValues();
 
-        //values.put(TRANSACTION_ID, transaction.getId()); //autoincrement
-        values.put(TRANSACTION_DATEREALIZATION, String.valueOf(transaction.getDateRealization()));
-        values.put(TRANSACTION_TITLE, transaction.getTitle());
-        values.put(TRANSACTION_VALUE, transaction.getValue());
-        values.put(ACCOUNTS_ACCOUNT_ID, transaction.getAccount().getId());
+        values.put(COLUMN_DATEREALIZATION, String.valueOf(transaction.getDateRealization()));
+        values.put(COLUMN_TITLE, transaction.getTitle());
+        values.put(COLUMN_VALUE, transaction.getValue());
+        values.put(COLUMN_ACCOUNT_ID, transaction.getAccount().getId());
 
         return values;
     }
@@ -29,13 +28,13 @@ public class SQLiteTransactionDAO extends SQLiteTableDAO<Transaction> implements
     protected Transaction getCursorValues(Cursor cursor) {
         Transaction transaction = new Transaction();
 
-        transaction.setId(cursor.getLong(cursor.getColumnIndex(TRANSACTION_ID)));
-        transaction.setDateRealization(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(TRANSACTION_DATEREALIZATION))));
-        transaction.setTitle(cursor.getString(cursor.getColumnIndex(TRANSACTION_TITLE)));
-        transaction.setValue(cursor.getDouble(cursor.getColumnIndex(TRANSACTION_VALUE)));
+        transaction.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+        transaction.setDateRealization(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEREALIZATION))));
+        transaction.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
+        transaction.setValue(cursor.getDouble(cursor.getColumnIndex(COLUMN_VALUE)));
 
         Account account = new Account();
-        account.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNTS_ACCOUNT_ID)));
+        account.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ACCOUNT_ID)));
         transaction.setAccount(account);
 
         return transaction;
@@ -43,58 +42,47 @@ public class SQLiteTransactionDAO extends SQLiteTableDAO<Transaction> implements
 
     @Override
     public long insert(Transaction transaction) {
-        return getDB().insert(TRANSACTION_TABLE_NAME, null, getContentValues(transaction));
+        long id = executeInsert(TABLE, transaction);
+
+        transaction.setId(id);
+
+        return id;
     }
 
     @Override
     public void update(Transaction transaction) {
-        getDB().update(TRANSACTION_TABLE_NAME, getContentValues(transaction), TRANSACTION_ID + " = ?", new String[]{String.valueOf(transaction.getId())});
+        executeUpdate(TABLE, transaction, COLUMN_ID, transaction.getId());
     }
 
     @Override
     public void delete(long id) {
-        getDB().delete(TRANSACTION_TABLE_NAME, TRANSACTION_ID + " = ?", new String[]{String.valueOf(id)});
+        executeDelete(TABLE, COLUMN_ID, id);
     }
 
     @Override
     public Transaction select(long id) {
-        Transaction transaction = null;
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                    + COLUMN_ID + " = ?";
 
-        Cursor cursor = getDB().rawQuery(
-                "select *"
-                        + " from " + TRANSACTION_TABLE_NAME
-                        + " where " + TRANSACTION_ID + " = ?", new String[]{String.valueOf(id)});
+        return executeSelectById(query, id);
+    }
 
-        if (cursor.moveToNext()) {
-            transaction = getCursorValues(cursor);
-        }
-        cursor.close();
+    @Override
+    public List<Transaction> selectAll() {
+        String query = "SELECT * FROM " + TABLE;
 
-        return transaction;
+        return executeSelectAll(query);
     }
 
     @Override
     public List<Transaction> selectByAccount(long accountId) {
-        return selectByAccount(accountId, false);
-    }
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                    + COLUMN_ACCOUNT_ID + " = ?";
 
-    @Override
-    public List<Transaction> selectByAccount(long accountId, boolean ascOrderedByDateRealization) {
-        List<Transaction> listTransactions = new ArrayList<>();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(accountId)});
 
-        String order = ascOrderedByDateRealization ? "ASC" : "DESC";
-
-        Cursor cursor = getDB().rawQuery(
-                "select *"
-                        + " from " + TRANSACTION_TABLE_NAME
-                        + " where " + ACCOUNTS_ACCOUNT_ID + " = ?"
-                        + " order by " + TRANSACTION_DATEREALIZATION + " " + order, new String[]{String.valueOf(accountId)});
-
-        while (cursor.moveToNext()) {
-            listTransactions.add(getCursorValues(cursor));
-        }
-        cursor.close();
-
-        return listTransactions;
+        return executeSelectMultiResult(cursor);
     }
 }

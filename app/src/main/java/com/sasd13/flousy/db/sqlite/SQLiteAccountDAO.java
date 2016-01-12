@@ -4,20 +4,22 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.db.AccountDAO;
 
-public class SQLiteAccountDAO extends SQLiteTableDAO<Account> implements com.sasd13.flousy.db.AccountDAO {
+public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements AccountDAO {
 
     @Override
     protected ContentValues getContentValues(Account account) {
         ContentValues values = new ContentValues();
 
-        //values.put(ACCOUNT_ID, account.getId()); //autoincrement
-        values.put(ACCOUNT_DATEOPENING, String.valueOf(account.getDateOpening()));
-        values.put(ACCOUNT_CLOSED, account.isClosed());
-        values.put(CUSTOMERS_CUSTOMER_ID, account.getCustomer().getId());
+        values.put(COLUMN_NUMBER, account.getNumber());
+        values.put(COLUMN_DATEOPENING, String.valueOf(account.getDateOpening()));
+        values.put(COLUMN_CLOSED, account.isClosed());
+        values.put(COLUMN_CUSTOMER_ID, account.getCustomer().getId());
 
         return values;
     }
@@ -26,12 +28,13 @@ public class SQLiteAccountDAO extends SQLiteTableDAO<Account> implements com.sas
     protected Account getCursorValues(Cursor cursor) {
         Account account = new Account();
 
-        account.setId(cursor.getLong(cursor.getColumnIndex(ACCOUNT_ID)));
-        account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(ACCOUNT_DATEOPENING))));
-        account.setClosed(cursor.getInt(cursor.getColumnIndex(ACCOUNT_CLOSED)) == 1);
+        account.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+        account.setNumber(cursor.getString(cursor.getColumnIndex(COLUMN_NUMBER)));
+        account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEOPENING))));
+        account.setClosed(cursor.getInt(cursor.getColumnIndex(COLUMN_CLOSED)) == 1);
 
         Customer customer = new Customer();
-        customer.setId(cursor.getLong(cursor.getColumnIndex(CUSTOMERS_CUSTOMER_ID)));
+        customer.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_CUSTOMER_ID)));
         account.setCustomer(customer);
 
         return account;
@@ -39,50 +42,58 @@ public class SQLiteAccountDAO extends SQLiteTableDAO<Account> implements com.sas
 
     @Override
     public long insert(Account account) {
-        return getDB().insert(ACCOUNT_TABLE_NAME, null, getContentValues(account));
+        long id = executeInsert(TABLE, account);
+
+        account.setId(id);
+
+        return id;
     }
 
     @Override
     public void update(Account account) {
-        getDB().update(ACCOUNT_TABLE_NAME, getContentValues(account), ACCOUNT_ID + " = ?", new String[]{String.valueOf(account.getId())});
+        executeUpdate(TABLE, account, COLUMN_ID, account.getId());
     }
 
     @Override
     public void delete(long id) {
-        getDB().delete(ACCOUNT_TABLE_NAME, ACCOUNT_ID + " = ?", new String[]{String.valueOf(id)});
+        executeDelete(TABLE, COLUMN_ID, id);
     }
 
     @Override
     public Account select(long id) {
-        Account account = null;
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                    + COLUMN_ID + " = ?";
 
-        Cursor cursor = getDB().rawQuery(
-                "select *"
-                        + " from " + ACCOUNT_TABLE_NAME
-                        + " where " + ACCOUNT_ID + " = ?", new String[]{String.valueOf(id)});
+        return executeSelectById(query, id);
+    }
 
-        if (cursor.moveToNext()) {
-            account = getCursorValues(cursor);
-        }
-        cursor.close();
+    @Override
+    public List<Account> selectAll() {
+        String query = "SELECT * FROM " + TABLE;
 
-        return account;
+        return executeSelectAll(query);
+    }
+
+    @Override
+    public Account selectByNumber(long number) {
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                + COLUMN_NUMBER + " = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(number)});
+
+        return executeSelectSingleResult(cursor);
     }
 
     @Override
     public Account selectByCustomer(long customerId) {
-        Account account = null;
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                    + COLUMN_CUSTOMER_ID + " = ?";
 
-        Cursor cursor = getDB().rawQuery(
-                "select *"
-                        + " from " + ACCOUNT_TABLE_NAME
-                        + " where " + CUSTOMERS_CUSTOMER_ID + " = ?", new String[]{String.valueOf(customerId)});
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(customerId)});
 
-        while (cursor.moveToNext()) {
-            account = getCursorValues(cursor);
-        }
-        cursor.close();
-
-        return account;
+        return executeSelectSingleResult(cursor);
     }
 }

@@ -1,23 +1,19 @@
 package com.sasd13.flousy.db;
 
 import com.sasd13.flousy.bean.Account;
+import com.sasd13.javaex.db.IEntityDAO;
 
-public interface AccountDAO {
+public interface AccountDAO extends IEntityDAO<Account> {
 
-    String ACCOUNT_TABLE_NAME = "accounts";
+    String TABLE = "accounts";
 
-    String ACCOUNT_ID = "account_id";
-    String ACCOUNT_DATEOPENING = "account_dateopening";
-    String ACCOUNT_CLOSED = "account_closed";
-    String CUSTOMERS_CUSTOMER_ID = "customers_customer_id";
+    String COLUMN_ID = "account_id";
+    String COLUMN_NUMBER = "account_number";
+    String COLUMN_DATEOPENING = "account_dateopening";
+    String COLUMN_CLOSED = "account_closed";
+    String COLUMN_CUSTOMER_ID = "account_customer_id";
 
-    long insert(Account account);
-
-    void update(Account account);
-
-    void delete(long id);
-
-    Account select(long id);
+    Account selectByNumber(long number);
 
     Account selectByCustomer(long customerId);
 }

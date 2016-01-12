@@ -13,10 +13,12 @@ import android.widget.EditText;
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.session.Session;
+import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.db.DAO;
-import com.sasd13.flousy.db.DAOFactory;
+import com.sasd13.flousy.db.CustomerDAO;
+import com.sasd13.flousy.db.sqlite.SQLiteDAO;
+import com.sasd13.javaex.db.IDAO;
 
 public class SignActivity extends ActionBarActivity {
 
@@ -89,21 +91,25 @@ public class SignActivity extends ActionBarActivity {
     private void tryToPerformSignUp() {
         Customer customer = getCustomerFromForm();
 
-        DAO dao = DAOFactory.make();
+        IDAO dao = SQLiteDAO.getInstance();
 
-        dao.open();
+        try {
+            dao.open();
 
-        if (dao.selectCustomerByEmail(customer.getEmail()) == null) {
-            performSignUp(customer, dao);
+            if (((CustomerDAO) dao.getEntityDAO(Customer.class)).selectByEmail(customer.getEmail()) != null) {
+                performSignUp(customer, dao);
 
-            Session.logIn(customer.getId());
+                Session.logIn(customer.getId());
 
-            goToHomeActivityWithWelcome(customer.getFirstName());
-        } else {
-            CustomDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
+                goToHomeActivityWithWelcome(customer.getFirstName());
+            } else {
+                CustomDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
         }
-
-        dao.close();
     }
 
     private Customer getCustomerFromForm() {
@@ -122,9 +128,9 @@ public class SignActivity extends ActionBarActivity {
         return customer;
     }
 
-    private void performSignUp(Customer customer, DAO dao) {
-        dao.insertCustomer(customer);
-        dao.insertAccount(customer.getAccount());
+    private void performSignUp(Customer customer, IDAO dAO) {
+        dAO.getEntityDAO(Customer.class).insert(customer);
+        dAO.getEntityDAO(Account.class).insert(customer.getAccount());
     }
 
     private void goToHomeActivityWithWelcome(String userFirstName) {

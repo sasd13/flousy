@@ -18,18 +18,18 @@ public class HomeMenuItem {
     }
 
     public String getText() {
-        return this.text;
+        return text;
     }
 
     public Drawable getImage() {
-        return this.image;
+        return image;
     }
 
     public int getColor() {
-        return this.color;
+        return color;
     }
 
     public Intent getIntent() {
-        return this.intent;
+        return intent;
     }
 }

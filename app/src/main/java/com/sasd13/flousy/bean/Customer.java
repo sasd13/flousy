@@ -3,49 +3,57 @@ package com.sasd13.flousy.bean;
 public class Customer {
 
     private long id;
-    private String firstName, lastName, email, password;
+    private String number, firstName, lastName, email, password;
     private Account account;
 
     public Customer() {
-        this.account = new Account();
+        account = new Account();
 
-        this.account.setCustomer(this);
+        account.setCustomer(this);
     }
 
     public long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     public String getFirstName() {
-            return this.firstName;
-        }
+        return firstName;
+    }
 
     public void setFirstName(String firstName) {
-            this.firstName = firstName;
-        }
+        this.firstName = firstName;
+    }
 
     public String getLastName() {
-            return this.lastName;
-        }
+        return lastName;
+    }
 
     public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
+        this.lastName = lastName;
+    }
 
     public String getEmail() {
-            return this.email;
-        }
+        return email;
+    }
 
     public void setEmail(String email) {
-            this.email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public void setPassword(String password) {
@@ -53,16 +61,23 @@ public class Customer {
     }
 
     public Account getAccount() {
-        return this.account;
+        return account;
     }
 
     @Override
     public String toString() {
-        return "["
-                + "id: " + this.id + ", "
-                + "firstname: " + this.lastName + ", "
-                + "lastname: " + this.lastName + ", "
-                + "email: " + this.email + ", "
-                + "password: " + this.password + "]";
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("Customer [");
+        builder.append("id=" + getId());
+        builder.append(", number=" + getNumber());
+        builder.append(", firstName=" + getFirstName());
+        builder.append(", lastName=" + getLastName());
+        builder.append(", email=" + getEmail());
+        builder.append(", password=" + getPassword());
+        builder.append(", account=" + getAccount());
+        builder.append("]");
+
+        return builder.toString().trim();
     }
 }

@@ -15,16 +15,16 @@ public class HomeMenu {
     private HomeMenuItem[] tab;
 
     private HomeMenu(Context context) {
-        this.tab = new HomeMenuItem[SIZE];
+        tab = new HomeMenuItem[SIZE];
 
-        this.tab[0] = new HomeMenuItem(
+        tab[0] = new HomeMenuItem(
                 context.getResources().getString(R.string.activity_account),
                 context.getResources().getDrawable(R.drawable.griditem_new),
                 context.getResources().getColor(R.color.customGreen),
                 new Intent(context, AccountActivity.class)
         );
 
-        this.tab[1] = new HomeMenuItem(
+        tab[1] = new HomeMenuItem(
                 context.getResources().getString(R.string.activity_setting),
                 context.getResources().getDrawable(R.drawable.griditem_settings),
                 context.getResources().getColor(R.color.customBrown),
@@ -40,5 +40,5 @@ public class HomeMenu {
         return instance;
     }
 
-    public HomeMenuItem[] getItems() { return this.tab; }
+    public HomeMenuItem[] getItems() { return tab; }
 }

@@ -2,31 +2,41 @@ package com.sasd13.flousy.bean;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Account {
 
     private long id;
+    private String number;
     private Timestamp dateOpening;
     private boolean closed;
-    private Customer customer;
     private List<Transaction> transactions;
+    private Customer customer;
 
     public Account() {
-        this.dateOpening = new Timestamp(System.currentTimeMillis());
-        this.transactions = new ArrayList<>();
+        dateOpening = new Timestamp(System.currentTimeMillis());
+        transactions = new ArrayList<>();
     }
 
     public long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     public Timestamp getDateOpening() {
-        return this.dateOpening;
+        return dateOpening;
     }
 
     public void setDateOpening(Timestamp dateOpening) {
@@ -41,30 +51,30 @@ public class Account {
         this.closed = closed;
     }
 
+    public void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
+    }
+
+    public void removeTransaction(Transaction transaction) {
+        transactions.remove(transaction);
+    }
+
+    public Transaction[] getTransactions() {
+        return transactions.toArray(new Transaction[transactions.size()]);
+    }
+
     public Customer getCustomer() {
-        return this.customer;
+        return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    public void addTransaction(Transaction transaction) {
-        this.transactions.add(transaction);
-    }
-
-    public void removeTransaction(Transaction transaction) {
-        this.transactions.remove(transaction);
-    }
-
-    public Transaction[] getTransactions() {
-        return this.transactions.toArray(new Transaction[this.transactions.size()]);
-    }
-
     public double getSold() {
         double sold = 0;
 
-        for (Transaction transaction : this.transactions) {
+        for (Transaction transaction : transactions) {
             sold += transaction.getValue();
         }
 
@@ -73,8 +83,16 @@ public class Account {
 
     @Override
     public String toString() {
-        return "["
-                + "id: " + this.id + ", "
-                + "dateopening: " + String.valueOf(this.dateOpening) + "]";
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("Account [");
+        builder.append("id=" + getId());
+        builder.append(", number=" + getNumber());
+        builder.append(", dateOpening=" + String.valueOf(getDateOpening()));
+        builder.append(", closed=" + String.valueOf(isClosed()));
+        builder.append(", transactions=" + Arrays.toString(getTransactions()));
+        builder.append("]");
+
+        return builder.toString().trim();
     }
 }

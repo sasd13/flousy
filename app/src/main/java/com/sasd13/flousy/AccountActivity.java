@@ -9,15 +9,18 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.db.DAO;
-import com.sasd13.flousy.db.DAOFactory;
+import com.sasd13.flousy.db.AccountDAO;
+import com.sasd13.flousy.db.TransactionDAO;
+import com.sasd13.flousy.db.sqlite.SQLiteDAO;
 import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransaction;
+import com.sasd13.javaex.db.IDAO;
 
 public class AccountActivity extends MotherActivity {
 
@@ -48,14 +51,24 @@ public class AccountActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        DAO dao = DAOFactory.make();
+        IDAO dao = SQLiteDAO.getInstance();
 
-        dao.open();
-        Account account = dao.selectAccountByCustomerWithTransactions(Session.getId());
-        dao.close();
+        try {
+            dao.open();
 
-        fillTextViewSold(account);
-        fillTabTransactions(account);
+            AccountDAO accountDAO = (AccountDAO) dao.getEntityDAO(Account.class);
+            Account account = accountDAO.selectByCustomer(Session.getId());
+
+            TransactionDAO transactionDAO = (TransactionDAO) dao.getEntityDAO(Transaction.class);
+            List<Transaction> transactions = transactionDAO.selectByAccount(account.getId());
+
+            fillTextViewSold(account);
+            fillTabTransactions(transactions);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
+        }
     }
 
     private void fillTextViewSold(Account account) {
@@ -64,16 +77,16 @@ public class AccountActivity extends MotherActivity {
         this.textViewSold.setText(String.valueOf(df.format(account.getSold())));
     }
 
-    private void fillTabTransactions(Account account) {
+    private void fillTabTransactions(List<Transaction> transactions) {
         this.tab.clearItems();
 
-        addTransactionsToTab(account);
+        addTransactionsToTab(transactions);
     }
 
-    private void addTransactionsToTab(Account account) {
+    private void addTransactionsToTab(List<Transaction> transactions) {
         TabItemTransaction tabItemTransaction;
         Intent intent;
-        for (Transaction transaction : account.getTransactions()) {
+        for (Transaction transaction : transactions) {
             tabItemTransaction = new TabItemTransaction();
 
             tabItemTransaction.setDate(String.valueOf(transaction.getDateRealization()));

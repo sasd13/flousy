@@ -15,13 +15,14 @@ import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.session.Session;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.db.DAO;
-import com.sasd13.flousy.db.DAOFactory;
+import com.sasd13.flousy.db.CustomerDAO;
+import com.sasd13.flousy.db.sqlite.SQLiteDAO;
+import com.sasd13.javaex.db.IDAO;
 
 public class LogActivity extends Activity {
 
     private class FormLogViewHolder {
-        public EditText editTextEmail, editTextPassword;
+        public EditText editTextNumber, editTextPassword;
         public Button buttonConnect;
     }
 
@@ -42,7 +43,7 @@ public class LogActivity extends Activity {
     private void createFormLog() {
         this.formLog = new FormLogViewHolder();
 
-        this.formLog.editTextEmail = (EditText) findViewById(R.id.log_edittext_email);
+        this.formLog.editTextNumber = (EditText) findViewById(R.id.log_edittext_number);
         this.formLog.editTextPassword = (EditText) findViewById(R.id.log_edittext_password);
 
         this.formLog.buttonConnect = (Button) findViewById(R.id.log_button_connect);
@@ -50,7 +51,7 @@ public class LogActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                if (formLog.editTextEmail.getText().toString().trim().length() > 0
+                if (formLog.editTextNumber.getText().toString().trim().length() > 0
                         && formLog.editTextPassword.getText().toString().trim().length() > 0) {
                     logIn();
                 }
@@ -59,22 +60,29 @@ public class LogActivity extends Activity {
     }
 
     private void logIn() {
-        String email = this.formLog.editTextEmail.getText().toString().trim();
+        String number = this.formLog.editTextNumber.getText().toString().trim();
         String password = this.formLog.editTextPassword.getText().toString().trim();
 
-        DAO dao = DAOFactory.make();
-        dao.open();
-        Customer customer = dao.selectCustomerByEmail(email);
-        dao.close();
+        IDAO dao = SQLiteDAO.getInstance();
 
-        if (customer != null && password.equals(customer.getPassword())) {
-            Session.logIn(customer.getId());
-            goToHomeActivity();
-        } else {
-            CustomDialog.showOkDialog(
-                    this,
-                    getResources().getString(R.string.log_alertdialog_title_error_log),
-                    getResources().getString(R.string.log_alertdialog_message_error_log));
+        try {
+            dao.open();
+
+            Customer customer = ((CustomerDAO) dao.getEntityDAO(Customer.class)).selectByNumber(number);
+
+            if (customer != null && password.equals(customer.getPassword())) {
+                Session.logIn(customer.getId());
+                goToHomeActivity();
+            } else {
+                CustomDialog.showOkDialog(
+                        this,
+                        getResources().getString(R.string.log_alertdialog_title_error_log),
+                        getResources().getString(R.string.log_alertdialog_message_error_log));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
         }
     }
 

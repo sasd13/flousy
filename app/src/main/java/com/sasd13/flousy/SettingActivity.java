@@ -11,8 +11,10 @@ import android.widget.Toast;
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.db.DAO;
-import com.sasd13.flousy.db.DAOFactory;
+import com.sasd13.flousy.db.CustomerDAO;
+import com.sasd13.flousy.db.sqlite.SQLiteDAO;
+import com.sasd13.javaex.db.IDAO;
+import com.sasd13.javaex.db.IEntityDAO;
 
 public class SettingActivity extends MotherActivity {
 
@@ -43,13 +45,19 @@ public class SettingActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        DAO dao = DAOFactory.make();
+        IDAO dao = SQLiteDAO.getInstance();
 
-        dao.open();
-        Customer customer = dao.selectCustomer(Session.getId());
-        dao.close();
+        try {
+            dao.open();
 
-        fillFormCustomer(customer);
+            Customer customer = (Customer) dao.getEntityDAO(Customer.class).select(Session.getId());
+
+            fillFormCustomer(customer);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
+        }
     }
 
     private void fillFormCustomer(Customer customer) {
@@ -98,30 +106,36 @@ public class SettingActivity extends MotherActivity {
     private void tryToPerformUpdateCustomer() {
         String email = this.formCustomer.editTextEmail.getText().toString().trim();
 
-        DAO dao = DAOFactory.make();
+        IDAO dao = SQLiteDAO.getInstance();
 
-        dao.open();
+        try {
+            dao.open();
 
-        if (dao.selectCustomerByEmail(email) == null) {
-            Customer customer = dao.selectCustomer(Session.getId());
+            CustomerDAO customerDAO = (CustomerDAO) dao.getEntityDAO(Customer.class);
 
-            performUpdateCustomer(customer, dao);
-        } else {
-            Customer customer = dao.selectCustomerByEmail(email);
+            if (customerDAO.selectByEmail(email) == null) {
+                Customer customer = customerDAO.select(Session.getId());
 
-            if (customer.getId() == Session.getId()) {
-                performUpdateCustomer(customer, dao);
+                performUpdateCustomer(customer, customerDAO);
             } else {
-                CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
-            }
-        }
+                Customer customer = customerDAO.selectByEmail(email);
 
-        dao.close();
+                if (customer.getId() == Session.getId()) {
+                    performUpdateCustomer(customer, customerDAO);
+                } else {
+                    CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
+        }
     }
 
-    private void performUpdateCustomer(Customer customer, DAO dao) {
+    private void performUpdateCustomer(Customer customer, IEntityDAO entityDAO) {
         editCustomerWithForm(customer);
-        dao.updateCustomer(customer);
+        entityDAO.update(customer);
 
         Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
     }

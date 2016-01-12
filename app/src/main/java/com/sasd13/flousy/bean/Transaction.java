@@ -11,11 +11,11 @@ public class Transaction {
     private Account account;
 
     public Transaction() {
-        this.dateRealization = new Timestamp(System.currentTimeMillis());
+        dateRealization = new Timestamp(System.currentTimeMillis());
     }
 
     public long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(long id) {
@@ -23,7 +23,7 @@ public class Transaction {
     }
 
     public Timestamp getDateRealization() {
-        return this.dateRealization;
+        return dateRealization;
     }
 
     public void setDateRealization(Timestamp dateRealization) {
@@ -31,7 +31,7 @@ public class Transaction {
     }
 
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     public void setTitle(String title) {
@@ -39,7 +39,7 @@ public class Transaction {
     }
 
     public double getValue() {
-        return this.value;
+        return value;
     }
 
     public void setValue(double value) {
@@ -47,7 +47,7 @@ public class Transaction {
     }
 
     public Account getAccount() {
-        return this.account;
+        return account;
     }
 
     public void setAccount(Account account) {
@@ -55,10 +55,15 @@ public class Transaction {
     }
 
     public String toString() {
-        return "["
-                + "id: " + this.id + ", "
-                + "daterealization: " + String.valueOf(this.dateRealization) + ", "
-                + "value: " + this.value + ", "
-                + "title: " + this.title + "]";
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("Transaction [");
+        builder.append("id=" + getId());
+        builder.append(", dateRealization=" + String.valueOf(getDateRealization()));
+        builder.append(", title=" + getTitle());
+        builder.append(", value=" + getValue());
+        builder.append("]");
+
+        return builder.toString().trim();
     }
 }

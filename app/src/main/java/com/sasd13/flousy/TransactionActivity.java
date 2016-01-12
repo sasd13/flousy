@@ -18,8 +18,10 @@ import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.db.DAO;
-import com.sasd13.flousy.db.DAOFactory;
+import com.sasd13.flousy.db.AccountDAO;
+import com.sasd13.flousy.db.sqlite.SQLiteDAO;
+import com.sasd13.javaex.db.IDAO;
+import com.sasd13.javaex.db.IEntityDAO;
 
 public class TransactionActivity extends MotherActivity {
 
@@ -60,13 +62,18 @@ public class TransactionActivity extends MotherActivity {
         if (hasExtraModeNew()) {
             fillNewFormTransaction();
         } else {
-            DAO dao = DAOFactory.make();
+            IDAO dao = SQLiteDAO.getInstance();
 
-            dao.open();
-            Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
-            dao.close();
+            try {
+                dao.open();
+                Transaction transaction = (Transaction) dao.getEntityDAO(Transaction.class).select(getTransactionIdFromIntent());
 
-            fillEditFormTransaction(transaction);
+                fillEditFormTransaction(transaction);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                dao.close();
+            }
         }
     }
 
@@ -162,16 +169,20 @@ public class TransactionActivity extends MotherActivity {
     private void performCreateTransaction() {
         Transaction transaction = getTransactionFromForm();
 
-        DAO dao = DAOFactory.make();
+        IDAO dao = SQLiteDAO.getInstance();
 
-        dao.open();
+        try {
+            dao.open();
 
-        Account account = dao.selectAccountByCustomer(Session.getId());
-        transaction.setAccount(account);
+            Account account = ((AccountDAO) dao.getEntityDAO(Account.class)).selectByCustomer(Session.getId());
+            transaction.setAccount(account);
 
-        dao.insertTransaction(transaction);
-
-        dao.close();
+            dao.getEntityDAO(Transaction.class).insert(transaction);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
+        }
     }
 
     private Transaction getTransactionFromForm() {
@@ -213,16 +224,20 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void performUpdateTransaction() {
-        DAO dao = DAOFactory.make();
+        IDAO dao = SQLiteDAO.getInstance();
 
-        dao.open();
+        try {
+            IEntityDAO entityDAO = dao.getEntityDAO(Transaction.class);
 
-        Transaction transaction = dao.selectTransaction(getTransactionIdFromIntent());
+            Transaction transaction = (Transaction) entityDAO.select(getTransactionIdFromIntent());
 
-        editTransactionWithForm(transaction);
-        dao.updateTransaction(transaction);
-
-        dao.close();
+            editTransactionWithForm(transaction);
+            entityDAO.update(transaction);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
+        }
     }
 
     private void editTransactionWithForm(Transaction transaction) {
@@ -248,10 +263,10 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void performDeleteTransaction() {
-        DAO dao = DAOFactory.make();
+        IDAO dao = SQLiteDAO.getInstance();
 
         dao.open();
-        dao.deleteTransaction(getTransactionIdFromIntent());
+        dao.getEntityDAO(Transaction.class).delete(getTransactionIdFromIntent());
         dao.close();
 
         CustomDialog.showOkDialog(this, "Transaction", "Transaction deleted");

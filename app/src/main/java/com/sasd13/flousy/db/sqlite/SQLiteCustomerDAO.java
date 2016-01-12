@@ -4,18 +4,21 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.db.CustomerDAO;
 
-public class SQLiteCustomerDAO extends SQLiteTableDAO<Customer> implements com.sasd13.flousy.db.CustomerDAO {
+import java.util.List;
+
+public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements CustomerDAO {
 
     @Override
     protected ContentValues getContentValues(Customer customer) {
         ContentValues values = new ContentValues();
 
-        //values.put(CUSTOMER_ID, customer.getId()); //autoincrement
-        values.put(CUSTOMER_FIRSTNAME, customer.getFirstName());
-        values.put(CUSTOMER_LASTNAME, customer.getLastName());
-        values.put(CUSTOMER_EMAIL, customer.getEmail());
-        values.put(CUSTOMER_PASSWORD, customer.getPassword());
+        values.put(COLUMN_NUMBER, customer.getNumber());
+        values.put(COLUMN_FIRSTNAME, customer.getFirstName());
+        values.put(COLUMN_LASTNAME, customer.getLastName());
+        values.put(COLUMN_EMAIL, customer.getEmail());
+        values.put(COLUMN_PASSWORD, customer.getPassword());
 
         return values;
     }
@@ -24,61 +27,70 @@ public class SQLiteCustomerDAO extends SQLiteTableDAO<Customer> implements com.s
     protected Customer getCursorValues(Cursor cursor) {
         Customer customer = new Customer();
 
-        customer.setId(cursor.getLong(cursor.getColumnIndex(CUSTOMER_ID)));
-        customer.setFirstName(cursor.getString(cursor.getColumnIndex(CUSTOMER_FIRSTNAME)));
-        customer.setLastName(cursor.getString(cursor.getColumnIndex(CUSTOMER_LASTNAME)));
-        customer.setEmail(cursor.getString(cursor.getColumnIndex(CUSTOMER_EMAIL)));
-        customer.setPassword(cursor.getString(cursor.getColumnIndex(CUSTOMER_PASSWORD)));
+        customer.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+        customer.setNumber(cursor.getString(cursor.getColumnIndex(COLUMN_NUMBER)));
+        customer.setFirstName(cursor.getString(cursor.getColumnIndex(COLUMN_FIRSTNAME)));
+        customer.setLastName(cursor.getString(cursor.getColumnIndex(COLUMN_LASTNAME)));
+        customer.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)));
+        customer.setPassword(cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD)));
 
         return customer;
     }
 
     @Override
     public long insert(Customer customer) {
-        return getDB().insert(CUSTOMER_TABLE_NAME, null, getContentValues(customer));
+        long id = executeInsert(TABLE, customer);
+
+        customer.setId(id);
+
+        return id;
     }
 
     @Override
     public void update(Customer customer) {
-        getDB().update(CUSTOMER_TABLE_NAME, getContentValues(customer), CUSTOMER_ID + " = ?", new String[]{String.valueOf(customer.getId())});
+        executeUpdate(TABLE, customer, COLUMN_ID, customer.getId());
     }
 
     @Override
     public void delete(long id) {
-        getDB().delete(CUSTOMER_TABLE_NAME, CUSTOMER_ID + " = ?", new String[]{String.valueOf(id)});
+        executeDelete(TABLE, COLUMN_ID, id);
     }
 
     @Override
     public Customer select(long id) {
-        Customer customer = null;
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                    + COLUMN_ID + " = ?";
 
-        Cursor cursor = getDB().rawQuery(
-                "select *"
-                        + " from " + CUSTOMER_TABLE_NAME
-                        + " where " + CUSTOMER_ID + " = ?", new String[]{String.valueOf(id)});
+        return executeSelectById(query, id);
+    }
 
-        if (cursor.moveToNext()) {
-            customer = getCursorValues(cursor);
-        }
-        cursor.close();
+    @Override
+    public List<Customer> selectAll() {
+        String query = "SELECT * FROM " + TABLE;
 
-        return customer;
+        return executeSelectAll(query);
+    }
+
+    @Override
+    public Customer selectByNumber(String number) {
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                    + COLUMN_NUMBER + " = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{number});
+
+        return executeSelectSingleResult(cursor);
     }
 
     @Override
     public Customer selectByEmail(String email) {
-        Customer customer = null;
+        String query = "SELECT * FROM " + TABLE
+                + " WHERE "
+                + COLUMN_EMAIL + " = ?";
 
-        Cursor cursor = getDB().rawQuery(
-                "select *"
-                        + " from " + CUSTOMER_TABLE_NAME
-                        + " where " + CUSTOMER_EMAIL + " = ?", new String[]{String.valueOf(email)});
+        Cursor cursor = db.rawQuery(query, new String[]{email});
 
-        if (cursor.moveToNext()) {
-            customer = getCursorValues(cursor);
-        }
-        cursor.close();
-
-        return customer;
+        return executeSelectSingleResult(cursor);
     }
 }

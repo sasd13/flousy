@@ -29,7 +29,7 @@ public class TabItemTransaction extends RecyclerItem {
         this.date = date;
 
         try {
-            this.textViewDate.setText(this.date);
+            textViewDate.setText(date);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class TabItemTransaction extends RecyclerItem {
         this.title = title;
 
         try {
-            this.textViewTitle.setText(this.title);
+            textViewTitle.setText(title);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -49,7 +49,7 @@ public class TabItemTransaction extends RecyclerItem {
         this.value = value;
 
         try {
-            this.textViewValue.setText(this.value);
+            textViewValue.setText(value);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -57,7 +57,7 @@ public class TabItemTransaction extends RecyclerItem {
 
     public void setIntent(Intent intent) {
         this.intent = intent;
-        this.intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
     @Override
@@ -71,19 +71,19 @@ public class TabItemTransaction extends RecyclerItem {
     }
 
     private void findViews() {
-        this.textViewDate = (TextView) getView().findViewById(R.id.tabitemtransaction_textview_date);
-        this.textViewTitle = (TextView) getView().findViewById(R.id.tabitemtransaction_textview_title);
-        this.textViewValue = (TextView) getView().findViewById(R.id.tabitemtransaction_textview_value);
+        textViewDate = (TextView) view.findViewById(R.id.tabitemtransaction_textview_date);
+        textViewTitle = (TextView) view.findViewById(R.id.tabitemtransaction_textview_title);
+        textViewValue = (TextView) view.findViewById(R.id.tabitemtransaction_textview_value);
     }
 
     private void bindViews() {
-        setDate(this.date);
-        setTitle(this.title);
-        setValue(this.value);
+        setDate(date);
+        setTitle(title);
+        setValue(value);
     }
 
     private void setOnClickListener() {
-        getView().setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -96,7 +96,7 @@ public class TabItemTransaction extends RecyclerItem {
     }
 
     private void setOnTouchListener() {
-        int color = getView().getContext().getResources().getColor(R.color.background_material_light);
-        getView().setOnTouchListener(new ColorOnTouchListener(color));
+        int color = view.getContext().getResources().getColor(R.color.background_material_light);
+        view.setOnTouchListener(new ColorOnTouchListener(color));
     }
 }

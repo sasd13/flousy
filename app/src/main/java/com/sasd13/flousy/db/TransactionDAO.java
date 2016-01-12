@@ -1,28 +1,19 @@
 package com.sasd13.flousy.db;
 
+import com.sasd13.flousy.bean.Transaction;
+import com.sasd13.javaex.db.IEntityDAO;
+
 import java.util.List;
 
-import com.sasd13.flousy.bean.Transaction;
+public interface TransactionDAO extends IEntityDAO<Transaction> {
 
-public interface TransactionDAO {
+    String TABLE = "transactions";
 
-    String TRANSACTION_TABLE_NAME = "transactions";
-
-    String TRANSACTION_ID = "transaction_id";
-    String TRANSACTION_DATEREALIZATION = "transaction_daterealization";
-    String TRANSACTION_TITLE = "transaction_title";
-    String TRANSACTION_VALUE = "transaction_value";
-    String ACCOUNTS_ACCOUNT_ID = "accounts_account_id";
-
-    long insert(Transaction transaction);
-
-    void update(Transaction transaction);
-
-    void delete(long id);
-
-    Transaction select(long id);
+    String COLUMN_ID = "transaction_id";
+    String COLUMN_DATEREALIZATION = "transaction_daterealization";
+    String COLUMN_TITLE = "transaction_title";
+    String COLUMN_VALUE = "transaction_value";
+    String COLUMN_ACCOUNT_ID = "transaction_account_id";
 
     List<Transaction> selectByAccount(long accountId);
-
-    List<Transaction> selectByAccount(long accountId, boolean ascOrderedByDateRealization);
 }

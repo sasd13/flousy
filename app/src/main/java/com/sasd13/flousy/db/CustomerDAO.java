@@ -1,24 +1,20 @@
 package com.sasd13.flousy.db;
 
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.javaex.db.IEntityDAO;
 
-public interface CustomerDAO {
+public interface CustomerDAO extends IEntityDAO<Customer> {
 
-    String CUSTOMER_TABLE_NAME = "customers";
+    String TABLE = "customers";
 
-    String CUSTOMER_ID = "customer_id";
-    String CUSTOMER_FIRSTNAME = "customer_firstname";
-    String CUSTOMER_LASTNAME = "customer_lastname";
-    String CUSTOMER_EMAIL = "customer_email";
-    String CUSTOMER_PASSWORD = "customer_password";
+    String COLUMN_ID = "customer_id";
+    String COLUMN_NUMBER = "customer_number";
+    String COLUMN_FIRSTNAME = "customer_firstname";
+    String COLUMN_LASTNAME = "customer_lastname";
+    String COLUMN_EMAIL = "customer_email";
+    String COLUMN_PASSWORD = "customer_password";
 
-    long insert(Customer customer);
-
-    void update(Customer customer);
-
-    void delete(long id);
-
-    Customer select(long id);
+    Customer selectByNumber(String number);
 
     Customer selectByEmail(String email);
 }
