@@ -17,15 +17,13 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String CUSTOMER_TABLE_DROP = "DROP TABLE IF EXISTS " + CustomerDAO.TABLE + ";";
     public static final String CUSTOMER_TABLE_CREATE = "CREATE TABLE " + CustomerDAO.TABLE
             + " ("
-                + CustomerDAO.COLUMN_ID + " INTEGER AUTOINCREMENT, "
-                + CustomerDAO.COLUMN_NUMBER + " VARCHAR(255) NOT NULL, "
+                + CustomerDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + CustomerDAO.COLUMN_FIRSTNAME + " VARCHAR(255) NOT NULL, "
                 + CustomerDAO.COLUMN_LASTNAME + " VARCHAR(255) NOT NULL, "
                 + CustomerDAO.COLUMN_EMAIL + " VARCHAR(255) NOT NULL, "
                 + CustomerDAO.COLUMN_PASSWORD + " VARCHAR(255) NOT NULL, "
                 + CustomerDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
-                + "PRIMARY KEY (" + CustomerDAO.COLUMN_ID + ")"
-                + ", CONSTRAINT CUSTOMERS_UQ UNIQUE (" + CustomerDAO.COLUMN_NUMBER + ")"
+                + "CONSTRAINT CUSTOMERS_UQ UNIQUE (" + CustomerDAO.COLUMN_EMAIL + ")"
             + ");";
 
     /**
@@ -34,14 +32,12 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String ACCOUNT_TABLE_DROP = "DROP TABLE IF EXISTS " + AccountDAO.TABLE + ";";
     public static final String ACCOUNT_TABLE_CREATE = "CREATE TABLE " + AccountDAO.TABLE
             + " ("
-                + AccountDAO.COLUMN_ID + " INTEGER AUTOINCREMENT, "
-                + AccountDAO.COLUMN_NUMBER + " VARCHAR(255) NOT NULL, "
+                + AccountDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + AccountDAO.COLUMN_DATEOPENING + " VARCHAR(255) NOT NULL, "
                 + AccountDAO.COLUMN_CLOSED + " INT NOT NULL, "
                 + AccountDAO.COLUMN_CUSTOMER_ID + " INTEGER NOT NULL, "
-                + "PRIMARY KEY (" + AccountDAO.COLUMN_ID + ")"
-                + ", CONSTRAINT ACCOUNTS_UQ UNIQUE (" + AccountDAO.COLUMN_NUMBER + ")"
-                + ", FOREIGN KEY (" + AccountDAO.COLUMN_CUSTOMER_ID + ") REFERENCES " + CustomerDAO.TABLE + "(" + CustomerDAO.COLUMN_ID + ")"
+                + AccountDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
+                + "FOREIGN KEY (" + AccountDAO.COLUMN_CUSTOMER_ID + ") REFERENCES " + CustomerDAO.TABLE + "(" + CustomerDAO.COLUMN_ID + ")"
             + ");";
 
     /**
@@ -50,13 +46,13 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String TRANSACTION_TABLE_DROP = "DROP TABLE IF EXISTS " + TransactionDAO.TABLE + ";";
     public static final String TRANSACTION_TABLE_CREATE = "CREATE TABLE " + TransactionDAO.TABLE
             + " ("
-                + TransactionDAO.COLUMN_ID + " INTEGER AUTOINCREMENT, "
+                + TransactionDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TransactionDAO.COLUMN_DATEREALIZATION + " VARCHAR(255) NOT NULL, "
                 + TransactionDAO.COLUMN_TITLE + " VARCHAR(255) NOT NULL, "
                 + TransactionDAO.COLUMN_VALUE + " DOUBLE NOT NULL, "
                 + TransactionDAO.COLUMN_ACCOUNT_ID + " INTEGER NOT NULL, "
-                + "PRIMARY KEY (" + TransactionDAO.COLUMN_ID + ")"
-                + ", FOREIGN KEY (" + TransactionDAO.COLUMN_ACCOUNT_ID + ") REFERENCES " + AccountDAO.TABLE + "(" + AccountDAO.COLUMN_ID + ")"
+                + TransactionDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
+                + "FOREIGN KEY (" + TransactionDAO.COLUMN_ACCOUNT_ID + ") REFERENCES " + AccountDAO.TABLE + "(" + AccountDAO.COLUMN_ID + ")"
             + ");";
 
 

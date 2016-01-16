@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.sasd13.androidex.db.ISQLiteDAO;
 import com.sasd13.androidex.session.Session;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.db.sqlite.SQLiteDAO;
+import com.sasd13.flousy.db.DAOFactory;
 
 public class SplashScreenActivity extends Activity {
 
@@ -20,7 +21,6 @@ public class SplashScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splashscreen);
-
         createLogo();
     }
 
@@ -33,9 +33,8 @@ public class SplashScreenActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        SQLiteDAO.getInstance().init(this);
+        ((ISQLiteDAO) DAOFactory.make()).init(this);
         Session.init(this);
-
         if (Session.isStarted()) {
             goToActivity(HomeActivity.class);
         } else {

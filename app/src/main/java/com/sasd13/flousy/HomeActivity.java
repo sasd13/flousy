@@ -23,7 +23,6 @@ public class HomeActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.recycler);
-
         createGridHomeMenu();
         fillGridHomeMenu();
     }
@@ -31,13 +30,13 @@ public class HomeActivity extends MotherActivity {
     private void createGridHomeMenu() {
         RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_recyclerview);
 
-        this.grid = new Grid(this, gridView);
+        grid = new Grid(this, gridView);
     }
 
     private void fillGridHomeMenu() {
         HomeMenu homeMenu = HomeMenu.getInstance(this);
-
         GridItem gridItem;
+
         for (HomeMenuItem homeMenuItem : homeMenu.getItems()) {
             gridItem = new GridItem();
 
@@ -46,7 +45,7 @@ public class HomeActivity extends MotherActivity {
             gridItem.setColor(homeMenuItem.getColor());
             gridItem.setIntent(homeMenuItem.getIntent());
 
-            this.grid.addItem(gridItem);
+            grid.addItem(gridItem);
         }
     }
 
@@ -56,17 +55,15 @@ public class HomeActivity extends MotherActivity {
 
         if (getIntent().hasExtra(Extra.WELCOME) && getIntent().getBooleanExtra(Extra.WELCOME, false)) {
             getIntent().removeExtra(Extra.WELCOME);
-
             showWelcome();
         } else if (getIntent().hasExtra(Extra.EXIT) && getIntent().getBooleanExtra(Extra.EXIT, false)) {
             getIntent().removeExtra(Extra.EXIT);
-
             exit();
         }
     }
 
     private void showWelcome() {
-        String firstName = getIntent().getStringExtra(Extra.USER_FIRSTNAME);
+        String firstName = getIntent().getStringExtra(Extra.FIRSTNAME);
 
         CustomDialog.showOkDialog(
                 this,

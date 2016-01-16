@@ -29,12 +29,12 @@
         android:gravity="center">
 
         <EditText
-            android:id="@+id/log_edittext_number"
+            android:id="@+id/log_edittext_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_holo_light"
             android:hint="@string/edittext_hint_email"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
             android:singleLine="true"/>

@@ -8,7 +8,6 @@ import java.util.List;
 public class Account {
 
     private long id;
-    private String number;
     private Timestamp dateOpening;
     private boolean closed;
     private List<Transaction> transactions;
@@ -25,14 +24,6 @@ public class Account {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public Timestamp getDateOpening() {
@@ -87,7 +78,6 @@ public class Account {
 
         builder.append("Account [");
         builder.append("id=" + getId());
-        builder.append(", number=" + getNumber());
         builder.append(", dateOpening=" + String.valueOf(getDateOpening()));
         builder.append(", closed=" + String.valueOf(isClosed()));
         builder.append(", transactions=" + Arrays.toString(getTransactions()));

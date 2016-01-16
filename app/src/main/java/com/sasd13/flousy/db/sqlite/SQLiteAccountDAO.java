@@ -16,7 +16,6 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
     protected ContentValues getContentValues(Account account) {
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_NUMBER, account.getNumber());
         values.put(COLUMN_DATEOPENING, String.valueOf(account.getDateOpening()));
         values.put(COLUMN_CLOSED, account.isClosed());
         values.put(COLUMN_CUSTOMER_ID, account.getCustomer().getId());
@@ -29,7 +28,6 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
         Account account = new Account();
 
         account.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
-        account.setNumber(cursor.getString(cursor.getColumnIndex(COLUMN_NUMBER)));
         account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEOPENING))));
         account.setClosed(cursor.getInt(cursor.getColumnIndex(COLUMN_CLOSED)) == 1);
 
@@ -76,17 +74,6 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
     }
 
     @Override
-    public Account selectByNumber(long number) {
-        String query = "SELECT * FROM " + TABLE
-                + " WHERE "
-                + COLUMN_NUMBER + " = ?";
-
-        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(number)});
-
-        return executeSelectSingleResult(cursor);
-    }
-
-    @Override
     public Account selectByCustomer(long customerId) {
         String query = "SELECT * FROM " + TABLE
                 + " WHERE "
@@ -94,6 +81,6 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
 
         Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(customerId)});
 
-        return executeSelectSingleResult(cursor);
+        return getSingleResult(cursor);
     }
 }

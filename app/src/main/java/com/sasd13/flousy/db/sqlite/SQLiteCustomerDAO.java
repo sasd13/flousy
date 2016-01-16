@@ -14,7 +14,6 @@ public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements Cust
     protected ContentValues getContentValues(Customer customer) {
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_NUMBER, customer.getNumber());
         values.put(COLUMN_FIRSTNAME, customer.getFirstName());
         values.put(COLUMN_LASTNAME, customer.getLastName());
         values.put(COLUMN_EMAIL, customer.getEmail());
@@ -28,7 +27,6 @@ public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements Cust
         Customer customer = new Customer();
 
         customer.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
-        customer.setNumber(cursor.getString(cursor.getColumnIndex(COLUMN_NUMBER)));
         customer.setFirstName(cursor.getString(cursor.getColumnIndex(COLUMN_FIRSTNAME)));
         customer.setLastName(cursor.getString(cursor.getColumnIndex(COLUMN_LASTNAME)));
         customer.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)));
@@ -73,17 +71,6 @@ public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements Cust
     }
 
     @Override
-    public Customer selectByNumber(String number) {
-        String query = "SELECT * FROM " + TABLE
-                + " WHERE "
-                    + COLUMN_NUMBER + " = ?";
-
-        Cursor cursor = db.rawQuery(query, new String[]{number});
-
-        return executeSelectSingleResult(cursor);
-    }
-
-    @Override
     public Customer selectByEmail(String email) {
         String query = "SELECT * FROM " + TABLE
                 + " WHERE "
@@ -91,6 +78,6 @@ public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements Cust
 
         Cursor cursor = db.rawQuery(query, new String[]{email});
 
-        return executeSelectSingleResult(cursor);
+        return getSingleResult(cursor);
     }
 }

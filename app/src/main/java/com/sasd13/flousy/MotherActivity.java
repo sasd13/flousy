@@ -2,7 +2,6 @@ package com.sasd13.flousy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +13,7 @@ import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.drawer.Drawer;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemTitle;
 import com.sasd13.androidex.session.Session;
+import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
 import com.sasd13.flousy.gui.content.homemenu.HomeMenu;
@@ -21,14 +21,13 @@ import com.sasd13.flousy.gui.widget.recycler.drawer.DrawerItemHomeMenu;
 
 public abstract class MotherActivity extends ActionBarActivity {
 
-    private static final int LOGOUT_TIMEOUT = 2000;
+    private static final int TIMEOUT = 2000;
 
     private Drawer drawer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         super.setContentView(R.layout.activity_mother);
 
         createDrawer();
@@ -46,21 +45,21 @@ public abstract class MotherActivity extends ActionBarActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.drawer_recyclerview);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_drawerlayout);
 
-        this.drawer = new Drawer(this, recyclerView, drawerLayout);
+        drawer = new Drawer(this, recyclerView, drawerLayout);
     }
 
     private void fillDrawer() {
         DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
         drawerItemTitle.setText(getResources().getString(R.string.activity_home));
-        this.drawer.addItem(drawerItemTitle);
+        drawer.addItem(drawerItemTitle);
 
         addHomeMenuItemsToDrawer();
     }
 
     private void addHomeMenuItemsToDrawer() {
         HomeMenu homeMenu = HomeMenu.getInstance(this);
-
         DrawerItemHomeMenu drawerItemHomeMenu;
+
         for (HomeMenuItem homeMenuItem : homeMenu.getItems()) {
             drawerItemHomeMenu = new DrawerItemHomeMenu();
 
@@ -68,7 +67,7 @@ public abstract class MotherActivity extends ActionBarActivity {
             drawerItemHomeMenu.setText(homeMenuItem.getText());
             drawerItemHomeMenu.setIntent(homeMenuItem.getIntent());
 
-            this.drawer.addItem(drawerItemHomeMenu);
+            drawer.addItem(drawerItemHomeMenu);
         }
     }
 
@@ -76,7 +75,7 @@ public abstract class MotherActivity extends ActionBarActivity {
     protected void onPause() {
         super.onPause();
 
-        this.drawer.setOpened(false);
+        drawer.setOpened(false);
     }
 
     @Override
@@ -100,23 +99,20 @@ public abstract class MotherActivity extends ActionBarActivity {
     private void goToHomeActivityAndExit() {
         final WaitDialog waitDialog = new WaitDialog(this);
 
-        final Intent intent = new Intent(this, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(Extra.EXIT, true);
-
-        Runnable runnable = new Runnable() {
-
+        TaskPlanner taskPlanner = new TaskPlanner(new Runnable() {
             @Override
             public void run() {
+                Intent intent = new Intent(MotherActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Extra.EXIT, true);
+
                 startActivity(intent);
                 waitDialog.dismiss();
                 finish();
             }
-        };
+        }, TIMEOUT);
 
-        Handler handler = new Handler();
-        handler.postDelayed(runnable, LOGOUT_TIMEOUT);
-
+        taskPlanner.start();
         waitDialog.show();
     }
 }

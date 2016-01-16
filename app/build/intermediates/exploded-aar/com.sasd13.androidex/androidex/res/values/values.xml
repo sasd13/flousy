@@ -130,6 +130,7 @@
     <string name="menuitem_action_new">Nouveau</string>
     <string name="menuitem_action_refresh">Actualiser</string>
     <string name="message_confirm">Confirmer ?</string>
+    <string name="message_deleted">Supprimé</string>
     <string name="message_error_connectivity">Veuillez activer votre connexion</string>
     <string name="message_error_login">Connexion impossible</string>
     <string name="message_error_logout">Deconnexion impossible</string>

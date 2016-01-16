@@ -606,15 +606,16 @@ public final class R {
 		public static final int menuitem_action_new = 0x7f0b0041;
 		public static final int menuitem_action_refresh = 0x7f0b0042;
 		public static final int message_confirm = 0x7f0b0043;
-		public static final int message_error_connectivity = 0x7f0b0044;
-		public static final int message_error_login = 0x7f0b0045;
-		public static final int message_error_logout = 0x7f0b0046;
-		public static final int message_error_update = 0x7f0b0047;
-		public static final int message_saved = 0x7f0b0048;
-		public static final int message_updated = 0x7f0b0049;
-		public static final int message_wait = 0x7f0b004a;
-		public static final int title_careful = 0x7f0b0053;
-		public static final int title_error = 0x7f0b0054;
+		public static final int message_deleted = 0x7f0b0044;
+		public static final int message_error_connectivity = 0x7f0b0045;
+		public static final int message_error_login = 0x7f0b0046;
+		public static final int message_error_logout = 0x7f0b0047;
+		public static final int message_error_update = 0x7f0b0048;
+		public static final int message_saved = 0x7f0b0049;
+		public static final int message_updated = 0x7f0b004a;
+		public static final int message_wait = 0x7f0b004b;
+		public static final int title_careful = 0x7f0b0054;
+		public static final int title_error = 0x7f0b0055;
 	}
 	public static final class style {
 		public static final int AppTheme = 0x7f0c0000;

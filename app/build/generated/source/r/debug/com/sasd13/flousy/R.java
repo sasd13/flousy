@@ -1506,7 +1506,7 @@ containing a value of this type.
         public static final int listMode=0x7f090009;
         public static final int list_item=0x7f090025;
         public static final int log_button_connect=0x7f090049;
-        public static final int log_edittext_number=0x7f090047;
+        public static final int log_edittext_email=0x7f090047;
         public static final int log_edittext_password=0x7f090048;
         public static final int log_textview_signup=0x7f09004a;
         public static final int menu_account_action_new=0x7f090080;
@@ -1691,23 +1691,24 @@ containing a value of this type.
         public static final int menuitem_action_new=0x7f0b0041;
         public static final int menuitem_action_refresh=0x7f0b0042;
         public static final int message_confirm=0x7f0b0043;
-        public static final int message_error_connectivity=0x7f0b0044;
-        public static final int message_error_login=0x7f0b0045;
-        public static final int message_error_logout=0x7f0b0046;
-        public static final int message_error_update=0x7f0b0047;
-        public static final int message_saved=0x7f0b0048;
-        public static final int message_updated=0x7f0b0049;
-        public static final int message_wait=0x7f0b004a;
-        public static final int sign_alertdialog_message_error_sign=0x7f0b004b;
-        public static final int sign_alertdialog_title_error_sign=0x7f0b004c;
-        public static final int tabitem_textview_date=0x7f0b004d;
-        public static final int tabitem_textview_title=0x7f0b004e;
-        public static final int tabitem_textview_value=0x7f0b004f;
-        public static final int tabitemtitle_textview_date=0x7f0b0050;
-        public static final int tabitemtitle_textview_title=0x7f0b0051;
-        public static final int tabitemtitle_textview_value=0x7f0b0052;
-        public static final int title_careful=0x7f0b0053;
-        public static final int title_error=0x7f0b0054;
+        public static final int message_deleted=0x7f0b0044;
+        public static final int message_error_connectivity=0x7f0b0045;
+        public static final int message_error_login=0x7f0b0046;
+        public static final int message_error_logout=0x7f0b0047;
+        public static final int message_error_update=0x7f0b0048;
+        public static final int message_saved=0x7f0b0049;
+        public static final int message_updated=0x7f0b004a;
+        public static final int message_wait=0x7f0b004b;
+        public static final int sign_alertdialog_message_error_sign=0x7f0b004c;
+        public static final int sign_alertdialog_title_error_sign=0x7f0b004d;
+        public static final int tabitem_textview_date=0x7f0b004e;
+        public static final int tabitem_textview_title=0x7f0b004f;
+        public static final int tabitem_textview_value=0x7f0b0050;
+        public static final int tabitemtitle_textview_date=0x7f0b0051;
+        public static final int tabitemtitle_textview_title=0x7f0b0052;
+        public static final int tabitemtitle_textview_value=0x7f0b0053;
+        public static final int title_careful=0x7f0b0054;
+        public static final int title_error=0x7f0b0055;
     }
     public static final class style {
         /**  Customize your theme here. 

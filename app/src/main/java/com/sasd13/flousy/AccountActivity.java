@@ -17,8 +17,8 @@ import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.db.AccountDAO;
+import com.sasd13.flousy.db.DAOFactory;
 import com.sasd13.flousy.db.TransactionDAO;
-import com.sasd13.flousy.db.sqlite.SQLiteDAO;
 import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransaction;
 import com.sasd13.javaex.db.IDAO;
 
@@ -27,58 +27,54 @@ public class AccountActivity extends MotherActivity {
     private TextView textViewSold;
     private Tab tab;
 
+    private IDAO dao = DAOFactory.make();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_account);
-
         createTextViewSold();
         createTabTransactions();
     }
 
     private void createTextViewSold() {
-        this.textViewSold = (TextView) findViewById(R.id.account_textview_sold);
+        textViewSold = (TextView) findViewById(R.id.account_textview_sold);
     }
 
     private void createTabTransactions() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.account_recyclerview);
 
-        this.tab = new Tab(this, recyclerView);
+        tab = new Tab(this, recyclerView);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        IDAO dao = SQLiteDAO.getInstance();
+        dao.open();
 
-        try {
-            dao.open();
+        Account account = ((AccountDAO) dao.getEntityDAO(Account.class)).selectByCustomer(Session.getId());
+        List<Transaction> transactions = ((TransactionDAO) dao.getEntityDAO(Transaction.class)).selectByAccount(account.getId());
 
-            AccountDAO accountDAO = (AccountDAO) dao.getEntityDAO(Account.class);
-            Account account = accountDAO.selectByCustomer(Session.getId());
-
-            TransactionDAO transactionDAO = (TransactionDAO) dao.getEntityDAO(Transaction.class);
-            List<Transaction> transactions = transactionDAO.selectByAccount(account.getId());
-
-            fillTextViewSold(account);
-            fillTabTransactions(transactions);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            dao.close();
+        for (Transaction transaction : transactions) {
+            account.addTransaction(transaction);
         }
+
+        dao.close();
+
+        fillTextViewSold(account);
+        fillTabTransactions(transactions);
     }
 
     private void fillTextViewSold(Account account) {
         DecimalFormat df = new DecimalFormat("#.##");
 
-        this.textViewSold.setText(String.valueOf(df.format(account.getSold())));
+        textViewSold.setText(String.valueOf(df.format(account.getSold())));
     }
 
     private void fillTabTransactions(List<Transaction> transactions) {
-        this.tab.clearItems();
+        tab.clearItems();
 
         addTransactionsToTab(transactions);
     }
@@ -86,6 +82,7 @@ public class AccountActivity extends MotherActivity {
     private void addTransactionsToTab(List<Transaction> transactions) {
         TabItemTransaction tabItemTransaction;
         Intent intent;
+
         for (Transaction transaction : transactions) {
             tabItemTransaction = new TabItemTransaction();
 
@@ -98,7 +95,7 @@ public class AccountActivity extends MotherActivity {
             intent.putExtra(Extra.TRANSACTION_ID, transaction.getId());
             tabItemTransaction.setIntent(intent);
 
-            this.tab.addItem(tabItemTransaction);
+            tab.addItem(tabItemTransaction);
         }
     }
 

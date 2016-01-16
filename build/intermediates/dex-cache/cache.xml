@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\libs\javaex-0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7b183af2be0eecd19d512dede6173facd14810df">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\javaex-0.1-aba931d7fc8dcca25d399b68a85c8ce13205ba30.jar" />
+    </item>
+    <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -30,18 +37,18 @@
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="152537c95378f4b56bc8201164bff4b1c7e6579e">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-43bbe21fda54c93bffbb5a0d5113bcf027bbb96e.jar" />
-    </item>
-    <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-7ee555de202cfb4fc114a15befe86df68389ea5a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f138206d4b4356dda0291039ce0c1b7bc7f03e1d">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-43bbe21fda54c93bffbb5a0d5113bcf027bbb96e.jar" />
     </item>
 
 </items>

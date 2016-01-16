@@ -37,7 +37,7 @@ public abstract class SQLiteEntityDAO<T> implements IEntityDAO<T> {
     protected void executeDelete(String table, String columnId, long id) {
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_DELETED, true);
+        values.put(COLUMN_DELETED, 1);
 
         db.update(table, values, columnId + " = ?", new String[]{String.valueOf(id)});
     }
@@ -45,26 +45,28 @@ public abstract class SQLiteEntityDAO<T> implements IEntityDAO<T> {
     protected T executeSelectById(String query, long id) {
         Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id)});
 
-        return executeSelectSingleResult(cursor);
+        return getSingleResult(cursor);
     }
 
     protected List<T> executeSelectAll(String query) {
         Cursor cursor = db.rawQuery(query, null);
 
-        return executeSelectMultiResult(cursor);
+        return getMultiResult(cursor);
     }
 
-    protected T executeSelectSingleResult(Cursor cursor) {
-        List<T> list = executeSelectMultiResult(cursor);
+    protected T getSingleResult(Cursor cursor) {
+        List<T> list = getMultiResult(cursor);
 
         return list.isEmpty() ? null : list.get(0);
     }
 
-    protected List<T> executeSelectMultiResult(Cursor cursor) {
+    protected List<T> getMultiResult(Cursor cursor) {
         List<T> list = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-            list.add(getCursorValues(cursor));
+            if (cursor.getInt(cursor.getColumnIndex(COLUMN_DELETED)) == 0) {
+                list.add(getCursorValues(cursor));
+            }
         }
         cursor.close();
 

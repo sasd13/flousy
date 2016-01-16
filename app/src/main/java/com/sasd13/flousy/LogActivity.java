@@ -16,13 +16,13 @@ import com.sasd13.androidex.session.Session;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.db.CustomerDAO;
-import com.sasd13.flousy.db.sqlite.SQLiteDAO;
+import com.sasd13.flousy.db.DAOFactory;
 import com.sasd13.javaex.db.IDAO;
 
 public class LogActivity extends Activity {
 
     private class FormLogViewHolder {
-        public EditText editTextNumber, editTextPassword;
+        public EditText editTextEmail, editTextPassword;
         public Button buttonConnect;
     }
 
@@ -30,28 +30,29 @@ public class LogActivity extends Activity {
 
     private FormLogViewHolder formLog;
 
+    private IDAO dao = DAOFactory.make();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_log);
-
         createFormLog();
         customizeView();
     }
 
     private void createFormLog() {
-        this.formLog = new FormLogViewHolder();
+        formLog = new FormLogViewHolder();
 
-        this.formLog.editTextNumber = (EditText) findViewById(R.id.log_edittext_number);
-        this.formLog.editTextPassword = (EditText) findViewById(R.id.log_edittext_password);
+        formLog.editTextEmail = (EditText) findViewById(R.id.log_edittext_email);
+        formLog.editTextPassword = (EditText) findViewById(R.id.log_edittext_password);
+        formLog.buttonConnect = (Button) findViewById(R.id.log_button_connect);
 
-        this.formLog.buttonConnect = (Button) findViewById(R.id.log_button_connect);
-        this.formLog.buttonConnect.setOnClickListener(new View.OnClickListener() {
+        formLog.buttonConnect.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (formLog.editTextNumber.getText().toString().trim().length() > 0
+                if (formLog.editTextEmail.getText().toString().trim().length() > 0
                         && formLog.editTextPassword.getText().toString().trim().length() > 0) {
                     logIn();
                 }
@@ -60,29 +61,21 @@ public class LogActivity extends Activity {
     }
 
     private void logIn() {
-        String number = this.formLog.editTextNumber.getText().toString().trim();
-        String password = this.formLog.editTextPassword.getText().toString().trim();
+        String number = formLog.editTextEmail.getText().toString().trim();
+        String password = formLog.editTextPassword.getText().toString().trim();
 
-        IDAO dao = SQLiteDAO.getInstance();
+        dao.open();
+        Customer customer = ((CustomerDAO) dao.getEntityDAO(Customer.class)).selectByEmail(number);
+        dao.close();
 
-        try {
-            dao.open();
-
-            Customer customer = ((CustomerDAO) dao.getEntityDAO(Customer.class)).selectByNumber(number);
-
-            if (customer != null && password.equals(customer.getPassword())) {
-                Session.logIn(customer.getId());
-                goToHomeActivity();
-            } else {
-                CustomDialog.showOkDialog(
-                        this,
-                        getResources().getString(R.string.log_alertdialog_title_error_log),
-                        getResources().getString(R.string.log_alertdialog_message_error_log));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            dao.close();
+        if (customer != null && password.equals(customer.getPassword())) {
+            Session.logIn(customer.getId());
+            goToHomeActivity();
+        } else {
+            CustomDialog.showOkDialog(
+                    this,
+                    getResources().getString(R.string.log_alertdialog_title_error_log),
+                    getResources().getString(R.string.log_alertdialog_message_error_log));
         }
     }
 

@@ -83,6 +83,6 @@ public class SQLiteTransactionDAO extends SQLiteEntityDAO<Transaction> implement
 
         Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(accountId)});
 
-        return executeSelectMultiResult(cursor);
+        return getMultiResult(cursor);
     }
 }
