@@ -22,7 +22,7 @@ public class TabItemTransaction extends RecyclerItem {
     private TextView textViewDate, textViewTitle, textViewValue;
 
     public TabItemTransaction() {
-        super(R.layout.tabitemtransaction);
+        super(R.layout.tabitem_transaction);
     }
 
     public void setDate(CharSequence date) {

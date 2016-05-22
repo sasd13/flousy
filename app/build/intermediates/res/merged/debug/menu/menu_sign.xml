@@ -1,0 +1,9 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flousy="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_sign_action_accept"
+        android:icon="@drawable/ic_action_accept"
+        android:title="@string/menuitem_action_accept"
+        flousy:showAsAction="ifRoom"/>
+</menu>

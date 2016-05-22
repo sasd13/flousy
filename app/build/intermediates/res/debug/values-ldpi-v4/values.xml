@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/C:/Users/Samir/Projects/GitHub/flousy/app/build/intermediates/exploded-aar/com.sasd13.androidex/androidex/res/values-ldpi-v4/values-ldpi-v4.xml -->
-    <eat-comment/>
-    <dimen name="view_margin_large">15dp</dimen>
-    <dimen name="view_margin_medium">7dp</dimen>
-    <dimen name="view_margin_small">5dp</dimen>
-</resources>

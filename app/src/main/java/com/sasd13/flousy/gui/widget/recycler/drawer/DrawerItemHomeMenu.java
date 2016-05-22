@@ -12,7 +12,7 @@ public class DrawerItemHomeMenu extends DrawerItemIntentable {
     private View colorView;
 
     public DrawerItemHomeMenu() {
-        super(R.layout.draweritemhomemenu);
+        super(R.layout.draweritem_menu);
     }
 
     public void setColor(int color) {
@@ -39,7 +39,7 @@ public class DrawerItemHomeMenu extends DrawerItemIntentable {
 
     private void bindViews() {
         if (color == 0) {
-            color = view.getContext().getResources().getColor(R.color.customGreenApp);
+            color = view.getContext().getResources().getColor(R.color.green);
         }
         setColor(color);
     }
