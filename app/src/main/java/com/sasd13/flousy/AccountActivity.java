@@ -8,26 +8,27 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-import java.util.List;
-
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
-import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.db.AccountDAO;
-import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.flousy.db.TransactionDAO;
+import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransaction;
-import com.sasd13.javaex.db.IDAO;
+import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
+import com.sasd13.javaex.db.LayeredPersistor;
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AccountActivity extends MotherActivity {
 
     private TextView textViewSold;
     private Tab tab;
 
-    private IDAO dao = DAOFactory.make();
+    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,26 +46,20 @@ public class AccountActivity extends MotherActivity {
     private void createTabTransactions() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.account_recyclerview);
 
-        tab = new Tab(this, recyclerView);
+        tab = new Tab(recyclerView, R.layout.tabitem_transaction);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        dao.open();
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put(Parameter.CUSTOMER.getName(), new String[] { String.valueOf(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) });
 
-        Account account = ((AccountDAO) dao.getEntityDAO(Account.class)).selectByCustomer(Session.getId());
-        List<Transaction> transactions = ((TransactionDAO) dao.getEntityDAO(Transaction.class)).selectByAccount(account.getId());
-
-        for (Transaction transaction : transactions) {
-            account.addTransaction(transaction);
-        }
-
-        dao.close();
+        Account account = persistor.deepRead(parameters, Account.class).get(0);
 
         fillTextViewSold(account);
-        fillTabTransactions(transactions);
+        fillTabTransactions(account.getTransactions());
     }
 
     private void fillTextViewSold(Account account) {
@@ -88,7 +83,7 @@ public class AccountActivity extends MotherActivity {
 
             tabItemTransaction.setDate(String.valueOf(transaction.getDateRealization()));
             tabItemTransaction.setTitle(transaction.getTitle());
-            tabItemTransaction.setValue(String.valueOf(transaction.getValue()));
+            tabItemTransaction.setValue(String.valueOf(transaction.getAmount()));
 
             intent = new Intent(this, TransactionActivity.class);
             intent.putExtra(Extra.MODE, Extra.MODE_EDIT);

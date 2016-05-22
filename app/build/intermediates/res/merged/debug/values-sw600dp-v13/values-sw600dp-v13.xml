@@ -17,8 +17,8 @@
     <dimen name="dividerview_margintop">9dp</dimen>
     <dimen name="drawer_padding">13dp</dimen>
     <dimen name="drawer_width">320dp</dimen>
-    <dimen name="draweritemhomemenu_view_color_height">56dp</dimen>
-    <dimen name="draweritemhomemenu_view_color_width">21dp</dimen>
+    <dimen name="draweritem_nav_colorview_height">56dp</dimen>
+    <dimen name="draweritem_nav_colorview_width">21dp</dimen>
     <dimen name="draweritemtitle_textview_paddingtop">40dp</dimen>
     <dimen name="form_user_checkbox_horizontalmargin">9dp</dimen>
     <dimen name="grid_items_space">16dp</dimen>

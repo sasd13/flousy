@@ -1,16 +1,16 @@
-package com.sasd13.flousy.gui.content.homemenu;
+package com.sasd13.flousy.gui.nav;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
-public class HomeMenuItem {
+public class NavItem {
 
     private String text;
     private Drawable image;
     private int color;
     private Intent intent;
 
-    public HomeMenuItem(String text, Drawable image, int color, Intent intent) {
+    public NavItem(String text, Drawable image, int color, Intent intent) {
         this.text = text;
         this.image = image;
         this.color = color;

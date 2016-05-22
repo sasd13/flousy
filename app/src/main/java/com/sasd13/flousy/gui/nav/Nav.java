@@ -1,4 +1,4 @@
-package com.sasd13.flousy.gui.content.homemenu;
+package com.sasd13.flousy.gui.nav;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,38 +7,38 @@ import com.sasd13.flousy.AccountActivity;
 import com.sasd13.flousy.SettingActivity;
 import com.sasd13.flousy.R;
 
-public class HomeMenu {
+public class Nav {
 
-    private static HomeMenu instance = null;
+    private static Nav instance = null;
 
     private static final int SIZE = 2;
-    private HomeMenuItem[] tab;
+    private NavItem[] tab;
 
-    private HomeMenu(Context context) {
-        tab = new HomeMenuItem[SIZE];
+    private Nav(Context context) {
+        tab = new NavItem[SIZE];
 
-        tab[0] = new HomeMenuItem(
+        tab[0] = new NavItem(
                 context.getResources().getString(R.string.activity_account),
                 context.getResources().getDrawable(R.drawable.griditem_new),
-                context.getResources().getColor(R.color.customGreen),
+                context.getResources().getColor(R.color.green),
                 new Intent(context, AccountActivity.class)
         );
 
-        tab[1] = new HomeMenuItem(
+        tab[1] = new NavItem(
                 context.getResources().getString(R.string.activity_setting),
                 context.getResources().getDrawable(R.drawable.griditem_settings),
-                context.getResources().getColor(R.color.customBrown),
+                context.getResources().getColor(R.color.brown),
                 new Intent(context, SettingActivity.class)
         );
     }
 
-    public static synchronized HomeMenu getInstance(Context context) {
+    public static synchronized Nav getInstance(Context context) {
         if (instance == null) {
-            instance = new HomeMenu(context);
+            instance = new Nav(context);
         }
 
         return instance;
     }
 
-    public HomeMenuItem[] getItems() { return tab; }
+    public NavItem[] getItems() { return tab; }
 }

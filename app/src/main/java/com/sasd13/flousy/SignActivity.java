@@ -11,14 +11,17 @@ import android.widget.EditText;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
-import com.sasd13.androidex.session.Session;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.db.CustomerDAO;
-import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.javaex.db.IDAO;
+import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
+import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
+import com.sasd13.javaex.db.LayeredPersistor;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignActivity extends ActionBarActivity {
 
@@ -31,7 +34,7 @@ public class SignActivity extends ActionBarActivity {
 
     private FormCustomerViewHolder formCustomer;
 
-    private IDAO dao = DAOFactory.make();
+    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,19 +95,15 @@ public class SignActivity extends ActionBarActivity {
     private void tryToPerformSignUp() {
         Customer customer = getCustomerFromForm();
 
-        dao.open();
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put(Parameter.EMAIL.getName(), new String[]{ customer.getEmail() });
 
-        CustomerDAO customerDAO = (CustomerDAO) dao.getEntityDAO(Customer.class);
-        if (customerDAO.selectByEmail(customer.getEmail()) == null) {
+        if (persistor.read(parameters, Customer.class).isEmpty()) {
             performSignUp(customer);
 
-            dao.close();
-
-            Session.logIn(customer.getId());
+            SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
             goToHomeActivityWithWelcome(customer.getFirstName());
         } else {
-            dao.close();
-
             CustomDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
         }
     }
@@ -115,14 +114,24 @@ public class SignActivity extends ActionBarActivity {
         customer.setFirstName(formCustomer.editTextFirstName.getText().toString().trim());
         customer.setLastName(formCustomer.editTextLastName.getText().toString().trim());
         customer.setEmail(formCustomer.editTextEmail.getText().toString().trim());
-        customer.setPassword(formCustomer.editTextPassword.getText().toString().trim());
 
         return customer;
     }
 
     private void performSignUp(Customer customer) {
-        dao.getEntityDAO(Customer.class).insert(customer);
-        dao.getEntityDAO(Account.class).insert(customer.getAccount());
+        persistor.create(customer);
+
+        String password = formCustomer.editTextPassword.getText().toString().trim();
+        SQLitePasswordDAO dao = new SQLitePasswordDAO();
+
+        try {
+            dao.open();
+
+            dao.insert(password, customer.getId());
+            persistor.create(customer.getAccount());
+        } finally {
+            dao.close();
+        }
     }
 
     private void goToHomeActivityWithWelcome(final String firstName) {

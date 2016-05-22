@@ -5,9 +5,9 @@
     android:layout_height="wrap_content">
 
     <View
-        android:id="@+id/draweritemhomemenu_view_color"
-        android:layout_width="@dimen/draweritemhomemenu_view_color_width"
-        android:layout_height="@dimen/draweritemhomemenu_view_color_height"
+        android:id="@+id/draweritem_nav_colorview"
+        android:layout_width="@dimen/draweritem_nav_colorview_width"
+        android:layout_height="@dimen/draweritem_nav_colorview_height"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"/>
 
@@ -15,8 +15,8 @@
         android:id="@+id/draweritem_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/draweritemhomemenu_view_color"
-        android:layout_alignBaseline="@id/draweritemhomemenu_view_color"
+        android:layout_toRightOf="@id/draweritem_nav_colorview"
+        android:layout_alignBaseline="@id/draweritem_nav_colorview"
         android:paddingLeft="@dimen/recycleritem_padding"
         android:paddingTop="@dimen/recycleritem_padding"
         android:paddingBottom="@dimen/recycleritem_padding"
@@ -25,7 +25,7 @@
         android:textSize="@dimen/textsize_large"/>
 
     <View
-        android:id="@+id/draweritemhomemenu_dividerview"
+        android:id="@+id/draweritem_nav_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
         android:layout_below="@id/draweritem_textview"

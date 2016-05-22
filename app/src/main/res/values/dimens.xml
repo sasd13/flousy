@@ -8,8 +8,8 @@
     <dimen name="log_textview_sign_padding">7dp</dimen>
 
     <!-- Drawer -->
-    <dimen name="draweritemhomemenu_view_color_width">16dp</dimen>
-    <dimen name="draweritemhomemenu_view_color_height">42dp</dimen>
+    <dimen name="draweritem_nav_colorview_width">16dp</dimen>
+    <dimen name="draweritem_nav_colorview_height">42dp</dimen>
 
     <!-- Form user -->
     <dimen name="form_user_checkbox_horizontalmargin">7dp</dimen>

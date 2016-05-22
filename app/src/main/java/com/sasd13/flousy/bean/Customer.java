@@ -3,13 +3,11 @@ package com.sasd13.flousy.bean;
 public class Customer {
 
     private long id;
-    private String firstName, lastName, email, password;
+    private String firstName, lastName, email;
     private Account account;
 
     public Customer() {
-        account = new Account();
-
-        account.setCustomer(this);
+        account = new Account(this);
     }
 
     public long getId() {
@@ -44,14 +42,6 @@ public class Customer {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public Account getAccount() {
         return account;
     }
@@ -65,10 +55,9 @@ public class Customer {
         builder.append(", firstName=" + getFirstName());
         builder.append(", lastName=" + getLastName());
         builder.append(", email=" + getEmail());
-        builder.append(", password=" + getPassword());
         builder.append(", account=" + getAccount());
         builder.append("]");
 
-        return builder.toString().trim();
+        return builder.toString();
     }
 }

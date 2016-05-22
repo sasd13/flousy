@@ -1,13 +1,13 @@
-package com.sasd13.flousy.db.sqlite;
+package com.sasd13.flousy.dao.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.sasd13.flousy.db.AccountDAO;
-import com.sasd13.flousy.db.CustomerDAO;
-import com.sasd13.flousy.db.TransactionDAO;
+import com.sasd13.flousy.dao.AccountDAO;
+import com.sasd13.flousy.dao.CustomerDAO;
+import com.sasd13.flousy.dao.TransactionDAO;
 
 public class SQLiteDBHandler extends SQLiteOpenHelper {
 
@@ -18,12 +18,23 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String CUSTOMER_TABLE_CREATE = "CREATE TABLE " + CustomerDAO.TABLE
             + " ("
                 + CustomerDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + CustomerDAO.COLUMN_FIRSTNAME + " VARCHAR(255) NOT NULL, "
-                + CustomerDAO.COLUMN_LASTNAME + " VARCHAR(255) NOT NULL, "
-                + CustomerDAO.COLUMN_EMAIL + " VARCHAR(255) NOT NULL, "
-                + CustomerDAO.COLUMN_PASSWORD + " VARCHAR(255) NOT NULL, "
+                + CustomerDAO.COLUMN_FIRSTNAME + " TEXT NOT NULL, "
+                + CustomerDAO.COLUMN_LASTNAME + " TEXT NOT NULL, "
+                + CustomerDAO.COLUMN_EMAIL + " TEXT NOT NULL, "
                 + CustomerDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
                 + "CONSTRAINT CUSTOMERS_UQ UNIQUE (" + CustomerDAO.COLUMN_EMAIL + ")"
+            + ");";
+
+    /**
+     * Table passwords
+     */
+    public static final String PASSWORD_TABLE_DROP = "DROP TABLE IF EXISTS " + SQLitePasswordDAO.TABLE + ";";
+    public static final String PASSWORD_TABLE_CREATE = "CREATE TABLE " + SQLitePasswordDAO.TABLE
+            + " ("
+                + SQLitePasswordDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + SQLitePasswordDAO.COLUMN_PASSWORD + " TEXT NOT NULL, "
+                + SQLitePasswordDAO.COLUMN_CUSTOMER_ID + " INTEGER NOT NULL, "
+                + "FOREIGN KEY (" + SQLitePasswordDAO.COLUMN_CUSTOMER_ID + ") REFERENCES " + CustomerDAO.TABLE + "(" + CustomerDAO.COLUMN_ID + ")"
             + ");";
 
     /**
@@ -33,8 +44,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String ACCOUNT_TABLE_CREATE = "CREATE TABLE " + AccountDAO.TABLE
             + " ("
                 + AccountDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + AccountDAO.COLUMN_DATEOPENING + " VARCHAR(255) NOT NULL, "
-                + AccountDAO.COLUMN_CLOSED + " INT NOT NULL, "
+                + AccountDAO.COLUMN_DATEOPENING + " TEXT NOT NULL, "
                 + AccountDAO.COLUMN_CUSTOMER_ID + " INTEGER NOT NULL, "
                 + AccountDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
                 + "FOREIGN KEY (" + AccountDAO.COLUMN_CUSTOMER_ID + ") REFERENCES " + CustomerDAO.TABLE + "(" + CustomerDAO.COLUMN_ID + ")"
@@ -47,9 +57,9 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public static final String TRANSACTION_TABLE_CREATE = "CREATE TABLE " + TransactionDAO.TABLE
             + " ("
                 + TransactionDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TransactionDAO.COLUMN_DATEREALIZATION + " VARCHAR(255) NOT NULL, "
-                + TransactionDAO.COLUMN_TITLE + " VARCHAR(255) NOT NULL, "
-                + TransactionDAO.COLUMN_VALUE + " DOUBLE NOT NULL, "
+                + TransactionDAO.COLUMN_DATEREALIZATION + " TEXT NOT NULL, "
+                + TransactionDAO.COLUMN_TITLE + " TEXT NOT NULL, "
+                + TransactionDAO.COLUMN_AMOUNT + " REAL NOT NULL, "
                 + TransactionDAO.COLUMN_ACCOUNT_ID + " INTEGER NOT NULL, "
                 + TransactionDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
                 + "FOREIGN KEY (" + TransactionDAO.COLUMN_ACCOUNT_ID + ") REFERENCES " + AccountDAO.TABLE + "(" + AccountDAO.COLUMN_ID + ")"
@@ -63,6 +73,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CUSTOMER_TABLE_CREATE);
+        db.execSQL(PASSWORD_TABLE_CREATE);
         db.execSQL(ACCOUNT_TABLE_CREATE);
         db.execSQL(TRANSACTION_TABLE_CREATE);
     }
@@ -71,6 +82,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(TRANSACTION_TABLE_DROP);
         db.execSQL(ACCOUNT_TABLE_DROP);
+        db.execSQL(PASSWORD_TABLE_DROP);
         db.execSQL(CUSTOMER_TABLE_DROP);
 
         onCreate(db);

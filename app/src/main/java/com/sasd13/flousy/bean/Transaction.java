@@ -7,11 +7,17 @@ public class Transaction {
     private long id;
     private Timestamp dateRealization;
     private String title;
-    private double value;
+    private double amount;
     private Account account;
 
     public Transaction() {
         dateRealization = new Timestamp(System.currentTimeMillis());
+    }
+
+    public Transaction(Account account) {
+        this();
+
+        this.account = account;
     }
 
     public long getId() {
@@ -38,20 +44,16 @@ public class Transaction {
         this.title = title;
     }
 
-    public double getValue() {
-        return value;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setValue(double value) {
-        this.value = value;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     public Account getAccount() {
         return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
     }
 
     public String toString() {
@@ -61,9 +63,9 @@ public class Transaction {
         builder.append("id=" + getId());
         builder.append(", dateRealization=" + String.valueOf(getDateRealization()));
         builder.append(", title=" + getTitle());
-        builder.append(", value=" + getValue());
+        builder.append(", amount=" + getAmount());
         builder.append("]");
 
-        return builder.toString().trim();
+        return builder.toString();
     }
 }

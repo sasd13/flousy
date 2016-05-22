@@ -11,13 +11,12 @@ import android.view.ViewStub;
 
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.drawer.Drawer;
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemTitle;
 import com.sasd13.androidex.session.Session;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
-import com.sasd13.flousy.gui.content.homemenu.HomeMenu;
-import com.sasd13.flousy.gui.widget.recycler.drawer.DrawerItemHomeMenu;
+import com.sasd13.flousy.gui.nav.NavItem;
+import com.sasd13.flousy.gui.nav.Nav;
+import com.sasd13.flousy.gui.widget.recycler.drawer.DrawerItemNav;
 
 public abstract class MotherActivity extends ActionBarActivity {
 
@@ -45,29 +44,29 @@ public abstract class MotherActivity extends ActionBarActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.drawer_recyclerview);
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_drawerlayout);
 
-        drawer = new Drawer(this, recyclerView, drawerLayout);
+        drawer = new Drawer(recyclerView, R.layout.draweritem, drawerLayout);
     }
 
     private void fillDrawer() {
-        DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
+        /*DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
         drawerItemTitle.setText(getResources().getString(R.string.activity_home));
-        drawer.addItem(drawerItemTitle);
+        drawer.addItem(drawerItemTitle);*/
 
-        addHomeMenuItemsToDrawer();
+        addNavItemsToDrawer();
     }
 
-    private void addHomeMenuItemsToDrawer() {
-        HomeMenu homeMenu = HomeMenu.getInstance(this);
-        DrawerItemHomeMenu drawerItemHomeMenu;
+    private void addNavItemsToDrawer() {
+        Nav nav = Nav.getInstance(this);
+        DrawerItemNav drawerItemNav;
 
-        for (HomeMenuItem homeMenuItem : homeMenu.getItems()) {
-            drawerItemHomeMenu = new DrawerItemHomeMenu();
+        for (NavItem navItem : nav.getItems()) {
+            drawerItemNav = new DrawerItemNav();
 
-            drawerItemHomeMenu.setColor(homeMenuItem.getColor());
-            drawerItemHomeMenu.setText(homeMenuItem.getText());
-            drawerItemHomeMenu.setIntent(homeMenuItem.getIntent());
+            drawerItemNav.setColor(navItem.getColor());
+            drawerItemNav.setText(navItem.getText());
+            drawerItemNav.setIntent(navItem.getIntent());
 
-            drawer.addItem(drawerItemHomeMenu);
+            drawer.addItem(drawerItemNav);
         }
     }
 
@@ -92,7 +91,7 @@ public abstract class MotherActivity extends ActionBarActivity {
     }
 
     public void logOut() {
-        Session.logOut();
+        Session.clear();
         goToHomeActivityAndExit();
     }
 

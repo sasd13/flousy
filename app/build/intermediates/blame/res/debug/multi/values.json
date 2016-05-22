@@ -4056,17 +4056,17 @@
                     "startLine": 337,
                     "startColumn": 4,
                     "startOffset": 30331,
-                    "endColumn": 67,
-                    "endOffset": 30394
+                    "endColumn": 62,
+                    "endOffset": 30389
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\dimens.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 364,
-                        "endColumn": 67,
-                        "endOffset": 427
+                        "startOffset": 359,
+                        "endColumn": 62,
+                        "endOffset": 417
                     }
                 }
             },
@@ -4074,9 +4074,9 @@
                 "to": {
                     "startLine": 338,
                     "startColumn": 4,
-                    "startOffset": 30399,
-                    "endColumn": 66,
-                    "endOffset": 30461
+                    "startOffset": 30394,
+                    "endColumn": 61,
+                    "endOffset": 30451
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\dimens.xml",
@@ -4084,8 +4084,8 @@
                         "startLine": 10,
                         "startColumn": 4,
                         "startOffset": 296,
-                        "endColumn": 66,
-                        "endOffset": 358
+                        "endColumn": 61,
+                        "endOffset": 353
                     }
                 }
             },
@@ -4093,9 +4093,9 @@
                 "to": {
                     "startLine": 339,
                     "startColumn": 4,
-                    "startOffset": 30466,
+                    "startOffset": 30456,
                     "endColumn": 66,
-                    "endOffset": 30528
+                    "endOffset": 30518
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4112,18 +4112,18 @@
                 "to": {
                     "startLine": 340,
                     "startColumn": 4,
-                    "startOffset": 30533,
+                    "startOffset": 30523,
                     "endColumn": 65,
-                    "endOffset": 30594
+                    "endOffset": 30584
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\dimens.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 459,
+                        "startOffset": 449,
                         "endColumn": 65,
-                        "endOffset": 520
+                        "endOffset": 510
                     }
                 }
             },
@@ -4131,9 +4131,9 @@
                 "to": {
                     "startLine": 341,
                     "startColumn": 4,
-                    "startOffset": 30599,
+                    "startOffset": 30589,
                     "endColumn": 47,
-                    "endOffset": 30642
+                    "endOffset": 30632
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4150,9 +4150,9 @@
                 "to": {
                     "startLine": 342,
                     "startColumn": 4,
-                    "startOffset": 30647,
+                    "startOffset": 30637,
                     "endColumn": 45,
-                    "endOffset": 30688
+                    "endOffset": 30678
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4169,9 +4169,9 @@
                 "to": {
                     "startLine": 343,
                     "startColumn": 4,
-                    "startOffset": 30693,
+                    "startOffset": 30683,
                     "endColumn": 63,
-                    "endOffset": 30752
+                    "endOffset": 30742
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4188,9 +4188,9 @@
                 "to": {
                     "startLine": 344,
                     "startColumn": 4,
-                    "startOffset": 30757,
+                    "startOffset": 30747,
                     "endColumn": 62,
-                    "endOffset": 30815
+                    "endOffset": 30805
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4207,9 +4207,9 @@
                 "to": {
                     "startLine": 345,
                     "startColumn": 4,
-                    "startOffset": 30820,
+                    "startOffset": 30810,
                     "endColumn": 66,
-                    "endOffset": 30882
+                    "endOffset": 30872
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\dimens.xml",
@@ -4226,9 +4226,9 @@
                 "to": {
                     "startLine": 346,
                     "startColumn": 4,
-                    "startOffset": 30887,
+                    "startOffset": 30877,
                     "endColumn": 55,
-                    "endOffset": 30938
+                    "endOffset": 30928
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\dimens.xml",
@@ -4245,9 +4245,9 @@
                 "to": {
                     "startLine": 347,
                     "startColumn": 4,
-                    "startOffset": 30943,
+                    "startOffset": 30933,
                     "endColumn": 51,
-                    "endOffset": 30990
+                    "endOffset": 30980
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4264,9 +4264,9 @@
                 "to": {
                     "startLine": 348,
                     "startColumn": 4,
-                    "startOffset": 30995,
+                    "startOffset": 30985,
                     "endColumn": 60,
-                    "endOffset": 31051
+                    "endOffset": 31041
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4283,9 +4283,9 @@
                 "to": {
                     "startLine": 349,
                     "startColumn": 4,
-                    "startOffset": 31056,
+                    "startOffset": 31046,
                     "endColumn": 62,
-                    "endOffset": 31114
+                    "endOffset": 31104
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\dimens.xml",
@@ -4302,9 +4302,9 @@
                 "to": {
                     "startLine": 350,
                     "startColumn": 4,
-                    "startOffset": 31119,
+                    "startOffset": 31109,
                     "endColumn": 45,
-                    "endOffset": 31160
+                    "endOffset": 31150
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4321,9 +4321,9 @@
                 "to": {
                     "startLine": 351,
                     "startColumn": 4,
-                    "startOffset": 31165,
+                    "startOffset": 31155,
                     "endColumn": 46,
-                    "endOffset": 31207
+                    "endOffset": 31197
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4340,9 +4340,9 @@
                 "to": {
                     "startLine": 352,
                     "startColumn": 4,
-                    "startOffset": 31212,
+                    "startOffset": 31202,
                     "endColumn": 45,
-                    "endOffset": 31253
+                    "endOffset": 31243
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4359,9 +4359,9 @@
                 "to": {
                     "startLine": 353,
                     "startColumn": 4,
-                    "startOffset": 31258,
+                    "startOffset": 31248,
                     "endColumn": 46,
-                    "endOffset": 31300
+                    "endOffset": 31290
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4378,9 +4378,9 @@
                 "to": {
                     "startLine": 354,
                     "startColumn": 4,
-                    "startOffset": 31305,
+                    "startOffset": 31295,
                     "endColumn": 47,
-                    "endOffset": 31348
+                    "endOffset": 31338
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4397,9 +4397,9 @@
                 "to": {
                     "startLine": 355,
                     "startColumn": 4,
-                    "startOffset": 31353,
+                    "startOffset": 31343,
                     "endColumn": 48,
-                    "endOffset": 31397
+                    "endOffset": 31387
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4416,9 +4416,9 @@
                 "to": {
                     "startLine": 356,
                     "startColumn": 4,
-                    "startOffset": 31402,
+                    "startOffset": 31392,
                     "endColumn": 49,
-                    "endOffset": 31447
+                    "endOffset": 31437
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4435,9 +4435,9 @@
                 "to": {
                     "startLine": 357,
                     "startColumn": 4,
-                    "startOffset": 31452,
+                    "startOffset": 31442,
                     "endColumn": 47,
-                    "endOffset": 31495
+                    "endOffset": 31485
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4454,9 +4454,9 @@
                 "to": {
                     "startLine": 358,
                     "startColumn": 4,
-                    "startOffset": 31500,
+                    "startOffset": 31490,
                     "endColumn": 47,
-                    "endOffset": 31543
+                    "endOffset": 31533
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4473,9 +4473,9 @@
                 "to": {
                     "startLine": 359,
                     "startColumn": 4,
-                    "startOffset": 31548,
+                    "startOffset": 31538,
                     "endColumn": 56,
-                    "endOffset": 31600
+                    "endOffset": 31590
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4492,9 +4492,9 @@
                 "to": {
                     "startLine": 360,
                     "startColumn": 4,
-                    "startOffset": 31605,
+                    "startOffset": 31595,
                     "endColumn": 47,
-                    "endOffset": 31648
+                    "endOffset": 31638
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4511,9 +4511,9 @@
                 "to": {
                     "startLine": 361,
                     "startColumn": 4,
-                    "startOffset": 31653,
+                    "startOffset": 31643,
                     "endColumn": 48,
-                    "endOffset": 31697
+                    "endOffset": 31687
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4530,9 +4530,9 @@
                 "to": {
                     "startLine": 362,
                     "startColumn": 4,
-                    "startOffset": 31702,
+                    "startOffset": 31692,
                     "endColumn": 50,
-                    "endOffset": 31748
+                    "endOffset": 31738
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4549,9 +4549,9 @@
                 "to": {
                     "startLine": 363,
                     "startColumn": 4,
-                    "startOffset": 31753,
+                    "startOffset": 31743,
                     "endColumn": 33,
-                    "endOffset": 31782
+                    "endOffset": 31772
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4568,9 +4568,9 @@
                 "to": {
                     "startLine": 364,
                     "startColumn": 4,
-                    "startOffset": 31787,
+                    "startOffset": 31777,
                     "endColumn": 46,
-                    "endOffset": 31829
+                    "endOffset": 31819
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4587,9 +4587,9 @@
                 "to": {
                     "startLine": 365,
                     "startColumn": 4,
-                    "startOffset": 31834,
+                    "startOffset": 31824,
                     "endColumn": 48,
-                    "endOffset": 31878
+                    "endOffset": 31868
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4606,9 +4606,9 @@
                 "to": {
                     "startLine": 366,
                     "startColumn": 4,
-                    "startOffset": 31883,
+                    "startOffset": 31873,
                     "endColumn": 45,
-                    "endOffset": 31924
+                    "endOffset": 31914
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4625,9 +4625,9 @@
                 "to": {
                     "startLine": 367,
                     "startColumn": 4,
-                    "startOffset": 31929,
+                    "startOffset": 31919,
                     "endColumn": 31,
-                    "endOffset": 31956
+                    "endOffset": 31946
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4644,9 +4644,9 @@
                 "to": {
                     "startLine": 368,
                     "startColumn": 4,
-                    "startOffset": 31961,
+                    "startOffset": 31951,
                     "endColumn": 54,
-                    "endOffset": 32011
+                    "endOffset": 32001
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4663,9 +4663,9 @@
                 "to": {
                     "startLine": 369,
                     "startColumn": 4,
-                    "startOffset": 32016,
+                    "startOffset": 32006,
                     "endColumn": 51,
-                    "endOffset": 32063
+                    "endOffset": 32053
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -4682,9 +4682,9 @@
                 "to": {
                     "startLine": 370,
                     "startColumn": 4,
-                    "startOffset": 32068,
+                    "startOffset": 32058,
                     "endColumn": 73,
-                    "endOffset": 32137
+                    "endOffset": 32127
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4701,9 +4701,9 @@
                 "to": {
                     "startLine": 371,
                     "startColumn": 4,
-                    "startOffset": 32142,
+                    "startOffset": 32132,
                     "endColumn": 77,
-                    "endOffset": 32215
+                    "endOffset": 32205
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4720,9 +4720,9 @@
                 "to": {
                     "startLine": 372,
                     "startColumn": 4,
-                    "startOffset": 32220,
+                    "startOffset": 32210,
                     "endColumn": 92,
-                    "endOffset": 32308
+                    "endOffset": 32298
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4739,9 +4739,9 @@
                 "to": {
                     "startLine": 373,
                     "startColumn": 4,
-                    "startOffset": 32313,
+                    "startOffset": 32303,
                     "endColumn": 69,
-                    "endOffset": 32378
+                    "endOffset": 32368
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4758,9 +4758,9 @@
                 "to": {
                     "startLine": 374,
                     "startColumn": 4,
-                    "startOffset": 32383,
+                    "startOffset": 32373,
                     "endColumn": 77,
-                    "endOffset": 32456
+                    "endOffset": 32446
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4777,9 +4777,9 @@
                 "to": {
                     "startLine": 375,
                     "startColumn": 4,
-                    "startOffset": 32461,
+                    "startOffset": 32451,
                     "endColumn": 53,
-                    "endOffset": 32510
+                    "endOffset": 32500
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4796,9 +4796,9 @@
                 "to": {
                     "startLine": 376,
                     "startColumn": 4,
-                    "startOffset": 32515,
+                    "startOffset": 32505,
                     "endColumn": 69,
-                    "endOffset": 32580
+                    "endOffset": 32570
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4815,9 +4815,9 @@
                 "to": {
                     "startLine": 377,
                     "startColumn": 4,
-                    "startOffset": 32585,
+                    "startOffset": 32575,
                     "endColumn": 84,
-                    "endOffset": 32665
+                    "endOffset": 32655
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4834,9 +4834,9 @@
                 "to": {
                     "startLine": 378,
                     "startColumn": 4,
-                    "startOffset": 32670,
+                    "startOffset": 32660,
                     "endColumn": 72,
-                    "endOffset": 32738
+                    "endOffset": 32728
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4853,9 +4853,9 @@
                 "to": {
                     "startLine": 379,
                     "startColumn": 4,
-                    "startOffset": 32743,
+                    "startOffset": 32733,
                     "endColumn": 73,
-                    "endOffset": 32812
+                    "endOffset": 32802
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4872,9 +4872,9 @@
                 "to": {
                     "startLine": 380,
                     "startColumn": 4,
-                    "startOffset": 32817,
+                    "startOffset": 32807,
                     "endColumn": 68,
-                    "endOffset": 32881
+                    "endOffset": 32871
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4891,9 +4891,9 @@
                 "to": {
                     "startLine": 381,
                     "startColumn": 4,
-                    "startOffset": 32886,
+                    "startOffset": 32876,
                     "endColumn": 74,
-                    "endOffset": 32956
+                    "endOffset": 32946
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4910,9 +4910,9 @@
                 "to": {
                     "startLine": 382,
                     "startColumn": 4,
-                    "startOffset": 32961,
+                    "startOffset": 32951,
                     "endColumn": 73,
-                    "endOffset": 33030
+                    "endOffset": 33020
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4929,9 +4929,9 @@
                 "to": {
                     "startLine": 383,
                     "startColumn": 4,
-                    "startOffset": 33035,
+                    "startOffset": 33025,
                     "endColumn": 73,
-                    "endOffset": 33104
+                    "endOffset": 33094
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4948,9 +4948,9 @@
                 "to": {
                     "startLine": 384,
                     "startColumn": 4,
-                    "startOffset": 33109,
+                    "startOffset": 33099,
                     "endColumn": 88,
-                    "endOffset": 33193
+                    "endOffset": 33183
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4967,9 +4967,9 @@
                 "to": {
                     "startLine": 385,
                     "startColumn": 4,
-                    "startOffset": 33198,
+                    "startOffset": 33188,
                     "endColumn": 69,
-                    "endOffset": 33263
+                    "endOffset": 33253
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -4986,9 +4986,9 @@
                 "to": {
                     "startLine": 386,
                     "startColumn": 4,
-                    "startOffset": 33268,
+                    "startOffset": 33258,
                     "endColumn": 53,
-                    "endOffset": 33317
+                    "endOffset": 33307
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5005,9 +5005,9 @@
                 "to": {
                     "startLine": 387,
                     "startColumn": 4,
-                    "startOffset": 33322,
+                    "startOffset": 33312,
                     "endColumn": 63,
-                    "endOffset": 33381
+                    "endOffset": 33371
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5024,9 +5024,9 @@
                 "to": {
                     "startLine": 388,
                     "startColumn": 4,
-                    "startOffset": 33386,
+                    "startOffset": 33376,
                     "endColumn": 51,
-                    "endOffset": 33433
+                    "endOffset": 33423
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5043,9 +5043,9 @@
                 "to": {
                     "startLine": 389,
                     "startColumn": 4,
-                    "startOffset": 33438,
+                    "startOffset": 33428,
                     "endColumn": 53,
-                    "endOffset": 33487
+                    "endOffset": 33477
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5062,9 +5062,9 @@
                 "to": {
                     "startLine": 390,
                     "startColumn": 4,
-                    "startOffset": 33492,
+                    "startOffset": 33482,
                     "endColumn": 46,
-                    "endOffset": 33534
+                    "endOffset": 33524
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5081,9 +5081,9 @@
                 "to": {
                     "startLine": 391,
                     "startColumn": 4,
-                    "startOffset": 33539,
+                    "startOffset": 33529,
                     "endColumn": 50,
-                    "endOffset": 33585
+                    "endOffset": 33575
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5100,9 +5100,9 @@
                 "to": {
                     "startLine": 392,
                     "startColumn": 4,
-                    "startOffset": 33590,
+                    "startOffset": 33580,
                     "endColumn": 52,
-                    "endOffset": 33638
+                    "endOffset": 33628
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5119,9 +5119,9 @@
                 "to": {
                     "startLine": 393,
                     "startColumn": 4,
-                    "startOffset": 33643,
+                    "startOffset": 33633,
                     "endColumn": 53,
-                    "endOffset": 33692
+                    "endOffset": 33682
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5138,9 +5138,9 @@
                 "to": {
                     "startLine": 394,
                     "startColumn": 4,
-                    "startOffset": 33697,
+                    "startOffset": 33687,
                     "endColumn": 66,
-                    "endOffset": 33759
+                    "endOffset": 33749
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5157,9 +5157,9 @@
                 "to": {
                     "startLine": 395,
                     "startColumn": 4,
-                    "startOffset": 33764,
+                    "startOffset": 33754,
                     "endColumn": 60,
-                    "endOffset": 33820
+                    "endOffset": 33810
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5176,9 +5176,9 @@
                 "to": {
                     "startLine": 396,
                     "startColumn": 4,
-                    "startOffset": 33825,
+                    "startOffset": 33815,
                     "endColumn": 43,
-                    "endOffset": 33864
+                    "endOffset": 33854
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5195,9 +5195,9 @@
                 "to": {
                     "startLine": 397,
                     "startColumn": 4,
-                    "startOffset": 33869,
+                    "startOffset": 33859,
                     "endColumn": 49,
-                    "endOffset": 33914
+                    "endOffset": 33904
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5214,9 +5214,9 @@
                 "to": {
                     "startLine": 398,
                     "startColumn": 4,
-                    "startOffset": 33919,
+                    "startOffset": 33909,
                     "endColumn": 41,
-                    "endOffset": 33956
+                    "endOffset": 33946
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5233,9 +5233,9 @@
                 "to": {
                     "startLine": 399,
                     "startColumn": 4,
-                    "startOffset": 33961,
+                    "startOffset": 33951,
                     "endColumn": 40,
-                    "endOffset": 33997
+                    "endOffset": 33987
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5252,9 +5252,9 @@
                 "to": {
                     "startLine": 400,
                     "startColumn": 4,
-                    "startOffset": 34002,
+                    "startOffset": 33992,
                     "endColumn": 51,
-                    "endOffset": 34049
+                    "endOffset": 34039
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5271,9 +5271,9 @@
                 "to": {
                     "startLine": 401,
                     "startColumn": 4,
-                    "startOffset": 34054,
+                    "startOffset": 34044,
                     "endColumn": 42,
-                    "endOffset": 34092
+                    "endOffset": 34082
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5290,9 +5290,9 @@
                 "to": {
                     "startLine": 402,
                     "startColumn": 4,
-                    "startOffset": 34097,
+                    "startOffset": 34087,
                     "endColumn": 57,
-                    "endOffset": 34150
+                    "endOffset": 34140
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5309,9 +5309,9 @@
                 "to": {
                     "startLine": 403,
                     "startColumn": 4,
-                    "startOffset": 34155,
+                    "startOffset": 34145,
                     "endColumn": 64,
-                    "endOffset": 34215
+                    "endOffset": 34205
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5328,9 +5328,9 @@
                 "to": {
                     "startLine": 404,
                     "startColumn": 4,
-                    "startOffset": 34220,
+                    "startOffset": 34210,
                     "endColumn": 67,
-                    "endOffset": 34283
+                    "endOffset": 34273
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5347,9 +5347,9 @@
                 "to": {
                     "startLine": 405,
                     "startColumn": 4,
-                    "startOffset": 34288,
+                    "startOffset": 34278,
                     "endColumn": 53,
-                    "endOffset": 34337
+                    "endOffset": 34327
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5366,9 +5366,9 @@
                 "to": {
                     "startLine": 406,
                     "startColumn": 4,
-                    "startOffset": 34342,
+                    "startOffset": 34332,
                     "endColumn": 58,
-                    "endOffset": 34396
+                    "endOffset": 34386
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5385,9 +5385,9 @@
                 "to": {
                     "startLine": 407,
                     "startColumn": 4,
-                    "startOffset": 34401,
+                    "startOffset": 34391,
                     "endColumn": 54,
-                    "endOffset": 34451
+                    "endOffset": 34441
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5404,9 +5404,9 @@
                 "to": {
                     "startLine": 408,
                     "startColumn": 4,
-                    "startOffset": 34456,
+                    "startOffset": 34446,
                     "endColumn": 63,
-                    "endOffset": 34515
+                    "endOffset": 34505
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5423,9 +5423,9 @@
                 "to": {
                     "startLine": 409,
                     "startColumn": 4,
-                    "startOffset": 34520,
+                    "startOffset": 34510,
                     "endColumn": 51,
-                    "endOffset": 34567
+                    "endOffset": 34557
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5442,9 +5442,9 @@
                 "to": {
                     "startLine": 410,
                     "startColumn": 4,
-                    "startOffset": 34572,
+                    "startOffset": 34562,
                     "endColumn": 56,
-                    "endOffset": 34624
+                    "endOffset": 34614
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5461,9 +5461,9 @@
                 "to": {
                     "startLine": 411,
                     "startColumn": 4,
-                    "startOffset": 34629,
+                    "startOffset": 34619,
                     "endColumn": 93,
-                    "endOffset": 34718
+                    "endOffset": 34708
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5480,9 +5480,9 @@
                 "to": {
                     "startLine": 412,
                     "startColumn": 4,
-                    "startOffset": 34723,
+                    "startOffset": 34713,
                     "endColumn": 68,
-                    "endOffset": 34787
+                    "endOffset": 34777
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5499,9 +5499,9 @@
                 "to": {
                     "startLine": 413,
                     "startColumn": 4,
-                    "startOffset": 34792,
+                    "startOffset": 34782,
                     "endColumn": 59,
-                    "endOffset": 34847
+                    "endOffset": 34837
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5518,9 +5518,9 @@
                 "to": {
                     "startLine": 414,
                     "startColumn": 4,
-                    "startOffset": 34852,
+                    "startOffset": 34842,
                     "endColumn": 65,
-                    "endOffset": 34913
+                    "endOffset": 34903
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5537,9 +5537,9 @@
                 "to": {
                     "startLine": 415,
                     "startColumn": 4,
-                    "startOffset": 34918,
+                    "startOffset": 34908,
                     "endColumn": 69,
-                    "endOffset": 34983
+                    "endOffset": 34973
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5556,9 +5556,9 @@
                 "to": {
                     "startLine": 416,
                     "startColumn": 4,
-                    "startOffset": 34988,
+                    "startOffset": 34978,
                     "endColumn": 73,
-                    "endOffset": 35057
+                    "endOffset": 35047
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5575,9 +5575,9 @@
                 "to": {
                     "startLine": 417,
                     "startColumn": 4,
-                    "startOffset": 35062,
+                    "startOffset": 35052,
                     "endColumn": 68,
-                    "endOffset": 35126
+                    "endOffset": 35116
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5594,9 +5594,9 @@
                 "to": {
                     "startLine": 418,
                     "startColumn": 4,
-                    "startOffset": 35131,
+                    "startOffset": 35121,
                     "endColumn": 75,
-                    "endOffset": 35202
+                    "endOffset": 35192
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5613,9 +5613,9 @@
                 "to": {
                     "startLine": 419,
                     "startColumn": 4,
-                    "startOffset": 35207,
+                    "startOffset": 35197,
                     "endColumn": 73,
-                    "endOffset": 35276
+                    "endOffset": 35266
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5632,9 +5632,9 @@
                 "to": {
                     "startLine": 420,
                     "startColumn": 4,
-                    "startOffset": 35281,
+                    "startOffset": 35271,
                     "endColumn": 68,
-                    "endOffset": 35345
+                    "endOffset": 35335
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5651,9 +5651,9 @@
                 "to": {
                     "startLine": 421,
                     "startColumn": 4,
-                    "startOffset": 35350,
+                    "startOffset": 35340,
                     "endColumn": 63,
-                    "endOffset": 35409
+                    "endOffset": 35399
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5670,9 +5670,9 @@
                 "to": {
                     "startLine": 422,
                     "startColumn": 4,
-                    "startOffset": 35414,
+                    "startOffset": 35404,
                     "endColumn": 67,
-                    "endOffset": 35477
+                    "endOffset": 35467
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5689,9 +5689,9 @@
                 "to": {
                     "startLine": 423,
                     "startColumn": 4,
-                    "startOffset": 35482,
+                    "startOffset": 35472,
                     "endColumn": 50,
-                    "endOffset": 35528
+                    "endOffset": 35518
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5708,9 +5708,9 @@
                 "to": {
                     "startLine": 424,
                     "startColumn": 4,
-                    "startOffset": 35533,
+                    "startOffset": 35523,
                     "endColumn": 66,
-                    "endOffset": 35595
+                    "endOffset": 35585
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5727,9 +5727,9 @@
                 "to": {
                     "startLine": 425,
                     "startColumn": 4,
-                    "startOffset": 35600,
+                    "startOffset": 35590,
                     "endColumn": 68,
-                    "endOffset": 35664
+                    "endOffset": 35654
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5746,9 +5746,9 @@
                 "to": {
                     "startLine": 426,
                     "startColumn": 4,
-                    "startOffset": 35669,
+                    "startOffset": 35659,
                     "endColumn": 84,
-                    "endOffset": 35749
+                    "endOffset": 35739
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5765,9 +5765,9 @@
                 "to": {
                     "startLine": 427,
                     "startColumn": 4,
-                    "startOffset": 35754,
+                    "startOffset": 35744,
                     "endColumn": 76,
-                    "endOffset": 35826
+                    "endOffset": 35816
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5784,9 +5784,9 @@
                 "to": {
                     "startLine": 428,
                     "startColumn": 4,
-                    "startOffset": 35831,
+                    "startOffset": 35821,
                     "endColumn": 56,
-                    "endOffset": 35883
+                    "endOffset": 35873
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5803,9 +5803,9 @@
                 "to": {
                     "startLine": 429,
                     "startColumn": 4,
-                    "startOffset": 35888,
+                    "startOffset": 35878,
                     "endColumn": 78,
-                    "endOffset": 35962
+                    "endOffset": 35952
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5822,9 +5822,9 @@
                 "to": {
                     "startLine": 430,
                     "startColumn": 4,
-                    "startOffset": 35967,
+                    "startOffset": 35957,
                     "endColumn": 68,
-                    "endOffset": 36031
+                    "endOffset": 36021
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -5841,9 +5841,9 @@
                 "to": {
                     "startLine": 431,
                     "startColumn": 4,
-                    "startOffset": 36036,
+                    "startOffset": 36026,
                     "endColumn": 58,
-                    "endOffset": 36090
+                    "endOffset": 36080
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5860,9 +5860,9 @@
                 "to": {
                     "startLine": 432,
                     "startColumn": 4,
-                    "startOffset": 36095,
+                    "startOffset": 36085,
                     "endColumn": 61,
-                    "endOffset": 36152
+                    "endOffset": 36142
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5879,9 +5879,9 @@
                 "to": {
                     "startLine": 433,
                     "startColumn": 4,
-                    "startOffset": 36157,
+                    "startOffset": 36147,
                     "endColumn": 57,
-                    "endOffset": 36210
+                    "endOffset": 36200
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5898,9 +5898,9 @@
                 "to": {
                     "startLine": 434,
                     "startColumn": 4,
-                    "startOffset": 36215,
+                    "startOffset": 36205,
                     "endColumn": 62,
-                    "endOffset": 36273
+                    "endOffset": 36263
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5917,9 +5917,9 @@
                 "to": {
                     "startLine": 435,
                     "startColumn": 4,
-                    "startOffset": 36278,
+                    "startOffset": 36268,
                     "endColumn": 55,
-                    "endOffset": 36329
+                    "endOffset": 36319
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5936,9 +5936,9 @@
                 "to": {
                     "startLine": 436,
                     "startColumn": 4,
-                    "startOffset": 36334,
+                    "startOffset": 36324,
                     "endColumn": 62,
-                    "endOffset": 36392
+                    "endOffset": 36382
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5955,9 +5955,9 @@
                 "to": {
                     "startLine": 437,
                     "startColumn": 4,
-                    "startOffset": 36397,
+                    "startOffset": 36387,
                     "endColumn": 55,
-                    "endOffset": 36448
+                    "endOffset": 36438
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5974,9 +5974,9 @@
                 "to": {
                     "startLine": 438,
                     "startColumn": 4,
-                    "startOffset": 36453,
+                    "startOffset": 36443,
                     "endColumn": 52,
-                    "endOffset": 36501
+                    "endOffset": 36491
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -5993,9 +5993,9 @@
                 "to": {
                     "startLine": 439,
                     "startColumn": 4,
-                    "startOffset": 36506,
+                    "startOffset": 36496,
                     "endColumn": 87,
-                    "endOffset": 36589
+                    "endOffset": 36579
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6012,9 +6012,9 @@
                 "to": {
                     "startLine": 440,
                     "startColumn": 4,
-                    "startOffset": 36594,
+                    "startOffset": 36584,
                     "endColumn": 68,
-                    "endOffset": 36658
+                    "endOffset": 36648
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6031,9 +6031,9 @@
                 "to": {
                     "startLine": 441,
                     "startColumn": 4,
-                    "startOffset": 36663,
+                    "startOffset": 36653,
                     "endColumn": 71,
-                    "endOffset": 36730
+                    "endOffset": 36720
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6050,9 +6050,9 @@
                 "to": {
                     "startLine": 442,
                     "startColumn": 4,
-                    "startOffset": 36735,
+                    "startOffset": 36725,
                     "endColumn": 72,
-                    "endOffset": 36803
+                    "endOffset": 36793
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6069,9 +6069,9 @@
                 "to": {
                     "startLine": 443,
                     "startColumn": 4,
-                    "startOffset": 36808,
+                    "startOffset": 36798,
                     "endColumn": 52,
-                    "endOffset": 36856
+                    "endOffset": 36846
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6088,9 +6088,9 @@
                 "to": {
                     "startLine": 444,
                     "startColumn": 4,
-                    "startOffset": 36861,
+                    "startOffset": 36851,
                     "endColumn": 53,
-                    "endOffset": 36910
+                    "endOffset": 36900
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6107,9 +6107,9 @@
                 "to": {
                     "startLine": 445,
                     "startColumn": 4,
-                    "startOffset": 36915,
+                    "startOffset": 36905,
                     "endColumn": 62,
-                    "endOffset": 36973
+                    "endOffset": 36963
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6126,9 +6126,9 @@
                 "to": {
                     "startLine": 446,
                     "startColumn": 4,
-                    "startOffset": 36978,
+                    "startOffset": 36968,
                     "endColumn": 50,
-                    "endOffset": 37024
+                    "endOffset": 37014
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6145,9 +6145,9 @@
                 "to": {
                     "startLine": 447,
                     "startColumn": 4,
-                    "startOffset": 37029,
+                    "startOffset": 37019,
                     "endColumn": 100,
-                    "endOffset": 37125
+                    "endOffset": 37115
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6164,9 +6164,9 @@
                 "to": {
                     "startLine": 448,
                     "startColumn": 4,
-                    "startOffset": 37130,
+                    "startOffset": 37120,
                     "endColumn": 80,
-                    "endOffset": 37206
+                    "endOffset": 37196
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6183,9 +6183,9 @@
                 "to": {
                     "startLine": 449,
                     "startColumn": 4,
-                    "startOffset": 37211,
+                    "startOffset": 37201,
                     "endColumn": 54,
-                    "endOffset": 37261
+                    "endOffset": 37251
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6202,9 +6202,9 @@
                 "to": {
                     "startLine": 450,
                     "startColumn": 4,
-                    "startOffset": 37266,
+                    "startOffset": 37256,
                     "endColumn": 59,
-                    "endOffset": 37321
+                    "endOffset": 37311
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6221,9 +6221,9 @@
                 "to": {
                     "startLine": 451,
                     "startColumn": 4,
-                    "startOffset": 37326,
+                    "startOffset": 37316,
                     "endColumn": 54,
-                    "endOffset": 37376
+                    "endOffset": 37366
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6240,9 +6240,9 @@
                 "to": {
                     "startLine": 452,
                     "startColumn": 4,
-                    "startOffset": 37381,
+                    "startOffset": 37371,
                     "endColumn": 59,
-                    "endOffset": 37436
+                    "endOffset": 37426
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6259,9 +6259,9 @@
                 "to": {
                     "startLine": 453,
                     "startColumn": 4,
-                    "startOffset": 37441,
+                    "startOffset": 37431,
                     "endColumn": 64,
-                    "endOffset": 37501
+                    "endOffset": 37491
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6278,9 +6278,9 @@
                 "to": {
                     "startLine": 454,
                     "startColumn": 4,
-                    "startOffset": 37506,
+                    "startOffset": 37496,
                     "endColumn": 60,
-                    "endOffset": 37562
+                    "endOffset": 37552
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\strings.xml",
@@ -6297,9 +6297,9 @@
                 "to": {
                     "startLine": 455,
                     "startColumn": 4,
-                    "startOffset": 37567,
+                    "startOffset": 37557,
                     "endColumn": 51,
-                    "endOffset": 37614
+                    "endOffset": 37604
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6316,9 +6316,9 @@
                 "to": {
                     "startLine": 456,
                     "startColumn": 4,
-                    "startOffset": 37619,
+                    "startOffset": 37609,
                     "endColumn": 46,
-                    "endOffset": 37661
+                    "endOffset": 37651
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values\\values.xml",
@@ -6335,10 +6335,10 @@
                 "to": {
                     "startLine": 457,
                     "startColumn": 4,
-                    "startOffset": 37666,
+                    "startOffset": 37656,
                     "endLine": 459,
                     "endColumn": 12,
-                    "endOffset": 37791
+                    "endOffset": 37781
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values\\styles.xml",
@@ -6356,10 +6356,10 @@
                 "to": {
                     "startLine": 460,
                     "startColumn": 4,
-                    "startOffset": 37796,
+                    "startOffset": 37786,
                     "endLine": 466,
                     "endColumn": 12,
-                    "endOffset": 38268
+                    "endOffset": 38258
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6377,10 +6377,10 @@
                 "to": {
                     "startLine": 467,
                     "startColumn": 4,
-                    "startOffset": 38273,
+                    "startOffset": 38263,
                     "endLine": 470,
                     "endColumn": 12,
-                    "endOffset": 38490
+                    "endOffset": 38480
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6398,10 +6398,10 @@
                 "to": {
                     "startLine": 471,
                     "startColumn": 4,
-                    "startOffset": 38495,
+                    "startOffset": 38485,
                     "endLine": 474,
                     "endColumn": 12,
-                    "endOffset": 38712
+                    "endOffset": 38702
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6419,10 +6419,10 @@
                 "to": {
                     "startLine": 475,
                     "startColumn": 4,
-                    "startOffset": 38717,
+                    "startOffset": 38707,
                     "endLine": 479,
                     "endColumn": 12,
-                    "endOffset": 38980
+                    "endOffset": 38970
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6440,10 +6440,10 @@
                 "to": {
                     "startLine": 480,
                     "startColumn": 4,
-                    "startOffset": 38985,
+                    "startOffset": 38975,
                     "endLine": 483,
                     "endColumn": 12,
-                    "endOffset": 39207
+                    "endOffset": 39197
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6461,10 +6461,10 @@
                 "to": {
                     "startLine": 484,
                     "startColumn": 4,
-                    "startOffset": 39212,
+                    "startOffset": 39202,
                     "endLine": 487,
                     "endColumn": 12,
-                    "endOffset": 39437
+                    "endOffset": 39427
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6482,10 +6482,10 @@
                 "to": {
                     "startLine": 488,
                     "startColumn": 4,
-                    "startOffset": 39442,
+                    "startOffset": 39432,
                     "endLine": 491,
                     "endColumn": 12,
-                    "endOffset": 39667
+                    "endOffset": 39657
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6503,10 +6503,10 @@
                 "to": {
                     "startLine": 492,
                     "startColumn": 4,
-                    "startOffset": 39672,
+                    "startOffset": 39662,
                     "endLine": 495,
                     "endColumn": 12,
-                    "endOffset": 39897
+                    "endOffset": 39887
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6524,10 +6524,10 @@
                 "to": {
                     "startLine": 496,
                     "startColumn": 4,
-                    "startOffset": 39902,
+                    "startOffset": 39892,
                     "endLine": 499,
                     "endColumn": 12,
-                    "endOffset": 40127
+                    "endOffset": 40117
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6545,10 +6545,10 @@
                 "to": {
                     "startLine": 500,
                     "startColumn": 4,
-                    "startOffset": 40132,
+                    "startOffset": 40122,
                     "endLine": 503,
                     "endColumn": 12,
-                    "endOffset": 40354
+                    "endOffset": 40344
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6566,10 +6566,10 @@
                 "to": {
                     "startLine": 504,
                     "startColumn": 4,
-                    "startOffset": 40359,
+                    "startOffset": 40349,
                     "endLine": 507,
                     "endColumn": 12,
-                    "endOffset": 40593
+                    "endOffset": 40583
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6587,10 +6587,10 @@
                 "to": {
                     "startLine": 508,
                     "startColumn": 4,
-                    "startOffset": 40598,
+                    "startOffset": 40588,
                     "endLine": 511,
                     "endColumn": 12,
-                    "endOffset": 40819
+                    "endOffset": 40809
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6608,10 +6608,10 @@
                 "to": {
                     "startLine": 512,
                     "startColumn": 4,
-                    "startOffset": 40824,
+                    "startOffset": 40814,
                     "endLine": 515,
                     "endColumn": 12,
-                    "endOffset": 41064
+                    "endOffset": 41054
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6629,9 +6629,9 @@
                 "to": {
                     "startLine": 516,
                     "startColumn": 4,
-                    "startOffset": 41069,
+                    "startOffset": 41059,
                     "endColumn": 117,
-                    "endOffset": 41182
+                    "endOffset": 41172
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6648,9 +6648,9 @@
                 "to": {
                     "startLine": 517,
                     "startColumn": 4,
-                    "startOffset": 41187,
+                    "startOffset": 41177,
                     "endColumn": 117,
-                    "endOffset": 41300
+                    "endOffset": 41290
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6667,10 +6667,10 @@
                 "to": {
                     "startLine": 518,
                     "startColumn": 4,
-                    "startOffset": 41305,
+                    "startOffset": 41295,
                     "endLine": 521,
                     "endColumn": 12,
-                    "endOffset": 41530
+                    "endOffset": 41520
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6688,10 +6688,10 @@
                 "to": {
                     "startLine": 522,
                     "startColumn": 4,
-                    "startOffset": 41535,
+                    "startOffset": 41525,
                     "endLine": 525,
                     "endColumn": 12,
-                    "endOffset": 41778
+                    "endOffset": 41768
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6709,10 +6709,10 @@
                 "to": {
                     "startLine": 526,
                     "startColumn": 4,
-                    "startOffset": 41783,
+                    "startOffset": 41773,
                     "endLine": 529,
                     "endColumn": 12,
-                    "endOffset": 41997
+                    "endOffset": 41987
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6730,10 +6730,10 @@
                 "to": {
                     "startLine": 530,
                     "startColumn": 4,
-                    "startOffset": 42002,
+                    "startOffset": 41992,
                     "endLine": 534,
                     "endColumn": 12,
-                    "endOffset": 42280
+                    "endOffset": 42270
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6751,10 +6751,10 @@
                 "to": {
                     "startLine": 535,
                     "startColumn": 4,
-                    "startOffset": 42285,
+                    "startOffset": 42275,
                     "endLine": 538,
                     "endColumn": 12,
-                    "endOffset": 42488
+                    "endOffset": 42478
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6772,10 +6772,10 @@
                 "to": {
                     "startLine": 539,
                     "startColumn": 4,
-                    "startOffset": 42493,
+                    "startOffset": 42483,
                     "endLine": 541,
                     "endColumn": 12,
-                    "endOffset": 42619
+                    "endOffset": 42609
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6793,10 +6793,10 @@
                 "to": {
                     "startLine": 542,
                     "startColumn": 4,
-                    "startOffset": 42624,
+                    "startOffset": 42614,
                     "endLine": 545,
                     "endColumn": 12,
-                    "endOffset": 42846
+                    "endOffset": 42836
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6814,10 +6814,10 @@
                 "to": {
                     "startLine": 546,
                     "startColumn": 4,
-                    "startOffset": 42851,
+                    "startOffset": 42841,
                     "endLine": 549,
                     "endColumn": 12,
-                    "endOffset": 43092
+                    "endOffset": 43082
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6835,10 +6835,10 @@
                 "to": {
                     "startLine": 550,
                     "startColumn": 4,
-                    "startOffset": 43097,
+                    "startOffset": 43087,
                     "endLine": 553,
                     "endColumn": 12,
-                    "endOffset": 43317
+                    "endOffset": 43307
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6856,10 +6856,10 @@
                 "to": {
                     "startLine": 554,
                     "startColumn": 4,
-                    "startOffset": 43322,
+                    "startOffset": 43312,
                     "endLine": 557,
                     "endColumn": 12,
-                    "endOffset": 43566
+                    "endOffset": 43556
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6877,10 +6877,10 @@
                 "to": {
                     "startLine": 558,
                     "startColumn": 4,
-                    "startOffset": 43571,
+                    "startOffset": 43561,
                     "endLine": 561,
                     "endColumn": 12,
-                    "endOffset": 43787
+                    "endOffset": 43777
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6898,10 +6898,10 @@
                 "to": {
                     "startLine": 562,
                     "startColumn": 4,
-                    "startOffset": 43792,
+                    "startOffset": 43782,
                     "endLine": 565,
                     "endColumn": 12,
-                    "endOffset": 44032
+                    "endOffset": 44022
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6919,10 +6919,10 @@
                 "to": {
                     "startLine": 566,
                     "startColumn": 4,
-                    "startOffset": 44037,
+                    "startOffset": 44027,
                     "endLine": 570,
                     "endColumn": 12,
-                    "endOffset": 44327
+                    "endOffset": 44317
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6940,10 +6940,10 @@
                 "to": {
                     "startLine": 571,
                     "startColumn": 4,
-                    "startOffset": 44332,
+                    "startOffset": 44322,
                     "endLine": 573,
                     "endColumn": 12,
-                    "endOffset": 44549
+                    "endOffset": 44539
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6961,10 +6961,10 @@
                 "to": {
                     "startLine": 574,
                     "startColumn": 4,
-                    "startOffset": 44554,
+                    "startOffset": 44544,
                     "endLine": 576,
                     "endColumn": 12,
-                    "endOffset": 44787
+                    "endOffset": 44777
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -6982,10 +6982,10 @@
                 "to": {
                     "startLine": 577,
                     "startColumn": 4,
-                    "startOffset": 44792,
+                    "startOffset": 44782,
                     "endLine": 579,
                     "endColumn": 12,
-                    "endOffset": 45001
+                    "endOffset": 44991
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7003,10 +7003,10 @@
                 "to": {
                     "startLine": 580,
                     "startColumn": 4,
-                    "startOffset": 45006,
+                    "startOffset": 44996,
                     "endLine": 582,
                     "endColumn": 12,
-                    "endOffset": 45231
+                    "endOffset": 45221
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7024,10 +7024,10 @@
                 "to": {
                     "startLine": 583,
                     "startColumn": 4,
-                    "startOffset": 45236,
+                    "startOffset": 45226,
                     "endLine": 585,
                     "endColumn": 12,
-                    "endOffset": 45454
+                    "endOffset": 45444
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7045,10 +7045,10 @@
                 "to": {
                     "startLine": 586,
                     "startColumn": 4,
-                    "startOffset": 45459,
+                    "startOffset": 45449,
                     "endLine": 588,
                     "endColumn": 12,
-                    "endOffset": 45669
+                    "endOffset": 45659
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7066,10 +7066,10 @@
                 "to": {
                     "startLine": 589,
                     "startColumn": 4,
-                    "startOffset": 45674,
+                    "startOffset": 45664,
                     "endLine": 591,
                     "endColumn": 12,
-                    "endOffset": 45877
+                    "endOffset": 45867
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7087,9 +7087,9 @@
                 "to": {
                     "startLine": 592,
                     "startColumn": 4,
-                    "startOffset": 45882,
+                    "startOffset": 45872,
                     "endColumn": 111,
-                    "endOffset": 45989
+                    "endOffset": 45979
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7106,9 +7106,9 @@
                 "to": {
                     "startLine": 593,
                     "startColumn": 4,
-                    "startOffset": 45994,
+                    "startOffset": 45984,
                     "endColumn": 111,
-                    "endOffset": 46101
+                    "endOffset": 46091
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7125,9 +7125,9 @@
                 "to": {
                     "startLine": 594,
                     "startColumn": 4,
-                    "startOffset": 46106,
+                    "startOffset": 46096,
                     "endColumn": 104,
-                    "endOffset": 46206
+                    "endOffset": 46196
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7144,10 +7144,10 @@
                 "to": {
                     "startLine": 595,
                     "startColumn": 4,
-                    "startOffset": 46211,
+                    "startOffset": 46201,
                     "endLine": 597,
                     "endColumn": 12,
-                    "endOffset": 46420
+                    "endOffset": 46410
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7165,9 +7165,9 @@
                 "to": {
                     "startLine": 598,
                     "startColumn": 4,
-                    "startOffset": 46425,
+                    "startOffset": 46415,
                     "endColumn": 133,
-                    "endOffset": 46554
+                    "endOffset": 46544
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7184,9 +7184,9 @@
                 "to": {
                     "startLine": 599,
                     "startColumn": 4,
-                    "startOffset": 46559,
+                    "startOffset": 46549,
                     "endColumn": 127,
-                    "endOffset": 46682
+                    "endOffset": 46672
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7203,9 +7203,9 @@
                 "to": {
                     "startLine": 600,
                     "startColumn": 4,
-                    "startOffset": 46687,
+                    "startOffset": 46677,
                     "endColumn": 73,
-                    "endOffset": 46756
+                    "endOffset": 46746
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7222,10 +7222,10 @@
                 "to": {
                     "startLine": 601,
                     "startColumn": 4,
-                    "startOffset": 46761,
+                    "startOffset": 46751,
                     "endLine": 604,
                     "endColumn": 12,
-                    "endOffset": 47009
+                    "endOffset": 46999
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7243,9 +7243,9 @@
                 "to": {
                     "startLine": 605,
                     "startColumn": 4,
-                    "startOffset": 47014,
+                    "startOffset": 47004,
                     "endColumn": 87,
-                    "endOffset": 47097
+                    "endOffset": 47087
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7262,10 +7262,10 @@
                 "to": {
                     "startLine": 606,
                     "startColumn": 4,
-                    "startOffset": 47102,
+                    "startOffset": 47092,
                     "endLine": 611,
                     "endColumn": 12,
-                    "endOffset": 47499
+                    "endOffset": 47489
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7283,9 +7283,9 @@
                 "to": {
                     "startLine": 612,
                     "startColumn": 4,
-                    "startOffset": 47504,
+                    "startOffset": 47494,
                     "endColumn": 81,
-                    "endOffset": 47581
+                    "endOffset": 47571
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7302,9 +7302,9 @@
                 "to": {
                     "startLine": 613,
                     "startColumn": 4,
-                    "startOffset": 47586,
+                    "startOffset": 47576,
                     "endColumn": 85,
-                    "endOffset": 47667
+                    "endOffset": 47657
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7321,10 +7321,10 @@
                 "to": {
                     "startLine": 614,
                     "startColumn": 4,
-                    "startOffset": 47672,
+                    "startOffset": 47662,
                     "endLine": 623,
                     "endColumn": 12,
-                    "endOffset": 48283
+                    "endOffset": 48273
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7342,9 +7342,9 @@
                 "to": {
                     "startLine": 624,
                     "startColumn": 4,
-                    "startOffset": 48288,
+                    "startOffset": 48278,
                     "endColumn": 90,
-                    "endOffset": 48374
+                    "endOffset": 48364
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7361,10 +7361,10 @@
                 "to": {
                     "startLine": 625,
                     "startColumn": 4,
-                    "startOffset": 48379,
+                    "startOffset": 48369,
                     "endLine": 630,
                     "endColumn": 12,
-                    "endOffset": 48782
+                    "endOffset": 48772
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7382,9 +7382,9 @@
                 "to": {
                     "startLine": 631,
                     "startColumn": 4,
-                    "startOffset": 48787,
+                    "startOffset": 48777,
                     "endColumn": 93,
-                    "endOffset": 48876
+                    "endOffset": 48866
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7401,9 +7401,9 @@
                 "to": {
                     "startLine": 632,
                     "startColumn": 4,
-                    "startOffset": 48881,
+                    "startOffset": 48871,
                     "endColumn": 57,
-                    "endOffset": 48934
+                    "endOffset": 48924
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7420,10 +7420,10 @@
                 "to": {
                     "startLine": 633,
                     "startColumn": 4,
-                    "startOffset": 48939,
+                    "startOffset": 48929,
                     "endLine": 635,
                     "endColumn": 12,
-                    "endOffset": 49082
+                    "endOffset": 49072
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7441,10 +7441,10 @@
                 "to": {
                     "startLine": 636,
                     "startColumn": 4,
-                    "startOffset": 49087,
+                    "startOffset": 49077,
                     "endLine": 668,
                     "endColumn": 12,
-                    "endOffset": 51575
+                    "endOffset": 51565
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7462,10 +7462,10 @@
                 "to": {
                     "startLine": 669,
                     "startColumn": 4,
-                    "startOffset": 51580,
+                    "startOffset": 51570,
                     "endLine": 671,
                     "endColumn": 12,
-                    "endOffset": 51728
+                    "endOffset": 51718
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7483,10 +7483,10 @@
                 "to": {
                     "startLine": 672,
                     "startColumn": 4,
-                    "startOffset": 51733,
+                    "startOffset": 51723,
                     "endLine": 703,
                     "endColumn": 12,
-                    "endOffset": 54333
+                    "endOffset": 54323
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7504,10 +7504,10 @@
                 "to": {
                     "startLine": 704,
                     "startColumn": 4,
-                    "startOffset": 54338,
+                    "startOffset": 54328,
                     "endLine": 802,
                     "endColumn": 12,
-                    "endOffset": 61076
+                    "endOffset": 61066
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7525,10 +7525,10 @@
                 "to": {
                     "startLine": 803,
                     "startColumn": 4,
-                    "startOffset": 61081,
+                    "startOffset": 61071,
                     "endLine": 898,
                     "endColumn": 12,
-                    "endOffset": 67698
+                    "endOffset": 67688
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7546,10 +7546,10 @@
                 "to": {
                     "startLine": 899,
                     "startColumn": 4,
-                    "startOffset": 67703,
+                    "startOffset": 67693,
                     "endLine": 997,
                     "endColumn": 12,
-                    "endOffset": 74537
+                    "endOffset": 74527
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7567,10 +7567,10 @@
                 "to": {
                     "startLine": 998,
                     "startColumn": 4,
-                    "startOffset": 74542,
+                    "startOffset": 74532,
                     "endLine": 1012,
                     "endColumn": 12,
-                    "endOffset": 75476
+                    "endOffset": 75466
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7588,10 +7588,10 @@
                 "to": {
                     "startLine": 1013,
                     "startColumn": 4,
-                    "startOffset": 75481,
+                    "startOffset": 75471,
                     "endLine": 1017,
                     "endColumn": 12,
-                    "endOffset": 75732
+                    "endOffset": 75722
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7609,10 +7609,10 @@
                 "to": {
                     "startLine": 1018,
                     "startColumn": 4,
-                    "startOffset": 75737,
+                    "startOffset": 75727,
                     "endLine": 1022,
                     "endColumn": 12,
-                    "endOffset": 75968
+                    "endOffset": 75958
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7630,10 +7630,10 @@
                 "to": {
                     "startLine": 1023,
                     "startColumn": 4,
-                    "startOffset": 75973,
+                    "startOffset": 75963,
                     "endLine": 1032,
                     "endColumn": 12,
-                    "endOffset": 76515
+                    "endOffset": 76505
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7651,10 +7651,10 @@
                 "to": {
                     "startLine": 1033,
                     "startColumn": 4,
-                    "startOffset": 76520,
+                    "startOffset": 76510,
                     "endLine": 1041,
                     "endColumn": 12,
-                    "endOffset": 77009
+                    "endOffset": 76999
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7672,10 +7672,10 @@
                 "to": {
                     "startLine": 1042,
                     "startColumn": 4,
-                    "startOffset": 77014,
+                    "startOffset": 77004,
                     "endLine": 1052,
                     "endColumn": 12,
-                    "endOffset": 77682
+                    "endOffset": 77672
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7693,10 +7693,10 @@
                 "to": {
                     "startLine": 1053,
                     "startColumn": 4,
-                    "startOffset": 77687,
+                    "startOffset": 77677,
                     "endLine": 1055,
                     "endColumn": 12,
-                    "endOffset": 77847
+                    "endOffset": 77837
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7714,10 +7714,10 @@
                 "to": {
                     "startLine": 1056,
                     "startColumn": 4,
-                    "startOffset": 77852,
+                    "startOffset": 77842,
                     "endLine": 1062,
                     "endColumn": 12,
-                    "endOffset": 78375
+                    "endOffset": 78365
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7735,10 +7735,10 @@
                 "to": {
                     "startLine": 1063,
                     "startColumn": 4,
-                    "startOffset": 78380,
+                    "startOffset": 78370,
                     "endLine": 1070,
                     "endColumn": 12,
-                    "endOffset": 78939
+                    "endOffset": 78929
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7756,10 +7756,10 @@
                 "to": {
                     "startLine": 1071,
                     "startColumn": 4,
-                    "startOffset": 78944,
+                    "startOffset": 78934,
                     "endLine": 1077,
                     "endColumn": 12,
-                    "endOffset": 79313
+                    "endOffset": 79303
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7777,10 +7777,10 @@
                 "to": {
                     "startLine": 1078,
                     "startColumn": 4,
-                    "startOffset": 79318,
+                    "startOffset": 79308,
                     "endLine": 1082,
                     "endColumn": 12,
-                    "endOffset": 79683
+                    "endOffset": 79673
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7798,10 +7798,10 @@
                 "to": {
                     "startLine": 1083,
                     "startColumn": 4,
-                    "startOffset": 79688,
+                    "startOffset": 79678,
                     "endLine": 1089,
                     "endColumn": 12,
-                    "endOffset": 80174
+                    "endOffset": 80164
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7819,10 +7819,10 @@
                 "to": {
                     "startLine": 1090,
                     "startColumn": 4,
-                    "startOffset": 80179,
+                    "startOffset": 80169,
                     "endLine": 1099,
                     "endColumn": 12,
-                    "endOffset": 80651
+                    "endOffset": 80641
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7840,10 +7840,10 @@
                 "to": {
                     "startLine": 1100,
                     "startColumn": 4,
-                    "startOffset": 80656,
+                    "startOffset": 80646,
                     "endLine": 1105,
                     "endColumn": 12,
-                    "endOffset": 81004
+                    "endOffset": 80994
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7861,10 +7861,10 @@
                 "to": {
                     "startLine": 1106,
                     "startColumn": 4,
-                    "startOffset": 81009,
+                    "startOffset": 80999,
                     "endLine": 1110,
                     "endColumn": 12,
-                    "endOffset": 81331
+                    "endOffset": 81321
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7882,10 +7882,10 @@
                 "to": {
                     "startLine": 1111,
                     "startColumn": 4,
-                    "startOffset": 81336,
+                    "startOffset": 81326,
                     "endLine": 1114,
                     "endColumn": 12,
-                    "endOffset": 81637
+                    "endOffset": 81627
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7903,10 +7903,10 @@
                 "to": {
                     "startLine": 1115,
                     "startColumn": 4,
-                    "startOffset": 81642,
+                    "startOffset": 81632,
                     "endLine": 1119,
                     "endColumn": 12,
-                    "endOffset": 81899
+                    "endOffset": 81889
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7924,9 +7924,9 @@
                 "to": {
                     "startLine": 1120,
                     "startColumn": 4,
-                    "startOffset": 81904,
+                    "startOffset": 81894,
                     "endColumn": 112,
-                    "endOffset": 82012
+                    "endOffset": 82002
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7943,9 +7943,9 @@
                 "to": {
                     "startLine": 1121,
                     "startColumn": 4,
-                    "startOffset": 82017,
+                    "startOffset": 82007,
                     "endColumn": 114,
-                    "endOffset": 82127
+                    "endOffset": 82117
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7962,10 +7962,10 @@
                 "to": {
                     "startLine": 1122,
                     "startColumn": 4,
-                    "startOffset": 82132,
+                    "startOffset": 82122,
                     "endLine": 1124,
                     "endColumn": 12,
-                    "endOffset": 82366
+                    "endOffset": 82356
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -7983,10 +7983,10 @@
                 "to": {
                     "startLine": 1125,
                     "startColumn": 4,
-                    "startOffset": 82371,
+                    "startOffset": 82361,
                     "endLine": 1127,
                     "endColumn": 12,
-                    "endOffset": 82577
+                    "endOffset": 82567
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8004,10 +8004,10 @@
                 "to": {
                     "startLine": 1128,
                     "startColumn": 4,
-                    "startOffset": 82582,
+                    "startOffset": 82572,
                     "endLine": 1130,
                     "endColumn": 12,
-                    "endOffset": 82794
+                    "endOffset": 82784
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8025,10 +8025,10 @@
                 "to": {
                     "startLine": 1131,
                     "startColumn": 4,
-                    "startOffset": 82799,
+                    "startOffset": 82789,
                     "endLine": 1133,
                     "endColumn": 12,
-                    "endOffset": 83012
+                    "endOffset": 83002
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8046,9 +8046,9 @@
                 "to": {
                     "startLine": 1134,
                     "startColumn": 4,
-                    "startOffset": 83017,
+                    "startOffset": 83007,
                     "endColumn": 106,
-                    "endOffset": 83119
+                    "endOffset": 83109
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8065,10 +8065,10 @@
                 "to": {
                     "startLine": 1135,
                     "startColumn": 4,
-                    "startOffset": 83124,
+                    "startOffset": 83114,
                     "endLine": 1138,
                     "endColumn": 12,
-                    "endOffset": 83312
+                    "endOffset": 83302
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8086,10 +8086,10 @@
                 "to": {
                     "startLine": 1139,
                     "startColumn": 4,
-                    "startOffset": 83317,
+                    "startOffset": 83307,
                     "endLine": 1145,
                     "endColumn": 12,
-                    "endOffset": 83767
+                    "endOffset": 83757
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8107,10 +8107,10 @@
                 "to": {
                     "startLine": 1146,
                     "startColumn": 4,
-                    "startOffset": 83772,
+                    "startOffset": 83762,
                     "endLine": 1149,
                     "endColumn": 12,
-                    "endOffset": 84007
+                    "endOffset": 83997
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8128,10 +8128,10 @@
                 "to": {
                     "startLine": 1150,
                     "startColumn": 4,
-                    "startOffset": 84012,
+                    "startOffset": 84002,
                     "endLine": 1153,
                     "endColumn": 12,
-                    "endOffset": 84266
+                    "endOffset": 84256
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8149,9 +8149,9 @@
                 "to": {
                     "startLine": 1154,
                     "startColumn": 4,
-                    "startOffset": 84271,
+                    "startOffset": 84261,
                     "endColumn": 100,
-                    "endOffset": 84367
+                    "endOffset": 84357
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8168,10 +8168,10 @@
                 "to": {
                     "startLine": 1155,
                     "startColumn": 4,
-                    "startOffset": 84372,
+                    "startOffset": 84362,
                     "endLine": 1158,
                     "endColumn": 12,
-                    "endOffset": 84554
+                    "endOffset": 84544
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8189,9 +8189,9 @@
                 "to": {
                     "startLine": 1159,
                     "startColumn": 4,
-                    "startOffset": 84559,
+                    "startOffset": 84549,
                     "endColumn": 89,
-                    "endOffset": 84644
+                    "endOffset": 84634
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8208,10 +8208,10 @@
                 "to": {
                     "startLine": 1160,
                     "startColumn": 4,
-                    "startOffset": 84649,
+                    "startOffset": 84639,
                     "endLine": 1165,
                     "endColumn": 12,
-                    "endOffset": 85088
+                    "endOffset": 85078
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8229,9 +8229,9 @@
                 "to": {
                     "startLine": 1166,
                     "startColumn": 4,
-                    "startOffset": 85093,
+                    "startOffset": 85083,
                     "endColumn": 111,
-                    "endOffset": 85200
+                    "endOffset": 85190
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8248,10 +8248,10 @@
                 "to": {
                     "startLine": 1167,
                     "startColumn": 4,
-                    "startOffset": 85205,
+                    "startOffset": 85195,
                     "endLine": 1177,
                     "endColumn": 12,
-                    "endOffset": 86005
+                    "endOffset": 85995
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8269,10 +8269,10 @@
                 "to": {
                     "startLine": 1178,
                     "startColumn": 4,
-                    "startOffset": 86010,
+                    "startOffset": 86000,
                     "endLine": 1182,
                     "endColumn": 12,
-                    "endOffset": 86335
+                    "endOffset": 86325
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8290,10 +8290,10 @@
                 "to": {
                     "startLine": 1183,
                     "startColumn": 4,
-                    "startOffset": 86340,
+                    "startOffset": 86330,
                     "endLine": 1196,
                     "endColumn": 12,
-                    "endOffset": 87254
+                    "endOffset": 87244
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8311,10 +8311,10 @@
                 "to": {
                     "startLine": 1197,
                     "startColumn": 4,
-                    "startOffset": 87259,
+                    "startOffset": 87249,
                     "endLine": 1206,
                     "endColumn": 12,
-                    "endOffset": 87920
+                    "endOffset": 87910
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8332,10 +8332,10 @@
                 "to": {
                     "startLine": 1207,
                     "startColumn": 4,
-                    "startOffset": 87925,
+                    "startOffset": 87915,
                     "endLine": 1211,
                     "endColumn": 12,
-                    "endOffset": 88205
+                    "endOffset": 88195
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8353,10 +8353,10 @@
                 "to": {
                     "startLine": 1212,
                     "startColumn": 4,
-                    "startOffset": 88210,
+                    "startOffset": 88200,
                     "endLine": 1252,
                     "endColumn": 12,
-                    "endOffset": 91384
+                    "endOffset": 91374
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8374,10 +8374,10 @@
                 "to": {
                     "startLine": 1253,
                     "startColumn": 4,
-                    "startOffset": 91389,
+                    "startOffset": 91379,
                     "endLine": 1293,
                     "endColumn": 12,
-                    "endOffset": 94577
+                    "endOffset": 94567
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8395,10 +8395,10 @@
                 "to": {
                     "startLine": 1294,
                     "startColumn": 4,
-                    "startOffset": 94582,
+                    "startOffset": 94572,
                     "endLine": 1335,
                     "endColumn": 12,
-                    "endOffset": 97896
+                    "endOffset": 97886
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8416,9 +8416,9 @@
                 "to": {
                     "startLine": 1336,
                     "startColumn": 4,
-                    "startOffset": 97901,
+                    "startOffset": 97891,
                     "endColumn": 86,
-                    "endOffset": 97983
+                    "endOffset": 97973
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8435,10 +8435,10 @@
                 "to": {
                     "startLine": 1337,
                     "startColumn": 4,
-                    "startOffset": 97988,
+                    "startOffset": 97978,
                     "endLine": 1340,
                     "endColumn": 12,
-                    "endOffset": 98212
+                    "endOffset": 98202
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8456,10 +8456,10 @@
                 "to": {
                     "startLine": 1341,
                     "startColumn": 4,
-                    "startOffset": 98217,
+                    "startOffset": 98207,
                     "endLine": 1344,
                     "endColumn": 12,
-                    "endOffset": 98461
+                    "endOffset": 98451
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8477,10 +8477,10 @@
                 "to": {
                     "startLine": 1345,
                     "startColumn": 4,
-                    "startOffset": 98466,
+                    "startOffset": 98456,
                     "endLine": 1348,
                     "endColumn": 12,
-                    "endOffset": 98702
+                    "endOffset": 98692
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8498,10 +8498,10 @@
                 "to": {
                     "startLine": 1349,
                     "startColumn": 4,
-                    "startOffset": 98707,
+                    "startOffset": 98697,
                     "endLine": 1351,
                     "endColumn": 12,
-                    "endOffset": 98854
+                    "endOffset": 98844
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8519,10 +8519,10 @@
                 "to": {
                     "startLine": 1352,
                     "startColumn": 4,
-                    "startOffset": 98859,
+                    "startOffset": 98849,
                     "endLine": 1354,
                     "endColumn": 12,
-                    "endOffset": 99025
+                    "endOffset": 99015
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8540,10 +8540,10 @@
                 "to": {
                     "startLine": 1355,
                     "startColumn": 4,
-                    "startOffset": 99030,
+                    "startOffset": 99020,
                     "endLine": 1357,
                     "endColumn": 12,
-                    "endOffset": 99192
+                    "endOffset": 99182
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8561,10 +8561,10 @@
                 "to": {
                     "startLine": 1358,
                     "startColumn": 4,
-                    "startOffset": 99197,
+                    "startOffset": 99187,
                     "endLine": 1361,
                     "endColumn": 12,
-                    "endOffset": 99435
+                    "endOffset": 99425
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8582,10 +8582,10 @@
                 "to": {
                     "startLine": 1362,
                     "startColumn": 4,
-                    "startOffset": 99440,
+                    "startOffset": 99430,
                     "endLine": 1364,
                     "endColumn": 12,
-                    "endOffset": 99605
+                    "endOffset": 99595
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8603,10 +8603,10 @@
                 "to": {
                     "startLine": 1365,
                     "startColumn": 4,
-                    "startOffset": 99610,
+                    "startOffset": 99600,
                     "endLine": 1367,
                     "endColumn": 12,
-                    "endOffset": 99778
+                    "endOffset": 99768
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8624,10 +8624,10 @@
                 "to": {
                     "startLine": 1368,
                     "startColumn": 4,
-                    "startOffset": 99783,
+                    "startOffset": 99773,
                     "endLine": 1370,
                     "endColumn": 12,
-                    "endOffset": 99949
+                    "endOffset": 99939
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8645,10 +8645,10 @@
                 "to": {
                     "startLine": 1371,
                     "startColumn": 4,
-                    "startOffset": 99954,
+                    "startOffset": 99944,
                     "endLine": 1374,
                     "endColumn": 12,
-                    "endOffset": 100223
+                    "endOffset": 100213
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8666,10 +8666,10 @@
                 "to": {
                     "startLine": 1375,
                     "startColumn": 4,
-                    "startOffset": 100228,
+                    "startOffset": 100218,
                     "endLine": 1377,
                     "endColumn": 12,
-                    "endOffset": 100422
+                    "endOffset": 100412
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8687,9 +8687,9 @@
                 "to": {
                     "startLine": 1378,
                     "startColumn": 4,
-                    "startOffset": 100427,
+                    "startOffset": 100417,
                     "endColumn": 83,
-                    "endOffset": 100506
+                    "endOffset": 100496
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8706,9 +8706,9 @@
                 "to": {
                     "startLine": 1379,
                     "startColumn": 4,
-                    "startOffset": 100511,
+                    "startOffset": 100501,
                     "endColumn": 95,
-                    "endOffset": 100602
+                    "endOffset": 100592
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8725,9 +8725,9 @@
                 "to": {
                     "startLine": 1380,
                     "startColumn": 4,
-                    "startOffset": 100607,
+                    "startOffset": 100597,
                     "endColumn": 95,
-                    "endOffset": 100698
+                    "endOffset": 100688
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8744,9 +8744,9 @@
                 "to": {
                     "startLine": 1381,
                     "startColumn": 4,
-                    "startOffset": 100703,
+                    "startOffset": 100693,
                     "endColumn": 97,
-                    "endOffset": 100796
+                    "endOffset": 100786
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8763,9 +8763,9 @@
                 "to": {
                     "startLine": 1382,
                     "startColumn": 4,
-                    "startOffset": 100801,
+                    "startOffset": 100791,
                     "endColumn": 99,
-                    "endOffset": 100896
+                    "endOffset": 100886
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8782,9 +8782,9 @@
                 "to": {
                     "startLine": 1383,
                     "startColumn": 4,
-                    "startOffset": 100901,
+                    "startOffset": 100891,
                     "endColumn": 101,
-                    "endOffset": 100998
+                    "endOffset": 100988
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8801,9 +8801,9 @@
                 "to": {
                     "startLine": 1384,
                     "startColumn": 4,
-                    "startOffset": 101003,
+                    "startOffset": 100993,
                     "endColumn": 101,
-                    "endOffset": 101100
+                    "endOffset": 101090
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8820,9 +8820,9 @@
                 "to": {
                     "startLine": 1385,
                     "startColumn": 4,
-                    "startOffset": 101105,
+                    "startOffset": 101095,
                     "endColumn": 101,
-                    "endOffset": 101202
+                    "endOffset": 101192
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8839,9 +8839,9 @@
                 "to": {
                     "startLine": 1386,
                     "startColumn": 4,
-                    "startOffset": 101207,
+                    "startOffset": 101197,
                     "endColumn": 101,
-                    "endOffset": 101304
+                    "endOffset": 101294
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8858,9 +8858,9 @@
                 "to": {
                     "startLine": 1387,
                     "startColumn": 4,
-                    "startOffset": 101309,
+                    "startOffset": 101299,
                     "endColumn": 101,
-                    "endOffset": 101406
+                    "endOffset": 101396
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8877,9 +8877,9 @@
                 "to": {
                     "startLine": 1388,
                     "startColumn": 4,
-                    "startOffset": 101411,
+                    "startOffset": 101401,
                     "endColumn": 99,
-                    "endOffset": 101506
+                    "endOffset": 101496
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8896,9 +8896,9 @@
                 "to": {
                     "startLine": 1389,
                     "startColumn": 4,
-                    "startOffset": 101511,
+                    "startOffset": 101501,
                     "endColumn": 95,
-                    "endOffset": 101602
+                    "endOffset": 101592
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8915,9 +8915,9 @@
                 "to": {
                     "startLine": 1390,
                     "startColumn": 4,
-                    "startOffset": 101607,
+                    "startOffset": 101597,
                     "endColumn": 111,
-                    "endOffset": 101714
+                    "endOffset": 101704
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8934,9 +8934,9 @@
                 "to": {
                     "startLine": 1391,
                     "startColumn": 4,
-                    "startOffset": 101719,
+                    "startOffset": 101709,
                     "endColumn": 128,
-                    "endOffset": 101843
+                    "endOffset": 101833
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8953,9 +8953,9 @@
                 "to": {
                     "startLine": 1392,
                     "startColumn": 4,
-                    "startOffset": 101848,
+                    "startOffset": 101838,
                     "endColumn": 122,
-                    "endOffset": 101966
+                    "endOffset": 101956
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8972,9 +8972,9 @@
                 "to": {
                     "startLine": 1393,
                     "startColumn": 4,
-                    "startOffset": 101971,
+                    "startOffset": 101961,
                     "endColumn": 141,
-                    "endOffset": 102108
+                    "endOffset": 102098
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -8991,9 +8991,9 @@
                 "to": {
                     "startLine": 1394,
                     "startColumn": 4,
-                    "startOffset": 102113,
+                    "startOffset": 102103,
                     "endColumn": 141,
-                    "endOffset": 102250
+                    "endOffset": 102240
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9010,9 +9010,9 @@
                 "to": {
                     "startLine": 1395,
                     "startColumn": 4,
-                    "startOffset": 102255,
+                    "startOffset": 102245,
                     "endColumn": 97,
-                    "endOffset": 102348
+                    "endOffset": 102338
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9029,9 +9029,9 @@
                 "to": {
                     "startLine": 1396,
                     "startColumn": 4,
-                    "startOffset": 102353,
+                    "startOffset": 102343,
                     "endColumn": 113,
-                    "endOffset": 102462
+                    "endOffset": 102452
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9048,9 +9048,9 @@
                 "to": {
                     "startLine": 1397,
                     "startColumn": 4,
-                    "startOffset": 102467,
+                    "startOffset": 102457,
                     "endColumn": 93,
-                    "endOffset": 102556
+                    "endOffset": 102546
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9067,9 +9067,9 @@
                 "to": {
                     "startLine": 1398,
                     "startColumn": 4,
-                    "startOffset": 102561,
+                    "startOffset": 102551,
                     "endColumn": 127,
-                    "endOffset": 102684
+                    "endOffset": 102674
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9086,9 +9086,9 @@
                 "to": {
                     "startLine": 1399,
                     "startColumn": 4,
-                    "startOffset": 102689,
+                    "startOffset": 102679,
                     "endColumn": 121,
-                    "endOffset": 102806
+                    "endOffset": 102796
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9105,9 +9105,9 @@
                 "to": {
                     "startLine": 1400,
                     "startColumn": 4,
-                    "startOffset": 102811,
+                    "startOffset": 102801,
                     "endColumn": 95,
-                    "endOffset": 102902
+                    "endOffset": 102892
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9124,9 +9124,9 @@
                 "to": {
                     "startLine": 1401,
                     "startColumn": 4,
-                    "startOffset": 102907,
+                    "startOffset": 102897,
                     "endColumn": 111,
-                    "endOffset": 103014
+                    "endOffset": 103004
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9143,9 +9143,9 @@
                 "to": {
                     "startLine": 1402,
                     "startColumn": 4,
-                    "startOffset": 103019,
+                    "startOffset": 103009,
                     "endColumn": 99,
-                    "endOffset": 103114
+                    "endOffset": 103104
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9162,9 +9162,9 @@
                 "to": {
                     "startLine": 1403,
                     "startColumn": 4,
-                    "startOffset": 103119,
+                    "startOffset": 103109,
                     "endColumn": 115,
-                    "endOffset": 103230
+                    "endOffset": 103220
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9181,9 +9181,9 @@
                 "to": {
                     "startLine": 1404,
                     "startColumn": 4,
-                    "startOffset": 103235,
+                    "startOffset": 103225,
                     "endColumn": 95,
-                    "endOffset": 103326
+                    "endOffset": 103316
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9200,9 +9200,9 @@
                 "to": {
                     "startLine": 1405,
                     "startColumn": 4,
-                    "startOffset": 103331,
+                    "startOffset": 103321,
                     "endColumn": 111,
-                    "endOffset": 103438
+                    "endOffset": 103428
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9219,9 +9219,9 @@
                 "to": {
                     "startLine": 1406,
                     "startColumn": 4,
-                    "startOffset": 103443,
+                    "startOffset": 103433,
                     "endColumn": 127,
-                    "endOffset": 103566
+                    "endOffset": 103556
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9238,9 +9238,9 @@
                 "to": {
                     "startLine": 1407,
                     "startColumn": 4,
-                    "startOffset": 103571,
+                    "startOffset": 103561,
                     "endColumn": 135,
-                    "endOffset": 103702
+                    "endOffset": 103692
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9257,9 +9257,9 @@
                 "to": {
                     "startLine": 1408,
                     "startColumn": 4,
-                    "startOffset": 103707,
+                    "startOffset": 103697,
                     "endColumn": 151,
-                    "endOffset": 103854
+                    "endOffset": 103844
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9276,9 +9276,9 @@
                 "to": {
                     "startLine": 1409,
                     "startColumn": 4,
-                    "startOffset": 103859,
+                    "startOffset": 103849,
                     "endColumn": 129,
-                    "endOffset": 103984
+                    "endOffset": 103974
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9295,9 +9295,9 @@
                 "to": {
                     "startLine": 1410,
                     "startColumn": 4,
-                    "startOffset": 103989,
+                    "startOffset": 103979,
                     "endColumn": 145,
-                    "endOffset": 104130
+                    "endOffset": 104120
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9314,9 +9314,9 @@
                 "to": {
                     "startLine": 1411,
                     "startColumn": 4,
-                    "startOffset": 104135,
+                    "startOffset": 104125,
                     "endColumn": 137,
-                    "endOffset": 104268
+                    "endOffset": 104258
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9333,9 +9333,9 @@
                 "to": {
                     "startLine": 1412,
                     "startColumn": 4,
-                    "startOffset": 104273,
+                    "startOffset": 104263,
                     "endColumn": 140,
-                    "endOffset": 104409
+                    "endOffset": 104399
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9352,9 +9352,9 @@
                 "to": {
                     "startLine": 1413,
                     "startColumn": 4,
-                    "startOffset": 104414,
+                    "startOffset": 104404,
                     "endColumn": 131,
-                    "endOffset": 104541
+                    "endOffset": 104531
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9371,9 +9371,9 @@
                 "to": {
                     "startLine": 1414,
                     "startColumn": 4,
-                    "startOffset": 104546,
+                    "startOffset": 104536,
                     "endColumn": 134,
-                    "endOffset": 104676
+                    "endOffset": 104666
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9390,9 +9390,9 @@
                 "to": {
                     "startLine": 1415,
                     "startColumn": 4,
-                    "startOffset": 104681,
+                    "startOffset": 104671,
                     "endColumn": 123,
-                    "endOffset": 104800
+                    "endOffset": 104790
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9409,9 +9409,9 @@
                 "to": {
                     "startLine": 1416,
                     "startColumn": 4,
-                    "startOffset": 104805,
+                    "startOffset": 104795,
                     "endColumn": 129,
-                    "endOffset": 104930
+                    "endOffset": 104920
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9428,9 +9428,9 @@
                 "to": {
                     "startLine": 1417,
                     "startColumn": 4,
-                    "startOffset": 104935,
+                    "startOffset": 104925,
                     "endColumn": 129,
-                    "endOffset": 105060
+                    "endOffset": 105050
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9447,9 +9447,9 @@
                 "to": {
                     "startLine": 1418,
                     "startColumn": 4,
-                    "startOffset": 105065,
+                    "startOffset": 105055,
                     "endColumn": 111,
-                    "endOffset": 105172
+                    "endOffset": 105162
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9466,9 +9466,9 @@
                 "to": {
                     "startLine": 1419,
                     "startColumn": 4,
-                    "startOffset": 105177,
+                    "startOffset": 105167,
                     "endColumn": 133,
-                    "endOffset": 105306
+                    "endOffset": 105296
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9485,9 +9485,9 @@
                 "to": {
                     "startLine": 1420,
                     "startColumn": 4,
-                    "startOffset": 105311,
+                    "startOffset": 105301,
                     "endColumn": 131,
-                    "endOffset": 105438
+                    "endOffset": 105428
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9504,9 +9504,9 @@
                 "to": {
                     "startLine": 1421,
                     "startColumn": 4,
-                    "startOffset": 105443,
+                    "startOffset": 105433,
                     "endColumn": 125,
-                    "endOffset": 105564
+                    "endOffset": 105554
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9523,9 +9523,9 @@
                 "to": {
                     "startLine": 1422,
                     "startColumn": 4,
-                    "startOffset": 105569,
+                    "startOffset": 105559,
                     "endColumn": 65,
-                    "endOffset": 105630
+                    "endOffset": 105620
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9542,9 +9542,9 @@
                 "to": {
                     "startLine": 1423,
                     "startColumn": 4,
-                    "startOffset": 105635,
+                    "startOffset": 105625,
                     "endColumn": 89,
-                    "endOffset": 105720
+                    "endOffset": 105710
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9561,9 +9561,9 @@
                 "to": {
                     "startLine": 1424,
                     "startColumn": 4,
-                    "startOffset": 105725,
+                    "startOffset": 105715,
                     "endColumn": 79,
-                    "endOffset": 105800
+                    "endOffset": 105790
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9580,9 +9580,9 @@
                 "to": {
                     "startLine": 1425,
                     "startColumn": 4,
-                    "startOffset": 105805,
+                    "startOffset": 105795,
                     "endColumn": 97,
-                    "endOffset": 105898
+                    "endOffset": 105888
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9599,9 +9599,9 @@
                 "to": {
                     "startLine": 1426,
                     "startColumn": 4,
-                    "startOffset": 105903,
+                    "startOffset": 105893,
                     "endColumn": 77,
-                    "endOffset": 105976
+                    "endOffset": 105966
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9618,9 +9618,9 @@
                 "to": {
                     "startLine": 1427,
                     "startColumn": 4,
-                    "startOffset": 105981,
+                    "startOffset": 105971,
                     "endColumn": 105,
-                    "endOffset": 106082
+                    "endOffset": 106072
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9637,9 +9637,9 @@
                 "to": {
                     "startLine": 1428,
                     "startColumn": 4,
-                    "startOffset": 106087,
+                    "startOffset": 106077,
                     "endColumn": 91,
-                    "endOffset": 106174
+                    "endOffset": 106164
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9656,9 +9656,9 @@
                 "to": {
                     "startLine": 1429,
                     "startColumn": 4,
-                    "startOffset": 106179,
+                    "startOffset": 106169,
                     "endColumn": 109,
-                    "endOffset": 106284
+                    "endOffset": 106274
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9675,10 +9675,10 @@
                 "to": {
                     "startLine": 1430,
                     "startColumn": 4,
-                    "startOffset": 106289,
+                    "startOffset": 106279,
                     "endLine": 1433,
                     "endColumn": 12,
-                    "endOffset": 106455
+                    "endOffset": 106445
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9696,10 +9696,10 @@
                 "to": {
                     "startLine": 1434,
                     "startColumn": 4,
-                    "startOffset": 106460,
+                    "startOffset": 106450,
                     "endLine": 1437,
                     "endColumn": 12,
-                    "endOffset": 106620
+                    "endOffset": 106610
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9717,9 +9717,9 @@
                 "to": {
                     "startLine": 1438,
                     "startColumn": 4,
-                    "startOffset": 106625,
+                    "startOffset": 106615,
                     "endColumn": 79,
-                    "endOffset": 106700
+                    "endOffset": 106690
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9736,9 +9736,9 @@
                 "to": {
                     "startLine": 1439,
                     "startColumn": 4,
-                    "startOffset": 106705,
+                    "startOffset": 106695,
                     "endColumn": 99,
-                    "endOffset": 106800
+                    "endOffset": 106790
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9755,9 +9755,9 @@
                 "to": {
                     "startLine": 1440,
                     "startColumn": 4,
-                    "startOffset": 106805,
+                    "startOffset": 106795,
                     "endColumn": 89,
-                    "endOffset": 106890
+                    "endOffset": 106880
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9774,9 +9774,9 @@
                 "to": {
                     "startLine": 1441,
                     "startColumn": 4,
-                    "startOffset": 106895,
+                    "startOffset": 106885,
                     "endColumn": 109,
-                    "endOffset": 107000
+                    "endOffset": 106990
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9793,9 +9793,9 @@
                 "to": {
                     "startLine": 1442,
                     "startColumn": 4,
-                    "startOffset": 107005,
+                    "startOffset": 106995,
                     "endColumn": 91,
-                    "endOffset": 107092
+                    "endOffset": 107082
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9812,9 +9812,9 @@
                 "to": {
                     "startLine": 1443,
                     "startColumn": 4,
-                    "startOffset": 107097,
+                    "startOffset": 107087,
                     "endColumn": 87,
-                    "endOffset": 107180
+                    "endOffset": 107170
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9831,9 +9831,9 @@
                 "to": {
                     "startLine": 1444,
                     "startColumn": 4,
-                    "startOffset": 107185,
+                    "startOffset": 107175,
                     "endColumn": 99,
-                    "endOffset": 107280
+                    "endOffset": 107270
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9850,9 +9850,9 @@
                 "to": {
                     "startLine": 1445,
                     "startColumn": 4,
-                    "startOffset": 107285,
+                    "startOffset": 107275,
                     "endColumn": 101,
-                    "endOffset": 107382
+                    "endOffset": 107372
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9869,9 +9869,9 @@
                 "to": {
                     "startLine": 1446,
                     "startColumn": 4,
-                    "startOffset": 107387,
+                    "startOffset": 107377,
                     "endColumn": 103,
-                    "endOffset": 107486
+                    "endOffset": 107476
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9888,9 +9888,9 @@
                 "to": {
                     "startLine": 1447,
                     "startColumn": 4,
-                    "startOffset": 107491,
+                    "startOffset": 107481,
                     "endColumn": 103,
-                    "endOffset": 107590
+                    "endOffset": 107580
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9907,9 +9907,9 @@
                 "to": {
                     "startLine": 1448,
                     "startColumn": 4,
-                    "startOffset": 107595,
+                    "startOffset": 107585,
                     "endColumn": 93,
-                    "endOffset": 107684
+                    "endOffset": 107674
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9926,9 +9926,9 @@
                 "to": {
                     "startLine": 1449,
                     "startColumn": 4,
-                    "startOffset": 107689,
+                    "startOffset": 107679,
                     "endColumn": 119,
-                    "endOffset": 107804
+                    "endOffset": 107794
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9945,9 +9945,9 @@
                 "to": {
                     "startLine": 1450,
                     "startColumn": 4,
-                    "startOffset": 107809,
+                    "startOffset": 107799,
                     "endColumn": 117,
-                    "endOffset": 107922
+                    "endOffset": 107912
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9964,9 +9964,9 @@
                 "to": {
                     "startLine": 1451,
                     "startColumn": 4,
-                    "startOffset": 107927,
+                    "startOffset": 107917,
                     "endColumn": 89,
-                    "endOffset": 108012
+                    "endOffset": 108002
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -9983,9 +9983,9 @@
                 "to": {
                     "startLine": 1452,
                     "startColumn": 4,
-                    "startOffset": 108017,
+                    "startOffset": 108007,
                     "endColumn": 107,
-                    "endOffset": 108120
+                    "endOffset": 108110
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10002,9 +10002,9 @@
                 "to": {
                     "startLine": 1453,
                     "startColumn": 4,
-                    "startOffset": 108125,
+                    "startOffset": 108115,
                     "endColumn": 109,
-                    "endOffset": 108230
+                    "endOffset": 108220
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10021,9 +10021,9 @@
                 "to": {
                     "startLine": 1454,
                     "startColumn": 4,
-                    "startOffset": 108235,
+                    "startOffset": 108225,
                     "endColumn": 111,
-                    "endOffset": 108342
+                    "endOffset": 108332
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10040,10 +10040,10 @@
                 "to": {
                     "startLine": 1455,
                     "startColumn": 4,
-                    "startOffset": 108347,
+                    "startOffset": 108337,
                     "endLine": 1457,
                     "endColumn": 12,
-                    "endOffset": 108517
+                    "endOffset": 108507
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10061,9 +10061,9 @@
                 "to": {
                     "startLine": 1458,
                     "startColumn": 4,
-                    "startOffset": 108522,
+                    "startOffset": 108512,
                     "endColumn": 115,
-                    "endOffset": 108633
+                    "endOffset": 108623
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10080,9 +10080,9 @@
                 "to": {
                     "startLine": 1459,
                     "startColumn": 4,
-                    "startOffset": 108638,
+                    "startOffset": 108628,
                     "endColumn": 85,
-                    "endOffset": 108719
+                    "endOffset": 108709
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10099,9 +10099,9 @@
                 "to": {
                     "startLine": 1460,
                     "startColumn": 4,
-                    "startOffset": 108724,
+                    "startOffset": 108714,
                     "endColumn": 99,
-                    "endOffset": 108819
+                    "endOffset": 108809
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10118,9 +10118,9 @@
                 "to": {
                     "startLine": 1461,
                     "startColumn": 4,
-                    "startOffset": 108824,
+                    "startOffset": 108814,
                     "endColumn": 111,
-                    "endOffset": 108931
+                    "endOffset": 108921
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10137,9 +10137,9 @@
                 "to": {
                     "startLine": 1462,
                     "startColumn": 4,
-                    "startOffset": 108936,
+                    "startOffset": 108926,
                     "endColumn": 66,
-                    "endOffset": 108998
+                    "endOffset": 108988
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10156,9 +10156,9 @@
                 "to": {
                     "startLine": 1463,
                     "startColumn": 4,
-                    "startOffset": 109003,
+                    "startOffset": 108993,
                     "endColumn": 113,
-                    "endOffset": 109112
+                    "endOffset": 109102
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10175,9 +10175,9 @@
                 "to": {
                     "startLine": 1464,
                     "startColumn": 4,
-                    "startOffset": 109117,
+                    "startOffset": 109107,
                     "endColumn": 67,
-                    "endOffset": 109180
+                    "endOffset": 109170
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10194,9 +10194,9 @@
                 "to": {
                     "startLine": 1465,
                     "startColumn": 4,
-                    "startOffset": 109185,
+                    "startOffset": 109175,
                     "endColumn": 115,
-                    "endOffset": 109296
+                    "endOffset": 109286
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10213,9 +10213,9 @@
                 "to": {
                     "startLine": 1466,
                     "startColumn": 4,
-                    "startOffset": 109301,
+                    "startOffset": 109291,
                     "endColumn": 131,
-                    "endOffset": 109428
+                    "endOffset": 109418
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10232,9 +10232,9 @@
                 "to": {
                     "startLine": 1467,
                     "startColumn": 4,
-                    "startOffset": 109433,
+                    "startOffset": 109423,
                     "endColumn": 115,
-                    "endOffset": 109544
+                    "endOffset": 109534
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10251,9 +10251,9 @@
                 "to": {
                     "startLine": 1468,
                     "startColumn": 4,
-                    "startOffset": 109549,
+                    "startOffset": 109539,
                     "endColumn": 68,
-                    "endOffset": 109613
+                    "endOffset": 109603
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10270,9 +10270,9 @@
                 "to": {
                     "startLine": 1469,
                     "startColumn": 4,
-                    "startOffset": 109618,
+                    "startOffset": 109608,
                     "endColumn": 94,
-                    "endOffset": 109708
+                    "endOffset": 109698
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10289,9 +10289,9 @@
                 "to": {
                     "startLine": 1470,
                     "startColumn": 4,
-                    "startOffset": 109713,
+                    "startOffset": 109703,
                     "endColumn": 114,
-                    "endOffset": 109823
+                    "endOffset": 109813
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10308,9 +10308,9 @@
                 "to": {
                     "startLine": 1471,
                     "startColumn": 4,
-                    "startOffset": 109828,
+                    "startOffset": 109818,
                     "endColumn": 112,
-                    "endOffset": 109936
+                    "endOffset": 109926
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10327,9 +10327,9 @@
                 "to": {
                     "startLine": 1472,
                     "startColumn": 4,
-                    "startOffset": 109941,
+                    "startOffset": 109931,
                     "endColumn": 98,
-                    "endOffset": 110035
+                    "endOffset": 110025
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10346,9 +10346,9 @@
                 "to": {
                     "startLine": 1473,
                     "startColumn": 4,
-                    "startOffset": 110040,
+                    "startOffset": 110030,
                     "endColumn": 119,
-                    "endOffset": 110155
+                    "endOffset": 110145
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10365,9 +10365,9 @@
                 "to": {
                     "startLine": 1474,
                     "startColumn": 4,
-                    "startOffset": 110160,
+                    "startOffset": 110150,
                     "endColumn": 121,
-                    "endOffset": 110277
+                    "endOffset": 110267
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10384,9 +10384,9 @@
                 "to": {
                     "startLine": 1475,
                     "startColumn": 4,
-                    "startOffset": 110282,
+                    "startOffset": 110272,
                     "endColumn": 110,
-                    "endOffset": 110388
+                    "endOffset": 110378
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10403,9 +10403,9 @@
                 "to": {
                     "startLine": 1476,
                     "startColumn": 4,
-                    "startOffset": 110393,
+                    "startOffset": 110383,
                     "endColumn": 100,
-                    "endOffset": 110489
+                    "endOffset": 110479
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10422,9 +10422,9 @@
                 "to": {
                     "startLine": 1477,
                     "startColumn": 4,
-                    "startOffset": 110494,
+                    "startOffset": 110484,
                     "endColumn": 104,
-                    "endOffset": 110594
+                    "endOffset": 110584
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10441,9 +10441,9 @@
                 "to": {
                     "startLine": 1478,
                     "startColumn": 4,
-                    "startOffset": 110599,
+                    "startOffset": 110589,
                     "endColumn": 99,
-                    "endOffset": 110694
+                    "endOffset": 110684
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10460,9 +10460,9 @@
                 "to": {
                     "startLine": 1479,
                     "startColumn": 4,
-                    "startOffset": 110699,
+                    "startOffset": 110689,
                     "endColumn": 117,
-                    "endOffset": 110812
+                    "endOffset": 110802
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10479,9 +10479,9 @@
                 "to": {
                     "startLine": 1480,
                     "startColumn": 4,
-                    "startOffset": 110817,
+                    "startOffset": 110807,
                     "endColumn": 90,
-                    "endOffset": 110903
+                    "endOffset": 110893
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10498,9 +10498,9 @@
                 "to": {
                     "startLine": 1481,
                     "startColumn": 4,
-                    "startOffset": 110908,
+                    "startOffset": 110898,
                     "endColumn": 122,
-                    "endOffset": 111026
+                    "endOffset": 111016
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10517,9 +10517,9 @@
                 "to": {
                     "startLine": 1482,
                     "startColumn": 4,
-                    "startOffset": 111031,
+                    "startOffset": 111021,
                     "endColumn": 99,
-                    "endOffset": 111126
+                    "endOffset": 111116
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10536,9 +10536,9 @@
                 "to": {
                     "startLine": 1483,
                     "startColumn": 4,
-                    "startOffset": 111131,
+                    "startOffset": 111121,
                     "endColumn": 103,
-                    "endOffset": 111230
+                    "endOffset": 111220
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10555,9 +10555,9 @@
                 "to": {
                     "startLine": 1484,
                     "startColumn": 4,
-                    "startOffset": 111235,
+                    "startOffset": 111225,
                     "endColumn": 95,
-                    "endOffset": 111326
+                    "endOffset": 111316
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10574,9 +10574,9 @@
                 "to": {
                     "startLine": 1485,
                     "startColumn": 4,
-                    "startOffset": 111331,
+                    "startOffset": 111321,
                     "endColumn": 87,
-                    "endOffset": 111414
+                    "endOffset": 111404
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10593,9 +10593,9 @@
                 "to": {
                     "startLine": 1486,
                     "startColumn": 4,
-                    "startOffset": 111419,
+                    "startOffset": 111409,
                     "endColumn": 105,
-                    "endOffset": 111520
+                    "endOffset": 111510
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10612,9 +10612,9 @@
                 "to": {
                     "startLine": 1487,
                     "startColumn": 4,
-                    "startOffset": 111525,
+                    "startOffset": 111515,
                     "endColumn": 91,
-                    "endOffset": 111612
+                    "endOffset": 111602
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10631,9 +10631,9 @@
                 "to": {
                     "startLine": 1488,
                     "startColumn": 4,
-                    "startOffset": 111617,
+                    "startOffset": 111607,
                     "endColumn": 91,
-                    "endOffset": 111704
+                    "endOffset": 111694
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10650,9 +10650,9 @@
                 "to": {
                     "startLine": 1489,
                     "startColumn": 4,
-                    "startOffset": 111709,
+                    "startOffset": 111699,
                     "endColumn": 113,
-                    "endOffset": 111818
+                    "endOffset": 111808
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10669,9 +10669,9 @@
                 "to": {
                     "startLine": 1490,
                     "startColumn": 4,
-                    "startOffset": 111823,
+                    "startOffset": 111813,
                     "endColumn": 89,
-                    "endOffset": 111908
+                    "endOffset": 111898
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10688,9 +10688,9 @@
                 "to": {
                     "startLine": 1491,
                     "startColumn": 4,
-                    "startOffset": 111913,
+                    "startOffset": 111903,
                     "endColumn": 83,
-                    "endOffset": 111992
+                    "endOffset": 111982
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10707,9 +10707,9 @@
                 "to": {
                     "startLine": 1492,
                     "startColumn": 4,
-                    "startOffset": 111997,
+                    "startOffset": 111987,
                     "endColumn": 53,
-                    "endOffset": 112046
+                    "endOffset": 112036
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10726,9 +10726,9 @@
                 "to": {
                     "startLine": 1493,
                     "startColumn": 4,
-                    "startOffset": 112051,
+                    "startOffset": 112041,
                     "endColumn": 121,
-                    "endOffset": 112168
+                    "endOffset": 112158
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10745,9 +10745,9 @@
                 "to": {
                     "startLine": 1494,
                     "startColumn": 4,
-                    "startOffset": 112173,
+                    "startOffset": 112163,
                     "endColumn": 83,
-                    "endOffset": 112252
+                    "endOffset": 112242
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",
@@ -10764,9 +10764,9 @@
                 "to": {
                     "startLine": 1495,
                     "startColumn": 4,
-                    "startOffset": 112257,
+                    "startOffset": 112247,
                     "endColumn": 119,
-                    "endOffset": 112372
+                    "endOffset": 112362
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values\\values.xml",

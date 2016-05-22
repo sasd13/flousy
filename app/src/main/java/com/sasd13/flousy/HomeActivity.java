@@ -11,8 +11,8 @@ import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridItem;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.gui.content.homemenu.HomeMenuItem;
-import com.sasd13.flousy.gui.content.homemenu.HomeMenu;
+import com.sasd13.flousy.gui.nav.Nav;
+import com.sasd13.flousy.gui.nav.NavItem;
 
 public class HomeActivity extends MotherActivity {
 
@@ -22,28 +22,28 @@ public class HomeActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.recycler);
-        createGridHomeMenu();
-        fillGridHomeMenu();
+        setContentView(R.layout.activity_home);
+        createGridNav();
+        fillGridNav();
     }
 
-    private void createGridHomeMenu() {
-        RecyclerView gridView = (RecyclerView) findViewById(R.id.recycler_recyclerview);
+    private void createGridNav() {
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.home_recyclerview);
 
-        grid = new Grid(this, gridView);
+        grid = new Grid(recyclerView, R.layout.griditem);
     }
 
-    private void fillGridHomeMenu() {
-        HomeMenu homeMenu = HomeMenu.getInstance(this);
+    private void fillGridNav() {
+        Nav nav = Nav.getInstance(this);
         GridItem gridItem;
 
-        for (HomeMenuItem homeMenuItem : homeMenu.getItems()) {
+        for (NavItem navItem : nav.getItems()) {
             gridItem = new GridItem();
 
-            gridItem.setText(homeMenuItem.getText());
-            gridItem.setImage(homeMenuItem.getImage());
-            gridItem.setColor(homeMenuItem.getColor());
-            gridItem.setIntent(homeMenuItem.getIntent());
+            gridItem.setText(navItem.getText());
+            gridItem.setImage(navItem.getImage());
+            gridItem.setColor(navItem.getColor());
+            gridItem.setIntent(navItem.getIntent());
 
             grid.addItem(gridItem);
         }

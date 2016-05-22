@@ -1,19 +1,14 @@
 package com.sasd13.flousy.gui.widget.recycler.drawer;
 
 import android.view.View;
-import android.view.ViewStub;
 
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemIntentable;
+import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItem;
 import com.sasd13.flousy.R;
 
-public class DrawerItemHomeMenu extends DrawerItemIntentable {
+public class DrawerItemNav extends DrawerItem {
 
     private int color;
     private View colorView;
-
-    public DrawerItemHomeMenu() {
-        super(R.layout.draweritem_menu);
-    }
 
     public void setColor(int color) {
         this.color = color;
@@ -26,15 +21,15 @@ public class DrawerItemHomeMenu extends DrawerItemIntentable {
     }
 
     @Override
-    public void inflate(ViewStub viewStub) {
-        super.inflate(viewStub);
+    public void setView(View view) {
+        super.setView(view);
 
         findViews();
         bindViews();
     }
 
     private void findViews() {
-        colorView = view.findViewById(R.id.draweritemhomemenu_view_color);
+        colorView = view.findViewById(R.id.draweritem_nav_colorview);
     }
 
     private void bindViews() {

@@ -12,12 +12,18 @@ import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
-import com.sasd13.androidex.session.Session;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.db.CustomerDAO;
-import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.javaex.db.IDAO;
+import com.sasd13.flousy.constant.Extra;
+import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
+import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
+import com.sasd13.javaex.db.LayeredPersistor;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class LogActivity extends Activity {
 
@@ -30,7 +36,7 @@ public class LogActivity extends Activity {
 
     private FormLogViewHolder formLog;
 
-    private IDAO dao = DAOFactory.make();
+    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,22 +67,50 @@ public class LogActivity extends Activity {
     }
 
     private void logIn() {
-        String number = formLog.editTextEmail.getText().toString().trim();
-        String password = formLog.editTextPassword.getText().toString().trim();
+        String email = formLog.editTextEmail.getText().toString().trim();
 
-        dao.open();
-        Customer customer = ((CustomerDAO) dao.getEntityDAO(Customer.class)).selectByEmail(number);
-        dao.close();
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
 
-        if (customer != null && password.equals(customer.getPassword())) {
-            Session.logIn(customer.getId());
-            goToHomeActivity();
+        List<Customer> customers = persistor.read(parameters, Customer.class);
+
+        if (customers.size() == 1) {
+            Customer customer = customers.get(0);
+
+            String candidate = formLog.editTextPassword.getText().toString().trim();
+            String password = selectPasswordFromDAO(customer);
+
+            if (password.equals(candidate)) {
+                SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
+                goToHomeActivity();
+            } else {
+                CustomDialog.showOkDialog(
+                        this,
+                        getResources().getString(R.string.log_alertdialog_title_error_log),
+                        getResources().getString(R.string.log_alertdialog_message_error_log));
+            }
         } else {
             CustomDialog.showOkDialog(
                     this,
                     getResources().getString(R.string.log_alertdialog_title_error_log),
                     getResources().getString(R.string.log_alertdialog_message_error_log));
         }
+    }
+
+    private String selectPasswordFromDAO(Customer customer) {
+        String password = null;
+
+        SQLitePasswordDAO dao = new SQLitePasswordDAO();
+
+        try {
+            dao.open();
+
+            password = dao.select(customer.getId());
+        } finally {
+            dao.close();
+        }
+
+        return password;
     }
 
     private void goToHomeActivity() {

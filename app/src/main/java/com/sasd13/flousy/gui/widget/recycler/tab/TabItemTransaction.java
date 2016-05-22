@@ -2,7 +2,6 @@ package com.sasd13.flousy.gui.widget.recycler.tab;
 
 import android.content.Intent;
 import android.view.View;
-import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.color.ColorOnTouchListener;
@@ -20,10 +19,6 @@ public class TabItemTransaction extends RecyclerItem {
     private CharSequence date, title, value;
     private Intent intent;
     private TextView textViewDate, textViewTitle, textViewValue;
-
-    public TabItemTransaction() {
-        super(R.layout.tabitem_transaction);
-    }
 
     public void setDate(CharSequence date) {
         this.date = date;
@@ -61,8 +56,8 @@ public class TabItemTransaction extends RecyclerItem {
     }
 
     @Override
-    public void inflate(ViewStub viewStub) {
-        super.inflate(viewStub);
+    public void setView(View view) {
+        super.setView(view);
 
         findViews();
         bindViews();

@@ -9,11 +9,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.db.CustomerDAO;
-import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.javaex.db.IDAO;
+import com.sasd13.flousy.constant.Extra;
+import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
+import com.sasd13.javaex.db.LayeredPersistor;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SettingActivity extends MotherActivity {
 
@@ -23,7 +28,8 @@ public class SettingActivity extends MotherActivity {
 
     private FormCustomerViewHolder formCustomer;
 
-    private IDAO dao = DAOFactory.make();
+    private Customer customer;
+    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,14 +51,15 @@ public class SettingActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        dao.open();
-        Customer customer = (Customer) dao.getEntityDAO(Customer.class).select(Session.getId());
-        dao.close();
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put(Parameter.CUSTOMER.getName(), new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) });
 
-        fillFormCustomer(customer);
+        customer = persistor.read(parameters, Customer.class).get(0);
+
+        fillFormCustomer();
     }
 
-    private void fillFormCustomer(Customer customer) {
+    private void fillFormCustomer() {
         formCustomer.editTextFirstName.setText(customer.getFirstName(), TextView.BufferType.EDITABLE);
         formCustomer.editTextLastName.setText(customer.getLastName(), TextView.BufferType.EDITABLE);
         formCustomer.editTextEmail.setText(customer.getEmail(), TextView.BufferType.EDITABLE);
@@ -98,27 +105,20 @@ public class SettingActivity extends MotherActivity {
     private void tryToPerformUpdateCustomer() {
         String email = formCustomer.editTextEmail.getText().toString().trim();
 
-        dao.open();
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
 
-        Customer customer = ((CustomerDAO) dao.getEntityDAO(Customer.class)).selectByEmail(email);
-        if (customer == null) {
-            customer = (Customer) dao.getEntityDAO(Customer.class).select(Session.getId());
-
-            performUpdateCustomer(customer);
+        List<Customer> customers = persistor.read(parameters, Customer.class);
+        if (customers.isEmpty() || customers.get(0).getId() == SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) {
+            performUpdate();
         } else {
-            if (customer.getId() == Session.getId()) {
-                performUpdateCustomer(customer);
-            } else {
-                CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
-            }
+            CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
         }
-
-        dao.close();
     }
 
-    private void performUpdateCustomer(Customer customer) {
+    private void performUpdate() {
         editCustomerWithForm(customer);
-        dao.getEntityDAO(Customer.class).update(customer);
+        persistor.update(customer);
         Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
     }
 

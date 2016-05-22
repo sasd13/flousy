@@ -12,16 +12,18 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.sql.Timestamp;
-
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
-import com.sasd13.androidex.session.Session;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.db.AccountDAO;
-import com.sasd13.flousy.db.DAOFactory;
-import com.sasd13.javaex.db.IDAO;
+import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
+import com.sasd13.javaex.db.LayeredPersistor;
+
+import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TransactionActivity extends MotherActivity {
 
@@ -34,7 +36,8 @@ public class TransactionActivity extends MotherActivity {
 
     private FormTransactionViewHolder formTransaction;
 
-    private IDAO dao = DAOFactory.make();
+    private Transaction transaction;
+    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,11 +65,9 @@ public class TransactionActivity extends MotherActivity {
         if (hasExtraModeNew()) {
             fillNewFormTransaction();
         } else {
-            dao.open();
-            Transaction transaction = (Transaction) dao.getEntityDAO(Transaction.class).select(getTransactionIdFromIntent());
-            dao.close();
+            transaction = persistor.read(getTransactionIdFromIntent(), Transaction.class);
 
-            fillEditFormTransaction(transaction);
+            fillEditFormTransaction();
         }
     }
 
@@ -87,12 +88,12 @@ public class TransactionActivity extends MotherActivity {
         return getIntent().getLongExtra(Extra.TRANSACTION_ID, 0);
     }
 
-    private void fillEditFormTransaction(Transaction transaction) {
+    private void fillEditFormTransaction() {
         formTransaction.textViewDateRealization.setText(String.valueOf(transaction.getDateRealization()));
         formTransaction.editTextTitle.setText(transaction.getTitle(), TextView.BufferType.EDITABLE);
-        formTransaction.editTextValue.setText(String.valueOf(Math.abs(transaction.getValue())), TextView.BufferType.EDITABLE);
+        formTransaction.editTextValue.setText(String.valueOf(Math.abs(transaction.getAmount())), TextView.BufferType.EDITABLE);
 
-        if (transaction.getValue() <= 0) {
+        if (transaction.getAmount() <= 0) {
             formTransaction.radioButtonDebit.setChecked(true);
         } else {
             formTransaction.radioButtonCredit.setChecked(true);
@@ -161,33 +162,28 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void performCreateTransaction() {
-        Transaction transaction = getTransactionFromForm();
+        Map<String, String[]> parameters = new HashMap<>();
+        parameters.put(Parameter.CUSTOMER.getName(), new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID))});
 
-        dao.open();
+        Account account = persistor.read(parameters, Account.class).get(0);
 
-        Account account = ((AccountDAO) dao.getEntityDAO(Account.class)).selectByCustomer(Session.getId());
-        transaction.setAccount(account);
-        dao.getEntityDAO(Transaction.class).insert(transaction);
-
-        dao.close();
+        Transaction transaction = new Transaction(account);
+        editTransactionWithForm(transaction);
+        persistor.create(transaction);
     }
 
-    private Transaction getTransactionFromForm() {
-        Transaction transaction = new Transaction();
-
+    private void editTransactionWithForm(Transaction transaction) {
         transaction.setTitle(formTransaction.editTextTitle.getText().toString().trim());
 
         String value = formTransaction.editTextValue.getText().toString().trim();
         switch (formTransaction.radioGroupType.getCheckedRadioButtonId()) {
             case R.id.form_transaction_radiobutton_type_debit:
-                transaction.setValue(0 - Math.abs(Double.parseDouble(value)));
+                transaction.setAmount(0 - Math.abs(Double.parseDouble(value)));
                 break;
             case R.id.form_transaction_radiobutton_type_credit:
-                transaction.setValue(Math.abs(Double.parseDouble(value)));
+                transaction.setAmount(Math.abs(Double.parseDouble(value)));
                 break;
         }
-
-        return transaction;
     }
 
     private void goToAccountActivity() {
@@ -211,19 +207,8 @@ public class TransactionActivity extends MotherActivity {
     }
 
     private void performUpdateTransaction() {
-        dao.open();
-
-        Transaction transaction = (Transaction) dao.getEntityDAO(Transaction.class).select(getTransactionIdFromIntent());
         editTransactionWithForm(transaction);
-        dao.getEntityDAO(Transaction.class).update(transaction);
-
-        dao.close();
-    }
-
-    private void editTransactionWithForm(Transaction transaction) {
-        Transaction transactionFromForm = getTransactionFromForm();
-        transaction.setTitle(transactionFromForm.getTitle());
-        transaction.setValue(transactionFromForm.getValue());
+        persistor.update(transaction);
     }
 
     private void deleteTransaction() {
@@ -234,18 +219,11 @@ public class TransactionActivity extends MotherActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        performDeleteTransaction();
+                        persistor.delete(transaction);
+                        Toast.makeText(TransactionActivity.this, R.string.message_deleted, Toast.LENGTH_SHORT).show();
                         goToAccountActivity();
                     }
                 }
         );
-    }
-
-    private void performDeleteTransaction() {
-        dao.open();
-        dao.getEntityDAO(Transaction.class).delete(getTransactionIdFromIntent());
-        dao.close();
-
-        Toast.makeText(this, R.string.message_deleted, Toast.LENGTH_SHORT).show();
     }
 }
