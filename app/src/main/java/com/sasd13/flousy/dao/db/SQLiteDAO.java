@@ -12,13 +12,13 @@ import com.sasd13.flousy.dao.TransactionDeepReader;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.DeepReader;
 import com.sasd13.javaex.db.IEntityDAO;
-import com.sasd13.javaex.db.ILayeredDAO;
+import com.sasd13.javaex.db.ITransactionalLayeredDAO;
 
-public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO {
+public class SQLiteDAO implements ITransactionalLayeredDAO, ISQLiteDAO {
 
     private static SQLiteDAO instance = null;
 
-    private SQLiteDBHandler dbHandler;
+    private SQLiteDatabaseHandler dbHandler;
     private SQLiteDatabase db;
 
     protected CustomerDAO customerDAO;
@@ -36,9 +36,13 @@ public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO {
         return instance;
     }
 
+    public SQLiteDatabase getDB() {
+        return db;
+    }
+
     @Override
     public void init(Context context) {
-        dbHandler = new SQLiteDBHandler(context, SQLiteDBInfo.DB, null, SQLiteDBInfo.VERSION);
+        dbHandler = new SQLiteDatabaseHandler(context, SQLiteDatabaseInfo.DB, null, SQLiteDatabaseInfo.VERSION);
 
         customerDAO = new SQLiteCustomerDAO();
         accountDAO = new SQLiteAccountDAO();
@@ -60,6 +64,31 @@ public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO {
     @Override
     public void close() {
         db.close();
+    }
+
+    @Override
+    public boolean inTransaction() {
+        return db.inTransaction();
+    }
+
+    @Override
+    public void beginTransaction() throws DAOException {
+        db.beginTransaction();
+    }
+
+    @Override
+    public void endTransaction() {
+        db.endTransaction();
+    }
+
+    @Override
+    public void commit() {
+        db.setTransactionSuccessful();
+    }
+
+    @Override
+    public void rollback() {
+
     }
 
     @Override

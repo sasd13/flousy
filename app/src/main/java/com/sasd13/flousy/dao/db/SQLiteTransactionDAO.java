@@ -2,12 +2,6 @@ package com.sasd13.flousy.dao.db;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.SQLException;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Transaction;
@@ -15,6 +9,11 @@ import com.sasd13.flousy.dao.IPersistable;
 import com.sasd13.flousy.dao.TransactionDAO;
 import com.sasd13.flousy.dao.db.util.SQLWhereClauseException;
 import com.sasd13.flousy.dao.db.util.SQLWhereClauseParser;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class SQLiteTransactionDAO extends SQLiteEntityDAO<Transaction> implements TransactionDAO, IPersistable<Transaction> {
 
@@ -46,57 +45,23 @@ public class SQLiteTransactionDAO extends SQLiteEntityDAO<Transaction> implement
 
     @Override
     public long insert(Transaction transaction) {
-        long id = 0;
-
-        db.beginTransaction();
-
-        try {
-            id = db.insert(TABLE, null, getContentValues(transaction));
-
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
-
-        return id;
+        return db.insert(TABLE, null, getContentValues(transaction));
     }
 
     @Override
     public void update(Transaction transaction) {
-        if (db.inTransaction()) {
-            db.beginTransaction();
-
-            try {
-                db.update(TABLE, getContentValues(transaction), COLUMN_ID + " = ?", new String[]{ String.valueOf(transaction.getId()) });
-
-                db.setTransactionSuccessful();
-            } finally {
-                db.endTransaction();
-            }
-        } else {
-            db.update(TABLE, getContentValues(transaction), COLUMN_ID + " = ?", new String[]{ String.valueOf(transaction.getId()) });
-        }
+        db.update(TABLE, getContentValues(transaction), COLUMN_ID + " = ?", new String[]{ String.valueOf(transaction.getId()) });
     }
 
     @Override
     public void delete(Transaction transaction) {
         String query = "UPDATE " + TABLE
                 + " SET "
-                + COLUMN_DELETED + " = 1"
+                    + COLUMN_DELETED + " = 1"
                 + " WHERE "
-                + COLUMN_ID + " = " + transaction.getId();
+                    + COLUMN_ID + " = " + transaction.getId();
 
-        db.beginTransaction();
-
-        try {
-            db.execSQL(query);
-
-            db.setTransactionSuccessful();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            db.endTransaction();
-        }
+        db.execSQL(query);
     }
 
     @Override
@@ -105,8 +70,8 @@ public class SQLiteTransactionDAO extends SQLiteEntityDAO<Transaction> implement
 
         String query = "SELECT * FROM " + TABLE
                 + " WHERE "
-                + COLUMN_ID + " = ? AND "
-                + COLUMN_DELETED + " = ?";
+                    + COLUMN_ID + " = ? AND "
+                    + COLUMN_DELETED + " = ?";
 
         Cursor cursor = db.rawQuery(query, new String[]{ String.valueOf(id), String.valueOf(0) });
         if (cursor.moveToNext()) {
@@ -124,8 +89,8 @@ public class SQLiteTransactionDAO extends SQLiteEntityDAO<Transaction> implement
         try {
             String query = "SELECT * FROM " + TABLE
                     + " WHERE "
-                    + SQLWhereClauseParser.parse(parameters, TransactionDAO.class) + " AND "
-                    + COLUMN_DELETED + " = ?";
+                        + SQLWhereClauseParser.parse(parameters, TransactionDAO.class) + " AND "
+                        + COLUMN_DELETED + " = ?";
 
             Cursor cursor = db.rawQuery(query, new String[]{ String.valueOf(0) });
             while (cursor.moveToNext()) {
@@ -145,7 +110,7 @@ public class SQLiteTransactionDAO extends SQLiteEntityDAO<Transaction> implement
 
         String query = "SELECT * FROM " + TABLE
                 + " WHERE "
-                + COLUMN_DELETED + " = ?";
+                    + COLUMN_DELETED + " = ?";
 
         Cursor cursor = db.rawQuery(query, new String[]{ String.valueOf(0) });
         while (cursor.moveToNext()) {

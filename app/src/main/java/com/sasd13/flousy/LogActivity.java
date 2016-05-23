@@ -36,7 +36,8 @@ public class LogActivity extends Activity {
 
     private FormLogViewHolder formLog;
 
-    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
+    private SQLiteDAO dao = SQLiteDAO.getInstance();
+    private LayeredPersistor persistor = new LayeredPersistor(dao);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,19 +99,7 @@ public class LogActivity extends Activity {
     }
 
     private String selectPasswordFromDAO(Customer customer) {
-        String password = null;
-
-        SQLitePasswordDAO dao = new SQLitePasswordDAO();
-
-        try {
-            dao.open();
-
-            password = dao.select(customer.getId());
-        } finally {
-            dao.close();
-        }
-
-        return password;
+        return new SQLitePasswordDAO(dao.getDB()).select(customer.getId());
     }
 
     private void goToHomeActivity() {

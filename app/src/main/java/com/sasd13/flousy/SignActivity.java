@@ -18,7 +18,9 @@ import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
+import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.LayeredPersistor;
+import com.sasd13.javaex.db.TransactionalLayeredPersistor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +36,9 @@ public class SignActivity extends ActionBarActivity {
 
     private FormCustomerViewHolder formCustomer;
 
-    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
+    private SQLiteDAO dao = SQLiteDAO.getInstance();
+    private LayeredPersistor persistor = new LayeredPersistor(dao);
+    private TransactionalLayeredPersistor transactionalPersistor = new TransactionalLayeredPersistor(dao);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -119,18 +123,24 @@ public class SignActivity extends ActionBarActivity {
     }
 
     private void performSignUp(Customer customer) {
-        persistor.create(customer);
-
-        String password = formCustomer.editTextPassword.getText().toString().trim();
-        SQLitePasswordDAO dao = new SQLitePasswordDAO();
-
         try {
-            dao.open();
+            transactionalPersistor.open();
+            transactionalPersistor.beginTransaction();
 
-            dao.insert(password, customer.getId());
-            persistor.create(customer.getAccount());
+            transactionalPersistor.create(customer);
+
+            String password = formCustomer.editTextPassword.getText().toString().trim();
+            SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
+            passwordDAO.insert(password, customer.getId());
+
+            transactionalPersistor.create(customer.getAccount());
+
+            transactionalPersistor.commit();
+        } catch (DAOException e) {
+            e.printStackTrace();
         } finally {
-            dao.close();
+            transactionalPersistor.endTransaction();
+            transactionalPersistor.close();
         }
     }
 

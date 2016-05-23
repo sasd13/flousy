@@ -9,7 +9,7 @@ import com.sasd13.flousy.dao.AccountDAO;
 import com.sasd13.flousy.dao.CustomerDAO;
 import com.sasd13.flousy.dao.TransactionDAO;
 
-public class SQLiteDBHandler extends SQLiteOpenHelper {
+public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
     /**
      * Table customers
@@ -66,7 +66,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
             + ");";
 
 
-    public SQLiteDBHandler(Context context, String name, CursorFactory factory, int version) {
+    public SQLiteDatabaseHandler(Context context, String name, CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 

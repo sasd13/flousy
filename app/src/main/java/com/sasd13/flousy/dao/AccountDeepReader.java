@@ -4,6 +4,7 @@ import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.bean.Transaction;
 import com.sasd13.flousy.util.Parameter;
+import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.DeepReader;
 import com.sasd13.javaex.db.IEntityDAO;
 
@@ -24,7 +25,7 @@ public class AccountDeepReader extends DeepReader<Account> {
     }
 
     @Override
-    protected void retrieveData(Account account) {
+    protected void retrieveData(Account account) throws DAOException {
         Customer customer = customerDAO.select(account.getCustomer().getId());
         account.getCustomer().setFirstName(customer.getFirstName());
         account.getCustomer().setLastName(customer.getLastName());

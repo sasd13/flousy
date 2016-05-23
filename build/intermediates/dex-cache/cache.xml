@@ -2,53 +2,67 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\libs\javaex-0.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7b183af2be0eecd19d512dede6173facd14810df">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\javaex-0.1-aba931d7fc8dcca25d399b68a85c8ce13205ba30.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-ed58832ee2ef5d5e24e08be453e32903b3e9ecda.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-50a44fb1e225eb0aa8247af9d8cbeb85cb43d222.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-70228b5ce1c3a27af6e8aeb8b0b990970627fd37.jar" />
-    </item>
-    <item
         jar="C:\Users\Samir\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3_b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-21.0.3_da5f74db544170ec59ebb349005e0d756e9da8a0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\libs\javaex-0.1.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="bc653cd822e8243ca13739fedb6de78f7838ad31">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\javaex-0.1_aba931d7fc8dcca25d399b68a85c8ce13205ba30.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\classes.jar"
+        jumboMode="true"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-7ee555de202cfb4fc114a15befe86df68389ea5a.jar" />
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-21.0.3_c09e62550b08af4e1189829bd4d00c95d4345595.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\classes.jar"
-        jumboMode="false"
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\jars\classes.jar"
+        jumboMode="true"
         revision="21.1.2"
-        sha1="f138206d4b4356dda0291039ce0c1b7bc7f03e1d">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\classes-43bbe21fda54c93bffbb5a0d5113bcf027bbb96e.jar" />
+        sha1="dd05eebbd8d593d062aa3c2346011fdeaa42bd16">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\exploded-aar-com.sasd13.androidex-androidex_de2df00d4ba00729aef8d955ef2557333b3b06ec.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\libs\internal_impl-21.0.3.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3_fe2e64d3a5d517c4f49915ca22c8a245d2f0e50f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="e74428721dfc7db5dedd43a1c034ba3d51a7b59e">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run_d63b0508ad20f5f6f34904d58c5cad9a5bb5fc64.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\jars\classes.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-21.0.3_da23d8e506d28ff51fa4267a763fb46a30430eda.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="21.1.2"
+        sha1="9f4b58fe6eefef961a293b33030ac565ada567a9">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_87fee13a55422da1960cb415a1912c330267b7a2.jar" />
     </item>
 
 </items>
