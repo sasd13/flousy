@@ -51,10 +51,7 @@ public class SettingActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.CUSTOMER.getName(), new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) });
-
-        customer = persistor.read(parameters, Customer.class).get(0);
+        customer = persistor.read(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID), Customer.class);
 
         fillFormCustomer();
     }

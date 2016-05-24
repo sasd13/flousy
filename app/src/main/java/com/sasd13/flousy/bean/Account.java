@@ -8,12 +8,12 @@ public class Account {
 
     private long id;
     private Timestamp dateOpening;
-    private List<Transaction> transactions;
+    private List<Operation> operations;
     private Customer customer;
 
     public Account() {
         dateOpening = new Timestamp(System.currentTimeMillis());
-        transactions = new ArrayList<>();
+        operations = new ArrayList<>();
     }
 
     public Account(Customer customer) {
@@ -38,8 +38,8 @@ public class Account {
         this.dateOpening = dateOpening;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
+    public List<Operation> getOperations() {
+        return operations;
     }
 
     public Customer getCustomer() {
@@ -49,8 +49,8 @@ public class Account {
     public double getSold() {
         double sold = 0;
 
-        for (Transaction transaction : transactions) {
-            sold += transaction.getAmount();
+        for (Operation operation : operations) {
+            sold += operation.getAmount();
         }
 
         return sold;

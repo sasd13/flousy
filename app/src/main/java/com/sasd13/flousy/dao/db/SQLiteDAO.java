@@ -4,11 +4,14 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.sasd13.androidex.db.ISQLiteDAO;
+import com.sasd13.flousy.bean.Account;
+import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.dao.AccountDAO;
 import com.sasd13.flousy.dao.AccountDeepReader;
 import com.sasd13.flousy.dao.CustomerDAO;
-import com.sasd13.flousy.dao.TransactionDAO;
-import com.sasd13.flousy.dao.TransactionDeepReader;
+import com.sasd13.flousy.dao.OperationDAO;
+import com.sasd13.flousy.dao.OperationDeepReader;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.DeepReader;
 import com.sasd13.javaex.db.IEntityDAO;
@@ -23,10 +26,10 @@ public class SQLiteDAO implements ITransactionalLayeredDAO, ISQLiteDAO {
 
     protected CustomerDAO customerDAO;
     protected AccountDAO accountDAO;
-    protected TransactionDAO transactionDAO;
+    protected OperationDAO operationDAO;
 
     private AccountDeepReader accountDeepReader;
-    private TransactionDeepReader transactionDeepReader;
+    private OperationDeepReader operationDeepReader;
 
     public static synchronized SQLiteDAO getInstance() {
         if (instance == null) {
@@ -46,10 +49,10 @@ public class SQLiteDAO implements ITransactionalLayeredDAO, ISQLiteDAO {
 
         customerDAO = new SQLiteCustomerDAO();
         accountDAO = new SQLiteAccountDAO();
-        transactionDAO = new SQLiteTransactionDAO();
+        operationDAO = new SQLiteOperationDAO();
 
-        accountDeepReader = new AccountDeepReader(accountDAO, customerDAO, transactionDAO);
-        transactionDeepReader = new TransactionDeepReader(transactionDAO, accountDAO);
+        accountDeepReader = new AccountDeepReader(accountDAO, customerDAO, operationDAO);
+        operationDeepReader = new OperationDeepReader(operationDAO, accountDAO);
     }
 
     @Override
@@ -58,7 +61,7 @@ public class SQLiteDAO implements ITransactionalLayeredDAO, ISQLiteDAO {
 
         ((SQLiteEntityDAO) customerDAO).setDB(db);
         ((SQLiteEntityDAO) accountDAO).setDB(db);
-        ((SQLiteEntityDAO) transactionDAO).setDB(db);
+        ((SQLiteEntityDAO) operationDAO).setDB(db);
     }
 
     @Override
@@ -93,12 +96,12 @@ public class SQLiteDAO implements ITransactionalLayeredDAO, ISQLiteDAO {
 
     @Override
     public <T> IEntityDAO<T> getEntityDAO(Class<T> mClass) throws DAOException {
-        if ("Customer".equals(mClass.getSimpleName())) {
+        if (Customer.class.equals(mClass)) {
             return (IEntityDAO<T>) customerDAO;
-        } else if ("Account".equals(mClass.getSimpleName())) {
+        } else if (Account.class.equals(mClass)) {
             return (IEntityDAO<T>) accountDAO;
-        } else if ("Transaction".equals(mClass.getSimpleName())) {
-            return (IEntityDAO<T>) transactionDAO;
+        } else if (Operation.class.equals(mClass)) {
+            return (IEntityDAO<T>) operationDAO;
         } else {
             return null;
         }
@@ -106,10 +109,10 @@ public class SQLiteDAO implements ITransactionalLayeredDAO, ISQLiteDAO {
 
     @Override
     public <T> DeepReader<T> getDeepReader(Class<T> mClass) throws DAOException {
-        if ("Account".equals(mClass.getSimpleName())) {
+        if (Account.class.equals(mClass)) {
             return (DeepReader<T>) accountDeepReader;
-        } else if ("Transaction".equals(mClass.getSimpleName())) {
-            return (DeepReader<T>) transactionDeepReader;
+        } else if (Operation.class.equals(mClass)) {
+            return (DeepReader<T>) operationDeepReader;
         } else {
             return null;
         }

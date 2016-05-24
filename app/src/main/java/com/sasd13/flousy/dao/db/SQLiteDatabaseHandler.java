@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.sasd13.flousy.dao.AccountDAO;
 import com.sasd13.flousy.dao.CustomerDAO;
-import com.sasd13.flousy.dao.TransactionDAO;
+import com.sasd13.flousy.dao.OperationDAO;
 
 public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
@@ -34,6 +34,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
                 + SQLitePasswordDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + SQLitePasswordDAO.COLUMN_PASSWORD + " TEXT NOT NULL, "
                 + SQLitePasswordDAO.COLUMN_CUSTOMER_ID + " INTEGER NOT NULL, "
+                + SQLitePasswordDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
                 + "FOREIGN KEY (" + SQLitePasswordDAO.COLUMN_CUSTOMER_ID + ") REFERENCES " + CustomerDAO.TABLE + "(" + CustomerDAO.COLUMN_ID + ")"
             + ");";
 
@@ -51,18 +52,18 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
             + ");";
 
     /**
-     * Table transactions
+     * Table operation
      */
-    public static final String TRANSACTION_TABLE_DROP = "DROP TABLE IF EXISTS " + TransactionDAO.TABLE + ";";
-    public static final String TRANSACTION_TABLE_CREATE = "CREATE TABLE " + TransactionDAO.TABLE
+    public static final String OPERATION_TABLE_DROP = "DROP TABLE IF EXISTS " + OperationDAO.TABLE + ";";
+    public static final String OPERATION_TABLE_CREATE = "CREATE TABLE " + OperationDAO.TABLE
             + " ("
-                + TransactionDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TransactionDAO.COLUMN_DATEREALIZATION + " TEXT NOT NULL, "
-                + TransactionDAO.COLUMN_TITLE + " TEXT NOT NULL, "
-                + TransactionDAO.COLUMN_AMOUNT + " REAL NOT NULL, "
-                + TransactionDAO.COLUMN_ACCOUNT_ID + " INTEGER NOT NULL, "
-                + TransactionDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
-                + "FOREIGN KEY (" + TransactionDAO.COLUMN_ACCOUNT_ID + ") REFERENCES " + AccountDAO.TABLE + "(" + AccountDAO.COLUMN_ID + ")"
+                + OperationDAO.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + OperationDAO.COLUMN_DATEREALIZATION + " TEXT NOT NULL, "
+                + OperationDAO.COLUMN_TITLE + " TEXT NOT NULL, "
+                + OperationDAO.COLUMN_AMOUNT + " REAL NOT NULL, "
+                + OperationDAO.COLUMN_ACCOUNT_ID + " INTEGER NOT NULL, "
+                + OperationDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
+                + "FOREIGN KEY (" + OperationDAO.COLUMN_ACCOUNT_ID + ") REFERENCES " + AccountDAO.TABLE + "(" + AccountDAO.COLUMN_ID + ")"
             + ");";
 
 
@@ -75,12 +76,12 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CUSTOMER_TABLE_CREATE);
         db.execSQL(PASSWORD_TABLE_CREATE);
         db.execSQL(ACCOUNT_TABLE_CREATE);
-        db.execSQL(TRANSACTION_TABLE_CREATE);
+        db.execSQL(OPERATION_TABLE_CREATE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(TRANSACTION_TABLE_DROP);
+        db.execSQL(OPERATION_TABLE_DROP);
         db.execSQL(ACCOUNT_TABLE_DROP);
         db.execSQL(PASSWORD_TABLE_DROP);
         db.execSQL(CUSTOMER_TABLE_DROP);

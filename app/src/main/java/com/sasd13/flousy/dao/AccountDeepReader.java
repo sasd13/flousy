@@ -2,7 +2,7 @@ package com.sasd13.flousy.dao;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.bean.Transaction;
+import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.DeepReader;
@@ -15,13 +15,13 @@ import java.util.Map;
 public class AccountDeepReader extends DeepReader<Account> {
 
     private CustomerDAO customerDAO;
-    private TransactionDAO transactionDAO;
+    private OperationDAO operationDAO;
 
-    public AccountDeepReader(IEntityDAO<Account> entityDAO, CustomerDAO customerDAO, TransactionDAO transactionDAO) {
+    public AccountDeepReader(IEntityDAO<Account> entityDAO, CustomerDAO customerDAO, OperationDAO operationDAO) {
         super(entityDAO);
 
         this.customerDAO = customerDAO;
-        this.transactionDAO = transactionDAO;
+        this.operationDAO = operationDAO;
     }
 
     @Override
@@ -34,14 +34,14 @@ public class AccountDeepReader extends DeepReader<Account> {
         Map<String, String[]> parameters = new HashMap<>();
         parameters.put(Parameter.ACCOUNT.getName(), new String[]{ String.valueOf(account.getId()) });
 
-        List<Transaction> transactions = transactionDAO.select(parameters);
-        Transaction transactionToAdd;
-        for (Transaction transaction : transactions) {
-            transactionToAdd = new Transaction(account);
-            transactionToAdd.setId(transaction.getId());
-            transactionToAdd.setDateRealization(transaction.getDateRealization());
-            transactionToAdd.setTitle(transaction.getTitle());
-            transactionToAdd.setAmount(transaction.getAmount());
+        List<Operation> operations = operationDAO.select(parameters);
+        Operation operationToAdd;
+        for (Operation operation : operations) {
+            operationToAdd = new Operation(account);
+            operationToAdd.setId(operation.getId());
+            operationToAdd.setDateRealization(operation.getDateRealization());
+            operationToAdd.setTitle(operation.getTitle());
+            operationToAdd.setAmount(operation.getAmount());
         }
     }
 }

@@ -40,7 +40,11 @@ public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements Cust
 
     @Override
     public long insert(Customer customer) {
-        return db.insert(TABLE, null, getContentValues(customer));
+        long id = db.insert(TABLE, null, getContentValues(customer));
+
+        customer.setId(id);
+
+        return id;
     }
 
     @Override

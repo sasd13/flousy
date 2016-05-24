@@ -2,6 +2,7 @@ package com.sasd13.flousy.gui.nav;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 
 import com.sasd13.flousy.AccountActivity;
 import com.sasd13.flousy.SettingActivity;
@@ -19,15 +20,15 @@ public class Nav {
 
         tab[0] = new NavItem(
                 context.getResources().getString(R.string.activity_account),
-                context.getResources().getDrawable(R.drawable.griditem_new),
-                context.getResources().getColor(R.color.green),
+                ContextCompat.getDrawable(context, R.drawable.griditem_new),
+                ContextCompat.getColor(context, R.color.green),
                 new Intent(context, AccountActivity.class)
         );
 
         tab[1] = new NavItem(
                 context.getResources().getString(R.string.activity_setting),
-                context.getResources().getDrawable(R.drawable.griditem_settings),
-                context.getResources().getColor(R.color.brown),
+                ContextCompat.getDrawable(context, R.drawable.griditem_settings),
+                ContextCompat.getColor(context, R.color.brown),
                 new Intent(context, SettingActivity.class)
         );
     }

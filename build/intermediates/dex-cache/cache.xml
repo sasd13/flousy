@@ -2,67 +2,81 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Samir\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="true"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3_b1ee4714a45c71dbbb81be9a40648a51da82ccca.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
-        jumboMode="true"
-        revision="21.1.2"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-21.0.3_da5f74db544170ec59ebb349005e0d756e9da8a0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\libs\javaex-0.1.jar"
-        jumboMode="true"
-        revision="21.1.2"
-        sha1="bc653cd822e8243ca13739fedb6de78f7838ad31">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\javaex-0.1_aba931d7fc8dcca25d399b68a85c8ce13205ba30.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\classes.jar"
-        jumboMode="true"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-21.0.3_c09e62550b08af4e1189829bd4d00c95d4345595.jar" />
-    </item>
-    <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\jars\classes.jar"
         jumboMode="true"
-        revision="21.1.2"
-        sha1="dd05eebbd8d593d062aa3c2346011fdeaa42bd16">
+        revision="23.0.3"
+        sha1="8fac0da503a6b9c8521a5be026b82ca1af1290f4">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\exploded-aar-com.sasd13.androidex-androidex_de2df00d4ba00729aef8d955ef2557333b3b06ec.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\libs\internal_impl-21.0.3.jar"
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
         jumboMode="true"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3_fe2e64d3a5d517c4f49915ca22c8a245d2f0e50f.jar" />
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_91792e0aac852e0af3e00d1ef93cb2eff14c0a40.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
-        revision="21.1.2"
-        sha1="e74428721dfc7db5dedd43a1c034ba3d51a7b59e">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run_d63b0508ad20f5f6f34904d58c5cad9a5bb5fc64.jar" />
-    </item>
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\jars\classes.jar"
-        jumboMode="true"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-21.0.3_da23d8e506d28ff51fa4267a763fb46a30430eda.jar" />
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_1a816856768960ca46cff115ec2a689fe4c37b69.jar" />
     </item>
     <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
-        revision="21.1.2"
-        sha1="9f4b58fe6eefef961a293b33030ac565ada567a9">
+        revision="23.0.3"
+        sha1="ae3509cbcac717514fe3fcff9fc5f8267abc2959">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_87fee13a55422da1960cb415a1912c330267b7a2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.4.0_6f63acdd3f095eaf400218632d9a757c6f2e0ada.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\libs\javaex-0.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2a34a1f9528bfe4f6017a2f7fa631d7bb5bb50e5">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\javaex-0.1_aba931d7fc8dcca25d399b68a85c8ce13205ba30.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.4.0_c272c9a372f518b1c9f70a7aa8bb757c7512a5c4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8080f15f6619dbb90616e01d6a52400fe57e6fa6">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run_d63b0508ad20f5f6f34904d58c5cad9a5bb5fc64.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.4.0_1f694113c09be501bb3b3f581a3b486255b3037d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_626720b7dab36ec4afa5bbf8f95cf5b8c205db3c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_1d50d57ce24800dfb18c3a25cc00ddde38fe4fd5.jar" />
     </item>
 
 </items>

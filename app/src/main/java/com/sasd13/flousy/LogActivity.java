@@ -19,7 +19,7 @@ import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
-import com.sasd13.javaex.db.LayeredPersistor;
+import com.sasd13.javaex.db.DAOException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -37,7 +37,6 @@ public class LogActivity extends Activity {
     private FormLogViewHolder formLog;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
-    private LayeredPersistor persistor = new LayeredPersistor(dao);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,20 +68,17 @@ public class LogActivity extends Activity {
 
     private void logIn() {
         String email = formLog.editTextEmail.getText().toString().trim();
+        String candidate = formLog.editTextPassword.getText().toString().trim();
 
         Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
+        parameters.put(Parameter.EMAIL.getName(), new String[]{email});
 
-        List<Customer> customers = persistor.read(parameters, Customer.class);
+        try {
+            dao.open();
 
-        if (customers.size() == 1) {
-            Customer customer = customers.get(0);
-
-            String candidate = formLog.editTextPassword.getText().toString().trim();
-            String password = selectPasswordFromDAO(customer);
-
-            if (password.equals(candidate)) {
-                SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
+            List<Customer> customers = dao.getEntityDAO(Customer.class).select(parameters);
+            if (customers.size() == 1 && passwordMatches(customers.get(0), candidate)) {
+                SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customers.get(0).getId());
                 goToHomeActivity();
             } else {
                 CustomDialog.showOkDialog(
@@ -90,16 +86,15 @@ public class LogActivity extends Activity {
                         getResources().getString(R.string.log_alertdialog_title_error_log),
                         getResources().getString(R.string.log_alertdialog_message_error_log));
             }
-        } else {
-            CustomDialog.showOkDialog(
-                    this,
-                    getResources().getString(R.string.log_alertdialog_title_error_log),
-                    getResources().getString(R.string.log_alertdialog_message_error_log));
+        } catch (DAOException e) {
+            e.printStackTrace();
+        } finally {
+            dao.close();
         }
     }
 
-    private String selectPasswordFromDAO(Customer customer) {
-        return new SQLitePasswordDAO(dao.getDB()).select(customer.getId());
+    private boolean passwordMatches(Customer customer, String password) {
+        return new SQLitePasswordDAO(dao.getDB()).contains(password, customer.getId());
     }
 
     private void goToHomeActivity() {
@@ -133,7 +128,7 @@ public class LogActivity extends Activity {
             textView.setText(text);
 
             switch (textView.getId()) {
-                case R.id.log_textview_signup :
+                case R.id.log_textview_signup:
                     textView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

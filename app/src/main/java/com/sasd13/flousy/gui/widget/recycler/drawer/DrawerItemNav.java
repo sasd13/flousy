@@ -1,5 +1,6 @@
 package com.sasd13.flousy.gui.widget.recycler.drawer;
 
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItem;
@@ -21,20 +22,20 @@ public class DrawerItemNav extends DrawerItem {
     }
 
     @Override
-    public void setView(View view) {
-        super.setView(view);
+    public void bindView(View view) {
+        super.bindView(view);
 
-        findViews();
-        bindViews();
+        findItemViews();
+        bindItemViews();
     }
 
-    private void findViews() {
+    private void findItemViews() {
         colorView = view.findViewById(R.id.draweritem_nav_colorview);
     }
 
-    private void bindViews() {
+    private void bindItemViews() {
         if (color == 0) {
-            color = view.getContext().getResources().getColor(R.color.green);
+            color = ContextCompat.getColor(view.getContext(), R.color.green);
         }
         setColor(color);
     }

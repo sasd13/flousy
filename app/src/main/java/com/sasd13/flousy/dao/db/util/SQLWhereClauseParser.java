@@ -9,7 +9,7 @@ import java.util.Map;
 import com.sasd13.javaex.db.IEntityDAO;
 import com.sasd13.flousy.dao.AccountDAO;
 import com.sasd13.flousy.dao.CustomerDAO;
-import com.sasd13.flousy.dao.TransactionDAO;
+import com.sasd13.flousy.dao.OperationDAO;
 import com.sasd13.flousy.util.Parameter;
 
 public class SQLWhereClauseParser {
@@ -43,8 +43,8 @@ public class SQLWhereClauseParser {
                     builder.append(fromCustomer(entry.getKey(), value));
                 } else if (AccountDAO.class.equals(mClass)) {
                     builder.append(fromAccount(entry.getKey(), value));
-                } else if (TransactionDAO.class.equals(mClass)) {
-                    builder.append(fromTransaction(entry.getKey(), value));
+                } else if (OperationDAO.class.equals(mClass)) {
+                    builder.append(fromOperation(entry.getKey(), value));
                 } else {
                     throw new SQLWhereClauseException("Class '" + mClass.getName() + ")' has no where clause parser");
                 }
@@ -94,31 +94,31 @@ public class SQLWhereClauseParser {
         }
     }
 
-    private static String fromTransaction(String key, String value) throws SQLWhereClauseException {
+    private static String fromOperation(String key, String value) throws SQLWhereClauseException {
         if (Parameter.ID.getName().equalsIgnoreCase(key)) {
             try {
-                return TransactionDAO.COLUMN_ID + " = " + Long.parseLong(value);
+                return OperationDAO.COLUMN_ID + " = " + Long.parseLong(value);
             } catch (NumberFormatException e) {
-                throw new SQLWhereClauseException("Transaction key '" + key + "' parameter parsing error");
+                throw new SQLWhereClauseException("Operation key '" + key + "' parameter parsing error");
             }
         } else if (Parameter.DATEREALIZATION.getName().equalsIgnoreCase(key)) {
-            return TransactionDAO.COLUMN_DATEREALIZATION + " = '" + value + "'";
+            return OperationDAO.COLUMN_DATEREALIZATION + " = '" + value + "'";
         } else if (Parameter.TITLE.getName().equalsIgnoreCase(key)) {
-            return TransactionDAO.COLUMN_TITLE + " = '" + value + "'";
+            return OperationDAO.COLUMN_TITLE + " = '" + value + "'";
         } else if (Parameter.AMOUNT.getName().equalsIgnoreCase(key)) {
             try {
-                return TransactionDAO.COLUMN_AMOUNT + " = " + Long.parseLong(value);
+                return OperationDAO.COLUMN_AMOUNT + " = " + Long.parseLong(value);
             } catch (NumberFormatException e) {
-                throw new SQLWhereClauseException("Transaction key '" + key + "' parameter parsing error");
+                throw new SQLWhereClauseException("Operation key '" + key + "' parameter parsing error");
             }
         } else if (Parameter.ACCOUNT.getName().equalsIgnoreCase(key)) {
             try {
-                return TransactionDAO.COLUMN_ACCOUNT_ID + " = " + Long.parseLong(value);
+                return OperationDAO.COLUMN_ACCOUNT_ID + " = " + Long.parseLong(value);
             } catch (NumberFormatException e) {
                 throw new SQLWhereClauseException("Account key '" + key + "' parameter parsing error");
             }
         } else {
-            throw new SQLWhereClauseException("Transaction key '" + key + "' is not a declared parameter");
+            throw new SQLWhereClauseException("Operation key '" + key + "' is not a declared parameter");
         }
     }
 }

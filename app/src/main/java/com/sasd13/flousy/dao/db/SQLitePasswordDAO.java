@@ -46,20 +46,21 @@ public class SQLitePasswordDAO {
         db.execSQL(query);
     }
 
-    public String select(long customerId) {
-        String password = null;
+    public boolean contains(String password, long customerId) {
+        boolean contains = false;
 
         String query = "SELECT * FROM " + TABLE
                 + " WHERE "
+                    + COLUMN_PASSWORD + " = ? AND "
                     + COLUMN_CUSTOMER_ID + " = ? AND "
                     + COLUMN_DELETED + " = ?";
 
-        Cursor cursor = db.rawQuery(query, new String[]{ String.valueOf(customerId), String.valueOf(0) });
+        Cursor cursor = db.rawQuery(query, new String[]{ password, String.valueOf(customerId), String.valueOf(0) });
         if (cursor.moveToNext()) {
-            password = cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD));
+            contains = true;
         }
         cursor.close();
 
-        return password;
+        return contains;
     }
 }

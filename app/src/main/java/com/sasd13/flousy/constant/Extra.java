@@ -11,5 +11,5 @@ public class Extra {
     public static final int MODE_EDIT = 2;
 
     public static final String CUSTOMER_ID = "CUSTOMER_ID";
-    public static final String TRANSACTION_ID = "TRANSACTION_ID";
+    public static final String OPERATION_ID = "OPERATION_ID";
 }

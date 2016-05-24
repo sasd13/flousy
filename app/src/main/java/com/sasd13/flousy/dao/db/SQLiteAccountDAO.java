@@ -41,7 +41,11 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
 
     @Override
     public long insert(Account account) {
-        return db.insert(TABLE, null, getContentValues(account));
+        long id = db.insert(TABLE, null, getContentValues(account));
+
+        account.setId(id);
+
+        return id;
     }
 
     @Override

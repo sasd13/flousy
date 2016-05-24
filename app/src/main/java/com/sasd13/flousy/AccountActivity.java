@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.Transaction;
+import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.widget.recycler.tab.TabItemTransaction;
+import com.sasd13.flousy.gui.widget.recycler.tab.TabItemOperation;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -36,17 +36,17 @@ public class AccountActivity extends MotherActivity {
 
         setContentView(R.layout.activity_account);
         createTextViewSold();
-        createTabTransactions();
+        createTabOperations();
     }
 
     private void createTextViewSold() {
         textViewSold = (TextView) findViewById(R.id.account_textview_sold);
     }
 
-    private void createTabTransactions() {
+    private void createTabOperations() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.account_recyclerview);
 
-        tab = new Tab(recyclerView, R.layout.tabitem_transaction);
+        tab = new Tab(recyclerView, R.layout.tabitem_operation);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class AccountActivity extends MotherActivity {
         Account account = persistor.deepRead(parameters, Account.class).get(0);
 
         fillTextViewSold(account);
-        fillTabTransactions(account.getTransactions());
+        fillTabOperations(account.getOperations());
     }
 
     private void fillTextViewSold(Account account) {
@@ -68,29 +68,29 @@ public class AccountActivity extends MotherActivity {
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
     }
 
-    private void fillTabTransactions(List<Transaction> transactions) {
+    private void fillTabOperations(List<Operation> operations) {
         tab.clearItems();
 
-        addTransactionsToTab(transactions);
+        addOperationsToTab(operations);
     }
 
-    private void addTransactionsToTab(List<Transaction> transactions) {
-        TabItemTransaction tabItemTransaction;
+    private void addOperationsToTab(List<Operation> operations) {
+        TabItemOperation tabItemOperation;
         Intent intent;
 
-        for (Transaction transaction : transactions) {
-            tabItemTransaction = new TabItemTransaction();
+        for (Operation operation : operations) {
+            tabItemOperation = new TabItemOperation();
 
-            tabItemTransaction.setDate(String.valueOf(transaction.getDateRealization()));
-            tabItemTransaction.setTitle(transaction.getTitle());
-            tabItemTransaction.setValue(String.valueOf(transaction.getAmount()));
+            tabItemOperation.setDate(String.valueOf(operation.getDateRealization()));
+            tabItemOperation.setTitle(operation.getTitle());
+            tabItemOperation.setAmount(String.valueOf(operation.getAmount()));
 
-            intent = new Intent(this, TransactionActivity.class);
+            intent = new Intent(this, OperationActivity.class);
             intent.putExtra(Extra.MODE, Extra.MODE_EDIT);
-            intent.putExtra(Extra.TRANSACTION_ID, transaction.getId());
-            tabItemTransaction.setIntent(intent);
+            intent.putExtra(Extra.OPERATION_ID, operation.getId());
+            tabItemOperation.setIntent(intent);
 
-            tab.addItem(tabItemTransaction);
+            tab.addItem(tabItemOperation);
         }
     }
 
@@ -106,7 +106,7 @@ public class AccountActivity extends MotherActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_account_action_new:
-                newTransaction();
+                newOperation();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -115,8 +115,8 @@ public class AccountActivity extends MotherActivity {
         return true;
     }
 
-    private void newTransaction() {
-        Intent intent = new Intent(this, TransactionActivity.class);
+    private void newOperation() {
+        Intent intent = new Intent(this, OperationActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(Extra.MODE, Extra.MODE_NEW);
 

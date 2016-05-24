@@ -8,7 +8,7 @@
     <string name="activity_home">Menu</string>
     <string name="activity_setting">Options</string>
     <string name="activity_account">Compte</string>
-    <string name="activity_transaction">Transaction</string>
+    <string name="activity_operation">Operation</string>
     <string name="activity_finance">Finances</string>
 
     <!-- Activity Log -->
@@ -37,21 +37,21 @@
     <string name="form_textview_date">DATE</string>
     <string name="form_textview_hint_date">2015</string>
 
-    <!-- Form transaction -->
-    <string name="form_transaction_textview_type">TYPE</string>
-    <string name="form_transaction_radiobutton_type_debit">Débit</string>
-    <string name="form_transaction_radiobutton_type_credit">Crédit</string>
-    <string name="form_transaction_textview_title">INTITULE</string>
-    <string name="form_transaction_edittext_hint_title">Intitulé</string>
-    <string name="form_transaction_textview_value">MONTANT</string>
-    <string name="form_transaction_edittext_hint_value">0.0</string>
+    <!-- Form operation -->
+    <string name="form_operation_textview_type">TYPE</string>
+    <string name="form_operation_radiobutton_type_debit">Débit</string>
+    <string name="form_operation_radiobutton_type_credit">Crédit</string>
+    <string name="form_operation_textview_title">INTITULE</string>
+    <string name="form_operation_edittext_hint_title">Intitulé</string>
+    <string name="form_operation_textview_amount">MONTANT</string>
+    <string name="form_operation_edittext_hint_amount">0.0</string>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_title">Intitulé</string>
-    <string name="tabitem_textview_value">0.0</string>
+    <string name="tabitem_textview_amount">0.0</string>
     <string name="tabitemtitle_textview_date">DATE</string>
     <string name="tabitemtitle_textview_title">INTITULE</string>
-    <string name="tabitemtitle_textview_value">PRIX</string>
+    <string name="tabitemtitle_textview_amount">PRIX</string>
 
 </resources>

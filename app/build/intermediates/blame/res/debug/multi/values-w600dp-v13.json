@@ -11,13 +11,13 @@
                     "endOffset": 114
                 },
                 "from": {
-                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values-w600dp\\values.xml",
+                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\values-w600dp-v13\\values-w600dp-v13.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 56,
+                        "startOffset": 55,
                         "endColumn": 63,
-                        "endOffset": 115
+                        "endOffset": 114
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 169
                 },
                 "from": {
-                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.3\\res\\values-w600dp\\values.xml",
+                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\values-w600dp-v13\\values-w600dp-v13.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 121,
+                        "startOffset": 119,
                         "endColumn": 54,
-                        "endOffset": 171
+                        "endOffset": 169
                     }
                 }
             }

@@ -7,7 +7,7 @@
 
     <uses-sdk
         android:minSdkVersion="9"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="23" />
 
     <application
         android:allowBackup="true"
@@ -62,8 +62,8 @@
                 android:value=".HomeActivity" />
         </activity>
         <activity
-            android:name="com.sasd13.flousy.TransactionActivity"
-            android:label="@string/activity_transaction"
+            android:name="com.sasd13.flousy.OperationActivity"
+            android:label="@string/activity_operation"
             android:parentActivityName="com.sasd13.flousy.AccountActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
@@ -85,9 +85,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
         </activity>
-        <activity
-            android:name="android.support.v7.widget.TestActivity"
-            android:label="RecyclerViewTestActivity" />
     </application>
 
 </manifest>
