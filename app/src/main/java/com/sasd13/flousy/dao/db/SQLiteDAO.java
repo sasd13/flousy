@@ -15,9 +15,10 @@ import com.sasd13.flousy.dao.OperationDeepReader;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.DeepReader;
 import com.sasd13.javaex.db.IEntityDAO;
-import com.sasd13.javaex.db.ITransactionalLayeredDAO;
+import com.sasd13.javaex.db.ILayeredDAO;
+import com.sasd13.javaex.db.ITransactional;
 
-public class SQLiteDAO implements ITransactionalLayeredDAO, ISQLiteDAO {
+public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO, ITransactional {
 
     private static SQLiteDAO instance = null;
 

@@ -2,7 +2,7 @@ package com.sasd13.flousy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.TaskPlanner;
+import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
@@ -20,12 +21,11 @@ import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.LayeredPersistor;
-import com.sasd13.javaex.db.TransactionalLayeredPersistor;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignActivity extends ActionBarActivity {
+public class SignActivity extends AppCompatActivity {
 
     private class FormCustomerViewHolder {
         public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
@@ -38,7 +38,6 @@ public class SignActivity extends ActionBarActivity {
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
     private LayeredPersistor persistor = new LayeredPersistor(dao);
-    private TransactionalLayeredPersistor transactionalPersistor = new TransactionalLayeredPersistor(dao);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -124,23 +123,24 @@ public class SignActivity extends ActionBarActivity {
 
     private void performSignUp(Customer customer) {
         try {
-            transactionalPersistor.open();
-            transactionalPersistor.beginTransaction();
+            dao.open();
+            dao.beginTransaction();
 
-            transactionalPersistor.create(customer);
+            long id = dao.getEntityDAO(Customer.class).insert(customer);
+            customer.setId(id);
 
             String password = formCustomer.editTextPassword.getText().toString().trim();
             SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
             passwordDAO.insert(password, customer.getId());
 
-            transactionalPersistor.create(customer.getAccount());
+            dao.getEntityDAO(Account.class).insert(customer.getAccount());
 
-            transactionalPersistor.commit();
+            dao.commit();
         } catch (DAOException e) {
             e.printStackTrace();
         } finally {
-            transactionalPersistor.endTransaction();
-            transactionalPersistor.close();
+            dao.endTransaction();
+            dao.close();
         }
     }
 
