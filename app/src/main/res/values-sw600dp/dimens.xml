@@ -4,8 +4,8 @@
     <dimen name="splashscreen_progressbar_margin">27dp</dimen>
 
     <!-- Activity Log -->
-    <dimen name="log_textview_restorepassword_padding">9dp</dimen>
-    <dimen name="log_textview_sign_padding">9dp</dimen>
+    <dimen name="login_textview_restorepassword_padding">9dp</dimen>
+    <dimen name="login_textview_sign_padding">9dp</dimen>
 
     <!-- Drawer -->
     <dimen name="draweritem_nav_colorview_width">21dp</dimen>

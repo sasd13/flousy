@@ -1682,8 +1682,8 @@ containing a value of this type.
         public static final int item_touch_helper_max_drag_scroll_per_frame=0x7f07006a;
         public static final int item_touch_helper_swipe_escape_max_velocity=0x7f07006b;
         public static final int item_touch_helper_swipe_escape_velocity=0x7f07006c;
-        public static final int log_textview_restorepassword_padding=0x7f070027;
-        public static final int log_textview_sign_padding=0x7f070028;
+        public static final int login_textview_restorepassword_padding=0x7f070027;
+        public static final int login_textview_sign_padding=0x7f070028;
         public static final int notification_large_icon_height=0x7f07006d;
         public static final int notification_large_icon_width=0x7f07006e;
         public static final int notification_subtext_size=0x7f07006f;
@@ -1921,10 +1921,10 @@ containing a value of this type.
         public static final int line3=0x7f0c0092;
         public static final int listMode=0x7f0c000a;
         public static final int list_item=0x7f0c0029;
-        public static final int log_button_connect=0x7f0c005c;
-        public static final int log_edittext_email=0x7f0c005a;
-        public static final int log_edittext_password=0x7f0c005b;
-        public static final int log_textview_signup=0x7f0c005d;
+        public static final int login_button_connect=0x7f0c005c;
+        public static final int login_edittext_email=0x7f0c005a;
+        public static final int login_edittext_password=0x7f0c005b;
+        public static final int login_textview_signup=0x7f0c005d;
         public static final int media_actions=0x7f0c008c;
         public static final int menu_account_action_new=0x7f0c009c;
         public static final int menu_home_action_logout=0x7f0c009d;
@@ -1940,7 +1940,6 @@ containing a value of this type.
         public static final int progress_circular=0x7f0c0006;
         public static final int progress_horizontal=0x7f0c0007;
         public static final int radio=0x7f0c003c;
-        public static final int recycleritem_view=0x7f0c0096;
         public static final int screen=0x7f0c0016;
         public static final int scrollIndicatorDown=0x7f0c0036;
         public static final int scrollIndicatorUp=0x7f0c0033;
@@ -1993,6 +1992,7 @@ containing a value of this type.
         public static final int tabitem_operation_textview_amount=0x7f0c009a;
         public static final int tabitem_operation_textview_date=0x7f0c0098;
         public static final int tabitem_operation_textview_title=0x7f0c0099;
+        public static final int tabitem_textview=0x7f0c0096;
         public static final int text=0x7f0c0093;
         public static final int text2=0x7f0c0091;
         public static final int textSpacerNoButtons=0x7f0c0035;
@@ -2041,7 +2041,7 @@ containing a value of this type.
         public static final int abc_select_dialog_material=0x7f030018;
         public static final int activity_account=0x7f030019;
         public static final int activity_home=0x7f03001a;
-        public static final int activity_log=0x7f03001b;
+        public static final int activity_login=0x7f03001b;
         public static final int activity_mother=0x7f03001c;
         public static final int activity_operation=0x7f03001d;
         public static final int activity_setting=0x7f03001e;
@@ -2058,11 +2058,11 @@ containing a value of this type.
         public static final int notification_template_media=0x7f030029;
         public static final int notification_template_part_chronometer=0x7f03002a;
         public static final int notification_template_part_time=0x7f03002b;
-        public static final int recycleritem=0x7f03002c;
-        public static final int select_dialog_item_material=0x7f03002d;
-        public static final int select_dialog_multichoice_material=0x7f03002e;
-        public static final int select_dialog_singlechoice_material=0x7f03002f;
-        public static final int support_simple_spinner_dropdown_item=0x7f030030;
+        public static final int select_dialog_item_material=0x7f03002c;
+        public static final int select_dialog_multichoice_material=0x7f03002d;
+        public static final int select_dialog_singlechoice_material=0x7f03002e;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002f;
+        public static final int tabitem=0x7f030030;
         public static final int tabitem_operation=0x7f030031;
     }
     public static final class menu {
@@ -2096,7 +2096,7 @@ containing a value of this type.
         public static final int activity_account=0x7f050016;
         public static final int activity_finance=0x7f050017;
         public static final int activity_home=0x7f050018;
-        public static final int activity_log=0x7f050019;
+        public static final int activity_login=0x7f050019;
         public static final int activity_operation=0x7f05001a;
         public static final int activity_setting=0x7f05001b;
         public static final int activity_sign=0x7f05001c;
@@ -2131,11 +2131,11 @@ containing a value of this type.
         public static final int griditem_textview=0x7f050039;
         public static final int home_alertdialog_message_welcome=0x7f05003a;
         public static final int home_alertdialog_title_welcome=0x7f05003b;
-        public static final int log_alertdialog_message_error_log=0x7f05003c;
-        public static final int log_alertdialog_title_error_log=0x7f05003d;
-        public static final int log_button_connect=0x7f05003e;
-        public static final int log_textview_restorepassword=0x7f05003f;
-        public static final int log_textview_sign=0x7f050040;
+        public static final int login_alertdialog_message_error_login=0x7f05003c;
+        public static final int login_alertdialog_title_error_login=0x7f05003d;
+        public static final int login_button_connect=0x7f05003e;
+        public static final int login_textview_restorepassword=0x7f05003f;
+        public static final int login_textview_sign=0x7f050040;
         public static final int menuitem_action_accept=0x7f050041;
         public static final int menuitem_action_discard=0x7f050042;
         public static final int menuitem_action_edit=0x7f050043;
@@ -2169,8 +2169,6 @@ containing a value of this type.
         public static final int AlertDialog_AppCompat_Light=0x7f080087;
         public static final int Animation_AppCompat_Dialog=0x7f080088;
         public static final int Animation_AppCompat_DropDownUp=0x7f080089;
-        /**  Customize your theme here. 
-         */
         public static final int AppTheme=0x7f08008a;
         public static final int Base_AlertDialog_AppCompat=0x7f08008b;
         public static final int Base_AlertDialog_AppCompat_Light=0x7f08008c;

@@ -13,7 +13,6 @@
         android:layout_alignParentLeft="true"
         android:text="@string/account_textview_sold_title"
         android:textColor="@color/red"
-        android:textSize="@dimen/textsize_medium"
         android:textStyle="bold"/>
 
     <TextView
@@ -23,8 +22,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignBaseline="@id/account_textview_sold_title"
         android:text="@string/account_textview_sold"
-        android:textColor="@color/red"
-        android:textSize="@dimen/textsize_medium"/>
+        android:textColor="@color/red"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -46,7 +44,6 @@
                 android:layout_weight="4"
                 android:gravity="left|bottom"
                 android:text="@string/tabitemtitle_textview_date"
-                android:textSize="@dimen/textsize_medium"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:ellipsize="none"/>
@@ -60,7 +57,6 @@
                 android:paddingLeft="@dimen/recycleritem_padding"
                 android:paddingRight="@dimen/recycleritem_padding"
                 android:text="@string/tabitemtitle_textview_title"
-                android:textSize="@dimen/textsize_medium"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:ellipsize="none"/>
@@ -72,7 +68,6 @@
                 android:layout_weight="3"
                 android:gravity="right|bottom"
                 android:text="@string/tabitemtitle_textview_amount"
-                android:textSize="@dimen/textsize_medium"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:ellipsize="none"/>

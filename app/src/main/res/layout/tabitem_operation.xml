@@ -18,7 +18,6 @@
             android:layout_weight="4"
             android:gravity="left|center_vertical"
             android:text="@string/tabitem_textview_date"
-            android:textSize="@dimen/textsize_medium"
             android:singleLine="true"
             android:ellipsize="end"/>
 
@@ -31,7 +30,6 @@
             android:paddingRight="@dimen/recycleritem_padding"
             android:gravity="left|center_vertical"
             android:text="@string/tabitem_textview_title"
-            android:textSize="@dimen/textsize_medium"
             android:singleLine="true"
             android:ellipsize="end"/>
 
@@ -42,7 +40,6 @@
             android:layout_weight="3"
             android:gravity="right|center_vertical"
             android:text="@string/tabitem_textview_amount"
-            android:textSize="@dimen/textsize_medium"
             android:singleLine="true"
             android:ellipsize="end"/>
 

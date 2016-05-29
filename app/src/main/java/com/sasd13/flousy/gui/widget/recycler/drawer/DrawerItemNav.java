@@ -14,10 +14,8 @@ public class DrawerItemNav extends DrawerItem {
     public void setColor(int color) {
         this.color = color;
 
-        try {
+        if (colorView != null) {
             colorView.setBackgroundColor(color);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
         }
     }
 

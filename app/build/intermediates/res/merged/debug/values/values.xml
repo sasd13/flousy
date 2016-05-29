@@ -393,8 +393,8 @@
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
-    <dimen name="log_textview_restorepassword_padding">7dp</dimen>
-    <dimen name="log_textview_sign_padding">7dp</dimen>
+    <dimen name="login_textview_restorepassword_padding">7dp</dimen>
+    <dimen name="login_textview_sign_padding">7dp</dimen>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
@@ -451,7 +451,7 @@
     <string name="activity_account">Compte</string>
     <string name="activity_finance">Finances</string>
     <string name="activity_home">Menu</string>
-    <string name="activity_log">Connexion</string>
+    <string name="activity_login">Connexion</string>
     <string name="activity_operation">Operation</string>
     <string name="activity_setting">Options</string>
     <string name="activity_sign">Inscription</string>
@@ -486,11 +486,11 @@
     <string name="griditem_textview">Item</string>
     <string name="home_alertdialog_message_welcome">Salut</string>
     <string name="home_alertdialog_title_welcome">Bienvenue</string>
-    <string name="log_alertdialog_message_error_log">Identifiants invalides</string>
-    <string name="log_alertdialog_title_error_log">Erreur connexion</string>
-    <string name="log_button_connect">Connexion</string>
-    <string name="log_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="log_textview_sign">Inscription sur Flousy</string>
+    <string name="login_alertdialog_message_error_login">Identifiants invalides</string>
+    <string name="login_alertdialog_title_error_login">Erreur connexion</string>
+    <string name="login_button_connect">Connexion</string>
+    <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
+    <string name="login_textview_sign">Inscription sur Flousy</string>
     <string name="menuitem_action_accept">Valider</string>
     <string name="menuitem_action_discard">Supprimer</string>
     <string name="menuitem_action_edit">Modifier</string>
@@ -523,7 +523,8 @@
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="android:editTextBackground">@android:drawable/edit_text</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>

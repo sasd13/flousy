@@ -2,13 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="@dimen/griditem_size"
-    android:layout_height="@dimen/griditem_size"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:gravity="center">
 
     <ImageView
         android:id="@+id/griditem_imageview"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/griditem_verticalmargin_external"
         android:layout_marginBottom="@dimen/griditem_verticalmargin_internal"

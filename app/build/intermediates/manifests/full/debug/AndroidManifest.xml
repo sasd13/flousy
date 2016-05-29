@@ -6,7 +6,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="15"
         android:targetSdkVersion="23" />
 
     <application
@@ -20,7 +20,7 @@
             android:label="@string/activity_splashscreen"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <intent-filter>
@@ -30,31 +30,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sasd13.flousy.LogActivity"
-            android:label="@string/activity_log"
+            android:name="com.sasd13.flousy.LoginActivity"
+            android:label="@string/activity_login"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
             android:name="com.sasd13.flousy.SignActivity"
             android:label="@string/activity_sign"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
             android:name="com.sasd13.flousy.HomeActivity"
             android:label="@string/activity_home"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
             android:name="com.sasd13.flousy.AccountActivity"
             android:label="@string/activity_account"
             android:parentActivityName="com.sasd13.flousy.HomeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden|adjustPan" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data

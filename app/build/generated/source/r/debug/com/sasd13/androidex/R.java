@@ -705,7 +705,6 @@ public final class R {
 		public static final int progress_circular = 0x7f0c0006;
 		public static final int progress_horizontal = 0x7f0c0007;
 		public static final int radio = 0x7f0c003c;
-		public static final int recycleritem_view = 0x7f0c0096;
 		public static final int screen = 0x7f0c0016;
 		public static final int scrollIndicatorDown = 0x7f0c0036;
 		public static final int scrollIndicatorUp = 0x7f0c0033;
@@ -733,6 +732,7 @@ public final class R {
 		public static final int status_bar_latest_event_content = 0x7f0c008b;
 		public static final int submit_area = 0x7f0c004d;
 		public static final int tabMode = 0x7f0c000c;
+		public static final int tabitem_textview = 0x7f0c0096;
 		public static final int text = 0x7f0c0093;
 		public static final int text2 = 0x7f0c0091;
 		public static final int textSpacerNoButtons = 0x7f0c0035;
@@ -789,11 +789,11 @@ public final class R {
 		public static final int notification_template_media = 0x7f030029;
 		public static final int notification_template_part_chronometer = 0x7f03002a;
 		public static final int notification_template_part_time = 0x7f03002b;
-		public static final int recycleritem = 0x7f03002c;
-		public static final int select_dialog_item_material = 0x7f03002d;
-		public static final int select_dialog_multichoice_material = 0x7f03002e;
-		public static final int select_dialog_singlechoice_material = 0x7f03002f;
-		public static final int support_simple_spinner_dropdown_item = 0x7f030030;
+		public static final int select_dialog_item_material = 0x7f03002c;
+		public static final int select_dialog_multichoice_material = 0x7f03002d;
+		public static final int select_dialog_singlechoice_material = 0x7f03002e;
+		public static final int support_simple_spinner_dropdown_item = 0x7f03002f;
+		public static final int tabitem = 0x7f030030;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f050000;

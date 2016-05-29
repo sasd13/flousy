@@ -14,7 +14,7 @@
             android:name=".SplashScreenActivity"
             android:label="@string/activity_splashscreen"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:noHistory="true">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <intent-filter>
@@ -24,10 +24,10 @@
         </activity>
 
         <activity
-            android:name=".LogActivity"
-            android:label="@string/activity_log"
+            android:name=".LoginActivity"
+            android:label="@string/activity_login"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:noHistory="true">
         </activity>
 
@@ -35,7 +35,7 @@
             android:name=".SignActivity"
             android:label="@string/activity_sign"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:noHistory="true">
         </activity>
 
@@ -43,14 +43,14 @@
             android:name=".HomeActivity"
             android:label="@string/activity_home"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>
 
         <activity
             android:name=".AccountActivity"
             android:label="@string/activity_account"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
