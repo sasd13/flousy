@@ -9,7 +9,7 @@
     <dimen name="dividerview_height_large">4dp</dimen>
     <dimen name="dividerview_height_medium">3dp</dimen>
     <dimen name="dividerview_height_small">1dp</dimen>
-    <dimen name="dividerview_margintop">9dp</dimen>
+    <dimen name="dividerview_margintop">7dp</dimen>
     <dimen name="drawer_padding">13dp</dimen>
     <dimen name="drawer_width">320dp</dimen>
     <dimen name="draweritemtitle_textview_paddingtop">40dp</dimen>

@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:text="@string/form_textview_title_identity"
             android:textColor="@color/green"
-            android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"
             android:layout_alignParentTop="true"/>
 
@@ -37,7 +36,6 @@
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_hint_firstname"
             android:inputType="textPersonName|textCapWords"
-            android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
             android:singleLine="true"/>
 
@@ -49,7 +47,6 @@
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_hint_lastname"
             android:inputType="textPersonName|textCapWords"
-            android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
             android:singleLine="true"/>
 
@@ -61,7 +58,6 @@
             android:layout_marginTop="@dimen/viewgroup_margin"
             android:text="@string/form_textview_title_connection"
             android:textColor="@color/green"
-            android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"/>
 
         <View
@@ -80,7 +76,6 @@
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_hint_email"
             android:inputType="textEmailAddress"
-            android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
             android:singleLine="true"/>
 

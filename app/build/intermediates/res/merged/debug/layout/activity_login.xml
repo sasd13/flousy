@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/edittext_hint_email"
             android:inputType="textEmailAddress"
-            android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionDone"
             android:singleLine="true"/>
 
@@ -45,7 +44,6 @@
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_hint_password"
             android:inputType="textPassword"
-            android:textSize="@dimen/textsize_medium"
             android:imeOptions="actionGo"
             android:singleLine="true"/>
 
@@ -56,7 +54,6 @@
             android:layout_marginTop="@dimen/view_margin_medium"
             android:text="@string/login_button_connect"
             android:textColor="@color/white"
-            android:textSize="@dimen/textsize_medium"
             android:textStyle="bold"
             android:background="@color/green"/>
 
@@ -75,7 +72,6 @@
             android:layout_centerHorizontal="true"
             android:padding="@dimen/login_textview_sign_padding"
             android:text="@string/login_textview_sign"
-            android:textSize="@dimen/textsize_medium"
             android:clickable="true"/>
 
     </RelativeLayout>

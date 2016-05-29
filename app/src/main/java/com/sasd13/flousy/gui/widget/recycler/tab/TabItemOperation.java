@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.color.ColorOnTouchListener;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
+import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
 import com.sasd13.flousy.R;
 
 /**
@@ -15,7 +15,7 @@ import com.sasd13.flousy.R;
  * </p>
  * Created by Samir on 22/03/2015.
  */
-public class TabItemOperation extends RecyclerItem {
+public class TabItemOperation extends TabItem {
 
     private CharSequence date, title, amount;
     private Intent intent;
