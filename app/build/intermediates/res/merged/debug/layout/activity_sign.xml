@@ -29,20 +29,85 @@
             android:layout_marginTop="@dimen/dividerview_margintop"
             android:background="@color/green"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/sign_form_recyclerview_identity"
+        <EditText
+            android:id="@+id/sign_form_user_edittext_firstname"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/sign_form_user_dividerview_1"
-            android:padding="@dimen/activity_padding"
-            android:scrollbars="none"/>
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:hint="@string/edittext_hint_firstname"
+            android:inputType="textPersonName|textCapWords"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/sign_form_user_edittext_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_form_user_edittext_firstname"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:hint="@string/edittext_hint_lastname"
+            android:inputType="textPersonName|textCapWords"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/sign_form_user_textview_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_form_user_edittext_lastname"
+            android:layout_marginTop="@dimen/viewgroup_margin"
+            android:text="@string/form_textview_title_connection"
+            android:textColor="@color/green"
+            android:textStyle="bold"/>
+
+        <View
+            android:id="@+id/sign_form_user_dividerview_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerview_height_medium"
+            android:layout_below="@id/sign_form_user_textview_connection"
+            android:layout_marginTop="@dimen/dividerview_margintop"
+            android:background="@color/green"/>
+
+        <EditText
+            android:id="@+id/sign_form_user_edittext_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_form_user_dividerview_2"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:hint="@string/edittext_hint_email"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/sign_form_user_edittext_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_form_user_edittext_email"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:hint="@string/edittext_hint_password"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/sign_form_user_edittext_confirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sign_form_user_edittext_password"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:hint="@string/edittext_hint_confirmpassword"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
         <LinearLayout
             android:id="@+id/sign_form_user_linearlayout_checkbox"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sign_form_recyclerview_identity"
+            android:layout_below="@id/sign_form_user_edittext_confirmpassword"
             android:layout_marginTop="@dimen/viewgroup_margin">
 
             <CheckBox

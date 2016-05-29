@@ -25,15 +25,15 @@ public class FormItem extends RecyclerItem implements Observer {
         input.addObserver(this);
     }
 
-    protected void setName(CharSequence inputName) {
+    protected void setName() {
         if (textViewName != null) {
-            textViewName.setText(inputName);
+            textViewName.setText(input.getName());
         }
     }
 
-    protected void setValue(CharSequence inputValue) {
+    protected void setValue() {
         if (textViewValue != null) {
-            textViewValue.setText(inputValue);
+            textViewValue.setText(input.getValue());
         }
     }
 
@@ -53,7 +53,6 @@ public class FormItem extends RecyclerItem implements Observer {
         bindItemViews();
         setOnClickListener();
         setOnTouchListener();
-        switchVisibilityOfTextViewValue();
     }
 
     private void findItemViews() {
@@ -62,8 +61,10 @@ public class FormItem extends RecyclerItem implements Observer {
     }
 
     private void bindItemViews() {
-        setName(input.getName());
-        setValue(input.getValue());
+        setName();
+        setValue();
+
+        switchVisibilityOfTextViewValue();
     }
 
     private void setOnClickListener() {
@@ -81,19 +82,23 @@ public class FormItem extends RecyclerItem implements Observer {
     }
 
     private void switchVisibilityOfTextViewValue() {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
+        if (textViewName != null && textViewValue != null) {
+            LinearLayout.LayoutParams params;
 
-        if (textViewValueDisabled) {
-            textViewValue.setVisibility(View.INVISIBLE);
-            params.weight = 2.0f;
-        } else {
-            textViewValue.setVisibility(View.VISIBLE);
-            params.weight = 1.0f;
+            if (textViewValueDisabled) {
+                textViewValue.setVisibility(View.GONE);
+                params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
+            } else {
+                textViewValue.setVisibility(View.VISIBLE);
+                params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+            }
+
+            textViewName.setLayoutParams(params);
         }
-
-        textViewName.setLayoutParams(params);
     }
 
     public void setTextViewValueDisabled(boolean textViewValueDisabled) {

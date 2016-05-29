@@ -3,11 +3,11 @@ package com.sasd13.flousy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
+import android.widget.EditText;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
@@ -17,8 +17,6 @@ import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.gui.widget.recycler.form.Form;
-import com.sasd13.flousy.gui.widget.recycler.form.FormItem;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
@@ -30,7 +28,7 @@ import java.util.Map;
 public class SignActivity extends AppCompatActivity {
 
     private class FormCustomerViewHolder {
-        public Form formIdentity;
+        public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
         public CheckBox checkBoxValidTerms;
     }
 
@@ -52,37 +50,12 @@ public class SignActivity extends AppCompatActivity {
     private void createFormCustomer() {
         formCustomer = new FormCustomerViewHolder();
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sign_form_recyclerview_identity);
-        formCustomer.formIdentity = new Form(recyclerView, R.layout.formitem);
-
+        formCustomer.editTextFirstName = (EditText) findViewById(R.id.sign_form_user_edittext_firstname);
+        formCustomer.editTextLastName = (EditText) findViewById(R.id.sign_form_user_edittext_lastname);
+        formCustomer.editTextEmail = (EditText) findViewById(R.id.sign_form_user_edittext_email);
+        formCustomer.editTextPassword = (EditText) findViewById(R.id.sign_form_user_edittext_password);
+        formCustomer.editTextConfirmPassword = (EditText) findViewById(R.id.sign_form_user_edittext_confirmpassword);
         formCustomer.checkBoxValidTerms = (CheckBox) findViewById(R.id.sign_form_user_checkbox_terms);
-    }
-
-    private void addFormItems() {
-        FormItem formItem;
-
-        for (int i = 0; i<4; i++) {
-            formItem = new FormItem();
-
-            switch (i) {
-                case 0:
-                    formItem.getInput().setName("Prénom");
-                    formItem.getInput().setHint("Prénom");
-                    break;
-                case 1:
-                    formItem.getInput().setName("Nom");
-                    formItem.getInput().setHint("Nom");
-                    break;
-                case 2:
-                    formItem.getInput().setName("Email");
-                    formItem.getInput().setHint("Email");
-                    break;
-                case 3:
-                    break;
-            }
-
-            formCustomer.formIdentity.addItem(formItem);
-        }
     }
 
     @Override

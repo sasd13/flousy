@@ -51,4 +51,14 @@ public class Form extends Recycler {
     public List<FormItemInput> getInputs() {
         return inputs;
     }
+
+    public FormItemInput findInputById(int id) {
+        for (FormItemInput input : inputs) {
+            if (input.getId() == id) {
+                return input;
+            }
+        }
+
+        return null;
+    }
 }

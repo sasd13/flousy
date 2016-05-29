@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:weightSum="2"
-        android:padding="5dp">
+        android:padding="3dp">
 
         <TextView
             android:id="@+id/formitem_textview_name"
@@ -20,7 +20,7 @@
             android:gravity="center_vertical"
             android:text="@string/formitem_textview_item"
             android:textStyle="bold"
-            android:textSize="@dimen/textsize_xlarge"/>
+            android:textSize="@dimen/textsize_medium"/>
 
         <TextView
             android:id="@+id/formitem_textview_value"
@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="@string/formitem_textview_value"/>
+            android:text="@string/formitem_textview_value"
+            android:textSize="@dimen/textsize_small"/>
 
     </LinearLayout>
 
