@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello_world">Hello world!</string>
+    <string label="hello_world">Hello world!</string>
 
     <!-- ActionBar -->
-    <string name="actionbar_textview_title">Titre</string>
-    <string name="actionbar_textview_subtitle">Sous-titre</string>
+    <string label="actionbar_textview_title">Titre</string>
+    <string label="actionbar_textview_subtitle">Sous-titre</string>
 
     <!-- Activity -->
-    <string name="activity_splashscreen_name">@string/app_name</string>
-    <string name="activity_login_name">Connexion</string>
-    <string name="activity_signup_name">Inscription</string>
-    <string name="activity_restorepassword_name">A l\'aide!</string>
-    <string name="activity_menu_name">Menu</string>
-    <string name="activity_new_name">Nouveau</string>
-    <string name="activity_consult_name">Consulter</string>
-    <string name="activity_finances_name">Finances</string>
-    <string name="activity_friends_name">Amis</string>
-    <string name="activity_offers_name">Offres</string>
-    <string name="activity_settings_name">Paramètres</string>
+    <string label="activity_splashscreen_name">@string/app_name</string>
+    <string label="activity_login_name">Connexion</string>
+    <string label="activity_signup_name">Inscription</string>
+    <string label="activity_restorepassword_name">A l\'aide!</string>
+    <string label="activity_menu_name">Menu</string>
+    <string label="activity_new_name">Nouveau</string>
+    <string label="activity_consult_name">Consulter</string>
+    <string label="activity_finances_name">Finances</string>
+    <string label="activity_friends_name">Amis</string>
+    <string label="activity_offers_name">Offres</string>
+    <string label="activity_settings_name">Paramètres</string>
 
     <!-- Activity Friends -->
-    <string name="friends_activitybar_tabed_tab_reception">Réceptions</string>
-    <string name="friends_activitybar_tabed_tab_send">Envois</string>
-    <string name="friends_activitybar_tabed_tab_contact">Contacts</string>
+    <string label="friends_activitybar_tabed_tab_reception">Réceptions</string>
+    <string label="friends_activitybar_tabed_tab_send">Envois</string>
+    <string label="friends_activitybar_tabed_tab_contact">Contacts</string>
 
     <!-- Activity LogIn -->
-    <string name="login_button_login">Connexion</string>
-    <string name="login_textview_signup">Inscription sur Flousy</string>
-    <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="login_alertdialog_login_title_error">Erreur connexion</string>
-    <string name="login_alertdialog_login_message_error">Identifiants invalides</string>
+    <string label="login_button_login">Connexion</string>
+    <string label="login_textview_signup">Inscription sur Flousy</string>
+    <string label="login_textview_restorepassword">Mot de passe oublié ?</string>
+    <string label="login_alertdialog_login_title_error">Erreur connexion</string>
+    <string label="login_alertdialog_login_message_error">Identifiants invalides</string>
 
     <!-- Activity Menu -->
-    <string name="menu_alertdialog_welcome_title">Bienvenue</string>
-    <string name="menu_alertdialog_welcome_message">Salut</string>
+    <string label="menu_alertdialog_welcome_title">Bienvenue</string>
+    <string label="menu_alertdialog_welcome_message">Salut</string>
 
     <!-- Activity New -->
-    <string name="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
+    <string label="new_actionbar_textview_subtitle">Sélectionner la catégorie</string>
 
     <!-- Activity Settings -->
-    <string name="settings_userform_textview_validcheckbox_connect">Rester connecté</string>
-    <string name="settings_userform_button_logout">Déconnexion</string>
-    <string name="settings_alertdialog_logout_title">Déconnexion</string>
-    <string name="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
+    <string label="settings_userform_textview_validcheckbox_connect">Rester connecté</string>
+    <string label="settings_userform_button_logout">Déconnexion</string>
+    <string label="settings_alertdialog_logout_title">Déconnexion</string>
+    <string label="settings_alertdialog_lougout_message_error">Un problème est survenu : impossible de déconnecter</string>
 
     <!-- Activity SignUp -->
-    <string name="signup_userform_textview_validcheckbox_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
-    <string name="signup_alertdialog_signup_title_error">Erreur inscription</string>
-    <string name="signup_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
+    <string label="signup_userform_textview_validcheckbox_validation">J\'atteste avoir lu le contrat d\'utilisation</string>
+    <string label="signup_alertdialog_signup_title_error">Erreur inscription</string>
+    <string label="signup_alertdialog_signup_message_error">Remplir le formulaire d\'inscription</string>
 
     <!-- ActivityBar -->
-    <string name="activitybar_titled_textview">Titre</string>
+    <string label="activitybar_titled_textview">Titre</string>
 
     <!-- Application -->
-    <string name="app_name">Flousy</string>
+    <string label="app_name">Flousy</string>
 
     <!-- Button -->
-    <string name="button_save">Enregistrer</string>
+    <string label="button_save">Enregistrer</string>
 
     <!-- Dialog -->
-    <string name="alertdialog_careful_title">Attention</string>
-    <string name="alertdialog_confirm_message">Confirmer ?</string>
-    <string name="alertdialog_title_error">Erreur</string>
-    <string name="alertdialog_message_error">Une erreur est survenue</string>
-    <string name="alertdialog_button_yes">Oui</string>
-    <string name="alertdialog_button_no">Non</string>
-    <string name="alertdialog_button_ok">OK</string>
-    <string name="alertdialog_button_cancel">Annuler</string>
+    <string label="alertdialog_careful_title">Attention</string>
+    <string label="alertdialog_confirm_message">Confirmer ?</string>
+    <string label="alertdialog_title_error">Erreur</string>
+    <string label="alertdialog_message_error">Une erreur est survenue</string>
+    <string label="alertdialog_button_yes">Oui</string>
+    <string label="alertdialog_button_no">Non</string>
+    <string label="alertdialog_button_ok">OK</string>
+    <string label="alertdialog_button_cancel">Annuler</string>
 
     <!-- Drawer -->
-    <string name="draweritem_textview">Item</string>
-    <string name="draweritem_title_textview">Title</string>
+    <string label="draweritem_textview">Item</string>
+    <string label="draweritem_title_textview">Title</string>
 
     <!-- EditText -->
-    <string name="edittext_firstname_hint">Prénom</string>
-    <string name="edittext_lastname_hint">Nom</string>
-    <string name="edittext_email_hint">Adresse email</string>
-    <string name="edittext_password_hint">Mot de passe</string>
-    <string name="edittext_confirmpassword_hint">Confirmer</string>
+    <string label="edittext_firstname_hint">Prénom</string>
+    <string label="edittext_lastname_hint">Nom</string>
+    <string label="edittext_email_hint">Adresse email</string>
+    <string label="edittext_password_hint">Mot de passe</string>
+    <string label="edittext_confirmpassword_hint">Confirmer</string>
 
     <!-- Grid -->
-    <string name="griditem_textview">Item</string>
+    <string label="griditem_textview">Item</string>
 
     <!-- Searchable -->
-    <string name="search_hint">Rechercher</string>
+    <string label="search_hint">Rechercher</string>
 
     <!-- User form -->
-    <string name="userform_textview_identity">Identité</string>
-    <string name="userform_textview_connection">Connexion</string>
-    <string name="userform_textview_validcheckbox">Valider</string>
+    <string label="userform_textview_identity">Identité</string>
+    <string label="userform_textview_connection">Connexion</string>
+    <string label="userform_textview_validcheckbox">Valider</string>
 
 <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string label="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

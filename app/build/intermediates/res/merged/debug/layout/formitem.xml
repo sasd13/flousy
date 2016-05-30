@@ -4,40 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/formitem_linearlayout"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/formitem_textview_label"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:weightSum="2"
-        android:padding="3dp">
-
-        <TextView
-            android:id="@+id/formitem_textview_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="@string/formitem_textview_item"
-            android:textStyle="bold"
-            android:textSize="@dimen/textsize_medium"/>
-
-        <TextView
-            android:id="@+id/formitem_textview_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="@string/formitem_textview_value"
-            android:textSize="@dimen/textsize_small"/>
-
-    </LinearLayout>
+        android:gravity="center_vertical"
+        android:text="@string/formitem_textview_label"
+        android:textStyle="bold"
+        android:textSize="@dimen/textsize_medium"/>
 
     <View
         android:id="@+id/formitem_nav_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
-        android:layout_below="@id/formitem_linearlayout"
+        android:layout_below="@id/formitem_textview_label"
         android:background="@color/primary_material_light"/>
 
 </RelativeLayout>

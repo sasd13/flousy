@@ -1,27 +1,24 @@
 package com.sasd13.flousy.gui.widget.recycler.form;
 
-import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.sasd13.androidex.gui.color.ColorOnTouchListener;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.flousy.R;
 
-public class FormItem<T> extends RecyclerItem {
+import java.util.Observable;
+import java.util.Observer;
+
+public class FormItem extends RecyclerItem implements Observer {
 
     public interface Action {
-
         void execute(FormItem formItem);
     }
 
     private int id;
-    private String name, value;
-    private T tag;
-    private Action action;
-    private TextView textViewName, textViewValue;
-    private boolean textViewValueDisabled;
+    private String label;
+    protected Action action;
+    protected TextView textViewLabel;
 
     public int getId() {
         return id;
@@ -31,36 +28,16 @@ public class FormItem<T> extends RecyclerItem {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLabel(String label) {
+        this.label = label;
 
-        if (textViewName != null) {
-            textViewName.setText(name);
+        if (textViewLabel != null) {
+            textViewLabel.setText(label);
         }
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-
-        if (textViewValue != null) {
-            textViewValue.setText(value);
-        }
-    }
-
-    public T getTag() {
-        return tag;
-    }
-
-    public void setTag(T tag) {
-        this.tag = tag;
     }
 
     public void setAction(Action action) {
@@ -73,58 +50,30 @@ public class FormItem<T> extends RecyclerItem {
 
         findItemViews();
         bindItemViews();
-        setOnClickListener();
-        setOnTouchListener();
-        switchVisibilityOfTextViewValue();
+        setListener();
     }
 
-    private void findItemViews() {
-        textViewName = (TextView) view.findViewById(R.id.formitem_textview_name);
-        textViewValue = (TextView) view.findViewById(R.id.formitem_textview_value);
+    protected void findItemViews() {
+        textViewLabel = (TextView) view.findViewById(R.id.formitem_textview_label);
     }
 
-    private void bindItemViews() {
-        setName(name);
-        setValue(value);
+    protected void bindItemViews() {
+        setLabel(label);
     }
 
-    private void setOnClickListener() {
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                action.execute(FormItem.this);
-            }
-        });
-    }
-
-    private void setOnTouchListener() {
-        int color = ContextCompat.getColor(view.getContext(), R.color.background_material_light);
-        view.setOnTouchListener(new ColorOnTouchListener(color));
-    }
-
-    private void switchVisibilityOfTextViewValue() {
-        if (textViewName != null && textViewValue != null) {
-            LinearLayout.LayoutParams params;
-
-            if (textViewValueDisabled) {
-                textViewValue.setVisibility(View.GONE);
-                params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT, 2.0f);
-            } else {
-                textViewValue.setVisibility(View.VISIBLE);
-                params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
-            }
-
-            textViewName.setLayoutParams(params);
+    protected void setListener() {
+        if (view != null) {
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    action.execute(FormItem.this);
+                }
+            });
         }
     }
 
-    public void setTextViewValueDisabled(boolean textViewValueDisabled) {
-        this.textViewValueDisabled = textViewValueDisabled;
-
-        switchVisibilityOfTextViewValue();
+    @Override
+    public void update(Observable observable, Object o) {
+        bindItemViews();
     }
 }

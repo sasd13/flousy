@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "flousy",
+	"label": "flousy",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "flousy",
+			"label": "flousy",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Main",
+					"label": "Main",
 					"visible": true,
 					"defaultDiagram": false,
 					"ownedViews": [
@@ -1939,7 +1939,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "beans",
+					"label": "beans",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",
@@ -1947,7 +1947,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFQ7UKA25MQRMU="
 							},
-							"name": "Account",
+							"label": "Account",
 							"ownedElements": [
 								{
 									"_type": "UMLAssociation",
@@ -2004,7 +2004,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFQ7TpLqI6Ry0Y="
 									},
-									"name": "dateOpening",
+									"label": "dateOpening",
 									"visibility": "private",
 									"isStatic": false,
 									"isLeaf": false,
@@ -2024,7 +2024,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFQ7TpLqI6Ry0Y="
 									},
-									"name": "getSold",
+									"label": "getSold",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
@@ -2061,7 +2061,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFQ7UKA25MQRMU="
 							},
-							"name": "Transaction",
+							"label": "Transaction",
 							"ownedElements": [
 								{
 									"_type": "UMLAssociation",
@@ -2118,7 +2118,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFQ7T47CJC9iJs="
 									},
-									"name": "dateRealization",
+									"label": "dateRealization",
 									"visibility": "private",
 									"isStatic": false,
 									"isLeaf": false,
@@ -2136,7 +2136,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFQ7T47CJC9iJs="
 									},
-									"name": "title",
+									"label": "title",
 									"visibility": "private",
 									"isStatic": false,
 									"isLeaf": false,
@@ -2154,7 +2154,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFQ7T47CJC9iJs="
 									},
-									"name": "amount",
+									"label": "amount",
 									"visibility": "private",
 									"isStatic": false,
 									"isLeaf": false,
@@ -2181,7 +2181,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Customer",
+					"label": "Customer",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -2190,7 +2190,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFRI9qCZRCJe6Q="
 							},
-							"name": "firstName",
+							"label": "firstName",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
@@ -2208,7 +2208,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFRI9qCZRCJe6Q="
 							},
-							"name": "lastName",
+							"label": "lastName",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
@@ -2226,7 +2226,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFRI9qCZRCJe6Q="
 							},
-							"name": "email",
+							"label": "email",
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,

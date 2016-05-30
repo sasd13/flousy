@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/formitem_linearlayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:padding="3dp">
+
+        <TextView
+            android:id="@+id/formitem_textview_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="@string/formitem_textview_label"
+            android:textStyle="bold"
+            android:textSize="@dimen/textsize_medium"/>
+
+        <ToggleButton
+            android:id="@+id/formitem_togglebutton_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textOn="@string/formitem_togglebutton_texton"
+            android:textOff="@string/formitem_togglebutton_textoff"
+            android:textSize="@dimen/textsize_small"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/formitem_nav_dividerview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dividerview_height_small"
+        android:layout_below="@id/formitem_linearlayout"
+        android:background="@color/primary_material_light"/>
+
+</RelativeLayout>

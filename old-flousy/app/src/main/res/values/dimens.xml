@@ -1,61 +1,61 @@
 <resources>
     <!-- ActionBar -->
-    <dimen name="actionbar_height">55dp</dimen>
-    <dimen name="actionbar_imagebutton_actionup_horizontalpadding">7dp</dimen>
-    <dimen name="actionbar_imagebutton_action_horizontalpadding">14dp</dimen>
+    <dimen label="actionbar_height">55dp</dimen>
+    <dimen label="actionbar_imagebutton_actionup_horizontalpadding">7dp</dimen>
+    <dimen label="actionbar_imagebutton_action_horizontalpadding">14dp</dimen>
 
     <!-- Activity -->
-    <dimen name="activitycontent_padding">16dp</dimen><!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen label="activitycontent_padding">16dp</dimen><!-- Default screen margins, per the Android Design guidelines. -->
 
     <!-- Activity LogIn -->
-    <dimen name="login_textview_restorepassword_padding">7dp</dimen>
-    <dimen name="login_textview_signup_padding">7dp</dimen>
+    <dimen label="login_textview_restorepassword_padding">7dp</dimen>
+    <dimen label="login_textview_signup_padding">7dp</dimen>
 
     <!-- Activity SplashScreen -->
-    <dimen name="splashscreen_progressbar_margin">20dp</dimen>
+    <dimen label="splashscreen_progressbar_margin">20dp</dimen>
 
     <!-- ActivityBar -->
-    <dimen name="activitybar_titled_textview_margin">7dp</dimen>
+    <dimen label="activitybar_titled_textview_margin">7dp</dimen>
 
     <!-- Button -->
-    <dimen name="button_horizontalpadding">20dp</dimen>
-    <dimen name="button_verticalpadding">10dp</dimen>
+    <dimen label="button_horizontalpadding">20dp</dimen>
+    <dimen label="button_verticalpadding">10dp</dimen>
 
     <!-- Dialog -->
-    <dimen name="customdialog_progressbar_padding">15dp</dimen>
+    <dimen label="customdialog_progressbar_padding">15dp</dimen>
 
     <!-- Drawer -->
-    <dimen name="drawer_width">240dp</dimen>
-    <dimen name="drawer_padding">10dp</dimen>
-    <dimen name="draweritem_textview_height">60dp</dimen>
-    <dimen name="draweritem_menu_colorview_width">16dp</dimen>
-    <dimen name="draweritem_menu_colorview_height">42dp</dimen>
-    <dimen name="draweritem_title_textview_paddingtop">30dp</dimen>
+    <dimen label="drawer_width">240dp</dimen>
+    <dimen label="drawer_padding">10dp</dimen>
+    <dimen label="draweritem_textview_height">60dp</dimen>
+    <dimen label="draweritem_menu_colorview_width">16dp</dimen>
+    <dimen label="draweritem_menu_colorview_height">42dp</dimen>
+    <dimen label="draweritem_title_textview_paddingtop">30dp</dimen>
 
     <!-- Grid -->
-    <integer name="grid_numcolumns">2</integer>
-    <dimen name="grid_items_space">12dp</dimen>
-    <dimen name="griditem_size">120dp</dimen>
-    <dimen name="griditem_verticalmargin_external">14dp</dimen>
-    <dimen name="griditem_verticalmargin_internal">7dp</dimen>
+    <integer label="grid_numcolumns">2</integer>
+    <dimen label="grid_items_space">12dp</dimen>
+    <dimen label="griditem_size">120dp</dimen>
+    <dimen label="griditem_verticalmargin_external">14dp</dimen>
+    <dimen label="griditem_verticalmargin_internal">7dp</dimen>
 
     <!-- Text -->
-    <dimen name="textsize_small">12sp</dimen>
-    <dimen name="textsize_medium">14sp</dimen><!-- Default Android text size -->
-    <dimen name="textsize_large">16sp</dimen>
-    <dimen name="textsize_xlarge">18sp</dimen>
-    <dimen name="textsize_xxlarge">20sp</dimen>
+    <dimen label="textsize_small">12sp</dimen>
+    <dimen label="textsize_medium">14sp</dimen><!-- Default Android text size -->
+    <dimen label="textsize_large">16sp</dimen>
+    <dimen label="textsize_xlarge">18sp</dimen>
+    <dimen label="textsize_xxlarge">20sp</dimen>
 
     <!-- User form -->
-    <dimen name="userform_checkbox_horizontalmargin">7dp</dimen>
+    <dimen label="userform_checkbox_horizontalmargin">7dp</dimen>
 
     <!-- View -->
-    <dimen name="view_margintop_small">7dp</dimen><!-- DIFF ldpi : 5 -->
-    <dimen name="view_margintop_medium">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
-    <dimen name="view_margintop_large">20dp</dimen><!-- DIFF ldpi : 15 -->
-    <dimen name="viewgroup_margintop">30dp</dimen>
-    <dimen name="dividerview_margintop">7dp</dimen>
-    <dimen name="dividerview_height_small">1dp</dimen>
-    <dimen name="dividerview_height_medium">2dp</dimen>
-    <dimen name="dividerview_height_large">3dp</dimen>
+    <dimen label="view_margintop_small">7dp</dimen><!-- DIFF ldpi : 5 -->
+    <dimen label="view_margintop_medium">12dp</dimen><!-- Default view margin top --><!-- DIFF ldpi : 7 -->
+    <dimen label="view_margintop_large">20dp</dimen><!-- DIFF ldpi : 15 -->
+    <dimen label="viewgroup_margintop">30dp</dimen>
+    <dimen label="dividerview_margintop">7dp</dimen>
+    <dimen label="dividerview_height_small">1dp</dimen>
+    <dimen label="dividerview_height_medium">2dp</dimen>
+    <dimen label="dividerview_height_large">3dp</dimen>
 </resources>

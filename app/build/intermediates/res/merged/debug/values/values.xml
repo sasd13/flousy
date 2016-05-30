@@ -483,8 +483,10 @@
     <string name="form_textview_title_email">EMAIL</string>
     <string name="form_textview_title_identity">IDENTITE</string>
     <string name="form_textview_title_password">MOT DE PASSE</string>
-    <string name="formitem_textview_item">Item</string>
+    <string name="formitem_textview_label">Label</string>
     <string name="formitem_textview_value">Value</string>
+    <string name="formitem_togglebutton_textoff">No</string>
+    <string name="formitem_togglebutton_texton">Yes</string>
     <string name="griditem_textview">Item</string>
     <string name="home_alertdialog_message_welcome">Salut</string>
     <string name="home_alertdialog_title_welcome">Bienvenue</string>

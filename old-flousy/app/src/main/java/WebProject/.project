@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>WebProject</name>
+	<label>WebProject</label>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.eclipse.wst.jsdt.core.javascriptValidator</name>
+			<label>org.eclipse.wst.jsdt.core.javascriptValidator</label>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
+			<label>org.eclipse.jdt.core.javabuilder</label>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.eclipse.wst.common.project.facet.core.builder</name>
+			<label>org.eclipse.wst.common.project.facet.core.builder</label>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.eclipse.wst.validation.validationbuilder</name>
+			<label>org.eclipse.wst.validation.validationbuilder</label>
 			<arguments>
 			</arguments>
 		</buildCommand>
