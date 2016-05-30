@@ -9,39 +9,61 @@ import com.sasd13.androidex.gui.color.ColorOnTouchListener;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.flousy.R;
 
-import java.util.Observable;
-import java.util.Observer;
+public class FormItem<T> extends RecyclerItem {
 
-public class FormItem extends RecyclerItem implements Observer {
+    public interface Action {
 
-    private FormItemInput input;
-    private FormItemAction action;
+        void execute(FormItem formItem);
+    }
+
+    private int id;
+    private String name, value;
+    private T tag;
+    private Action action;
     private TextView textViewName, textViewValue;
     private boolean textViewValueDisabled;
 
-    public FormItem() {
-        input = new FormItemInput();
-
-        input.addObserver(this);
+    public int getId() {
+        return id;
     }
 
-    protected void setName() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+
         if (textViewName != null) {
-            textViewName.setText(input.getName());
+            textViewName.setText(name);
         }
     }
 
-    protected void setValue() {
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+
         if (textViewValue != null) {
-            textViewValue.setText(input.getValue());
+            textViewValue.setText(value);
         }
     }
 
-    public FormItemInput getInput() {
-        return input;
+    public T getTag() {
+        return tag;
     }
 
-    public void setAction(FormItemAction action) {
+    public void setTag(T tag) {
+        this.tag = tag;
+    }
+
+    public void setAction(Action action) {
         this.action = action;
     }
 
@@ -53,6 +75,7 @@ public class FormItem extends RecyclerItem implements Observer {
         bindItemViews();
         setOnClickListener();
         setOnTouchListener();
+        switchVisibilityOfTextViewValue();
     }
 
     private void findItemViews() {
@@ -61,17 +84,15 @@ public class FormItem extends RecyclerItem implements Observer {
     }
 
     private void bindItemViews() {
-        setName();
-        setValue();
-
-        switchVisibilityOfTextViewValue();
+        setName(name);
+        setValue(value);
     }
 
     private void setOnClickListener() {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                action.execute(input);
+                action.execute(FormItem.this);
             }
         });
     }
@@ -105,10 +126,5 @@ public class FormItem extends RecyclerItem implements Observer {
         this.textViewValueDisabled = textViewValueDisabled;
 
         switchVisibilityOfTextViewValue();
-    }
-
-    @Override
-    public void update(Observable observable, Object o) {
-        bindItemViews();
     }
 }

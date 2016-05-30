@@ -5,56 +5,36 @@ import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Samir on 29/05/2016.
  */
 public class Form extends Recycler<FormItem> {
 
-    private List<FormItemInput> inputs;
+    private boolean scrollingDisabled;
 
     public Form(RecyclerView recyclerView, int recyclerItemLayout) {
         super(recyclerView, recyclerItemLayout);
-
-        inputs = new ArrayList<>();
     }
 
     @Override
     protected void setLayoutManager() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()) {
+
+            @Override
+            public boolean canScrollVertically() {
+                return !scrollingDisabled && super.canScrollVertically();
+            }
+        });
     }
 
-    @Override
-    public void addItem(FormItem formItem) {
-        super.addItem(formItem);
-
-        inputs.add(formItem.getInput());
+    public void setScrollingDisabled(boolean scrollingDisabled) {
+        this.scrollingDisabled = scrollingDisabled;
     }
 
-    @Override
-    public void removeItem(FormItem formItem) {
-        super.removeItem(formItem);
-
-        inputs.remove(formItem.getInput());
-    }
-
-    @Override
-    public void clearItems() {
-        super.clearItems();
-
-        inputs.clear();
-    }
-
-    public List<FormItemInput> getInputs() {
-        return inputs;
-    }
-
-    public FormItemInput findInputById(int id) {
-        for (FormItemInput input : inputs) {
-            if (input.getId() == id) {
-                return input;
+    public FormItem findItemById(int id) {
+        for (FormItem formItem : getItems(FormItem.class)) {
+            if (formItem.getId() == id) {
+                return formItem;
             }
         }
 

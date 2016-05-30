@@ -17,8 +17,6 @@ import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.gui.widget.recycler.form.Form;
 import com.sasd13.flousy.gui.widget.recycler.form.FormItem;
-import com.sasd13.flousy.gui.widget.recycler.form.FormItemAction;
-import com.sasd13.flousy.gui.widget.recycler.form.FormItemInput;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -27,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SettingActivity extends MotherActivity implements FormItemAction {
+public class SettingActivity extends MotherActivity implements FormItem.Action {
 
     private class FormCustomerViewHolder {
         public static final int FORMIDENTITY_ID_FIRSTNAME = 0;
@@ -56,6 +54,7 @@ public class SettingActivity extends MotherActivity implements FormItemAction {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity);
         formCustomer.formIdentity = new Form(recyclerView, R.layout.formitem);
+        formCustomer.formIdentity.setScrollingDisabled(true);
 
         addFormIdentityItems();
     }
@@ -68,19 +67,16 @@ public class SettingActivity extends MotherActivity implements FormItemAction {
 
             switch (i) {
                 case 0:
-                    formItem.getInput().setId(FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME);
-                    formItem.getInput().setName("Prénom");
-                    formItem.getInput().setHint("Prénom");
+                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME);
+                    formItem.setName("Prénom");
                     break;
                 case 1:
-                    formItem.getInput().setId(FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME);
-                    formItem.getInput().setName("Nom");
-                    formItem.getInput().setHint("Nom");
+                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME);
+                    formItem.setName("Nom");
                     break;
                 case 2:
-                    formItem.getInput().setId(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL);
-                    formItem.getInput().setName("Email");
-                    formItem.getInput().setHint("Email");
+                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL);
+                    formItem.setName("Email");
                     break;
             }
 
@@ -100,16 +96,16 @@ public class SettingActivity extends MotherActivity implements FormItemAction {
     }
 
     private void fillFormCustomer() {
-        for (FormItemInput input : formCustomer.formIdentity.getInputs()) {
-            switch (input.getId()) {
+        for (FormItem formItem : formCustomer.formIdentity.getItems(FormItem.class)) {
+            switch (formItem.getId()) {
                 case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
-                    input.setValue(customer.getFirstName());
+                    formItem.setValue(customer.getFirstName());
                     break;
                 case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
-                    input.setValue(customer.getLastName());
+                    formItem.setValue(customer.getLastName());
                     break;
                 case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
-                    input.setValue(customer.getEmail());
+                    formItem.setValue(customer.getEmail());
                     break;
             }
         }
@@ -153,7 +149,7 @@ public class SettingActivity extends MotherActivity implements FormItemAction {
     }
 
     private void tryToPerformUpdateCustomer() {
-        String email = formCustomer.formIdentity.findInputById(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL).getValue();
+        String email = formCustomer.formIdentity.findItemById(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL).getValue();
 
         Map<String, String[]> parameters = new HashMap<>();
         parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
@@ -173,34 +169,34 @@ public class SettingActivity extends MotherActivity implements FormItemAction {
     }
 
     private void editCustomerWithForm(Customer customer) {
-        for (FormItemInput input : formCustomer.formIdentity.getInputs()) {
-            switch (input.getId()) {
+        for (FormItem formItem : formCustomer.formIdentity.getItems(FormItem.class)) {
+            switch (formItem.getId()) {
                 case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
-                    customer.setFirstName(input.getValue());
+                    customer.setFirstName(formItem.getValue());
                     break;
                 case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
-                    customer.setLastName(input.getValue());
+                    customer.setLastName(formItem.getValue());
                     break;
                 case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
-                    customer.setEmail(input.getValue());
+                    customer.setEmail(formItem.getValue());
                     break;
             }
         }
     }
 
     @Override
-    public void execute(final FormItemInput input) {
+    public void execute(final FormItem formItem) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(input.getName());
+        builder.setTitle(formItem.getName());
 
         final EditText editText = new EditText(this);
-        if (input.getValue() != null) {
-            editText.setText(input.getValue());
+        if (formItem.getValue() != null) {
+            editText.setText(formItem.getValue());
         } else {
-            editText.setHint(input.getHint());
+            editText.setHint(formItem.getValue());
         }
 
-        switch (input.getId()) {
+        switch (formItem.getId()) {
             case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
             case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
             case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
@@ -209,7 +205,7 @@ public class SettingActivity extends MotherActivity implements FormItemAction {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        input.setValue(editText.getText().toString());
+                        formItem.setValue(editText.getText().toString());
                     }
                 });
 
@@ -220,7 +216,7 @@ public class SettingActivity extends MotherActivity implements FormItemAction {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        input.setValue(editText.getText().toString());
+                        formItem.setValue(editText.getText().toString());
                     }
                 });
 
