@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_account.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\menu\\menu_account.xml"
+        "merged": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_account.xml",
+        "source": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\src\\main\\res\\menu\\menu_account.xml"
     },
     {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_operation.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\menu\\menu_operation.xml"
+        "merged": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_operation.xml",
+        "source": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\src\\main\\res\\menu\\menu_operation.xml"
     },
     {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_home.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\menu\\menu_home.xml"
+        "merged": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_sign.xml",
+        "source": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\src\\main\\res\\menu\\menu_sign.xml"
     },
     {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_sign.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\menu\\menu_sign.xml"
+        "merged": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_home.xml",
+        "source": "C:\\Users\\ssaidali2\\Projects\\Perso\\flousy\\app\\src\\main\\res\\menu\\menu_home.xml"
     }
 ]

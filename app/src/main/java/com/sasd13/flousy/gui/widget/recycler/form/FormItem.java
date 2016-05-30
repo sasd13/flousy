@@ -16,8 +16,8 @@ public class FormItem extends RecyclerItem implements Observer {
 
     private FormItemInput input;
     private FormItemAction action;
-    private boolean textViewValueDisabled;
     private TextView textViewName, textViewValue;
+    private boolean textViewValueDisabled;
 
     public FormItem() {
         input = new FormItemInput();

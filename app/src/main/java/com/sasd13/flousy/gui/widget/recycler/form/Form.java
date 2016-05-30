@@ -4,7 +4,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 /**
  * Created by Samir on 29/05/2016.
  */
-public class Form extends Recycler {
+public class Form extends Recycler<FormItem> {
 
     private List<FormItemInput> inputs;
 
@@ -23,22 +22,22 @@ public class Form extends Recycler {
     }
 
     @Override
-    protected void setLayoutManager(RecyclerView recyclerView) {
+    protected void setLayoutManager() {
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
     }
 
     @Override
-    public void addItem(RecyclerItem recyclerItem) {
-        super.addItem(recyclerItem);
+    public void addItem(FormItem formItem) {
+        super.addItem(formItem);
 
-        inputs.add(((FormItem) recyclerItem).getInput());
+        inputs.add(formItem.getInput());
     }
 
     @Override
-    public void removeItem(RecyclerItem recyclerItem) {
-        super.removeItem(recyclerItem);
+    public void removeItem(FormItem formItem) {
+        super.removeItem(formItem);
 
-        inputs.add(((FormItem) recyclerItem).getInput());
+        inputs.remove(formItem.getInput());
     }
 
     @Override
