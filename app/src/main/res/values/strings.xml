@@ -36,10 +36,6 @@
     <!-- Form -->
     <string name="form_textview_date">DATE</string>
     <string name="form_textview_hint_date">2015</string>
-    <string name="formitem_textview_label">Label</string>
-    <string name="formitem_textview_value">Value</string>
-    <string name="formitem_togglebutton_texton">Yes</string>
-    <string name="formitem_togglebutton_textoff">No</string>
 
     <!-- Form operation -->
     <string name="form_operation_textview_type">TYPE</string>

@@ -15,7 +15,7 @@
         android:textSize="@dimen/textsize_medium"/>
 
     <View
-        android:id="@+id/formitem_nav_dividerview"
+        android:id="@+id/formitem_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
         android:layout_below="@id/formitem_textview_label"

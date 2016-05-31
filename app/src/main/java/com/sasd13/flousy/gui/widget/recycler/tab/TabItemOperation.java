@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.color.ColorOnTouchListener;
-import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.flousy.R;
 
 /**
@@ -15,11 +15,15 @@ import com.sasd13.flousy.R;
  * </p>
  * Created by Samir on 22/03/2015.
  */
-public class TabItemOperation extends TabItem {
+public class TabItemOperation extends RecyclerItem {
 
     private CharSequence date, title, amount;
     private Intent intent;
     private TextView textViewDate, textViewTitle, textViewAmount;
+
+    public TabItemOperation() {
+        super(R.layout.tabitem_operation);
+    }
 
     public void setDate(CharSequence date) {
         this.date = date;
@@ -56,24 +60,23 @@ public class TabItemOperation extends TabItem {
         super.bindView(view);
 
         findItemViews();
-        bindItemView();
-        setOnClickListener();
-        setOnTouchListener();
+        bindItemViews();
+        setListeners();
     }
 
-    private void findItemViews() {
+    protected void findItemViews() {
         textViewDate = (TextView) view.findViewById(R.id.tabitem_operation_textview_date);
         textViewTitle = (TextView) view.findViewById(R.id.tabitem_operation_textview_title);
         textViewAmount = (TextView) view.findViewById(R.id.tabitem_operation_textview_amount);
     }
 
-    private void bindItemView() {
+    protected void bindItemViews() {
         setDate(date);
         setTitle(title);
         setAmount(amount);
     }
 
-    private void setOnClickListener() {
+    protected void setListeners() {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,9 +87,7 @@ public class TabItemOperation extends TabItem {
                 }
             }
         });
-    }
 
-    private void setOnTouchListener() {
         int color = ContextCompat.getColor(view.getContext(), R.color.background_material_light);
         view.setOnTouchListener(new ColorOnTouchListener(color));
     }

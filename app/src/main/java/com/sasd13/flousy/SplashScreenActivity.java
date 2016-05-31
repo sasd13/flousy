@@ -1,8 +1,9 @@
 package com.sasd13.flousy;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.sasd13.androidex.session.Session;
@@ -10,7 +11,7 @@ import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 
-public class SplashScreenActivity extends Activity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     private static final int TIMEOUT = 3000;
 
@@ -26,7 +27,7 @@ public class SplashScreenActivity extends Activity {
 
     private void createLogo() {
         ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
-        imageViewLogo.setImageDrawable(getResources().getDrawable(R.drawable.ic_app_logo));
+        imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
     }
 
     @Override

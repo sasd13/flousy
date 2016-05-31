@@ -12,12 +12,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.recycler.form.Form;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemToggle;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.widget.recycler.form.Form;
-import com.sasd13.flousy.gui.widget.recycler.form.FormItem;
-import com.sasd13.flousy.gui.widget.recycler.form.FormItemText;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -53,37 +54,45 @@ public class SettingActivity extends MotherActivity implements FormItem.Action {
     private void createFormCustomer() {
         formCustomer = new FormCustomerViewHolder();
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity);
-        formCustomer.formIdentity = new Form(recyclerView, R.layout.formitem);
+        formCustomer.formIdentity = new Form((RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity));
         formCustomer.formIdentity.setScrollingDisabled(true);
 
         addFormIdentityItems();
     }
 
     private void addFormIdentityItems() {
-        FormItemText formItemText;
+        FormItem formItem;
 
-        for (int i = 0; i<3; i++) {
-            formItemText = new FormItemText();
-
+        for (int i = 0; i<=3; i++) {
             switch (i) {
                 case 0:
-                    formItemText.setId(FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME);
-                    formItemText.setLabel("Prénom");
+                    formItem = new FormItemText();
+                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME);
+                    formItem.setLabel("Prénom");
                     break;
                 case 1:
-                    formItemText.setId(FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME);
-                    formItemText.setLabel("Nom");
+                    formItem = new FormItemText();
+                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME);
+                    formItem.setLabel("Nom");
                     break;
                 case 2:
-                    formItemText.setId(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL);
-                    formItemText.setLabel("Email");
+                    formItem = new FormItemText();
+                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL);
+                    formItem.setLabel("Email");
+                    break;
+                case 3:
+                    formItem = new FormItemToggle();
+                    formItem.setId(-1);
+                    formItem.setLabel("Activer compte");
+                    break;
+                default:
+                    formItem = new FormItem();
                     break;
             }
 
-            formItemText.setAction(this);
+            formItem.setAction(this);
 
-            formCustomer.formIdentity.addItem(formItemText);
+            formCustomer.formIdentity.addItem(formItem);
         }
     }
 
@@ -107,6 +116,8 @@ public class SettingActivity extends MotherActivity implements FormItem.Action {
                     break;
                 case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
                     ((FormItemText) formItem).getInput().setValue(customer.getEmail());
+                    break;
+                default:
                     break;
             }
         }

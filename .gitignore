@@ -20,7 +20,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 local.properties
-.gradle/
-.idea/
-build/
-app/build/
+/.gradle
+/.idea
+/build
+/app/build

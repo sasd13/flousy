@@ -28,9 +28,7 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void createGridNav() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.home_recyclerview);
-
-        grid = new Grid(recyclerView, R.layout.griditem);
+        grid = new Grid((RecyclerView) findViewById(R.id.home_recyclerview));
     }
 
     private void fillGridNav() {

@@ -44,9 +44,7 @@ public class AccountActivity extends MotherActivity {
     }
 
     private void createTabOperations() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.account_recyclerview);
-
-        tab = new Tab(recyclerView, R.layout.tabitem_operation);
+        tab = new Tab((RecyclerView) findViewById(R.id.account_recyclerview));
     }
 
     @Override
