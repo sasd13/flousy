@@ -19,7 +19,6 @@ public class Form extends Recycler<FormItem> {
     @Override
     protected void setLayoutManager() {
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()) {
-
             @Override
             public boolean canScrollVertically() {
                 return !scrollingDisabled && super.canScrollVertically();
@@ -32,7 +31,7 @@ public class Form extends Recycler<FormItem> {
     }
 
     public FormItem findItemById(int id) {
-        for (FormItem formItem : getItems(FormItem.class)) {
+        for (FormItem formItem : getItems()) {
             if (formItem.getId() == id) {
                 return formItem;
             }

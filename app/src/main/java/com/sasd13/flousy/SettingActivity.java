@@ -97,7 +97,7 @@ public class SettingActivity extends MotherActivity implements FormItem.Action {
     }
 
     private void fillFormCustomer() {
-        for (FormItem formItem : formCustomer.formIdentity.getItems(FormItem.class)) {
+        for (FormItem formItem : formCustomer.formIdentity.getItems()) {
             switch (formItem.getId()) {
                 case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
                     ((FormItemText) formItem).getInput().setValue(customer.getFirstName());
@@ -172,7 +172,7 @@ public class SettingActivity extends MotherActivity implements FormItem.Action {
     }
 
     private void editCustomerWithForm(Customer customer) {
-        for (FormItem formItem : formCustomer.formIdentity.getItems(FormItem.class)) {
+        for (FormItem formItem : formCustomer.formIdentity.getItems()) {
             switch (formItem.getId()) {
                 case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
                     customer.setFirstName((String) ((FormItemText) formItem).getInput().getValue());
