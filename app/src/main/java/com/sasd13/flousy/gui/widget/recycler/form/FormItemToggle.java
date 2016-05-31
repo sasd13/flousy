@@ -4,19 +4,35 @@ import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.gui.widget.recycler.form.input.FormInput;
 
 public class FormItemToggle extends FormItem {
 
     private FormInput<Boolean> input;
     private ToggleButton toggleButtonValue;
 
-    public FormInput<Boolean> getInput() {
-        return input;
+    public FormItemToggle() {
+        input = new FormInput<Boolean>() {
+            @Override
+            public String getStringValue() {
+                return toggleButtonValue.isChecked()
+                        ? String.valueOf(toggleButtonValue.getTextOn())
+                        : String.valueOf(toggleButtonValue.getTextOff());
+            }
+        };
+
+        input.addObserver(this);
     }
 
-    public void setInput(FormInput<Boolean> input) {
-        this.input = input;
+    public void setTextOn(String textOn) {
+        toggleButtonValue.setTextOn(textOn);
+    }
+
+    public void setTextOff(String textOff) {
+        toggleButtonValue.setTextOff(textOff);
+    }
+
+    public FormInput<Boolean> getInput() {
+        return input;
     }
 
     @Override
@@ -27,21 +43,14 @@ public class FormItemToggle extends FormItem {
     }
 
     @Override
-    protected void bindItemViews() {
-        super.bindItemViews();
+    protected void setListeners() {
+        super.setListeners();
 
-        toggleButtonValue.setChecked(input.getValue());
-    }
-
-    @Override
-    protected void setListener() {
-        if (toggleButtonValue != null) {
-            toggleButtonValue.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    input.setValue(b);
-                }
-            });
-        }
+        toggleButtonValue.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                action.execute(FormItemToggle.this);
+            }
+        });
     }
 }

@@ -1,4 +1,4 @@
-package com.sasd13.flousy.gui.widget.recycler.form.input;
+package com.sasd13.flousy.gui.widget.recycler.form;
 
 import java.util.Observable;
 

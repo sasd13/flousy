@@ -6,19 +6,39 @@ import android.widget.TextView;
 
 import com.sasd13.androidex.gui.color.ColorOnTouchListener;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.gui.widget.recycler.form.input.FormInput;
 
 public class FormItemText extends FormItem {
 
     private FormInput input;
     private TextView textViewValue;
 
-    public FormInput getInput() {
-        return input;
+    public FormItemText() {
+        this(new FormInput<String>() {
+            @Override
+            public String getStringValue() {
+                return String.valueOf(getValue());
+            }
+        });
     }
 
-    public void setInput(FormInput input) {
+    public FormItemText(FormInput input) {
         this.input = input;
+
+        input.addObserver(this);
+    }
+
+    protected void setValue() {
+        if (textViewValue != null) {
+            if (input.getValue() != null) {
+                textViewValue.setText(input.getStringValue());
+            } else {
+                textViewValue.setText(input.getHint());
+            }
+        }
+    }
+
+    public FormInput getInput() {
+        return input;
     }
 
     @Override
@@ -39,9 +59,7 @@ public class FormItemText extends FormItem {
     protected void bindItemViews() {
         super.bindItemViews();
 
-        if (textViewValue != null) {
-            textViewValue.setText(input.getStringValue());
-        }
+        setValue();
     }
 
     private void setOnTouchListener() {

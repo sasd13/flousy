@@ -18,7 +18,6 @@ import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.gui.widget.recycler.form.Form;
 import com.sasd13.flousy.gui.widget.recycler.form.FormItem;
 import com.sasd13.flousy.gui.widget.recycler.form.FormItemText;
-import com.sasd13.flousy.gui.widget.recycler.form.input.FormInput;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -82,12 +81,6 @@ public class SettingActivity extends MotherActivity implements FormItem.Action {
                     break;
             }
 
-            formItemText.setInput(new FormInput() {
-                @Override
-                public String getStringValue() {
-                    return String.valueOf(getValue());
-                }
-            });
             formItemText.setAction(this);
 
             formCustomer.formIdentity.addItem(formItemText);

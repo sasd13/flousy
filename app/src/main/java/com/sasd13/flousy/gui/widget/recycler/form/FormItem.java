@@ -50,7 +50,7 @@ public class FormItem extends RecyclerItem implements Observer {
 
         findItemViews();
         bindItemViews();
-        setListener();
+        setListeners();
     }
 
     protected void findItemViews() {
@@ -61,15 +61,15 @@ public class FormItem extends RecyclerItem implements Observer {
         setLabel(label);
     }
 
-    protected void setListener() {
-        if (view != null) {
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+    protected void setListeners() {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (action != null) {
                     action.execute(FormItem.this);
                 }
-            });
-        }
+            }
+        });
     }
 
     @Override
