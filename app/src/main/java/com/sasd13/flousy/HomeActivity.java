@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridItem;
 import com.sasd13.flousy.constant.Extra;
@@ -35,13 +36,20 @@ public class HomeActivity extends MotherActivity {
         Nav nav = Nav.getInstance(this);
         GridItem gridItem;
 
-        for (NavItem navItem : nav.getItems()) {
+        for (final NavItem navItem : nav.getItems()) {
             gridItem = new GridItem();
 
             gridItem.setText(navItem.getText());
             gridItem.setImage(navItem.getImage());
             gridItem.setColor(navItem.getColor());
-            gridItem.setIntent(navItem.getIntent());
+            gridItem.setOnClickListener(new RecyclerItem.ActionListener() {
+                @Override
+                public void doAction(RecyclerItem recyclerItem) {
+                    navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                    startActivity(navItem.getIntent());
+                }
+            });
 
             grid.addItem(gridItem);
         }

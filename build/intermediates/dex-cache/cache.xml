@@ -5,7 +5,7 @@
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\jars\classes.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="f3c18aece30c3dc7aac29d55a8cad1f0acaec7d4">
+        sha1="e8bacd98274fa8dd1161f5cfcebe23e01f7ccc18">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\exploded-aar-com.sasd13.androidex-androidex_de2df00d4ba00729aef8d955ef2557333b3b06ec.jar" />
     </item>
     <item
@@ -16,18 +16,18 @@
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_91792e0aac852e0af3e00d1ef93cb2eff14c0a40.jar" />
     </item>
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="66903f5e971fb1d42f6ff2103111c3b63abfd0df">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_87fee13a55422da1960cb415a1912c330267b7a2.jar" />
-    </item>
-    <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.3"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_1a816856768960ca46cff115ec2a689fe4c37b69.jar" />
+    </item>
+    <item
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="7a4c4dd8ec940ba008a323492ce0c9ba58f66fd4">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_87fee13a55422da1960cb415a1912c330267b7a2.jar" />
     </item>
     <item
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
@@ -54,7 +54,7 @@
         jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="eb61b467256185a78b297d6964ab509ce8634816">
+        sha1="f1154b2fcb133f454b6a2094e28e94ff3e39a100">
         <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\instant-run_d63b0508ad20f5f6f34904d58c5cad9a5bb5fc64.jar" />
     </item>
     <item

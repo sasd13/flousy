@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
@@ -27,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SettingActivity extends MotherActivity implements FormItem.Action {
+public class SettingActivity extends MotherActivity implements RecyclerItem.ActionListener {
 
     private class FormCustomerViewHolder {
         public static final int FORMIDENTITY_ID_FIRSTNAME = 0;
@@ -90,7 +91,7 @@ public class SettingActivity extends MotherActivity implements FormItem.Action {
                     break;
             }
 
-            formItem.setAction(this);
+            formItem.setOnClickListener(this);
 
             formCustomer.formIdentity.addItem(formItem);
         }
@@ -199,52 +200,56 @@ public class SettingActivity extends MotherActivity implements FormItem.Action {
     }
 
     @Override
-    public void execute(final FormItem formItem) {
+    public void doAction(RecyclerItem recyclerItem) {
+        final FormItem formItem = (FormItem) recyclerItem;
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(formItem.getLabel());
 
-        final EditText editText = new EditText(this);
-        if (((FormItemText) formItem).getInput() != null) {
-            editText.setText(((FormItemText) formItem).getInput().getStringValue());
-        } else {
-            editText.setHint(((FormItemText) formItem).getInput().getHint());
-        }
+        if (formItem instanceof FormItemText) {
+            final EditText editText = new EditText(this);
 
-        switch (formItem.getId()) {
-            case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
-            case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
-            case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
-                editText.setInputType(InputType.TYPE_CLASS_TEXT);
-
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ((FormItemText) formItem).getInput().setValue(editText.getText().toString());
-                    }
-                });
-
-                break;
-            case FormCustomerViewHolder.FORMIDENTITY_ID_PASSWORD:
-                editText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ((FormItemText) formItem).getInput().setValue(editText.getText().toString());
-                    }
-                });
-
-                break;
-        }
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
+            if (((FormItemText) formItem).getInput() != null) {
+                editText.setText(((FormItemText) formItem).getInput().getStringValue());
+            } else {
+                editText.setHint(((FormItemText) formItem).getInput().getHint());
             }
-        });
-        builder.setView(editText);
 
-        builder.show();
+            switch (formItem.getId()) {
+                case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
+                case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
+                case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
+                    editText.setInputType(InputType.TYPE_CLASS_TEXT);
+
+                    break;
+                case FormCustomerViewHolder.FORMIDENTITY_ID_PASSWORD:
+                    editText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+                    break;
+                default:
+
+                    break;
+            }
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    ((FormItemText) formItem).getInput().setValue(editText.getText().toString());
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.setView(editText);
+
+            builder.show();
+        } else if (formItem instanceof FormItemToggle) {
+            ((FormItemToggle) formItem).getFormInput().setValue(((FormItemToggle) formItem).isChecked());
+
+            Toast.makeText(this, String.valueOf(((FormItemToggle) formItem).isChecked()), Toast.LENGTH_SHORT).show();
+        }
     }
 }
