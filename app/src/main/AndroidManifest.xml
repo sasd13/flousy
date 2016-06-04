@@ -62,7 +62,7 @@
             android:name=".OperationActivity"
             android:label="@string/activity_operation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:parentActivityName=".AccountActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -74,7 +74,7 @@
             android:name=".SettingActivity"
             android:label="@string/activity_setting"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data

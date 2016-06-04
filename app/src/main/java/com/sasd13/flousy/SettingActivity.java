@@ -1,16 +1,13 @@
 package com.sasd13.flousy;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import com.sasd13.androidex.gui.widget.dialog.Dialog;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.SpinDialog;
 import com.sasd13.androidex.gui.widget.dialog.SpinDialogMulti;
@@ -23,6 +20,7 @@ import com.sasd13.androidex.gui.widget.recycler.form.FormItemToggle;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.gui.widget.dialog.EditorDialog;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -34,16 +32,25 @@ import java.util.Map;
 
 public class SettingActivity extends MotherActivity implements RecyclerItem.ActionListener {
 
-    private class FormCustomerViewHolder {
-        public static final int FORMIDENTITY_ID_FIRSTNAME = 0;
-        public static final int FORMIDENTITY_ID_LASTNAME = 1;
-        public static final int FORMIDENTITY_ID_EMAIL = 2;
-        public static final int FORMIDENTITY_ID_PASSWORD = 3;
+    private static class FormHolder {
+        static final int FORMIDENTITY_ID_FIRSTNAME = 0;
+        static final int FORMIDENTITY_ID_LASTNAME = 1;
+        static final int FORMIDENTITY_ID_EMAIL = 2;
+        static final int FORMIDENTITY_ID_PASSWORD = 3;
+        static final int FORMIDENTITY_ID_ACCOUNT = 4;
 
-        public Form formIdentity;
+        int[] formIdentityIds = {
+                FORMIDENTITY_ID_FIRSTNAME,
+                FORMIDENTITY_ID_LASTNAME,
+                FORMIDENTITY_ID_EMAIL,
+                FORMIDENTITY_ID_PASSWORD,
+                FORMIDENTITY_ID_ACCOUNT
+        };
+
+        Form formIdentity;
     }
 
-    private FormCustomerViewHolder formCustomer;
+    private FormHolder formHolder;
 
     private Customer customer;
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
@@ -57,10 +64,10 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
     }
 
     private void createFormCustomer() {
-        formCustomer = new FormCustomerViewHolder();
+        formHolder = new FormHolder();
 
-        formCustomer.formIdentity = new Form((RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity));
-        formCustomer.formIdentity.setScrollingDisabled(true);
+        formHolder.formIdentity = new Form((RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity));
+        formHolder.formIdentity.setScrollingDisabled(true);
 
         addFormIdentityItems();
     }
@@ -68,36 +75,34 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
     private void addFormIdentityItems() {
         FormItem formItem;
 
-        for (int i = 0; i<=3; i++) {
-            switch (i) {
-                case 0:
+        for (int id : formHolder.formIdentityIds) {
+            switch (id) {
+                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
                     formItem = new FormItemText();
-                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME);
                     formItem.setLabel("Prénom");
                     break;
-                case 1:
+                case FormHolder.FORMIDENTITY_ID_LASTNAME:
                     formItem = new FormItemText();
-                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME);
                     formItem.setLabel("Nom");
                     break;
-                case 2:
+                case FormHolder.FORMIDENTITY_ID_EMAIL:
                     formItem = new FormItemText();
-                    formItem.setId(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL);
                     formItem.setLabel("Email");
                     break;
-                case 3:
+                case FormHolder.FORMIDENTITY_ID_ACCOUNT:
                     formItem = new FormItemToggle();
-                    formItem.setId(-1);
                     formItem.setLabel("Activer compte");
                     break;
                 default:
                     formItem = new FormItem();
+                    formItem.setLabel("Je ne fais rien");
                     break;
             }
 
+            formItem.setId(id);
             formItem.setOnClickListener(this);
 
-            formCustomer.formIdentity.addItem(formItem);
+            formHolder.formIdentity.addItem(formItem);
         }
     }
 
@@ -107,19 +112,19 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
 
         customer = persistor.read(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID), Customer.class);
 
-        fillFormCustomer();
+        fillFormIdentity();
     }
 
-    private void fillFormCustomer() {
-        for (FormItem formItem : formCustomer.formIdentity.getItems()) {
+    private void fillFormIdentity() {
+        for (FormItem formItem : formHolder.formIdentity.getItems()) {
             switch (formItem.getId()) {
-                case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
+                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
                     ((FormItemText) formItem).getInput().setValue(customer.getFirstName());
                     break;
-                case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
+                case FormHolder.FORMIDENTITY_ID_LASTNAME:
                     ((FormItemText) formItem).getInput().setValue(customer.getLastName());
                     break;
-                case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
+                case FormHolder.FORMIDENTITY_ID_EMAIL:
                     ((FormItemText) formItem).getInput().setValue(customer.getEmail());
                     break;
                 default:
@@ -166,8 +171,8 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
     }
 
     private void tryToPerformUpdateCustomer() {
-        String email = (String) ((FormItemText) formCustomer.formIdentity
-                .findItemById(FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL))
+        String email = (String) ((FormItemText) formHolder.formIdentity
+                .findItemById(FormHolder.FORMIDENTITY_ID_EMAIL))
                 .getInput().getValue();
 
         Map<String, String[]> parameters = new HashMap<>();
@@ -188,15 +193,15 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
     }
 
     private void editCustomerWithForm(Customer customer) {
-        for (FormItem formItem : formCustomer.formIdentity.getItems()) {
+        for (FormItem formItem : formHolder.formIdentity.getItems()) {
             switch (formItem.getId()) {
-                case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
+                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
                     customer.setFirstName((String) ((FormItemText) formItem).getInput().getValue());
                     break;
-                case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
+                case FormHolder.FORMIDENTITY_ID_LASTNAME:
                     customer.setLastName((String) ((FormItemText) formItem).getInput().getValue());
                     break;
-                case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
+                case FormHolder.FORMIDENTITY_ID_EMAIL:
                     customer.setEmail((String) ((FormItemText) formItem).getInput().getValue());
                     break;
             }
@@ -208,7 +213,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
         final FormItem formItem = (FormItem) recyclerItem;
 
         if (formItem instanceof FormItemText) {
-            if (formItem.getId() == FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME) {
+            if (formItem.getId() == FormHolder.FORMIDENTITY_ID_FIRSTNAME) {
                 String[] firstnames = {"Samir", "Sam", "S"};
                 SpinDialog spinDialog = new SpinDialogSingle(this);
 
@@ -265,10 +270,10 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
 
                     ((SpinDialogMulti) spinDialog).setOnButtonPositiveClickListener(new SpinDialogMulti.OnClickListener() {
                         @Override
-                        public void doAction(SpinDialog spinDialog) {
-                            spinDialog.dismiss();
+                        public void doAction(Dialog dialog) {
+                            dialog.dismiss();
 
-                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
+                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) dialog;
                             String value = Arrays.toString(spinDialogMulti.getCheckedItems());
 
                             ((FormItemText) formItem).getInput().setValue(value.substring(1, value.length() - 1));
@@ -278,38 +283,27 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
 
                 spinDialog.show();
             } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                final EditText editText = new EditText(this);
-
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ((FormItemText) formItem).getInput().setValue(editText.getText().toString());
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+                EditorDialog editorDialog = new EditorDialog(this);
+                editorDialog.setTitle(formItem.getLabel());
+                editorDialog.setMessage("Renseigner le champ");
+                editorDialog.setHint(((FormItemText) formItem).getInput().getHint());
 
                 if (((FormItemText) formItem).getInput() != null) {
-                    editText.setText(((FormItemText) formItem).getInput().getStringValue());
+                    editorDialog.setText(((FormItemText) formItem).getInput().getStringValue());
                 } else {
-                    editText.setHint(((FormItemText) formItem).getInput().getHint());
+                    editorDialog.setText(null);
                 }
 
-                if (formItem.getId() == FormCustomerViewHolder.FORMIDENTITY_ID_PASSWORD) {
-                    editText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                } else {
-                    editText.setInputType(InputType.TYPE_CLASS_TEXT);
-                }
+                editorDialog.setOnButtonPositiveClickListener(new EditorDialog.OnClickListener() {
+                    @Override
+                    public void doAction(EditorDialog editorDialog, String text) {
+                        editorDialog.dismiss();
 
-                builder.setView(editText);
+                        ((FormItemText) formItem).getInput().setValue(text);
+                    }
+                });
 
-                builder.setTitle(formItem.getLabel());
-                builder.create().show();
+                editorDialog.show();
             }
         } else if (formItem instanceof FormItemToggle) {
             ((FormItemToggle) formItem).getFormInput().setValue(((FormItemToggle) formItem).isChecked());
