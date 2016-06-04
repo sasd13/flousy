@@ -1,8 +1,8 @@
 package com.sasd13.flousy;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.view.Menu;
@@ -11,7 +11,10 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
+import com.sasd13.androidex.gui.widget.dialog.SpinDialog;
+import com.sasd13.androidex.gui.widget.dialog.SpinDialogMulti;
+import com.sasd13.androidex.gui.widget.dialog.SpinDialogSingle;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
@@ -24,6 +27,7 @@ import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -151,7 +155,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
         if (true) {
             tryToPerformUpdateCustomer();
         } else {
-            CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
+            OptionDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
     }
 
@@ -173,7 +177,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
         if (customers.isEmpty() || customers.get(0).getId() == SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) {
             performUpdate();
         } else {
-            CustomDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
+            OptionDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
         }
     }
 
@@ -203,49 +207,81 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
     public void doAction(RecyclerItem recyclerItem) {
         final FormItem formItem = (FormItem) recyclerItem;
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(formItem.getLabel());
-
         if (formItem instanceof FormItemText) {
-            final EditText editText = new EditText(this);
+            if (formItem.getId() == FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME) {
+                String[] firstnames = {"Samir", "Sam", "S"};
+                SpinDialog spinDialog = new SpinDialogSingle(this);
 
-            if (((FormItemText) formItem).getInput() != null) {
-                editText.setText(((FormItemText) formItem).getInput().getStringValue());
+                spinDialog.setTitle(formItem.getLabel());
+                spinDialog.setItems(firstnames);
+
+                if (spinDialog instanceof SpinDialogSingle) {
+                    for (int i=0; i<firstnames.length; i++) {
+                        if (firstnames[i].equals(((FormItemText) formItem).getInput().getValue())) {
+                            ((SpinDialogSingle) spinDialog).setSelectedPosition(i);
+                        }
+                    }
+
+                    ((SpinDialogSingle) spinDialog).setOnItemSelectedListener(new SpinDialog.OnItemSelectedListener() {
+                        @Override
+                        public void doAction(SpinDialog spinDialog, int position) {
+                            SpinDialogSingle spinDialogSingle = (SpinDialogSingle) spinDialog;
+
+                            ((FormItemText) formItem).getInput().setValue(spinDialogSingle.getSelectedItem());
+                            Toast.makeText(getApplication(), ((FormItemText) formItem).getInput().getStringValue(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    for (int i=0; i<firstnames.length; i++) {
+                        //((SpinDialogMulti) spinDialog).setSelectedPositions(i);
+                    }
+
+                    ((SpinDialogMulti) spinDialog).setOnButtonPositiveClickListener(new SpinDialogMulti.OnClickListener() {
+                        @Override
+                        public void doAction(SpinDialog spinDialog) {
+                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
+
+                            ((FormItemText) formItem).getInput().setValue(Arrays.toString(spinDialogMulti.getCheckedItems()));
+                            Toast.makeText(getApplication(), ((FormItemText) formItem).getInput().getStringValue(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                spinDialog.show();
             } else {
-                editText.setHint(((FormItemText) formItem).getInput().getHint());
-            }
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                final EditText editText = new EditText(this);
 
-            switch (formItem.getId()) {
-                case FormCustomerViewHolder.FORMIDENTITY_ID_FIRSTNAME:
-                case FormCustomerViewHolder.FORMIDENTITY_ID_LASTNAME:
-                case FormCustomerViewHolder.FORMIDENTITY_ID_EMAIL:
-                    editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ((FormItemText) formItem).getInput().setValue(editText.getText().toString());
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
 
-                    break;
-                case FormCustomerViewHolder.FORMIDENTITY_ID_PASSWORD:
+                if (((FormItemText) formItem).getInput() != null) {
+                    editText.setText(((FormItemText) formItem).getInput().getStringValue());
+                } else {
+                    editText.setHint(((FormItemText) formItem).getInput().getHint());
+                }
+
+                if (formItem.getId() == FormCustomerViewHolder.FORMIDENTITY_ID_PASSWORD) {
                     editText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                } else {
+                    editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
 
-                    break;
-                default:
+                builder.setView(editText);
 
-                    break;
+                builder.setTitle(formItem.getLabel());
+                builder.create().show();
             }
-
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    ((FormItemText) formItem).getInput().setValue(editText.getText().toString());
-                }
-            });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-            builder.setView(editText);
-
-            builder.show();
         } else if (formItem instanceof FormItemToggle) {
             ((FormItemToggle) formItem).getFormInput().setValue(((FormItemToggle) formItem).isChecked());
 

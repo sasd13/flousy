@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
@@ -74,19 +75,24 @@ public class AccountActivity extends MotherActivity {
 
     private void addOperationsToTab(List<Operation> operations) {
         TabItemOperation tabItemOperation;
-        Intent intent;
 
         for (Operation operation : operations) {
             tabItemOperation = new TabItemOperation();
 
+            tabItemOperation.setId(operation.getId());
             tabItemOperation.setDate(String.valueOf(operation.getDateRealization()));
             tabItemOperation.setTitle(operation.getTitle());
             tabItemOperation.setAmount(String.valueOf(operation.getAmount()));
+            tabItemOperation.setOnClickListener(new RecyclerItem.ActionListener() {
+                @Override
+                public void doAction(RecyclerItem recyclerItem) {
+                    TabItemOperation tabItemOperation = (TabItemOperation) recyclerItem;
 
-            intent = new Intent(this, OperationActivity.class);
-            intent.putExtra(Extra.MODE, Extra.MODE_EDIT);
-            intent.putExtra(Extra.OPERATION_ID, operation.getId());
-            tabItemOperation.setIntent(intent);
+                    Intent intent = new Intent(AccountActivity.this, OperationActivity.class);
+                    intent.putExtra(Extra.MODE, Extra.MODE_EDIT);
+                    intent.putExtra(Extra.OPERATION_ID, tabItemOperation.getId());
+                }
+            });
 
             tab.addItem(tabItemOperation);
         }

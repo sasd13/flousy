@@ -1,6 +1,5 @@
 package com.sasd13.flousy.gui.widget.recycler.tab;
 
-import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
@@ -17,15 +16,24 @@ import com.sasd13.flousy.R;
  */
 public class TabItemOperation extends RecyclerItem {
 
-    private CharSequence date, title, amount;
-    private Intent intent;
+    private long id;
+    private String date, title, amount;
     private TextView textViewDate, textViewTitle, textViewAmount;
+    private ActionListener onClickListener;
 
     public TabItemOperation() {
         super(R.layout.tabitem_operation);
     }
 
-    public void setDate(CharSequence date) {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setDate(String date) {
         this.date = date;
 
         if (textViewDate != null) {
@@ -33,7 +41,7 @@ public class TabItemOperation extends RecyclerItem {
         }
     }
 
-    public void setTitle(CharSequence title) {
+    public void setTitle(String title) {
         this.title = title;
 
         if (textViewTitle != null) {
@@ -41,7 +49,7 @@ public class TabItemOperation extends RecyclerItem {
         }
     }
 
-    public void setAmount(CharSequence amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
 
         if (textViewAmount != null) {
@@ -49,10 +57,8 @@ public class TabItemOperation extends RecyclerItem {
         }
     }
 
-    public void setIntent(Intent intent) {
-        this.intent = intent;
-
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    public void setOnClickListener(ActionListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -80,11 +86,7 @@ public class TabItemOperation extends RecyclerItem {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    view.getContext().startActivity(intent);
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                }
+                onClickListener.doAction(TabItemOperation.this);
             }
         });
 

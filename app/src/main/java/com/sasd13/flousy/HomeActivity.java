@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridItem;
@@ -71,7 +71,7 @@ public class HomeActivity extends MotherActivity {
     private void showWelcome() {
         String firstName = getIntent().getStringExtra(Extra.FIRSTNAME);
 
-        CustomDialog.showOkDialog(
+        OptionDialog.showOkDialog(
                 this,
                 getResources().getString(R.string.home_alertdialog_title_welcome),
                 getResources().getString(R.string.home_alertdialog_title_welcome) + " " + firstName + " !");

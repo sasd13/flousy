@@ -12,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
@@ -151,7 +151,7 @@ public class OperationActivity extends MotherActivity {
             Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
             goToAccountActivity();
         } else {
-            CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
+            OptionDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
     }
 
@@ -202,7 +202,7 @@ public class OperationActivity extends MotherActivity {
             Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
             goToAccountActivity();
         } else {
-            CustomDialog.showOkDialog(this, getResources().getString(R.string.title_error), tabFormErrors[0]);
+            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), tabFormErrors[0]);
         }
     }
 
@@ -212,7 +212,7 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void deleteOperation() {
-        CustomDialog.showYesNoDialog(
+        OptionDialog.showYesNoDialog(
                 this,
                 getResources().getString(R.string.activity_operation),
                 getResources().getString(R.string.message_confirm),

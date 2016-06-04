@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Account;
@@ -85,7 +85,7 @@ public class SignActivity extends AppCompatActivity {
         if (true) {
             tryToPerformSignUp();
         } else {
-            CustomDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
+            OptionDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
     }
 
@@ -107,7 +107,7 @@ public class SignActivity extends AppCompatActivity {
             SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
             goToHomeActivityWithWelcome(customer.getFirstName());
         } else {
-            CustomDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
+            OptionDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
         }
     }
 

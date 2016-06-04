@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.sasd13.androidex.gui.widget.dialog.CustomDialog;
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Customer;
@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                 SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customers.get(0).getId());
                 goToHomeActivity();
             } else {
-                CustomDialog.showOkDialog(
+                OptionDialog.showOkDialog(
                         this,
                         getResources().getString(R.string.login_alertdialog_title_error_login),
                         getResources().getString(R.string.login_alertdialog_message_error_login));

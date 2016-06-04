@@ -64,7 +64,7 @@ public abstract class MotherActivity extends AppCompatActivity {
             drawerItemNav = new DrawerItemNav();
 
             drawerItemNav.setColor(navItem.getColor());
-            drawerItemNav.setText(navItem.getText());
+            drawerItemNav.setLabel(navItem.getText());
             drawerItemNav.setOnClickListener(new RecyclerItem.ActionListener() {
                 @Override
                 public void doAction(RecyclerItem recyclerItem) {
