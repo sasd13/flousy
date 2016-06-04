@@ -213,9 +213,10 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
                 SpinDialog spinDialog = new SpinDialogSingle(this);
 
                 spinDialog.setTitle(formItem.getLabel());
-                spinDialog.setItems(firstnames);
 
                 if (spinDialog instanceof SpinDialogSingle) {
+                    spinDialog.setItems(firstnames);
+
                     for (int i=0; i<firstnames.length; i++) {
                         if (firstnames[i].equals(((FormItemText) formItem).getInput().getValue())) {
                             ((SpinDialogSingle) spinDialog).setSelectedPosition(i);
@@ -225,24 +226,52 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
                     ((SpinDialogSingle) spinDialog).setOnItemSelectedListener(new SpinDialog.OnItemSelectedListener() {
                         @Override
                         public void doAction(SpinDialog spinDialog, int position) {
-                            SpinDialogSingle spinDialogSingle = (SpinDialogSingle) spinDialog;
+                            spinDialog.dismiss();
 
-                            ((FormItemText) formItem).getInput().setValue(spinDialogSingle.getSelectedItem());
-                            Toast.makeText(getApplication(), ((FormItemText) formItem).getInput().getStringValue(), Toast.LENGTH_SHORT).show();
+                            ((FormItemText) formItem).getInput().setValue(spinDialog.getItems()[position]);
                         }
                     });
                 } else {
-                    for (int i=0; i<firstnames.length; i++) {
-                        //((SpinDialogMulti) spinDialog).setSelectedPositions(i);
+                    String input = ((FormItemText) formItem).getInput().getStringValue();
+                    String[] f = input.split(",");
+                    if (f.length == 0 || f[0].isEmpty()) {
+                        spinDialog.setItems(firstnames);
+                    } else {
+                        Integer[] checked = new Integer[f.length];
+                        for (int i=0; i<checked.length; i++) {
+                            for (int j=0; j<firstnames.length; j++) {
+                                if (f[i].trim().equals(firstnames[j])) {
+                                    checked[i] = j;
+                                    break;
+                                }
+                            }
+                        }
+
+                        ((SpinDialogMulti) spinDialog).setItems(firstnames, checked);
                     }
+
+                    ((SpinDialogMulti) spinDialog).setOnItemCheckedListener(new SpinDialog.OnItemCheckedListener() {
+                        @Override
+                        public void doAction(SpinDialog spinDialog, int position, boolean isChecked) {
+                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
+
+                            if (isChecked) {
+                                spinDialogMulti.addToCheckedPositions(position);
+                            } else {
+                                spinDialogMulti.removeFromCheckedPositions(position);
+                            }
+                        }
+                    });
 
                     ((SpinDialogMulti) spinDialog).setOnButtonPositiveClickListener(new SpinDialogMulti.OnClickListener() {
                         @Override
                         public void doAction(SpinDialog spinDialog) {
-                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
+                            spinDialog.dismiss();
 
-                            ((FormItemText) formItem).getInput().setValue(Arrays.toString(spinDialogMulti.getCheckedItems()));
-                            Toast.makeText(getApplication(), ((FormItemText) formItem).getInput().getStringValue(), Toast.LENGTH_SHORT).show();
+                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
+                            String value = Arrays.toString(spinDialogMulti.getCheckedItems());
+
+                            ((FormItemText) formItem).getInput().setValue(value.substring(1, value.length() - 1));
                         }
                     });
                 }
@@ -284,8 +313,6 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
             }
         } else if (formItem instanceof FormItemToggle) {
             ((FormItemToggle) formItem).getFormInput().setValue(((FormItemToggle) formItem).isChecked());
-
-            Toast.makeText(this, String.valueOf(((FormItemToggle) formItem).isChecked()), Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -156,12 +156,12 @@
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\drawable-sw600dp-mdpi-v13\\textfield_activated_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp-mdpi-v13\\spinner_disabled_holo_light_am.9.png",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\drawable-sw600dp-mdpi-v13\\spinner_disabled_holo_light_am.9.png"
-    },
-    {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp-mdpi-v13\\ic_app_logo.png",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\drawable-sw600dp-mdpi\\ic_app_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp-mdpi-v13\\spinner_disabled_holo_light_am.9.png",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\drawable-sw600dp-mdpi-v13\\spinner_disabled_holo_light_am.9.png"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp-mdpi-v13\\griditem_settings.png",
