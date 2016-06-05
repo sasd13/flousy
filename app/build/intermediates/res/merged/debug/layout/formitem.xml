@@ -5,12 +5,12 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/formitem_textview_label"
+        android:id="@+id/formitem_textview_title"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:gravity="center_vertical"
         android:padding="3dp"
-        android:text="@string/formitem_textview_label"
+        android:text="@string/formitem_textview_title"
         android:textStyle="bold"
         android:textSize="@dimen/textsize_medium"/>
 
@@ -18,7 +18,7 @@
         android:id="@+id/formitem_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
-        android:layout_below="@id/formitem_textview_label"
+        android:layout_below="@id/formitem_textview_title"
         android:background="@color/primary_material_light"/>
 
 </RelativeLayout>

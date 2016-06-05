@@ -15,6 +15,7 @@ import com.sasd13.androidex.gui.widget.dialog.SpinDialogSingle;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemSwitch;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemToggle;
 import com.sasd13.flousy.bean.Customer;
@@ -79,23 +80,29 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
             switch (id) {
                 case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
                     formItem = new FormItemText();
-                    formItem.setLabel("Prénom");
+                    formItem.setTitle("Prénom");
+                    ((FormItemText) formItem).setMessage("Votre prénom");
+                    ((FormItemText) formItem).setHint("prenom");
                     break;
                 case FormHolder.FORMIDENTITY_ID_LASTNAME:
                     formItem = new FormItemText();
-                    formItem.setLabel("Nom");
+                    formItem.setTitle("Nom");
+                    ((FormItemText) formItem).setMessage("Votre nom");
+                    ((FormItemText) formItem).setHint("nom");
                     break;
                 case FormHolder.FORMIDENTITY_ID_EMAIL:
                     formItem = new FormItemText();
-                    formItem.setLabel("Email");
+                    formItem.setTitle("Email");
+                    ((FormItemText) formItem).setMessage("Votre email");
+                    ((FormItemText) formItem).setHint("email");
                     break;
                 case FormHolder.FORMIDENTITY_ID_ACCOUNT:
                     formItem = new FormItemToggle();
-                    formItem.setLabel("Activer compte");
+                    formItem.setTitle("Activer compte");
                     break;
                 default:
                     formItem = new FormItem();
-                    formItem.setLabel("Je ne fais rien");
+                    formItem.setTitle("Je ne fais rien");
                     break;
             }
 
@@ -217,7 +224,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
                 String[] firstnames = {"Samir", "Sam", "S"};
                 SpinDialog spinDialog = new SpinDialogSingle(this);
 
-                spinDialog.setTitle(formItem.getLabel());
+                spinDialog.setTitle(formItem.getTitle());
 
                 if (spinDialog instanceof SpinDialogSingle) {
                     spinDialog.setItems(firstnames);
@@ -284,9 +291,8 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
                 spinDialog.show();
             } else {
                 EditorDialog editorDialog = new EditorDialog(this);
-                editorDialog.setTitle(formItem.getLabel());
-                editorDialog.setMessage("Renseigner le champ");
-                editorDialog.setHint(((FormItemText) formItem).getInput().getHint());
+                editorDialog.setMessage(((FormItemText) formItem).getMessage());
+                editorDialog.setHint(((FormItemText) formItem).getHint());
 
                 if (((FormItemText) formItem).getInput() != null) {
                     editorDialog.setText(((FormItemText) formItem).getInput().getStringValue());
@@ -306,7 +312,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
                 editorDialog.show();
             }
         } else if (formItem instanceof FormItemToggle) {
-            ((FormItemToggle) formItem).getFormInput().setValue(((FormItemToggle) formItem).isChecked());
+            ((FormItemToggle) formItem).getInput().setValue(((FormItemToggle) formItem).isChecked());
         }
     }
 }
