@@ -64,10 +64,10 @@ public abstract class MotherActivity extends AppCompatActivity {
             drawerItemNav = new DrawerItemNav();
 
             drawerItemNav.setColor(navItem.getColor());
-            drawerItemNav.setLabel(navItem.getText());
-            drawerItemNav.setOnClickListener(new RecyclerItem.ActionListener() {
+            drawerItemNav.setTitle(navItem.getText());
+            drawerItemNav.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
-                public void doAction(RecyclerItem recyclerItem) {
+                public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
                     navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(navItem.getIntent());

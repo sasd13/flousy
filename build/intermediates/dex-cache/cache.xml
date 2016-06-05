@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="7a149cb67100ac10bd6d0a157cc5594ffdda94b8">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\exploded-aar-com.sasd13.androidex-androidex_de2df00d4ba00729aef8d955ef2557333b3b06ec.jar" />
-    </item>
-
-</items>

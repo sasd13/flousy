@@ -230,11 +230,12 @@
     <string name="app_name">AndroidEx</string>
     <string name="button_cancel">Annuler</string>
     <string name="button_no">Non</string>
+    <string name="button_off">Off</string>
     <string name="button_ok">OK</string>
+    <string name="button_on">On</string>
     <string name="button_save">Enregistrer</string>
     <string name="button_yes">Oui</string>
-    <string name="draweritem_textview_item">Item</string>
-    <string name="draweritemtitle_textview_title">Titre</string>
+    <string name="draweritem_textview_title">Title</string>
     <string name="edittext_hint_confirmpassword">Confirmer</string>
     <string name="edittext_hint_email">Email</string>
     <string name="edittext_hint_firstname">Prénom</string>
@@ -247,8 +248,6 @@
     <string name="form_textview_title_password">MOT DE PASSE</string>
     <string name="formitem_textview_title">Title</string>
     <string name="formitem_textview_value">Value</string>
-    <string name="formitem_togglebutton_textoff">No</string>
-    <string name="formitem_togglebutton_texton">Yes</string>
     <string name="griditem_textview">Item</string>
     <string name="menuitem_action_accept">Valider</string>
     <string name="menuitem_action_discard">Supprimer</string>
@@ -268,7 +267,7 @@
     <string name="recycleritem_view">Item</string>
     <string name="title_careful">Attention</string>
     <string name="title_error">Erreur</string>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
     </style>
 </resources>

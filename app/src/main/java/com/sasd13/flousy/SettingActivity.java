@@ -15,9 +15,9 @@ import com.sasd13.androidex.gui.widget.dialog.SpinDialogSingle;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemBinary;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemSwitch;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
-import com.sasd13.androidex.gui.widget.recycler.form.FormItemToggle;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SettingActivity extends MotherActivity implements RecyclerItem.ActionListener {
+public class SettingActivity extends MotherActivity implements RecyclerItem.OnClickListener, FormItemBinary.OnCheckedChangeListener {
 
     private static class FormHolder {
         static final int FORMIDENTITY_ID_FIRSTNAME = 0;
@@ -74,7 +74,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
     }
 
     private void addFormIdentityItems() {
-        FormItem formItem;
+        FormItem formItem = null;
 
         for (int id : formHolder.formIdentityIds) {
             switch (id) {
@@ -83,33 +83,36 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
                     formItem.setTitle("Prénom");
                     ((FormItemText) formItem).setMessage("Votre prénom");
                     ((FormItemText) formItem).setHint("prenom");
+                    ((FormItemText) formItem).setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_LASTNAME:
                     formItem = new FormItemText();
                     formItem.setTitle("Nom");
                     ((FormItemText) formItem).setMessage("Votre nom");
                     ((FormItemText) formItem).setHint("nom");
+                    ((FormItemText) formItem).setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_EMAIL:
                     formItem = new FormItemText();
                     formItem.setTitle("Email");
                     ((FormItemText) formItem).setMessage("Votre email");
                     ((FormItemText) formItem).setHint("email");
+                    ((FormItemText) formItem).setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_ACCOUNT:
-                    formItem = new FormItemToggle();
+                    formItem = new FormItemSwitch();
                     formItem.setTitle("Activer compte");
-                    break;
-                default:
-                    formItem = new FormItem();
-                    formItem.setTitle("Je ne fais rien");
+                    ((FormItemBinary) formItem).setOnCheckedChangeListener(this);
                     break;
             }
 
-            formItem.setId(id);
-            formItem.setOnClickListener(this);
+            if (formItem != null) {
+                formItem.setId(id);
 
-            formHolder.formIdentity.addItem(formItem);
+                formHolder.formIdentity.addItem(formItem);
+            }
+
+            formItem = null;
         }
     }
 
@@ -216,103 +219,104 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.Acti
     }
 
     @Override
-    public void doAction(RecyclerItem recyclerItem) {
+    public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
         final FormItem formItem = (FormItem) recyclerItem;
 
-        if (formItem instanceof FormItemText) {
-            if (formItem.getId() == FormHolder.FORMIDENTITY_ID_FIRSTNAME) {
-                String[] firstnames = {"Samir", "Sam", "S"};
-                SpinDialog spinDialog = new SpinDialogSingle(this);
+        if (formItem.getId() == FormHolder.FORMIDENTITY_ID_FIRSTNAME) {
+            String[] firstnames = {"Samir", "Sam", "S"};
+            SpinDialog spinDialog = new SpinDialogSingle(this);
 
-                spinDialog.setTitle(formItem.getTitle());
+            spinDialog.setTitle(formItem.getTitle());
 
-                if (spinDialog instanceof SpinDialogSingle) {
-                    spinDialog.setItems(firstnames);
+            if (spinDialog instanceof SpinDialogSingle) {
+                spinDialog.setItems(firstnames);
 
-                    for (int i=0; i<firstnames.length; i++) {
-                        if (firstnames[i].equals(((FormItemText) formItem).getInput().getValue())) {
-                            ((SpinDialogSingle) spinDialog).setSelectedPosition(i);
-                        }
+                for (int i=0; i<firstnames.length; i++) {
+                    if (firstnames[i].equals(((FormItemText) formItem).getInput().getValue())) {
+                        ((SpinDialogSingle) spinDialog).setSelectedPosition(i);
                     }
-
-                    ((SpinDialogSingle) spinDialog).setOnItemSelectedListener(new SpinDialog.OnItemSelectedListener() {
-                        @Override
-                        public void doAction(SpinDialog spinDialog, int position) {
-                            spinDialog.dismiss();
-
-                            ((FormItemText) formItem).getInput().setValue(spinDialog.getItems()[position]);
-                        }
-                    });
-                } else {
-                    String input = ((FormItemText) formItem).getInput().getStringValue();
-                    String[] f = input.split(",");
-                    if (f.length == 0 || f[0].isEmpty()) {
-                        spinDialog.setItems(firstnames);
-                    } else {
-                        Integer[] checked = new Integer[f.length];
-                        for (int i=0; i<checked.length; i++) {
-                            for (int j=0; j<firstnames.length; j++) {
-                                if (f[i].trim().equals(firstnames[j])) {
-                                    checked[i] = j;
-                                    break;
-                                }
-                            }
-                        }
-
-                        ((SpinDialogMulti) spinDialog).setItems(firstnames, checked);
-                    }
-
-                    ((SpinDialogMulti) spinDialog).setOnItemCheckedListener(new SpinDialog.OnItemCheckedListener() {
-                        @Override
-                        public void doAction(SpinDialog spinDialog, int position, boolean isChecked) {
-                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
-
-                            if (isChecked) {
-                                spinDialogMulti.addToCheckedPositions(position);
-                            } else {
-                                spinDialogMulti.removeFromCheckedPositions(position);
-                            }
-                        }
-                    });
-
-                    ((SpinDialogMulti) spinDialog).setOnButtonPositiveClickListener(new SpinDialogMulti.OnClickListener() {
-                        @Override
-                        public void doAction(Dialog dialog) {
-                            dialog.dismiss();
-
-                            SpinDialogMulti spinDialogMulti = (SpinDialogMulti) dialog;
-                            String value = Arrays.toString(spinDialogMulti.getCheckedItems());
-
-                            ((FormItemText) formItem).getInput().setValue(value.substring(1, value.length() - 1));
-                        }
-                    });
                 }
 
-                spinDialog.show();
-            } else {
-                EditorDialog editorDialog = new EditorDialog(this);
-                editorDialog.setMessage(((FormItemText) formItem).getMessage());
-                editorDialog.setHint(((FormItemText) formItem).getHint());
-
-                if (((FormItemText) formItem).getInput() != null) {
-                    editorDialog.setText(((FormItemText) formItem).getInput().getStringValue());
-                } else {
-                    editorDialog.setText(null);
-                }
-
-                editorDialog.setOnButtonPositiveClickListener(new EditorDialog.OnClickListener() {
+                ((SpinDialogSingle) spinDialog).setOnItemSelectedListener(new SpinDialog.OnItemSelectedListener() {
                     @Override
-                    public void doAction(EditorDialog editorDialog, String text) {
-                        editorDialog.dismiss();
+                    public void onItemSelectedOnSpinDialog(SpinDialog spinDialog, int position) {
+                        spinDialog.dismiss();
 
-                        ((FormItemText) formItem).getInput().setValue(text);
+                        ((FormItemText) formItem).getInput().setValue(spinDialog.getItems()[position]);
+                    }
+                });
+            } else {
+                String input = ((FormItemText) formItem).getInput().getStringValue();
+                String[] f = input.split(",");
+                if (f.length == 0 || f[0].isEmpty()) {
+                    spinDialog.setItems(firstnames);
+                } else {
+                    Integer[] checked = new Integer[f.length];
+                    for (int i=0; i<checked.length; i++) {
+                        for (int j=0; j<firstnames.length; j++) {
+                            if (f[i].trim().equals(firstnames[j])) {
+                                checked[i] = j;
+                                break;
+                            }
+                        }
+                    }
+
+                    ((SpinDialogMulti) spinDialog).setItems(firstnames, checked);
+                }
+
+                ((SpinDialogMulti) spinDialog).setOnItemCheckedListener(new SpinDialog.OnItemCheckedListener() {
+                    @Override
+                    public void onItemCheckedOnSpinDialog(SpinDialog spinDialog, int position, boolean checked) {
+                        SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
+
+                        if (checked) {
+                            spinDialogMulti.addToCheckedPositions(position);
+                        } else {
+                            spinDialogMulti.removeFromCheckedPositions(position);
+                        }
                     }
                 });
 
-                editorDialog.show();
+                ((SpinDialogMulti) spinDialog).setOnButtonPositiveClickListener(new SpinDialogMulti.OnClickListener() {
+                    @Override
+                    public void onClickOnDialog(Dialog dialog) {
+                        dialog.dismiss();
+
+                        SpinDialogMulti spinDialogMulti = (SpinDialogMulti) dialog;
+                        String value = Arrays.toString(spinDialogMulti.getCheckedItems());
+
+                        ((FormItemText) formItem).getInput().setValue(value.substring(1, value.length() - 1));
+                    }
+                });
             }
-        } else if (formItem instanceof FormItemToggle) {
-            ((FormItemToggle) formItem).getInput().setValue(((FormItemToggle) formItem).isChecked());
+
+            spinDialog.show();
+        } else {
+            EditorDialog editorDialog = new EditorDialog(this);
+            editorDialog.setMessage(((FormItemText) formItem).getMessage());
+            editorDialog.setHint(((FormItemText) formItem).getHint());
+
+            if (((FormItemText) formItem).getInput() != null) {
+                editorDialog.setText(((FormItemText) formItem).getInput().getStringValue());
+            } else {
+                editorDialog.setText(null);
+            }
+
+            editorDialog.setOnButtonPositiveClickListener(new EditorDialog.OnClickListener() {
+                @Override
+                public void doAction(EditorDialog editorDialog, String text) {
+                    editorDialog.dismiss();
+
+                    ((FormItemText) formItem).getInput().setValue(text);
+                }
+            });
+
+            editorDialog.show();
         }
+    }
+
+    @Override
+    public void onCheckedChangeOnFormItemBinary(FormItemBinary formItemBinary, boolean checked) {
+        formItemBinary.getInput().setValue(checked);
     }
 }

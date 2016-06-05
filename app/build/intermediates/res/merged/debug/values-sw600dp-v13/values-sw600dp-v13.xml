@@ -8,7 +8,6 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="actionbar_height">73dp</dimen>
-    <dimen name="activity_padding">21dp</dimen>
     <dimen name="button_height">40dp</dimen>
     <dimen name="button_width">110dp</dimen>
     <dimen name="button_width_large">140dp</dimen>

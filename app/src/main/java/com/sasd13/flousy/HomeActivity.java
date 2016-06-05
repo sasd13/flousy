@@ -42,9 +42,9 @@ public class HomeActivity extends MotherActivity {
             gridItem.setText(navItem.getText());
             gridItem.setImage(navItem.getImage());
             gridItem.setColor(navItem.getColor());
-            gridItem.setOnClickListener(new RecyclerItem.ActionListener() {
+            gridItem.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
-                public void doAction(RecyclerItem recyclerItem) {
+                public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
                     navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(navItem.getIntent());

@@ -19,7 +19,7 @@ public class TabItemOperation extends RecyclerItem {
     private long id;
     private String date, title, amount;
     private TextView textViewDate, textViewTitle, textViewAmount;
-    private ActionListener onClickListener;
+    private OnClickListener onClickListener;
 
     public TabItemOperation() {
         super(R.layout.tabitem_operation);
@@ -57,7 +57,7 @@ public class TabItemOperation extends RecyclerItem {
         }
     }
 
-    public void setOnClickListener(ActionListener onClickListener) {
+    public void setOnClickListener(OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
     }
 
@@ -86,7 +86,7 @@ public class TabItemOperation extends RecyclerItem {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClickListener.doAction(TabItemOperation.this);
+                onClickListener.onClickOnRecyclerItem(TabItemOperation.this);
             }
         });
 

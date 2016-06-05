@@ -83,9 +83,9 @@ public class AccountActivity extends MotherActivity {
             tabItemOperation.setDate(String.valueOf(operation.getDateRealization()));
             tabItemOperation.setTitle(operation.getTitle());
             tabItemOperation.setAmount(String.valueOf(operation.getAmount()));
-            tabItemOperation.setOnClickListener(new RecyclerItem.ActionListener() {
+            tabItemOperation.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
-                public void doAction(RecyclerItem recyclerItem) {
+                public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
                     TabItemOperation tabItemOperation = (TabItemOperation) recyclerItem;
 
                     Intent intent = new Intent(AccountActivity.this, OperationActivity.class);
