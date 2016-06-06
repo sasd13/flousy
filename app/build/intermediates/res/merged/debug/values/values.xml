@@ -370,7 +370,6 @@
     <dimen name="button_height">40dp</dimen>
     <dimen name="button_width">110dp</dimen>
     <dimen name="button_width_large">140dp</dimen>
-    <dimen name="customdialog_progressbar_padding">15dp</dimen>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
     <dimen name="dividerview_height_large">3dp</dimen>
@@ -381,12 +380,11 @@
     <dimen name="drawer_width">240dp</dimen>
     <dimen name="draweritem_nav_colorview_height">42dp</dimen>
     <dimen name="draweritem_nav_colorview_width">16dp</dimen>
-    <dimen name="draweritemtitle_textview_paddingtop">30dp</dimen>
     <dimen name="form_user_checkbox_horizontalmargin">7dp</dimen>
     <dimen name="grid_items_space">12dp</dimen>
-    <dimen name="griditem_size">120dp</dimen>
     <dimen name="griditem_verticalmargin_external">14dp</dimen>
     <dimen name="griditem_verticalmargin_internal">7dp</dimen>
+    <dimen name="griditem_width">120dp</dimen>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
@@ -398,18 +396,20 @@
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <dimen name="recycleritem_padding">16dp</dimen>
-    <dimen name="recycleritem_title_paddingtop">20dp</dimen>
+    <dimen name="recycleritem_height">64dp</dimen>
+    <dimen name="recycleritem_padding">3dp</dimen>
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
     <dimen name="textsize_large">16sp</dimen>
     <dimen name="textsize_medium">14sp</dimen>
     <dimen name="textsize_small">12sp</dimen>
     <dimen name="textsize_xlarge">18sp</dimen>
+    <dimen name="textsize_xsmall">10sp</dimen>
     <dimen name="textsize_xxlarge">20sp</dimen>
     <dimen name="view_margin_large">20dp</dimen>
     <dimen name="view_margin_medium">12dp</dimen>
     <dimen name="view_margin_small">7dp</dimen>
     <dimen name="viewgroup_margin">30dp</dimen>
+    <dimen name="waitdialog_padding">15dp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -464,7 +464,7 @@
     <string name="button_on">On</string>
     <string name="button_save">Enregistrer</string>
     <string name="button_yes">Oui</string>
-    <string name="draweritem_textview_title">Title</string>
+    <string name="draweritem_textview_label">Label</string>
     <string name="edittext_hint_confirmpassword">Confirmer</string>
     <string name="edittext_hint_email">Email</string>
     <string name="edittext_hint_firstname">Prénom</string>
@@ -484,7 +484,7 @@
     <string name="form_textview_title_email">EMAIL</string>
     <string name="form_textview_title_identity">IDENTITE</string>
     <string name="form_textview_title_password">MOT DE PASSE</string>
-    <string name="formitem_textview_title">Title</string>
+    <string name="formitem_textview_label">Label</string>
     <string name="formitem_textview_value">Value</string>
     <string name="griditem_textview">Item</string>
     <string name="home_alertdialog_message_welcome">Salut</string>
@@ -509,12 +509,13 @@
     <string name="message_saved">Enregistré</string>
     <string name="message_updated">Actualisé</string>
     <string name="message_wait">Veuillez patienter...</string>
-    <string name="recycleritem_view">Item</string>
+    <string name="recycleritem_title_textview">Title</string>
     <string name="sign_alertdialog_message_error_sign">Remplir le formulaire d\'inscription</string>
     <string name="sign_alertdialog_title_error_sign">Erreur inscription</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="tabitem_textview_amount">0.0</string>
     <string name="tabitem_textview_date">Date</string>
+    <string name="tabitem_textview_label">Label</string>
     <string name="tabitem_textview_title">Intitulé</string>
     <string name="tabitemtitle_textview_amount">PRIX</string>
     <string name="tabitemtitle_textview_date">DATE</string>

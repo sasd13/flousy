@@ -36,15 +36,18 @@ public class HomeActivity extends MotherActivity {
         Nav nav = Nav.getInstance(this);
         GridItem gridItem;
 
-        for (final NavItem navItem : nav.getItems()) {
+        for (NavItem navItem : nav.getItems()) {
             gridItem = new GridItem();
 
+            gridItem.setTag(navItem);
             gridItem.setText(navItem.getText());
             gridItem.setImage(navItem.getImage());
             gridItem.setColor(navItem.getColor());
             gridItem.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
                 public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
+                    NavItem navItem = (NavItem) recyclerItem.getTag();
+
                     navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(navItem.getIntent());

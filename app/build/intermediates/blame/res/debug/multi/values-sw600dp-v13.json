@@ -216,8 +216,8 @@
                     "startLine": 13,
                     "startColumn": 4,
                     "startOffset": 731,
-                    "endColumn": 63,
-                    "endOffset": 790
+                    "endColumn": 54,
+                    "endOffset": 781
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
@@ -225,8 +225,8 @@
                         "startLine": 6,
                         "startColumn": 4,
                         "startOffset": 244,
-                        "endColumn": 63,
-                        "endOffset": 303
+                        "endColumn": 54,
+                        "endOffset": 294
                     }
                 }
             },
@@ -234,18 +234,18 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 795,
-                    "endColumn": 54,
-                    "endOffset": 845
+                    "startOffset": 786,
+                    "endColumn": 55,
+                    "endOffset": 837
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 308,
-                        "endColumn": 54,
-                        "endOffset": 358
+                        "startOffset": 299,
+                        "endColumn": 55,
+                        "endOffset": 350
                     }
                 }
             },
@@ -253,18 +253,18 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 850,
-                    "endColumn": 55,
-                    "endOffset": 901
+                    "startOffset": 842,
+                    "endColumn": 54,
+                    "endOffset": 892
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 363,
-                        "endColumn": 55,
-                        "endOffset": 414
+                        "startOffset": 355,
+                        "endColumn": 54,
+                        "endOffset": 405
                     }
                 }
             },
@@ -272,18 +272,18 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 906,
-                    "endColumn": 54,
-                    "endOffset": 956
+                    "startOffset": 897,
+                    "endColumn": 51,
+                    "endOffset": 944
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 419,
-                        "endColumn": 54,
-                        "endOffset": 469
+                        "startOffset": 410,
+                        "endColumn": 51,
+                        "endOffset": 457
                     }
                 }
             },
@@ -291,18 +291,18 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 961,
-                    "endColumn": 51,
-                    "endOffset": 1008
+                    "startOffset": 949,
+                    "endColumn": 45,
+                    "endOffset": 990
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 474,
-                        "endColumn": 51,
-                        "endOffset": 521
+                        "startOffset": 462,
+                        "endColumn": 45,
+                        "endOffset": 503
                     }
                 }
             },
@@ -310,18 +310,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1013,
-                    "endColumn": 45,
-                    "endOffset": 1054
+                    "startOffset": 995,
+                    "endColumn": 44,
+                    "endOffset": 1035
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 526,
-                        "endColumn": 45,
-                        "endOffset": 567
+                        "startOffset": 508,
+                        "endColumn": 44,
+                        "endOffset": 548
                     }
                 }
             },
@@ -329,28 +329,9 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1059,
-                    "endColumn": 44,
-                    "endOffset": 1099
-                },
-                "from": {
-                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 572,
-                        "endColumn": 44,
-                        "endOffset": 612
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 1104,
+                    "startOffset": 1040,
                     "endColumn": 62,
-                    "endOffset": 1162
+                    "endOffset": 1098
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",
@@ -365,11 +346,11 @@
             },
             {
                 "to": {
-                    "startLine": 21,
+                    "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 1167,
+                    "startOffset": 1103,
                     "endColumn": 61,
-                    "endOffset": 1224
+                    "endOffset": 1160
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",
@@ -384,30 +365,11 @@
             },
             {
                 "to": {
-                    "startLine": 22,
+                    "startLine": 21,
                     "startColumn": 4,
-                    "startOffset": 1229,
-                    "endColumn": 66,
-                    "endOffset": 1291
-                },
-                "from": {
-                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 617,
-                        "endColumn": 66,
-                        "endOffset": 679
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 23,
-                    "startColumn": 4,
-                    "startOffset": 1296,
+                    "startOffset": 1165,
                     "endColumn": 65,
-                    "endOffset": 1357
+                    "endOffset": 1226
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",
@@ -422,20 +384,58 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 1362,
+                    "startOffset": 1231,
                     "endColumn": 47,
-                    "endOffset": 1405
+                    "endOffset": 1274
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 684,
+                        "startOffset": 678,
                         "endColumn": 47,
-                        "endOffset": 727
+                        "endOffset": 721
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1279,
+                    "endColumn": 63,
+                    "endOffset": 1338
+                },
+                "from": {
+                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 726,
+                        "endColumn": 63,
+                        "endOffset": 785
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1343,
+                    "endColumn": 62,
+                    "endOffset": 1401
+                },
+                "from": {
+                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 790,
+                        "endColumn": 62,
+                        "endOffset": 848
                     }
                 }
             },
@@ -443,18 +443,18 @@
                 "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 1410,
-                    "endColumn": 45,
-                    "endOffset": 1451
+                    "startOffset": 1406,
+                    "endColumn": 46,
+                    "endOffset": 1448
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 732,
-                        "endColumn": 45,
-                        "endOffset": 773
+                        "startOffset": 853,
+                        "endColumn": 46,
+                        "endOffset": 895
                     }
                 }
             },
@@ -462,47 +462,9 @@
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 1456,
-                    "endColumn": 63,
-                    "endOffset": 1515
-                },
-                "from": {
-                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 778,
-                        "endColumn": 63,
-                        "endOffset": 837
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 27,
-                    "startColumn": 4,
-                    "startOffset": 1520,
-                    "endColumn": 62,
-                    "endOffset": 1578
-                },
-                "from": {
-                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 842,
-                        "endColumn": 62,
-                        "endOffset": 900
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 28,
-                    "startColumn": 4,
-                    "startOffset": 1583,
+                    "startOffset": 1453,
                     "endColumn": 68,
-                    "endOffset": 1647
+                    "endOffset": 1517
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",
@@ -517,11 +479,11 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 1652,
+                    "startOffset": 1522,
                     "endColumn": 57,
-                    "endOffset": 1705
+                    "endOffset": 1575
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",
@@ -536,49 +498,49 @@
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 1710,
-                    "endColumn": 51,
-                    "endOffset": 1757
+                    "startOffset": 1580,
+                    "endColumn": 50,
+                    "endOffset": 1626
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 905,
-                        "endColumn": 51,
-                        "endOffset": 952
+                        "startOffset": 900,
+                        "endColumn": 50,
+                        "endOffset": 946
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 1762,
-                    "endColumn": 60,
-                    "endOffset": 1818
+                    "startOffset": 1631,
+                    "endColumn": 50,
+                    "endOffset": 1677
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 957,
-                        "endColumn": 60,
-                        "endOffset": 1013
+                        "startOffset": 951,
+                        "endColumn": 50,
+                        "endOffset": 997
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 1823,
+                    "startOffset": 1682,
                     "endColumn": 62,
-                    "endOffset": 1881
+                    "endOffset": 1740
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",
@@ -593,20 +555,58 @@
             },
             {
                 "to": {
-                    "startLine": 33,
+                    "startLine": 31,
                     "startColumn": 4,
-                    "startOffset": 1886,
+                    "startOffset": 1745,
                     "endColumn": 45,
-                    "endOffset": 1927
+                    "endOffset": 1786
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 1018,
+                        "startOffset": 1002,
                         "endColumn": 45,
-                        "endOffset": 1059
+                        "endOffset": 1043
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 1791,
+                    "endColumn": 46,
+                    "endOffset": 1833
+                },
+                "from": {
+                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1048,
+                        "endColumn": 46,
+                        "endOffset": 1090
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 33,
+                    "startColumn": 4,
+                    "startOffset": 1838,
+                    "endColumn": 45,
+                    "endOffset": 1879
+                },
+                "from": {
+                    "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1095,
+                        "endColumn": 45,
+                        "endOffset": 1136
                     }
                 }
             },
@@ -614,18 +614,18 @@
                 "to": {
                     "startLine": 34,
                     "startColumn": 4,
-                    "startOffset": 1932,
+                    "startOffset": 1884,
                     "endColumn": 46,
-                    "endOffset": 1974
+                    "endOffset": 1926
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 23,
                         "startColumn": 4,
-                        "startOffset": 1064,
+                        "startOffset": 1141,
                         "endColumn": 46,
-                        "endOffset": 1106
+                        "endOffset": 1183
                     }
                 }
             },
@@ -633,18 +633,18 @@
                 "to": {
                     "startLine": 35,
                     "startColumn": 4,
-                    "startOffset": 1979,
-                    "endColumn": 45,
-                    "endOffset": 2020
+                    "startOffset": 1931,
+                    "endColumn": 46,
+                    "endOffset": 1973
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 24,
                         "startColumn": 4,
-                        "startOffset": 1111,
-                        "endColumn": 45,
-                        "endOffset": 1152
+                        "startOffset": 1188,
+                        "endColumn": 46,
+                        "endOffset": 1230
                     }
                 }
             },
@@ -652,18 +652,18 @@
                 "to": {
                     "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 2025,
-                    "endColumn": 46,
-                    "endOffset": 2067
+                    "startOffset": 1978,
+                    "endColumn": 47,
+                    "endOffset": 2021
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 23,
+                        "startLine": 25,
                         "startColumn": 4,
-                        "startOffset": 1157,
-                        "endColumn": 46,
-                        "endOffset": 1199
+                        "startOffset": 1235,
+                        "endColumn": 47,
+                        "endOffset": 1278
                     }
                 }
             },
@@ -671,18 +671,18 @@
                 "to": {
                     "startLine": 37,
                     "startColumn": 4,
-                    "startOffset": 2072,
-                    "endColumn": 47,
-                    "endOffset": 2115
+                    "startOffset": 2026,
+                    "endColumn": 48,
+                    "endOffset": 2070
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 24,
+                        "startLine": 26,
                         "startColumn": 4,
-                        "startOffset": 1204,
-                        "endColumn": 47,
-                        "endOffset": 1247
+                        "startOffset": 1283,
+                        "endColumn": 48,
+                        "endOffset": 1327
                     }
                 }
             },
@@ -690,18 +690,18 @@
                 "to": {
                     "startLine": 38,
                     "startColumn": 4,
-                    "startOffset": 2120,
-                    "endColumn": 48,
-                    "endOffset": 2164
+                    "startOffset": 2075,
+                    "endColumn": 49,
+                    "endOffset": 2120
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 25,
+                        "startLine": 27,
                         "startColumn": 4,
-                        "startOffset": 1252,
-                        "endColumn": 48,
-                        "endOffset": 1296
+                        "startOffset": 1332,
+                        "endColumn": 49,
+                        "endOffset": 1377
                     }
                 }
             },
@@ -709,18 +709,18 @@
                 "to": {
                     "startLine": 39,
                     "startColumn": 4,
-                    "startOffset": 2169,
-                    "endColumn": 49,
-                    "endOffset": 2214
+                    "startOffset": 2125,
+                    "endColumn": 47,
+                    "endOffset": 2168
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 26,
+                        "startLine": 28,
                         "startColumn": 4,
-                        "startOffset": 1301,
-                        "endColumn": 49,
-                        "endOffset": 1346
+                        "startOffset": 1382,
+                        "endColumn": 47,
+                        "endOffset": 1425
                     }
                 }
             },
@@ -728,18 +728,18 @@
                 "to": {
                     "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 2219,
+                    "startOffset": 2173,
                     "endColumn": 47,
-                    "endOffset": 2262
+                    "endOffset": 2216
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 27,
+                        "startLine": 29,
                         "startColumn": 4,
-                        "startOffset": 1351,
+                        "startOffset": 1430,
                         "endColumn": 47,
-                        "endOffset": 1394
+                        "endOffset": 1473
                     }
                 }
             },
@@ -747,18 +747,18 @@
                 "to": {
                     "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 2267,
-                    "endColumn": 47,
-                    "endOffset": 2310
+                    "startOffset": 2221,
+                    "endColumn": 49,
+                    "endOffset": 2266
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 28,
+                        "startLine": 30,
                         "startColumn": 4,
-                        "startOffset": 1399,
-                        "endColumn": 47,
-                        "endOffset": 1442
+                        "startOffset": 1478,
+                        "endColumn": 49,
+                        "endOffset": 1523
                     }
                 }
             },
@@ -766,9 +766,9 @@
                 "to": {
                     "startLine": 42,
                     "startColumn": 4,
-                    "startOffset": 2315,
+                    "startOffset": 2271,
                     "endColumn": 54,
-                    "endOffset": 2365
+                    "endOffset": 2321
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
@@ -785,18 +785,18 @@
                 "to": {
                     "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 2370,
+                    "startOffset": 2326,
                     "endColumn": 51,
-                    "endOffset": 2417
+                    "endOffset": 2373
                 },
                 "from": {
                     "file": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "position": {
-                        "startLine": 29,
+                        "startLine": 31,
                         "startColumn": 4,
-                        "startOffset": 1447,
+                        "startOffset": 1528,
                         "endColumn": 51,
-                        "endOffset": 1494
+                        "endOffset": 1575
                     }
                 }
             }

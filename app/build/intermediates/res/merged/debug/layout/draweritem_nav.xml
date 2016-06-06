@@ -4,31 +4,41 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/draweritem_nav_colorview"
-        android:layout_width="@dimen/draweritem_nav_colorview_width"
-        android:layout_height="@dimen/draweritem_nav_colorview_height"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"/>
-
-    <TextView
-        android:id="@+id/draweritem_textview_title"
+    <RelativeLayout
+        android:id="@+id/draweritem_nav_relativelayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/draweritem_nav_colorview"
-        android:layout_alignBaseline="@id/draweritem_nav_colorview"
-        android:paddingLeft="@dimen/recycleritem_padding"
+        android:layout_height="@dimen/recycleritem_height"
         android:paddingTop="@dimen/recycleritem_padding"
         android:paddingBottom="@dimen/recycleritem_padding"
-        android:gravity="left|center_vertical"
-        android:text="@string/draweritem_textview_title"
-        android:textSize="@dimen/textsize_large"/>
+        android:paddingRight="@dimen/recycleritem_padding">
+
+        <View
+            android:id="@+id/draweritem_nav_colorview"
+            android:layout_width="@dimen/draweritem_nav_colorview_width"
+            android:layout_height="@dimen/draweritem_nav_colorview_height"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/draweritem_textview_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/draweritem_nav_colorview"
+            android:layout_marginLeft="@dimen/view_margin_medium"
+            android:layout_centerVertical="true"
+            android:gravity="left|center_vertical"
+            android:text="@string/draweritem_textview_label"
+            android:textSize="@dimen/textsize_large"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+    </RelativeLayout>
 
     <View
         android:id="@+id/draweritem_nav_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_small"
-        android:layout_below="@id/draweritem_textview_title"
+        android:layout_below="@id/draweritem_nav_relativelayout"
         android:background="@color/primary_material_light"/>
 
 </RelativeLayout>

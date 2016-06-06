@@ -79,18 +79,18 @@ public class AccountActivity extends MotherActivity {
         for (Operation operation : operations) {
             tabItemOperation = new TabItemOperation();
 
-            tabItemOperation.setId(operation.getId());
+            tabItemOperation.setTag(operation);
             tabItemOperation.setDate(String.valueOf(operation.getDateRealization()));
-            tabItemOperation.setTitle(operation.getTitle());
+            tabItemOperation.setLabel(operation.getTitle());
             tabItemOperation.setAmount(String.valueOf(operation.getAmount()));
             tabItemOperation.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
                 public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
-                    TabItemOperation tabItemOperation = (TabItemOperation) recyclerItem;
-
                     Intent intent = new Intent(AccountActivity.this, OperationActivity.class);
                     intent.putExtra(Extra.MODE, Extra.MODE_EDIT);
-                    intent.putExtra(Extra.OPERATION_ID, tabItemOperation.getId());
+                    intent.putExtra(Extra.OPERATION_ID, ((Operation) recyclerItem.getTag()).getId());
+
+                    startActivity(intent);
                 }
             });
 

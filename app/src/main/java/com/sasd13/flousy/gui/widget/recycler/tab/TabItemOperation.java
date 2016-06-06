@@ -1,11 +1,9 @@
 package com.sasd13.flousy.gui.widget.recycler.tab;
 
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.TextView;
 
-import com.sasd13.androidex.gui.color.ColorOnTouchListener;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
+import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
 import com.sasd13.flousy.R;
 
 /**
@@ -14,23 +12,14 @@ import com.sasd13.flousy.R;
  * </p>
  * Created by Samir on 22/03/2015.
  */
-public class TabItemOperation extends RecyclerItem {
+public class TabItemOperation extends TabItem {
 
-    private long id;
-    private String date, title, amount;
-    private TextView textViewDate, textViewTitle, textViewAmount;
+    private String date, amount;
+    private TextView textViewDate, textViewAmount;
     private OnClickListener onClickListener;
 
     public TabItemOperation() {
         super(R.layout.tabitem_operation);
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public void setDate(String date) {
@@ -38,14 +27,6 @@ public class TabItemOperation extends RecyclerItem {
 
         if (textViewDate != null) {
             textViewDate.setText(date);
-        }
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-
-        if (textViewTitle != null) {
-            textViewTitle.setText(title);
         }
     }
 
@@ -62,26 +43,20 @@ public class TabItemOperation extends RecyclerItem {
     }
 
     @Override
-    public void bindView(View view) {
-        super.bindView(view);
-
-        findItemViews();
-        bindItemViews();
-        setListeners();
-    }
-
     protected void findItemViews() {
+        super.findItemViews();
+
         textViewDate = (TextView) view.findViewById(R.id.tabitem_operation_textview_date);
-        textViewTitle = (TextView) view.findViewById(R.id.tabitem_operation_textview_title);
         textViewAmount = (TextView) view.findViewById(R.id.tabitem_operation_textview_amount);
     }
 
+    @Override
     protected void bindItemViews() {
         setDate(date);
-        setTitle(title);
         setAmount(amount);
     }
 
+    @Override
     protected void setListeners() {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +64,5 @@ public class TabItemOperation extends RecyclerItem {
                 onClickListener.onClickOnRecyclerItem(TabItemOperation.this);
             }
         });
-
-        int color = ContextCompat.getColor(view.getContext(), R.color.background_material_light);
-        view.setOnTouchListener(new ColorOnTouchListener(color));
     }
 }

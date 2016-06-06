@@ -8,10 +8,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.Dialog;
+import com.sasd13.androidex.gui.widget.dialog.EditorDialog;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.SpinDialog;
-import com.sasd13.androidex.gui.widget.dialog.SpinDialogMulti;
-import com.sasd13.androidex.gui.widget.dialog.SpinDialogSingle;
+import com.sasd13.androidex.gui.widget.dialog.SpinDialogCheckbox;
+import com.sasd13.androidex.gui.widget.dialog.SpinDialogRadio;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
@@ -21,7 +22,6 @@ import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.widget.dialog.EditorDialog;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -80,28 +80,28 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             switch (id) {
                 case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
                     formItem = new FormItemText();
-                    formItem.setTitle("Prénom");
+                    formItem.setLabel("Prénom");
                     ((FormItemText) formItem).setMessage("Votre prénom");
                     ((FormItemText) formItem).setHint("prenom");
                     ((FormItemText) formItem).setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_LASTNAME:
                     formItem = new FormItemText();
-                    formItem.setTitle("Nom");
+                    formItem.setLabel("Nom");
                     ((FormItemText) formItem).setMessage("Votre nom");
                     ((FormItemText) formItem).setHint("nom");
                     ((FormItemText) formItem).setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_EMAIL:
                     formItem = new FormItemText();
-                    formItem.setTitle("Email");
+                    formItem.setLabel("Email");
                     ((FormItemText) formItem).setMessage("Votre email");
                     ((FormItemText) formItem).setHint("email");
                     ((FormItemText) formItem).setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_ACCOUNT:
                     formItem = new FormItemSwitch();
-                    formItem.setTitle("Activer compte");
+                    formItem.setLabel("Activer compte");
                     ((FormItemBinary) formItem).setOnCheckedChangeListener(this);
                     break;
             }
@@ -129,13 +129,13 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
         for (FormItem formItem : formHolder.formIdentity.getItems()) {
             switch (formItem.getId()) {
                 case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
-                    ((FormItemText) formItem).getInput().setValue(customer.getFirstName());
+                    formItem.getInput().setValue(customer.getFirstName());
                     break;
                 case FormHolder.FORMIDENTITY_ID_LASTNAME:
-                    ((FormItemText) formItem).getInput().setValue(customer.getLastName());
+                    formItem.getInput().setValue(customer.getLastName());
                     break;
                 case FormHolder.FORMIDENTITY_ID_EMAIL:
-                    ((FormItemText) formItem).getInput().setValue(customer.getEmail());
+                    formItem.getInput().setValue(customer.getEmail());
                     break;
                 default:
                     break;
@@ -181,8 +181,8 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void tryToPerformUpdateCustomer() {
-        String email = (String) ((FormItemText) formHolder.formIdentity
-                .findItemById(FormHolder.FORMIDENTITY_ID_EMAIL))
+        String email = (String) formHolder.formIdentity
+                .findItemById(FormHolder.FORMIDENTITY_ID_EMAIL)
                 .getInput().getValue();
 
         Map<String, String[]> parameters = new HashMap<>();
@@ -206,13 +206,13 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
         for (FormItem formItem : formHolder.formIdentity.getItems()) {
             switch (formItem.getId()) {
                 case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
-                    customer.setFirstName((String) ((FormItemText) formItem).getInput().getValue());
+                    customer.setFirstName((String) formItem.getInput().getValue());
                     break;
                 case FormHolder.FORMIDENTITY_ID_LASTNAME:
-                    customer.setLastName((String) ((FormItemText) formItem).getInput().getValue());
+                    customer.setLastName((String) formItem.getInput().getValue());
                     break;
                 case FormHolder.FORMIDENTITY_ID_EMAIL:
-                    customer.setEmail((String) ((FormItemText) formItem).getInput().getValue());
+                    customer.setEmail((String) formItem.getInput().getValue());
                     break;
             }
         }
@@ -224,29 +224,29 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
 
         if (formItem.getId() == FormHolder.FORMIDENTITY_ID_FIRSTNAME) {
             String[] firstnames = {"Samir", "Sam", "S"};
-            SpinDialog spinDialog = new SpinDialogSingle(this);
+            SpinDialog spinDialog = new SpinDialogRadio(this);
 
-            spinDialog.setTitle(formItem.getTitle());
+            spinDialog.setTitle(formItem.getLabel());
 
-            if (spinDialog instanceof SpinDialogSingle) {
+            if (spinDialog instanceof SpinDialogRadio) {
                 spinDialog.setItems(firstnames);
 
                 for (int i=0; i<firstnames.length; i++) {
-                    if (firstnames[i].equals(((FormItemText) formItem).getInput().getValue())) {
-                        ((SpinDialogSingle) spinDialog).setSelectedPosition(i);
+                    if (firstnames[i].equals(formItem.getInput().getValue())) {
+                        ((SpinDialogRadio) spinDialog).setSelectedPosition(i);
                     }
                 }
 
-                ((SpinDialogSingle) spinDialog).setOnItemSelectedListener(new SpinDialog.OnItemSelectedListener() {
+                ((SpinDialogRadio) spinDialog).setOnItemSelectedListener(new SpinDialog.OnItemSelectedListener() {
                     @Override
                     public void onItemSelectedOnSpinDialog(SpinDialog spinDialog, int position) {
                         spinDialog.dismiss();
 
-                        ((FormItemText) formItem).getInput().setValue(spinDialog.getItems()[position]);
+                        formItem.getInput().setValue(spinDialog.getItems()[position]);
                     }
                 });
             } else {
-                String input = ((FormItemText) formItem).getInput().getStringValue();
+                String input = formItem.getInput().getStringValue();
                 String[] f = input.split(",");
                 if (f.length == 0 || f[0].isEmpty()) {
                     spinDialog.setItems(firstnames);
@@ -261,13 +261,13 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
                         }
                     }
 
-                    ((SpinDialogMulti) spinDialog).setItems(firstnames, checked);
+                    ((SpinDialogCheckbox) spinDialog).setItems(firstnames, checked);
                 }
 
-                ((SpinDialogMulti) spinDialog).setOnItemCheckedListener(new SpinDialog.OnItemCheckedListener() {
+                ((SpinDialogCheckbox) spinDialog).setOnItemCheckedListener(new SpinDialog.OnItemCheckedListener() {
                     @Override
                     public void onItemCheckedOnSpinDialog(SpinDialog spinDialog, int position, boolean checked) {
-                        SpinDialogMulti spinDialogMulti = (SpinDialogMulti) spinDialog;
+                        SpinDialogCheckbox spinDialogMulti = (SpinDialogCheckbox) spinDialog;
 
                         if (checked) {
                             spinDialogMulti.addToCheckedPositions(position);
@@ -277,15 +277,15 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
                     }
                 });
 
-                ((SpinDialogMulti) spinDialog).setOnButtonPositiveClickListener(new SpinDialogMulti.OnClickListener() {
+                ((SpinDialogCheckbox) spinDialog).setOnButtonPositiveClickListener(new SpinDialogCheckbox.OnClickListener() {
                     @Override
                     public void onClickOnDialog(Dialog dialog) {
                         dialog.dismiss();
 
-                        SpinDialogMulti spinDialogMulti = (SpinDialogMulti) dialog;
+                        SpinDialogCheckbox spinDialogMulti = (SpinDialogCheckbox) dialog;
                         String value = Arrays.toString(spinDialogMulti.getCheckedItems());
 
-                        ((FormItemText) formItem).getInput().setValue(value.substring(1, value.length() - 1));
+                        formItem.getInput().setValue(value.substring(1, value.length() - 1));
                     }
                 });
             }
@@ -296,18 +296,18 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             editorDialog.setMessage(((FormItemText) formItem).getMessage());
             editorDialog.setHint(((FormItemText) formItem).getHint());
 
-            if (((FormItemText) formItem).getInput() != null) {
-                editorDialog.setText(((FormItemText) formItem).getInput().getStringValue());
+            if (formItem.getInput() != null) {
+                editorDialog.setText(formItem.getInput().getStringValue());
             } else {
                 editorDialog.setText(null);
             }
 
             editorDialog.setOnButtonPositiveClickListener(new EditorDialog.OnClickListener() {
                 @Override
-                public void doAction(EditorDialog editorDialog, String text) {
+                public void onClickOnEditorDialog(EditorDialog editorDialog, String text) {
                     editorDialog.dismiss();
 
-                    ((FormItemText) formItem).getInput().setValue(text);
+                    formItem.getInput().setValue(text);
                 }
             });
 
