@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="@dimen/recycleritem_height_medium">
 
     <TextView
         android:id="@+id/formitem_textview_label"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/recycleritem_height"
-        android:layout_centerInParent="true"
-        android:gravity="left|center_vertical"
-        android:padding="@dimen/recycleritem_padding"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/recycleritem_padding_horizontal"
+        android:gravity="center_vertical"
         android:text="@string/formitem_textview_label"
         android:textStyle="bold"
         android:textSize="@dimen/textsize_medium"/>
 
-    <View
-        android:id="@+id/formitem_dividerview"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dividerview_height_small"
-        android:layout_below="@id/formitem_textview_label"
-        android:background="@color/primary_material_light"/>
-
-</RelativeLayout>
+</FrameLayout>

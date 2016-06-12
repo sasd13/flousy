@@ -24,6 +24,14 @@
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\recycleritem_title.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\recycleritem_title.xml"
+    },
+    {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ticktab_actionbar.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\ticktab_actionbar.xml"
+    },
+    {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tabitem_operation.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\layout\\tabitem_operation.xml"
     },
@@ -94,6 +102,10 @@
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\title.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\title.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splashscreen.xml",
@@ -190,6 +202,10 @@
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ticktabitem.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\ticktabitem.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",

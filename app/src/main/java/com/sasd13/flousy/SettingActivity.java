@@ -1,10 +1,14 @@
 package com.sasd13.flousy;
 
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.Dialog;
@@ -62,6 +66,18 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
 
         setContentView(R.layout.activity_setting);
         createFormCustomer();
+
+        TextView textView = (TextView) findViewById(R.id.setting_form_user_textview_identity);
+
+        int color = ContextCompat.getColor(this, R.color.red);
+        textView.setTextColor(color);
+
+        LayerDrawable layerDrawable = (LayerDrawable) textView.getBackground();
+        GradientDrawable bottom = (GradientDrawable) layerDrawable.getDrawable(0);
+        bottom.setStroke(
+                (int) textView.getContext().getResources().getDimension(com.sasd13.androidex.R.dimen.textview_title_stroke_dimen),
+                color
+        );
     }
 
     private void createFormCustomer() {
@@ -126,19 +142,25 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void fillFormIdentity() {
-        for (FormItem formItem : formHolder.formIdentity.getItems()) {
-            switch (formItem.getId()) {
-                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
-                    formItem.getInput().setValue(customer.getFirstName());
-                    break;
-                case FormHolder.FORMIDENTITY_ID_LASTNAME:
-                    formItem.getInput().setValue(customer.getLastName());
-                    break;
-                case FormHolder.FORMIDENTITY_ID_EMAIL:
-                    formItem.getInput().setValue(customer.getEmail());
-                    break;
-                default:
-                    break;
+        FormItem formItem;
+
+        for (RecyclerItem recyclerItem : formHolder.formIdentity.getItems()) {
+            if (recyclerItem instanceof FormItem) {
+                formItem = (FormItem) recyclerItem;
+
+                switch (formItem.getId()) {
+                    case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
+                        formItem.getInput().setValue(customer.getFirstName());
+                        break;
+                    case FormHolder.FORMIDENTITY_ID_LASTNAME:
+                        formItem.getInput().setValue(customer.getLastName());
+                        break;
+                    case FormHolder.FORMIDENTITY_ID_EMAIL:
+                        formItem.getInput().setValue(customer.getEmail());
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -181,8 +203,8 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void tryToPerformUpdateCustomer() {
-        String email = (String) formHolder.formIdentity
-                .findItemById(FormHolder.FORMIDENTITY_ID_EMAIL)
+        String email = (String) ((FormItem) formHolder.formIdentity
+                .findItemById(FormHolder.FORMIDENTITY_ID_EMAIL))
                 .getInput().getValue();
 
         Map<String, String[]> parameters = new HashMap<>();
@@ -203,17 +225,23 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void editCustomerWithForm(Customer customer) {
-        for (FormItem formItem : formHolder.formIdentity.getItems()) {
-            switch (formItem.getId()) {
-                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
-                    customer.setFirstName((String) formItem.getInput().getValue());
-                    break;
-                case FormHolder.FORMIDENTITY_ID_LASTNAME:
-                    customer.setLastName((String) formItem.getInput().getValue());
-                    break;
-                case FormHolder.FORMIDENTITY_ID_EMAIL:
-                    customer.setEmail((String) formItem.getInput().getValue());
-                    break;
+        FormItem formItem;
+
+        for (RecyclerItem recyclerItem : formHolder.formIdentity.getItems()) {
+            if (recyclerItem instanceof FormItem) {
+                formItem = (FormItem) recyclerItem;
+
+                switch (formItem.getId()) {
+                    case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
+                        customer.setFirstName((String) formItem.getInput().getValue());
+                        break;
+                    case FormHolder.FORMIDENTITY_ID_LASTNAME:
+                        customer.setLastName((String) formItem.getInput().getValue());
+                        break;
+                    case FormHolder.FORMIDENTITY_ID_EMAIL:
+                        customer.setEmail((String) formItem.getInput().getValue());
+                        break;
+                }
             }
         }
     }

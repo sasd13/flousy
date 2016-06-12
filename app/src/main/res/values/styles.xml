@@ -1,6 +1,11 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Flousy.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:editTextBackground">@android:drawable/edit_text</item>
+        <item name="android:textSize">@dimen/textsize_medium</item>
+    </style>
+
+    <style name="Flousy" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:editTextBackground">@android:drawable/edit_text</item>
         <item name="android:textSize">@dimen/textsize_medium</item>
     </style>

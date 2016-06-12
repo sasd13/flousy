@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="actionbar_height">73dp</dimen>
     <dimen name="button_height">40dp</dimen>
     <dimen name="button_width">110dp</dimen>
     <dimen name="button_width_large">140dp</dimen>
@@ -8,7 +7,7 @@
     <dimen name="dividerview_height_medium">3dp</dimen>
     <dimen name="dividerview_height_small">1dp</dimen>
     <dimen name="dividerview_margintop">7dp</dimen>
-    <dimen name="drawer_padding">13dp</dimen>
+    <dimen name="drawer_padding_horizontal">13dp</dimen>
     <dimen name="drawer_width">320dp</dimen>
     <dimen name="draweritem_nav_colorview_height">56dp</dimen>
     <dimen name="draweritem_nav_colorview_width">21dp</dimen>
@@ -16,14 +15,7 @@
     <dimen name="griditem_verticalmargin_external">19dp</dimen>
     <dimen name="griditem_verticalmargin_internal">9dp</dimen>
     <dimen name="griditem_width">160dp</dimen>
-    <dimen name="recycleritem_height">70dp</dimen>
-    <dimen name="recycleritem_padding">5dp</dimen>
-    <dimen name="textsize_large">21sp</dimen>
-    <dimen name="textsize_medium">18sp</dimen>
-    <dimen name="textsize_small">15sp</dimen>
-    <dimen name="textsize_xlarge">24sp</dimen>
-    <dimen name="textsize_xsmall">12sp</dimen>
-    <dimen name="textsize_xxlarge">27sp</dimen>
+    <dimen name="tabitem_checkbox_margin">7dp</dimen>
     <dimen name="view_margin_large">27dp</dimen>
     <dimen name="view_margin_medium">16dp</dimen>
     <dimen name="view_margin_small">9dp</dimen>

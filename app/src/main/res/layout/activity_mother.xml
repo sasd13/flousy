@@ -1,41 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawer_drawerlayout"
+    <!-- The main content view -->
+    <ViewStub
+        android:id="@+id/activity_viewstub"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
 
-        <!-- The main content view -->
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <!-- The navigation drawer -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drawer_recyclerview"
+        style="@style/AndroidEX.Recycler.Drawer"
+        android:layout_gravity="start"/>
 
-            <ViewStub
-                android:id="@+id/activity_viewstub"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"/>
-
-        </RelativeLayout>
-
-        <!-- The navigation drawer -->
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/drawer_recyclerview"
-            android:layout_width="@dimen/drawer_width"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:paddingLeft="@dimen/drawer_padding"
-            android:paddingRight="@dimen/drawer_padding"
-            android:background="@color/background_material_light"
-            android:scrollbars="vertical"
-            android:scrollbarStyle="outsideOverlay"/>
-
-    </android.support.v4.widget.DrawerLayout>
-
-</LinearLayout>
+</android.support.v4.widget.DrawerLayout>

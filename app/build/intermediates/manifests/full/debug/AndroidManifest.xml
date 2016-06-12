@@ -13,13 +13,13 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:supportsRtl="true" >
         <activity
             android:name="com.sasd13.flousy.SplashScreenActivity"
             android:label="@string/activity_splashscreen"
             android:noHistory="true"
             android:screenOrientation="portrait"
+            android:theme="@style/Flousy.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -34,6 +34,7 @@
             android:label="@string/activity_login"
             android:noHistory="true"
             android:screenOrientation="portrait"
+            android:theme="@style/Flousy.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
@@ -41,12 +42,14 @@
             android:label="@string/activity_sign"
             android:noHistory="true"
             android:screenOrientation="portrait"
+            android:theme="@style/Flousy"
             android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
             android:name="com.sasd13.flousy.HomeActivity"
             android:label="@string/activity_home"
             android:screenOrientation="portrait"
+            android:theme="@style/Flousy.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
@@ -54,6 +57,7 @@
             android:label="@string/activity_account"
             android:parentActivityName="com.sasd13.flousy.HomeActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Flousy"
             android:windowSoftInputMode="stateHidden|adjustPan" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -66,6 +70,7 @@
             android:label="@string/activity_operation"
             android:parentActivityName="com.sasd13.flousy.AccountActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Flousy"
             android:windowSoftInputMode="stateHidden|adjustPan" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -78,6 +83,7 @@
             android:label="@string/activity_setting"
             android:parentActivityName="com.sasd13.flousy.HomeActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Flousy"
             android:windowSoftInputMode="stateHidden|adjustPan" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->

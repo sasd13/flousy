@@ -116,6 +116,10 @@
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\drawable\\spinner_disabled_holo_light.xml"
     },
     {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\text_title_background.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\drawable\\text_title_background.xml"
+    },
+    {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_pressed_holo_light.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\drawable\\spinner_pressed_holo_light.xml"
     },

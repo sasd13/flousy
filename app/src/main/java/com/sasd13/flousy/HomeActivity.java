@@ -40,7 +40,7 @@ public class HomeActivity extends MotherActivity {
             gridItem = new GridItem();
 
             gridItem.setTag(navItem);
-            gridItem.setText(navItem.getText());
+            gridItem.setLabel(navItem.getText());
             gridItem.setImage(navItem.getImage());
             gridItem.setColor(navItem.getColor());
             gridItem.setOnClickListener(new RecyclerItem.OnClickListener() {

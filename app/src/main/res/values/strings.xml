@@ -27,31 +27,32 @@
     <string name="home_alertdialog_message_welcome">Salut</string>
 
     <!-- Activity Account -->
-    <string name="account_textview_sold_title">SOLDE :</string>
+    <string name="account_textview_sold_title">Solde :</string>
     <string name="account_textview_sold">0.0</string>
+    <string name="account_textview_operations">Opérations</string>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
 
     <!-- Form -->
-    <string name="form_textview_date">DATE</string>
+    <string name="form_textview_date">Date</string>
     <string name="form_textview_hint_date">2015</string>
 
     <!-- Form operation -->
-    <string name="form_operation_textview_type">TYPE</string>
+    <string name="form_operation_textview_type">Type</string>
     <string name="form_operation_radiobutton_type_debit">Débit</string>
     <string name="form_operation_radiobutton_type_credit">Crédit</string>
-    <string name="form_operation_textview_title">INTITULE</string>
+    <string name="form_operation_textview_title">Intitulé</string>
     <string name="form_operation_edittext_hint_title">Intitulé</string>
-    <string name="form_operation_textview_amount">MONTANT</string>
+    <string name="form_operation_textview_amount">Montant</string>
     <string name="form_operation_edittext_hint_amount">0.0</string>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_title">Intitulé</string>
     <string name="tabitem_textview_amount">0.0</string>
-    <string name="tabitemtitle_textview_date">DATE</string>
-    <string name="tabitemtitle_textview_title">INTITULE</string>
-    <string name="tabitemtitle_textview_amount">PRIX</string>
+    <string name="tabitemtitle_textview_date">Date</string>
+    <string name="tabitemtitle_textview_title">Intitule</string>
+    <string name="tabitemtitle_textview_amount">Prix</string>
 
 </resources>

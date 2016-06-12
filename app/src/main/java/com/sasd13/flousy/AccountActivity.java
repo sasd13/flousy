@@ -6,10 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
+import com.sasd13.androidex.gui.widget.recycler.tab.TickTab;
+import com.sasd13.androidex.gui.widget.recycler.tab.TickTabActionBar;
+import com.sasd13.androidex.gui.widget.recycler.tab.TickTabItem;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
@@ -28,6 +32,7 @@ public class AccountActivity extends MotherActivity {
 
     private TextView textViewSold;
     private Tab tab;
+    private TickTab tickTab;
 
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
@@ -37,7 +42,8 @@ public class AccountActivity extends MotherActivity {
 
         setContentView(R.layout.activity_account);
         createTextViewSold();
-        createTabOperations();
+        //createTabOperations();
+        createTickTab();
     }
 
     private void createTextViewSold() {
@@ -46,6 +52,24 @@ public class AccountActivity extends MotherActivity {
 
     private void createTabOperations() {
         tab = new Tab((RecyclerView) findViewById(R.id.account_recyclerview));
+    }
+
+    private void createTickTab() {
+        tickTab = new TickTab((RecyclerView) findViewById(R.id.account_recyclerview), getSupportActionBar());
+
+        TickTabActionBar tickTabActionBar = new TickTabActionBar(tickTab);
+        tickTabActionBar.setLabel("Opérations");
+        tickTabActionBar.inflate((ViewStub) findViewById(R.id.account_ticktabactionbar_viewstub));
+        tickTab.setTickTabActionBar(tickTabActionBar);
+
+        TickTabItem tickTabItem;
+
+        for (int i=0; i<3; i++) {
+            tickTabItem = new TickTabItem(tickTab);
+            tickTabItem.setLabel("Item " + (i + 1));
+
+            tickTab.addItem(tickTabItem);
+        }
     }
 
     @Override
@@ -58,7 +82,7 @@ public class AccountActivity extends MotherActivity {
         Account account = persistor.deepRead(parameters, Account.class).get(0);
 
         fillTextViewSold(account);
-        fillTabOperations(account.getOperations());
+        //fillTabOperations(account.getOperations());
     }
 
     private void fillTextViewSold(Account account) {
@@ -125,5 +149,14 @@ public class AccountActivity extends MotherActivity {
         intent.putExtra(Extra.MODE, Extra.MODE_NEW);
 
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (tickTab.isInTickState()) {
+            tickTab.setInTickState(false);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
