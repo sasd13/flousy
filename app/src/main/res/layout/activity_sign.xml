@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/AndroidEX.Activity"
     android:scrollbars="vertical"
     android:scrollbarStyle="outsideOverlay">
 
@@ -13,27 +12,18 @@
 
         <TextView
             android:id="@+id/sign_form_user_textview_identity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:text="@string/form_textview_title_identity"
-            android:textColor="@color/green"
-            android:textStyle="bold"
-            android:layout_alignParentTop="true"/>
-
-        <View
-            android:id="@+id/sign_form_user_dividerview_1"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dividerview_height_small"
-            android:layout_below="@id/sign_form_user_textview_identity"
-            android:layout_marginTop="@dimen/dividerview_margintop"
-            android:background="@color/green"/>
+            android:layout_height="wrap_content"
+            style="@style/AndroidEX.Title"
+            android:tag="title_0"
+            android:layout_alignParentTop="true"
+            android:text="@string/form_textview_title_identity" />
 
         <EditText
             android:id="@+id/sign_form_user_edittext_firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sign_form_user_dividerview_1"
+            android:layout_below="@id/sign_form_user_textview_identity"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_hint_firstname"
             android:inputType="textPersonName|textCapWords"
@@ -53,27 +43,19 @@
 
         <TextView
             android:id="@+id/sign_form_user_textview_connection"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/AndroidEX.Title"
+            android:tag="title_1"
             android:layout_below="@id/sign_form_user_edittext_lastname"
             android:layout_marginTop="@dimen/viewgroup_margin"
-            android:text="@string/form_textview_title_connection"
-            android:textColor="@color/green"
-            android:textStyle="bold"/>
-
-        <View
-            android:id="@+id/sign_form_user_dividerview_2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dividerview_height_medium"
-            android:layout_below="@id/sign_form_user_textview_connection"
-            android:layout_marginTop="@dimen/dividerview_margintop"
-            android:background="@color/green"/>
+            android:text="@string/form_textview_title_connection"/>
 
         <EditText
             android:id="@+id/sign_form_user_edittext_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/sign_form_user_dividerview_2"
+            android:layout_below="@id/sign_form_user_textview_connection"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/edittext_hint_email"
             android:inputType="textEmailAddress"

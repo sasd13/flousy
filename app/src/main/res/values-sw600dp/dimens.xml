@@ -7,10 +7,6 @@
     <dimen name="login_textview_restorepassword_padding">9dp</dimen>
     <dimen name="login_textview_sign_padding">9dp</dimen>
 
-    <!-- Drawer -->
-    <dimen name="draweritem_nav_colorview_width">21dp</dimen>
-    <dimen name="draweritem_nav_colorview_height">56dp</dimen>
-
     <!-- Form user -->
     <dimen name="form_user_checkbox_horizontalmargin">9dp</dimen>
 

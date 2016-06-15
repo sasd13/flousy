@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/AndroidEX.Activity"
     android:scrollbars="vertical"
     android:scrollbarStyle="outsideOverlay">
 
@@ -14,24 +13,16 @@
             android:id="@+id/form_operation_textview_daterealization_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/AndroidEX.Title"
+            android:tag="title_0"
             android:layout_alignParentTop="true"
-            android:text="@string/form_textview_date"
-            android:textColor="@color/red"
-            android:textStyle="bold"/>
-
-        <View
-            android:id="@+id/form_operation_dividerview_1"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dividerview_height_medium"
-            android:layout_below="@id/form_operation_textview_daterealization_title"
-            android:layout_marginTop="@dimen/dividerview_margintop"
-            android:background="@color/red"/>
+            android:text="@string/form_textview_date"/>
 
         <TextView
             android:id="@+id/form_operation_textview_daterealization"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/form_operation_dividerview_1"
+            android:layout_below="@id/form_operation_textview_daterealization_title"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:text="@string/form_textview_hint_date"
             android:textColor="@color/red"/>
@@ -40,25 +31,17 @@
             android:id="@+id/form_operation_textview_type_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/AndroidEX.Title"
+            android:tag="title_1"
             android:layout_below="@id/form_operation_textview_daterealization"
             android:layout_marginTop="@dimen/viewgroup_margin"
-            android:text="@string/form_operation_textview_type"
-            android:textColor="@color/red"
-            android:textStyle="bold"/>
-
-        <View
-            android:id="@+id/form_operation_dividerview_2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dividerview_height_medium"
-            android:layout_below="@id/form_operation_textview_type_title"
-            android:layout_marginTop="@dimen/dividerview_margintop"
-            android:background="@color/red"/>
+            android:text="@string/form_operation_textview_type"/>
 
         <RadioGroup
             android:id="@+id/form_operation_radiogroup_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/form_operation_dividerview_2"
+            android:layout_below="@id/form_operation_textview_type_title"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:background="@color/white"
             android:gravity="center"
@@ -84,25 +67,17 @@
             android:id="@+id/form_operation_textview_title_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/AndroidEX.Title"
+            android:tag="title_2"
             android:layout_below="@id/form_operation_radiogroup_type"
             android:layout_marginTop="@dimen/viewgroup_margin"
-            android:text="@string/form_operation_textview_title"
-            android:textColor="@color/red"
-            android:textStyle="bold"/>
-
-        <View
-            android:id="@+id/form_operation_dividerview_3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dividerview_height_medium"
-            android:layout_below="@id/form_operation_textview_title_title"
-            android:layout_marginTop="@dimen/dividerview_margintop"
-            android:background="@color/red"/>
+            android:text="@string/form_operation_textview_title"/>
 
         <EditText
             android:id="@+id/form_operation_edittext_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/form_operation_dividerview_3"
+            android:layout_below="@id/form_operation_textview_title_title"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/form_operation_edittext_hint_title"
             android:inputType="textCapSentences"
@@ -113,25 +88,17 @@
             android:id="@+id/form_operation_textview_amount_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/AndroidEX.Title"
+            android:tag="title_3"
             android:layout_below="@id/form_operation_edittext_title"
             android:layout_marginTop="@dimen/viewgroup_margin"
-            android:text="@string/form_operation_textview_amount"
-            android:textColor="@color/red"
-            android:textStyle="bold"/>
-
-        <View
-            android:id="@+id/form_operation_dividerview_4"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dividerview_height_medium"
-            android:layout_below="@id/form_operation_textview_amount_title"
-            android:layout_marginTop="@dimen/dividerview_margintop"
-            android:background="@color/red"/>
+            android:text="@string/form_operation_textview_amount"/>
 
         <EditText
             android:id="@+id/form_operation_edittext_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/form_operation_dividerview_4"
+            android:layout_below="@id/form_operation_textview_amount_title"
             android:layout_marginTop="@dimen/view_margin_medium"
             android:hint="@string/form_operation_edittext_hint_amount"
             android:inputType="numberDecimal"

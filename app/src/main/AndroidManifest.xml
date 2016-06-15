@@ -78,7 +78,7 @@
         <activity
             android:name=".SettingActivity"
             android:label="@string/activity_setting"
-            android:theme="@style/Flousy"
+            android:theme="@style/FlousyBrown"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:parentActivityName=".HomeActivity">

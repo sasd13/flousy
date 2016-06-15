@@ -9,10 +9,11 @@ import android.view.MenuItem;
 import android.view.ViewStub;
 import android.widget.TextView;
 
+import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.androidex.gui.widget.recycler.tab.TickTab;
-import com.sasd13.androidex.gui.widget.recycler.tab.TickTabActionBar;
+import com.sasd13.androidex.gui.widget.recycler.tab.TickTabBar;
 import com.sasd13.androidex.gui.widget.recycler.tab.TickTabItem;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
@@ -41,6 +42,8 @@ public class AccountActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_account);
+        ColorHelper.drawTitles(this);
+
         createTextViewSold();
         //createTabOperations();
         createTickTab();
@@ -57,10 +60,10 @@ public class AccountActivity extends MotherActivity {
     private void createTickTab() {
         tickTab = new TickTab((RecyclerView) findViewById(R.id.account_recyclerview), getSupportActionBar());
 
-        TickTabActionBar tickTabActionBar = new TickTabActionBar(tickTab);
-        tickTabActionBar.setLabel("Opérations");
-        tickTabActionBar.inflate((ViewStub) findViewById(R.id.account_ticktabactionbar_viewstub));
-        tickTab.setTickTabActionBar(tickTabActionBar);
+        TickTabBar tickTabBar = new TickTabBar(tickTab);
+        tickTabBar.setLabel("Opérations");
+        tickTabBar.inflate((ViewStub) findViewById(R.id.account_ticktabbar_viewstub));
+        tickTab.setTickTabBar(tickTabBar);
 
         TickTabItem tickTabItem;
 

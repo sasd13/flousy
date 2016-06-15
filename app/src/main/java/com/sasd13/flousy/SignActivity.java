@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.TaskPlanner;
@@ -44,6 +45,8 @@ public class SignActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_sign);
+        ColorHelper.drawTitles(this);
+
         createFormCustomer();
     }
 

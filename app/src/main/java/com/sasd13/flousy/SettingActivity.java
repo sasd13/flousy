@@ -1,16 +1,13 @@
 package com.sasd13.flousy;
 
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.dialog.Dialog;
 import com.sasd13.androidex.gui.widget.dialog.EditorDialog;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
@@ -65,19 +62,9 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_setting);
+        ColorHelper.drawTitles(this);
+
         createFormCustomer();
-
-        TextView textView = (TextView) findViewById(R.id.setting_form_user_textview_identity);
-
-        int color = ContextCompat.getColor(this, R.color.red);
-        textView.setTextColor(color);
-
-        LayerDrawable layerDrawable = (LayerDrawable) textView.getBackground();
-        GradientDrawable bottom = (GradientDrawable) layerDrawable.getDrawable(0);
-        bottom.setStroke(
-                (int) textView.getContext().getResources().getDimension(com.sasd13.androidex.R.dimen.textview_title_stroke_dimen),
-                color
-        );
     }
 
     private void createFormCustomer() {

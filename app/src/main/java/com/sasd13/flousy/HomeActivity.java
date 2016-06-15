@@ -2,10 +2,8 @@ package com.sasd13.flousy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
@@ -15,7 +13,7 @@ import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.nav.Nav;
 import com.sasd13.flousy.gui.nav.NavItem;
 
-public class HomeActivity extends MotherActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private Grid grid;
 
@@ -86,26 +84,5 @@ public class HomeActivity extends MotherActivity {
 
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_home, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_home_action_logout:
-                logOut();
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-        return true;
     }
 }

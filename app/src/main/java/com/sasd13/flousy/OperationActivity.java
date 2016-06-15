@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
@@ -44,6 +45,8 @@ public class OperationActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_operation);
+        ColorHelper.drawTitles(this);
+
         createFormOperation();
     }
 

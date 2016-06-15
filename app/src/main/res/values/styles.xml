@@ -1,13 +1,19 @@
 <resources>
 
-    <style name="Flousy.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Flousy" parent="AndroidEX">
         <item name="android:editTextBackground">@android:drawable/edit_text</item>
-        <item name="android:textSize">@dimen/textsize_medium</item>
     </style>
 
-    <style name="Flousy" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Flousy.NoActionBar" parent="AndroidEX.NoActionBar">
         <item name="android:editTextBackground">@android:drawable/edit_text</item>
-        <item name="android:textSize">@dimen/textsize_medium</item>
+    </style>
+
+    <style name="FlousyBrown" parent="Flousy">
+        <item name="android:editTextBackground">@android:drawable/edit_text</item>
+        <item name="colorPrimary">@color/brown</item>
+        <item name="colorPrimaryDark">@color/brownMidDark</item>
+        <item name="colorSecondary">@color/brownMidLight</item>
+        <item name="colorAccent">@color/cyan</item>
     </style>
 
 </resources>

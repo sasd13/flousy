@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/AndroidEX.Activity"
     android:scrollbars="vertical"
     android:scrollbarStyle="outsideOverlay">
 
@@ -15,9 +14,10 @@
             android:id="@+id/setting_form_user_textview_identity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/form_textview_title_identity"
-            style="@style/AndroidEX.Text.Title"
-            android:layout_alignParentTop="true"/>
+            style="@style/AndroidEX.Title"
+            android:tag="title_0"
+            android:layout_alignParentTop="true"
+            android:text="@string/form_textview_title_identity"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/setting_form_user_recyclerview_identity"

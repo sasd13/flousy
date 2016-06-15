@@ -52,12 +52,16 @@ public class TabItemOperation extends TabItem {
 
     @Override
     protected void bindItemViews() {
+        super.bindItemViews();
+
         setDate(date);
         setAmount(amount);
     }
 
     @Override
     protected void setListeners() {
+        super.setListeners();
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

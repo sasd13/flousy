@@ -17,7 +17,7 @@
         android:ellipsize="end"/>
 
     <TextView
-        android:id="@+id/tabitem_operation_textview_title"
+        android:id="@+id/tabitem_textview_label"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="4"
