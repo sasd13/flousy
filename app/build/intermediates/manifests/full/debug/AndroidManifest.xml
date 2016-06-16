@@ -83,7 +83,7 @@
             android:label="@string/activity_setting"
             android:parentActivityName="com.sasd13.flousy.HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Flousy"
+            android:theme="@style/FlousyBrown"
             android:windowSoftInputMode="stateHidden|adjustPan" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->

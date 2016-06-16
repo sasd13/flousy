@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerTitle;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.androidex.gui.widget.recycler.tab.TickTab;
 import com.sasd13.androidex.gui.widget.recycler.tab.TickTabBar;
@@ -64,6 +65,10 @@ public class AccountActivity extends MotherActivity {
         tickTabBar.setLabel("Opérations");
         tickTabBar.inflate((ViewStub) findViewById(R.id.account_ticktabbar_viewstub));
         tickTab.setTickTabBar(tickTabBar);
+
+        RecyclerTitle recyclerTitle = new RecyclerTitle();
+        recyclerTitle.setLabel("Aujourd'hui");
+        tickTab.addItem(recyclerTitle);
 
         TickTabItem tickTabItem;
 

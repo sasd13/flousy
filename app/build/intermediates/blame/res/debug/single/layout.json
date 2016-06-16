@@ -24,14 +24,6 @@
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\recycleritem_title.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\recycleritem_title.xml"
-    },
-    {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ticktab_actionbar.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\ticktab_actionbar.xml"
-    },
-    {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tabitem_operation.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\layout\\tabitem_operation.xml"
     },
@@ -45,7 +37,7 @@
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\draweritem_nav.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\draweritem_nav.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\draweritem_nav.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sign.xml",
@@ -65,19 +57,15 @@
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\formitem_toggle.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\formitem_toggle.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\formitem_toggle.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\formitem_switch.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\formitem_switch.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\formitem_switch.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_lines.xml"
-    },
-    {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_mother.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\layout\\activity_mother.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
@@ -85,15 +73,15 @@
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\griditem.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\griditem.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\griditem.xml"
+    },
+    {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\formitem_text.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\formitem_text.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_home.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\layout\\activity_home.xml"
-    },
-    {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\formitem_text.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\formitem_text.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
@@ -104,20 +92,20 @@
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\title.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\title.xml"
-    },
-    {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splashscreen.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\src\\main\\res\\layout\\activity_splashscreen.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tabitem.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\tabitem.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\tabitem.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\draweractivity.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\draweractivity.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
@@ -134,6 +122,10 @@
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\recyclertitle.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\recyclertitle.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setting.xml",
@@ -189,7 +181,7 @@
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\formitem.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\formitem.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\formitem.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
@@ -204,8 +196,12 @@
         "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
+        "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ticktabbar.xml",
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\ticktabbar.xml"
+    },
+    {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ticktabitem.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\ticktabitem.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\ticktabitem.xml"
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
@@ -229,6 +225,6 @@
     },
     {
         "merged": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\draweritem.xml",
-        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex\\res\\layout\\draweritem.xml"
+        "source": "C:\\Users\\Samir\\Projects\\GitHub\\flousy\\app\\build\\intermediates\\exploded-aar\\com.sasd13.androidex\\androidex-release\\res\\layout\\draweritem.xml"
     }
 ]

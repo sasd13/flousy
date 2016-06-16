@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/recycleritem_height_medium">
+    android:layout_height="@dimen/recycleritem_height_small"
+    android:paddingLeft="@dimen/draweritem_padding_horizontal"
+    android:paddingRight="@dimen/draweritem_padding_horizontal">
 
-    <View
-        android:id="@+id/draweritem_nav_colorview"
-        android:layout_width="@dimen/draweritem_nav_colorview_width"
-        android:layout_height="@dimen/draweritem_nav_colorview_height"
+    <FrameLayout
+        android:id="@+id/draweritem_nav_colorview_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/recycleritem_padding_horizontal"/>
+        android:layout_centerVertical="true">
+
+        <View
+            android:id="@+id/draweritem_nav_colorview"
+            android:layout_width="@dimen/draweritem_nav_colorview_width"
+            android:layout_height="@dimen/draweritem_nav_colorview_height"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/draweritem_textview_label"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/draweritem_nav_colorview"
-        android:layout_marginLeft="@dimen/view_margin_medium"
+        android:layout_toRightOf="@id/draweritem_nav_colorview_container"
+        android:layout_marginLeft="@dimen/draweritem_padding_horizontal"
         android:layout_centerVertical="true"
-        android:paddingRight="@dimen/recycleritem_padding_horizontal"
-        android:paddingTop="@dimen/recycleritem_padding_horizontal"
-        android:paddingBottom="@dimen/recycleritem_padding_horizontal"
         android:gravity="center_vertical"
-        android:text="@string/draweritem_textview_label"/>
+        android:text="@string/draweritem_textview_label"
+        android:singleLine="true"/>
 
 </RelativeLayout>
 

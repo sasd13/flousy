@@ -24,13 +24,13 @@ MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitH
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
-MERGED from [com.sasd13.androidex:androidex:] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\AndroidManifest.xml:11:5-15:19
+MERGED from [com.sasd13.androidex:androidex-release:] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex-release\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from C:\Users\Samir\Projects\GitHub\flousy\app\src\main\AndroidManifest.xml:10:9-41
 	android:supportsRtl
-		ADDED from [com.sasd13.androidex:androidex:] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\AndroidManifest.xml:14:9-35
+		ADDED from [com.sasd13.androidex:androidex-release:] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex-release\AndroidManifest.xml:14:9-35
 	android:allowBackup
 		ADDED from C:\Users\Samir\Projects\GitHub\flousy\app\src\main\AndroidManifest.xml:8:9-35
 	android:icon
@@ -144,7 +144,7 @@ ADDED from C:\Users\Samir\Projects\GitHub\flousy\app\src\main\AndroidManifest.xm
 	android:windowSoftInputMode
 		ADDED from C:\Users\Samir\Projects\GitHub\flousy\app\src\main\AndroidManifest.xml:83:13-64
 	android:theme
-		ADDED from C:\Users\Samir\Projects\GitHub\flousy\app\src\main\AndroidManifest.xml:81:13-42
+		ADDED from C:\Users\Samir\Projects\GitHub\flousy\app\src\main\AndroidManifest.xml:81:13-47
 	android:name
 		ADDED from C:\Users\Samir\Projects\GitHub\flousy\app\src\main\AndroidManifest.xml:79:13-44
 uses-sdk
@@ -156,7 +156,7 @@ MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitH
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
-MERGED from [com.sasd13.androidex:androidex:] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\AndroidManifest.xml:7:5-9:41
+MERGED from [com.sasd13.androidex:androidex-release:] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex-release\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:recyclerview-v7:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43

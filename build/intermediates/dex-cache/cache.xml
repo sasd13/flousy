@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex\jars\classes.jar"
+        jar="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\exploded-aar\com.sasd13.androidex\androidex-release\jars\classes.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="27ef934e2f85fd02d2c5dbc88a48d4783bdd57b8">
-        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\exploded-aar-com.sasd13.androidex-androidex_de2df00d4ba00729aef8d955ef2557333b3b06ec.jar" />
+        sha1="bfd251f76ed45ada890c31fd55e54b7856756b75">
+        <dex dex="C:\Users\Samir\Projects\GitHub\flousy\app\build\intermediates\pre-dexed\debug\exploded-aar-com.sasd13.androidex-androidex-release_63dcbf31fc0376592388f80c954eb57e40374937.jar" />
     </item>
 
 </items>

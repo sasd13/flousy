@@ -6,106 +6,117 @@
         <item>@color/black</item>
         <item>@color/red</item>
         <item>@color/redLight</item>
-        <item>@color/redPrimary</item>
-        <item>@color/redSecondary</item>
+        <item>@color/redMidLight</item>
+        <item>@color/redMidDark</item>
         <item>@color/redDark</item>
         <item>@color/pink</item>
         <item>@color/pinkLight</item>
-        <item>@color/pinkPrimary</item>
-        <item>@color/pinkSecondary</item>
+        <item>@color/pinkMidLight</item>
+        <item>@color/pinkMidDark</item>
         <item>@color/pinkDark</item>
         <item>@color/purple</item>
         <item>@color/purpleLight</item>
-        <item>@color/purplePrimary</item>
-        <item>@color/purpleSecondary</item>
+        <item>@color/purpleMidLight</item>
+        <item>@color/purpleMidDark</item>
         <item>@color/purpleDark</item>
         <item>@color/deepPurple</item>
         <item>@color/deepPurpleLight</item>
-        <item>@color/deepPurplePrimary</item>
-        <item>@color/deepPurpleSecondary</item>
+        <item>@color/deepPurpleMidLight</item>
+        <item>@color/deepPurpleMidDark</item>
         <item>@color/deepPurpleDark</item>
         <item>@color/indigo</item>
         <item>@color/indigoLight</item>
-        <item>@color/indigoPrimary</item>
-        <item>@color/indigoSecondary</item>
+        <item>@color/indigoMidLight</item>
+        <item>@color/indigoMidDark</item>
         <item>@color/indigoDark</item>
         <item>@color/blue</item>
         <item>@color/blueLight</item>
-        <item>@color/bluePrimary</item>
-        <item>@color/blueSecondary</item>
+        <item>@color/blueMidLight</item>
+        <item>@color/blueMidDark</item>
         <item>@color/blueDark</item>
         <item>@color/paleBlue</item>
         <item>@color/paleBlueLight</item>
-        <item>@color/paleBluePrimary</item>
-        <item>@color/paleBlueSecondary</item>
+        <item>@color/paleBlueMidLight</item>
+        <item>@color/paleBlueMidDark</item>
         <item>@color/paleBlueDark</item>
         <item>@color/cyan</item>
         <item>@color/cyanLight</item>
-        <item>@color/cyanPrimary</item>
-        <item>@color/cyanSecondary</item>
+        <item>@color/cyanMidLight</item>
+        <item>@color/cyanMidDark</item>
         <item>@color/cyanDark</item>
         <item>@color/teal</item>
         <item>@color/tealLight</item>
-        <item>@color/tealPrimary</item>
-        <item>@color/tealSecondary</item>
+        <item>@color/tealMidLight</item>
+        <item>@color/tealMidDark</item>
         <item>@color/tealDark</item>
         <item>@color/green</item>
         <item>@color/greenLight</item>
-        <item>@color/greenPrimary</item>
-        <item>@color/greenSecondary</item>
+        <item>@color/greenMidLight</item>
+        <item>@color/greenMidDark</item>
         <item>@color/greenDark</item>
         <item>@color/paleGreen</item>
         <item>@color/paleGreenLight</item>
-        <item>@color/paleGreenPrimary</item>
-        <item>@color/paleGreenSecondary</item>
+        <item>@color/paleGreenMidLight</item>
+        <item>@color/paleGreenMidDark</item>
         <item>@color/paleGreenDark</item>
         <item>@color/lime</item>
         <item>@color/limeLight</item>
-        <item>@color/limePrimary</item>
-        <item>@color/limeSecondary</item>
+        <item>@color/limeMidLight</item>
+        <item>@color/limeMidDark</item>
         <item>@color/limeDark</item>
         <item>@color/yellow</item>
         <item>@color/yellowLight</item>
-        <item>@color/yellowPrimary</item>
-        <item>@color/yellowSecondary</item>
+        <item>@color/yellowMidLight</item>
+        <item>@color/yellowMidDark</item>
         <item>@color/yellowDark</item>
         <item>@color/amber</item>
         <item>@color/amberLight</item>
-        <item>@color/amberPrimary</item>
-        <item>@color/amberSecondary</item>
+        <item>@color/amberMidLight</item>
+        <item>@color/amberMidDark</item>
         <item>@color/amberDark</item>
         <item>@color/orange</item>
         <item>@color/orangeLight</item>
-        <item>@color/orangePrimary</item>
-        <item>@color/orangeSecondary</item>
+        <item>@color/orangeMidLight</item>
+        <item>@color/orangeMidDark</item>
         <item>@color/orangeDark</item>
         <item>@color/deepOrange</item>
         <item>@color/deepOrangeLight</item>
-        <item>@color/deepOrangePrimary</item>
-        <item>@color/deepOrangeSecondary</item>
+        <item>@color/deepOrangeMidLight</item>
+        <item>@color/deepOrangeMidDark</item>
         <item>@color/deepOrangeDark</item>
         <item>@color/brown</item>
         <item>@color/brownLight</item>
-        <item>@color/brownPrimary</item>
-        <item>@color/brownSecondary</item>
+        <item>@color/brownMidLight</item>
+        <item>@color/brownMidDark</item>
         <item>@color/brownDark</item>
         <item>@color/grey</item>
         <item>@color/greyLight</item>
-        <item>@color/greyPrimary</item>
-        <item>@color/greySecondary</item>
+        <item>@color/greyMidLight</item>
+        <item>@color/greyMidDark</item>
         <item>@color/greyDark</item>
         <item>@color/blueGrey</item>
         <item>@color/blueGreyLight</item>
-        <item>@color/blueGreyPrimary</item>
-        <item>@color/blueGreySecondary</item>
+        <item>@color/blueGreyMidLight</item>
+        <item>@color/blueGreyMidDark</item>
         <item>@color/blueGreyDark</item>
-        <item>@color/holoLightBackground</item>
-        <item>@color/holoLightBackgroundLight</item>
-        <item>@color/holoLightBackgroundDark</item>
+        <item>@color/textPrimaryLight</item>
+        <item>@color/textSecondaryLight</item>
+        <item>@color/textDisabledLight</item>
+        <item>@color/dividerLight</item>
+        <item>@color/textPrimaryDark</item>
+        <item>@color/textSecondaryDark</item>
+        <item>@color/textDisabledDark</item>
+        <item>@color/dividerDark</item>
+        <item>@color/shadow</item>
     </integer-array>
+    <attr format="reference" name="colorSecondary"/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
+    <attr format="reference" name="textColorDisabled"/>
+    <attr format="reference" name="textColorHint"/>
+    <attr format="reference" name="textColorPrimary"/>
+    <attr format="reference" name="textColorSecondary"/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
@@ -124,8 +135,8 @@
     <item name="amber" type="color">#FFC107</item>
     <item name="amberDark" type="color">#FF6F00</item>
     <item name="amberLight" type="color">#FFECB3</item>
-    <item name="amberPrimary" type="color">#FFD54F</item>
-    <item name="amberSecondary" type="color">#FFA000</item>
+    <item name="amberMidDark" type="color">#FFA000</item>
+    <item name="amberMidLight" type="color">#FFD54F</item>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
@@ -136,11 +147,11 @@
     <item name="blueGrey" type="color">#607D8B</item>
     <item name="blueGreyDark" type="color">#263238</item>
     <item name="blueGreyLight" type="color">#CFD8DC</item>
-    <item name="blueGreyPrimary" type="color">#90A4AE</item>
-    <item name="blueGreySecondary" type="color">#455A64</item>
+    <item name="blueGreyMidDark" type="color">#455A64</item>
+    <item name="blueGreyMidLight" type="color">#90A4AE</item>
     <item name="blueLight" type="color">#BBDEFB</item>
-    <item name="bluePrimary" type="color">#64B5F6</item>
-    <item name="blueSecondary" type="color">#1976D2</item>
+    <item name="blueMidDark" type="color">#1976D2</item>
+    <item name="blueMidLight" type="color">#64B5F6</item>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -150,58 +161,58 @@
     <item name="brown" type="color">#795548</item>
     <item name="brownDark" type="color">#3E2723</item>
     <item name="brownLight" type="color">#D7CCC8</item>
-    <item name="brownPrimary" type="color">#A1887F</item>
-    <item name="brownSecondary" type="color">#5D4037</item>
+    <item name="brownMidDark" type="color">#5D4037</item>
+    <item name="brownMidLight" type="color">#A1887F</item>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <item name="cyan" type="color">#00BCD4</item>
     <item name="cyanDark" type="color">#006064</item>
     <item name="cyanLight" type="color">#B2EBF2</item>
-    <item name="cyanPrimary" type="color">#4DD0E1</item>
-    <item name="cyanSecondary" type="color">#0097A7</item>
+    <item name="cyanMidDark" type="color">#0097A7</item>
+    <item name="cyanMidLight" type="color">#4DD0E1</item>
     <item name="deepOrange" type="color">#FF5722</item>
     <item name="deepOrangeDark" type="color">#BF360C</item>
     <item name="deepOrangeLight" type="color">#FFCCBC</item>
-    <item name="deepOrangePrimary" type="color">#FF8A65</item>
-    <item name="deepOrangeSecondary" type="color">#E64A19</item>
+    <item name="deepOrangeMidDark" type="color">#E64A19</item>
+    <item name="deepOrangeMidLight" type="color">#FF8A65</item>
     <item name="deepPurple" type="color">#673AB7</item>
     <item name="deepPurpleDark" type="color">#311B92</item>
     <item name="deepPurpleLight" type="color">#D1C4E9</item>
-    <item name="deepPurplePrimary" type="color">#9575CD</item>
-    <item name="deepPurpleSecondary" type="color">#512DA8</item>
+    <item name="deepPurpleMidDark" type="color">#512DA8</item>
+    <item name="deepPurpleMidLight" type="color">#9575CD</item>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <item name="dividerDark" type="color">#1E000000</item>
+    <item name="dividerLight" type="color">#1FFFFFFF</item>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
     <item name="green" type="color">#4CAF50</item>
     <item name="greenDark" type="color">#1B5E20</item>
     <item name="greenLight" type="color">#C8E6C9</item>
-    <item name="greenPrimary" type="color">#81C784</item>
-    <item name="greenSecondary" type="color">#388E3C</item>
+    <item name="greenMidDark" type="color">#388E3C</item>
+    <item name="greenMidLight" type="color">#81C784</item>
     <item name="grey" type="color">#9E9E9E</item>
+    <item name="greyBackground" type="color">#EEEEEE</item>
     <item name="greyDark" type="color">#212121</item>
     <item name="greyLight" type="color">#F5F5F5</item>
-    <item name="greyPrimary" type="color">#E0E0E0</item>
-    <item name="greySecondary" type="color">#616161</item>
+    <item name="greyMidDark" type="color">#616161</item>
+    <item name="greyMidLight" type="color">#E0E0E0</item>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
-    <item name="holoLightBackground" type="color">#fff3f3</item>
-    <item name="holoLightBackgroundDark" type="color">#fff4f4</item>
-    <item name="holoLightBackgroundLight" type="color">#fff2f2</item>
     <item name="indigo" type="color">#3F51B5</item>
     <item name="indigoDark" type="color">#1A237E</item>
     <item name="indigoLight" type="color">#C5CAE9</item>
-    <item name="indigoPrimary" type="color">#7986CB</item>
-    <item name="indigoSecondary" type="color">#303F9F</item>
+    <item name="indigoMidDark" type="color">#303F9F</item>
+    <item name="indigoMidLight" type="color">#7986CB</item>
     <item name="lime" type="color">#CDDC39</item>
     <item name="limeDark" type="color">#827717</item>
     <item name="limeLight" type="color">#F0F4C3</item>
-    <item name="limePrimary" type="color">#DCE775</item>
-    <item name="limeSecondary" type="color">#AFB42B</item>
+    <item name="limeMidDark" type="color">#AFB42B</item>
+    <item name="limeMidLight" type="color">#DCE775</item>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -217,23 +228,23 @@
     <item name="orange" type="color">#FF9800</item>
     <item name="orangeDark" type="color">#E65100</item>
     <item name="orangeLight" type="color">#FFE0B2</item>
-    <item name="orangePrimary" type="color">#FFB74D</item>
-    <item name="orangeSecondary" type="color">#F57C00</item>
+    <item name="orangeMidDark" type="color">#F57C00</item>
+    <item name="orangeMidLight" type="color">#FFB74D</item>
     <item name="paleBlue" type="color">#03A9F4</item>
     <item name="paleBlueDark" type="color">#01579B</item>
     <item name="paleBlueLight" type="color">#B3E5FC</item>
-    <item name="paleBluePrimary" type="color">#4FC3F7</item>
-    <item name="paleBlueSecondary" type="color">#0288D1</item>
+    <item name="paleBlueMidDark" type="color">#0288D1</item>
+    <item name="paleBlueMidLight" type="color">#4FC3F7</item>
     <item name="paleGreen" type="color">#8BC34A</item>
     <item name="paleGreenDark" type="color">#33691E</item>
     <item name="paleGreenLight" type="color">#DCEDC8</item>
-    <item name="paleGreenPrimary" type="color">#AED581</item>
-    <item name="paleGreenSecondary" type="color">#689F38</item>
+    <item name="paleGreenMidDark" type="color">#689F38</item>
+    <item name="paleGreenMidLight" type="color">#AED581</item>
     <item name="pink" type="color">#E91E63</item>
     <item name="pinkDark" type="color">#880E4F</item>
     <item name="pinkLight" type="color">#F8BBD0</item>
-    <item name="pinkPrimary" type="color">#F06292</item>
-    <item name="pinkSecondary" type="color">#C2185B</item>
+    <item name="pinkMidDark" type="color">#C2185B</item>
+    <item name="pinkMidLight" type="color">#F06292</item>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -245,19 +256,20 @@
     <item name="purple" type="color">#9C27B0</item>
     <item name="purpleDark" type="color">#4A148C</item>
     <item name="purpleLight" type="color">#E1BEE7</item>
-    <item name="purplePrimary" type="color">#BA68C8</item>
-    <item name="purpleSecondary" type="color">#7B1FA2</item>
+    <item name="purpleMidDark" type="color">#7B1FA2</item>
+    <item name="purpleMidLight" type="color">#BA68C8</item>
     <item name="red" type="color">#F44336</item>
     <item name="redDark" type="color">#B71C1C</item>
     <item name="redLight" type="color">#FFCDD2</item>
-    <item name="redPrimary" type="color">#E57373</item>
-    <item name="redSecondary" type="color">#D32F2F</item>
+    <item name="redMidDark" type="color">#D32F2F</item>
+    <item name="redMidLight" type="color">#E57373</item>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
+    <item name="shadow" type="color">#42000000</item>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
@@ -265,15 +277,21 @@
     <item name="teal" type="color">#009688</item>
     <item name="tealDark" type="color">#004D40</item>
     <item name="tealLight" type="color">#B2DFDB</item>
-    <item name="tealPrimary" type="color">#4DB6AC</item>
-    <item name="tealSecondary" type="color">#00796B</item>
+    <item name="tealMidDark" type="color">#00796B</item>
+    <item name="tealMidLight" type="color">#4DB6AC</item>
+    <item name="textDisabledDark" type="color">#61000000</item>
+    <item name="textDisabledLight" type="color">#80FFFFFF</item>
+    <item name="textPrimaryDark" type="color">#DE000000</item>
+    <item name="textPrimaryLight" type="color">#FFFFFF</item>
+    <item name="textSecondaryDark" type="color">#89000000</item>
+    <item name="textSecondaryLight" type="color">#B3FFFFFF</item>
     <item name="transparent" type="color">#00000000</item>
     <item name="white" type="color">#FFFFFF</item>
     <item name="yellow" type="color">#FFEB3B</item>
     <item name="yellowDark" type="color">#F57F17</item>
     <item name="yellowLight" type="color">#FFF9C4</item>
-    <item name="yellowPrimary" type="color">#FFF176</item>
-    <item name="yellowSecondary" type="color">#FBC02D</item>
+    <item name="yellowMidDark" type="color">#FBC02D</item>
+    <item name="yellowMidLight" type="color">#FFF176</item>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -371,10 +389,6 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <dimen name="actionbar_checkbox_padding">12dp</dimen>
-    <dimen name="actionbar_padding_horizontal">8dp</dimen>
-    <dimen name="actionbar_padding_vertical">6dp</dimen>
-    <dimen name="actionbar_view_margin">4dp</dimen>
     <dimen name="activity_padding">8dp</dimen>
     <dimen name="button_height">40dp</dimen>
     <dimen name="button_width">110dp</dimen>
@@ -385,12 +399,15 @@
     <dimen name="dividerview_height_medium">2dp</dimen>
     <dimen name="dividerview_height_small">1dp</dimen>
     <dimen name="dividerview_margintop">5dp</dimen>
-    <dimen name="drawer_padding_horizontal">10dp</dimen>
+    <dimen name="drawable_title_background_padding_bottom">0dp</dimen>
+    <dimen name="drawable_title_background_stroke_width">2dp</dimen>
     <dimen name="drawer_width">240dp</dimen>
-    <dimen name="draweritem_nav_colorview_height">42dp</dimen>
+    <dimen name="draweritem_nav_colorview_height">32dp</dimen>
     <dimen name="draweritem_nav_colorview_width">16dp</dimen>
+    <dimen name="draweritem_padding_horizontal">16dp</dimen>
     <dimen name="form_user_checkbox_horizontalmargin">7dp</dimen>
     <dimen name="grid_items_space">12dp</dimen>
+    <dimen name="griditem_elevation">8dp</dimen>
     <dimen name="griditem_verticalmargin_external">14dp</dimen>
     <dimen name="griditem_verticalmargin_internal">7dp</dimen>
     <dimen name="griditem_width">120dp</dimen>
@@ -405,12 +422,15 @@
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <dimen name="recycleritem_height_large">70dp</dimen>
-    <dimen name="recycleritem_height_medium">65dp</dimen>
-    <dimen name="recycleritem_height_small">60dp</dimen>
+    <dimen name="recycleritem_height_large">72dp</dimen>
+    <dimen name="recycleritem_height_medium">64dp</dimen>
+    <dimen name="recycleritem_height_small">56dp</dimen>
+    <dimen name="recycleritem_height_xlarge">80dp</dimen>
+    <dimen name="recycleritem_height_xsmall">48dp</dimen>
     <dimen name="recycleritem_padding_horizontal">8dp</dimen>
     <dimen name="recycleritem_padding_vertical">4dp</dimen>
-    <dimen name="recycleritem_title_padding">2dp</dimen>
+    <dimen name="recyclertitle_padding_horizontal">8dp</dimen>
+    <dimen name="recyclertitle_padding_vertical">3dp</dimen>
     <dimen name="splashscreen_progressbar_margin">20dp</dimen>
     <dimen name="tabitem_checkbox_margin">5dp</dimen>
     <dimen name="textsize_large">15sp</dimen>
@@ -421,9 +441,16 @@
     <dimen name="textsize_xxlarge">18sp</dimen>
     <dimen name="textsize_xxsmall">10sp</dimen>
     <dimen name="textsize_xxxlarge">20sp</dimen>
-    <dimen name="textview_title_bottom_width">1dp</dimen>
-    <dimen name="textview_title_padding">8dp</dimen>
-    <dimen name="textview_title_stroke_dimen">1px</dimen>
+    <dimen name="textview_title_padding_horizontal">8dp</dimen>
+    <dimen name="textview_title_padding_vertical">5dp</dimen>
+    <dimen name="ticktabbar_button_margin_right">2dp</dimen>
+    <dimen name="ticktabbar_button_padding_horizontal">2dp</dimen>
+    <dimen name="ticktabbar_container_margin_horizontal">6dp</dimen>
+    <dimen name="ticktabbar_container_margin_vertical">12dp</dimen>
+    <dimen name="ticktabbar_elevation">4dp</dimen>
+    <dimen name="ticktabbar_padding_horizontal">6dp</dimen>
+    <dimen name="ticktabbar_padding_vertical">6dp</dimen>
+    <dimen name="ticktabbar_title_padding_horizontal">10dp</dimen>
     <dimen name="view_margin_large">20dp</dimen>
     <dimen name="view_margin_medium">12dp</dimen>
     <dimen name="view_margin_small">7dp</dimen>
@@ -531,7 +558,7 @@
     <string name="message_saved">Enregistré</string>
     <string name="message_updated">Actualisé</string>
     <string name="message_wait">Veuillez patienter...</string>
-    <string name="recycleritem_title_textview">Title</string>
+    <string name="recyclertitle_textview_label">Title</string>
     <string name="sign_alertdialog_message_error_sign">Remplir le formulaire d\'inscription</string>
     <string name="sign_alertdialog_title_error_sign">Erreur inscription</string>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -547,64 +574,73 @@
     <string name="title_error">Erreur</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
-    <style name="AndroidEX" parent="Theme.AppCompat">
-        <!-- Customize your theme here. -->
+    <style name="AndroidEX" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/greenMidDark</item>
+        <item name="colorSecondary">@color/greenMidLight</item>
+        <item name="colorAccent">@color/redMidLight</item>
+        <item name="textColorPrimary">?colorPrimaryDark</item>
+        <item name="textColorSecondary">?colorSecondary</item>
+        <item name="textColorDisabled">@color/textDisabledDark</item>
+        <item name="textColorHint">?textColorDisabled</item>
     </style>
-    <style name="AndroidEX.Activity" parent="AndroidEX">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingLeft">@dimen/activity_padding</item>
-        <item name="android:paddingRight">@dimen/activity_padding</item>
-        <item name="android:paddingTop">@dimen/activity_padding</item>
+    <style name="AndroidEX.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/greenMidDark</item>
+        <item name="colorSecondary">@color/greenMidLight</item>
+        <item name="colorAccent">@color/redMidLight</item>
+        <item name="textColorPrimary">?colorPrimaryDark</item>
+        <item name="textColorSecondary">?colorSecondary</item>
+        <item name="textColorDisabled">@color/textDisabledDark</item>
+        <item name="textColorHint">?textColorDisabled</item>
     </style>
     <style name="AndroidEX.Recycler.Drawer" parent="AndroidEX">
         <item name="android:layout_width">@dimen/drawer_width</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:paddingLeft">@dimen/drawer_padding_horizontal</item>
-        <item name="android:paddingRight">@dimen/drawer_padding_horizontal</item>
         <item name="android:scrollbars">vertical</item>
         <item name="android:scrollbarStyle">outsideOverlay</item>
         <item name="android:overScrollMode">never</item>
-        <item name="android:background">@color/background_material_light</item>
+        <item name="android:background">@android:color/background_light</item>
     </style>
-    <style name="AndroidEX.Recycler.TickTab.ActionBar" parent="AndroidEX">
+    <style name="AndroidEX.Recycler.TickTab.Bar" parent="AndroidEX">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingTop">@dimen/actionbar_padding_vertical</item>
-        <item name="android:paddingBottom">@dimen/actionbar_padding_vertical</item>
+        <item name="android:paddingLeft">@dimen/ticktabbar_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/ticktabbar_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/ticktabbar_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/ticktabbar_padding_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:background">?colorPrimary</item>
         <item name="android:visibility">gone</item>
     </style>
-    <style name="AndroidEX.Recycler.TickTab.ActionBar.Button" parent="AndroidEX">
+    <style name="AndroidEX.Recycler.TickTab.Bar.Button" parent="AndroidEX">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_centerVertical">true</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:layout_marginLeft">@dimen/actionbar_view_margin</item>
-        <item name="android:paddingRight">@dimen/actionbar_padding_horizontal</item>
+        <item name="android:paddingLeft">@dimen/ticktabbar_button_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/ticktabbar_button_padding_horizontal</item>
         <item name="android:gravity">center</item>
+        <item name="android:background">@color/transparent</item>
     </style>
-    <style name="AndroidEX.Recycler.TickTab.ActionBar.Text" parent="AndroidEX">
+    <style name="AndroidEX.Recycler.TickTab.Bar.Title" parent="AndroidEX">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingLeft">@dimen/ticktabbar_title_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/ticktabbar_title_padding_horizontal</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingLeft">@dimen/actionbar_view_margin</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/textsize_xxlarge</item>
     </style>
-    <style name="AndroidEX.Recycler.TickTab.ActionBar.Tick" parent="AndroidEX">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_centerVertical">true</item>
-        <item name="android:layout_margin">@dimen/actionbar_checkbox_padding</item>
-        <item name="android:gravity">center</item>
-    </style>
-    <style name="AndroidEX.Text.Title" parent="AndroidEX">
+    <style name="AndroidEX.Title" parent="AndroidEX">
         <item name="android:gravity">center_vertical</item>
-        <item name="android:padding">@dimen/textview_title_padding</item>
-        <item name="android:textSize">@dimen/textsize_large</item>
+        <item name="android:paddingLeft">@dimen/textview_title_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/textview_title_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/textview_title_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/textview_title_padding_vertical</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:background">@drawable/text_title_background</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:background">@drawable/title_background</item>
     </style>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
@@ -1563,13 +1599,18 @@
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
     </style>
-    <style name="Flousy" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Flousy" parent="AndroidEX">
         <item name="android:editTextBackground">@android:drawable/edit_text</item>
-        <item name="android:textSize">@dimen/textsize_medium</item>
     </style>
-    <style name="Flousy.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Flousy.NoActionBar" parent="AndroidEX.NoActionBar">
         <item name="android:editTextBackground">@android:drawable/edit_text</item>
-        <item name="android:textSize">@dimen/textsize_medium</item>
+    </style>
+    <style name="FlousyBrown" parent="Flousy">
+        <item name="android:editTextBackground">@android:drawable/edit_text</item>
+        <item name="colorPrimary">@color/brown</item>
+        <item name="colorPrimaryDark">@color/brownMidDark</item>
+        <item name="colorSecondary">@color/brownMidLight</item>
+        <item name="colorAccent">@color/cyan</item>
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>

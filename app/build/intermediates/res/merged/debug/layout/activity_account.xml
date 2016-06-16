@@ -5,13 +5,13 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/account_ticktabactionbar_container"
+        android:id="@+id/account_ticktabbar_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
 
         <ViewStub
-            android:id="@+id/account_ticktabactionbar_viewstub"
+            android:id="@+id/account_ticktabbar_viewstub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -20,8 +20,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AndroidEX.Activity"
-        android:layout_below="@id/account_ticktabactionbar_container">
+        android:layout_below="@id/account_ticktabbar_container">
 
         <TextView
             android:id="@+id/account_textview_sold_title"
@@ -52,11 +51,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:gravity="center_vertical"
-                android:text="@string/account_textview_operations"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:ellipsize="none"/>
+                style="@style/AndroidEX.Title"
+                android:tag="title_0"
+                android:text="@string/account_textview_operations"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/account_recyclerview"
