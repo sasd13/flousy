@@ -112,7 +112,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             if (formItem != null) {
                 formItem.setId(id);
 
-                formHolder.formIdentity.addItem(formItem);
+                formHolder.formIdentity.add(formItem);
             }
 
             formItem = null;
@@ -129,25 +129,19 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void fillFormIdentity() {
-        FormItem formItem;
-
-        for (RecyclerItem recyclerItem : formHolder.formIdentity.getItems()) {
-            if (recyclerItem instanceof FormItem) {
-                formItem = (FormItem) recyclerItem;
-
-                switch (formItem.getId()) {
-                    case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
-                        formItem.getInput().setValue(customer.getFirstName());
-                        break;
-                    case FormHolder.FORMIDENTITY_ID_LASTNAME:
-                        formItem.getInput().setValue(customer.getLastName());
-                        break;
-                    case FormHolder.FORMIDENTITY_ID_EMAIL:
-                        formItem.getInput().setValue(customer.getEmail());
-                        break;
-                    default:
-                        break;
-                }
+        for (FormItem formItem : formHolder.formIdentity.getItems()) {
+            switch (formItem.getId()) {
+                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
+                    formItem.getInput().setValue(customer.getFirstName());
+                    break;
+                case FormHolder.FORMIDENTITY_ID_LASTNAME:
+                    formItem.getInput().setValue(customer.getLastName());
+                    break;
+                case FormHolder.FORMIDENTITY_ID_EMAIL:
+                    formItem.getInput().setValue(customer.getEmail());
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -212,23 +206,17 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void editCustomerWithForm(Customer customer) {
-        FormItem formItem;
-
-        for (RecyclerItem recyclerItem : formHolder.formIdentity.getItems()) {
-            if (recyclerItem instanceof FormItem) {
-                formItem = (FormItem) recyclerItem;
-
-                switch (formItem.getId()) {
-                    case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
-                        customer.setFirstName((String) formItem.getInput().getValue());
-                        break;
-                    case FormHolder.FORMIDENTITY_ID_LASTNAME:
-                        customer.setLastName((String) formItem.getInput().getValue());
-                        break;
-                    case FormHolder.FORMIDENTITY_ID_EMAIL:
-                        customer.setEmail((String) formItem.getInput().getValue());
-                        break;
-                }
+        for (FormItem formItem : formHolder.formIdentity.getItems()) {
+            switch (formItem.getId()) {
+                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
+                    customer.setFirstName((String) formItem.getInput().getValue());
+                    break;
+                case FormHolder.FORMIDENTITY_ID_LASTNAME:
+                    customer.setLastName((String) formItem.getInput().getValue());
+                    break;
+                case FormHolder.FORMIDENTITY_ID_EMAIL:
+                    customer.setEmail((String) formItem.getInput().getValue());
+                    break;
             }
         }
     }

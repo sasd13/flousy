@@ -3,6 +3,7 @@ package com.sasd13.flousy;
 import android.content.Intent;
 
 import com.sasd13.androidex.DrawerActivity;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItem;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemNav;
@@ -10,19 +11,24 @@ import com.sasd13.flousy.gui.nav.Nav;
 import com.sasd13.flousy.gui.nav.NavItem;
 import com.sasd13.flousy.util.SessionHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class MotherActivity extends DrawerActivity {
 
     @Override
     protected void fillDrawer() {
         /*DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
         drawerItemTitle.setText(getResources().getString(R.string.activity_home));
-        drawer.addItem(drawerItemTitle);*/
+        drawer.add(drawerItemTitle);*/
 
         addNavItemsToDrawer();
     }
 
     private void addNavItemsToDrawer() {
         Nav nav = Nav.getInstance(this);
+
+        List<DrawerItem> drawerItems = new ArrayList<>();
         DrawerItemNav drawerItemNav;
 
         for (NavItem navItem : nav.getItems()) {
@@ -42,8 +48,10 @@ public abstract class MotherActivity extends DrawerActivity {
                 }
             });
 
-            drawer.addItem(drawerItemNav);
+            drawerItems.add(drawerItemNav);
         }
+
+        drawer.addAll(new RecyclerHeader("Navigation"), drawerItems);
 
         DrawerItem drawerItem = new DrawerItem();
         drawerItem.setLabel("Déconnexion");
@@ -54,6 +62,9 @@ public abstract class MotherActivity extends DrawerActivity {
             }
         });
 
-        drawer.addItem(drawerItem);
+        List<DrawerItem> otherList = new ArrayList<>();
+        otherList.add(drawerItem);
+
+        drawer.addAll(new RecyclerHeader("Compte"), otherList);
     }
 }

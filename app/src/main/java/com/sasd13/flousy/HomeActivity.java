@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
 
-            grid.addItem(gridItem);
+            grid.add(gridItem);
         }
     }
 

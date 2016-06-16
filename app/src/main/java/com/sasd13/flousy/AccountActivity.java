@@ -6,15 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.color.ColorHelper;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
-import com.sasd13.androidex.gui.widget.recycler.tab.TickTab;
-import com.sasd13.androidex.gui.widget.recycler.tab.TickTabBar;
-import com.sasd13.androidex.gui.widget.recycler.tab.TickTabItem;
+import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
@@ -25,6 +23,7 @@ import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +32,6 @@ public class AccountActivity extends MotherActivity {
 
     private TextView textViewSold;
     private Tab tab;
-    private TickTab tickTab;
 
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
@@ -45,8 +43,7 @@ public class AccountActivity extends MotherActivity {
         ColorHelper.drawTitles(this);
 
         createTextViewSold();
-        //createTabOperations();
-        createTickTab();
+        createTabOperations();
     }
 
     private void createTextViewSold() {
@@ -55,24 +52,6 @@ public class AccountActivity extends MotherActivity {
 
     private void createTabOperations() {
         tab = new Tab((RecyclerView) findViewById(R.id.account_recyclerview));
-    }
-
-    private void createTickTab() {
-        tickTab = new TickTab((RecyclerView) findViewById(R.id.account_recyclerview), getSupportActionBar());
-
-        TickTabBar tickTabBar = new TickTabBar(tickTab);
-        tickTabBar.setLabel("Opérations");
-        tickTabBar.inflate((ViewStub) findViewById(R.id.account_ticktabbar_viewstub));
-        tickTab.setTickTabBar(tickTabBar);
-
-        TickTabItem tickTabItem;
-
-        for (int i=0; i<3; i++) {
-            tickTabItem = new TickTabItem(tickTab);
-            tickTabItem.setLabel("Item " + (i + 1));
-
-            tickTab.addItem(tickTabItem);
-        }
     }
 
     @Override
@@ -85,6 +64,7 @@ public class AccountActivity extends MotherActivity {
         Account account = persistor.deepRead(parameters, Account.class).get(0);
 
         fillTextViewSold(account);
+        fillTab();
         //fillTabOperations(account.getOperations());
     }
 
@@ -94,13 +74,31 @@ public class AccountActivity extends MotherActivity {
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
     }
 
+    private void fillTab() {
+        List<TabItem> tabItems = new ArrayList<>();
+        TabItemOperation tabItemOperation;
+
+        for (int i=0; i<3; i++) {
+            tabItemOperation = new TabItemOperation();
+
+            tabItemOperation.setDate(String.valueOf(2000 + i));
+            tabItemOperation.setLabel("Opération " + i);
+            tabItemOperation.setAmount(String.valueOf(1000 + 1000*i));
+
+            tabItems.add(tabItemOperation);
+        }
+
+        tab.addAll(new RecyclerHeader("Aujourd'hui"), tabItems);
+    }
+
     private void fillTabOperations(List<Operation> operations) {
-        tab.clearItems();
+        tab.clear();
 
         addOperationsToTab(operations);
     }
 
     private void addOperationsToTab(List<Operation> operations) {
+        List<TabItem> tabItems = new ArrayList<>();
         TabItemOperation tabItemOperation;
 
         for (Operation operation : operations) {
@@ -121,8 +119,10 @@ public class AccountActivity extends MotherActivity {
                 }
             });
 
-            tab.addItem(tabItemOperation);
+            tabItems.add(tabItemOperation);
         }
+
+        tab.addAll(new RecyclerHeader("Aujourd'hui"), tabItems);
     }
 
     @Override
@@ -152,14 +152,5 @@ public class AccountActivity extends MotherActivity {
         intent.putExtra(Extra.MODE, Extra.MODE_NEW);
 
         startActivity(intent);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (tickTab.isInTickState()) {
-            tickTab.setInTickState(false);
-        } else {
-            super.onBackPressed();
-        }
     }
 }
