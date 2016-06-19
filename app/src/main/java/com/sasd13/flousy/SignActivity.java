@@ -3,15 +3,26 @@ package com.sasd13.flousy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.CheckBox;
-import android.widget.EditText;
 
 import com.sasd13.androidex.gui.color.ColorHelper;
+import com.sasd13.androidex.gui.widget.dialog.Dialog;
+import com.sasd13.androidex.gui.widget.dialog.EditorDialog;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
+import com.sasd13.androidex.gui.widget.recycler.form.Form;
+import com.sasd13.androidex.gui.widget.recycler.form.FormField;
+import com.sasd13.androidex.gui.widget.recycler.form.FormFieldType;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemBinary;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemCheckbox;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemFactory;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
+import com.sasd13.androidex.util.FormHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
@@ -28,14 +39,25 @@ import java.util.Map;
 
 public class SignActivity extends AppCompatActivity {
 
-    private class FormCustomerViewHolder {
-        public EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
-        public CheckBox checkBoxValidTerms;
-    }
-
     private static final int TIMEOUT = 2000;
 
-    private FormCustomerViewHolder formCustomer;
+    private static final class FormCustomerHolder {
+        private static final int ID_FIRSTNAME = 0;
+        private static final int ID_LASTNAME = 1;
+        private static final int ID_EMAIL = 2;
+        private static final int ID_PASSWORD = 3;
+        private static final int ID_TERMS = 4;
+
+        private FormField[] fields = {
+                new FormField<String>(ID_FIRSTNAME, FormFieldType.TEXT, "First name"),
+                new FormField<String>(ID_LASTNAME, FormFieldType.TEXT, "Last name"),
+                new FormField<String>(ID_EMAIL, FormFieldType.TEXT, "Email"),
+                new FormField<Boolean>(ID_TERMS, FormFieldType.CHECKBOX, "Terms of use"),
+        };
+    }
+
+    private Form form;
+    private FormCustomerHolder formCustomer;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
     private LayeredPersistor persistor = new LayeredPersistor(dao);
@@ -48,17 +70,20 @@ public class SignActivity extends AppCompatActivity {
         ColorHelper.drawTitles(this);
 
         createFormCustomer();
+        addFormItems();
     }
 
     private void createFormCustomer() {
-        formCustomer = new FormCustomerViewHolder();
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sign_recyclerview);
 
-        formCustomer.editTextFirstName = (EditText) findViewById(R.id.sign_form_user_edittext_firstname);
-        formCustomer.editTextLastName = (EditText) findViewById(R.id.sign_form_user_edittext_lastname);
-        formCustomer.editTextEmail = (EditText) findViewById(R.id.sign_form_user_edittext_email);
-        formCustomer.editTextPassword = (EditText) findViewById(R.id.sign_form_user_edittext_password);
-        formCustomer.editTextConfirmPassword = (EditText) findViewById(R.id.sign_form_user_edittext_confirmpassword);
-        formCustomer.checkBoxValidTerms = (CheckBox) findViewById(R.id.sign_form_user_checkbox_terms);
+        form = new Form(recyclerView);
+        formCustomer = new FormCustomerHolder();
+    }
+
+    private void addFormItems() {
+        for (FormField formField : formCustomer.fields) {
+            FormHelper.buildBasicField(formField, this);
+        }
     }
 
     @Override
@@ -72,7 +97,7 @@ public class SignActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_sign_action_accept:
+            case R.id.menu_sign_action_done:
                 signUp();
                 break;
             default:
@@ -117,9 +142,7 @@ public class SignActivity extends AppCompatActivity {
     private Customer getCustomerFromForm() {
         Customer customer = new Customer();
 
-        customer.setFirstName(formCustomer.editTextFirstName.getText().toString().trim());
-        customer.setLastName(formCustomer.editTextLastName.getText().toString().trim());
-        customer.setEmail(formCustomer.editTextEmail.getText().toString().trim());
+        //TODO
 
         return customer;
     }

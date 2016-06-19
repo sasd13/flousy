@@ -86,21 +86,21 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
                     formItem.setLabel("Prénom");
                     ((FormItemText) formItem).setMessage("Votre prénom");
                     ((FormItemText) formItem).setHint("prenom");
-                    ((FormItemText) formItem).setOnClickListener(this);
+                    formItem.setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_LASTNAME:
                     formItem = new FormItemText();
                     formItem.setLabel("Nom");
                     ((FormItemText) formItem).setMessage("Votre nom");
                     ((FormItemText) formItem).setHint("nom");
-                    ((FormItemText) formItem).setOnClickListener(this);
+                    formItem.setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_EMAIL:
                     formItem = new FormItemText();
                     formItem.setLabel("Email");
                     ((FormItemText) formItem).setMessage("Votre email");
                     ((FormItemText) formItem).setHint("email");
-                    ((FormItemText) formItem).setOnClickListener(this);
+                    formItem.setOnClickListener(this);
                     break;
                 case FormHolder.FORMIDENTITY_ID_ACCOUNT:
                     formItem = new FormItemSwitch();

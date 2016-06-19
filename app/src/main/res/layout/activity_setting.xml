@@ -1,31 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    android:scrollbarStyle="outsideOverlay">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/setting_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        style="@style/AndroidEX.Recycler"
+        android:layout_gravity="center"
+        android:padding="@dimen/activity_padding"
+        android:scrollbars="vertical"/>
 
-        <TextView
-            android:id="@+id/setting_form_user_textview_identity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/AndroidEX.Title"
-            android:tag="title_0"
-            android:layout_alignParentTop="true"
-            android:text="@string/form_textview_title_identity"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/setting_form_user_recyclerview_identity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/setting_form_user_textview_identity"
-            android:scrollbars="none"/>
-
-    </RelativeLayout>
-
-</ScrollView>
+</FrameLayout>

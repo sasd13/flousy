@@ -3,13 +3,12 @@ package com.sasd13.flousy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.sasd13.androidex.gui.GuiUtils;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.TaskPlanner;
@@ -121,11 +120,8 @@ public class LoginActivity extends AppCompatActivity {
                 (TextView) findViewById(R.id.login_textview_signup)
         };
 
-        SpannableString text;
         for (TextView textView : textViews) {
-            text = new SpannableString(textView.getText().toString());
-            text.setSpan(new UnderlineSpan(), 0, text.length(), 0);
-            textView.setText(text);
+            GuiUtils.addUnderline(textView);
 
             switch (textView.getId()) {
                 case R.id.login_textview_signup:

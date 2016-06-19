@@ -48,13 +48,11 @@
 
         <Button
             android:id="@+id/login_button_connect"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AndroidEX.Button"
             android:layout_marginTop="@dimen/view_margin_medium"
-            android:text="@string/login_button_connect"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:background="@color/green"/>
+            android:text="@string/login_button_connect" />
 
     </LinearLayout>
 

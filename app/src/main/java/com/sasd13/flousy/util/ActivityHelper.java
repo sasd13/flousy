@@ -14,7 +14,23 @@ import com.sasd13.flousy.constant.Extra;
  */
 public class ActivityHelper {
 
-    private static final int TIMEOUT = 2000;
+    private static final int TIMEOUT_EXIT = 2000;
+
+    public static void goToActivity(Context context, Class<?> mClass) {
+        goToActivity(context, mClass, 0);
+    }
+
+    public static void goToActivity(final Context context, final Class<?> mClass, int timeOut) {
+        TaskPlanner taskPlanner = new TaskPlanner(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(context, mClass);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                context.startActivity(intent);
+            }
+        }, timeOut);
+    }
 
     public static void goToHomeActivityAndExit(final Activity activity) {
         final WaitDialog waitDialog = new WaitDialog(activity);
@@ -30,7 +46,7 @@ public class ActivityHelper {
                 waitDialog.dismiss();
                 activity.finish();
             }
-        }, TIMEOUT);
+        }, TIMEOUT_EXIT);
 
         taskPlanner.start();
         waitDialog.show();

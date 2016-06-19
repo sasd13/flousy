@@ -3,7 +3,7 @@
     xmlns:flousy="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/menu_account_action_new"
-        android:icon="@drawable/ic_action_new"
-        android:title="@string/menuitem_action_logout"
+        android:icon="@drawable/ic_account_circle_white_48dp"
+        android:title="@string/menuitem_action_new"
         flousy:showAsAction="ifRoom"/>
 </menu>

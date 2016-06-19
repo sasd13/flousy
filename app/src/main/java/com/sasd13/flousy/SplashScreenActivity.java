@@ -37,7 +37,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         SQLiteDAO.getInstance().init(this);
         Session.init(this);
 
-        if (Session.containsAttribute(Extra.CUSTOMER_ID)) {
+        if (Session.containsAttribute(Extra.CUSTOMER.getCode())) {
             goToActivity(HomeActivity.class);
         } else {
             goToActivity(LoginActivity.class);
