@@ -39,13 +39,12 @@ public class HomeActivity extends AppCompatActivity {
 
             gridItem.setTag(navItem);
             gridItem.setLabel(navItem.getText());
-            gridItem.setImage(navItem.getImage());
+            gridItem.setIcon(navItem.getIcon());
             gridItem.setColor(navItem.getColor());
             gridItem.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
                 public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
                     NavItem navItem = (NavItem) recyclerItem.getTag();
-
                     navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(navItem.getIntent());

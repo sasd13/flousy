@@ -75,6 +75,8 @@ public class AccountActivity extends MotherActivity {
     }
 
     private void fillTab() {
+        tab.clear();
+
         List<TabItem> tabItems = new ArrayList<>();
         TabItemOperation tabItemOperation;
 

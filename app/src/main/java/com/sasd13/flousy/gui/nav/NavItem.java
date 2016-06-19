@@ -6,13 +6,13 @@ import android.graphics.drawable.Drawable;
 public class NavItem {
 
     private String text;
-    private Drawable image;
+    private Drawable icon;
     private int color;
     private Intent intent;
 
-    public NavItem(String text, Drawable image, int color, Intent intent) {
+    public NavItem(String text, Drawable icon, int color, Intent intent) {
         this.text = text;
-        this.image = image;
+        this.icon = icon;
         this.color = color;
         this.intent = intent;
     }
@@ -21,8 +21,8 @@ public class NavItem {
         return text;
     }
 
-    public Drawable getImage() {
-        return image;
+    public Drawable getIcon() {
+        return icon;
     }
 
     public int getColor() {

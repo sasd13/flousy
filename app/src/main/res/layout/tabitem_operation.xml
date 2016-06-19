@@ -4,6 +4,10 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/recyclerheader_padding_horizontal"
+    android:paddingRight="@dimen/recyclerheader_padding_horizontal"
+    android:paddingTop="@dimen/recyclerheader_padding_vertical"
+    android:paddingBottom="@dimen/recyclerheader_padding_vertical"
     android:weightSum="11">
 
     <TextView

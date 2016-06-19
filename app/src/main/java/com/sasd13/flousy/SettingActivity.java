@@ -307,10 +307,12 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
 
             editorDialog.setOnButtonPositiveClickListener(new EditorDialog.OnClickListener() {
                 @Override
-                public void onClickOnEditorDialog(EditorDialog editorDialog, String text) {
-                    editorDialog.dismiss();
+                public void onClickOnDialog(Dialog dialog) {
+                    EditorDialog editorDialog = (EditorDialog) dialog;
 
-                    formItem.getInput().setValue(text);
+                    formItem.getInput().setValue(editorDialog.getText());
+
+                    editorDialog.dismiss();
                 }
             });
 

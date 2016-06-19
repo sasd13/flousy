@@ -65,7 +65,9 @@ public class TabItemOperation extends TabItem {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClickListener.onClickOnRecyclerItem(TabItemOperation.this);
+                if (onClickListener != null) {
+                    onClickListener.onClickOnRecyclerItem(TabItemOperation.this);
+                }
             }
         });
     }
