@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.sasd13.androidex.gui.GuiUtils;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
+import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         for (TextView textView : textViews) {
-            GuiUtils.addUnderline(textView);
+            GUIHelper.addUnderline(textView);
 
             switch (textView.getId()) {
                 case R.id.login_textview_signup:

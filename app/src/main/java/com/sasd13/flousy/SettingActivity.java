@@ -7,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.dialog.Dialog;
 import com.sasd13.androidex.gui.widget.dialog.EditorDialog;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
@@ -20,6 +19,7 @@ import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemBinary;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemSwitch;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
+import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
@@ -62,7 +62,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_setting);
-        ColorHelper.drawTitles(this);
+        GUIHelper.colorTitles(this);
 
         createFormCustomer();
     }
@@ -70,14 +70,14 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     private void createFormCustomer() {
         formHolder = new FormHolder();
 
-        formHolder.formIdentity = new Form((RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity));
+        //formHolder.formIdentity = new Form((RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity));
         formHolder.formIdentity.setScrollingDisabled(true);
 
         addFormIdentityItems();
     }
 
     private void addFormIdentityItems() {
-        FormItem formItem = null;
+        /*FormItem formItem = null;
 
         for (int id : formHolder.formIdentityIds) {
             switch (id) {
@@ -116,7 +116,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             }
 
             formItem = null;
-        }
+        }*/
     }
 
     @Override
@@ -157,7 +157,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_sign_action_accept:
+            case R.id.menu_sign_action_done:
                 updateCustomer();
                 break;
             default:
@@ -296,7 +296,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             spinDialog.show();
         } else {
             EditorDialog editorDialog = new EditorDialog(this);
-            editorDialog.setMessage(((FormItemText) formItem).getMessage());
+            //editorDialog.setMessage(((FormItemText) formItem).getMessage());
             editorDialog.setHint(((FormItemText) formItem).getHint());
 
             if (formItem.getInput() != null) {

@@ -8,11 +8,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
+import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
@@ -40,7 +40,7 @@ public class AccountActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_account);
-        ColorHelper.drawTitles(this);
+        GUIHelper.colorTitles(this);
 
         createTextViewSold();
         createTabOperations();
@@ -151,7 +151,7 @@ public class AccountActivity extends MotherActivity {
     private void newOperation() {
         Intent intent = new Intent(this, OperationActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(Extra.MODE_NEW.getSet().getCode(), Extra.MODE_NEW.get);
+        intent.putExtra(Extra.MODE, Extra.MODE_NEW);
 
         startActivity(intent);
     }

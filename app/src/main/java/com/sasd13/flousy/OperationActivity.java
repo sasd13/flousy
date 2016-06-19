@@ -12,8 +12,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sasd13.androidex.gui.color.ColorHelper;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
+import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
@@ -45,7 +45,7 @@ public class OperationActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_operation);
-        ColorHelper.drawTitles(this);
+        GUIHelper.colorTitles(this);
 
         createFormOperation();
     }
@@ -53,12 +53,7 @@ public class OperationActivity extends MotherActivity {
     private void createFormOperation() {
         formOperation = new FormOperationViewHolder();
 
-        formOperation.textViewDateRealization = (TextView) findViewById(R.id.form_operation_textview_daterealization);
-        formOperation.editTextTitle = (EditText) findViewById(R.id.form_operation_edittext_title);
-        formOperation.editTextAmount = (EditText) findViewById(R.id.form_operation_edittext_amount);
-        formOperation.radioGroupType = (RadioGroup) findViewById(R.id.form_operation_radiogroup_type);
-        formOperation.radioButtonDebit = (RadioButton) findViewById(R.id.form_operation_radiobutton_type_debit);
-        formOperation.radioButtonCredit = (RadioButton) findViewById(R.id.form_operation_radiobutton_type_credit);
+        //TODO
     }
 
     @Override
@@ -116,7 +111,7 @@ public class OperationActivity extends MotherActivity {
         super.onPrepareOptionsMenu(menu);
 
         if (hasExtraModeNew()) {
-            menu.findItem(R.id.menu_operation_action_discard).setVisible(false);
+            menu.findItem(R.id.menu_operation_action_delete).setVisible(false);
         }
 
         return true;
@@ -128,7 +123,7 @@ public class OperationActivity extends MotherActivity {
             case R.id.menu_operation_action_accept:
                 createOrUpdateOperation();
                 break;
-            case R.id.menu_operation_action_discard:
+            case R.id.menu_operation_action_delete:
                 deleteOperation();
                 break;
             default:
@@ -179,6 +174,7 @@ public class OperationActivity extends MotherActivity {
         operation.setTitle(formOperation.editTextTitle.getText().toString().trim());
 
         String amount = formOperation.editTextAmount.getText().toString().trim();
+        /*
         switch (formOperation.radioGroupType.getCheckedRadioButtonId()) {
             case R.id.form_operation_radiobutton_type_debit:
                 operation.setAmount(0 - Math.abs(Double.parseDouble(amount)));
@@ -186,7 +182,7 @@ public class OperationActivity extends MotherActivity {
             case R.id.form_operation_radiobutton_type_credit:
                 operation.setAmount(Math.abs(Double.parseDouble(amount)));
                 break;
-        }
+        }*/
     }
 
     private void goToAccountActivity() {

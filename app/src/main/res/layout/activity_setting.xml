@@ -9,7 +9,6 @@
         android:layout_height="match_parent"
         style="@style/AndroidEX.Recycler"
         android:layout_gravity="center"
-        android:padding="@dimen/activity_padding"
         android:scrollbars="vertical"/>
 
 </FrameLayout>
