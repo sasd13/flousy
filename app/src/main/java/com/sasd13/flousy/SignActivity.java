@@ -12,13 +12,13 @@ import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
-import com.sasd13.androidex.gui.widget.recycler.form.FormField;
-import com.sasd13.androidex.gui.widget.recycler.form.FormFieldType;
 import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
-import com.sasd13.androidex.util.FormHelper;
-import com.sasd13.androidex.util.FormHolder;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.TaskPlanner;
+import com.sasd13.androidex.util.form.FormHelper;
+import com.sasd13.androidex.util.form.FormHolder;
+import com.sasd13.androidex.util.form.FormItemType;
+import com.sasd13.androidex.util.form.field.FormField;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
@@ -38,7 +38,7 @@ public class SignActivity extends AppCompatActivity {
 
     private static final int TIMEOUT = 2000;
 
-    private class FormCustomerHolder {
+    private class FormCustomer {
         private static final int ID_FIRSTNAME = 0;
         private static final int ID_LASTNAME = 1;
         private static final int ID_EMAIL = 2;
@@ -47,20 +47,20 @@ public class SignActivity extends AppCompatActivity {
 
         private FormHolder holder;
 
-        private FormCustomerHolder() {
+        private FormCustomer() {
             holder = new FormHolder();
 
             FormField[] fieldsIdentity = {
-                    new FormField<String>(ID_FIRSTNAME, FormFieldType.TEXT, "First name"),
-                    new FormField<String>(ID_LASTNAME, FormFieldType.TEXT, "Last name")
+                    new FormField<String>(ID_FIRSTNAME, FormItemType.TEXT, "First name"),
+                    new FormField<String>(ID_LASTNAME, FormItemType.TEXT, "Last name")
             };
 
             holder.add("Identité", fieldsIdentity);
 
             FormField[] fieldsAccount = {
-                    new FormField<String>(ID_EMAIL, FormFieldType.TEXT, "Email"),
-                    new FormField<String>(ID_PASSWORD, FormFieldType.PASSWORD, "Password"),
-                    new FormField<Boolean>(ID_TERMS, FormFieldType.CHECKBOX, "Terms of use"),
+                    new FormField<String>(ID_EMAIL, FormItemType.TEXT, "Email"),
+                    new FormField<String>(ID_PASSWORD, FormItemType.PASSWORD, "Password"),
+                    new FormField<Boolean>(ID_TERMS, FormItemType.CHECKBOX, "Terms of use"),
             };
 
             holder.add("Compte", fieldsAccount);
@@ -68,7 +68,7 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private Form form;
-    private FormCustomerHolder formCustomer;
+    private FormCustomer formCustomer;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
     private LayeredPersistor persistor = new LayeredPersistor(dao);
@@ -85,11 +85,8 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void createFormCustomer() {
-        formCustomer = new FormCustomerHolder();
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.sign_recyclerview);
-
-        form = new Form(recyclerView);
+        formCustomer = new FormCustomer();
+        form = new Form((RecyclerView) findViewById(R.id.sign_recyclerview));
     }
 
     private void addFormItems() {
@@ -97,7 +94,7 @@ public class SignActivity extends AppCompatActivity {
 
         for (Map.Entry<String, FormField[]> entry : formCustomer.holder.values()) {
             for (FormField formField : entry.getValue()) {
-                formItems.add(FormHelper.buildBasicField(formField, this));
+                formItems.add(FormHelper.buildField(formField, this));
             }
 
             form.addAll(new RecyclerHeader(entry.getKey()), formItems);
