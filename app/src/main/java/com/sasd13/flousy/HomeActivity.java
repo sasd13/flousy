@@ -9,6 +9,7 @@ import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridItem;
+import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.nav.Nav;
 import com.sasd13.flousy.gui.nav.NavItem;
@@ -32,24 +33,28 @@ public class HomeActivity extends AppCompatActivity {
 
     private void fillGridNav() {
         Nav nav = Nav.getInstance(this);
+
         GridItem gridItem;
+        GridModel gridModel;
 
-        for (NavItem navItem : nav.getItems()) {
+        for (final NavItem navItem : nav.getItems()) {
             gridItem = new GridItem();
+            gridModel = new GridModel();
 
-            gridItem.setTag(navItem);
-            gridItem.setLabel(navItem.getText());
-            gridItem.setIcon(navItem.getIcon());
-            gridItem.setColor(navItem.getColor());
+            gridModel.setIcon(navItem.getIcon());
+            gridModel.setLabel(navItem.getText());
+            gridModel.setColor(navItem.getColor());
+
             gridItem.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
-                public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
-                    NavItem navItem = (NavItem) recyclerItem.getTag();
+                public void onClick(RecyclerItem recyclerItem) {
                     navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(navItem.getIntent());
                 }
             });
+
+            gridModel.addObserver(gridItem);
 
             grid.add(gridItem);
         }

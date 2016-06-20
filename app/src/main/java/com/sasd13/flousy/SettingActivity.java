@@ -1,38 +1,23 @@
 package com.sasd13.flousy;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.sasd13.androidex.gui.widget.dialog.Dialog;
-import com.sasd13.androidex.gui.widget.dialog.EditorDialog;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.dialog.SpinDialog;
-import com.sasd13.androidex.gui.widget.dialog.SpinDialogCheckbox;
-import com.sasd13.androidex.gui.widget.dialog.SpinDialogRadio;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
-import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
-import com.sasd13.androidex.gui.widget.recycler.form.FormItemBinary;
-import com.sasd13.androidex.gui.widget.recycler.form.FormItemSwitch;
-import com.sasd13.androidex.gui.widget.recycler.form.FormItemText;
+import com.sasd13.androidex.gui.widget.recycler.form.FormItemBoolean;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-public class SettingActivity extends MotherActivity implements RecyclerItem.OnClickListener, FormItemBinary.OnCheckedChangeListener {
+public class SettingActivity extends MotherActivity implements RecyclerItem.OnClickListener, FormItemBoolean.OnCheckedChangeListener {
 
     private static class FormHolder {
         static final int FORMIDENTITY_ID_FIRSTNAME = 0;
@@ -129,7 +114,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void fillFormIdentity() {
-        for (FormItem formItem : formHolder.formIdentity.getItems()) {
+        /*for (FormItem formItem : formHolder.formIdentity.getItems()) {
             switch (formItem.getId()) {
                 case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
                     formItem.getInput().setValue(customer.getFirstName());
@@ -143,7 +128,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
                 default:
                     break;
             }
-        }
+        }*/
     }
 
     @Override
@@ -184,7 +169,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void tryToPerformUpdateCustomer() {
-        String email = (String) ((FormItem) formHolder.formIdentity
+        /*String email = (String) ((FormItem) formHolder.formIdentity
                 .findItemById(FormHolder.FORMIDENTITY_ID_EMAIL))
                 .getInput().getValue();
 
@@ -196,7 +181,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             performUpdate();
         } else {
             OptionDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
-        }
+        }*/
     }
 
     private void performUpdate() {
@@ -206,7 +191,7 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
     }
 
     private void editCustomerWithForm(Customer customer) {
-        for (FormItem formItem : formHolder.formIdentity.getItems()) {
+        /*for (FormItem formItem : formHolder.formIdentity.getItems()) {
             switch (formItem.getId()) {
                 case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
                     customer.setFirstName((String) formItem.getInput().getValue());
@@ -218,12 +203,12 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
                     customer.setEmail((String) formItem.getInput().getValue());
                     break;
             }
-        }
+        }*/
     }
 
     @Override
-    public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
-        final FormItem formItem = (FormItem) recyclerItem;
+    public void onClick(RecyclerItem recyclerItem) {
+        /*final FormItem formItem = (FormItem) recyclerItem;
 
         if (formItem.getId() == FormHolder.FORMIDENTITY_ID_FIRSTNAME) {
             String[] firstnames = {"Samir", "Sam", "S"};
@@ -317,11 +302,11 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             });
 
             editorDialog.show();
-        }
+        }*/
     }
 
     @Override
-    public void onCheckedChangeOnFormItemBinary(FormItemBinary formItemBinary, boolean checked) {
-        formItemBinary.getInput().setValue(checked);
+    public void onCheckedChange(FormItemBoolean formItemBoolean, boolean checked) {
+
     }
 }

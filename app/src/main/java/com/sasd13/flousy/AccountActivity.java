@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
 import com.sasd13.androidex.util.GUIHelper;
@@ -18,6 +17,7 @@ import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.gui.widget.recycler.tab.TabItemOperation;
+import com.sasd13.flousy.gui.widget.recycler.tab.TabModelOperation;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -64,33 +64,13 @@ public class AccountActivity extends MotherActivity {
         Account account = persistor.deepRead(parameters, Account.class).get(0);
 
         fillTextViewSold(account);
-        fillTab();
-        //fillTabOperations(account.getOperations());
+        fillTabOperations(account.getOperations());
     }
 
     private void fillTextViewSold(Account account) {
         DecimalFormat df = new DecimalFormat("#.##");
 
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
-    }
-
-    private void fillTab() {
-        tab.clear();
-
-        List<TabItem> tabItems = new ArrayList<>();
-        TabItemOperation tabItemOperation;
-
-        for (int i=0; i<3; i++) {
-            tabItemOperation = new TabItemOperation();
-
-            tabItemOperation.setDate(String.valueOf(2000 + i));
-            tabItemOperation.setLabel("Opération " + i);
-            tabItemOperation.setAmount(String.valueOf(1000 + 1000*i));
-
-            tabItems.add(tabItemOperation);
-        }
-
-        tab.addAll(new RecyclerHeader("Aujourd'hui"), tabItems);
     }
 
     private void fillTabOperations(List<Operation> operations) {
@@ -101,25 +81,18 @@ public class AccountActivity extends MotherActivity {
 
     private void addOperationsToTab(List<Operation> operations) {
         List<TabItem> tabItems = new ArrayList<>();
+
         TabItemOperation tabItemOperation;
+        TabModelOperation tabModelOperation;
 
-        for (Operation operation : operations) {
+        for (int i=0; i<3; i++) {
             tabItemOperation = new TabItemOperation();
+            tabModelOperation = new TabModelOperation();
 
-            tabItemOperation.setTag(operation);
-            tabItemOperation.setDate(String.valueOf(operation.getDateRealization()));
-            tabItemOperation.setLabel(operation.getTitle());
-            tabItemOperation.setAmount(String.valueOf(operation.getAmount()));
-            tabItemOperation.setOnClickListener(new RecyclerItem.OnClickListener() {
-                @Override
-                public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
-                    Intent intent = new Intent(AccountActivity.this, OperationActivity.class);
-                    intent.putExtra(Extra.MODE, Extra.MODE_EDIT);
-                    intent.putExtra(Extra.OPERATION_ID, ((Operation) recyclerItem.getTag()).getId());
-
-                    startActivity(intent);
-                }
-            });
+            tabModelOperation.setDate(String.valueOf(2000 + i));
+            tabModelOperation.setLabel("Opération " + i);
+            tabModelOperation.setAmount(String.valueOf(1000 + 1000*i));
+            tabModelOperation.addObserver(tabItemOperation);
 
             tabItems.add(tabItemOperation);
         }

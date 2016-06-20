@@ -8,6 +8,8 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.drawer.Drawer;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItem;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemNav;
+import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerModel;
+import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerModelNav;
 import com.sasd13.flousy.gui.nav.Nav;
 import com.sasd13.flousy.gui.nav.NavItem;
 import com.sasd13.flousy.util.SessionHelper;
@@ -19,52 +21,56 @@ public abstract class MotherActivity extends DrawerActivity {
 
     @Override
     protected void fillDrawer(Drawer drawer) {
-        /*DrawerItemTitle drawerItemTitle = new DrawerItemTitle();
-        drawerItemTitle.setText(getResources().getString(R.string.activity_home));
-        drawer.add(drawerItemTitle);*/
+        addItemsNav(drawer);
 
-        addNavItemsToDrawer(drawer);
+        addItemsAccount(drawer);
     }
 
-    private void addNavItemsToDrawer(Drawer drawer) {
+    private void addItemsNav(Drawer drawer) {
         Nav nav = Nav.getInstance(this);
 
         List<DrawerItem> drawerItems = new ArrayList<>();
         DrawerItemNav drawerItemNav;
+        DrawerModelNav drawerModelNav;
 
-        for (NavItem navItem : nav.getItems()) {
+        for (final NavItem navItem : nav.getItems()) {
             drawerItemNav = new DrawerItemNav();
+            drawerModelNav = new DrawerModelNav();
 
-            drawerItemNav.setTag(navItem);
-            drawerItemNav.setIcon(navItem.getIcon());
-            drawerItemNav.setLabel(navItem.getText());
+            drawerModelNav.setIcon(navItem.getIcon());
+            drawerModelNav.setLabel(navItem.getText());
+
             drawerItemNav.setOnClickListener(new RecyclerItem.OnClickListener() {
                 @Override
-                public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
-                    NavItem navItem = (NavItem) recyclerItem.getTag();
+                public void onClick(RecyclerItem recyclerItem) {
                     navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(navItem.getIntent());
                 }
             });
 
+            drawerModelNav.addObserver(drawerItemNav);
+
             drawerItems.add(drawerItemNav);
         }
 
         drawer.addAll(new RecyclerHeader("Menu"), drawerItems);
+    }
 
+    private void addItemsAccount(Drawer drawer) {
         DrawerItem drawerItem = new DrawerItem();
-        drawerItem.setLabel("Déconnexion");
+        DrawerModel drawerModel = new DrawerModel();
+
+        drawerModel.setLabel("Déconnexion");
         drawerItem.setOnClickListener(new RecyclerItem.OnClickListener() {
             @Override
-            public void onClickOnRecyclerItem(RecyclerItem recyclerItem) {
+            public void onClick(RecyclerItem recyclerItem) {
                 SessionHelper.logOut(MotherActivity.this);
             }
         });
 
-        List<DrawerItem> otherList = new ArrayList<>();
-        otherList.add(drawerItem);
+        drawerModel.addObserver(drawerItem);
 
-        drawer.addAll(new RecyclerHeader("Compte"), otherList);
+        drawer.addAll(new RecyclerHeader("Compte"), new DrawerItem[]{ drawerItem });
     }
 }

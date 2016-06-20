@@ -1,10 +1,11 @@
 package com.sasd13.flousy.gui.widget.recycler.tab;
 
-import android.view.View;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
 import com.sasd13.flousy.R;
+
+import java.util.Observable;
 
 /**
  * <p>
@@ -14,61 +15,32 @@ import com.sasd13.flousy.R;
  */
 public class TabItemOperation extends TabItem {
 
-    private String date, amount;
     private TextView textViewDate, textViewAmount;
-    private OnClickListener onClickListener;
 
     public TabItemOperation() {
         super(R.layout.tabitem_operation);
     }
 
-    public void setDate(String date) {
-        this.date = date;
-
-        if (textViewDate != null) {
-            textViewDate.setText(date);
-        }
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-
-        if (textViewAmount != null) {
-            textViewAmount.setText(amount);
-        }
-    }
-
-    public void setOnClickListener(OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
-    }
-
     @Override
-    protected void findItemViews() {
-        super.findItemViews();
+    protected void findViews() {
+        super.findViews();
 
         textViewDate = (TextView) view.findViewById(R.id.tabitem_operation_textview_date);
         textViewAmount = (TextView) view.findViewById(R.id.tabitem_operation_textview_amount);
     }
 
     @Override
-    protected void bindItemViews() {
-        super.bindItemViews();
+    public void update(Observable observable, Object o) {
+        super.update(observable, o);
 
-        setDate(date);
-        setAmount(amount);
-    }
+        TabModelOperation tabModelOperation = (TabModelOperation) observable;
 
-    @Override
-    protected void setListeners() {
-        super.setListeners();
+        if (textViewDate != null) {
+            textViewDate.setText(tabModelOperation.getDate());
+        }
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (onClickListener != null) {
-                    onClickListener.onClickOnRecyclerItem(TabItemOperation.this);
-                }
-            }
-        });
+        if (textViewAmount != null) {
+            textViewAmount.setText(tabModelOperation.getAmount());
+        }
     }
 }
