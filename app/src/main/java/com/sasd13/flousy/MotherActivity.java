@@ -1,32 +1,17 @@
 package com.sasd13.flousy;
 
-import android.content.Intent;
-
 import com.sasd13.androidex.DrawerActivity;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
-import com.sasd13.androidex.gui.widget.recycler.drawer.Drawer;
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItem;
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemNav;
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerModel;
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerModelNav;
-import com.sasd13.flousy.gui.nav.Nav;
-import com.sasd13.flousy.gui.nav.NavItem;
-import com.sasd13.flousy.util.SessionHelper;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 
 public abstract class MotherActivity extends DrawerActivity {
 
     @Override
-    protected void fillDrawer(Drawer drawer) {
-        addItemsNav(drawer);
+    protected RecyclerHolder getDrawerHolder() {
 
-        addItemsAccount(drawer);
+        return null;
     }
 
-    private void addItemsNav(Drawer drawer) {
+    /*private void addItemsNav(Drawer drawer) {
         Nav nav = Nav.getInstance(this);
 
         List<DrawerItem> drawerItems = new ArrayList<>();
@@ -72,5 +57,5 @@ public abstract class MotherActivity extends DrawerActivity {
         drawerModel.addObserver(drawerItem);
 
         drawer.addAll(new RecyclerHeader("Compte"), new DrawerItem[]{ drawerItem });
-    }
+    }*/
 }

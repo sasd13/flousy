@@ -10,27 +10,23 @@ import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
-import com.sasd13.androidex.gui.widget.recycler.form.FormItem;
-import com.sasd13.androidex.gui.widget.recycler.form.FormModel;
 import com.sasd13.androidex.util.GUIHelper;
+import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.androidex.util.recycler.form.FormHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.form.FormCustomer;
+import com.sasd13.flousy.gui.form.FormCustomer;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.LayeredPersistor;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class SignActivity extends AppCompatActivity {
@@ -51,36 +47,12 @@ public class SignActivity extends AppCompatActivity {
         GUIHelper.colorTitles(this);
 
         createFormCustomer();
-        addFormItems();
     }
 
     private void createFormCustomer() {
-        formCustomer = new FormCustomer();
-        form = new Form((RecyclerView) findViewById(R.id.sign_recyclerview));
-    }
+        form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 
-    private void addFormItems() {
-        List<FormItem> formItems = new ArrayList<>();
-
-        FormItem.Type type;
-
-        for (Map.Entry<String, List<FormModel>> entry : formCustomer.getHolder().values()) {
-            for (FormModel formModel : entry.getValue()) {
-                if (formModel.getId() == FormCustomer.ID_PASSWORD) {
-                    type = FormItem.Type.PASSWORD;
-                } else if (formModel.getId() == FormCustomer.ID_TERMS) {
-                    type = FormItem.Type.CHECKBOX;
-                } else {
-                    type = FormItem.Type.TEXT;
-                }
-
-                formItems.add(FormHelper.buildField(this, type, formModel));
-            }
-
-            form.addAll(new RecyclerHeader(entry.getKey()), formItems);
-
-            formItems.clear();
-        }
+        RecyclerHelper.fill(form, new FormCustomer().getHolder());
     }
 
     @Override

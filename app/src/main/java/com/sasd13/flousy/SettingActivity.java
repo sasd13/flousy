@@ -8,8 +8,8 @@ import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
+import com.sasd13.androidex.gui.widget.recycler.form.BooleanItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
-import com.sasd13.androidex.gui.widget.recycler.form.FormItemBoolean;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
@@ -17,7 +17,12 @@ import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
-public class SettingActivity extends MotherActivity implements RecyclerItem.OnClickListener, FormItemBoolean.OnCheckedChangeListener {
+public class SettingActivity extends MotherActivity implements RecyclerItem.OnClickListener, BooleanItem.OnCheckedChangeListener {
+
+    @Override
+    public void onCheckedChange(BooleanItem booleanItem, boolean b) {
+
+    }
 
     private static class FormHolder {
         static final int FORMIDENTITY_ID_FIRSTNAME = 0;
@@ -303,10 +308,5 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
 
             editorDialog.show();
         }*/
-    }
-
-    @Override
-    public void onCheckedChange(FormItemBoolean formItemBoolean, boolean checked) {
-
     }
 }

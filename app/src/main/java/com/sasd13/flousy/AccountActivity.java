@@ -9,15 +9,17 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
 import com.sasd13.androidex.util.GUIHelper;
+import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.widget.recycler.tab.TabItemOperation;
-import com.sasd13.flousy.gui.widget.recycler.tab.TabModelOperation;
+import com.sasd13.flousy.gui.tab.OperationItem;
+import com.sasd13.flousy.gui.tab.OperationModel;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -51,7 +53,7 @@ public class AccountActivity extends MotherActivity {
     }
 
     private void createTabOperations() {
-        tab = new Tab((RecyclerView) findViewById(R.id.account_recyclerview));
+        tab = (Tab) RecyclerHelper.create(RecyclerType.TAB, (RecyclerView) findViewById(R.id.account_recyclerview));
     }
 
     @Override
@@ -82,19 +84,19 @@ public class AccountActivity extends MotherActivity {
     private void addOperationsToTab(List<Operation> operations) {
         List<TabItem> tabItems = new ArrayList<>();
 
-        TabItemOperation tabItemOperation;
-        TabModelOperation tabModelOperation;
+        OperationItem operationItem;
+        OperationModel operationModel;
 
         for (int i=0; i<3; i++) {
-            tabItemOperation = new TabItemOperation();
-            tabModelOperation = new TabModelOperation();
+            operationItem = new OperationItem();
+            operationModel = new OperationModel();
 
-            tabModelOperation.setDate(String.valueOf(2000 + i));
-            tabModelOperation.setLabel("Opération " + i);
-            tabModelOperation.setAmount(String.valueOf(1000 + 1000*i));
-            tabModelOperation.addObserver(tabItemOperation);
+            operationModel.setDate(String.valueOf(2000 + i));
+            operationModel.setLabel("Opération " + i);
+            operationModel.setAmount(String.valueOf(1000 + 1000*i));
+            operationModel.addObserver(operationItem);
 
-            tabItems.add(tabItemOperation);
+            tabItems.add(operationItem);
         }
 
         tab.addAll(new RecyclerHeader("Aujourd'hui"), tabItems);

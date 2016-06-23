@@ -7,12 +7,17 @@ import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridItem;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
+import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.nav.Nav;
 import com.sasd13.flousy.gui.nav.NavItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -28,11 +33,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void createGridNav() {
-        grid = new Grid((RecyclerView) findViewById(R.id.home_recyclerview));
+        grid = (Grid) RecyclerHelper.create(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
     }
 
     private void fillGridNav() {
+        grid.clear();
+
         Nav nav = Nav.getInstance(this);
+
+        List<GridItem> gridItems = new ArrayList<>();
 
         GridItem gridItem;
         GridModel gridModel;
@@ -56,8 +65,10 @@ public class HomeActivity extends AppCompatActivity {
 
             gridModel.addObserver(gridItem);
 
-            grid.add(gridItem);
+            gridItems.add(gridItem);
         }
+
+        grid.addAll(gridItems);
     }
 
     @Override

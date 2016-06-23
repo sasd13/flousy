@@ -1,4 +1,4 @@
-package com.sasd13.flousy.gui.widget.recycler.tab;
+package com.sasd13.flousy.gui.tab;
 
 import android.widget.TextView;
 
@@ -13,11 +13,11 @@ import java.util.Observable;
  * </p>
  * Created by Samir on 22/03/2015.
  */
-public class TabItemOperation extends TabItem {
+public class OperationItem extends TabItem {
 
     private TextView textViewDate, textViewAmount;
 
-    public TabItemOperation() {
+    public OperationItem() {
         super(R.layout.tabitem_operation);
     }
 
@@ -33,14 +33,14 @@ public class TabItemOperation extends TabItem {
     public void update(Observable observable, Object o) {
         super.update(observable, o);
 
-        TabModelOperation tabModelOperation = (TabModelOperation) observable;
+        OperationModel operationModel = (OperationModel) observable;
 
         if (textViewDate != null) {
-            textViewDate.setText(tabModelOperation.getDate());
+            textViewDate.setText(operationModel.getDate());
         }
 
         if (textViewAmount != null) {
-            textViewAmount.setText(tabModelOperation.getAmount());
+            textViewAmount.setText(operationModel.getAmount());
         }
     }
 }

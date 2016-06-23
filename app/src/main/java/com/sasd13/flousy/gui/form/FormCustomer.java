@@ -1,10 +1,13 @@
-package com.sasd13.flousy.form;
+package com.sasd13.flousy.gui.form;
 
+import android.content.Context;
+
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
+import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
 import com.sasd13.androidex.gui.widget.recycler.form.FormModel;
-import com.sasd13.androidex.gui.widget.recycler.form.FormModelBoolean;
-import com.sasd13.androidex.gui.widget.recycler.form.FormModelPassword;
-import com.sasd13.androidex.gui.widget.recycler.form.FormModelText;
-import com.sasd13.androidex.util.recycler.RecyclerHolder;
+import com.sasd13.androidex.gui.widget.recycler.form.PasswordModel;
+import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,43 +23,43 @@ public class FormCustomer {
     public static final int ID_PASSWORD = 3;
     public static final int ID_TERMS = 4;
 
-    private RecyclerHolder<FormModel> holder;
+    private RecyclerHolder holder;
 
     public FormCustomer() {
         holder = new RecyclerHolder();
 
-        List<FormModel> formModelsIdentity = new ArrayList<>();
+        List<RecyclerModel> formModelsIdentity = new ArrayList<>();
 
         FormModel formModel;
 
-        formModel = new FormModelText();
+        formModel = new TextModel();
         formModel.setId(ID_FIRSTNAME);
         formModel.setLabel("First name");
-        ((FormModelText) formModel).setHint(formModel.getLabel().toLowerCase());
+        ((TextModel) formModel).setHint(formModel.getLabel().toLowerCase());
         formModelsIdentity.add(formModel);
 
-        formModel = new FormModelText();
+        formModel = new TextModel();
         formModel.setId(ID_LASTNAME);
         formModel.setLabel("Last name");
-        ((FormModelText) formModel).setHint(formModel.getLabel().toLowerCase());
+        ((TextModel) formModel).setHint(formModel.getLabel().toLowerCase());
         formModelsIdentity.add(formModel);
 
         holder.add("Identité", formModelsIdentity);
 
-        List<FormModel> formModelsAccount = new ArrayList<>();
+        List<RecyclerModel> formModelsAccount = new ArrayList<>();
 
-        formModel = new FormModelText();
+        formModel = new TextModel();
         formModel.setId(ID_EMAIL);
         formModel.setLabel("Email");
-        ((FormModelText) formModel).setHint(formModel.getLabel().toLowerCase());
+        ((TextModel) formModel).setHint(formModel.getLabel().toLowerCase());
         formModelsAccount.add(formModel);
 
-        formModel = new FormModelPassword();
+        formModel = new PasswordModel();
         formModel.setId(ID_PASSWORD);
         formModel.setLabel("Password");
         formModelsAccount.add(formModel);
 
-        formModel = new FormModelBoolean();
+        formModel = new BooleanModel();
         formModel.setId(ID_TERMS);
         formModel.setLabel("Terms of use");
         formModelsAccount.add(formModel);
@@ -64,7 +67,7 @@ public class FormCustomer {
         holder.add("Compte", formModelsAccount);
     }
 
-    public RecyclerHolder<FormModel> getHolder() {
+    public RecyclerHolder getHolder() {
         return holder;
     }
 }

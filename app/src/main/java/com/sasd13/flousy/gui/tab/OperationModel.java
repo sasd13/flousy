@@ -1,11 +1,11 @@
-package com.sasd13.flousy.gui.widget.recycler.tab;
+package com.sasd13.flousy.gui.tab;
 
 import com.sasd13.androidex.gui.widget.recycler.tab.TabModel;
 
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class TabModelOperation extends TabModel {
+public class OperationModel extends TabModel {
 
     private String date, amount;
 
