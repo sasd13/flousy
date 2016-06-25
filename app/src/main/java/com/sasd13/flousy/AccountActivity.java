@@ -99,7 +99,7 @@ public class AccountActivity extends MotherActivity {
             tabItems.add(operationItem);
         }
 
-        tab.addAll(new RecyclerHeader("Aujourd'hui"), tabItems);
+        tab.add(new RecyclerHeader("Aujourd'hui"), tabItems);
     }
 
     @Override

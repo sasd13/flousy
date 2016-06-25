@@ -2,24 +2,19 @@ package com.sasd13.flousy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
+import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
-import com.sasd13.androidex.gui.widget.recycler.grid.GridItem;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.constant.Extra;
-import com.sasd13.flousy.gui.nav.Nav;
-import com.sasd13.flousy.gui.nav.NavItem;
+import com.sasd13.flousy.gui.browser.Browser;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends MotherActivity {
 
     private Grid grid;
 
@@ -39,36 +34,34 @@ public class HomeActivity extends AppCompatActivity {
     private void fillGridNav() {
         grid.clear();
 
-        Nav nav = Nav.getInstance(this);
+        Browser.Item[] items = Browser.getInstance().getItems();
+        GridModel[] gridModels = new GridModel[items.length];
 
-        List<GridItem> gridItems = new ArrayList<>();
+        int i=-1;
 
-        GridItem gridItem;
-        GridModel gridModel;
+        for (final Browser.Item item : items) {
+            i++;
 
-        for (final NavItem navItem : nav.getItems()) {
-            gridItem = new GridItem();
-            gridModel = new GridModel();
+            gridModels[i] = new GridModel();
 
-            gridModel.setIcon(navItem.getIcon());
-            gridModel.setLabel(navItem.getText());
-            gridModel.setColor(navItem.getColor());
-
-            gridItem.setOnClickListener(new RecyclerItem.OnClickListener() {
+            gridModels[i].setIcon(item.getIcon());
+            gridModels[i].setLabel(item.getLabel());
+            gridModels[i].setColor(item.getColor());
+            gridModels[i].setAction(new Action() {
                 @Override
-                public void onClick(RecyclerItem recyclerItem) {
-                    navItem.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                public void execute() {
+                    Intent intent = item.getIntent();
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-                    startActivity(navItem.getIntent());
+                    startActivity(intent);
                 }
             });
-
-            gridModel.addObserver(gridItem);
-
-            gridItems.add(gridItem);
         }
 
-        grid.addAll(gridItems);
+        RecyclerHolder recyclerHolder = new RecyclerHolder();
+        recyclerHolder.add(gridModels);
+
+        RecyclerHelper.fill(grid, recyclerHolder);
     }
 
     @Override

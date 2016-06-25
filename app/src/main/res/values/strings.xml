@@ -5,7 +5,7 @@
     <string name="activity_splashscreen">@string/app_name</string>
     <string name="activity_login">Connexion</string>
     <string name="activity_sign">Inscription</string>
-    <string name="activity_home">Menu</string>
+    <string name="activity_home">Home</string>
     <string name="activity_setting">Options</string>
     <string name="activity_account">Compte</string>
     <string name="activity_operation">Operation</string>

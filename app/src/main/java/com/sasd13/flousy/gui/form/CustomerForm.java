@@ -1,7 +1,5 @@
 package com.sasd13.flousy.gui.form;
 
-import android.content.Context;
-
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
@@ -15,7 +13,7 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class FormCustomer {
+public class CustomerForm {
 
     public static final int ID_FIRSTNAME = 0;
     public static final int ID_LASTNAME = 1;
@@ -25,7 +23,7 @@ public class FormCustomer {
 
     private RecyclerHolder holder;
 
-    public FormCustomer() {
+    public CustomerForm() {
         holder = new RecyclerHolder();
 
         List<RecyclerModel> formModelsIdentity = new ArrayList<>();
@@ -44,7 +42,7 @@ public class FormCustomer {
         ((TextModel) formModel).setHint(formModel.getLabel().toLowerCase());
         formModelsIdentity.add(formModel);
 
-        holder.add("Identité", formModelsIdentity);
+        holder.add("Identité", formModelsIdentity.toArray(new FormModel[formModelsIdentity.size()]));
 
         List<RecyclerModel> formModelsAccount = new ArrayList<>();
 
@@ -64,7 +62,7 @@ public class FormCustomer {
         formModel.setLabel("Terms of use");
         formModelsAccount.add(formModel);
 
-        holder.add("Compte", formModelsAccount);
+        holder.add("Compte", formModelsAccount.toArray(new FormModel[formModelsAccount.size()]));
     }
 
     public RecyclerHolder getHolder() {

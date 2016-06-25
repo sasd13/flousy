@@ -1,5 +1,6 @@
 package com.sasd13.flousy;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final int TIMEOUT = 2000;
 
+    public static Activity self;
+
     private FormLoginViewHolder formLogin;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
@@ -40,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        self = this;
 
         setContentView(R.layout.activity_login);
         createFormLog();
@@ -128,10 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                     textView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(LoginActivity.this, SignActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                            startActivity(intent);
+                            startActivity(new Intent(LoginActivity.this, SignActivity.class));
                         }
                     });
             }

@@ -10,6 +10,7 @@ import com.sasd13.androidex.session.Session;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.gui.browser.Browser;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -23,18 +24,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splashscreen);
         createLogo();
-    }
-
-    private void createLogo() {
-        ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
-        imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
 
         SQLiteDAO.getInstance().init(this);
+        Browser.getInstance().init(this);
         Session.init(this);
 
         if (Session.containsAttribute(Extra.CUSTOMER_ID)) {
@@ -42,6 +34,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         } else {
             goToActivity(LoginActivity.class);
         }
+    }
+
+    private void createLogo() {
+        ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
+        imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
     }
 
     private void goToActivity(final Class<?> mClass) {

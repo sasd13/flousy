@@ -20,7 +20,7 @@ import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.gui.form.FormCustomer;
+import com.sasd13.flousy.gui.form.CustomerForm;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
@@ -34,7 +34,7 @@ public class SignActivity extends AppCompatActivity {
     private static final int TIMEOUT = 2000;
 
     private Form form;
-    private FormCustomer formCustomer;
+    private CustomerForm customerForm;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
     private LayeredPersistor persistor = new LayeredPersistor(dao);
@@ -52,7 +52,7 @@ public class SignActivity extends AppCompatActivity {
     private void createFormCustomer() {
         form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(form, new FormCustomer().getHolder());
+        RecyclerHelper.fill(form, new CustomerForm().getHolder());
     }
 
     @Override
@@ -102,10 +102,34 @@ public class SignActivity extends AppCompatActivity {
             performSignUp(customer);
 
             SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
+
+            LoginActivity.self.finish();
+
             goToHomeActivityWithWelcome(customer.getFirstName());
         } else {
             OptionDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
         }
+    }
+
+    private void goToHomeActivityWithWelcome(final String firstName) {
+        final WaitDialog waitDialog = new WaitDialog(this);
+
+        TaskPlanner taskPlanner = new TaskPlanner(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SignActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(Extra.WELCOME, true);
+                intent.putExtra(Extra.FIRSTNAME, firstName);
+
+                startActivity(intent);
+                waitDialog.dismiss();
+                finish();
+            }
+        }, TIMEOUT);
+
+        taskPlanner.start();
+        waitDialog.show();
     }
 
     private Customer getCustomerFromForm() {
@@ -124,7 +148,7 @@ public class SignActivity extends AppCompatActivity {
             long id = dao.getEntityDAO(Customer.class).insert(customer);
             customer.setId(id);
 
-            //String password = formCustomer.editTextPassword.getText().toString().trim();
+            //String password = customerForm.editTextPassword.getText().toString().trim();
             SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
             //passwordDAO.insert(password, customer.getId());
 
@@ -137,25 +161,5 @@ public class SignActivity extends AppCompatActivity {
             dao.endTransaction();
             dao.close();
         }
-    }
-
-    private void goToHomeActivityWithWelcome(final String firstName) {
-        final WaitDialog waitDialog = new WaitDialog(this);
-
-        TaskPlanner taskPlanner = new TaskPlanner(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SignActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra(Extra.WELCOME, true);
-                intent.putExtra(Extra.FIRSTNAME, firstName);
-
-                startActivity(intent);
-                waitDialog.dismiss();
-            }
-        }, TIMEOUT);
-
-        taskPlanner.start();
-        waitDialog.show();
     }
 }
