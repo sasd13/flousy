@@ -61,7 +61,7 @@ public class HomeActivity extends MotherActivity {
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         recyclerHolder.add(gridModels);
 
-        RecyclerHelper.fill(grid, recyclerHolder);
+        RecyclerHelper.fill(grid, recyclerHolder, this);
     }
 
     @Override

@@ -52,7 +52,7 @@ public class SignActivity extends AppCompatActivity {
     private void createFormCustomer() {
         form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(form, new CustomerForm().getHolder());
+        RecyclerHelper.fill(form, new CustomerForm().getHolder(), this);
     }
 
     @Override
