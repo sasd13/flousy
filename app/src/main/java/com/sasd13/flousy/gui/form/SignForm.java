@@ -3,10 +3,8 @@ package com.sasd13.flousy.gui.form;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
-import com.sasd13.androidex.gui.widget.recycler.form.CheckboxSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.FormModel;
 import com.sasd13.androidex.gui.widget.recycler.form.PasswordModel;
-import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
 
 import java.util.ArrayList;
@@ -17,69 +15,79 @@ import java.util.List;
  */
 public class SignForm {
 
-    public static final int ID_FIRSTNAME = 0;
-    public static final int ID_LASTNAME = 1;
-    public static final int ID_EMAIL = 2;
-    public static final int ID_PASSWORD = 3;
-    public static final int ID_TERMS = 4;
-
     private RecyclerHolder holder;
+    private TextModel textModelFirstName, textModelLastName, textModelEmail;
+    private PasswordModel passwordModel;
+    private BooleanModel booleanModelTerms;
 
     public SignForm() {
         holder = new RecyclerHolder();
 
-        List<RecyclerModel> formModelsIdentity = new ArrayList<>();
+        List<RecyclerModel> formModels = new ArrayList<>();
 
-        FormModel formModel;
+        textModelFirstName = new TextModel();
+        textModelFirstName.setLabel("First name");
+        textModelFirstName.setHint(textModelFirstName.getLabel().toLowerCase());
+        formModels.add(textModelFirstName);
 
-        formModel = new TextModel();
-        formModel.setId(ID_FIRSTNAME);
-        formModel.setLabel("First name");
-        ((TextModel) formModel).setHint(formModel.getLabel().toLowerCase());
-        formModelsIdentity.add(formModel);
+        textModelLastName = new TextModel();
+        textModelLastName.setLabel("Last name");
+        textModelLastName.setHint(textModelLastName.getLabel().toLowerCase());
+        formModels.add(textModelLastName);
 
-        formModel = new TextModel();
-        formModel.setId(ID_LASTNAME);
-        formModel.setLabel("Last name");
-        ((TextModel) formModel).setHint(formModel.getLabel().toLowerCase());
-        formModelsIdentity.add(formModel);
+        holder.add("Identité", formModels.toArray(new FormModel[formModels.size()]));
 
-        holder.add("Identité", formModelsIdentity.toArray(new FormModel[formModelsIdentity.size()]));
+        formModels.clear();
 
-        List<RecyclerModel> formModelsAccount = new ArrayList<>();
+        textModelEmail = new TextModel();
+        textModelEmail.setLabel("Email");
+        textModelEmail.setHint(textModelEmail.getLabel().toLowerCase());
+        formModels.add(textModelEmail);
 
-        formModel = new CheckboxSpinModel();
-        formModel.setLabel("Type");
-        ((CheckboxSpinModel) formModel).setItems(new String[]{ "Samir", "Sam", "S"});
-        formModel.setValue(new Integer[]{ 0, 2 });
-        formModelsAccount.add(formModel);
+        passwordModel = new PasswordModel();
+        passwordModel.setLabel("Password");
+        formModels.add(passwordModel);
 
-        formModel = new RadioSpinModel();
-        formModel.setLabel("Model");
-        ((RadioSpinModel) formModel).setItems(new String[]{ "Yes", "No", "None"});
-        formModel.setValue(1);
-        formModelsAccount.add(formModel);
+        booleanModelTerms = new BooleanModel();
+        booleanModelTerms.setLabel("Terms of use");
+        formModels.add(booleanModelTerms);
 
-        formModel = new TextModel();
-        formModel.setId(ID_EMAIL);
-        formModel.setLabel("Email");
-        ((TextModel) formModel).setHint(formModel.getLabel().toLowerCase());
-        formModelsAccount.add(formModel);
-
-        formModel = new PasswordModel();
-        formModel.setId(ID_PASSWORD);
-        formModel.setLabel("Password");
-        formModelsAccount.add(formModel);
-
-        formModel = new BooleanModel();
-        formModel.setId(ID_TERMS);
-        formModel.setLabel("Terms of use");
-        formModelsAccount.add(formModel);
-
-        holder.add("Compte", formModelsAccount.toArray(new FormModel[formModelsAccount.size()]));
+        holder.add("Compte", formModels.toArray(new FormModel[formModels.size()]));
     }
 
     public RecyclerHolder getHolder() {
         return holder;
+    }
+
+    public String getFirstName() {
+        return textModelFirstName.getValue();
+    }
+    
+    public void setFirstName(String firstName) {
+        textModelFirstName.setValue(firstName);
+    }
+
+    public String getLastName() {
+        return textModelLastName.getValue();
+    }
+
+    public void setLastName(String lastName) {
+        textModelLastName.setValue(lastName);
+    }
+
+    public String getEmail() {
+        return textModelEmail.getValue();
+    }
+
+    public void setEmail(String email) {
+        textModelEmail.setValue(email);
+    }
+
+    public String getPassword() {
+        return passwordModel.getValue();
+    }
+
+    public boolean getTerms() {
+        return booleanModelTerms.getValue();
     }
 }

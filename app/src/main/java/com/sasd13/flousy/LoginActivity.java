@@ -29,15 +29,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private class FormLoginViewHolder {
         public EditText editTextEmail, editTextPassword;
-        public Button buttonConnect;
     }
 
-    private static final int TIMEOUT = 2000;
-
+    private static final int TIMEOUT = 1500;
     public static Activity self;
-
     private FormLoginViewHolder formLogin;
-
     private SQLiteDAO dao = SQLiteDAO.getInstance();
 
     @Override
@@ -48,7 +44,8 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
         createFormLog();
-        customizeView();
+        createButtonConnect();
+        setTextViewSign();
     }
 
     private void createFormLog() {
@@ -56,9 +53,11 @@ public class LoginActivity extends AppCompatActivity {
 
         formLogin.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
         formLogin.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
-        formLogin.buttonConnect = (Button) findViewById(R.id.login_button_connect);
+    }
 
-        formLogin.buttonConnect.setOnClickListener(new View.OnClickListener() {
+    private void createButtonConnect() {
+        Button button = (Button) findViewById(R.id.login_button_connect);
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -103,40 +102,30 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goToHomeActivity() {
         final WaitDialog waitDialog = new WaitDialog(this);
+        final Intent intent = new Intent(this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        TaskPlanner taskPlanner = new TaskPlanner(new Runnable() {
+        new TaskPlanner(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
                 startActivity(intent);
                 waitDialog.dismiss();
+                finish();
             }
-        }, TIMEOUT);
+        }, TIMEOUT).start();
 
-        taskPlanner.start();
         waitDialog.show();
     }
 
-    private void customizeView() {
-        //Add underline and link for textViews
-        TextView[] textViews = {
-                (TextView) findViewById(R.id.login_textview_signup)
-        };
-
-        for (TextView textView : textViews) {
-            GUIHelper.addUnderline(textView);
-
-            switch (textView.getId()) {
-                case R.id.login_textview_signup:
-                    textView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(LoginActivity.this, SignActivity.class));
-                        }
-                    });
+    private void setTextViewSign() {
+        TextView textView = (TextView) findViewById(R.id.login_textview_signup);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, SignActivity.class));
             }
-        }
+        });
+
+        GUIHelper.addUnderline(textView);
     }
 }

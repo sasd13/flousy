@@ -1,5 +1,6 @@
 package com.sasd13.flousy;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -28,8 +29,7 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
     }
 
     private void init() {
-        TaskInitializer taskInitializer = new TaskInitializer(this);
-        taskInitializer.execute();
+        new TaskInitializer(this).execute();
 
         Session.init(this);
 
@@ -47,17 +47,15 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
         createLogo();
     }
 
-    @Override
-    public void run() {
-
-    }
-
     private void createLogo() {
         ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
         imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
     }
 
-    private void goToActivity(final Class<?> mClass) {
+    @Override
+    public void run() {}
+
+    private void goToActivity(final Class<? extends Activity> mClass) {
         taskPlanner = new TaskPlanner(new Runnable() {
             @Override
             public void run() {
@@ -66,9 +64,7 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
 
                 startActivity(intent);
             }
-        }, TIMEOUT);
-
-        taskPlanner.start();
+        }, TIMEOUT).start();
     }
 
     @Override
@@ -79,10 +75,8 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
     }
 
     private void stopGoToActivity() {
-        try {
+        if (taskPlanner != null) {
             taskPlanner.stop();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
         }
     }
 

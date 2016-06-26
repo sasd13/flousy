@@ -8,8 +8,8 @@
         android:id="@+id/sign_textview_title_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AndroidEX.Title"
-        android:text="Formulaire"
+        style="@style/AndroidEX.Title.AllCaps"
+        android:text="Remplir le formulaire"
         android:layout_alignParentTop="true"/>
 
     <android.support.v7.widget.RecyclerView

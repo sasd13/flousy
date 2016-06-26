@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class SignActivity extends AppCompatActivity {
 
-    private static final int TIMEOUT = 2000;
+    private static final int TIMEOUT = 1500;
 
     private Form form;
     private SignForm signForm;
@@ -50,9 +50,10 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void createFormCustomer() {
+        signForm = new SignForm();
         form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(form, new SignForm().getHolder(), this);
+        RecyclerHelper.fill(form, signForm.getHolder(), this);
     }
 
     @Override
@@ -110,6 +111,39 @@ public class SignActivity extends AppCompatActivity {
         }
     }
 
+    private Customer getCustomerFromForm() {
+        Customer customer = new Customer();
+
+        customer.setFirstName(signForm.getFirstName());
+        customer.setLastName(signForm.getLastName());
+        customer.setEmail(signForm.getEmail());
+
+        return customer;
+    }
+
+    private void performSignUp(Customer customer) {
+        try {
+            dao.open();
+            dao.beginTransaction();
+
+            long id = dao.getEntityDAO(Customer.class).insert(customer);
+            customer.setId(id);
+
+            String password = signForm.getPassword();
+            SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
+            passwordDAO.insert(password, customer.getId());
+
+            dao.getEntityDAO(Account.class).insert(customer.getAccount());
+
+            dao.commit();
+        } catch (DAOException e) {
+            e.printStackTrace();
+        } finally {
+            dao.endTransaction();
+            dao.close();
+        }
+    }
+
     private void goToHomeActivityWithWelcome(final String firstName) {
         final WaitDialog waitDialog = new WaitDialog(this);
 
@@ -129,36 +163,5 @@ public class SignActivity extends AppCompatActivity {
 
         taskPlanner.start();
         waitDialog.show();
-    }
-
-    private Customer getCustomerFromForm() {
-        Customer customer = new Customer();
-
-        //TODO
-
-        return customer;
-    }
-
-    private void performSignUp(Customer customer) {
-        try {
-            dao.open();
-            dao.beginTransaction();
-
-            long id = dao.getEntityDAO(Customer.class).insert(customer);
-            customer.setId(id);
-
-            //String password = signForm.editTextPassword.getText().toString().trim();
-            SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
-            //passwordDAO.insert(password, customer.getId());
-
-            dao.getEntityDAO(Account.class).insert(customer.getAccount());
-
-            dao.commit();
-        } catch (DAOException e) {
-            e.printStackTrace();
-        } finally {
-            dao.endTransaction();
-            dao.close();
-        }
     }
 }
