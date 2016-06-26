@@ -62,6 +62,8 @@ public class Browser {
     public Item[] getItems() { return items.toArray(new Item[items.size()]); }
 
     public void init(Context context) {
+        items.clear();
+
         items.add(new Item(
                 context.getResources().getString(R.string.activity_account),
                 ContextCompat.getDrawable(context, R.drawable.griditem_new),

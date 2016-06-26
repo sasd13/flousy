@@ -3,8 +3,10 @@ package com.sasd13.flousy.gui.form;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
+import com.sasd13.androidex.gui.widget.recycler.form.CheckboxSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.FormModel;
 import com.sasd13.androidex.gui.widget.recycler.form.PasswordModel;
+import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class CustomerForm {
+public class SignForm {
 
     public static final int ID_FIRSTNAME = 0;
     public static final int ID_LASTNAME = 1;
@@ -23,7 +25,7 @@ public class CustomerForm {
 
     private RecyclerHolder holder;
 
-    public CustomerForm() {
+    public SignForm() {
         holder = new RecyclerHolder();
 
         List<RecyclerModel> formModelsIdentity = new ArrayList<>();
@@ -45,6 +47,18 @@ public class CustomerForm {
         holder.add("Identité", formModelsIdentity.toArray(new FormModel[formModelsIdentity.size()]));
 
         List<RecyclerModel> formModelsAccount = new ArrayList<>();
+
+        formModel = new CheckboxSpinModel();
+        formModel.setLabel("Type");
+        ((CheckboxSpinModel) formModel).setItems(new String[]{ "Samir", "Sam", "S"});
+        formModel.setValue(new Integer[]{ 0, 2 });
+        formModelsAccount.add(formModel);
+
+        formModel = new RadioSpinModel();
+        formModel.setLabel("Model");
+        ((RadioSpinModel) formModel).setItems(new String[]{ "Yes", "No", "None"});
+        formModel.setValue(1);
+        formModelsAccount.add(formModel);
 
         formModel = new TextModel();
         formModel.setId(ID_EMAIL);

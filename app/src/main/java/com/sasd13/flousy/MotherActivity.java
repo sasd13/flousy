@@ -35,13 +35,15 @@ public abstract class MotherActivity extends DrawerActivity {
 
             navModels[i].setIcon(item.getIcon());
             navModels[i].setLabel(item.getLabel());
-            navModels[i].setAction(new Action() {
+            navModels[i].setActionClick(new Action() {
                 @Override
-                public void execute() {
+                public boolean execute() {
                     Intent intent = item.getIntent();
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(intent);
+
+                    return true;
                 }
             });
         }
@@ -52,10 +54,12 @@ public abstract class MotherActivity extends DrawerActivity {
     private void addAccountItems(RecyclerHolder recyclerHolder) {
         DrawerModel drawerModel = new DrawerModel();
         drawerModel.setLabel("Déconnexion");
-        drawerModel.setAction(new Action() {
+        drawerModel.setActionClick(new Action() {
             @Override
-            public void execute() {
+            public boolean execute() {
                 SessionHelper.logOut(MotherActivity.this);
+
+                return true;
             }
         });
 

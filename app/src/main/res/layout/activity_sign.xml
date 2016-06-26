@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/AndroidEX.Activity">
+
+    <TextView
+        android:id="@+id/sign_textview_title_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AndroidEX.Title"
+        android:text="Formulaire"
+        android:layout_alignParentTop="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sign_recyclerview"
@@ -9,6 +18,9 @@
         android:layout_height="match_parent"
         style="@style/AndroidEX.Recycler"
         android:layout_gravity="center"
+        android:layout_below="@id/sign_textview_title_form"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:scrollbars="vertical"/>
 
-</FrameLayout>
+</RelativeLayout>

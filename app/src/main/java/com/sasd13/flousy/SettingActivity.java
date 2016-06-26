@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
-import com.sasd13.androidex.gui.widget.recycler.form.BooleanItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
@@ -17,12 +16,7 @@ import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
-public class SettingActivity extends MotherActivity implements RecyclerItem.OnClickListener, BooleanItem.OnCheckedChangeListener {
-
-    @Override
-    public void onCheckedChange(BooleanItem booleanItem, boolean b) {
-
-    }
+public class SettingActivity extends MotherActivity {
 
     private static class FormHolder {
         static final int FORMIDENTITY_ID_FIRSTNAME = 0;
@@ -59,54 +53,6 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
 
     private void createFormCustomer() {
         formHolder = new FormHolder();
-
-        //formHolder.formIdentity = new Form((RecyclerView) findViewById(R.id.setting_form_user_recyclerview_identity));
-        formHolder.formIdentity.setScrollingDisabled(true);
-
-        addFormIdentityItems();
-    }
-
-    private void addFormIdentityItems() {
-        /*FormItem formItem = null;
-
-        for (int id : formHolder.formIdentityIds) {
-            switch (id) {
-                case FormHolder.FORMIDENTITY_ID_FIRSTNAME:
-                    formItem = new FormItemText();
-                    formItem.setLabel("Prénom");
-                    ((FormItemText) formItem).setMessage("Votre prénom");
-                    ((FormItemText) formItem).setHint("prenom");
-                    formItem.setOnClickListener(this);
-                    break;
-                case FormHolder.FORMIDENTITY_ID_LASTNAME:
-                    formItem = new FormItemText();
-                    formItem.setLabel("Nom");
-                    ((FormItemText) formItem).setMessage("Votre nom");
-                    ((FormItemText) formItem).setHint("nom");
-                    formItem.setOnClickListener(this);
-                    break;
-                case FormHolder.FORMIDENTITY_ID_EMAIL:
-                    formItem = new FormItemText();
-                    formItem.setLabel("Email");
-                    ((FormItemText) formItem).setMessage("Votre email");
-                    ((FormItemText) formItem).setHint("email");
-                    formItem.setOnClickListener(this);
-                    break;
-                case FormHolder.FORMIDENTITY_ID_ACCOUNT:
-                    formItem = new FormItemSwitch();
-                    formItem.setLabel("Activer compte");
-                    ((FormItemBinary) formItem).setOnCheckedChangeListener(this);
-                    break;
-            }
-
-            if (formItem != null) {
-                formItem.setId(id);
-
-                formHolder.formIdentity.add(formItem);
-            }
-
-            formItem = null;
-        }*/
     }
 
     @Override
@@ -211,7 +157,6 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
         }*/
     }
 
-    @Override
     public void onClick(RecyclerItem recyclerItem) {
         /*final FormItem formItem = (FormItem) recyclerItem;
 
@@ -222,23 +167,6 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             spinDialog.setTitle(formItem.getLabel());
 
             if (spinDialog instanceof SpinDialogRadio) {
-                spinDialog.setItems(firstnames);
-
-                for (int i=0; i<firstnames.length; i++) {
-                    if (firstnames[i].equals(formItem.getInput().getValue())) {
-                        ((SpinDialogRadio) spinDialog).setSelectedPosition(i);
-                    }
-                }
-
-                ((SpinDialogRadio) spinDialog).setOnItemSelectedListener(new SpinDialog.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelectedOnSpinDialog(SpinDialog spinDialog, int position) {
-                        spinDialog.dismiss();
-
-                        formItem.getInput().setValue(spinDialog.getItems()[position]);
-                    }
-                });
-            } else {
                 String input = formItem.getInput().getStringValue();
                 String[] f = input.split(",");
                 if (f.length == 0 || f[0].isEmpty()) {
@@ -284,29 +212,6 @@ public class SettingActivity extends MotherActivity implements RecyclerItem.OnCl
             }
 
             spinDialog.show();
-        } else {
-            EditorDialog editorDialog = new EditorDialog(this);
-            //editorDialog.setMessage(((FormItemText) formItem).getMessage());
-            editorDialog.setHint(((FormItemText) formItem).getHint());
-
-            if (formItem.getInput() != null) {
-                editorDialog.setText(formItem.getInput().getStringValue());
-            } else {
-                editorDialog.setText(null);
-            }
-
-            editorDialog.setOnButtonPositiveClickListener(new EditorDialog.OnClickListener() {
-                @Override
-                public void onClickOnDialog(Dialog dialog) {
-                    EditorDialog editorDialog = (EditorDialog) dialog;
-
-                    formItem.getInput().setValue(editorDialog.getText());
-
-                    editorDialog.dismiss();
-                }
-            });
-
-            editorDialog.show();
         }*/
     }
 }

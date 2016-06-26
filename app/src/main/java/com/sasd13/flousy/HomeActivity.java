@@ -24,16 +24,15 @@ public class HomeActivity extends MotherActivity {
 
         setContentView(R.layout.activity_home);
         createGridNav();
-        fillGridNav();
     }
 
     private void createGridNav() {
         grid = (Grid) RecyclerHelper.create(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
+
+        fillGridNav();
     }
 
     private void fillGridNav() {
-        grid.clear();
-
         Browser.Item[] items = Browser.getInstance().getItems();
         GridModel[] gridModels = new GridModel[items.length];
 
@@ -43,17 +42,18 @@ public class HomeActivity extends MotherActivity {
             i++;
 
             gridModels[i] = new GridModel();
-
             gridModels[i].setIcon(item.getIcon());
             gridModels[i].setLabel(item.getLabel());
             gridModels[i].setColor(item.getColor());
             gridModels[i].setAction(new Action() {
                 @Override
-                public void execute() {
+                public boolean execute() {
                     Intent intent = item.getIntent();
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(intent);
+
+                    return true;
                 }
             });
         }
@@ -83,7 +83,7 @@ public class HomeActivity extends MotherActivity {
         OptionDialog.showOkDialog(
                 this,
                 getResources().getString(R.string.home_alertdialog_title_welcome),
-                getResources().getString(R.string.home_alertdialog_title_welcome) + " " + firstName + " !");
+                getResources().getString(R.string.home_alertdialog_message_welcome) + " " + firstName + " !");
     }
 
     private void exit() {

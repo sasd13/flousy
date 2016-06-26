@@ -6,13 +6,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import com.sasd13.androidex.session.Session;
+import com.sasd13.androidex.util.Session;
+import com.sasd13.androidex.util.TaskInitializer;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.gui.browser.Browser;
+import com.sasd13.flousy.util.SessionHelper;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity implements TaskInitializer.Loader {
 
     private static final int TIMEOUT = 3000;
 
@@ -23,17 +24,32 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splashscreen);
-        createLogo();
+        init();
+    }
 
-        SQLiteDAO.getInstance().init(this);
-        Browser.getInstance().init(this);
+    private void init() {
+        TaskInitializer taskInitializer = new TaskInitializer(this);
+        taskInitializer.execute();
+
         Session.init(this);
 
-        if (Session.containsAttribute(Extra.CUSTOMER_ID)) {
+        if (SessionHelper.isLogged()) {
             goToActivity(HomeActivity.class);
         } else {
             goToActivity(LoginActivity.class);
         }
+    }
+
+    @Override
+    public void load() {
+        SQLiteDAO.getInstance().init(this);
+        Browser.getInstance().init(this);
+        createLogo();
+    }
+
+    @Override
+    public void run() {
+
     }
 
     private void createLogo() {

@@ -20,7 +20,7 @@ import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.gui.form.CustomerForm;
+import com.sasd13.flousy.gui.form.SignForm;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
@@ -34,7 +34,7 @@ public class SignActivity extends AppCompatActivity {
     private static final int TIMEOUT = 2000;
 
     private Form form;
-    private CustomerForm customerForm;
+    private SignForm signForm;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
     private LayeredPersistor persistor = new LayeredPersistor(dao);
@@ -52,7 +52,7 @@ public class SignActivity extends AppCompatActivity {
     private void createFormCustomer() {
         form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(form, new CustomerForm().getHolder(), this);
+        RecyclerHelper.fill(form, new SignForm().getHolder(), this);
     }
 
     @Override
@@ -101,8 +101,7 @@ public class SignActivity extends AppCompatActivity {
         if (persistor.read(parameters, Customer.class).isEmpty()) {
             performSignUp(customer);
 
-            SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
-
+            SessionHelper.logIn(customer.getId());
             LoginActivity.self.finish();
 
             goToHomeActivityWithWelcome(customer.getFirstName());
@@ -148,7 +147,7 @@ public class SignActivity extends AppCompatActivity {
             long id = dao.getEntityDAO(Customer.class).insert(customer);
             customer.setId(id);
 
-            //String password = customerForm.editTextPassword.getText().toString().trim();
+            //String password = signForm.editTextPassword.getText().toString().trim();
             SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
             //passwordDAO.insert(password, customer.getId());
 
