@@ -31,6 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
     private void init() {
         new TaskInitializer(this).execute();
 
+        createLogo();
         Session.init(this);
 
         if (SessionHelper.isLogged()) {
@@ -40,16 +41,15 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
         }
     }
 
+    private void createLogo() {
+        ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
+        imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
+    }
+
     @Override
     public void load() {
         SQLiteDAO.getInstance().init(this);
         Browser.getInstance().init(this);
-        createLogo();
-    }
-
-    private void createLogo() {
-        ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
-        imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
     }
 
     @Override

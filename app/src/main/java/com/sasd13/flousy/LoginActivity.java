@@ -1,6 +1,5 @@
 package com.sasd13.flousy;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.GUIHelper;
-import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.Parameter;
@@ -31,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         public EditText editTextEmail, editTextPassword;
     }
 
-    private static final int TIMEOUT = 1500;
-    public static Activity self;
+    public static LoginActivity self;
+
     private FormLoginViewHolder formLogin;
     private SQLiteDAO dao = SQLiteDAO.getInstance();
 
@@ -81,8 +77,7 @@ public class LoginActivity extends AppCompatActivity {
 
             List<Customer> customers = dao.getEntityDAO(Customer.class).select(parameters);
             if (customers.size() == 1 && passwordMatches(customers.get(0), candidate)) {
-                SessionHelper.setExtraIdInSession(Extra.CUSTOMER_ID, customers.get(0).getId());
-                goToHomeActivity();
+                SessionHelper.logIn(this, customers.get(0).getId(), customers.get(0).getFirstName());
             } else {
                 OptionDialog.showOkDialog(
                         this,
@@ -98,23 +93,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean passwordMatches(Customer customer, String password) {
         return new SQLitePasswordDAO(dao.getDB()).contains(password, customer.getId());
-    }
-
-    private void goToHomeActivity() {
-        final WaitDialog waitDialog = new WaitDialog(this);
-        final Intent intent = new Intent(this, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        new TaskPlanner(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(intent);
-                waitDialog.dismiss();
-                finish();
-            }
-        }, TIMEOUT).start();
-
-        waitDialog.show();
     }
 
     private void setTextViewSign() {

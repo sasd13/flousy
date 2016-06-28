@@ -37,7 +37,8 @@
             android:label="@string/activity_sign"
             android:theme="@style/Flousy"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan">
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleInstance">
         </activity>
 
         <activity
@@ -45,7 +46,8 @@
             android:label="@string/activity_home"
             android:theme="@style/Flousy"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan">
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleInstance">
         </activity>
 
         <activity

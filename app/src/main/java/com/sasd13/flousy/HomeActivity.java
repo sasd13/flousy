@@ -6,21 +6,27 @@ import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
+import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.androidex.util.RecyclerHelper;
+import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.constant.Extra;
 import com.sasd13.flousy.gui.browser.Browser;
 
 public class HomeActivity extends MotherActivity {
+
+    public static HomeActivity self;
 
     private Grid grid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        self = this;
 
         setContentView(R.layout.activity_home);
         createGridNav();
@@ -47,13 +53,11 @@ public class HomeActivity extends MotherActivity {
             gridModels[i].setColor(item.getColor());
             gridModels[i].setAction(new Action() {
                 @Override
-                public boolean execute() {
+                public void execute() {
                     Intent intent = item.getIntent();
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(intent);
-
-                    return true;
                 }
             });
         }
@@ -86,11 +90,21 @@ public class HomeActivity extends MotherActivity {
                 getResources().getString(R.string.home_alertdialog_message_welcome) + " " + firstName + " !");
     }
 
-    private void exit() {
-        Intent intent = new Intent(this, LoginActivity.class);
+    public void exit() {
+        final WaitDialog waitDialog = new WaitDialog(this);
+        final Intent intent = new Intent(this, LoginActivity.class);
+
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        startActivity(intent);
-        finish();
+        new TaskPlanner(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(intent);
+                waitDialog.dismiss();
+                finish();
+            }
+        }, 1500).start();
+
+        waitDialog.show();
     }
 }

@@ -37,13 +37,11 @@ public abstract class MotherActivity extends DrawerActivity {
             navModels[i].setLabel(item.getLabel());
             navModels[i].setActionClick(new Action() {
                 @Override
-                public boolean execute() {
+                public void execute() {
                     Intent intent = item.getIntent();
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     startActivity(intent);
-
-                    return true;
                 }
             });
         }
@@ -56,10 +54,8 @@ public abstract class MotherActivity extends DrawerActivity {
         drawerModel.setLabel("Déconnexion");
         drawerModel.setActionClick(new Action() {
             @Override
-            public boolean execute() {
+            public void execute() {
                 SessionHelper.logOut(MotherActivity.this);
-
-                return true;
             }
         });
 
