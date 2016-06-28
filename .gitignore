@@ -26,3 +26,4 @@ $RECYCLE.BIN/
 app/build/
 app/libs/
 build/
+*.iml

@@ -13,6 +13,11 @@ import com.sasd13.flousy.util.SessionHelper;
 public abstract class MotherActivity extends DrawerActivity {
 
     @Override
+    protected String getDrawerTitle() {
+        return "Flousy";
+    }
+
+    @Override
     protected RecyclerHolder getDrawerHolder() {
         RecyclerHolder recyclerHolder = new RecyclerHolder();
 
