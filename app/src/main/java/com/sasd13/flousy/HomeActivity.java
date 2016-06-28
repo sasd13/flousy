@@ -13,7 +13,7 @@ import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.constant.Extra;
+import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.gui.browser.Browser;
 
 public class HomeActivity extends MotherActivity {

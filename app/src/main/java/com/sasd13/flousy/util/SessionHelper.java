@@ -9,7 +9,7 @@ import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.HomeActivity;
 import com.sasd13.flousy.LoginActivity;
 import com.sasd13.flousy.SignActivity;
-import com.sasd13.flousy.constant.Extra;
+import com.sasd13.flousy.content.Extra;
 
 /**
  * Created by Samir on 05/03/2016.

@@ -16,7 +16,7 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.constant.Extra;
+import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.gui.tab.OperationItem;
 import com.sasd13.flousy.gui.tab.OperationModel;

@@ -1,5 +1,7 @@
 package com.sasd13.flousy.gui.form;
 
+import android.text.InputType;
+
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
@@ -26,11 +28,13 @@ public class SignForm {
         List<RecyclerModel> formModels = new ArrayList<>();
 
         textModelFirstName = new TextModel();
+        textModelFirstName.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         textModelFirstName.setLabel("First name");
         textModelFirstName.setHint(textModelFirstName.getLabel().toLowerCase());
         formModels.add(textModelFirstName);
 
         textModelLastName = new TextModel();
+        textModelLastName.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         textModelLastName.setLabel("Last name");
         textModelLastName.setHint(textModelLastName.getLabel().toLowerCase());
         formModels.add(textModelLastName);
@@ -40,6 +44,7 @@ public class SignForm {
         formModels.clear();
 
         textModelEmail = new TextModel();
+        textModelEmail.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         textModelEmail.setLabel("Email");
         textModelEmail.setHint(textModelEmail.getLabel().toLowerCase());
         formModels.add(textModelEmail);

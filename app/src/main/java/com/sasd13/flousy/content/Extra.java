@@ -1,4 +1,4 @@
-package com.sasd13.flousy.constant;
+package com.sasd13.flousy.content;
 
 public class Extra {
 

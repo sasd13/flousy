@@ -11,7 +11,7 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.constant.Extra;
+import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
