@@ -20,8 +20,6 @@ public class HomeActivity extends MotherActivity {
 
     public static HomeActivity self;
 
-    private Grid grid;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +31,12 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void createGridNav() {
-        grid = (Grid) RecyclerHelper.create(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
+        Grid grid = (Grid) RecyclerHelper.create(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
 
-        fillGridNav();
+        fillGrid(grid);
     }
 
-    private void fillGridNav() {
+    private void fillGrid(Grid grid) {
         Browser.Item[] items = Browser.getInstance().getItems();
         GridModel[] gridModels = new GridModel[items.length];
 
@@ -51,7 +49,7 @@ public class HomeActivity extends MotherActivity {
             gridModels[i].setIcon(item.getIcon());
             gridModels[i].setLabel(item.getLabel());
             gridModels[i].setColor(item.getColor());
-            gridModels[i].setAction(new Action() {
+            gridModels[i].setActionClick(new Action() {
                 @Override
                 public void execute() {
                     Intent intent = item.getIntent();

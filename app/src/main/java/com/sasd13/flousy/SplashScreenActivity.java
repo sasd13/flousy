@@ -32,13 +32,6 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
         new TaskInitializer(this).execute();
 
         createLogo();
-        Session.init(this);
-
-        if (SessionHelper.isLogged()) {
-            goToActivity(HomeActivity.class);
-        } else {
-            goToActivity(LoginActivity.class);
-        }
     }
 
     private void createLogo() {
@@ -48,12 +41,19 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
 
     @Override
     public void load() {
-        SQLiteDAO.getInstance().init(this);
+        Session.init(this);
         Browser.getInstance().init(this);
+        SQLiteDAO.getInstance().init(this);
     }
 
     @Override
-    public void run() {}
+    public void run() {
+        if (SessionHelper.isLogged()) {
+            goToActivity(HomeActivity.class);
+        } else {
+            goToActivity(LoginActivity.class);
+        }
+    }
 
     private void goToActivity(final Class<? extends Activity> mClass) {
         taskPlanner = new TaskPlanner(new Runnable() {

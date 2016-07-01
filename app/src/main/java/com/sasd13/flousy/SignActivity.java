@@ -27,9 +27,6 @@ import java.util.Map;
 
 public class SignActivity extends AppCompatActivity {
 
-    private static final int TIMEOUT = 1500;
-
-    private Form form;
     private SignForm signForm;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
@@ -47,7 +44,7 @@ public class SignActivity extends AppCompatActivity {
 
     private void createFormCustomer() {
         signForm = new SignForm();
-        form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
+        Form form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 
         RecyclerHelper.fill(form, signForm.getHolder(), this);
     }
