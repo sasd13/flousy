@@ -53,9 +53,10 @@
         <activity
             android:name=".AccountActivity"
             android:label="@string/activity_account"
-            android:theme="@style/FlousyPurple"
+            android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTop"
             android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -69,6 +70,7 @@
             android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTop"
             android:parentActivityName=".AccountActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -77,11 +79,68 @@
         </activity>
 
         <activity
-            android:name=".SettingActivity"
-            android:label="@string/activity_setting"
+            android:name=".ConsultActivity"
+            android:label="@string/activity_consult"
+            android:theme="@style/FlousyRed"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+
+        <activity
+            android:name=".FinancesActivity"
+            android:label="@string/activity_finances"
+            android:theme="@style/FlousyOrange"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+
+        <activity
+            android:name=".FriendsActivity"
+            android:label="@string/activity_friends"
+            android:theme="@style/FlousyBlue"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+
+        <activity
+            android:name=".OffersActivity"
+            android:label="@string/activity_offers"
+            android:theme="@style/FlousyPurple"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/activity_settings"
             android:theme="@style/FlousyBrown"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTop"
             android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data

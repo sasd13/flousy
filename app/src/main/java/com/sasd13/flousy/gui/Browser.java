@@ -1,4 +1,4 @@
-package com.sasd13.flousy.gui.browser;
+package com.sasd13.flousy.gui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,8 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 
 import com.sasd13.flousy.AccountActivity;
+import com.sasd13.flousy.ConsultActivity;
+import com.sasd13.flousy.FinancesActivity;
+import com.sasd13.flousy.FriendsActivity;
+import com.sasd13.flousy.OffersActivity;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.SettingActivity;
+import com.sasd13.flousy.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +76,38 @@ public class Browser {
         ));
 
         items.add(new Item(
-                context.getResources().getString(R.string.activity_setting),
+                context.getResources().getString(R.string.activity_consult),
+                ContextCompat.getDrawable(context, R.drawable.griditem_consult),
+                ContextCompat.getColor(context, R.color.red),
+                new Intent(context, ConsultActivity.class)
+        ));
+
+        items.add(new Item(
+                context.getResources().getString(R.string.activity_finances),
+                ContextCompat.getDrawable(context, R.drawable.griditem_finances),
+                ContextCompat.getColor(context, R.color.orange),
+                new Intent(context, FinancesActivity.class)
+        ));
+
+        items.add(new Item(
+                context.getResources().getString(R.string.activity_friends),
+                ContextCompat.getDrawable(context, R.drawable.griditem_dividing),
+                ContextCompat.getColor(context, R.color.blue),
+                new Intent(context, FriendsActivity.class)
+        ));
+
+        items.add(new Item(
+                context.getResources().getString(R.string.activity_offers),
+                ContextCompat.getDrawable(context, R.drawable.griditem_evolution),
+                ContextCompat.getColor(context, R.color.purple),
+                new Intent(context, OffersActivity.class)
+        ));
+
+        items.add(new Item(
+                context.getResources().getString(R.string.activity_settings),
                 ContextCompat.getDrawable(context, R.drawable.griditem_settings),
                 ContextCompat.getColor(context, R.color.brown),
-                new Intent(context, SettingActivity.class)
+                new Intent(context, SettingsActivity.class)
         ));
     }
 }

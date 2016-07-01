@@ -38,7 +38,6 @@ public class SignActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_sign);
         GUIHelper.colorTitles(this);
-
         createSignForm();
     }
 
@@ -88,7 +87,6 @@ public class SignActivity extends AppCompatActivity {
 
     private void tryToPerformSignUp() {
         Customer customer = getCustomerFromForm();
-
         Map<String, String[]> parameters = new HashMap<>();
         parameters.put(Parameter.EMAIL.getName(), new String[]{ customer.getEmail() });
 
@@ -103,7 +101,6 @@ public class SignActivity extends AppCompatActivity {
 
     private Customer getCustomerFromForm() {
         Customer customer = new Customer();
-
         customer.setFirstName(signForm.getFirstName());
         customer.setLastName(signForm.getLastName());
         customer.setEmail(signForm.getEmail());
@@ -124,7 +121,6 @@ public class SignActivity extends AppCompatActivity {
             passwordDAO.insert(password, customer.getId());
 
             dao.getEntityDAO(Account.class).insert(customer.getAccount());
-
             dao.commit();
         } catch (DAOException e) {
             e.printStackTrace();

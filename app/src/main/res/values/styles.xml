@@ -12,28 +12,49 @@
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/greenMidDark</item>
         <item name="colorSecondary">@color/greenMidLight</item>
-        <item name="colorAccent">@color/red</item>
+        <item name="colorAccent">@color/green</item>
     </style>
 
     <style name="FlousyGreen.NoActionBar" parent="Flousy.NoActionBar">
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/greenMidDark</item>
         <item name="colorSecondary">@color/greenMidLight</item>
+        <item name="colorAccent">@color/green</item>
+    </style>
+
+    <style name="FlousyRed" parent="Flousy">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/redMidDark</item>
+        <item name="colorSecondary">@color/redMidLight</item>
         <item name="colorAccent">@color/red</item>
     </style>
 
-    <style name="FlousyBrown" parent="Flousy">
-        <item name="colorPrimary">@color/brown</item>
-        <item name="colorPrimaryDark">@color/brownMidDark</item>
-        <item name="colorSecondary">@color/brownMidLight</item>
-        <item name="colorAccent">@color/cyan</item>
+    <style name="FlousyOrange" parent="Flousy">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@color/orangeMidDark</item>
+        <item name="colorSecondary">@color/orangeMidLight</item>
+        <item name="colorAccent">@color/orange</item>
+    </style>
+
+    <style name="FlousyBlue" parent="Flousy">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blueMidDark</item>
+        <item name="colorSecondary">@color/blueMidLight</item>
+        <item name="colorAccent">@color/blue</item>
     </style>
 
     <style name="FlousyPurple" parent="Flousy">
         <item name="colorPrimary">@color/purple</item>
         <item name="colorPrimaryDark">@color/purpleMidDark</item>
         <item name="colorSecondary">@color/purpleMidLight</item>
-        <item name="colorAccent">@color/deepOrange</item>
+        <item name="colorAccent">@color/purple</item>
+    </style>
+
+    <style name="FlousyBrown" parent="Flousy">
+        <item name="colorPrimary">@color/brown</item>
+        <item name="colorPrimaryDark">@color/brownMidDark</item>
+        <item name="colorSecondary">@color/brownMidLight</item>
+        <item name="colorAccent">@color/brown</item>
     </style>
 
 </resources>

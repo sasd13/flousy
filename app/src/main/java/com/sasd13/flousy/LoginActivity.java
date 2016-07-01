@@ -46,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void createFormLog() {
         formLogin = new FormLoginViewHolder();
-
         formLogin.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
         formLogin.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
     }

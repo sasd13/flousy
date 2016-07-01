@@ -11,7 +11,7 @@ import com.sasd13.androidex.util.Session;
 import com.sasd13.androidex.util.TaskInitializer;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.browser.Browser;
+import com.sasd13.flousy.gui.Browser;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class SplashScreenActivity extends AppCompatActivity implements TaskInitializer.Loader {

@@ -14,7 +14,7 @@ import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.gui.browser.Browser;
+import com.sasd13.flousy.gui.Browser;
 
 public class HomeActivity extends MotherActivity {
 
@@ -32,7 +32,6 @@ public class HomeActivity extends MotherActivity {
 
     private void createGridNav() {
         Grid grid = (Grid) RecyclerHelper.create(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
-
         fillGrid(grid);
     }
 

@@ -15,7 +15,7 @@ import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
-public class SettingActivity extends MotherActivity {
+public class FriendsActivity extends MotherActivity {
 
     private Customer customer;
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
@@ -24,9 +24,8 @@ public class SettingActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
-
         createSettingForm();
     }
 
@@ -39,7 +38,6 @@ public class SettingActivity extends MotherActivity {
         super.onStart();
 
         customer = persistor.read(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID), Customer.class);
-
         fillFormIdentity();
     }
 

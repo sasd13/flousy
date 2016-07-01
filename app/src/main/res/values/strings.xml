@@ -6,10 +6,13 @@
     <string name="activity_login">Connexion</string>
     <string name="activity_sign">Inscription</string>
     <string name="activity_home">Home</string>
-    <string name="activity_setting">Options</string>
     <string name="activity_account">Compte</string>
     <string name="activity_operation">Operation</string>
-    <string name="activity_finance">Finances</string>
+    <string name="activity_consult">Consulter</string>
+    <string name="activity_finances">Finances</string>
+    <string name="activity_friends">Amis</string>
+    <string name="activity_offers">Offres</string>
+    <string name="activity_settings">Options</string>
 
     <!-- Activity Log -->
     <string name="login_button_connect">Connexion</string>

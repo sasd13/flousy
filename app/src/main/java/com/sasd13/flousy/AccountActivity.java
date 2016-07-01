@@ -43,7 +43,6 @@ public class AccountActivity extends MotherActivity {
 
         setContentView(R.layout.activity_account);
         GUIHelper.colorTitles(this);
-
         createTextViewSold();
         createTabOperations();
     }
@@ -64,14 +63,12 @@ public class AccountActivity extends MotherActivity {
         parameters.put(Parameter.CUSTOMER.getName(), new String[] { String.valueOf(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) });
 
         Account account = persistor.deepRead(parameters, Account.class).get(0);
-
         fillTextViewSold(account);
         fillTabOperations(account.getOperations());
     }
 
     private void fillTextViewSold(Account account) {
         DecimalFormat df = new DecimalFormat("#.##");
-
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
     }
 
@@ -83,7 +80,6 @@ public class AccountActivity extends MotherActivity {
 
     private void addOperationsToTab(List<Operation> operations) {
         List<TabItem> tabItems = new ArrayList<>();
-
         OperationItem operationItem;
         OperationModel operationModel;
 

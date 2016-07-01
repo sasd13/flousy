@@ -1,13 +1,11 @@
 package com.sasd13.flousy;
 
-import android.content.Intent;
-
 import com.sasd13.androidex.DrawerActivity;
 import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerModel;
 import com.sasd13.androidex.gui.widget.recycler.drawer.NavModel;
-import com.sasd13.flousy.gui.browser.Browser;
+import com.sasd13.flousy.gui.Browser;
 import com.sasd13.flousy.util.SessionHelper;
 
 public abstract class MotherActivity extends DrawerActivity {

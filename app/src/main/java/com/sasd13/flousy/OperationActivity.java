@@ -46,7 +46,6 @@ public class OperationActivity extends MotherActivity {
 
         setContentView(R.layout.activity_operation);
         GUIHelper.colorTitles(this);
-
         createFormOperation();
     }
 
