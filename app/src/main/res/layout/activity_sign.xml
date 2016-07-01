@@ -9,8 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/AndroidEX.Title.AllCaps"
-        android:text="Remplir le formulaire"
-        android:layout_alignParentTop="true"/>
+        android:tag="title_0"
+        android:layout_alignParentTop="true"
+        android:text="Remplir le formulaire"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sign_recyclerview"

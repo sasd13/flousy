@@ -27,10 +27,10 @@
         android:id="@+id/account_textview_operations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AndroidEX.Title"
+        style="@style/AndroidEX.Title.AllCaps"
+        android:tag="title_0"
         android:layout_below="@id/account_textview_sold_title"
         android:layout_marginTop="@dimen/viewgroup_margin"
-        android:tag="title_0"
         android:text="@string/account_textview_operations"/>
 
     <android.support.v7.widget.RecyclerView

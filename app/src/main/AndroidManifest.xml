@@ -12,7 +12,7 @@
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/activity_splashscreen"
-            android:theme="@style/Flousy.NoActionBar"
+            android:theme="@style/FlousyGreen.NoActionBar"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:noHistory="true">
@@ -26,7 +26,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/activity_login"
-            android:theme="@style/Flousy.NoActionBar"
+            android:theme="@style/FlousyGreen.NoActionBar"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleInstance">
@@ -35,7 +35,7 @@
         <activity
             android:name=".SignActivity"
             android:label="@string/activity_sign"
-            android:theme="@style/Flousy"
+            android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleInstance">
@@ -44,7 +44,7 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/activity_home"
-            android:theme="@style/Flousy"
+            android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleInstance">
@@ -53,7 +53,7 @@
         <activity
             android:name=".AccountActivity"
             android:label="@string/activity_account"
-            android:theme="@style/Flousy"
+            android:theme="@style/FlousyOrange"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:parentActivityName=".HomeActivity">
@@ -66,7 +66,7 @@
         <activity
             android:name=".OperationActivity"
             android:label="@string/activity_operation"
-            android:theme="@style/Flousy"
+            android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:parentActivityName=".AccountActivity">

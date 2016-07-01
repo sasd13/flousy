@@ -8,12 +8,32 @@
         <item name="android:editTextBackground">@android:drawable/edit_text</item>
     </style>
 
+    <style name="FlousyGreen" parent="Flousy">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/greenMidDark</item>
+        <item name="colorSecondary">@color/greenMidLight</item>
+        <item name="colorAccent">@color/red</item>
+    </style>
+
+    <style name="FlousyGreen.NoActionBar" parent="Flousy.NoActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/greenMidDark</item>
+        <item name="colorSecondary">@color/greenMidLight</item>
+        <item name="colorAccent">@color/red</item>
+    </style>
+
     <style name="FlousyBrown" parent="Flousy">
-        <item name="android:editTextBackground">@android:drawable/edit_text</item>
         <item name="colorPrimary">@color/brown</item>
         <item name="colorPrimaryDark">@color/brownMidDark</item>
         <item name="colorSecondary">@color/brownMidLight</item>
         <item name="colorAccent">@color/cyan</item>
+    </style>
+
+    <style name="FlousyOrange" parent="Flousy">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@color/orangeMidDark</item>
+        <item name="colorSecondary">@color/orangeMidLight</item>
+        <item name="colorAccent">@color/purple</item>
     </style>
 
 </resources>

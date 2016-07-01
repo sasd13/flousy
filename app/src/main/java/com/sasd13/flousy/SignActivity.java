@@ -39,10 +39,10 @@ public class SignActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign);
         GUIHelper.colorTitles(this);
 
-        createFormCustomer();
+        createSignForm();
     }
 
-    private void createFormCustomer() {
+    private void createSignForm() {
         signForm = new SignForm();
         Form form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 

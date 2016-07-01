@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
-import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
@@ -17,26 +16,6 @@ import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
 public class SettingActivity extends MotherActivity {
-
-    private static class FormHolder {
-        static final int FORMIDENTITY_ID_FIRSTNAME = 0;
-        static final int FORMIDENTITY_ID_LASTNAME = 1;
-        static final int FORMIDENTITY_ID_EMAIL = 2;
-        static final int FORMIDENTITY_ID_PASSWORD = 3;
-        static final int FORMIDENTITY_ID_ACCOUNT = 4;
-
-        int[] formIdentityIds = {
-                FORMIDENTITY_ID_FIRSTNAME,
-                FORMIDENTITY_ID_LASTNAME,
-                FORMIDENTITY_ID_EMAIL,
-                FORMIDENTITY_ID_PASSWORD,
-                FORMIDENTITY_ID_ACCOUNT
-        };
-
-        Form formIdentity;
-    }
-
-    private FormHolder formHolder;
 
     private Customer customer;
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
@@ -48,11 +27,11 @@ public class SettingActivity extends MotherActivity {
         setContentView(R.layout.activity_setting);
         GUIHelper.colorTitles(this);
 
-        createFormCustomer();
+        createSettingForm();
     }
 
-    private void createFormCustomer() {
-        formHolder = new FormHolder();
+    private void createSettingForm() {
+
     }
 
     @Override
