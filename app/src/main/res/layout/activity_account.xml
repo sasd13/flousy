@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/AndroidEX.Activity">
 
     <TextView
         android:id="@+id/account_textview_sold_title"
@@ -27,7 +28,7 @@
         android:id="@+id/account_textview_operations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AndroidEX.Title.AllCaps"
+        style="@style/AndroidEX.TitleWithTextAllCaps"
         android:tag="title_0"
         android:layout_below="@id/account_textview_sold_title"
         android:layout_marginTop="@dimen/viewgroup_margin"
@@ -37,6 +38,7 @@
         android:id="@+id/account_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        style="@style/AndroidEX.RecyclerWithPaddingHorizontal"
         android:layout_below="@id/account_textview_operations"
         android:layout_gravity="center"
         android:scrollbars="vertical"

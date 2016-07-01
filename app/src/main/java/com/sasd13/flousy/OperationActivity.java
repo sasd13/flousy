@@ -186,10 +186,7 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void goToAccountActivity() {
-        Intent intent = new Intent(this, AccountActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        startActivity(intent);
+        startActivity(new Intent(this, AccountActivity.class));
         finish();
     }
 

@@ -125,7 +125,6 @@ public class AccountActivity extends MotherActivity {
 
     private void newOperation() {
         Intent intent = new Intent(this, OperationActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra(Extra.MODE, Extra.MODE_NEW);
 
         startActivity(intent);

@@ -29,11 +29,11 @@
         <item name="colorAccent">@color/cyan</item>
     </style>
 
-    <style name="FlousyOrange" parent="Flousy">
-        <item name="colorPrimary">@color/orange</item>
-        <item name="colorPrimaryDark">@color/orangeMidDark</item>
-        <item name="colorSecondary">@color/orangeMidLight</item>
-        <item name="colorAccent">@color/purple</item>
+    <style name="FlousyPurple" parent="Flousy">
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryDark">@color/purpleMidDark</item>
+        <item name="colorSecondary">@color/purpleMidLight</item>
+        <item name="colorAccent">@color/deepOrange</item>
     </style>
 
 </resources>

@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
 
             List<Customer> customers = dao.getEntityDAO(Customer.class).select(parameters);
             if (customers.size() == 1 && passwordMatches(customers.get(0), candidate)) {
-                SessionHelper.logIn(this, customers.get(0).getId(), customers.get(0).getFirstName());
+                SessionHelper.logIn(this, customers.get(0));
             } else {
                 OptionDialog.showOkDialog(
                         this,

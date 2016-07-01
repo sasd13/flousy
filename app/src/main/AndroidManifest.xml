@@ -29,7 +29,7 @@
             android:theme="@style/FlousyGreen.NoActionBar"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
-            android:launchMode="singleInstance">
+            android:launchMode="singleTask">
         </activity>
 
         <activity
@@ -38,7 +38,7 @@
             android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
-            android:launchMode="singleInstance">
+            android:launchMode="singleTask">
         </activity>
 
         <activity
@@ -47,13 +47,13 @@
             android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
-            android:launchMode="singleInstance">
+            android:launchMode="singleTask">
         </activity>
 
         <activity
             android:name=".AccountActivity"
             android:label="@string/activity_account"
-            android:theme="@style/FlousyOrange"
+            android:theme="@style/FlousyPurple"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:parentActivityName=".HomeActivity">

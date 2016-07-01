@@ -95,7 +95,7 @@ public class SignActivity extends AppCompatActivity {
         if (persistor.read(parameters, Customer.class).isEmpty()) {
             performSignUp(customer);
 
-            SessionHelper.logIn(this, customer.getId(), customer.getFirstName());
+            SessionHelper.logIn(this, customer);
         } else {
             OptionDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
         }

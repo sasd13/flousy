@@ -8,7 +8,7 @@
         android:id="@+id/sign_textview_title_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/AndroidEX.Title.AllCaps"
+        style="@style/AndroidEX.TitleWithTextAllCaps"
         android:tag="title_0"
         android:layout_alignParentTop="true"
         android:text="Remplir le formulaire"/>
@@ -17,11 +17,9 @@
         android:id="@+id/sign_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/AndroidEX.Recycler"
+        style="@style/AndroidEX.RecyclerWithPaddingHorizontal"
         android:layout_gravity="center"
         android:layout_below="@id/sign_textview_title_form"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:scrollbars="vertical"/>
 
 </RelativeLayout>

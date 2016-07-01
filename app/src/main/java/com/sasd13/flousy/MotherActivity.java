@@ -38,10 +38,7 @@ public abstract class MotherActivity extends DrawerActivity {
             navModels[i].setActionClick(new Action() {
                 @Override
                 public void execute() {
-                    Intent intent = item.getIntent();
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                    startActivity(intent);
+                    startActivity(item.getIntent());
                 }
             });
         }

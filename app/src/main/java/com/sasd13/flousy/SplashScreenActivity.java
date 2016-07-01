@@ -59,10 +59,7 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
         taskPlanner = new TaskPlanner(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this, mClass);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                startActivity(intent);
+                startActivity(new Intent(SplashScreenActivity.this, mClass));
             }
         }, TIMEOUT).start();
     }

@@ -9,6 +9,7 @@ import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.HomeActivity;
 import com.sasd13.flousy.LoginActivity;
 import com.sasd13.flousy.SignActivity;
+import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
 
 /**
@@ -22,50 +23,27 @@ public class SessionHelper {
         return Session.containsAttribute(Extra.CUSTOMER_ID);
     }
 
-    public static void logIn(Activity activity, long customerId, String firstName) {
-        setExtraIdInSession(Extra.CUSTOMER_ID, customerId);
+    public static void logIn(final Activity activity, final Customer customer) {
+        setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
 
-        if (SignActivity.class.equals(activity.getClass())) {
-            LoginActivity.self.finish();
-            goToHomeActivityWithWelcome((SignActivity) activity, firstName);
-        } else {
-            goToHomeActivity((LoginActivity) activity);
-        }
-    }
+        final WaitDialog waitDialog = new WaitDialog(activity);
+        final Intent intent = new Intent(activity, HomeActivity.class);
 
-    private static void goToHomeActivityWithWelcome(final SignActivity signActivity, String firstName) {
-        final WaitDialog waitDialog = new WaitDialog(signActivity);
-        final Intent intent = new Intent(signActivity, HomeActivity.class);
-
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(Extra.WELCOME, true);
-        intent.putExtra(Extra.FIRSTNAME, firstName);
-
-        TaskPlanner taskPlanner = new TaskPlanner(new Runnable() {
-            @Override
-            public void run() {
-                signActivity.startActivity(intent);
-                waitDialog.dismiss();
-                signActivity.finish();
-            }
-        }, TIMEOUT);
-
-        taskPlanner.start();
-        waitDialog.show();
-    }
-
-    private static void goToHomeActivity(final LoginActivity loginActivity) {
-        final WaitDialog waitDialog = new WaitDialog(loginActivity);
-        final Intent intent = new Intent(loginActivity, HomeActivity.class);
-
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         new TaskPlanner(new Runnable() {
             @Override
             public void run() {
-                loginActivity.startActivity(intent);
+                if (SignActivity.class.equals(activity.getClass())) {
+                    LoginActivity.self.finish();
+
+                    intent.putExtra(Extra.WELCOME, true);
+                    intent.putExtra(Extra.FIRSTNAME, customer.getFirstName());
+                }
+
+                activity.startActivity(intent);
                 waitDialog.dismiss();
-                loginActivity.finish();
+                activity.finish();
             }
         }, TIMEOUT).start();
 
@@ -78,11 +56,12 @@ public class SessionHelper {
         if (HomeActivity.class.equals(activity.getClass())) {
             HomeActivity.self.exit();
         } else {
-            Intent intent = new Intent(activity, HomeActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Intent intent = HomeActivity.self.getIntent();
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra(Extra.EXIT, true);
 
             activity.startActivity(intent);
+            activity.finish();
         }
     }
 

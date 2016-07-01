@@ -52,10 +52,7 @@ public class HomeActivity extends MotherActivity {
             gridModels[i].setActionClick(new Action() {
                 @Override
                 public void execute() {
-                    Intent intent = item.getIntent();
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                    startActivity(intent);
+                    startActivity(item.getIntent());
                 }
             });
         }
@@ -90,14 +87,11 @@ public class HomeActivity extends MotherActivity {
 
     public void exit() {
         final WaitDialog waitDialog = new WaitDialog(this);
-        final Intent intent = new Intent(this, LoginActivity.class);
-
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         new TaskPlanner(new Runnable() {
             @Override
             public void run() {
-                startActivity(intent);
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                 waitDialog.dismiss();
                 finish();
             }

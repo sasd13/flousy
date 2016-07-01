@@ -4,9 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/AndroidEX.Activity"
     android:weightSum="9"
-    android:gravity="center"
-    style="@style/AndroidEX.Activity">
+    android:gravity="center">
 
     <RelativeLayout
         android:layout_width="match_parent"
