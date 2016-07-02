@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
+import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
@@ -87,7 +88,9 @@ public class AccountActivity extends MotherActivity {
             i++;
 
             operationModels[i] = new OperationModel();
-            operationModels[i].setDate(String.valueOf(operation.getDateRealization()));
+            operationModels[i].setDate(DateTimeHelper.format(
+                    operation.getDateRealization(),
+                    DateTimeHelper.getLocaleDateFormatPattern(this, DateTimeHelper.Format.SHORT)));
             operationModels[i].setLabel(operation.getTitle());
             operationModels[i].setAmount(String.valueOf(operation.getAmount()));
             operationModels[i].setActionClick(new Action() {
