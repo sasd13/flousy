@@ -8,15 +8,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
+import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
-import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.content.form.SignFormHandler;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.gui.form.SignForm;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class SignActivity extends AppCompatActivity {
 
-    private SignForm signForm;
+    private SignFormHandler signFormHandler;
 
     private SQLiteDAO dao = SQLiteDAO.getInstance();
     private LayeredPersistor persistor = new LayeredPersistor(dao);
@@ -42,10 +42,10 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void createSignForm() {
-        signForm = new SignForm();
-        Form form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
+        signFormHandler = new SignFormHandler(this);
+        Recycler recycler = RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(form, signForm.getHolder(), this);
+        RecyclerHelper.fill(recycler, signFormHandler.fabricate(), this);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class SignActivity extends AppCompatActivity {
         if (true) {
             tryToPerformSignUp();
         } else {
-            OptionDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
+            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), tabFormErrors[0]);
         }
     }
 
@@ -95,15 +95,18 @@ public class SignActivity extends AppCompatActivity {
 
             SessionHelper.logIn(this, customer);
         } else {
-            OptionDialog.showOkDialog(this, "Error sign", "Email (" + customer.getEmail() + ") already exists");
+            OptionDialog.showOkDialog(
+                    this,
+                    getResources().getString(R.string.title_error),
+                    getResources().getString(R.string.message_email_exists) + " " + customer.getEmail());
         }
     }
 
     private Customer getCustomerFromForm() {
         Customer customer = new Customer();
-        customer.setFirstName(signForm.getFirstName());
-        customer.setLastName(signForm.getLastName());
-        customer.setEmail(signForm.getEmail());
+        customer.setFirstName(signFormHandler.getFirstName());
+        customer.setLastName(signFormHandler.getLastName());
+        customer.setEmail(signFormHandler.getEmail());
 
         return customer;
     }
@@ -116,7 +119,7 @@ public class SignActivity extends AppCompatActivity {
             long id = dao.getEntityDAO(Customer.class).insert(customer);
             customer.setId(id);
 
-            String password = signForm.getPassword();
+            String password = signFormHandler.getPassword();
             SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
             passwordDAO.insert(password, customer.getId());
 

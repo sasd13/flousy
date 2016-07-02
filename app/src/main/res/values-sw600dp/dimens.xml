@@ -7,7 +7,4 @@
     <dimen name="login_textview_restorepassword_padding">9dp</dimen>
     <dimen name="login_textview_sign_padding">9dp</dimen>
 
-    <!-- Form user -->
-    <dimen name="form_user_checkbox_horizontalmargin">9dp</dimen>
-
 </resources>

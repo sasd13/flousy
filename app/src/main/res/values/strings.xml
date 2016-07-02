@@ -3,59 +3,78 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen">@string/app_name</string>
-    <string name="activity_login">Connexion</string>
-    <string name="activity_sign">Inscription</string>
+    <string name="activity_login">Log in</string>
+    <string name="activity_sign">Sign</string>
     <string name="activity_home">Home</string>
-    <string name="activity_account">Compte</string>
+    <string name="activity_account">Account</string>
     <string name="activity_operation">Operation</string>
-    <string name="activity_consult">Consulter</string>
+    <string name="activity_consult">Consult</string>
     <string name="activity_finances">Finances</string>
-    <string name="activity_friends">Amis</string>
-    <string name="activity_offers">Offres</string>
-    <string name="activity_settings">Options</string>
+    <string name="activity_friends">Friends</string>
+    <string name="activity_offers">Offers</string>
+    <string name="activity_settings">Settings</string>
 
     <!-- Activity Log -->
-    <string name="login_button_connect">Connexion</string>
-    <string name="login_textview_sign">Inscription sur Flousy</string>
-    <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="login_alertdialog_title_error_login">Erreur connexion</string>
-    <string name="login_alertdialog_message_error_login">Identifiants invalides</string>
-
-    <!-- Activity Sign -->
-    <string name="sign_alertdialog_title_error_sign">Erreur inscription</string>
-    <string name="sign_alertdialog_message_error_sign">Remplir le formulaire d\'inscription</string>
+    <string name="login_button_connect">Connect</string>
+    <string name="login_textview_sign">Sign up on Flousy</string>
+    <string name="login_textview_restorepassword">Password forgotten?</string>
+    <string name="login_alertdialog_title_error_login">Connection error</string>
+    <string name="login_alertdialog_message_error_login">invalid logins</string>
 
     <!-- Activity Home -->
-    <string name="home_alertdialog_title_welcome">Bienvenue</string>
-    <string name="home_alertdialog_message_welcome">Salut</string>
+    <string name="home_alertdialog_title_welcome">Welcome</string>
+    <string name="home_alertdialog_message_welcome">Hello</string>
 
     <!-- Activity Account -->
-    <string name="account_textview_sold_title">Solde :</string>
+    <string name="account_textview_sold_title">Sold :</string>
     <string name="account_textview_sold">0.0</string>
-    <string name="account_textview_operations">Opérations</string>
+    <string name="account_textview_operations">Operations</string>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
 
+    <!-- EditText -->
+    <string name="edittext_hint_email">email</string>
+
     <!-- Form -->
     <string name="form_textview_date">Date</string>
     <string name="form_textview_hint_date">2015</string>
-
-    <!-- Form operation -->
     <string name="form_operation_textview_type">Type</string>
-    <string name="form_operation_radiobutton_type_debit">Débit</string>
-    <string name="form_operation_radiobutton_type_credit">Crédit</string>
-    <string name="form_operation_textview_title">Intitulé</string>
-    <string name="form_operation_edittext_hint_title">Intitulé</string>
-    <string name="form_operation_textview_amount">Montant</string>
+    <string name="form_operation_radiobutton_type_debit">Debit</string>
+    <string name="form_operation_radiobutton_type_credit">Credit</string>
+    <string name="form_operation_textview_title">Title</string>
+    <string name="form_operation_edittext_hint_title">Title</string>
+    <string name="form_operation_textview_amount">Amount</string>
     <string name="form_operation_edittext_hint_amount">0.0</string>
+
+    <!-- Label -->
+    <string name="label_firstname">First name</string>
+    <string name="label_lastname">Last name</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_terms">General terms of use</string>
+
+    <!-- Menu -->
+    <string name="menuitem_action_done">Valid</string>
+    <string name="menuitem_action_new">New</string>
+    <string name="menuitem_action_edit">Edit</string>
+    <string name="menuitem_action_delete">Delete</string>
+    <string name="menuitem_action_refresh">Refresh</string>
+
+    <!-- Message -->
+    <string name="message_email_exists">Email already exists:</string>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>
-    <string name="tabitem_textview_title">Intitulé</string>
+    <string name="tabitem_textview_title">Title</string>
     <string name="tabitem_textview_amount">0.0</string>
     <string name="tabitemtitle_textview_date">Date</string>
     <string name="tabitemtitle_textview_title">Intitule</string>
-    <string name="tabitemtitle_textview_amount">Prix</string>
+    <string name="tabitemtitle_textview_amount">Amount</string>
+
+    <!-- Title -->
+    <string name="title_identity">Identity</string>
+    <string name="title_account">Account</string>
+    <string name="title_fill_form">Fill form below</string>
 
 </resources>

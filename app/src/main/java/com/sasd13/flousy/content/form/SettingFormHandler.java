@@ -1,13 +1,13 @@
-package com.sasd13.flousy.gui.form;
+package com.sasd13.flousy.content.form;
 
+import android.content.Context;
 import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
-import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
 import com.sasd13.androidex.gui.widget.recycler.form.FormModel;
-import com.sasd13.androidex.gui.widget.recycler.form.PasswordModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
+import com.sasd13.flousy.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,52 +15,41 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class SignForm {
+public class SettingFormHandler extends FormHandler {
 
-    private RecyclerHolder holder;
     private TextModel textModelFirstName, textModelLastName, textModelEmail;
-    private PasswordModel passwordModel;
-    private BooleanModel booleanModelTerms;
 
-    public SignForm() {
-        holder = new RecyclerHolder();
+    public SettingFormHandler(Context context) {
+        super(context);
+    }
 
+    public RecyclerHolder fabricate() {
         List<RecyclerModel> formModels = new ArrayList<>();
 
         textModelFirstName = new TextModel();
         textModelFirstName.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        textModelFirstName.setLabel("First name");
+        textModelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
         textModelFirstName.setHint(textModelFirstName.getLabel().toLowerCase());
         formModels.add(textModelFirstName);
 
         textModelLastName = new TextModel();
         textModelLastName.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        textModelLastName.setLabel("Last name");
+        textModelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
         textModelLastName.setHint(textModelLastName.getLabel().toLowerCase());
         formModels.add(textModelLastName);
 
-        holder.add("Identité", formModels.toArray(new FormModel[formModels.size()]));
+        holder.add(context.getResources().getString(R.string.title_identity), formModels.toArray(new FormModel[formModels.size()]));
 
         formModels.clear();
 
         textModelEmail = new TextModel();
         textModelEmail.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        textModelEmail.setLabel("Email");
+        textModelEmail.setLabel(context.getResources().getString(R.string.label_email));
         textModelEmail.setHint(textModelEmail.getLabel().toLowerCase());
         formModels.add(textModelEmail);
 
-        passwordModel = new PasswordModel();
-        passwordModel.setLabel("Password");
-        formModels.add(passwordModel);
+        holder.add(context.getResources().getString(R.string.title_account), formModels.toArray(new FormModel[formModels.size()]));
 
-        booleanModelTerms = new BooleanModel();
-        booleanModelTerms.setLabel("Terms of use");
-        formModels.add(booleanModelTerms);
-
-        holder.add("Compte", formModels.toArray(new FormModel[formModels.size()]));
-    }
-
-    public RecyclerHolder getHolder() {
         return holder;
     }
 
@@ -86,13 +75,5 @@ public class SignForm {
 
     public void setEmail(String email) {
         textModelEmail.setValue(email);
-    }
-
-    public String getPassword() {
-        return passwordModel.getValue();
-    }
-
-    public boolean getTerms() {
-        return booleanModelTerms.getValue();
     }
 }

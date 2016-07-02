@@ -8,14 +8,14 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
+import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
-import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
+import com.sasd13.flousy.content.form.SettingFormHandler;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.form.SettingForm;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class SettingsActivity extends MotherActivity {
 
-    private SettingForm settingForm;
+    private SettingFormHandler settingFormHandler;
 
     private Customer customer;
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
@@ -41,10 +41,10 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void createSettingForm() {
-        settingForm = new SettingForm();
-        Form form = (Form) RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.settings_recyclerview));
+        settingFormHandler = new SettingFormHandler(this);
+        Recycler recycler = RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.settings_recyclerview));
 
-        RecyclerHelper.fill(form, settingForm.getHolder(), this);
+        RecyclerHelper.fill(recycler, settingFormHandler.fabricate(), this);
     }
 
     @Override
@@ -56,9 +56,9 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void setCustomerSettings() {
-        settingForm.setFirstName(customer.getFirstName());
-        settingForm.setLastName(customer.getLastName());
-        settingForm.setEmail(customer.getEmail());
+        settingFormHandler.setFirstName(customer.getFirstName());
+        settingFormHandler.setLastName(customer.getLastName());
+        settingFormHandler.setEmail(customer.getEmail());
     }
 
     @Override
@@ -99,7 +99,7 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void tryToPerformUpdateCustomer() {
-        String email = settingForm.getEmail();
+        String email = settingFormHandler.getEmail();
 
         Map<String, String[]> parameters = new HashMap<>();
         parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
@@ -108,7 +108,10 @@ public class SettingsActivity extends MotherActivity {
         if (customers.isEmpty() || customers.get(0).getId() == SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) {
             performUpdate();
         } else {
-            OptionDialog.showOkDialog(this, "Error update", "Email (" + email + ") already exists");
+            OptionDialog.showOkDialog(
+                    this,
+                    getResources().getString(R.string.title_error),
+                    getResources().getString(R.string.message_email_exists) + " " + email);
         }
     }
 
@@ -119,8 +122,8 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void editCustomerWithForm() {
-        customer.setFirstName(settingForm.getFirstName());
-        customer.setLastName(settingForm.getLastName());
-        customer.setEmail(settingForm.getEmail());
+        customer.setFirstName(settingFormHandler.getFirstName());
+        customer.setLastName(settingFormHandler.getLastName());
+        customer.setEmail(settingFormHandler.getEmail());
     }
 }

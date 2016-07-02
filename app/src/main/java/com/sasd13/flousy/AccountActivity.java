@@ -8,24 +8,21 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.sasd13.androidex.gui.widget.recycler.RecyclerHeader;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
-import com.sasd13.androidex.gui.widget.recycler.tab.TabItem;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.tab.OperationItem;
 import com.sasd13.flousy.gui.tab.OperationModel;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,15 +40,11 @@ public class AccountActivity extends MotherActivity {
 
         setContentView(R.layout.activity_account);
         GUIHelper.colorTitles(this);
-        createTextViewSold();
-        createTabOperations();
+        createViews();
     }
 
-    private void createTextViewSold() {
+    private void createViews() {
         textViewSold = (TextView) findViewById(R.id.account_textview_sold);
-    }
-
-    private void createTabOperations() {
         tab = (Tab) RecyclerHelper.create(RecyclerType.TAB, (RecyclerView) findViewById(R.id.account_recyclerview));
     }
 
@@ -74,28 +67,26 @@ public class AccountActivity extends MotherActivity {
 
     private void fillTabOperations(List<Operation> operations) {
         tab.clear();
-
         addOperationsToTab(operations);
     }
 
     private void addOperationsToTab(List<Operation> operations) {
-        List<TabItem> tabItems = new ArrayList<>();
-        OperationItem operationItem;
-        OperationModel operationModel;
+        RecyclerHolder recyclerHolder = new RecyclerHolder();
+        OperationModel[] operationModels = new OperationModel[operations.size()];
 
-        for (int i=0; i<3; i++) {
-            operationItem = new OperationItem();
-            operationModel = new OperationModel();
+        int i = -1;
 
-            operationModel.setDate(String.valueOf(2000 + i));
-            operationModel.setLabel("Opération " + i);
-            operationModel.setAmount(String.valueOf(1000 + 1000*i));
-            operationModel.addObserver(operationItem);
+        for (Operation operation : operations) {
+            i++;
 
-            tabItems.add(operationItem);
+            operationModels[i] = new OperationModel();
+            operationModels[i].setDate(String.valueOf(operation.getDateRealization()));
+            operationModels[i].setLabel(operation.getTitle());
+            operationModels[i].setAmount(String.valueOf(operation.getAmount()));
         }
 
-        tab.add(new RecyclerHeader("Aujourd'hui"), tabItems);
+        recyclerHolder.add(operationModels);
+        RecyclerHelper.fill(tab, recyclerHolder, this);
     }
 
     @Override

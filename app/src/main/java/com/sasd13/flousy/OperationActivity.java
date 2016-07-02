@@ -3,20 +3,21 @@ package com.sasd13.flousy;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
+import com.sasd13.androidex.gui.widget.recycler.Recycler;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.util.GUIHelper;
+import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
+import com.sasd13.flousy.content.form.OperationFormHandler;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
@@ -28,14 +29,7 @@ import java.util.Map;
 
 public class OperationActivity extends MotherActivity {
 
-    private class FormOperationViewHolder {
-        public TextView textViewDateRealization;
-        public EditText editTextTitle, editTextAmount;
-        public RadioGroup radioGroupType;
-        public RadioButton radioButtonDebit, radioButtonCredit;
-    }
-
-    private FormOperationViewHolder formOperation;
+    private OperationFormHandler operationFormHandler;
 
     private Operation operation;
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
@@ -50,9 +44,10 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void createFormOperation() {
-        formOperation = new FormOperationViewHolder();
+        operationFormHandler = new OperationFormHandler(this);
+        Recycler recycler = RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.operation_recyclerview));
 
-        //TODO
+        RecyclerHelper.fill(recycler, operationFormHandler.fabricate(), this);
     }
 
     @Override
@@ -77,8 +72,8 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void fillNewFormOperation() {
-        formOperation.textViewDateRealization.setText(String.valueOf(new Timestamp(System.currentTimeMillis())));
-        formOperation.radioButtonDebit.setChecked(true);
+        operationFormHandler.setDateRealization(String.valueOf(new Timestamp(System.currentTimeMillis())));
+        operationFormHandler.setType(0, new String[] {"Débit", "Crédit"});
     }
 
     private long getOperationIdFromIntent() {
@@ -86,14 +81,16 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void fillEditFormOperation() {
-        formOperation.textViewDateRealization.setText(String.valueOf(operation.getDateRealization()));
-        formOperation.editTextTitle.setText(operation.getTitle(), TextView.BufferType.EDITABLE);
-        formOperation.editTextAmount.setText(String.valueOf(Math.abs(operation.getAmount())), TextView.BufferType.EDITABLE);
+        operationFormHandler.setDateRealization(String.valueOf(operation.getDateRealization()));
+        operationFormHandler.setTitle(operation.getTitle());
+        operationFormHandler.setAmount(String.valueOf(Math.abs(operation.getAmount())));
+
+        String[] items = {"Débit", "Crédit"};
 
         if (operation.getAmount() <= 0) {
-            formOperation.radioButtonDebit.setChecked(true);
+            operationFormHandler.setType(0, items);
         } else {
-            formOperation.radioButtonCredit.setChecked(true);
+            operationFormHandler.setType(1, items);
         }
     }
 
@@ -170,18 +167,18 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void editOperationWithForm(Operation operation) {
-        operation.setTitle(formOperation.editTextTitle.getText().toString().trim());
+        operation.setTitle(operationFormHandler.getTitle());
 
-        String amount = formOperation.editTextAmount.getText().toString().trim();
-        /*
-        switch (formOperation.radioGroupType.getCheckedRadioButtonId()) {
-            case R.id.form_operation_radiobutton_type_debit:
+        String amount = operationFormHandler.getAmount();
+
+        switch (operationFormHandler.getType()) {
+            case 0:
                 operation.setAmount(0 - Math.abs(Double.parseDouble(amount)));
                 break;
-            case R.id.form_operation_radiobutton_type_credit:
+            case 1:
                 operation.setAmount(Math.abs(Double.parseDouble(amount)));
                 break;
-        }*/
+        }
     }
 
     private void goToAccountActivity() {

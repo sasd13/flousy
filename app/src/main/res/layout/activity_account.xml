@@ -31,7 +31,7 @@
         style="@style/AndroidEX.TitleWithTextAllCaps"
         android:tag="title_0"
         android:layout_below="@id/account_textview_sold_title"
-        android:layout_marginTop="@dimen/viewgroup_margin"
+        android:layout_marginTop="@dimen/viewgroup_margin_medium"
         android:text="@string/account_textview_operations"/>
 
     <android.support.v7.widget.RecyclerView

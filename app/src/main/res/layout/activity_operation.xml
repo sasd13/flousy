@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/AndroidEX.Activity">
+
+    <TextView
+        android:id="@+id/operation_textview_title_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AndroidEX.TitleWithTextAllCaps"
+        android:tag="title_0"
+        android:layout_alignParentTop="true"
+        android:text="@string/title_fill_form"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/operation_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/AndroidEX.Recycler"
-        android:layout_gravity="center"
+        style="@style/AndroidEX.RecyclerWithPaddingHorizontal"
+        android:layout_below="@id/operation_textview_title_form"
         android:scrollbars="vertical"/>
 
-</FrameLayout>
+</RelativeLayout>
