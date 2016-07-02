@@ -23,7 +23,8 @@ import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
-import java.sql.Timestamp;
+import org.joda.time.LocalDate;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,7 +73,7 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void fillNewFormOperation() {
-        operationFormHandler.setDateRealization(String.valueOf(new Timestamp(System.currentTimeMillis())));
+        operationFormHandler.setDateRealization(new LocalDate(System.currentTimeMillis()));
         operationFormHandler.setType(0, new String[] {"Débit", "Crédit"});
     }
 
@@ -81,7 +82,7 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void fillEditFormOperation() {
-        operationFormHandler.setDateRealization(String.valueOf(operation.getDateRealization()));
+        operationFormHandler.setDateRealization(new LocalDate(operation.getDateRealization()));
         operationFormHandler.setTitle(operation.getTitle());
         operationFormHandler.setAmount(String.valueOf(Math.abs(operation.getAmount())));
 

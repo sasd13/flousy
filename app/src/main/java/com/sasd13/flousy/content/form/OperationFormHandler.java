@@ -5,8 +5,11 @@ import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
+import com.sasd13.androidex.gui.widget.recycler.form.DateModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
+
+import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,8 @@ import java.util.List;
  */
 public class OperationFormHandler extends FormHandler {
 
-    private TextModel textModelDateRealization, textModelTitle, textModelAmount;
+    private DateModel dateModelDateRealization;
+    private TextModel textModelTitle, textModelAmount;
     private RadioSpinModel radioSpinModelType;
 
     public OperationFormHandler(Context context) {
@@ -26,10 +30,9 @@ public class OperationFormHandler extends FormHandler {
     public RecyclerHolder fabricate() {
         List<RecyclerModel> formModels = new ArrayList<>();
 
-        textModelDateRealization = new TextModel();
-        textModelDateRealization.setInputType(InputType.TYPE_DATETIME_VARIATION_DATE);
-        textModelDateRealization.setLabel("Date de réalisation");
-        formModels.add(textModelDateRealization);
+        dateModelDateRealization = new DateModel();
+        dateModelDateRealization.setLabel("Date de réalisation");
+        formModels.add(dateModelDateRealization);
 
         textModelTitle = new TextModel();
         textModelTitle.setLabel("Intitulé");
@@ -51,12 +54,12 @@ public class OperationFormHandler extends FormHandler {
         return holder;
     }
 
-    public String getDateRealization() {
-        return textModelDateRealization.getValue();
+    public LocalDate getDateRealization() {
+        return dateModelDateRealization.getValue();
     }
     
-    public void setDateRealization(String dateRealization) {
-        textModelDateRealization.setValue(dateRealization);
+    public void setDateRealization(LocalDate dateRealization) {
+        dateModelDateRealization.setValue(dateRealization);
     }
 
     public String getTitle() {
