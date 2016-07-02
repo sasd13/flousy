@@ -8,6 +8,7 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.form.DateModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
+import com.sasd13.androidex.util.DateTimeHelper;
 
 import org.joda.time.LocalDate;
 
@@ -30,7 +31,9 @@ public class OperationFormHandler extends FormHandler {
     public RecyclerHolder fabricate() {
         List<RecyclerModel> formModels = new ArrayList<>();
 
-        dateModelDateRealization = new DateModel();
+        String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT);
+
+        dateModelDateRealization = new DateModel(pattern);
         dateModelDateRealization.setLabel("Date de réalisation");
         formModels.add(dateModelDateRealization);
 
@@ -40,7 +43,7 @@ public class OperationFormHandler extends FormHandler {
         formModels.add(textModelTitle);
 
         textModelAmount = new TextModel();
-        textModelAmount.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        textModelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         textModelAmount.setLabel("Montant");
         formModels.add(textModelAmount);
 

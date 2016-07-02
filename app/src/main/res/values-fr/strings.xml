@@ -59,7 +59,7 @@
     <string name="menuitem_action_new">Nouveau</string>
     <string name="menuitem_action_edit">Modiifer</string>
     <string name="menuitem_action_delete">Supprimer</string>
-    <string name="menuitem_action_refresh">Rafraîchir</string>
+    <string name="menuitem_action_refresh">Actualiser</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email existe déjà:</string>

@@ -86,6 +86,7 @@ public class HomeActivity extends MotherActivity {
 
     public void exit() {
         final WaitDialog waitDialog = new WaitDialog(this);
+        waitDialog.setCancelable(false);
 
         new TaskPlanner(new Runnable() {
             @Override

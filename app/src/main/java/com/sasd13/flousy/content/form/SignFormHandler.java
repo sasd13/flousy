@@ -31,13 +31,13 @@ public class SignFormHandler extends FormHandler {
         List<RecyclerModel> formModels = new ArrayList<>();
 
         textModelFirstName = new TextModel();
-        textModelFirstName.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        textModelFirstName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         textModelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
         textModelFirstName.setHint(textModelFirstName.getLabel().toLowerCase());
         formModels.add(textModelFirstName);
 
         textModelLastName = new TextModel();
-        textModelLastName.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        textModelLastName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         textModelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
         textModelLastName.setHint(textModelLastName.getLabel().toLowerCase());
         formModels.add(textModelLastName);
@@ -47,7 +47,7 @@ public class SignFormHandler extends FormHandler {
         formModels.clear();
 
         textModelEmail = new TextModel();
-        textModelEmail.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        textModelEmail.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         textModelEmail.setLabel(context.getResources().getString(R.string.label_email));
         textModelEmail.setHint(textModelEmail.getLabel().toLowerCase());
         formModels.add(textModelEmail);
