@@ -4,6 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    style="@style/AndroidEX.Recycler.Item"
     android:paddingLeft="@dimen/recyclerheader_padding_horizontal"
     android:paddingRight="@dimen/recyclerheader_padding_horizontal"
     android:paddingTop="@dimen/recyclerheader_padding_vertical"

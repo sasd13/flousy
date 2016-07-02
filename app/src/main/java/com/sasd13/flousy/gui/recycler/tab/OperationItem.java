@@ -1,4 +1,4 @@
-package com.sasd13.flousy.gui.tab;
+package com.sasd13.flousy.gui.recycler.tab;
 
 import android.widget.TextView;
 

@@ -8,8 +8,8 @@ import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
+import com.sasd13.androidex.gui.widget.recycler.grid.GridFactory;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
@@ -31,11 +31,13 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void createGridNav() {
-        Grid grid = (Grid) RecyclerHelper.create(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
-        fillGrid(grid);
+        GridFactory gridFactory = new GridFactory(this);
+        Grid grid = (Grid) gridFactory.makeBuilder().build((RecyclerView) findViewById(R.id.home_recyclerview));
+
+        fillGridNav(grid, gridFactory);
     }
 
-    private void fillGrid(Grid grid) {
+    private void fillGridNav(Grid grid, GridFactory gridFactory) {
         Browser.Item[] items = Browser.getInstance().getItems();
         GridModel[] gridModels = new GridModel[items.length];
 
@@ -59,7 +61,7 @@ public class HomeActivity extends MotherActivity {
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         recyclerHolder.add(gridModels);
 
-        RecyclerHelper.fill(grid, recyclerHolder, this);
+        RecyclerHelper.fill(grid, recyclerHolder, gridFactory);
     }
 
     @Override

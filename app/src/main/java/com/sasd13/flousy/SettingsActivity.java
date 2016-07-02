@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
+import com.sasd13.androidex.gui.widget.recycler.form.Form;
+import com.sasd13.androidex.gui.widget.recycler.form.FormFactory;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
@@ -27,7 +27,6 @@ import java.util.Map;
 public class SettingsActivity extends MotherActivity {
 
     private SettingFormHandler settingFormHandler;
-
     private Customer customer;
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
@@ -37,14 +36,15 @@ public class SettingsActivity extends MotherActivity {
 
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
-        createSettingForm();
+        createFormSetting();
     }
 
-    private void createSettingForm() {
+    private void createFormSetting() {
         settingFormHandler = new SettingFormHandler(this);
-        Recycler recycler = RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.settings_recyclerview));
+        FormFactory formFactory = new FormFactory(this);
+        Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.settings_recyclerview));
 
-        RecyclerHelper.fill(recycler, settingFormHandler.fabricate(), this);
+        RecyclerHelper.fill(form, settingFormHandler.fabricate(), formFactory);
     }
 
     @Override

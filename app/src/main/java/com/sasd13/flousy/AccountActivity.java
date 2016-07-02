@@ -8,8 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.tab.Tab;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
@@ -17,7 +17,8 @@ import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.tab.OperationModel;
+import com.sasd13.flousy.gui.recycler.tab.OperationModel;
+import com.sasd13.flousy.gui.recycler.tab.TabFactory;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -30,8 +31,8 @@ import java.util.Map;
 public class AccountActivity extends MotherActivity {
 
     private TextView textViewSold;
+    private TabFactory tabFactory;
     private Tab tab;
-
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
@@ -45,7 +46,13 @@ public class AccountActivity extends MotherActivity {
 
     private void createViews() {
         textViewSold = (TextView) findViewById(R.id.account_textview_sold);
-        tab = (Tab) RecyclerHelper.create(RecyclerType.TAB, (RecyclerView) findViewById(R.id.account_recyclerview));
+
+        createTabOperations();
+    }
+
+    private void createTabOperations() {
+        tabFactory = new TabFactory(this);
+        tab = (Tab) tabFactory.makeBuilder().build((RecyclerView) findViewById(R.id.account_recyclerview));
     }
 
     @Override
@@ -76,17 +83,28 @@ public class AccountActivity extends MotherActivity {
 
         int i = -1;
 
-        for (Operation operation : operations) {
+        for (final Operation operation : operations) {
             i++;
 
             operationModels[i] = new OperationModel();
             operationModels[i].setDate(String.valueOf(operation.getDateRealization()));
             operationModels[i].setLabel(operation.getTitle());
             operationModels[i].setAmount(String.valueOf(operation.getAmount()));
+            operationModels[i].setActionClick(new Action() {
+                @Override
+                public void execute() {
+                    Intent intent = new Intent(AccountActivity.this, OperationActivity.class);
+                    intent.putExtra(Extra.MODE, Extra.MODE_EDIT);
+                    intent.putExtra(Extra.OPERATION_ID, operation.getId());
+
+                    startActivity(intent);
+                }
+            });
         }
 
         recyclerHolder.add(operationModels);
-        RecyclerHelper.fill(tab, recyclerHolder, this);
+
+        RecyclerHelper.fill(tab, recyclerHolder, tabFactory);
     }
 
     @Override

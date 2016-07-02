@@ -8,8 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
+import com.sasd13.androidex.gui.widget.recycler.form.Form;
+import com.sasd13.androidex.gui.widget.recycler.form.FormFactory;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
@@ -28,7 +28,6 @@ import java.util.Map;
 public class SignActivity extends AppCompatActivity {
 
     private SignFormHandler signFormHandler;
-
     private SQLiteDAO dao = SQLiteDAO.getInstance();
     private LayeredPersistor persistor = new LayeredPersistor(dao);
 
@@ -43,9 +42,10 @@ public class SignActivity extends AppCompatActivity {
 
     private void createSignForm() {
         signFormHandler = new SignFormHandler(this);
-        Recycler recycler = RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
+        FormFactory formFactory = new FormFactory(this);
+        Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(recycler, signFormHandler.fabricate(), this);
+        RecyclerHelper.fill(form, signFormHandler.fabricate(), formFactory);
     }
 
     @Override

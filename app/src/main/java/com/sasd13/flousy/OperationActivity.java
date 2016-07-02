@@ -10,10 +10,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
+import com.sasd13.androidex.gui.widget.recycler.form.Form;
+import com.sasd13.androidex.gui.widget.recycler.form.FormFactory;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
+import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
@@ -25,13 +26,13 @@ import com.sasd13.javaex.db.LayeredPersistor;
 
 import org.joda.time.LocalDate;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
 public class OperationActivity extends MotherActivity {
 
     private OperationFormHandler operationFormHandler;
-
     private Operation operation;
     private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
@@ -46,9 +47,10 @@ public class OperationActivity extends MotherActivity {
 
     private void createFormOperation() {
         operationFormHandler = new OperationFormHandler(this);
-        Recycler recycler = RecyclerHelper.create(RecyclerType.FORM, (RecyclerView) findViewById(R.id.operation_recyclerview));
+        FormFactory formFactory = new FormFactory(this);
+        Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.operation_recyclerview));
 
-        RecyclerHelper.fill(recycler, operationFormHandler.fabricate(), this);
+        RecyclerHelper.fill(form, operationFormHandler.fabricate(), formFactory);
     }
 
     @Override
@@ -144,7 +146,6 @@ public class OperationActivity extends MotherActivity {
         if (true) {
             performCreateOperation();
             Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
-            goToAccountActivity();
         } else {
             OptionDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
         }
@@ -168,6 +169,7 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void editOperationWithForm(Operation operation) {
+        operation.setDateRealization(new Timestamp(operationFormHandler.getDateRealization().toDate().getTime()));
         operation.setTitle(operationFormHandler.getTitle());
 
         String amount = operationFormHandler.getAmount();
@@ -183,8 +185,13 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void goToAccountActivity() {
-        startActivity(new Intent(this, AccountActivity.class));
-        finish();
+        new TaskPlanner(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(OperationActivity.this, AccountActivity.class));
+                finish();
+            }
+        }, 1500).start();
     }
 
     private void updateOperation() {
@@ -193,7 +200,6 @@ public class OperationActivity extends MotherActivity {
         if (true) {
             performUpdateOperation();
             Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
-            goToAccountActivity();
         } else {
             OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), tabFormErrors[0]);
         }
