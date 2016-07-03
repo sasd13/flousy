@@ -28,8 +28,8 @@ public class LogInActivity extends AppCompatActivity {
 
         self = this;
 
-        LogInHandler.init();
         setContentView(R.layout.activity_login);
+        LogInHandler.init();
         buildLogInView();
     }
 
@@ -64,19 +64,6 @@ public class LogInActivity extends AppCompatActivity {
         });
     }
 
-    private void logIn(String email, String password) {
-        Customer customer = LogInHandler.logIn(email, password);
-
-        if (customer != null) {
-            SessionHelper.logIn(this, customer);
-        } else {
-            OptionDialog.showOkDialog(
-                    this,
-                    getResources().getString(R.string.login_alertdialog_title_error_login),
-                    getResources().getString(R.string.login_alertdialog_message_error_login));
-        }
-    }
-
     private void createTextViewSign() {
         TextView textView = (TextView) findViewById(R.id.login_textview_signup);
         assert textView != null;
@@ -88,5 +75,17 @@ public class LogInActivity extends AppCompatActivity {
         });
 
         GUIHelper.addUnderline(textView);
+    }
+
+    private void logIn(String email, String password) {
+        LogInHandler.logIn(email, password);
+    }
+
+    public void onSuccess(Customer customer) {
+        SessionHelper.logIn(this, customer);
+    }
+
+    public void onError(String error) {
+        OptionDialog.showOkDialog(this, getResources().getString(R.string.login_alertdialog_title_error_login), error);
     }
 }

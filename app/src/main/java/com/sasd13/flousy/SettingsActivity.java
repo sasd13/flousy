@@ -25,9 +25,9 @@ public class SettingsActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SettingsHandler.init(this);
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
+        SettingsHandler.init(this);
         buildFormSettings();
     }
 

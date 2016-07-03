@@ -28,9 +28,9 @@ public class OperationActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        OperationHandler.init(this);
         setContentView(R.layout.activity_operation);
         GUIHelper.colorTitles(this);
+        OperationHandler.init(this);
         buildOperationView();
     }
 

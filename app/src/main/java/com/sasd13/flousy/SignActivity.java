@@ -22,9 +22,9 @@ public class SignActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SignHandler.init(this);
         setContentView(R.layout.activity_sign);
         GUIHelper.colorTitles(this);
+        SignHandler.init(this);
         buildSignView();
     }
 

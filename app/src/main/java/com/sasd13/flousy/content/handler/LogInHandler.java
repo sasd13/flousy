@@ -1,5 +1,6 @@
 package com.sasd13.flousy.content.handler;
 
+import com.sasd13.flousy.LogInActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
@@ -21,16 +22,18 @@ public class LogInHandler {
         dao = SQLiteDAO.getInstance();
     }
 
-    public static Customer logIn(String email, String password) {
+    public static void logIn(String email, String password) {
         Map<String, String[]> parameters = new HashMap<>();
         parameters.put(Parameter.EMAIL.getName(), new String[]{email});
+
+        Customer customer = null;
 
         try {
             dao.open();
 
             List<Customer> customers = dao.getEntityDAO(Customer.class).select(parameters);
             if (customers.size() == 1 && passwordMatches(customers.get(0), password)) {
-                return customers.get(0);
+                customer = customers.get(0);
             }
         } catch (DAOException e) {
             e.printStackTrace();
@@ -38,7 +41,13 @@ public class LogInHandler {
             dao.close();
         }
 
-        return null;
+        if (customer != null) {
+            LogInActivity.self.onSuccess(customer);
+        } else {
+            String error = LogInActivity.self.getResources().getString(com.sasd13.androidex.R.string.message_error_login);
+
+            LogInActivity.self.onError(error);
+        }
     }
 
     private static boolean passwordMatches(Customer customer, String password) {

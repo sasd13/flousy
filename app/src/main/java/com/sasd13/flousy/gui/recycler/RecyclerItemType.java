@@ -7,7 +7,8 @@ import com.sasd13.androidex.gui.widget.IItemType;
  */
 public enum RecyclerItemType implements IItemType {
 
-    TAB_OPERATION("TAB_OPERATION");
+    TAB_OPERATION("TAB_OPERATION"),
+    ;
 
     private String code;
 
