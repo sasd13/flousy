@@ -11,26 +11,16 @@ import android.widget.TextView;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.content.handler.LogInHandler;
 import com.sasd13.flousy.util.SessionHelper;
-import com.sasd13.javaex.db.DAOException;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+public class LogInActivity extends AppCompatActivity {
 
-public class LoginActivity extends AppCompatActivity {
-
-    private class FormLoginViewHolder {
+    private class LogInForm {
         public EditText editTextEmail, editTextPassword;
     }
 
-    public static LoginActivity self;
-
-    private FormLoginViewHolder formLogin;
-    private SQLiteDAO dao = SQLiteDAO.getInstance();
+    public static LogInActivity self;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,68 +28,62 @@ public class LoginActivity extends AppCompatActivity {
 
         self = this;
 
+        LogInHandler.init();
         setContentView(R.layout.activity_login);
-        createFormLog();
-        createButtonConnect();
-        setTextViewSign();
+        buildLogInView();
     }
 
-    private void createFormLog() {
-        formLogin = new FormLoginViewHolder();
-        formLogin.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
-        formLogin.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
+    private void buildLogInView() {
+        createFormLogIn();
+        createTextViewSign();
     }
 
-    private void createButtonConnect() {
+    private void createFormLogIn() {
+        LogInForm logInForm = new LogInForm();
+        logInForm.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
+        logInForm.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
+
+        createButtonConnect(logInForm);
+    }
+
+    private void createButtonConnect(final LogInForm logInForm) {
         Button button = (Button) findViewById(R.id.login_button_connect);
+        assert button != null;
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (formLogin.editTextEmail.getText().toString().trim().length() > 0
-                        && formLogin.editTextPassword.getText().toString().trim().length() > 0) {
-                    logIn();
+                if (!logInForm.editTextEmail.getText().toString().trim().isEmpty()
+                        && !logInForm.editTextPassword.getText().toString().trim().isEmpty()) {
+                    String email = logInForm.editTextEmail.getText().toString().trim();
+                    String password = logInForm.editTextPassword.getText().toString().trim();
+
+                    logIn(email, password);
                 }
             }
         });
     }
 
-    private void logIn() {
-        String email = formLogin.editTextEmail.getText().toString().trim();
-        String candidate = formLogin.editTextPassword.getText().toString().trim();
+    private void logIn(String email, String password) {
+        Customer customer = LogInHandler.logIn(email, password);
 
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{email});
-
-        try {
-            dao.open();
-
-            List<Customer> customers = dao.getEntityDAO(Customer.class).select(parameters);
-            if (customers.size() == 1 && passwordMatches(customers.get(0), candidate)) {
-                SessionHelper.logIn(this, customers.get(0));
-            } else {
-                OptionDialog.showOkDialog(
-                        this,
-                        getResources().getString(R.string.login_alertdialog_title_error_login),
-                        getResources().getString(R.string.login_alertdialog_message_error_login));
-            }
-        } catch (DAOException e) {
-            e.printStackTrace();
-        } finally {
-            dao.close();
+        if (customer != null) {
+            SessionHelper.logIn(this, customer);
+        } else {
+            OptionDialog.showOkDialog(
+                    this,
+                    getResources().getString(R.string.login_alertdialog_title_error_login),
+                    getResources().getString(R.string.login_alertdialog_message_error_login));
         }
     }
 
-    private boolean passwordMatches(Customer customer, String password) {
-        return new SQLitePasswordDAO(dao.getDB()).contains(password, customer.getId());
-    }
-
-    private void setTextViewSign() {
+    private void createTextViewSign() {
         TextView textView = (TextView) findViewById(R.id.login_textview_signup);
+        assert textView != null;
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, SignActivity.class));
+                startActivity(new Intent(LogInActivity.this, SignActivity.class));
             }
         });
 

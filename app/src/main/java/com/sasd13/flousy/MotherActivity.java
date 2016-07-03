@@ -5,7 +5,7 @@ import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerModel;
 import com.sasd13.androidex.gui.widget.recycler.drawer.NavModel;
-import com.sasd13.flousy.gui.Browser;
+import com.sasd13.flousy.content.Browser;
 import com.sasd13.flousy.util.SessionHelper;
 
 public abstract class MotherActivity extends DrawerActivity {
@@ -30,7 +30,6 @@ public abstract class MotherActivity extends DrawerActivity {
             i++;
 
             navModels[i] = new NavModel();
-
             navModels[i].setIcon(item.getIcon());
             navModels[i].setLabel(item.getLabel());
             navModels[i].setActionClick(new Action() {
@@ -41,12 +40,12 @@ public abstract class MotherActivity extends DrawerActivity {
             });
         }
 
-        recyclerHolder.add("Menu", navModels);
+        recyclerHolder.add(getResources().getString(R.string.drawer_header_menu), navModels);
     }
 
     private void addAccountItems(RecyclerHolder recyclerHolder) {
         DrawerModel drawerModel = new DrawerModel();
-        drawerModel.setLabel("Déconnexion");
+        drawerModel.setLabel(getResources().getString(R.string.drawer_label_logout));
         drawerModel.setActionClick(new Action() {
             @Override
             public void execute() {
@@ -54,6 +53,6 @@ public abstract class MotherActivity extends DrawerActivity {
             }
         });
 
-        recyclerHolder.add("Compte", new DrawerModel[]{ drawerModel });
+        recyclerHolder.add(getResources().getString(R.string.drawer_header_account), new DrawerModel[]{ drawerModel });
     }
 }

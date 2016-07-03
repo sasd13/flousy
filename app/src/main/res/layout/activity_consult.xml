@@ -5,41 +5,41 @@
     style="@style/AndroidEX.Activity">
 
     <TextView
-        android:id="@+id/account_textview_sold_title"
+        android:id="@+id/consult_textview_sold_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/activity_padding"
         android:layout_marginTop="@dimen/activity_padding"
-        android:text="@string/account_textview_sold_title"
+        android:text="@string/consult_textview_sold_title"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/account_textview_sold"
+        android:id="@+id/consult_textview_sold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignBaseline="@id/account_textview_sold_title"
+        android:layout_alignBaseline="@id/consult_textview_sold_title"
         android:layout_marginRight="@dimen/activity_padding"
-        android:text="@string/account_textview_sold"/>
+        android:text="@string/consult_textview_sold"/>
 
     <TextView
-        android:id="@+id/account_textview_operations"
+        android:id="@+id/consult_textview_operations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/AndroidEX.TitleWithTextAllCaps"
         android:tag="title_0"
-        android:layout_below="@id/account_textview_sold_title"
+        android:layout_below="@id/consult_textview_sold_title"
         android:layout_marginTop="@dimen/viewgroup_margin_medium"
-        android:text="@string/account_textview_operations"/>
+        android:text="@string/consult_textview_operations"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/account_recyclerview"
+        android:id="@+id/consult_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="@style/AndroidEX.RecyclerWithPaddingHorizontal"
-        android:layout_below="@id/account_textview_operations"
+        android:layout_below="@id/consult_textview_operations"
         android:layout_gravity="center"
         android:scrollbars="vertical"
         android:scrollbarStyle="outsideOverlay"/>

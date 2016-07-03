@@ -18,13 +18,13 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class OperationFormHandler extends FormHandler {
+public class OperationForm extends Form {
 
     private DateModel dateModelDateRealization;
     private TextModel textModelTitle, textModelAmount;
     private RadioSpinModel radioSpinModelType;
 
-    public OperationFormHandler(Context context) {
+    public OperationForm(Context context) {
         super(context);
     }
 

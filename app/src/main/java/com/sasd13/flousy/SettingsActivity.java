@@ -14,51 +14,35 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.content.form.SettingFormHandler;
-import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.content.handler.SettingsHandler;
 import com.sasd13.flousy.util.SessionHelper;
-import com.sasd13.javaex.db.LayeredPersistor;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class SettingsActivity extends MotherActivity {
 
-    private SettingFormHandler settingFormHandler;
     private Customer customer;
-    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        SettingsHandler.init(this);
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
-        createFormSetting();
+        buildFormSettings();
     }
 
-    private void createFormSetting() {
-        settingFormHandler = new SettingFormHandler(this);
+    private void buildFormSettings() {
         FormFactory formFactory = new FormFactory(this);
         Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.settings_recyclerview));
 
-        RecyclerHelper.fill(form, settingFormHandler.fabricate(), formFactory);
+        RecyclerHelper.fill(form, SettingsHandler.getSettingForm().fabricate(), formFactory);
+        fillCustomerSettings();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void fillCustomerSettings() {
+        customer = SettingsHandler.readCustomer(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID));
 
-        customer = persistor.read(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID), Customer.class);
-        setCustomerSettings();
-    }
-
-    private void setCustomerSettings() {
-        settingFormHandler.setFirstName(customer.getFirstName());
-        settingFormHandler.setLastName(customer.getLastName());
-        settingFormHandler.setEmail(customer.getEmail());
+        SettingsHandler.fillSettingsCustomer(customer);
     }
 
     @Override
@@ -83,47 +67,18 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void updateCustomer() {
-        String[] tabFormErrors = validFormCustomer();
+        String[] errors = SettingsHandler.validFormInputs();
 
-        if (true) {
-            tryToPerformUpdateCustomer();
+        if (errors.length == 0) {
+            errors = SettingsHandler.updateCustomer(customer);
+
+            if (errors.length == 0) {
+                Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
+            } else {
+                OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), errors[0]);
+            }
         } else {
-            OptionDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
+            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), errors[0]);
         }
-    }
-
-    private String[] validFormCustomer() {
-        //TODO
-
-        return null;
-    }
-
-    private void tryToPerformUpdateCustomer() {
-        String email = settingFormHandler.getEmail();
-
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
-
-        List<Customer> customers = persistor.read(parameters, Customer.class);
-        if (customers.isEmpty() || customers.get(0).getId() == SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID)) {
-            performUpdate();
-        } else {
-            OptionDialog.showOkDialog(
-                    this,
-                    getResources().getString(R.string.title_error),
-                    getResources().getString(R.string.message_email_exists) + " " + email);
-        }
-    }
-
-    private void performUpdate() {
-        editCustomerWithForm();
-        persistor.update(customer);
-        Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
-    }
-
-    private void editCustomerWithForm() {
-        customer.setFirstName(settingFormHandler.getFirstName());
-        customer.setLastName(settingFormHandler.getLastName());
-        customer.setEmail(settingFormHandler.getEmail());
     }
 }

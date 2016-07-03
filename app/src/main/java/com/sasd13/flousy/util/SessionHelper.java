@@ -3,11 +3,12 @@ package com.sasd13.flousy.util;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.Session;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.HomeActivity;
-import com.sasd13.flousy.LoginActivity;
+import com.sasd13.flousy.LogInActivity;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
@@ -16,8 +17,6 @@ import com.sasd13.flousy.content.Extra;
  * Created by Samir on 05/03/2016.
  */
 public class SessionHelper {
-
-    private static final int TIMEOUT = 1500;
 
     public static boolean isLogged() {
         return Session.containsAttribute(Extra.CUSTOMER_ID);
@@ -36,7 +35,7 @@ public class SessionHelper {
             @Override
             public void run() {
                 if (SignActivity.class.equals(activity.getClass())) {
-                    LoginActivity.self.finish();
+                    LogInActivity.self.finish();
 
                     intent.putExtra(Extra.WELCOME, true);
                     intent.putExtra(Extra.FIRSTNAME, customer.getFirstName());
@@ -46,7 +45,7 @@ public class SessionHelper {
                 waitDialog.dismiss();
                 activity.finish();
             }
-        }, TIMEOUT).start();
+        }, GUIConstants.TIMEOUT_ACTIVITY).start();
 
         waitDialog.show();
     }

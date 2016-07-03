@@ -7,12 +7,12 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 /**
  * Created by ssaidali2 on 02/07/2016.
  */
-public abstract class FormHandler {
+public abstract class Form {
 
     protected Context context;
     protected RecyclerHolder holder;
 
-    public FormHandler(Context context) {
+    public Form(Context context) {
         this.context = context;
         holder = new RecyclerHolder();
     }

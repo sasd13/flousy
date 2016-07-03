@@ -9,92 +9,52 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.gui.widget.recycler.form.FormFactory;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.content.form.OperationFormHandler;
-import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.util.Parameter;
-import com.sasd13.flousy.util.SessionHelper;
-import com.sasd13.javaex.db.LayeredPersistor;
-
-import org.joda.time.LocalDate;
-
-import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.Map;
+import com.sasd13.flousy.content.handler.OperationHandler;
 
 public class OperationActivity extends MotherActivity {
 
-    private OperationFormHandler operationFormHandler;
     private Operation operation;
-    private LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        OperationHandler.init(this);
         setContentView(R.layout.activity_operation);
         GUIHelper.colorTitles(this);
-        createFormOperation();
+        buildOperationView();
     }
 
-    private void createFormOperation() {
-        operationFormHandler = new OperationFormHandler(this);
+    private void buildOperationView() {
         FormFactory formFactory = new FormFactory(this);
         Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.operation_recyclerview));
 
-        RecyclerHelper.fill(form, operationFormHandler.fabricate(), formFactory);
+        RecyclerHelper.fill(form, OperationHandler.getOperationForm().fabricate(), formFactory);
+        fillFormWithOperation();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void fillFormWithOperation() {
+        if (hasExtraModeEdit()) {
+            operation = OperationHandler.readOperation(getIntent().getLongExtra(Extra.OPERATION_ID, 0));
 
-        if (hasExtraModeNew()) {
-            fillNewFormOperation();
+            OperationHandler.fillEditFormOperation(operation);
         } else {
-            operation = persistor.read(getOperationIdFromIntent(), Operation.class);
-
-            fillEditFormOperation();
+            getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_new));
+            OperationHandler.fillNewFormOperation();
         }
     }
 
-    private boolean hasExtraModeNew() {
-        return getExtraMode() == Extra.MODE_NEW;
-    }
-
-    private int getExtraMode() {
-        return getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW);
-    }
-
-    private void fillNewFormOperation() {
-        operationFormHandler.setDateRealization(new LocalDate(System.currentTimeMillis()));
-        operationFormHandler.setType(0, new String[] {"Débit", "Crédit"});
-    }
-
-    private long getOperationIdFromIntent() {
-        return getIntent().getLongExtra(Extra.OPERATION_ID, 0);
-    }
-
-    private void fillEditFormOperation() {
-        operationFormHandler.setDateRealization(new LocalDate(operation.getDateRealization()));
-        operationFormHandler.setTitle(operation.getTitle());
-        operationFormHandler.setAmount(String.valueOf(Math.abs(operation.getAmount())));
-
-        String[] items = {"Débit", "Crédit"};
-
-        if (operation.getAmount() <= 0) {
-            operationFormHandler.setType(0, items);
-        } else {
-            operationFormHandler.setType(1, items);
-        }
+    private boolean hasExtraModeEdit() {
+        return getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW) == Extra.MODE_EDIT;
     }
 
     @Override
@@ -109,7 +69,7 @@ public class OperationActivity extends MotherActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
-        if (hasExtraModeNew()) {
+        if (!hasExtraModeEdit()) {
             menu.findItem(R.id.menu_operation_action_delete).setVisible(false);
         }
 
@@ -120,7 +80,7 @@ public class OperationActivity extends MotherActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_operation_action_accept:
-                createOrUpdateOperation();
+                saveOperation();
                 break;
             case R.id.menu_operation_action_delete:
                 deleteOperation();
@@ -132,82 +92,20 @@ public class OperationActivity extends MotherActivity {
         return true;
     }
 
-    private void createOrUpdateOperation() {
-        if (hasExtraModeNew()) {
-            createOperation();
-        } else {
-            updateOperation();
-        }
-    }
+    private void saveOperation() {
+        String[] formErrors = OperationHandler.validFormInputs();
 
-    private void createOperation() {
-        String[] tabFormErrors = validFormOperation();
-
-        if (true) {
-            performCreateOperation();
-            Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
-        } else {
-            OptionDialog.showOkDialog(this, "Error form", tabFormErrors[0]);
-        }
-    }
-
-    private String[] validFormOperation() {
-        //TODO
-
-        return null;
-    }
-
-    private void performCreateOperation() {
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.CUSTOMER.getName(), new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID))});
-
-        Account account = persistor.read(parameters, Account.class).get(0);
-
-        Operation operation = new Operation(account);
-        editOperationWithForm(operation);
-        persistor.create(operation);
-    }
-
-    private void editOperationWithForm(Operation operation) {
-        operation.setDateRealization(new Timestamp(operationFormHandler.getDateRealization().toDate().getTime()));
-        operation.setTitle(operationFormHandler.getTitle());
-
-        String amount = operationFormHandler.getAmount();
-
-        switch (operationFormHandler.getType()) {
-            case 0:
-                operation.setAmount(0 - Math.abs(Double.parseDouble(amount)));
-                break;
-            case 1:
-                operation.setAmount(Math.abs(Double.parseDouble(amount)));
-                break;
-        }
-    }
-
-    private void goToAccountActivity() {
-        new TaskPlanner(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(OperationActivity.this, AccountActivity.class));
-                finish();
+        if (formErrors.length == 0) {
+            if (hasExtraModeEdit()) {
+                OperationHandler.updateOperation(operation);
+            } else {
+                OperationHandler.createOperation();
             }
-        }, 1500).start();
-    }
 
-    private void updateOperation() {
-        String[] tabFormErrors = validFormOperation();
-
-        if (true) {
-            performUpdateOperation();
             Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
         } else {
-            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), tabFormErrors[0]);
+            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), formErrors[0]);
         }
-    }
-
-    private void performUpdateOperation() {
-        editOperationWithForm(operation);
-        persistor.update(operation);
     }
 
     private void deleteOperation() {
@@ -218,11 +116,21 @@ public class OperationActivity extends MotherActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        persistor.delete(operation);
+                        OperationHandler.deleteOperation(operation);
                         Toast.makeText(OperationActivity.this, R.string.message_deleted, Toast.LENGTH_SHORT).show();
-                        goToAccountActivity();
+                        goToConsultActivity();
                     }
                 }
         );
+    }
+
+    private void goToConsultActivity() {
+        new TaskPlanner(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(OperationActivity.this, ConsultActivity.class));
+                finish();
+            }
+        }, GUIConstants.TIMEOUT_ACTIVITY).start();
     }
 }

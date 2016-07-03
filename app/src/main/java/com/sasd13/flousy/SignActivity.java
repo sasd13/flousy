@@ -12,40 +12,27 @@ import com.sasd13.androidex.gui.widget.recycler.form.Form;
 import com.sasd13.androidex.gui.widget.recycler.form.FormFactory;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
-import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.content.form.SignFormHandler;
-import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.content.handler.SignHandler;
 import com.sasd13.flousy.util.SessionHelper;
-import com.sasd13.javaex.db.DAOException;
-import com.sasd13.javaex.db.LayeredPersistor;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SignActivity extends AppCompatActivity {
-
-    private SignFormHandler signFormHandler;
-    private SQLiteDAO dao = SQLiteDAO.getInstance();
-    private LayeredPersistor persistor = new LayeredPersistor(dao);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        SignHandler.init(this);
         setContentView(R.layout.activity_sign);
         GUIHelper.colorTitles(this);
-        createSignForm();
+        buildSignView();
     }
 
-    private void createSignForm() {
-        signFormHandler = new SignFormHandler(this);
+    private void buildSignView() {
         FormFactory formFactory = new FormFactory(this);
         Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(form, signFormHandler.fabricate(), formFactory);
+        RecyclerHelper.fill(form, SignHandler.getSignForm().fabricate(), formFactory);
     }
 
     @Override
@@ -60,7 +47,7 @@ public class SignActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_sign_action_done:
-                signUp();
+                sign();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -69,67 +56,22 @@ public class SignActivity extends AppCompatActivity {
         return true;
     }
 
-    private void signUp() {
-        String[] tabFormErrors = validFormCustomer();
+    private void sign() {
+        String[] errors = SignHandler.validFormInputs();
 
-        if (true) {
-            tryToPerformSignUp();
+        if (errors.length == 0) {
+            Customer customer = SignHandler.createCustomer();
+
+            if (customer != null) {
+                SessionHelper.logIn(this, customer);
+            } else {
+                OptionDialog.showOkDialog(
+                        this,
+                        getResources().getString(R.string.title_error),
+                        getResources().getString(R.string.message_email_exists));
+            }
         } else {
-            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), tabFormErrors[0]);
-        }
-    }
-
-    private String[] validFormCustomer() {
-        //TODO
-
-        return null;
-    }
-
-    private void tryToPerformSignUp() {
-        Customer customer = getCustomerFromForm();
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{ customer.getEmail() });
-
-        if (persistor.read(parameters, Customer.class).isEmpty()) {
-            performSignUp(customer);
-
-            SessionHelper.logIn(this, customer);
-        } else {
-            OptionDialog.showOkDialog(
-                    this,
-                    getResources().getString(R.string.title_error),
-                    getResources().getString(R.string.message_email_exists) + " " + customer.getEmail());
-        }
-    }
-
-    private Customer getCustomerFromForm() {
-        Customer customer = new Customer();
-        customer.setFirstName(signFormHandler.getFirstName());
-        customer.setLastName(signFormHandler.getLastName());
-        customer.setEmail(signFormHandler.getEmail());
-
-        return customer;
-    }
-
-    private void performSignUp(Customer customer) {
-        try {
-            dao.open();
-            dao.beginTransaction();
-
-            long id = dao.getEntityDAO(Customer.class).insert(customer);
-            customer.setId(id);
-
-            String password = signFormHandler.getPassword();
-            SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
-            passwordDAO.insert(password, customer.getId());
-
-            dao.getEntityDAO(Account.class).insert(customer.getAccount());
-            dao.commit();
-        } catch (DAOException e) {
-            e.printStackTrace();
-        } finally {
-            dao.endTransaction();
-            dao.close();
+            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), errors[0]);
         }
     }
 }

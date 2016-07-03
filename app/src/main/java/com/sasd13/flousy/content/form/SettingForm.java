@@ -15,11 +15,11 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class SettingFormHandler extends FormHandler {
+public class SettingForm extends Form {
 
     private TextModel textModelFirstName, textModelLastName, textModelEmail;
 
-    public SettingFormHandler(Context context) {
+    public SettingForm(Context context) {
         super(context);
     }
 
@@ -48,7 +48,7 @@ public class SettingFormHandler extends FormHandler {
         textModelEmail.setHint(textModelEmail.getLabel().toLowerCase());
         formModels.add(textModelEmail);
 
-        holder.add(context.getResources().getString(R.string.title_account), formModels.toArray(new FormModel[formModels.size()]));
+        holder.add(context.getResources().getString(R.string.title_consult), formModels.toArray(new FormModel[formModels.size()]));
 
         return holder;
     }

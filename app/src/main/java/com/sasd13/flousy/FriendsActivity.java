@@ -27,18 +27,13 @@ public class FriendsActivity extends MotherActivity {
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
         createSettingForm();
+
+        customer = persistor.read(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID), Customer.class);
+        fillFormIdentity();
     }
 
     private void createSettingForm() {
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        customer = persistor.read(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID), Customer.class);
-        fillFormIdentity();
     }
 
     private void fillFormIdentity() {

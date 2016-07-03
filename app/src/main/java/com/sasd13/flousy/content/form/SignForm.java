@@ -17,13 +17,13 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class SignFormHandler extends FormHandler {
+public class SignForm extends Form {
 
     private TextModel textModelFirstName, textModelLastName, textModelEmail;
     private PasswordModel passwordModel;
     private BooleanModel booleanModelTerms;
 
-    public SignFormHandler(Context context) {
+    public SignForm(Context context) {
         super(context);
     }
 
@@ -60,7 +60,7 @@ public class SignFormHandler extends FormHandler {
         booleanModelTerms.setLabel(context.getResources().getString(R.string.label_terms));
         formModels.add(booleanModelTerms);
 
-        holder.add(context.getResources().getString(R.string.title_account), formModels.toArray(new FormModel[formModels.size()]));
+        holder.add(context.getResources().getString(R.string.title_consult), formModels.toArray(new FormModel[formModels.size()]));
 
         return holder;
     }

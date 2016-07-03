@@ -7,16 +7,17 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
+import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.util.Session;
 import com.sasd13.androidex.util.TaskInitializer;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.Browser;
+import com.sasd13.flousy.content.Browser;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class SplashScreenActivity extends AppCompatActivity implements TaskInitializer.Loader {
 
-    private static final int TIMEOUT = 3000;
+    private static final int TIMEOUT = 2 * GUIConstants.TIMEOUT_ACTIVITY;
 
     private TaskPlanner taskPlanner;
 
@@ -51,7 +52,7 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
         if (SessionHelper.isLogged()) {
             goToActivity(HomeActivity.class);
         } else {
-            goToActivity(LoginActivity.class);
+            goToActivity(LogInActivity.class);
         }
     }
 

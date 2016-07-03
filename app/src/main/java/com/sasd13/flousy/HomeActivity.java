@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.Action;
+import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
@@ -14,7 +15,7 @@ import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.gui.Browser;
+import com.sasd13.flousy.content.Browser;
 
 public class HomeActivity extends MotherActivity {
 
@@ -27,10 +28,10 @@ public class HomeActivity extends MotherActivity {
         self = this;
 
         setContentView(R.layout.activity_home);
-        createGridNav();
+        buildHomeView();
     }
 
-    private void createGridNav() {
+    private void buildHomeView() {
         GridFactory gridFactory = new GridFactory(this);
         Grid grid = (Grid) gridFactory.makeBuilder().build((RecyclerView) findViewById(R.id.home_recyclerview));
 
@@ -93,11 +94,11 @@ public class HomeActivity extends MotherActivity {
         new TaskPlanner(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                startActivity(new Intent(HomeActivity.this, LogInActivity.class));
                 waitDialog.dismiss();
                 finish();
             }
-        }, 1500).start();
+        }, GUIConstants.TIMEOUT_ACTIVITY).start();
 
         waitDialog.show();
     }

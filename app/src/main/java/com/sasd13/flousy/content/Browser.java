@@ -1,15 +1,15 @@
-package com.sasd13.flousy.gui;
+package com.sasd13.flousy.content;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 
-import com.sasd13.flousy.AccountActivity;
 import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.FinancesActivity;
 import com.sasd13.flousy.FriendsActivity;
 import com.sasd13.flousy.OffersActivity;
+import com.sasd13.flousy.OperationActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SettingsActivity;
 
@@ -69,10 +69,10 @@ public class Browser {
         items.clear();
 
         items.add(new Item(
-                context.getResources().getString(R.string.activity_account),
+                context.getResources().getString(R.string.activity_operation),
                 ContextCompat.getDrawable(context, R.drawable.griditem_new),
                 ContextCompat.getColor(context, R.color.green),
-                new Intent(context, AccountActivity.class)
+                new Intent(context, OperationActivity.class)
         ));
 
         items.add(new Item(

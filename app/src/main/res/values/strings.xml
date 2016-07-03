@@ -6,7 +6,6 @@
     <string name="activity_login">Log in</string>
     <string name="activity_sign">Sign</string>
     <string name="activity_home">Home</string>
-    <string name="activity_account">Account</string>
     <string name="activity_operation">Operation</string>
     <string name="activity_consult">Consult</string>
     <string name="activity_finances">Finances</string>
@@ -25,13 +24,18 @@
     <string name="home_alertdialog_title_welcome">Welcome</string>
     <string name="home_alertdialog_message_welcome">Hello</string>
 
-    <!-- Activity Account -->
-    <string name="account_textview_sold_title">Sold :</string>
-    <string name="account_textview_sold">0.0</string>
-    <string name="account_textview_operations">Operations</string>
+    <!-- Activity Consult -->
+    <string name="consult_textview_sold_title">Sold :</string>
+    <string name="consult_textview_sold">0.0</string>
+    <string name="consult_textview_operations">Operations</string>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
+
+    <!-- Drawer -->
+    <string name="drawer_header_menu">Menu</string>
+    <string name="drawer_header_account">Account</string>
+    <string name="drawer_label_logout">Log out</string>
 
     <!-- EditText -->
     <string name="edittext_hint_email">email</string>
@@ -62,7 +66,7 @@
     <string name="menuitem_action_refresh">Refresh</string>
 
     <!-- Message -->
-    <string name="message_email_exists">Email already exists:</string>
+    <string name="message_email_exists">Email already exists</string>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>
@@ -74,7 +78,8 @@
 
     <!-- Title -->
     <string name="title_identity">Identity</string>
-    <string name="title_account">Account</string>
+    <string name="title_consult">Consult</string>
     <string name="title_fill_form">Fill form below</string>
+    <string name="subtitle_new">New</string>
 
 </resources>
