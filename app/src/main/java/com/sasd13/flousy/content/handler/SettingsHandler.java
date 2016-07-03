@@ -1,10 +1,9 @@
 package com.sasd13.flousy.content.handler;
 
-import android.content.Context;
-
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.content.form.SettingForm;
+import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.Parameter;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -18,56 +17,45 @@ import java.util.Map;
  */
 public class SettingsHandler {
 
-    private static Context context;
-    private static SettingForm settingForm;
-    private static LayeredPersistor persistor;
+    private static SettingsActivity settingsActivity;
+    private static LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
-    public static void init(Context context) {
-        SettingsHandler.context = context;
-        settingForm = new SettingForm(context);
-        persistor = new LayeredPersistor(SQLiteDAO.getInstance());
-    }
-
-    public static SettingForm getSettingForm() {
-        return settingForm;
+    public static void init(SettingsActivity settingsActivity) {
+        SettingsHandler.settingsActivity = settingsActivity;
     }
 
     public static Customer readCustomer(long id) {
         return persistor.read(id, Customer.class);
     }
 
-    public static void fillSettingsCustomer(Customer customer) {
-        settingForm.setFirstName(customer.getFirstName());
-        settingForm.setLastName(customer.getLastName());
-        settingForm.setEmail(customer.getEmail());
-    }
+    public static void updateCustomer(Customer customer, SettingsForm settingsForm) {
+        String[] errors = validFormInputs(settingsForm);
 
-    public static String[] validFormInputs() {
-        //TODO
-
-        return new String[]{};
-    }
-
-    public static String[] updateCustomer(Customer customer) {
-        String email = settingForm.getEmail();
-
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
-
-        List<Customer> customers = persistor.read(parameters, Customer.class);
-        if (customers.isEmpty() || customers.get(0).getId() == customer.getId()) {
-            editCustomerWithForm(customer);
-            persistor.update(customer);
-
-            return new String[]{};
+        if (errors.length != 0) {
+            settingsActivity.onError(errors[0]);
         } else {
-            return new String[]{context.getResources().getString(R.string.message_email_exists)};
+            String email = settingsForm.getEmail();
+
+            Map<String, String[]> parameters = new HashMap<>();
+            parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
+
+            List<Customer> customers = persistor.read(parameters, Customer.class);
+            if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
+                String error = settingsActivity.getResources().getString(R.string.message_email_exists);
+
+                settingsActivity.onError(error);
+            } else {
+                settingsActivity.editCustomerWithForm(customer);
+                persistor.update(customer);
+
+                settingsActivity.onSuccess();
+            }
         }
     }
 
-    private static void editCustomerWithForm(Customer customer) {
-        customer.setFirstName(settingForm.getFirstName());
-        customer.setLastName(settingForm.getLastName());
-        customer.setEmail(settingForm.getEmail());
+    public static String[] validFormInputs(SettingsForm settingsForm) {
+        //TODO
+
+        return new String[]{};
     }
 }

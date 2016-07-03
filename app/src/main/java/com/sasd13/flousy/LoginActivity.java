@@ -29,7 +29,6 @@ public class LogInActivity extends AppCompatActivity {
         self = this;
 
         setContentView(R.layout.activity_login);
-        LogInHandler.init();
         buildLogInView();
     }
 

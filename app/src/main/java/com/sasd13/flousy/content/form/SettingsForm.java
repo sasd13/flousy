@@ -15,11 +15,11 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class SettingForm extends Form {
+public class SettingsForm extends Form {
 
     private TextModel textModelFirstName, textModelLastName, textModelEmail;
 
-    public SettingForm(Context context) {
+    public SettingsForm(Context context) {
         super(context);
     }
 

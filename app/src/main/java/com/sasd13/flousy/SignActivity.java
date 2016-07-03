@@ -13,10 +13,13 @@ import com.sasd13.androidex.gui.widget.recycler.form.FormFactory;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.content.form.SignForm;
 import com.sasd13.flousy.content.handler.SignHandler;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class SignActivity extends AppCompatActivity {
+
+    private SignForm signForm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,11 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void buildSignView() {
+        signForm = new SignForm(this);
         FormFactory formFactory = new FormFactory(this);
         Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.sign_recyclerview));
 
-        RecyclerHelper.fill(form, SignHandler.getSignForm().fabricate(), formFactory);
+        RecyclerHelper.fill(form, signForm.fabricate(), formFactory);
     }
 
     @Override
@@ -57,21 +61,20 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void sign() {
-        String[] errors = SignHandler.validFormInputs();
+        SignHandler.sign(signForm);
+    }
 
-        if (errors.length == 0) {
-            Customer customer = SignHandler.createCustomer();
+    public void editCustomerWithForm(Customer customer) {
+        customer.setFirstName(signForm.getFirstName());
+        customer.setLastName(signForm.getLastName());
+        customer.setEmail(signForm.getEmail());
+    }
 
-            if (customer != null) {
-                SessionHelper.logIn(this, customer);
-            } else {
-                OptionDialog.showOkDialog(
-                        this,
-                        getResources().getString(R.string.title_error),
-                        getResources().getString(R.string.message_email_exists));
-            }
-        } else {
-            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), errors[0]);
-        }
+    public void onSuccess(Customer customer) {
+        SessionHelper.logIn(this, customer);
+    }
+
+    public void onError(String error) {
+        OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), error);
     }
 }

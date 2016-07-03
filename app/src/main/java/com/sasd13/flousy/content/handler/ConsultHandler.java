@@ -1,7 +1,5 @@
 package com.sasd13.flousy.content.handler;
 
-import android.content.Context;
-
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.Parameter;
@@ -15,11 +13,7 @@ import java.util.Map;
  */
 public class ConsultHandler {
 
-    private static LayeredPersistor persistor;
-
-    public static void init(Context context) {
-        persistor = new LayeredPersistor(SQLiteDAO.getInstance());
-    }
+    private static LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
 
     public static Account readAccount(long id) {
         Map<String, String[]> parameters = new HashMap<>();

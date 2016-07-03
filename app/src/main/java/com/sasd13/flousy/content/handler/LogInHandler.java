@@ -16,11 +16,7 @@ import java.util.Map;
  */
 public class LogInHandler {
 
-    private static SQLiteDAO dao;
-
-    public static void init() {
-        dao = SQLiteDAO.getInstance();
-    }
+    private static SQLiteDAO dao = SQLiteDAO.getInstance();
 
     public static void logIn(String email, String password) {
         Map<String, String[]> parameters = new HashMap<>();
@@ -41,12 +37,12 @@ public class LogInHandler {
             dao.close();
         }
 
-        if (customer != null) {
-            LogInActivity.self.onSuccess(customer);
-        } else {
+        if (customer == null) {
             String error = LogInActivity.self.getResources().getString(com.sasd13.androidex.R.string.message_error_login);
 
             LogInActivity.self.onError(error);
+        } else {
+            LogInActivity.self.onSuccess(customer);
         }
     }
 

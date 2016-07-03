@@ -1,7 +1,7 @@
 package com.sasd13.flousy.content.handler;
 
-import android.content.Context;
-
+import com.sasd13.flousy.R;
+import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.form.SignForm;
@@ -19,56 +19,53 @@ import java.util.Map;
  */
 public class SignHandler {
 
-    private static SignForm signForm;
+    private static SignActivity signActivity;
     private static SQLiteDAO dao;
     private static LayeredPersistor persistor;
 
-    public static void init(Context context) {
-        signForm = new SignForm(context);
+    public static void init(SignActivity signActivity) {
+        SignHandler.signActivity = signActivity;
         dao = SQLiteDAO.getInstance();
         persistor = new LayeredPersistor(dao);
     }
 
-    public static SignForm getSignForm() {
-        return signForm;
+    public static void sign(SignForm signForm) {
+        String[] errors = validFormInputs(signForm);
+
+        if (errors.length == 0) {
+            signActivity.onError(errors[0]);
+        } else {
+            String email = signForm.getEmail();
+
+            Map<String, String[]> parameters = new HashMap<>();
+            parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
+
+            if (!persistor.read(parameters, Customer.class).isEmpty()) {
+                String error = signActivity.getResources().getString(R.string.message_email_exists);
+
+                signActivity.onError(error);
+            } else {
+                Customer customer = new Customer();
+
+                signActivity.editCustomerWithForm(customer);
+                performSign(customer, signForm.getPassword());
+                signActivity.onSuccess(customer);
+            }
+        }
     }
 
-    public static String[] validFormInputs() {
+    public static String[] validFormInputs(SignForm signForm) {
         //TODO
 
         return new String[]{};
     }
 
-    public static Customer createCustomer() {
-        String email = signForm.getEmail();
-
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
-
-        if (persistor.read(parameters, Customer.class).isEmpty()) {
-            Customer customer = new Customer();
-            editCustomerWithForm(customer);
-            performSign(customer);
-
-            return customer;
-        } else {
-            return null;
-        }
-    }
-
-    private static void editCustomerWithForm(Customer customer) {
-        customer.setFirstName(signForm.getFirstName());
-        customer.setLastName(signForm.getLastName());
-        customer.setEmail(signForm.getEmail());
-    }
-
-    private static void performSign(Customer customer) {
+    private static void performSign(Customer customer, String password) {
         try {
             dao.open();
             dao.beginTransaction();
             dao.getEntityDAO(Customer.class).insert(customer);
 
-            String password = signForm.getPassword();
             SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
             passwordDAO.insert(password, customer.getId());
 

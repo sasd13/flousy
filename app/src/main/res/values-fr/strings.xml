@@ -81,5 +81,6 @@
     <string name="title_consult">Compte</string>
     <string name="title_fill_form">Remplir le formulaire</string>
     <string name="subtitle_new">Nouveau</string>
+    <string name="subtitle_consulting">Consultation</string>
 
 </resources>

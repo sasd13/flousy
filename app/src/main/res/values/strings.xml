@@ -81,5 +81,6 @@
     <string name="title_consult">Consult</string>
     <string name="title_fill_form">Fill form below</string>
     <string name="subtitle_new">New</string>
+    <string name="subtitle_consulting">Consulting</string>
 
 </resources>

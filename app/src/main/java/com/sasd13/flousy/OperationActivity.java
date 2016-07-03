@@ -18,10 +18,16 @@ import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
+import com.sasd13.flousy.content.form.OperationForm;
 import com.sasd13.flousy.content.handler.OperationHandler;
+
+import org.joda.time.LocalDate;
+
+import java.sql.Timestamp;
 
 public class OperationActivity extends MotherActivity {
 
+    private OperationForm operationForm;
     private Operation operation;
 
     @Override
@@ -35,10 +41,11 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void buildOperationView() {
+        operationForm = new OperationForm(this);
         FormFactory formFactory = new FormFactory(this);
         Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.operation_recyclerview));
 
-        RecyclerHelper.fill(form, OperationHandler.getOperationForm().fabricate(), formFactory);
+        RecyclerHelper.fill(form, operationForm.fabricate(), formFactory);
         fillFormWithOperation();
     }
 
@@ -46,15 +53,35 @@ public class OperationActivity extends MotherActivity {
         if (hasExtraModeEdit()) {
             operation = OperationHandler.readOperation(getIntent().getLongExtra(Extra.OPERATION_ID, 0));
 
-            OperationHandler.fillEditFormOperation(operation);
+            fillEditFormOperation();
+            getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_consulting));
         } else {
+            fillNewFormOperation();
             getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_new));
-            OperationHandler.fillNewFormOperation();
         }
     }
 
     private boolean hasExtraModeEdit() {
         return getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW) == Extra.MODE_EDIT;
+    }
+
+    private void fillEditFormOperation() {
+        operationForm.setDateRealization(new LocalDate(operation.getDateRealization()));
+        operationForm.setTitle(operation.getTitle());
+        operationForm.setAmount(String.valueOf(Math.abs(operation.getAmount())));
+
+        String[] items = {"Débit", "Crédit"};
+
+        if (operation.getAmount() <= 0) {
+            operationForm.setType(0, items);
+        } else {
+            operationForm.setType(1, items);
+        }
+    }
+
+    private void fillNewFormOperation() {
+        operationForm.setDateRealization(new LocalDate(System.currentTimeMillis()));
+        operationForm.setType(0, new String[] {"Débit", "Crédit"});
     }
 
     @Override
@@ -93,18 +120,10 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void saveOperation() {
-        String[] formErrors = OperationHandler.validFormInputs();
-
-        if (formErrors.length == 0) {
-            if (hasExtraModeEdit()) {
-                OperationHandler.updateOperation(operation);
-            } else {
-                OperationHandler.createOperation();
-            }
-
-            Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
+        if (hasExtraModeEdit()) {
+            OperationHandler.updateOperation(operation, operationForm);
         } else {
-            OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), formErrors[0]);
+            OperationHandler.createOperation(operationForm);
         }
     }
 
@@ -117,11 +136,41 @@ public class OperationActivity extends MotherActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         OperationHandler.deleteOperation(operation);
-                        Toast.makeText(OperationActivity.this, R.string.message_deleted, Toast.LENGTH_SHORT).show();
-                        goToConsultActivity();
                     }
                 }
         );
+    }
+
+    public void editOperationWithForm(Operation operation) {
+        operation.setDateRealization(new Timestamp(operationForm.getDateRealization().toDate().getTime()));
+        operation.setTitle(operationForm.getTitle());
+
+        String amount = operationForm.getAmount();
+
+        switch (operationForm.getType()) {
+            case 0:
+                operation.setAmount(0 - Math.abs(Double.parseDouble(amount)));
+                break;
+            case 1:
+                operation.setAmount(Math.abs(Double.parseDouble(amount)));
+                break;
+        }
+    }
+
+    public void onSuccess(int type) {
+        switch (type) {
+            case OperationHandler.TYPE_CREATE: case OperationHandler.TYPE_UPDATE:
+                Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
+                break;
+            case OperationHandler.TYPE_DELETE:
+                Toast.makeText(OperationActivity.this, R.string.message_deleted, Toast.LENGTH_SHORT).show();
+                goToConsultActivity();
+                break;
+        }
+    }
+
+    public void onError(String error) {
+        OptionDialog.showOkDialog(this, getResources().getString(R.string.title_error), error);
     }
 
     private void goToConsultActivity() {

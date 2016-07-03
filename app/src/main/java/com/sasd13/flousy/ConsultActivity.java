@@ -17,6 +17,7 @@ import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.handler.ConsultHandler;
 import com.sasd13.flousy.gui.recycler.tab.OperationModel;
 import com.sasd13.flousy.gui.recycler.tab.TabFactory;
+import com.sasd13.flousy.util.CollectionsHelper;
 import com.sasd13.flousy.util.SessionHelper;
 
 import java.text.DecimalFormat;
@@ -26,35 +27,47 @@ public class ConsultActivity extends MotherActivity {
 
     private static final String PATTERN_DECIMAL = "#.##";
 
+    private TextView textViewSold;
+    private TabFactory tabFactory;
+    private Tab tab;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_consult);
         GUIHelper.colorTitles(this);
-        ConsultHandler.init(this);
         buildConsultView();
     }
 
     private void buildConsultView() {
+        createTextViewSold();
+        createTabOperations();
+    }
+
+    private void createTextViewSold() {
+        textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
+    }
+
+    private void createTabOperations() {
+        tabFactory = new TabFactory(this);
+        tab = (Tab) tabFactory.makeBuilder().build((RecyclerView) findViewById(R.id.consult_recyclerview));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         Account account = ConsultHandler.readAccount(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID));
 
-        createTextViewSold(account);
-        createTabOperations(account);
+        fillTextViewSold(account);
+        CollectionsHelper.sortOperationByDateDesc(account.getOperations());
+        fillTabOperations(tab, account.getOperations(), tabFactory);
     }
 
-    private void createTextViewSold(Account account) {
-        TextView textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
-
+    private void fillTextViewSold(Account account) {
         DecimalFormat df = new DecimalFormat(PATTERN_DECIMAL);
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
-    }
-
-    private void createTabOperations(Account account) {
-        TabFactory tabFactory = new TabFactory(this);
-        Tab tab = (Tab) tabFactory.makeBuilder().build((RecyclerView) findViewById(R.id.consult_recyclerview));
-
-        fillTabOperations(tab, account.getOperations(), tabFactory);
     }
 
     private void fillTabOperations(Tab tab, List<Operation> operations, TabFactory tabFactory) {
