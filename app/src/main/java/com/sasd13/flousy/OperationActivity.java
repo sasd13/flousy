@@ -24,6 +24,7 @@ import com.sasd13.flousy.content.handler.OperationHandler;
 import org.joda.time.LocalDate;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class OperationActivity extends MotherActivity {
 
@@ -36,7 +37,6 @@ public class OperationActivity extends MotherActivity {
 
         setContentView(R.layout.activity_operation);
         GUIHelper.colorTitles(this);
-        OperationHandler.init(this);
         buildOperationView();
     }
 
@@ -70,18 +70,20 @@ public class OperationActivity extends MotherActivity {
         operationForm.setTitle(operation.getTitle());
         operationForm.setAmount(String.valueOf(Math.abs(operation.getAmount())));
 
-        String[] items = {"Débit", "Crédit"};
+        String[] operationTypes = getResources().getStringArray(R.array.operation_types);
+        String debit = getResources().getString(R.string.operation_type_debit);
+        String credit = getResources().getString(R.string.operation_type_credit);
 
         if (operation.getAmount() <= 0) {
-            operationForm.setType(0, items);
+            operationForm.setType(operationTypes, Arrays.asList(operationTypes).indexOf(debit));
         } else {
-            operationForm.setType(1, items);
+            operationForm.setType(operationTypes, Arrays.asList(operationTypes).indexOf(credit));
         }
     }
 
     private void fillNewFormOperation() {
         operationForm.setDateRealization(new LocalDate(System.currentTimeMillis()));
-        operationForm.setType(0, new String[] {"Débit", "Crédit"});
+        operationForm.setType(getResources().getStringArray(R.array.operation_types));
     }
 
     @Override
@@ -121,9 +123,9 @@ public class OperationActivity extends MotherActivity {
 
     private void saveOperation() {
         if (hasExtraModeEdit()) {
-            OperationHandler.updateOperation(operation, operationForm);
+            OperationHandler.updateOperation(this, operation, operationForm);
         } else {
-            OperationHandler.createOperation(operationForm);
+            OperationHandler.createOperation(this, operationForm);
         }
     }
 
@@ -135,7 +137,7 @@ public class OperationActivity extends MotherActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        OperationHandler.deleteOperation(operation);
+                        OperationHandler.deleteOperation(OperationActivity.this, operation);
                     }
                 }
         );

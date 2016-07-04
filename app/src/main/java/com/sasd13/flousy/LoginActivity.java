@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.handler.LogInHandler;
@@ -77,7 +77,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void logIn(String email, String password) {
-        LogInHandler.logIn(email, password);
+        LogInHandler.logIn(this, email, password);
     }
 
     public void onSuccess(Customer customer) {
@@ -85,6 +85,6 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void onError(String error) {
-        OptionDialog.showOkDialog(this, getResources().getString(R.string.login_alertdialog_title_error_login), error);
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }

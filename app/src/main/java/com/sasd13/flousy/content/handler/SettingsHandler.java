@@ -17,18 +17,13 @@ import java.util.Map;
  */
 public class SettingsHandler {
 
-    private static SettingsActivity settingsActivity;
     private static LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
-
-    public static void init(SettingsActivity settingsActivity) {
-        SettingsHandler.settingsActivity = settingsActivity;
-    }
 
     public static Customer readCustomer(long id) {
         return persistor.read(id, Customer.class);
     }
 
-    public static void updateCustomer(Customer customer, SettingsForm settingsForm) {
+    public static void updateCustomer(SettingsActivity settingsActivity, Customer customer, SettingsForm settingsForm) {
         String[] errors = validFormInputs(settingsForm);
 
         if (errors.length != 0) {

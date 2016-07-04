@@ -18,7 +18,7 @@ public class LogInHandler {
 
     private static SQLiteDAO dao = SQLiteDAO.getInstance();
 
-    public static void logIn(String email, String password) {
+    public static void logIn(LogInActivity logInActivity, String email, String password) {
         Map<String, String[]> parameters = new HashMap<>();
         parameters.put(Parameter.EMAIL.getName(), new String[]{email});
 
@@ -38,11 +38,9 @@ public class LogInHandler {
         }
 
         if (customer == null) {
-            String error = LogInActivity.self.getResources().getString(com.sasd13.androidex.R.string.message_error_login);
-
-            LogInActivity.self.onError(error);
+            logInActivity.onError(LogInActivity.self.getResources().getString(com.sasd13.androidex.R.string.message_error_login));
         } else {
-            LogInActivity.self.onSuccess(customer);
+            logInActivity.onSuccess(customer);
         }
     }
 

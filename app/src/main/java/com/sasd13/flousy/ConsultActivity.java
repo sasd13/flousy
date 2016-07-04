@@ -31,6 +31,8 @@ public class ConsultActivity extends MotherActivity {
     private TabFactory tabFactory;
     private Tab tab;
 
+    private DecimalFormat df = new DecimalFormat(PATTERN_DECIMAL);
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,15 +64,14 @@ public class ConsultActivity extends MotherActivity {
 
         fillTextViewSold(account);
         CollectionsHelper.sortOperationByDateDesc(account.getOperations());
-        fillTabOperations(tab, account.getOperations(), tabFactory);
+        fillTabOperations(account.getOperations());
     }
 
     private void fillTextViewSold(Account account) {
-        DecimalFormat df = new DecimalFormat(PATTERN_DECIMAL);
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
     }
 
-    private void fillTabOperations(Tab tab, List<Operation> operations, TabFactory tabFactory) {
+    private void fillTabOperations(List<Operation> operations) {
         tab.clear();
 
         RecyclerHolder recyclerHolder = new RecyclerHolder();

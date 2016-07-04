@@ -27,7 +27,6 @@ public class SignActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_sign);
         GUIHelper.colorTitles(this);
-        SignHandler.init(this);
         buildSignView();
     }
 
@@ -61,7 +60,7 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void sign() {
-        SignHandler.sign(signForm);
+        SignHandler.sign(this, signForm);
     }
 
     public void editCustomerWithForm(Customer customer) {

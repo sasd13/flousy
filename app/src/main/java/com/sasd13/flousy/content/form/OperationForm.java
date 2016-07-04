@@ -9,6 +9,7 @@ import com.sasd13.androidex.gui.widget.recycler.form.DateModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
 import com.sasd13.androidex.util.DateTimeHelper;
+import com.sasd13.flousy.R;
 
 import org.joda.time.LocalDate;
 
@@ -34,22 +35,21 @@ public class OperationForm extends Form {
         String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT);
 
         dateModelDateRealization = new DateModel(pattern);
-        dateModelDateRealization.setLabel("Date de réalisation");
+        dateModelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
         formModels.add(dateModelDateRealization);
 
         textModelTitle = new TextModel();
-        textModelTitle.setLabel("Intitulé");
+        textModelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
         textModelTitle.setHint(textModelTitle.getLabel().toLowerCase());
         formModels.add(textModelTitle);
 
         textModelAmount = new TextModel();
         textModelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        textModelAmount.setLabel("Montant");
+        textModelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
         formModels.add(textModelAmount);
 
         radioSpinModelType = new RadioSpinModel();
-        radioSpinModelType.setLabel("Type");
-        radioSpinModelType.setItems(new String[] {"Débit", "Crédit"});
+        radioSpinModelType.setLabel(context.getResources().getString(R.string.operation_label_type));
         formModels.add(radioSpinModelType);
 
         holder.add(formModels.toArray(new RecyclerModel[formModels.size()]));
@@ -86,11 +86,11 @@ public class OperationForm extends Form {
     }
 
     public void setType(String[] items) {
-        setType(-1, items);
+        setType(items, -1);
     }
 
-    public void setType(Integer type, String[] items) {
-        radioSpinModelType.setValue(type);
+    public void setType(String[] items, Integer selected) {
         radioSpinModelType.setItems(items);
+        radioSpinModelType.setValue(selected);
     }
 }

@@ -19,20 +19,13 @@ import java.util.Map;
  */
 public class SignHandler {
 
-    private static SignActivity signActivity;
-    private static SQLiteDAO dao;
-    private static LayeredPersistor persistor;
+    private static SQLiteDAO dao = SQLiteDAO.getInstance();
+    private static LayeredPersistor persistor = new LayeredPersistor(dao);
 
-    public static void init(SignActivity signActivity) {
-        SignHandler.signActivity = signActivity;
-        dao = SQLiteDAO.getInstance();
-        persistor = new LayeredPersistor(dao);
-    }
-
-    public static void sign(SignForm signForm) {
+    public static void sign(SignActivity signActivity, SignForm signForm) {
         String[] errors = validFormInputs(signForm);
 
-        if (errors.length == 0) {
+        if (errors.length != 0) {
             signActivity.onError(errors[0]);
         } else {
             String email = signForm.getEmail();
@@ -41,9 +34,7 @@ public class SignHandler {
             parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
 
             if (!persistor.read(parameters, Customer.class).isEmpty()) {
-                String error = signActivity.getResources().getString(R.string.message_email_exists);
-
-                signActivity.onError(error);
+                signActivity.onError(signActivity.getResources().getString(R.string.message_email_exists));
             } else {
                 Customer customer = new Customer();
 

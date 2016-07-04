@@ -22,18 +22,13 @@ public class OperationHandler {
     public static final int TYPE_UPDATE = 1;
     public static final int TYPE_DELETE = 2;
 
-    private static OperationActivity operationActivity;
     private static LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
-
-    public static void init(OperationActivity operationActivity) {
-        OperationHandler.operationActivity = operationActivity;
-    }
 
     public static Operation readOperation(long id) {
         return persistor.read(id, Operation.class);
     }
 
-    public static void createOperation(OperationForm operationForm) {
+    public static void createOperation(OperationActivity operationActivity, OperationForm operationForm) {
         String[] errors = validFormInputs(operationForm);
 
         if (errors.length != 0) {
@@ -57,7 +52,7 @@ public class OperationHandler {
         return new String[]{};
     }
 
-    public static void updateOperation(Operation operation, OperationForm operationForm) {
+    public static void updateOperation(OperationActivity operationActivity, Operation operation, OperationForm operationForm) {
         String[] formErrors = validFormInputs(operationForm);
 
         if (formErrors.length != 0) {
@@ -69,7 +64,7 @@ public class OperationHandler {
         }
     }
 
-    public static void deleteOperation(Operation operation) {
+    public static void deleteOperation(OperationActivity operationActivity, Operation operation) {
         persistor.delete(operation);
         operationActivity.onSuccess(TYPE_DELETE);
     }

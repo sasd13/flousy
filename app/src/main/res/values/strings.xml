@@ -29,6 +29,18 @@
     <string name="consult_textview_sold">0.0</string>
     <string name="consult_textview_operations">Operations</string>
 
+    <!-- Activity Operation -->
+    <string name="operation_type_debit">Debit</string>
+    <string name="operation_type_credit">Credit</string>
+    <string-array name="operation_types">
+        <item>@string/operation_type_debit</item>
+        <item>@string/operation_type_credit</item>
+    </string-array>
+    <string name="operation_label_date">Realization date</string>
+    <string name="operation_label_type">Type</string>
+    <string name="operation_label_title">Title</string>
+    <string name="operation_label_amount">Amount</string>
+
     <!-- Application -->
     <string name="app_name">Flousy</string>
 
@@ -39,17 +51,6 @@
 
     <!-- EditText -->
     <string name="edittext_hint_email">email</string>
-
-    <!-- Form -->
-    <string name="form_textview_date">Date</string>
-    <string name="form_textview_hint_date">2015</string>
-    <string name="form_operation_textview_type">Type</string>
-    <string name="form_operation_radiobutton_type_debit">Debit</string>
-    <string name="form_operation_radiobutton_type_credit">Credit</string>
-    <string name="form_operation_textview_title">Title</string>
-    <string name="form_operation_edittext_hint_title">Title</string>
-    <string name="form_operation_textview_amount">Amount</string>
-    <string name="form_operation_edittext_hint_amount">0.0</string>
 
     <!-- Label -->
     <string name="label_firstname">First name</string>

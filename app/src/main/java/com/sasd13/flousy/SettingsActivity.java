@@ -28,7 +28,6 @@ public class SettingsActivity extends MotherActivity {
 
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
-        SettingsHandler.init(this);
         buildFormSettings();
     }
 
@@ -75,7 +74,7 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void updateCustomer() {
-        SettingsHandler.updateCustomer(customer, settingsForm);
+        SettingsHandler.updateCustomer(this, customer, settingsForm);
     }
 
     public void editCustomerWithForm(Customer customer) {

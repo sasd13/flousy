@@ -29,6 +29,18 @@
     <string name="consult_textview_sold">0.0</string>
     <string name="consult_textview_operations">Opérations</string>
 
+    <!-- Activity Operation -->
+    <string name="operation_type_debit">Débit</string>
+    <string name="operation_type_credit">Crédit</string>
+    <string-array name="operation_types">
+        <item>@string/operation_type_debit</item>
+        <item>@string/operation_type_credit</item>
+    </string-array>
+    <string name="operation_label_date">Date de réalisation</string>
+    <string name="operation_label_type">Type</string>
+    <string name="operation_label_title">Intitulé</string>
+    <string name="operation_label_amount">Montant</string>
+
     <!-- Application -->
     <string name="app_name">Flousy</string>
 
