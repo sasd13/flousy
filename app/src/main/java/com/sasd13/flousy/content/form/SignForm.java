@@ -3,10 +3,10 @@ package com.sasd13.flousy.content.form;
 import android.content.Context;
 import android.text.InputType;
 
+import com.sasd13.androidex.gui.widget.recycler.IRecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
-import com.sasd13.androidex.gui.widget.recycler.form.FormModel;
+import com.sasd13.androidex.gui.widget.recycler.form.IFormModel;
 import com.sasd13.androidex.gui.widget.recycler.form.PasswordModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
 import com.sasd13.flousy.R;
@@ -28,7 +28,7 @@ public class SignForm extends Form {
     }
 
     public RecyclerHolder fabricate() {
-        List<RecyclerModel> formModels = new ArrayList<>();
+        List<IRecyclerModel> formModels = new ArrayList<>();
 
         textModelFirstName = new TextModel();
         textModelFirstName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
@@ -42,7 +42,7 @@ public class SignForm extends Form {
         textModelLastName.setHint(textModelLastName.getLabel().toLowerCase());
         formModels.add(textModelLastName);
 
-        holder.add(context.getResources().getString(R.string.title_identity), formModels.toArray(new FormModel[formModels.size()]));
+        holder.add(context.getResources().getString(R.string.title_identity), formModels.toArray(new IFormModel[formModels.size()]));
 
         formModels.clear();
 
@@ -60,7 +60,7 @@ public class SignForm extends Form {
         booleanModelTerms.setLabel(context.getResources().getString(R.string.label_terms));
         formModels.add(booleanModelTerms);
 
-        holder.add(context.getResources().getString(R.string.title_consult), formModels.toArray(new FormModel[formModels.size()]));
+        holder.add(context.getResources().getString(R.string.title_consult), formModels.toArray(new IFormModel[formModels.size()]));
 
         return holder;
     }

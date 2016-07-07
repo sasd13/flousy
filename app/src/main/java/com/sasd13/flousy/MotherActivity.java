@@ -1,11 +1,12 @@
 package com.sasd13.flousy;
 
+import android.support.v4.content.ContextCompat;
+
 import com.sasd13.androidex.DrawerActivity;
 import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerModel;
-import com.sasd13.androidex.gui.widget.recycler.drawer.NavModel;
-import com.sasd13.flousy.content.Browser;
+import com.sasd13.flousy.gui.recycler.browser.Browser;
+import com.sasd13.flousy.gui.recycler.browser.BrowserModel;
 import com.sasd13.flousy.util.SessionHelper;
 
 public abstract class MotherActivity extends DrawerActivity {
@@ -21,38 +22,21 @@ public abstract class MotherActivity extends DrawerActivity {
     }
 
     private void addBrowserItems(RecyclerHolder recyclerHolder) {
-        Browser.Item[] items = Browser.getInstance().getItems();
-        NavModel[] navModels = new NavModel[items.length];
-
-        int i=-1;
-
-        for (final Browser.Item item : items) {
-            i++;
-
-            navModels[i] = new NavModel();
-            navModels[i].setIcon(item.getIcon());
-            navModels[i].setLabel(item.getLabel());
-            navModels[i].setActionClick(new Action() {
-                @Override
-                public void execute() {
-                    startActivity(item.getIntent());
-                }
-            });
-        }
-
-        recyclerHolder.add(getResources().getString(R.string.drawer_header_menu), navModels);
+        recyclerHolder.add(getResources().getString(R.string.drawer_header_menu), Browser.getInstance().getItems());
     }
 
     private void addAccountItems(RecyclerHolder recyclerHolder) {
-        DrawerModel drawerModel = new DrawerModel();
-        drawerModel.setLabel(getResources().getString(R.string.drawer_label_logout));
-        drawerModel.setActionClick(new Action() {
-            @Override
-            public void execute() {
-                SessionHelper.logOut(MotherActivity.this);
-            }
-        });
+        BrowserModel browserModel = new BrowserModel(
+                getResources().getString(R.string.drawer_label_logout),
+                ContextCompat.getDrawable(this, R.drawable.ic_room_black_36dp),
+                new Action() {
+                    @Override
+                    public void execute() {
+                        SessionHelper.logOut(MotherActivity.this);
+                    }
+                }
+        );
 
-        recyclerHolder.add(getResources().getString(R.string.drawer_header_account), new DrawerModel[]{ drawerModel });
+        recyclerHolder.add(getResources().getString(R.string.drawer_header_account), new BrowserModel[]{ browserModel });
     }
 }

@@ -4,18 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
-import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.grid.Grid;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridFactory;
-import com.sasd13.androidex.gui.widget.recycler.grid.GridModel;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.content.Browser;
+import com.sasd13.flousy.gui.recycler.browser.Browser;
+import com.sasd13.flousy.gui.recycler.browser.BrowserModel;
 
 public class HomeActivity extends MotherActivity {
 
@@ -39,28 +38,10 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void fillGridNav(Grid grid, GridFactory gridFactory) {
-        Browser.Item[] items = Browser.getInstance().getItems();
-        GridModel[] gridModels = new GridModel[items.length];
-
-        int i=-1;
-
-        for (final Browser.Item item : items) {
-            i++;
-
-            gridModels[i] = new GridModel();
-            gridModels[i].setIcon(item.getIcon());
-            gridModels[i].setLabel(item.getLabel());
-            gridModels[i].setColor(item.getColor());
-            gridModels[i].setActionClick(new Action() {
-                @Override
-                public void execute() {
-                    startActivity(item.getIntent());
-                }
-            });
-        }
+        BrowserModel[] items = Browser.getInstance().getItems();
 
         RecyclerHolder recyclerHolder = new RecyclerHolder();
-        recyclerHolder.add(gridModels);
+        recyclerHolder.add(items);
 
         RecyclerHelper.fill(grid, recyclerHolder, gridFactory);
     }

@@ -3,8 +3,8 @@ package com.sasd13.flousy.content.form;
 import android.content.Context;
 import android.text.InputType;
 
+import com.sasd13.androidex.gui.widget.recycler.IRecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.androidex.gui.widget.recycler.form.DateModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
@@ -30,7 +30,7 @@ public class OperationForm extends Form {
     }
 
     public RecyclerHolder fabricate() {
-        List<RecyclerModel> formModels = new ArrayList<>();
+        List<IRecyclerModel> formModels = new ArrayList<>();
 
         String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT);
 
@@ -52,7 +52,7 @@ public class OperationForm extends Form {
         radioSpinModelType.setLabel(context.getResources().getString(R.string.operation_label_type));
         formModels.add(radioSpinModelType);
 
-        holder.add(formModels.toArray(new RecyclerModel[formModels.size()]));
+        holder.add(formModels.toArray(new IRecyclerModel[formModels.size()]));
 
         return holder;
     }

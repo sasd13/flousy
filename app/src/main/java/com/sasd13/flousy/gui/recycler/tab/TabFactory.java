@@ -5,7 +5,6 @@ import android.content.Context;
 import com.sasd13.androidex.gui.widget.IItemType;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItemBuilder;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerModel;
 import com.sasd13.flousy.gui.recycler.RecyclerItemType;
 
 /**
@@ -15,15 +14,6 @@ public class TabFactory extends com.sasd13.androidex.gui.widget.recycler.tab.Tab
 
     public TabFactory(Context context) {
         super(context);
-    }
-
-    @Override
-    public RecyclerModel makeModel(IItemType itemType) {
-        if (RecyclerItemType.TAB_OPERATION.equals(itemType)) {
-            return new OperationModel();
-        } else {
-            return super.makeModel(itemType);
-        }
     }
 
     @Override
@@ -37,10 +27,6 @@ public class TabFactory extends com.sasd13.androidex.gui.widget.recycler.tab.Tab
 
     @Override
     public RecyclerItemBuilder makeItemBuilder(IItemType itemType) {
-        if (RecyclerItemType.TAB_OPERATION.equals(itemType)) {
-            return new OperationItemBuilder(this);
-        } else {
-            return super.makeItemBuilder(itemType);
-        }
+        return super.makeItemBuilder(itemType);
     }
 }
