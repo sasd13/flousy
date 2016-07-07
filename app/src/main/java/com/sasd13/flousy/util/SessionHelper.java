@@ -1,6 +1,7 @@
 package com.sasd13.flousy.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 
 import com.sasd13.androidex.gui.GUIConstants;
@@ -18,12 +19,12 @@ import com.sasd13.flousy.content.Extra;
  */
 public class SessionHelper {
 
-    public static boolean isLogged() {
-        return Session.containsAttribute(Extra.CUSTOMER_ID);
+    public static boolean isLogged(Context context) {
+        return Session.containsAttribute(context, Extra.CUSTOMER_ID);
     }
 
     public static void logIn(final Activity activity, final Customer customer) {
-        setExtraIdInSession(Extra.CUSTOMER_ID, customer.getId());
+        setExtraIdInSession(activity, Extra.CUSTOMER_ID, customer.getId());
 
         final WaitDialog waitDialog = new WaitDialog(activity);
         final Intent intent = new Intent(activity, HomeActivity.class);
@@ -51,7 +52,7 @@ public class SessionHelper {
     }
 
     public static void logOut(Activity activity) {
-        Session.clear();
+        Session.clear(activity);
 
         if (HomeActivity.class.equals(activity.getClass())) {
             HomeActivity.self.exit();
@@ -65,21 +66,21 @@ public class SessionHelper {
         }
     }
 
-    public static long getExtraIdFromSession(String extraKey) {
-        return Long.parseLong(Session.getAttribute(extraKey));
+    public static long getExtraIdFromSession(Context context, String extraKey) {
+        return Long.parseLong(Session.getAttribute(context, extraKey));
     }
 
-    public static void setExtraIdInSession(String extraKey, long id) {
-        Session.setAttribute(extraKey, String.valueOf(id));
+    public static void setExtraIdInSession(Context context, String extraKey, long id) {
+        Session.setAttribute(context, extraKey, String.valueOf(id));
     }
 
     public static long getCurrentExtraId(Activity activity, String extraKey) {
         long currentExtraId = activity.getIntent().getLongExtra(extraKey, 0);
 
         if (currentExtraId == 0) {
-            currentExtraId = getExtraIdFromSession(extraKey);
+            currentExtraId = getExtraIdFromSession(activity, extraKey);
         } else {
-            setExtraIdInSession(extraKey, currentExtraId);
+            setExtraIdInSession(activity, extraKey, currentExtraId);
         }
 
         return currentExtraId;

@@ -33,16 +33,12 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void buildLogInView() {
-        createFormLogIn();
-        createTextViewSign();
-    }
-
-    private void createFormLogIn() {
         LogInForm logInForm = new LogInForm();
         logInForm.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
         logInForm.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);
 
         createButtonConnect(logInForm);
+        createTextViewSign();
     }
 
     private void createButtonConnect(final LogInForm logInForm) {

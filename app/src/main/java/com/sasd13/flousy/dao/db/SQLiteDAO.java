@@ -3,7 +3,6 @@ package com.sasd13.flousy.dao.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sasd13.androidex.db.ISQLiteDAO;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.bean.Operation;
@@ -18,9 +17,10 @@ import com.sasd13.javaex.db.IEntityDAO;
 import com.sasd13.javaex.db.ILayeredDAO;
 import com.sasd13.javaex.db.ITransactional;
 
-public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO, ITransactional {
+import java.util.ArrayList;
+import java.util.List;
 
-    private static SQLiteDAO instance = null;
+public class SQLiteDAO implements ILayeredDAO, ITransactional {
 
     private SQLiteDatabaseHandler dbHandler;
     private SQLiteDatabase db;
@@ -32,20 +32,13 @@ public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO, ITransactional {
     private AccountDeepReader accountDeepReader;
     private OperationDeepReader operationDeepReader;
 
-    public static synchronized SQLiteDAO getInstance() {
-        if (instance == null) {
-            instance = new SQLiteDAO();
-        }
-
-        return instance;
-    }
-
     public SQLiteDatabase getDB() {
         return db;
     }
 
-    @Override
-    public void init(Context context) {
+    private static List<SQLiteDAO> pool = new ArrayList<>();
+
+    private SQLiteDAO(Context context) {
         dbHandler = new SQLiteDatabaseHandler(context, SQLiteDatabaseInfo.DB, null, SQLiteDatabaseInfo.VERSION);
 
         customerDAO = new SQLiteCustomerDAO();
@@ -54,6 +47,19 @@ public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO, ITransactional {
 
         accountDeepReader = new AccountDeepReader(accountDAO, customerDAO, operationDAO);
         operationDeepReader = new OperationDeepReader(operationDAO, accountDAO);
+    }
+
+    public static SQLiteDAO create(Context context) {
+        for (SQLiteDAO dao : pool) {
+            if (!dao.isOpened()) {
+                return dao;
+            }
+        }
+
+        SQLiteDAO dao = new SQLiteDAO(context);
+        pool.add(dao);
+
+        return dao;
     }
 
     @Override
@@ -68,6 +74,10 @@ public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO, ITransactional {
     @Override
     public void close() {
         db.close();
+    }
+
+    private boolean isOpened() {
+        return db.isOpen();
     }
 
     @Override
@@ -91,9 +101,7 @@ public class SQLiteDAO implements ILayeredDAO, ISQLiteDAO, ITransactional {
     }
 
     @Override
-    public void rollback() {
-
-    }
+    public void rollback() {}
 
     @Override
     public <T> IEntityDAO<T> getEntityDAO(Class<T> mClass) throws DAOException {

@@ -8,14 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.sasd13.androidex.gui.GUIConstants;
-import com.sasd13.androidex.util.Session;
-import com.sasd13.androidex.util.TaskInitializer;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.gui.recycler.browser.Browser;
 import com.sasd13.flousy.util.SessionHelper;
 
-public class SplashScreenActivity extends AppCompatActivity implements TaskInitializer.Loader {
+public class SplashScreenActivity extends AppCompatActivity {
 
     private static final int TIMEOUT = 2 * GUIConstants.TIMEOUT_ACTIVITY;
 
@@ -26,13 +22,8 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splashscreen);
-        init();
-    }
-
-    private void init() {
-        new TaskInitializer(this).execute();
-
         createLogo();
+        run();
     }
 
     private void createLogo() {
@@ -40,16 +31,8 @@ public class SplashScreenActivity extends AppCompatActivity implements TaskIniti
         imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
     }
 
-    @Override
-    public void load() {
-        Session.init(this);
-        Browser.getInstance().init(this);
-        SQLiteDAO.getInstance().init(this);
-    }
-
-    @Override
     public void run() {
-        if (SessionHelper.isLogged()) {
+        if (SessionHelper.isLogged(this)) {
             goToActivity(HomeActivity.class);
         } else {
             goToActivity(LogInActivity.class);

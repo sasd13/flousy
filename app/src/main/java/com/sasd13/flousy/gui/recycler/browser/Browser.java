@@ -32,75 +32,81 @@ public class Browser {
         return BrowserHolder.INSTANCE;
     }
 
-    public BrowserModel[] getItems() { return items.toArray(new BrowserModel[items.size()]); }
-
-    public void init(final Context context) {
-        items.clear();
-
-        items.add(new BrowserModel(
-                context.getResources().getString(R.string.activity_operation),
-                ContextCompat.getDrawable(context, R.drawable.griditem_new),
-                new Action() {
-                    @Override
-                    public void execute() {
-                        context.startActivity(new Intent(context, OperationActivity.class));
+    public List<BrowserModel> getItems(final Context context) {
+        if (items.isEmpty()) {
+            items.add(new BrowserModel(
+                    context.getResources().getString(R.string.activity_operation),
+                    ContextCompat.getDrawable(context, R.drawable.griditem_new),
+                    ContextCompat.getColor(context, R.color.green),
+                    new Action() {
+                        @Override
+                        public void execute() {
+                            context.startActivity(new Intent(context, OperationActivity.class));
+                        }
                     }
-                }
-        ));
+            ));
 
-        items.add(new BrowserModel(
-                context.getResources().getString(R.string.activity_consult),
-                ContextCompat.getDrawable(context, R.drawable.griditem_consult),
-                new Action() {
-                    @Override
-                    public void execute() {
-                        context.startActivity(new Intent(context, ConsultActivity.class));
+            items.add(new BrowserModel(
+                    context.getResources().getString(R.string.activity_consult),
+                    ContextCompat.getDrawable(context, R.drawable.griditem_consult),
+                    ContextCompat.getColor(context, R.color.red),
+                    new Action() {
+                        @Override
+                        public void execute() {
+                            context.startActivity(new Intent(context, ConsultActivity.class));
+                        }
                     }
-                }
-        ));
+            ));
 
-        items.add(new BrowserModel(
-                context.getResources().getString(R.string.activity_finances),
-                ContextCompat.getDrawable(context, R.drawable.griditem_finances),
-                new Action() {
-                    @Override
-                    public void execute() {
-                        context.startActivity(new Intent(context, FinancesActivity.class));
+            items.add(new BrowserModel(
+                    context.getResources().getString(R.string.activity_finances),
+                    ContextCompat.getDrawable(context, R.drawable.griditem_finances),
+                    ContextCompat.getColor(context, R.color.orange),
+                    new Action() {
+                        @Override
+                        public void execute() {
+                            context.startActivity(new Intent(context, FinancesActivity.class));
+                        }
                     }
-                }
-        ));
+            ));
 
-        items.add(new BrowserModel(
-                context.getResources().getString(R.string.activity_friends),
-                ContextCompat.getDrawable(context, R.drawable.griditem_dividing),
-                new Action() {
-                    @Override
-                    public void execute() {
-                        context.startActivity(new Intent(context, FriendsActivity.class));
+            items.add(new BrowserModel(
+                    context.getResources().getString(R.string.activity_friends),
+                    ContextCompat.getDrawable(context, R.drawable.griditem_dividing),
+                    ContextCompat.getColor(context, R.color.blue),
+                    new Action() {
+                        @Override
+                        public void execute() {
+                            context.startActivity(new Intent(context, FriendsActivity.class));
+                        }
                     }
-                }
-        ));
+            ));
 
-        items.add(new BrowserModel(
-                context.getResources().getString(R.string.activity_offers),
-                ContextCompat.getDrawable(context, R.drawable.griditem_evolution),
-                new Action() {
-                    @Override
-                    public void execute() {
-                        context.startActivity(new Intent(context, OffersActivity.class));
+            items.add(new BrowserModel(
+                    context.getResources().getString(R.string.activity_offers),
+                    ContextCompat.getDrawable(context, R.drawable.griditem_evolution),
+                    ContextCompat.getColor(context, R.color.purple),
+                    new Action() {
+                        @Override
+                        public void execute() {
+                            context.startActivity(new Intent(context, OffersActivity.class));
+                        }
                     }
-                }
-        ));
+            ));
 
-        items.add(new BrowserModel(
-                context.getResources().getString(R.string.activity_settings),
-                ContextCompat.getDrawable(context, R.drawable.griditem_settings),
-                new Action() {
-                    @Override
-                    public void execute() {
-                        context.startActivity(new Intent(context, SettingsActivity.class));
+            items.add(new BrowserModel(
+                    context.getResources().getString(R.string.activity_settings),
+                    ContextCompat.getDrawable(context, R.drawable.griditem_settings),
+                    ContextCompat.getColor(context, R.color.brown),
+                    new Action() {
+                        @Override
+                        public void execute() {
+                            context.startActivity(new Intent(context, SettingsActivity.class));
+                        }
                     }
-                }
-        ));
+            ));
+        }
+
+        return items;
     }
 }

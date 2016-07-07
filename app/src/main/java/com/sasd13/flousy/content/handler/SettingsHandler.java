@@ -1,5 +1,7 @@
 package com.sasd13.flousy.content.handler;
 
+import android.content.Context;
+
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
@@ -17,9 +19,9 @@ import java.util.Map;
  */
 public class SettingsHandler {
 
-    private static LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
+    public static Customer readCustomer(Context context, long id) {
+        LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(context));
 
-    public static Customer readCustomer(long id) {
         return persistor.read(id, Customer.class);
     }
 
@@ -29,10 +31,10 @@ public class SettingsHandler {
         if (errors.length != 0) {
             settingsActivity.onError(errors[0]);
         } else {
-            String email = settingsForm.getEmail();
+            LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(settingsActivity));
 
             Map<String, String[]> parameters = new HashMap<>();
-            parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
+            parameters.put(Parameter.EMAIL.getName(), new String[]{ settingsForm.getEmail() });
 
             List<Customer> customers = persistor.read(parameters, Customer.class);
             if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {

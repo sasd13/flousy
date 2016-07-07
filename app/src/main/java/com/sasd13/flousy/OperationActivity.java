@@ -11,8 +11,10 @@ import android.widget.Toast;
 
 import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.recycler.form.Form;
-import com.sasd13.androidex.gui.widget.recycler.form.FormFactory;
+import com.sasd13.androidex.gui.widget.recycler.Recycler;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryProducer;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
@@ -42,16 +44,16 @@ public class OperationActivity extends MotherActivity {
 
     private void buildOperationView() {
         operationForm = new OperationForm(this);
-        FormFactory formFactory = new FormFactory(this);
-        Form form = (Form) formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.operation_recyclerview));
+        RecyclerFactory formFactory = RecyclerFactoryProducer.produce(RecyclerType.FORM, this);
+        Recycler form = formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.operation_recyclerview));
 
-        RecyclerHelper.fill(form, operationForm.fabricate(), formFactory);
+        RecyclerHelper.addAll(form, operationForm.fabricate(), formFactory);
         fillFormWithOperation();
     }
 
     private void fillFormWithOperation() {
         if (hasExtraModeEdit()) {
-            operation = OperationHandler.readOperation(getIntent().getLongExtra(Extra.OPERATION_ID, 0));
+            operation = OperationHandler.readOperation(this, getIntent().getLongExtra(Extra.OPERATION_ID, 0));
 
             fillEditFormOperation();
             getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_consulting));

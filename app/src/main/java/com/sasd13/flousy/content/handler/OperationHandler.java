@@ -1,5 +1,7 @@
 package com.sasd13.flousy.content.handler;
 
+import android.content.Context;
+
 import com.sasd13.flousy.OperationActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
@@ -22,9 +24,9 @@ public class OperationHandler {
     public static final int TYPE_UPDATE = 1;
     public static final int TYPE_DELETE = 2;
 
-    private static LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.getInstance());
+    public static Operation readOperation(Context context, long id) {
+        LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(context));
 
-    public static Operation readOperation(long id) {
         return persistor.read(id, Operation.class);
     }
 
@@ -34,8 +36,13 @@ public class OperationHandler {
         if (errors.length != 0) {
             operationActivity.onError(errors[0]);
         } else {
+            LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(operationActivity));
+
             Map<String, String[]> parameters = new HashMap<>();
-            parameters.put(Parameter.CUSTOMER.getName(), new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(Extra.CUSTOMER_ID))});
+            parameters.put(
+                    Parameter.CUSTOMER.getName(),
+                    new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(operationActivity, Extra.CUSTOMER_ID))}
+            );
 
             Account account = persistor.read(parameters, Account.class).get(0);
             Operation operation = new Operation(account);
@@ -59,12 +66,15 @@ public class OperationHandler {
             operationActivity.onError(formErrors[0]);
         } else {
             operationActivity.editOperationWithForm(operation);
+
+            LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(operationActivity));
             persistor.update(operation);
             operationActivity.onSuccess(TYPE_UPDATE);
         }
     }
 
     public static void deleteOperation(OperationActivity operationActivity, Operation operation) {
+        LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(operationActivity));
         persistor.delete(operation);
         operationActivity.onSuccess(TYPE_DELETE);
     }

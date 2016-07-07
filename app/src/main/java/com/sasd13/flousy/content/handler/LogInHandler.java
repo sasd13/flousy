@@ -16,9 +16,9 @@ import java.util.Map;
  */
 public class LogInHandler {
 
-    private static SQLiteDAO dao = SQLiteDAO.getInstance();
-
     public static void logIn(LogInActivity logInActivity, String email, String password) {
+        SQLiteDAO dao = SQLiteDAO.create(logInActivity);
+
         Map<String, String[]> parameters = new HashMap<>();
         parameters.put(Parameter.EMAIL.getName(), new String[]{email});
 
@@ -28,7 +28,7 @@ public class LogInHandler {
             dao.open();
 
             List<Customer> customers = dao.getEntityDAO(Customer.class).select(parameters);
-            if (customers.size() == 1 && passwordMatches(customers.get(0), password)) {
+            if (customers.size() == 1 && passwordMatches(dao, customers.get(0), password)) {
                 customer = customers.get(0);
             }
         } catch (DAOException e) {
@@ -44,7 +44,7 @@ public class LogInHandler {
         }
     }
 
-    private static boolean passwordMatches(Customer customer, String password) {
+    private static boolean passwordMatches(SQLiteDAO dao, Customer customer, String password) {
         return new SQLitePasswordDAO(dao.getDB()).contains(password, customer.getId());
     }
 }
