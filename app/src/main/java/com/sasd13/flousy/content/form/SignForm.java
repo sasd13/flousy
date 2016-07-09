@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.form.BooleanModel;
-import com.sasd13.androidex.gui.widget.recycler.form.PasswordModel;
-import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
+import com.sasd13.androidex.gui.widget.recycler.form.BooleanItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.PasswordItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.flousy.R;
 
 /**
@@ -14,9 +14,9 @@ import com.sasd13.flousy.R;
  */
 public class SignForm extends Form {
 
-    private TextModel textModelFirstName, textModelLastName, textModelEmail;
-    private PasswordModel passwordModel;
-    private BooleanModel booleanModelTerms;
+    private TextItemModel textItemModelFirstName, textItemModelLastName, textItemModelEmail;
+    private PasswordItemModel passwordItemModel;
+    private BooleanItemModel booleanItemModelTerms;
 
     public SignForm(Context context) {
         super(context);
@@ -25,66 +25,66 @@ public class SignForm extends Form {
     public RecyclerHolder fabricate() {
         String title = context.getResources().getString(R.string.title_identity);
 
-        textModelFirstName = new TextModel();
-        textModelFirstName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        textModelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
-        textModelFirstName.setHint(textModelFirstName.getLabel().toLowerCase());
-        holder.add(title, textModelFirstName);
+        textItemModelFirstName = new TextItemModel();
+        textItemModelFirstName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        textItemModelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
+        textItemModelFirstName.setHint(textItemModelFirstName.getLabel().toLowerCase());
+        holder.add(title, textItemModelFirstName);
 
-        textModelLastName = new TextModel();
-        textModelLastName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        textModelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
-        textModelLastName.setHint(textModelLastName.getLabel().toLowerCase());
-        holder.add(title, textModelLastName);
+        textItemModelLastName = new TextItemModel();
+        textItemModelLastName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        textItemModelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
+        textItemModelLastName.setHint(textItemModelLastName.getLabel().toLowerCase());
+        holder.add(title, textItemModelLastName);
 
         title = context.getResources().getString(R.string.drawer_header_account);
 
-        textModelEmail = new TextModel();
-        textModelEmail.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        textModelEmail.setLabel(context.getResources().getString(R.string.label_email));
-        textModelEmail.setHint(textModelEmail.getLabel().toLowerCase());
-        holder.add(title, textModelEmail);
+        textItemModelEmail = new TextItemModel();
+        textItemModelEmail.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        textItemModelEmail.setLabel(context.getResources().getString(R.string.label_email));
+        textItemModelEmail.setHint(textItemModelEmail.getLabel().toLowerCase());
+        holder.add(title, textItemModelEmail);
 
-        passwordModel = new PasswordModel();
-        passwordModel.setLabel(context.getResources().getString(R.string.label_password));
-        holder.add(title, passwordModel);
+        passwordItemModel = new PasswordItemModel();
+        passwordItemModel.setLabel(context.getResources().getString(R.string.label_password));
+        holder.add(title, passwordItemModel);
 
-        booleanModelTerms = new BooleanModel();
-        booleanModelTerms.setLabel(context.getResources().getString(R.string.label_terms));
-        holder.add(title, booleanModelTerms);
+        booleanItemModelTerms = new BooleanItemModel();
+        booleanItemModelTerms.setLabel(context.getResources().getString(R.string.label_terms));
+        holder.add(title, booleanItemModelTerms);
 
         return holder;
     }
 
     public String getFirstName() {
-        return textModelFirstName.getValue();
+        return textItemModelFirstName.getValue();
     }
     
     public void setFirstName(String firstName) {
-        textModelFirstName.setValue(firstName);
+        textItemModelFirstName.setValue(firstName);
     }
 
     public String getLastName() {
-        return textModelLastName.getValue();
+        return textItemModelLastName.getValue();
     }
 
     public void setLastName(String lastName) {
-        textModelLastName.setValue(lastName);
+        textItemModelLastName.setValue(lastName);
     }
 
     public String getEmail() {
-        return textModelEmail.getValue();
+        return textItemModelEmail.getValue();
     }
 
     public void setEmail(String email) {
-        textModelEmail.setValue(email);
+        textItemModelEmail.setValue(email);
     }
 
     public String getPassword() {
-        return passwordModel.getValue();
+        return passwordItemModel.getValue();
     }
 
     public boolean areTermsAccepted() {
-        return booleanModelTerms.getValue();
+        return booleanItemModelTerms.getValue();
     }
 }

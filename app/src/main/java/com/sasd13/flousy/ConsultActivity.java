@@ -1,22 +1,20 @@
 package com.sasd13.flousy;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryProducer;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
-import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.handler.ConsultHandler;
+import com.sasd13.flousy.gui.recycler.MyRecyclerType;
+import com.sasd13.flousy.gui.recycler.tab.MyTabFactory;
 import com.sasd13.flousy.gui.recycler.tab.OperationItemModel;
 import com.sasd13.flousy.util.CollectionsHelper;
 import com.sasd13.flousy.util.SessionHelper;
@@ -44,7 +42,18 @@ public class ConsultActivity extends MotherActivity {
 
     private void buildConsultView() {
         textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
-        tab = RecyclerHelper.produce(RecyclerType.TAB, (RecyclerView) findViewById(R.id.consult_recyclerview));
+        registerFactory();
+        tab = RecyclerHelper.produce(MyRecyclerType.TAB_OPERATION, (RecyclerView) findViewById(R.id.consult_recyclerview));
+    }
+
+    private void registerFactory() {
+        try {
+            RecyclerFactoryProducer.registerFactory(MyRecyclerType.TAB_OPERATION, MyTabFactory.class);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

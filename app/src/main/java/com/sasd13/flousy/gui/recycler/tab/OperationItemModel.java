@@ -6,7 +6,7 @@ import com.sasd13.androidex.gui.widget.IItemType;
 import com.sasd13.androidex.gui.widget.recycler.ILabelizedItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.gui.recycler.RecyclerItemType;
+import com.sasd13.flousy.gui.recycler.MyRecyclerItemType;
 
 import java.util.Observable;
 
@@ -33,7 +33,7 @@ public class OperationItemModel extends Observable implements ILabelizedItemMode
 
     @Override
     public IItemType getItemType() {
-        return RecyclerItemType.TAB_OPERATION;
+        return MyRecyclerItemType.TAB_OPERATION;
     }
 
     @Override

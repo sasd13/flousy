@@ -1,24 +1,19 @@
 package com.sasd13.flousy.gui.recycler.tab;
 
-import android.content.Context;
-
 import com.sasd13.androidex.gui.widget.IItemType;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItem;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItemBuilder;
-import com.sasd13.flousy.gui.recycler.RecyclerItemType;
+import com.sasd13.androidex.gui.widget.recycler.tab.TabFactory;
+import com.sasd13.flousy.gui.recycler.MyRecyclerItemType;
 
 /**
  * Created by ssaidali2 on 02/07/2016.
  */
-public class TabFactory extends com.sasd13.androidex.gui.widget.recycler.tab.TabFactory {
-
-    public TabFactory(Context context) {
-        super(context);
-    }
+public class MyTabFactory extends TabFactory {
 
     @Override
     public RecyclerItem makeItem(IItemType itemType) {
-        if (RecyclerItemType.TAB_OPERATION.equals(itemType)) {
+        if (MyRecyclerItemType.TAB_OPERATION.equals(itemType)) {
             return new OperationItem();
         } else {
             return super.makeItem(itemType);
@@ -27,6 +22,10 @@ public class TabFactory extends com.sasd13.androidex.gui.widget.recycler.tab.Tab
 
     @Override
     public RecyclerItemBuilder makeItemBuilder(IItemType itemType) {
-        return super.makeItemBuilder(itemType);
+        if (MyRecyclerItemType.TAB_OPERATION.equals(itemType)) {
+            return new OperationItemBuilder(this);
+        } else {
+            return super.makeItemBuilder(itemType);
+        }
     }
 }

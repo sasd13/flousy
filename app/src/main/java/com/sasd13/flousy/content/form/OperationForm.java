@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
-import com.sasd13.androidex.gui.widget.recycler.form.DateModel;
-import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinModel;
-import com.sasd13.androidex.gui.widget.recycler.form.TextModel;
+import com.sasd13.androidex.gui.widget.recycler.form.DateItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.R;
 
@@ -17,9 +17,9 @@ import org.joda.time.LocalDate;
  */
 public class OperationForm extends Form {
 
-    private DateModel dateModelDateRealization;
-    private TextModel textModelTitle, textModelAmount;
-    private RadioSpinModel radioSpinModelType;
+    private DateItemModel dateItemModelDateRealization;
+    private TextItemModel textItemModelTitle, textItemModelAmount;
+    private RadioSpinItemModel radioSpinItemModelType;
 
     public OperationForm(Context context) {
         super(context);
@@ -28,53 +28,53 @@ public class OperationForm extends Form {
     public RecyclerHolder fabricate() {
         String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT);
 
-        dateModelDateRealization = new DateModel(pattern);
-        dateModelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
-        holder.add(dateModelDateRealization);
+        dateItemModelDateRealization = new DateItemModel(pattern);
+        dateItemModelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
+        holder.add(dateItemModelDateRealization);
 
-        textModelTitle = new TextModel();
-        textModelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
-        textModelTitle.setHint(textModelTitle.getLabel().toLowerCase());
-        holder.add(textModelTitle);
+        textItemModelTitle = new TextItemModel();
+        textItemModelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
+        textItemModelTitle.setHint(textItemModelTitle.getLabel().toLowerCase());
+        holder.add(textItemModelTitle);
 
-        textModelAmount = new TextModel();
-        textModelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        textModelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
-        holder.add(textModelAmount);
+        textItemModelAmount = new TextItemModel();
+        textItemModelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        textItemModelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
+        holder.add(textItemModelAmount);
 
-        radioSpinModelType = new RadioSpinModel();
-        radioSpinModelType.setLabel(context.getResources().getString(R.string.operation_label_type));
-        holder.add(radioSpinModelType);
+        radioSpinItemModelType = new RadioSpinItemModel();
+        radioSpinItemModelType.setLabel(context.getResources().getString(R.string.operation_label_type));
+        holder.add(radioSpinItemModelType);
 
         return holder;
     }
 
     public LocalDate getDateRealization() {
-        return dateModelDateRealization.getValue();
+        return dateItemModelDateRealization.getValue();
     }
     
     public void setDateRealization(LocalDate dateRealization) {
-        dateModelDateRealization.setValue(dateRealization);
+        dateItemModelDateRealization.setValue(dateRealization);
     }
 
     public String getTitle() {
-        return textModelTitle.getValue();
+        return textItemModelTitle.getValue();
     }
 
     public void setTitle(String title) {
-        textModelTitle.setValue(title);
+        textItemModelTitle.setValue(title);
     }
 
     public String getAmount() {
-        return textModelAmount.getValue();
+        return textItemModelAmount.getValue();
     }
 
     public void setAmount(String amount) {
-        textModelAmount.setValue(amount);
+        textItemModelAmount.setValue(amount);
     }
 
     public Integer getType() {
-        return radioSpinModelType.getValue();
+        return radioSpinItemModelType.getValue();
     }
 
     public void setType(String[] items) {
@@ -82,7 +82,7 @@ public class OperationForm extends Form {
     }
 
     public void setType(String[] items, Integer selected) {
-        radioSpinModelType.setItems(items);
-        radioSpinModelType.setValue(selected);
+        radioSpinItemModelType.setItems(items);
+        radioSpinItemModelType.setValue(selected);
     }
 }
