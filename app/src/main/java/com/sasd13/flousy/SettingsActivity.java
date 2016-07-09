@@ -8,8 +8,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryProducer;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
@@ -35,10 +33,9 @@ public class SettingsActivity extends MotherActivity {
 
     private void buildFormSettings() {
         settingsForm = new SettingsForm(this);
-        RecyclerFactory formFactory = RecyclerFactoryProducer.produce(RecyclerType.FORM, this);
-        Recycler form = formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.settings_recyclerview));
+        Recycler form = RecyclerHelper.produce(RecyclerType.FORM, (RecyclerView) findViewById(R.id.settings_recyclerview));
 
-        RecyclerHelper.addAll(form, settingsForm.fabricate(), formFactory);
+        RecyclerHelper.addAll(form, settingsForm.fabricate(), this);
         fillCustomerSettings();
     }
 

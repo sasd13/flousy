@@ -3,12 +3,10 @@ package com.sasd13.flousy;
 import android.support.v4.content.ContextCompat;
 
 import com.sasd13.androidex.DrawerActivity;
-import com.sasd13.androidex.gui.Action;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItemType;
 import com.sasd13.flousy.gui.recycler.browser.Browser;
-import com.sasd13.flousy.gui.recycler.browser.BrowserModel;
-import com.sasd13.flousy.util.SessionHelper;
+import com.sasd13.flousy.gui.recycler.browser.BrowserItemModel;
 
 public abstract class MotherActivity extends DrawerActivity {
 
@@ -26,27 +24,21 @@ public abstract class MotherActivity extends DrawerActivity {
         String menu = getResources().getString(R.string.drawer_header_menu);
         Browser browser = Browser.getInstance();
 
-        for (BrowserModel browserModel : browser.getItems(this)) {
-            browserModel.setItemType(RecyclerItemType.DRAWER_NAV);
+        for (BrowserItemModel browserItemModel : browser.getItems(this)) {
+            browserItemModel.setItemType(RecyclerItemType.DRAWER_NAV);
 
-            recyclerHolder.add(menu, browserModel);
+            recyclerHolder.add(menu, browserItemModel);
         }
     }
 
     private void addAccountItems(RecyclerHolder recyclerHolder) {
-        BrowserModel browserModel = new BrowserModel(
+        BrowserItemModel browserItemModel = new BrowserItemModel(
                 getResources().getString(R.string.drawer_label_logout),
                 ContextCompat.getDrawable(this, R.drawable.ic_room_black_36dp),
-                ContextCompat.getColor(this, R.color.greyBackground),
-                new Action() {
-                    @Override
-                    public void execute() {
-                        SessionHelper.logOut(MotherActivity.this);
-                    }
-                }
+                ContextCompat.getColor(this, R.color.greyBackground)
         );
-        browserModel.setItemType(RecyclerItemType.DRAWER);
+        browserItemModel.setItemType(RecyclerItemType.DRAWER);
 
-        recyclerHolder.add(getResources().getString(R.string.drawer_header_account), browserModel);
+        recyclerHolder.add(getResources().getString(R.string.drawer_header_account), browserItemModel);
     }
 }

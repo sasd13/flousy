@@ -33,19 +33,19 @@ public class OperationItem extends TabItem {
     public void update(Observable observable, Object o) {
         super.update(observable, o);
 
-        setDate((OperationModel) observable);
-        setAmount((OperationModel) observable);
+        setDate((OperationItemModel) observable);
+        setAmount((OperationItemModel) observable);
     }
 
-    private void setDate(OperationModel operationModel) {
+    private void setDate(OperationItemModel operationItemModel) {
         if (textViewDate != null) {
-            textViewDate.setText(operationModel.getDate());
+            textViewDate.setText(operationItemModel.getDate());
         }
     }
 
-    private void setAmount(OperationModel operationModel) {
+    private void setAmount(OperationItemModel operationItemModel) {
         if (textViewAmount != null) {
-            textViewAmount.setText(operationModel.getAmount());
+            textViewAmount.setText(operationItemModel.getAmount());
         }
     }
 }

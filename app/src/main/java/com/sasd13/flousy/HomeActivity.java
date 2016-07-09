@@ -8,8 +8,6 @@ import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryProducer;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItemType;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
@@ -17,7 +15,7 @@ import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.gui.recycler.browser.Browser;
-import com.sasd13.flousy.gui.recycler.browser.BrowserModel;
+import com.sasd13.flousy.gui.recycler.browser.BrowserItemModel;
 
 public class HomeActivity extends MotherActivity {
 
@@ -34,23 +32,22 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void buildHomeView() {
-        RecyclerFactory gridFactory = RecyclerFactoryProducer.produce(RecyclerType.GRID, this);
-        Recycler grid = gridFactory.makeBuilder().build((RecyclerView) findViewById(R.id.home_recyclerview));
+        Recycler grid = RecyclerHelper.produce(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
 
-        fillGrid(grid, gridFactory);
+        fillGrid(grid);
     }
 
-    private void fillGrid(Recycler grid, RecyclerFactory gridFactory) {
+    private void fillGrid(Recycler grid) {
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         Browser browser = Browser.getInstance();
 
-        for (BrowserModel browserModel : browser.getItems(this)) {
-            browserModel.setItemType(RecyclerItemType.GRID);
+        for (BrowserItemModel browserItemModel : browser.getItems(this)) {
+            browserItemModel.setItemType(RecyclerItemType.GRID);
 
-            recyclerHolder.add(browserModel);
+            recyclerHolder.add(browserItemModel);
         }
 
-        RecyclerHelper.addAll(grid, recyclerHolder, gridFactory);
+        RecyclerHelper.addAll(grid, recyclerHolder, this);
     }
 
     @Override

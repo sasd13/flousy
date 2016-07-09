@@ -12,8 +12,6 @@ import android.widget.Toast;
 import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryProducer;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
@@ -44,10 +42,9 @@ public class OperationActivity extends MotherActivity {
 
     private void buildOperationView() {
         operationForm = new OperationForm(this);
-        RecyclerFactory formFactory = RecyclerFactoryProducer.produce(RecyclerType.FORM, this);
-        Recycler form = formFactory.makeBuilder().build((RecyclerView) findViewById(R.id.operation_recyclerview));
+        Recycler form = RecyclerHelper.produce(RecyclerType.FORM, (RecyclerView) findViewById(R.id.operation_recyclerview));
 
-        RecyclerHelper.addAll(form, operationForm.fabricate(), formFactory);
+        RecyclerHelper.addAll(form, operationForm.fabricate(), this);
         fillFormWithOperation();
     }
 
