@@ -24,7 +24,7 @@ public enum MyRecyclerType implements IType {
 
     @Override
     public String getLabel() {
-        return null;
+        return label;
     }
 
     public static MyRecyclerType find(String label) {
