@@ -1,6 +1,7 @@
 package com.sasd13.flousy.gui.recycler;
 
 import com.sasd13.androidex.gui.widget.IType;
+import com.sasd13.androidex.gui.widget.recycler.IRecyclerFactory;
 import com.sasd13.flousy.gui.recycler.tab.MyTabFactory;
 
 /**
@@ -8,13 +9,13 @@ import com.sasd13.flousy.gui.recycler.tab.MyTabFactory;
  */
 public enum MyRecyclerFactoryType implements IType {
 
-    TAB_OPERATION("TAB", "OPERATION", MyTabFactory.class),
+    TAB_MYTAB("TAB", "MYTAB", MyTabFactory.class),
     ;
 
     private String code, label;
-    private Class target;
+    private Class<? extends IRecyclerFactory> target;
 
-    private MyRecyclerFactoryType(String code, String label, Class target) {
+    private MyRecyclerFactoryType(String code, String label, Class<? extends IRecyclerFactory> target) {
         this.code = code;
         this.label = label;
         this.target = target;
@@ -30,7 +31,7 @@ public enum MyRecyclerFactoryType implements IType {
         return label;
     }
 
-    public Class getTarget() {
+    public Class<? extends IRecyclerFactory> getTarget() {
         return target;
     }
 

@@ -47,7 +47,7 @@ public class ConsultActivity extends MotherActivity {
     private void buildConsultView() {
         textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
 
-        tab = RecyclerHelper.produce(MyRecyclerFactoryType.TAB_OPERATION, (RecyclerView) findViewById(R.id.consult_recyclerview));
+        tab = RecyclerHelper.produce(MyRecyclerFactoryType.TAB_MYTAB, (RecyclerView) findViewById(R.id.consult_recyclerview));
         tab.addDividerItemDecoration();
     }
 

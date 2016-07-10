@@ -22,7 +22,7 @@ import java.util.List;
 
 public class SQLiteDAO implements ILayeredDAO, ITransactional {
 
-    private SQLiteDatabaseHandler dbHandler;
+    private SQLiteDBHandler dbHandler;
     private SQLiteDatabase db;
 
     protected CustomerDAO customerDAO;
@@ -39,7 +39,7 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
     private static List<SQLiteDAO> pool = new ArrayList<>();
 
     private SQLiteDAO(Context context) {
-        dbHandler = new SQLiteDatabaseHandler(context, SQLiteDatabaseInfo.DB, null, SQLiteDatabaseInfo.VERSION);
+        dbHandler = new SQLiteDBHandler(context, SQLiteDBInformation.DB, null, SQLiteDBInformation.VERSION);
 
         customerDAO = new SQLiteCustomerDAO();
         accountDAO = new SQLiteAccountDAO();
@@ -62,6 +62,10 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
         return dao;
     }
 
+    private boolean isOpened() {
+        return db.isOpen();
+    }
+
     @Override
     public void open() {
         db = dbHandler.getWritableDatabase();
@@ -74,10 +78,6 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
     @Override
     public void close() {
         db.close();
-    }
-
-    private boolean isOpened() {
-        return db.isOpen();
     }
 
     @Override

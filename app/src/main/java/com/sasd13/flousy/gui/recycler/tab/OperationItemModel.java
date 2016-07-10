@@ -24,7 +24,7 @@ public class OperationItemModel extends Observable implements IRecyclerItemModel
 
     @Override
     public IType getType() {
-        return MyRecyclerFactoryType.TAB_OPERATION;
+        return MyRecyclerFactoryType.TAB_MYTAB;
     }
 
     @Override

@@ -12,7 +12,7 @@ public class MyTabFactory extends RecyclerFactory {
 
     @Override
     public RecyclerItem makeItem(IType type) {
-        if (MyRecyclerFactoryType.TAB_OPERATION.equals(type)) {
+        if (MyRecyclerFactoryType.TAB_MYTAB.equals(type)) {
             return new OperationItem();
         } else {
             return super.makeItem(type);
