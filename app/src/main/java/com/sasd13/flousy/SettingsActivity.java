@@ -37,7 +37,7 @@ public class SettingsActivity extends MotherActivity {
         Recycler form = RecyclerHelper.produce(RecyclerFactoryType.FORM, (RecyclerView) findViewById(R.id.settings_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, settingsForm.fabricate(), this);
+        RecyclerHelper.addAll(form, settingsForm.fabricate());
         fillCustomerSettings();
     }
 

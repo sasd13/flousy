@@ -100,7 +100,7 @@ public class ConsultActivity extends MotherActivity {
             recyclerHolder.add(pair);
         }
 
-        RecyclerHelper.addAll(tab, recyclerHolder, this);
+        RecyclerHelper.addAll(tab, recyclerHolder);
         tab.addDividerItemDecoration();
     }
 }

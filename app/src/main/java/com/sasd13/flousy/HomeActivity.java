@@ -59,7 +59,7 @@ public class HomeActivity extends MotherActivity {
             recyclerHolder.add(pair);
         }
 
-        RecyclerHelper.addAll(grid, recyclerHolder, this);
+        RecyclerHelper.addAll(grid, recyclerHolder);
     }
 
     @Override
@@ -76,12 +76,13 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void showWelcome() {
-        String firstName = getIntent().getStringExtra(Extra.FIRSTNAME);
+        StringBuilder builder = new StringBuilder();
+        builder.append(R.string.home_alertdialog_message_welcome);
+        builder.append(" ");
+        builder.append(getIntent().getStringExtra(Extra.FIRSTNAME));
+        builder.append(" !");
 
-        OptionDialog.showOkDialog(
-                this,
-                getResources().getString(R.string.home_alertdialog_title_welcome),
-                getResources().getString(R.string.home_alertdialog_message_welcome) + " " + firstName + " !");
+        OptionDialog.showOkDialog(this, getResources().getString(R.string.home_alertdialog_title_welcome), builder.toString());
     }
 
     public void exit() {

@@ -46,7 +46,7 @@ public class OperationActivity extends MotherActivity {
         Recycler form = RecyclerHelper.produce(RecyclerFactoryType.FORM, (RecyclerView) findViewById(R.id.operation_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, operationForm.fabricate(), this);
+        RecyclerHelper.addAll(form, operationForm.fabricate());
         fillFormWithOperation();
     }
 
