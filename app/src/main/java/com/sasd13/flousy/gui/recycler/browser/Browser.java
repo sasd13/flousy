@@ -3,7 +3,13 @@ package com.sasd13.flousy.gui.recycler.browser;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 
+import com.sasd13.flousy.ConsultActivity;
+import com.sasd13.flousy.FinancesActivity;
+import com.sasd13.flousy.FriendsActivity;
+import com.sasd13.flousy.OffersActivity;
+import com.sasd13.flousy.OperationActivity;
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,37 +35,43 @@ public class Browser {
             items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_operation),
                     ContextCompat.getDrawable(context, R.drawable.griditem_new),
-                    ContextCompat.getColor(context, R.color.green)
+                    ContextCompat.getColor(context, R.color.green),
+                    OperationActivity.class
             ));
 
             items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_consult),
                     ContextCompat.getDrawable(context, R.drawable.griditem_consult),
-                    ContextCompat.getColor(context, R.color.red)
+                    ContextCompat.getColor(context, R.color.red),
+                    ConsultActivity.class
             ));
 
             items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_finances),
                     ContextCompat.getDrawable(context, R.drawable.griditem_finances),
-                    ContextCompat.getColor(context, R.color.orange)
+                    ContextCompat.getColor(context, R.color.orange),
+                    FinancesActivity.class
             ));
 
             items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_friends),
                     ContextCompat.getDrawable(context, R.drawable.griditem_dividing),
-                    ContextCompat.getColor(context, R.color.blue)
+                    ContextCompat.getColor(context, R.color.blue),
+                    FriendsActivity.class
             ));
 
             items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_offers),
                     ContextCompat.getDrawable(context, R.drawable.griditem_evolution),
-                    ContextCompat.getColor(context, R.color.purple)
+                    ContextCompat.getColor(context, R.color.purple),
+                    OffersActivity.class
             ));
 
             items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_settings),
                     ContextCompat.getDrawable(context, R.drawable.griditem_settings),
-                    ContextCompat.getColor(context, R.color.brown)
+                    ContextCompat.getColor(context, R.color.brown),
+                    SettingsActivity.class
             ));
         }
 

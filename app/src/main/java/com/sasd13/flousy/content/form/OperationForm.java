@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.DateItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
@@ -30,21 +31,21 @@ public class OperationForm extends Form {
 
         dateItemModelDateRealization = new DateItemModel(pattern);
         dateItemModelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
-        holder.add(dateItemModelDateRealization);
+        holder.add(new RecyclerHolderPair(dateItemModelDateRealization));
 
         textItemModelTitle = new TextItemModel();
         textItemModelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
         textItemModelTitle.setHint(textItemModelTitle.getLabel().toLowerCase());
-        holder.add(textItemModelTitle);
+        holder.add(new RecyclerHolderPair(textItemModelTitle));
 
         textItemModelAmount = new TextItemModel();
         textItemModelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         textItemModelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
-        holder.add(textItemModelAmount);
+        holder.add(new RecyclerHolderPair(textItemModelAmount));
 
         radioSpinItemModelType = new RadioSpinItemModel();
         radioSpinItemModelType.setLabel(context.getResources().getString(R.string.operation_label_type));
-        holder.add(radioSpinItemModelType);
+        holder.add(new RecyclerHolderPair(radioSpinItemModelType));
 
         return holder;
     }

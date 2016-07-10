@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
@@ -32,7 +32,9 @@ public class SignActivity extends AppCompatActivity {
 
     private void buildSignView() {
         signForm = new SignForm(this);
-        Recycler form = RecyclerHelper.produce(RecyclerType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
+
+        Recycler form = RecyclerHelper.produce(RecyclerFactoryType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
+        form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, signForm.fabricate(), this);
     }

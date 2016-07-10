@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.GUIConstants;
+import com.sasd13.androidex.gui.IAction;
+import com.sasd13.androidex.gui.widget.ActionEvent;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryType;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItemType;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerType;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
@@ -32,19 +35,28 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void buildHomeView() {
-        Recycler grid = RecyclerHelper.produce(RecyclerType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
+        Recycler grid = RecyclerHelper.produce(RecyclerFactoryType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
 
         fillGrid(grid);
     }
 
     private void fillGrid(Recycler grid) {
         RecyclerHolder recyclerHolder = new RecyclerHolder();
+        RecyclerHolderPair pair;
         Browser browser = Browser.getInstance();
 
-        for (BrowserItemModel browserItemModel : browser.getItems(this)) {
+        for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
             browserItemModel.setItemType(RecyclerItemType.GRID);
 
-            recyclerHolder.add(browserItemModel);
+            pair = new RecyclerHolderPair(browserItemModel);
+            pair.addController(ActionEvent.CLICK, new IAction() {
+                @Override
+                public void execute() {
+                    startActivity(new Intent(HomeActivity.this, browserItemModel.getTarget()));
+                }
+            });
+
+            recyclerHolder.add(pair);
         }
 
         RecyclerHelper.addAll(grid, recyclerHolder, this);

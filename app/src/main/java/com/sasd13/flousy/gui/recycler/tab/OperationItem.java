@@ -39,7 +39,7 @@ public class OperationItem extends TabItem {
 
     private void setDate(OperationItemModel operationItemModel) {
         if (textViewDate != null) {
-            textViewDate.setText(operationItemModel.getDate());
+            textViewDate.setText(operationItemModel.getDate(textViewDate.getContext()));
         }
     }
 

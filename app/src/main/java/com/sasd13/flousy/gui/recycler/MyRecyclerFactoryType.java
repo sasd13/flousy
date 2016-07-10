@@ -5,14 +5,14 @@ import com.sasd13.androidex.gui.widget.IType;
 /**
  * Created by ssaidali2 on 09/07/2016.
  */
-public enum MyRecyclerType implements IType {
+public enum MyRecyclerFactoryType implements IType {
 
     TAB_OPERATION("TAB", "OPERATION"),
     ;
 
     private String code, label;
 
-    private MyRecyclerType(String code, String label) {
+    private MyRecyclerFactoryType(String code, String label) {
         this.code = code;
         this.label = label;
     }
@@ -27,10 +27,10 @@ public enum MyRecyclerType implements IType {
         return label;
     }
 
-    public static MyRecyclerType find(String label) {
-        for (MyRecyclerType myRecyclerType : values()) {
-            if (myRecyclerType.label.equalsIgnoreCase(label)) {
-                return myRecyclerType;
+    public static MyRecyclerFactoryType find(String label) {
+        for (MyRecyclerFactoryType myRecyclerFactoryType : values()) {
+            if (myRecyclerFactoryType.label.equalsIgnoreCase(label)) {
+                return myRecyclerFactoryType;
             }
         }
 

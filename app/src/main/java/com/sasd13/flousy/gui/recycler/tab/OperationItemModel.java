@@ -3,7 +3,8 @@ package com.sasd13.flousy.gui.recycler.tab;
 import android.content.Context;
 
 import com.sasd13.androidex.gui.widget.IItemType;
-import com.sasd13.androidex.gui.widget.recycler.ILabelizedItemModel;
+import com.sasd13.androidex.gui.widget.ILabelizable;
+import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.gui.recycler.MyRecyclerItemType;
@@ -13,22 +14,12 @@ import java.util.Observable;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class OperationItemModel extends Observable implements ILabelizedItemModel {
+public class OperationItemModel extends Observable implements IRecyclerItemModel, ILabelizable {
 
     private Operation operation;
-    private Context context;
 
-    public OperationItemModel(Operation operation, Context context) {
+    public OperationItemModel(Operation operation) {
         this.operation = operation;
-        this.context = context;
-    }
-
-    public Operation getOperation() {
-        return operation;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
     }
 
     @Override
@@ -41,7 +32,7 @@ public class OperationItemModel extends Observable implements ILabelizedItemMode
         return operation.getTitle();
     }
 
-    public String getDate() {
+    public String getDate(Context context) {
         return DateTimeHelper.format(
                 operation.getDateRealization(),
                 DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT));

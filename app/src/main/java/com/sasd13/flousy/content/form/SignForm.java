@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.PasswordItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
@@ -29,13 +30,13 @@ public class SignForm extends Form {
         textItemModelFirstName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         textItemModelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
         textItemModelFirstName.setHint(textItemModelFirstName.getLabel().toLowerCase());
-        holder.add(title, textItemModelFirstName);
+        holder.add(title, new RecyclerHolderPair(textItemModelFirstName));
 
         textItemModelLastName = new TextItemModel();
         textItemModelLastName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         textItemModelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
         textItemModelLastName.setHint(textItemModelLastName.getLabel().toLowerCase());
-        holder.add(title, textItemModelLastName);
+        holder.add(title, new RecyclerHolderPair(textItemModelLastName));
 
         title = context.getResources().getString(R.string.drawer_header_account);
 
@@ -43,15 +44,15 @@ public class SignForm extends Form {
         textItemModelEmail.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         textItemModelEmail.setLabel(context.getResources().getString(R.string.label_email));
         textItemModelEmail.setHint(textItemModelEmail.getLabel().toLowerCase());
-        holder.add(title, textItemModelEmail);
+        holder.add(title, new RecyclerHolderPair(textItemModelEmail));
 
         passwordItemModel = new PasswordItemModel();
         passwordItemModel.setLabel(context.getResources().getString(R.string.label_password));
-        holder.add(title, passwordItemModel);
+        holder.add(title, new RecyclerHolderPair(passwordItemModel));
 
         booleanItemModelTerms = new BooleanItemModel();
         booleanItemModelTerms.setLabel(context.getResources().getString(R.string.label_terms));
-        holder.add(title, booleanItemModelTerms);
+        holder.add(title, new RecyclerHolderPair(booleanItemModelTerms));
 
         return holder;
     }
