@@ -9,9 +9,9 @@ import com.sasd13.androidex.gui.widget.ActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerItemType;
-import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.gui.recycler.browser.Browser;
 import com.sasd13.flousy.gui.recycler.browser.BrowserItemModel;
+import com.sasd13.flousy.util.SessionHelper;
 
 public abstract class MotherActivity extends DrawerActivity {
 
@@ -31,7 +31,7 @@ public abstract class MotherActivity extends DrawerActivity {
         RecyclerHolderPair pair;
 
         for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
-            browserItemModel.setItemType(RecyclerItemType.DRAWER_NAV);
+            browserItemModel.setType(RecyclerItemType.DRAWER_NAV);
 
             pair = new RecyclerHolderPair(browserItemModel);
             pair.addController(ActionEvent.CLICK, new IAction() {
@@ -52,16 +52,13 @@ public abstract class MotherActivity extends DrawerActivity {
                 ContextCompat.getColor(this, R.color.greyBackground),
                 HomeActivity.class
         );
-        browserItemModel.setItemType(RecyclerItemType.DRAWER);
+        browserItemModel.setType(RecyclerItemType.DRAWER);
 
         RecyclerHolderPair pair = new RecyclerHolderPair(browserItemModel);
         pair.addController(ActionEvent.CLICK, new IAction() {
             @Override
             public void execute() {
-                Intent intent = new Intent(MotherActivity.this, browserItemModel.getTarget());
-                intent.putExtra(Extra.EXIT, true);
-
-                startActivity(intent);
+                SessionHelper.logOut(MotherActivity.this);
             }
         });
 

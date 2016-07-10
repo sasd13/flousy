@@ -46,7 +46,7 @@ public class HomeActivity extends MotherActivity {
         Browser browser = Browser.getInstance();
 
         for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
-            browserItemModel.setItemType(RecyclerItemType.GRID);
+            browserItemModel.setType(RecyclerItemType.GRID);
 
             pair = new RecyclerHolderPair(browserItemModel);
             pair.addController(ActionEvent.CLICK, new IAction() {

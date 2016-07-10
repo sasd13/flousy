@@ -2,12 +2,12 @@ package com.sasd13.flousy.gui.recycler.tab;
 
 import android.content.Context;
 
-import com.sasd13.androidex.gui.widget.IItemType;
 import com.sasd13.androidex.gui.widget.ILabelizable;
+import com.sasd13.androidex.gui.widget.IType;
 import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.gui.recycler.MyRecyclerItemType;
+import com.sasd13.flousy.gui.recycler.MyRecyclerFactoryType;
 
 import java.util.Observable;
 
@@ -23,8 +23,8 @@ public class OperationItemModel extends Observable implements IRecyclerItemModel
     }
 
     @Override
-    public IItemType getItemType() {
-        return MyRecyclerItemType.TAB_OPERATION;
+    public IType getType() {
+        return MyRecyclerFactoryType.TAB_OPERATION;
     }
 
     @Override

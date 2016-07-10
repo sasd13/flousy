@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.sasd13.androidex.gui.GUIConstants;
+import com.sasd13.androidex.util.DIContainer;
 import com.sasd13.androidex.util.TaskPlanner;
+import com.sasd13.flousy.gui.recycler.MyRecyclerFactoryType;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -23,12 +25,19 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splashscreen);
         createLogo();
+        init();
         run();
     }
 
     private void createLogo() {
         ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
         imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
+    }
+
+    private void init() {
+        for (MyRecyclerFactoryType type : MyRecyclerFactoryType.values()) {
+            DIContainer.register(type, type.getTarget());
+        }
     }
 
     public void run() {
