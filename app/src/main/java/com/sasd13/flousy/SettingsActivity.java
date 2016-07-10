@@ -5,26 +5,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.content.handler.SettingsHandler;
-import com.sasd13.flousy.util.SessionHelper;
 
 public class SettingsActivity extends MotherActivity {
 
     private SettingsForm settingsForm;
-    private Customer customer;
+    private SettingsHandler settingsHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        settingsForm = new SettingsForm(this);
+        settingsHandler = new SettingsHandler(this, settingsForm);
 
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
@@ -32,8 +32,6 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void buildFormSettings() {
-        settingsForm = new SettingsForm(this);
-
         Recycler form = RecyclerHelper.produce(RecyclerFactoryType.FORM, (RecyclerView) findViewById(R.id.settings_recyclerview));
         form.addDividerItemDecoration();
 
@@ -42,7 +40,7 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void fillCustomerSettings() {
-        customer = SettingsHandler.readCustomer(this, SessionHelper.getExtraIdFromSession(this, Extra.CUSTOMER_ID));
+        Customer customer = settingsHandler.readCustomer();
 
         settingsForm.setFirstName(customer.getFirstName());
         settingsForm.setLastName(customer.getLastName());
@@ -71,20 +69,6 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void updateCustomer() {
-        SettingsHandler.updateCustomer(this, customer, settingsForm);
-    }
-
-    public void editCustomerWithForm(Customer customer) {
-        customer.setFirstName(settingsForm.getFirstName());
-        customer.setLastName(settingsForm.getLastName());
-        customer.setEmail(settingsForm.getEmail());
-    }
-
-    public void onSuccess() {
-        Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
-    }
-
-    public void onError(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+        settingsHandler.updateCustomer();
     }
 }

@@ -1,13 +1,15 @@
 package com.sasd13.flousy.content.handler;
 
-import android.content.Context;
+import android.widget.Toast;
 
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
 import java.util.HashMap;
@@ -19,40 +21,66 @@ import java.util.Map;
  */
 public class SettingsHandler {
 
-    public static Customer readCustomer(Context context, long id) {
-        LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(context));
+    private SettingsActivity settingsActivity;
+    private SettingsForm settingsForm;
+    private LayeredPersistor persistor;
+    private Map<String, String[]> parameters;
+    private Customer customer;
 
-        return persistor.read(id, Customer.class);
+    public SettingsHandler(SettingsActivity settingsActivity, SettingsForm settingsForm) {
+        this.settingsActivity = settingsActivity;
+        this.settingsForm = settingsForm;
+        persistor = new LayeredPersistor(SQLiteDAO.create(settingsActivity));
+        parameters = new HashMap<>();
     }
 
-    public static void updateCustomer(SettingsActivity settingsActivity, Customer customer, SettingsForm settingsForm) {
-        String[] errors = validFormInputs(settingsForm);
+    public Customer readCustomer() {
+        long id = SessionHelper.getExtraIdFromSession(settingsActivity, Extra.CUSTOMER_ID);
+        customer = persistor.read(id, Customer.class);
+
+        return customer;
+    }
+
+    public void updateCustomer() {
+        String[] errors = validFormInputs();
 
         if (errors.length != 0) {
-            settingsActivity.onError(errors[0]);
+            onError(errors[0]);
         } else {
-            LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(settingsActivity));
-
-            Map<String, String[]> parameters = new HashMap<>();
+            parameters.clear();
             parameters.put(Parameter.EMAIL.getName(), new String[]{ settingsForm.getEmail() });
 
             List<Customer> customers = persistor.read(parameters, Customer.class);
             if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
                 String error = settingsActivity.getResources().getString(R.string.message_email_exists);
 
-                settingsActivity.onError(error);
+                onError(error);
             } else {
-                settingsActivity.editCustomerWithForm(customer);
+                editCustomerWithForm(customer);
                 persistor.update(customer);
 
-                settingsActivity.onSuccess();
+                onSuccess();
             }
         }
     }
 
-    public static String[] validFormInputs(SettingsForm settingsForm) {
+    private String[] validFormInputs() {
         //TODO
 
         return new String[]{};
+    }
+
+    private void onError(String error) {
+        Toast.makeText(settingsActivity, error, Toast.LENGTH_SHORT).show();
+    }
+
+    private void editCustomerWithForm(Customer customer) {
+        customer.setFirstName(settingsForm.getFirstName());
+        customer.setLastName(settingsForm.getLastName());
+        customer.setEmail(settingsForm.getEmail());
+    }
+
+    private void onSuccess() {
+        Toast.makeText(settingsActivity, R.string.message_saved, Toast.LENGTH_SHORT).show();
     }
 }

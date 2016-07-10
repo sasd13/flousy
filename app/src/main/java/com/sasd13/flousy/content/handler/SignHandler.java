@@ -1,5 +1,6 @@
 package com.sasd13.flousy.content.handler;
 
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Account;
@@ -8,6 +9,7 @@ import com.sasd13.flousy.content.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -19,44 +21,65 @@ import java.util.Map;
  */
 public class SignHandler {
 
-    public static void sign(SignActivity signActivity, SignForm signForm) {
-        String[] errors = validFormInputs(signForm);
+    private SignActivity signActivity;
+    private SignForm signForm;
+    private SQLiteDAO dao;
+    private LayeredPersistor persistor;
+    private Map<String, String[]> parameters;
+
+    public SignHandler(SignActivity signActivity, SignForm signForm) {
+        this.signActivity = signActivity;
+        this.signForm = signForm;
+        dao = SQLiteDAO.create(signActivity);
+        persistor = new LayeredPersistor(dao);
+        parameters = new HashMap<>();
+    }
+
+    public void sign() {
+        String[] errors = validFormInputs();
 
         if (errors.length != 0) {
-            signActivity.onError(errors[0]);
+            onError(errors[0]);
         } else {
-            SQLiteDAO dao = SQLiteDAO.create(signActivity);
-            LayeredPersistor persistor = new LayeredPersistor(dao);
-
-            Map<String, String[]> parameters = new HashMap<>();
+            parameters.clear();
             parameters.put(Parameter.EMAIL.getName(), new String[]{ signForm.getEmail() });
 
             if (!persistor.read(parameters, Customer.class).isEmpty()) {
-                signActivity.onError(signActivity.getResources().getString(R.string.message_email_exists));
+                onError(signActivity.getResources().getString(R.string.message_email_exists));
             } else {
                 Customer customer = new Customer();
 
-                signActivity.editCustomerWithForm(customer);
-                performSign(dao, customer, signForm.getPassword());
-                signActivity.onSuccess(customer);
+                editCustomerWithForm(customer);
+                performSign(customer);
+                onSuccess(customer);
             }
         }
     }
 
-    public static String[] validFormInputs(SignForm signForm) {
+    private String[] validFormInputs() {
         //TODO
 
         return new String[]{};
     }
 
-    private static void performSign(SQLiteDAO dao, Customer customer, String password) {
+    private void onError(String error) {
+        OptionDialog.showOkDialog(signActivity, signActivity.getResources().getString(R.string.title_error), error);
+    }
+
+    private void editCustomerWithForm(Customer customer) {
+        customer.setFirstName(signForm.getFirstName());
+        customer.setLastName(signForm.getLastName());
+        customer.setEmail(signForm.getEmail());
+    }
+
+    private void performSign(Customer customer) {
         try {
             dao.open();
             dao.beginTransaction();
             dao.getEntityDAO(Customer.class).insert(customer);
 
             SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
-            passwordDAO.insert(password, customer.getId());
+            passwordDAO.insert(signForm.getPassword(), customer.getId());
 
             dao.getEntityDAO(Account.class).insert(customer.getAccount());
             dao.commit();
@@ -66,5 +89,9 @@ public class SignHandler {
             dao.endTransaction();
             dao.close();
         }
+    }
+
+    private void onSuccess(Customer customer) {
+        SessionHelper.logIn(signActivity, customer);
     }
 }

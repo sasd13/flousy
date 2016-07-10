@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class CollectionsHelper {
 
-    public static void sortOperationByDateDesc(List<Operation> operations) {
+    public static void sortOperationsByDateDesc(List<Operation> operations) {
         sortOperationByDate(operations, true);
     }
 

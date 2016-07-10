@@ -1,10 +1,11 @@
 package com.sasd13.flousy.content.handler;
 
-import android.content.Context;
-
+import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
+import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
 import java.util.HashMap;
@@ -15,9 +16,20 @@ import java.util.Map;
  */
 public class ConsultHandler {
 
-    public static Account readAccount(Context context, long id) {
-        LayeredPersistor persistor = new LayeredPersistor(SQLiteDAO.create(context));
-        Map<String, String[]> parameters = new HashMap<>();
+    private ConsultActivity consultActivity;
+    private LayeredPersistor persistor;
+    private Map<String, String[]> parameters;
+
+    public ConsultHandler(ConsultActivity consultActivity) {
+        this.consultActivity = consultActivity;
+        persistor = new LayeredPersistor(SQLiteDAO.create(consultActivity));
+        parameters = new HashMap<>();
+    }
+
+    public Account readAccount() {
+        long id = SessionHelper.getExtraIdFromSession(consultActivity, Extra.CUSTOMER_ID);
+
+        parameters.clear();
         parameters.put(Parameter.CUSTOMER.getName(), new String[] { String.valueOf(id) });
 
         return persistor.deepRead(parameters, Account.class).get(0);

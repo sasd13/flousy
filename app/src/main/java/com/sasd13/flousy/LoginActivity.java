@@ -7,12 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sasd13.androidex.util.GUIHelper;
-import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.handler.LogInHandler;
-import com.sasd13.flousy.util.SessionHelper;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -21,12 +18,14 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public static LogInActivity self;
+    private LogInHandler logInHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         self = this;
+        logInHandler = new LogInHandler(this);
 
         setContentView(R.layout.activity_login);
         buildLogInView();
@@ -73,14 +72,6 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void logIn(String email, String password) {
-        LogInHandler.logIn(this, email, password);
-    }
-
-    public void onSuccess(Customer customer) {
-        SessionHelper.logIn(this, customer);
-    }
-
-    public void onError(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+        logInHandler.logIn(email, password);
     }
 }

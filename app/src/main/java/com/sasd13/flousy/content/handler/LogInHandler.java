@@ -1,10 +1,13 @@
 package com.sasd13.flousy.content.handler;
 
+import android.widget.Toast;
+
 import com.sasd13.flousy.LogInActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
 
 import java.util.HashMap;
@@ -16,11 +19,19 @@ import java.util.Map;
  */
 public class LogInHandler {
 
-    public static void logIn(LogInActivity logInActivity, String email, String password) {
-        SQLiteDAO dao = SQLiteDAO.create(logInActivity);
+    private LogInActivity logInActivity;
+    private SQLiteDAO dao;
+    private Map<String, String[]> parameters;
 
-        Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{email});
+    public LogInHandler(LogInActivity logInActivity) {
+        this.logInActivity = logInActivity;
+        dao = SQLiteDAO.create(logInActivity);
+        parameters = new HashMap<>();
+    }
+
+    public void logIn(String email, String password) {
+        parameters.clear();
+        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
 
         Customer customer = null;
 
@@ -38,13 +49,21 @@ public class LogInHandler {
         }
 
         if (customer == null) {
-            logInActivity.onError(LogInActivity.self.getResources().getString(com.sasd13.androidex.R.string.message_error_login));
+            onError(LogInActivity.self.getResources().getString(com.sasd13.androidex.R.string.message_error_login));
         } else {
-            logInActivity.onSuccess(customer);
+            onSuccess(customer);
         }
     }
 
-    private static boolean passwordMatches(SQLiteDAO dao, Customer customer, String password) {
+    private boolean passwordMatches(SQLiteDAO dao, Customer customer, String password) {
         return new SQLitePasswordDAO(dao.getDB()).contains(password, customer.getId());
+    }
+
+    private void onError(String error) {
+        Toast.makeText(logInActivity, error, Toast.LENGTH_SHORT).show();
+    }
+
+    private void onSuccess(Customer customer) {
+        SessionHelper.logIn(logInActivity, customer);
     }
 }

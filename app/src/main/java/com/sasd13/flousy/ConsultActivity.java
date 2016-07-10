@@ -19,7 +19,6 @@ import com.sasd13.flousy.content.handler.ConsultHandler;
 import com.sasd13.flousy.gui.recycler.MyRecyclerFactoryType;
 import com.sasd13.flousy.gui.recycler.tab.OperationItemModel;
 import com.sasd13.flousy.util.CollectionsHelper;
-import com.sasd13.flousy.util.SessionHelper;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -32,10 +31,13 @@ public class ConsultActivity extends MotherActivity {
     private Recycler tab;
 
     private DecimalFormat df = new DecimalFormat(PATTERN_DECIMAL);
+    private ConsultHandler consultHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        consultHandler = new ConsultHandler(this);
 
         setContentView(R.layout.activity_consult);
         GUIHelper.colorTitles(this);
@@ -46,13 +48,14 @@ public class ConsultActivity extends MotherActivity {
         textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
 
         tab = RecyclerHelper.produce(MyRecyclerFactoryType.TAB_OPERATION, (RecyclerView) findViewById(R.id.consult_recyclerview));
+        tab.addDividerItemDecoration();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Account account = ConsultHandler.readAccount(this, SessionHelper.getExtraIdFromSession(this, Extra.CUSTOMER_ID));
+        Account account = consultHandler.readAccount();
 
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
 
@@ -62,7 +65,7 @@ public class ConsultActivity extends MotherActivity {
     private void fillTabOperations(List<Operation> operations) {
         tab.clear();
 
-        CollectionsHelper.sortOperationByDateDesc(operations);
+        CollectionsHelper.sortOperationsByDateDesc(operations);
 
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;
@@ -87,6 +90,5 @@ public class ConsultActivity extends MotherActivity {
         }
 
         RecyclerHelper.addAll(tab, recyclerHolder);
-        tab.addDividerItemDecoration();
     }
 }
