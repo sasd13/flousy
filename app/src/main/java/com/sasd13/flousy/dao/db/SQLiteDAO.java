@@ -63,7 +63,7 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
     }
 
     private boolean isOpened() {
-        return db.isOpen();
+        return db != null ? db.isOpen() : false;
     }
 
     @Override

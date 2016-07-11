@@ -10,7 +10,6 @@ import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
-import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.content.handler.SettingsHandler;
 
@@ -28,23 +27,19 @@ public class SettingsActivity extends MotherActivity {
 
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
-        buildFormSettings();
+        buildSettingsView();
     }
 
-    private void buildFormSettings() {
+    private void buildSettingsView() {
         Recycler form = RecyclerHelper.produce(RecyclerFactoryType.FORM, (RecyclerView) findViewById(R.id.settings_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, settingsForm.fabricate());
-        fillCustomerSettings();
+        RecyclerHelper.addAll(form, settingsForm.getHolder());
+        fillSettingsView();
     }
 
-    private void fillCustomerSettings() {
-        Customer customer = settingsHandler.readCustomer();
-
-        settingsForm.setFirstName(customer.getFirstName());
-        settingsForm.setLastName(customer.getLastName());
-        settingsForm.setEmail(customer.getEmail());
+    private void fillSettingsView() {
+        settingsForm.bindCustomer(settingsHandler.readCustomer());
     }
 
     @Override

@@ -17,9 +17,7 @@ import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.OperationForm;
 import com.sasd13.flousy.content.handler.OperationHandler;
 
-import org.joda.time.LocalDate;
-
-import java.util.Arrays;
+import java.sql.Timestamp;
 
 public class OperationActivity extends MotherActivity {
 
@@ -42,45 +40,29 @@ public class OperationActivity extends MotherActivity {
         Recycler form = RecyclerHelper.produce(RecyclerFactoryType.FORM, (RecyclerView) findViewById(R.id.operation_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, operationForm.fabricate());
-        fillFormWithOperation();
+        RecyclerHelper.addAll(form, operationForm.getHolder());
+        fillOperationView();
     }
 
-    private void fillFormWithOperation() {
-        if (hasExtraModeEdit()) {
-            Operation operation = operationHandler.readOperation();
+    private void fillOperationView() {
+        Operation operation;
 
-            fillEditFormOperation(operation);
+        if (hasExtraModeEdit()) {
+            operation = operationHandler.readOperation();
+
             getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_consulting));
         } else {
-            fillNewFormOperation();
+            operation = new Operation();
+            operation.setDateRealization(new Timestamp(System.currentTimeMillis()));
+
             getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_new));
         }
+
+        operationForm.bindOperation(operation);
     }
 
     private boolean hasExtraModeEdit() {
         return getIntent().getIntExtra(Extra.MODE, Extra.MODE_NEW) == Extra.MODE_EDIT;
-    }
-
-    private void fillEditFormOperation(Operation operation) {
-        operationForm.setDateRealization(new LocalDate(operation.getDateRealization()));
-        operationForm.setTitle(operation.getTitle());
-        operationForm.setAmount(String.valueOf(Math.abs(operation.getAmount())));
-
-        String[] operationTypes = getResources().getStringArray(R.array.operation_types);
-        String debit = getResources().getString(R.string.operation_type_debit);
-        String credit = getResources().getString(R.string.operation_type_credit);
-
-        if (operation.getAmount() <= 0) {
-            operationForm.setType(operationTypes, Arrays.asList(operationTypes).indexOf(debit));
-        } else {
-            operationForm.setType(operationTypes, Arrays.asList(operationTypes).indexOf(credit));
-        }
-    }
-
-    private void fillNewFormOperation() {
-        operationForm.setDateRealization(new LocalDate(System.currentTimeMillis()));
-        operationForm.setType(getResources().getStringArray(R.array.operation_types));
     }
 
     @Override

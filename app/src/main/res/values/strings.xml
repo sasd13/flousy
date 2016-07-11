@@ -52,6 +52,10 @@
     <!-- EditText -->
     <string name="edittext_hint_email">email</string>
 
+    <!-- Form -->
+    <string name="form_sign_message_error_terms">General terms of use are not accepted</string>
+    <string name="form_operation_message_error_type">Invalid operation type</string>
+
     <!-- Label -->
     <string name="label_firstname">First name</string>
     <string name="label_lastname">Last name</string>

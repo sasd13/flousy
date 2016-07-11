@@ -35,7 +35,7 @@ public class SignActivity extends AppCompatActivity {
         Recycler form = RecyclerHelper.produce(RecyclerFactoryType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, signForm.fabricate());
+        RecyclerHelper.addAll(form, signForm.getHolder());
     }
 
     @Override

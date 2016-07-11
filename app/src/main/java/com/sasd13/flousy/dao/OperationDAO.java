@@ -11,5 +11,6 @@ public interface OperationDAO extends IEntityDAO<Operation> {
     String COLUMN_DATEREALIZATION = "daterealization";
     String COLUMN_TITLE = "title";
     String COLUMN_AMOUNT = "amount";
+    String COLUMN_TYPE = "type";
     String COLUMN_ACCOUNT_ID = "account_id";
 }

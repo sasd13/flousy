@@ -53,15 +53,8 @@
     <string name="edittext_hint_email">email</string>
 
     <!-- Form -->
-    <string name="form_textview_date">Date</string>
-    <string name="form_textview_hint_date">2015</string>
-    <string name="form_operation_textview_type">Type</string>
-    <string name="form_operation_radiobutton_type_debit">Débit</string>
-    <string name="form_operation_radiobutton_type_credit">Crédit</string>
-    <string name="form_operation_textview_title">Intitulé</string>
-    <string name="form_operation_edittext_hint_title">Intitulé</string>
-    <string name="form_operation_textview_amount">Montant</string>
-    <string name="form_operation_edittext_hint_amount">0.0</string>
+    <string name="form_sign_message_error_terms">Les conditions générales d\'utilisation n\'ont pas été acceptées</string>
+    <string name="form_operation_message_error_type">Type d\'opération invalide</string>
 
     <!-- Label -->
     <string name="label_firstname">Prénom</string>

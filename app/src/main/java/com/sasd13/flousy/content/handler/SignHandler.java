@@ -1,6 +1,7 @@
 package com.sasd13.flousy.content.handler;
 
-import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
+import android.widget.Toast;
+
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Account;
@@ -36,13 +37,11 @@ public class SignHandler {
     }
 
     public void sign() {
-        String[] errors = validFormInputs();
-
-        if (errors.length != 0) {
-            onError(errors[0]);
+        if (!signForm.areTermsAccepted()) {
+            onError(signActivity.getResources().getString(R.string.form_sign_message_error_terms));
         } else {
             parameters.clear();
-            parameters.put(Parameter.EMAIL.getName(), new String[]{ signForm.getEmail() });
+            parameters.put(Parameter.EMAIL.getName(), new String[]{ signForm.getEditable().getEmail() });
 
             if (!persistor.read(parameters, Customer.class).isEmpty()) {
                 onError(signActivity.getResources().getString(R.string.message_email_exists));
@@ -56,20 +55,16 @@ public class SignHandler {
         }
     }
 
-    private String[] validFormInputs() {
-        //TODO
-
-        return new String[]{};
-    }
-
     private void onError(String error) {
-        OptionDialog.showOkDialog(signActivity, signActivity.getResources().getString(R.string.title_error), error);
+        Toast.makeText(signActivity, error, Toast.LENGTH_SHORT).show();
     }
 
     private void editCustomerWithForm(Customer customer) {
-        customer.setFirstName(signForm.getFirstName());
-        customer.setLastName(signForm.getLastName());
-        customer.setEmail(signForm.getEmail());
+        Customer customerFromForm = signForm.getEditable();
+
+        customer.setFirstName(customerFromForm.getFirstName());
+        customer.setLastName(customerFromForm.getLastName());
+        customer.setEmail(customerFromForm.getEmail());
     }
 
     private void performSign(Customer customer) {

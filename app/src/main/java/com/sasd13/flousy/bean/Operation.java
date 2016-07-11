@@ -8,6 +8,7 @@ public class Operation {
     private Timestamp dateRealization;
     private String title;
     private double amount;
+    private OperationType type;
     private Account account;
 
     public Operation() {
@@ -53,6 +54,14 @@ public class Operation {
         this.amount = amount;
     }
 
+    public OperationType getType() {
+        return type;
+    }
+
+    public void setType(OperationType type) {
+        this.type = type;
+    }
+
     public Account getAccount() {
         return account;
     }
@@ -65,6 +74,7 @@ public class Operation {
         builder.append(", dateRealization=" + String.valueOf(getDateRealization()));
         builder.append(", title=" + getTitle());
         builder.append(", amount=" + getAmount());
+        builder.append(", type=" + getType());
         builder.append("]");
 
         return builder.toString();

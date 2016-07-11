@@ -1,7 +1,5 @@
 package com.sasd13.flousy.content.form;
 
-import android.content.Context;
-
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 
 /**
@@ -9,13 +7,13 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
  */
 public abstract class Form {
 
-    protected Context context;
     protected RecyclerHolder holder;
 
-    public Form(Context context) {
-        this.context = context;
+    public Form() {
         holder = new RecyclerHolder();
     }
 
-    public abstract RecyclerHolder fabricate();
+    public RecyclerHolder getHolder() {
+        return holder;
+    }
 }

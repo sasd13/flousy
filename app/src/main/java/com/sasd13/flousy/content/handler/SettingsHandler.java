@@ -42,32 +42,20 @@ public class SettingsHandler {
     }
 
     public void updateCustomer() {
-        String[] errors = validFormInputs();
+        parameters.clear();
+        parameters.put(Parameter.EMAIL.getName(), new String[]{ settingsForm.getEditable().getEmail() });
 
-        if (errors.length != 0) {
-            onError(errors[0]);
+        List<Customer> customers = persistor.read(parameters, Customer.class);
+        if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
+            String error = settingsActivity.getResources().getString(R.string.message_email_exists);
+
+            onError(error);
         } else {
-            parameters.clear();
-            parameters.put(Parameter.EMAIL.getName(), new String[]{ settingsForm.getEmail() });
+            editCustomerWithForm(customer);
+            persistor.update(customer);
 
-            List<Customer> customers = persistor.read(parameters, Customer.class);
-            if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
-                String error = settingsActivity.getResources().getString(R.string.message_email_exists);
-
-                onError(error);
-            } else {
-                editCustomerWithForm(customer);
-                persistor.update(customer);
-
-                onSuccess();
-            }
+            onSuccess();
         }
-    }
-
-    private String[] validFormInputs() {
-        //TODO
-
-        return new String[]{};
     }
 
     private void onError(String error) {
@@ -75,9 +63,11 @@ public class SettingsHandler {
     }
 
     private void editCustomerWithForm(Customer customer) {
-        customer.setFirstName(settingsForm.getFirstName());
-        customer.setLastName(settingsForm.getLastName());
-        customer.setEmail(settingsForm.getEmail());
+        Customer customerFromForm = settingsForm.getEditable();
+
+        customer.setFirstName(customerFromForm.getFirstName());
+        customer.setLastName(customerFromForm.getLastName());
+        customer.setEmail(customerFromForm.getEmail());
     }
 
     private void onSuccess() {

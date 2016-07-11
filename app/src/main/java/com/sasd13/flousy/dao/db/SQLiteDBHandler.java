@@ -61,6 +61,7 @@ public class SQLiteDBHandler extends SQLiteOpenHelper {
                 + OperationDAO.COLUMN_DATEREALIZATION + " TEXT NOT NULL, "
                 + OperationDAO.COLUMN_TITLE + " TEXT NOT NULL, "
                 + OperationDAO.COLUMN_AMOUNT + " REAL NOT NULL, "
+                + OperationDAO.COLUMN_TYPE + " TEXT NOT NULL, "
                 + OperationDAO.COLUMN_ACCOUNT_ID + " INTEGER NOT NULL, "
                 + OperationDAO.COLUMN_DELETED + " INTEGER NOT NULL DEFAULT 0, "
                 + "FOREIGN KEY (" + OperationDAO.COLUMN_ACCOUNT_ID + ") REFERENCES " + AccountDAO.TABLE + "(" + AccountDAO.COLUMN_ID + ")"

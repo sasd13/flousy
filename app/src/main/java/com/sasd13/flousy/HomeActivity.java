@@ -77,7 +77,7 @@ public class HomeActivity extends MotherActivity {
 
     private void showWelcome() {
         StringBuilder builder = new StringBuilder();
-        builder.append(R.string.home_alertdialog_message_welcome);
+        builder.append(getResources().getString(R.string.home_alertdialog_message_welcome));
         builder.append(" ");
         builder.append(getIntent().getStringExtra(Extra.FIRSTNAME));
         builder.append(" !");

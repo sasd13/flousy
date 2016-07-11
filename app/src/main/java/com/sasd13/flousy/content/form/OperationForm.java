@@ -3,87 +3,98 @@ package com.sasd13.flousy.content.form;
 import android.content.Context;
 import android.text.InputType;
 
-import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.DateItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.bean.Operation;
+import com.sasd13.flousy.bean.OperationType;
 
 import org.joda.time.LocalDate;
+
+import java.sql.Timestamp;
+import java.util.Arrays;
 
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
 public class OperationForm extends Form {
 
-    private DateItemModel dateItemModelDateRealization;
-    private TextItemModel textItemModelTitle, textItemModelAmount;
-    private RadioSpinItemModel radioSpinItemModelType;
+    private Context context;
+    private String[] operationTypes;
+    private String debit, credit;
+    private DateItemModel modelDateRealization;
+    private TextItemModel modelTitle, modelAmount;
+    private RadioSpinItemModel modelTypes;
 
     public OperationForm(Context context) {
-        super(context);
-    }
+        super();
 
-    public RecyclerHolder fabricate() {
+        this.context = context;
+        this.operationTypes = context.getResources().getStringArray(R.array.operation_types);
+        debit = context.getResources().getString(R.string.operation_type_debit);
+        credit = context.getResources().getString(R.string.operation_type_credit);
+
         String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT);
 
-        dateItemModelDateRealization = new DateItemModel(pattern);
-        dateItemModelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
-        holder.add(new RecyclerHolderPair(dateItemModelDateRealization));
+        modelDateRealization = new DateItemModel(pattern);
+        modelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
+        holder.add(new RecyclerHolderPair(modelDateRealization));
 
-        textItemModelTitle = new TextItemModel();
-        textItemModelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
-        textItemModelTitle.setHint(textItemModelTitle.getLabel().toLowerCase());
-        holder.add(new RecyclerHolderPair(textItemModelTitle));
+        modelTitle = new TextItemModel();
+        modelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
+        modelTitle.setHint(modelTitle.getLabel().toLowerCase());
+        holder.add(new RecyclerHolderPair(modelTitle));
 
-        textItemModelAmount = new TextItemModel();
-        textItemModelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        textItemModelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
-        holder.add(new RecyclerHolderPair(textItemModelAmount));
+        modelAmount = new TextItemModel();
+        modelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        modelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
+        holder.add(new RecyclerHolderPair(modelAmount));
 
-        radioSpinItemModelType = new RadioSpinItemModel();
-        radioSpinItemModelType.setLabel(context.getResources().getString(R.string.operation_label_type));
-        holder.add(new RecyclerHolderPair(radioSpinItemModelType));
-
-        return holder;
+        modelTypes = new RadioSpinItemModel();
+        modelTypes.setLabel(context.getResources().getString(R.string.operation_label_type));
+        modelTypes.setItems(context.getResources().getStringArray(R.array.operation_types));
+        holder.add(new RecyclerHolderPair(modelTypes));
     }
 
-    public LocalDate getDateRealization() {
-        return dateItemModelDateRealization.getValue();
-    }
-    
-    public void setDateRealization(LocalDate dateRealization) {
-        dateItemModelDateRealization.setValue(dateRealization);
+    public void bindOperation(Operation operation) {
+        if (operation.getDateRealization() != null) {
+            modelDateRealization.setValue(new LocalDate(operation.getDateRealization()));
+        }
+
+        if (operation.getTitle() != null) {
+            modelTitle.setValue(operation.getTitle());
+        }
+
+        if (operation.getAmount() != Double.valueOf(0)) {
+            modelAmount.setValue(String.valueOf(Math.abs(operation.getAmount())));
+        }
+
+        if (OperationType.DEBIT.equals(operation.getType())) {
+            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(debit));
+        } else if (OperationType.CREDIT.equals(operation.getType())) {
+            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(credit));
+        }
     }
 
-    public String getTitle() {
-        return textItemModelTitle.getValue();
-    }
+    public Operation getEditable() throws FormException {
+        Operation operation = new Operation();
 
-    public void setTitle(String title) {
-        textItemModelTitle.setValue(title);
-    }
+        operation.setDateRealization(new Timestamp(modelDateRealization.getValue().toDate().getTime()));
+        operation.setTitle(modelTitle.getValue());
+        operation.setAmount(Double.valueOf(modelAmount.getValue()));
 
-    public String getAmount() {
-        return textItemModelAmount.getValue();
-    }
+        if (operationTypes[modelTypes.getValue()].equals(debit)) {
+            operation.setType(OperationType.DEBIT);
+            operation.setAmount(0 - operation.getAmount());
+        } else if (operationTypes[modelTypes.getValue()].equals(credit)) {
+            operation.setType(OperationType.CREDIT);
+        } else {
+            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_type));
+        }
 
-    public void setAmount(String amount) {
-        textItemModelAmount.setValue(amount);
-    }
-
-    public Integer getType() {
-        return radioSpinItemModelType.getValue();
-    }
-
-    public void setType(String[] items) {
-        setType(items, -1);
-    }
-
-    public void setType(String[] items, Integer selected) {
-        radioSpinItemModelType.setItems(items);
-        radioSpinItemModelType.setValue(selected);
+        return operation;
     }
 }

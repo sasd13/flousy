@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
+import com.sasd13.flousy.bean.OperationType;
 import com.sasd13.flousy.dao.IPersistable;
 import com.sasd13.flousy.dao.OperationDAO;
 import com.sasd13.flousy.dao.db.util.SQLWhereClauseException;
@@ -24,6 +25,7 @@ public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements Op
         values.put(COLUMN_DATEREALIZATION, String.valueOf(operation.getDateRealization()));
         values.put(COLUMN_TITLE, operation.getTitle());
         values.put(COLUMN_AMOUNT, operation.getAmount());
+        values.put(COLUMN_TYPE, operation.getType().getCode());
         values.put(COLUMN_ACCOUNT_ID, operation.getAccount().getId());
 
         return values;
@@ -39,6 +41,7 @@ public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements Op
         operation.setDateRealization(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEREALIZATION))));
         operation.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
         operation.setAmount(cursor.getDouble(cursor.getColumnIndex(COLUMN_AMOUNT)));
+        operation.setType(OperationType.find(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE))));
 
         return operation;
     }
