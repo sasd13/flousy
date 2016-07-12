@@ -22,26 +22,22 @@ import java.util.Map;
 public class SettingsHandler {
 
     private SettingsActivity settingsActivity;
-    private SettingsForm settingsForm;
     private LayeredPersistor persistor;
     private Map<String, String[]> parameters;
-    private Customer customer;
 
-    public SettingsHandler(SettingsActivity settingsActivity, SettingsForm settingsForm) {
+    public SettingsHandler(SettingsActivity settingsActivity) {
         this.settingsActivity = settingsActivity;
-        this.settingsForm = settingsForm;
         persistor = new LayeredPersistor(SQLiteDAO.create(settingsActivity));
         parameters = new HashMap<>();
     }
 
     public Customer readCustomer() {
         long id = SessionHelper.getExtraIdFromSession(settingsActivity, Extra.CUSTOMER_ID);
-        customer = persistor.read(id, Customer.class);
 
-        return customer;
+        return persistor.read(id, Customer.class);
     }
 
-    public void updateCustomer() {
+    public void updateCustomer(Customer customer, SettingsForm settingsForm) {
         parameters.clear();
         parameters.put(Parameter.EMAIL.getName(), new String[]{ settingsForm.getEditable().getEmail() });
 
@@ -51,7 +47,7 @@ public class SettingsHandler {
 
             onError(error);
         } else {
-            editCustomerWithForm(customer);
+            editCustomerWithForm(customer, settingsForm);
             persistor.update(customer);
 
             onSuccess();
@@ -62,7 +58,7 @@ public class SettingsHandler {
         Toast.makeText(settingsActivity, error, Toast.LENGTH_SHORT).show();
     }
 
-    private void editCustomerWithForm(Customer customer) {
+    private void editCustomerWithForm(Customer customer, SettingsForm settingsForm) {
         Customer customerFromForm = settingsForm.getEditable();
 
         customer.setFirstName(customerFromForm.getFirstName());

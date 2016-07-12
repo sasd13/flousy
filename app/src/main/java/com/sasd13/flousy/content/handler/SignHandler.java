@@ -23,20 +23,18 @@ import java.util.Map;
 public class SignHandler {
 
     private SignActivity signActivity;
-    private SignForm signForm;
     private SQLiteDAO dao;
     private LayeredPersistor persistor;
     private Map<String, String[]> parameters;
 
-    public SignHandler(SignActivity signActivity, SignForm signForm) {
+    public SignHandler(SignActivity signActivity) {
         this.signActivity = signActivity;
-        this.signForm = signForm;
         dao = SQLiteDAO.create(signActivity);
         persistor = new LayeredPersistor(dao);
         parameters = new HashMap<>();
     }
 
-    public void sign() {
+    public void sign(SignForm signForm) {
         if (!signForm.areTermsAccepted()) {
             onError(signActivity.getResources().getString(R.string.form_sign_message_error_terms));
         } else {
@@ -48,8 +46,8 @@ public class SignHandler {
             } else {
                 Customer customer = new Customer();
 
-                editCustomerWithForm(customer);
-                performSign(customer);
+                editCustomerWithForm(customer, signForm);
+                performSign(customer, signForm.getPassword());
                 onSuccess(customer);
             }
         }
@@ -59,7 +57,7 @@ public class SignHandler {
         Toast.makeText(signActivity, error, Toast.LENGTH_SHORT).show();
     }
 
-    private void editCustomerWithForm(Customer customer) {
+    private void editCustomerWithForm(Customer customer, SignForm signForm) {
         Customer customerFromForm = signForm.getEditable();
 
         customer.setFirstName(customerFromForm.getFirstName());
@@ -67,14 +65,14 @@ public class SignHandler {
         customer.setEmail(customerFromForm.getEmail());
     }
 
-    private void performSign(Customer customer) {
+    private void performSign(Customer customer, String password) {
         try {
             dao.open();
             dao.beginTransaction();
             dao.getEntityDAO(Customer.class).insert(customer);
 
             SQLitePasswordDAO passwordDAO = new SQLitePasswordDAO(dao.getDB());
-            passwordDAO.insert(signForm.getPassword(), customer.getId());
+            passwordDAO.insert(password, customer.getId());
 
             dao.getEntityDAO(Account.class).insert(customer.getAccount());
             dao.commit();

@@ -31,26 +31,22 @@ public class OperationHandler {
     private static final int TYPE_DELETE = 2;
 
     private OperationActivity operationActivity;
-    private OperationForm operationForm;
     private LayeredPersistor persistor;
     private Map<String, String[]> parameters;
-    private Operation operation;
 
-    public OperationHandler(OperationActivity operationActivity, OperationForm operationForm) {
+    public OperationHandler(OperationActivity operationActivity) {
         this.operationActivity = operationActivity;
-        this.operationForm = operationForm;
         persistor = new LayeredPersistor(SQLiteDAO.create(operationActivity));
         parameters = new HashMap<>();
     }
 
     public Operation readOperation() {
         long id = operationActivity.getIntent().getLongExtra(Extra.OPERATION_ID, 0);
-        operation = persistor.read(id, Operation.class);
 
-        return operation;
+        return persistor.read(id, Operation.class);
     }
 
-    public void createOperation() {
+    public void createOperation(OperationForm operationForm) {
         parameters.clear();
         parameters.put(
                 Parameter.CUSTOMER.getName(),
@@ -61,7 +57,7 @@ public class OperationHandler {
         Operation operation = new Operation(account);
 
         try {
-            editOperationWithForm(operation);
+            editOperationWithForm(operation, operationForm);
             persistor.create(operation);
             onSuccess(TYPE_CREATE);
         } catch (FormException e) {
@@ -99,9 +95,9 @@ public class OperationHandler {
         }, GUIConstants.TIMEOUT_ACTIVITY).start();
     }
 
-    public void updateOperation() {
+    public void updateOperation(Operation operation, OperationForm operationForm) {
         try {
-            editOperationWithForm(operation);
+            editOperationWithForm(operation, operationForm);
             persistor.update(operation);
             onSuccess(TYPE_UPDATE);
         } catch (FormException e) {
@@ -109,7 +105,7 @@ public class OperationHandler {
         }
     }
 
-    private void editOperationWithForm(Operation operation) throws FormException {
+    private void editOperationWithForm(Operation operation, OperationForm operationForm) throws FormException {
         Operation operationFromForm = operationForm.getEditable();
 
         operation.setDateRealization(operationFromForm.getDateRealization());
@@ -118,7 +114,7 @@ public class OperationHandler {
         operation.setType(operationFromForm.getType());
     }
 
-    public void deleteOperation() {
+    public void deleteOperation(Operation operation) {
         persistor.delete(operation);
         onSuccess(TYPE_DELETE);
     }

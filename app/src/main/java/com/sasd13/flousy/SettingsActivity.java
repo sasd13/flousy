@@ -10,6 +10,7 @@ import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
+import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.content.handler.SettingsHandler;
 
@@ -17,16 +18,18 @@ public class SettingsActivity extends MotherActivity {
 
     private SettingsForm settingsForm;
     private SettingsHandler settingsHandler;
+    private Customer customer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        settingsForm = new SettingsForm(this);
-        settingsHandler = new SettingsHandler(this, settingsForm);
-
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
+
+        settingsForm = new SettingsForm(this);
+        settingsHandler = new SettingsHandler(this);
+
         buildSettingsView();
     }
 
@@ -39,7 +42,9 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void fillSettingsView() {
-        settingsForm.bindCustomer(settingsHandler.readCustomer());
+        customer = settingsHandler.readCustomer();
+
+        settingsForm.bindCustomer(customer);
     }
 
     @Override
@@ -64,6 +69,6 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void updateCustomer() {
-        settingsHandler.updateCustomer();
+        settingsHandler.updateCustomer(customer, settingsForm);
     }
 }

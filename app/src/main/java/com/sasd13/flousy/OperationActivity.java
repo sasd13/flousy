@@ -23,16 +23,18 @@ public class OperationActivity extends MotherActivity {
 
     private OperationForm operationForm;
     private OperationHandler operationHandler;
+    private Operation operation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        operationForm = new OperationForm(this);
-        operationHandler = new OperationHandler(this, operationForm);
-
         setContentView(R.layout.activity_operation);
         GUIHelper.colorTitles(this);
+
+        operationForm = new OperationForm(this);
+        operationHandler = new OperationHandler(this);
+
         buildOperationView();
     }
 
@@ -45,8 +47,6 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void fillOperationView() {
-        Operation operation;
-
         if (hasExtraModeEdit()) {
             operation = operationHandler.readOperation();
 
@@ -102,9 +102,9 @@ public class OperationActivity extends MotherActivity {
 
     private void saveOperation() {
         if (hasExtraModeEdit()) {
-            operationHandler.updateOperation();
+            operationHandler.updateOperation(operation, operationForm);
         } else {
-            operationHandler.createOperation();
+            operationHandler.createOperation(operationForm);
         }
     }
 
@@ -116,7 +116,7 @@ public class OperationActivity extends MotherActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        operationHandler.deleteOperation();
+                        operationHandler.deleteOperation(operation);
                     }
                 }
         );
