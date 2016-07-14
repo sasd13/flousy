@@ -8,7 +8,6 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerItemBuilder;
  * Created by ssaidali2 on 02/07/2016.
  */
 public enum MyTabItemType implements IRecyclerItemType {
-
     OPERATION("OPERATION", OperationItem.class, RecyclerItemBuilder.class),
     ;
 
