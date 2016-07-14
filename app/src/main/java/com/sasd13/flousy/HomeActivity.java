@@ -10,10 +10,10 @@ import com.sasd13.androidex.gui.widget.ActionEvent;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerFactoryType;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
-import com.sasd13.androidex.gui.widget.recycler.RecyclerItemType;
+import com.sasd13.androidex.gui.widget.recycler.grid.GridItemType;
+import com.sasd13.androidex.gui.widget.recycler.grid.GridType;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
@@ -35,7 +35,7 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void buildHomeView() {
-        Recycler grid = RecyclerHelper.produce(RecyclerFactoryType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
+        Recycler grid = RecyclerHelper.produce(GridType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
 
         fillGrid(grid);
     }
@@ -46,7 +46,7 @@ public class HomeActivity extends MotherActivity {
         Browser browser = Browser.getInstance();
 
         for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
-            browserItemModel.setType(RecyclerItemType.GRID);
+            browserItemModel.setType(GridItemType.GRID);
 
             pair = new RecyclerHolderPair(browserItemModel);
             pair.addController(ActionEvent.CLICK, new IAction() {

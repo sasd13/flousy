@@ -5,9 +5,9 @@ import android.graphics.drawable.Drawable;
 
 import com.sasd13.androidex.gui.widget.IColorable;
 import com.sasd13.androidex.gui.widget.IIconifiable;
-import com.sasd13.androidex.gui.widget.IType;
 import com.sasd13.androidex.gui.widget.ILabelizable;
 import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemModel;
+import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemType;
 
 import java.util.Observable;
 
@@ -16,7 +16,7 @@ import java.util.Observable;
  */
 public class BrowserItemModel extends Observable implements IRecyclerItemModel, ILabelizable, IIconifiable, IColorable {
 
-    private IType type;
+    private IRecyclerItemType type;
     private String label;
     private Drawable icon;
     private int color;
@@ -30,11 +30,11 @@ public class BrowserItemModel extends Observable implements IRecyclerItemModel, 
     }
 
     @Override
-    public IType getType() {
+    public IRecyclerItemType getItemType() {
         return type;
     }
 
-    public void setType(IType type) {
+    public void setType(IRecyclerItemType type) {
         this.type = type;
     }
 

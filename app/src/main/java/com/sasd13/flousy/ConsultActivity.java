@@ -10,13 +10,13 @@ import com.sasd13.androidex.gui.widget.ActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
+import com.sasd13.androidex.gui.widget.recycler.tab.TabType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.handler.ConsultHandler;
-import com.sasd13.flousy.gui.recycler.MyRecyclerFactoryType;
 import com.sasd13.flousy.gui.recycler.tab.OperationItemModel;
 import com.sasd13.flousy.util.CollectionsHelper;
 
@@ -47,7 +47,7 @@ public class ConsultActivity extends MotherActivity {
     private void buildConsultView() {
         textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
 
-        tab = RecyclerHelper.produce(MyRecyclerFactoryType.TAB_MYTAB, (RecyclerView) findViewById(R.id.consult_recyclerview));
+        tab = RecyclerHelper.produce(TabType.TAB, (RecyclerView) findViewById(R.id.consult_recyclerview));
         tab.addDividerItemDecoration();
     }
 
