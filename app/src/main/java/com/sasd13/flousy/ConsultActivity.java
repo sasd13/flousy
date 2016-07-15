@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.sasd13.androidex.gui.IAction;
 import com.sasd13.androidex.gui.widget.ActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.tab.TabType;
@@ -48,7 +49,7 @@ public class ConsultActivity extends MotherActivity {
     private void buildConsultView() {
         textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
 
-        tab = RecyclerHelper.produce(TabType.TAB, (RecyclerView) findViewById(R.id.consult_recyclerview));
+        tab = RecyclerFactory.makeBuilder(TabType.TAB).build((RecyclerView) findViewById(R.id.consult_recyclerview));
         tab.addDividerItemDecoration();
     }
 

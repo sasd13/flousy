@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.form.FormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
@@ -39,7 +40,7 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void buildOperationView() {
-        Recycler form = RecyclerHelper.produce(FormType.FORM, (RecyclerView) findViewById(R.id.operation_recyclerview));
+        Recycler form = RecyclerFactory.makeBuilder(FormType.FORM).build((RecyclerView) findViewById(R.id.operation_recyclerview));
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, operationForm.getHolder());

@@ -10,6 +10,7 @@ import com.sasd13.androidex.gui.widget.ActionEvent;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.grid.GridItemType;
@@ -36,7 +37,7 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void buildHomeView() {
-        Recycler grid = RecyclerHelper.produce(GridType.GRID, (RecyclerView) findViewById(R.id.home_recyclerview));
+        Recycler grid = RecyclerFactory.makeBuilder(GridType.GRID).build((RecyclerView) findViewById(R.id.home_recyclerview));
 
         fillGrid(grid);
     }

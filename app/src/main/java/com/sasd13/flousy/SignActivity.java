@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
+import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.form.FormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
@@ -33,7 +34,7 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void buildSignView() {
-        Recycler form = RecyclerHelper.produce(FormType.FORM, (RecyclerView) findViewById(R.id.sign_recyclerview));
+        Recycler form = RecyclerFactory.makeBuilder(FormType.FORM).build((RecyclerView) findViewById(R.id.sign_recyclerview));
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, signForm.getHolder());
