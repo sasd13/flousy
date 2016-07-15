@@ -16,8 +16,8 @@ import com.sasd13.flousy.content.handler.SettingsHandler;
 
 public class SettingsActivity extends MotherActivity {
 
-    private SettingsForm settingsForm;
     private SettingsHandler settingsHandler;
+    private SettingsForm settingsForm;
     private Customer customer;
 
     @Override
@@ -27,8 +27,8 @@ public class SettingsActivity extends MotherActivity {
         setContentView(R.layout.activity_settings);
         GUIHelper.colorTitles(this);
 
-        settingsForm = new SettingsForm(this);
         settingsHandler = new SettingsHandler(this);
+        settingsForm = new SettingsForm(this);
 
         buildSettingsView();
     }

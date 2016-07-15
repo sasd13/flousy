@@ -24,10 +24,11 @@ public class LogInActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_login);
+
         self = this;
         logInHandler = new LogInHandler(this);
 
-        setContentView(R.layout.activity_login);
         buildLogInView();
     }
 

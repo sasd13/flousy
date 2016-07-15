@@ -21,8 +21,8 @@ import java.sql.Timestamp;
 
 public class OperationActivity extends MotherActivity {
 
-    private OperationForm operationForm;
     private OperationHandler operationHandler;
+    private OperationForm operationForm;
     private Operation operation;
 
     @Override
@@ -32,8 +32,8 @@ public class OperationActivity extends MotherActivity {
         setContentView(R.layout.activity_operation);
         GUIHelper.colorTitles(this);
 
-        operationForm = new OperationForm(this);
         operationHandler = new OperationHandler(this);
+        operationForm = new OperationForm(this);
 
         buildOperationView();
     }

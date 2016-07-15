@@ -16,8 +16,8 @@ import com.sasd13.flousy.content.handler.SignHandler;
 
 public class SignActivity extends AppCompatActivity {
 
-    private SignForm signForm;
     private SignHandler signHandler;
+    private SignForm signForm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class SignActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign);
         GUIHelper.colorTitles(this);
 
-        signForm = new SignForm(this);
         signHandler = new SignHandler(this);
+        signForm = new SignForm(this);
 
         buildSignView();
     }

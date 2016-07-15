@@ -37,10 +37,11 @@ public class ConsultActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        consultHandler = new ConsultHandler(this);
-
         setContentView(R.layout.activity_consult);
         GUIHelper.colorTitles(this);
+
+        consultHandler = new ConsultHandler(this);
+
         buildConsultView();
     }
 

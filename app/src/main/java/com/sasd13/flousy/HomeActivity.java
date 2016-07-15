@@ -28,9 +28,10 @@ public class HomeActivity extends MotherActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_home);
+
         self = this;
 
-        setContentView(R.layout.activity_home);
         buildHomeView();
     }
 
