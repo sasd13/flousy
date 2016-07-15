@@ -6,14 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.form.FormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
+import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.form.SignForm;
 import com.sasd13.flousy.content.handler.SignHandler;
+import com.sasd13.flousy.util.SessionHelper;
 
 public class SignActivity extends AppCompatActivity {
 
@@ -63,5 +66,13 @@ public class SignActivity extends AppCompatActivity {
 
     private void sign() {
         signHandler.sign(signForm);
+    }
+
+    public void onSuccess(Customer customer) {
+        SessionHelper.logIn(this, customer);
+    }
+
+    public void onError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }

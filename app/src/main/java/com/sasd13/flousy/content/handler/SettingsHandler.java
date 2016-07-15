@@ -1,7 +1,5 @@
 package com.sasd13.flousy.content.handler;
 
-import android.widget.Toast;
-
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
@@ -45,17 +43,13 @@ public class SettingsHandler {
         if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
             String error = settingsActivity.getResources().getString(R.string.message_email_exists);
 
-            onError(error);
+            settingsActivity.onError(error);
         } else {
             editCustomerWithForm(customer, settingsForm);
             persistor.update(customer);
 
-            onSuccess();
+            settingsActivity.onSuccess();
         }
-    }
-
-    private void onError(String error) {
-        Toast.makeText(settingsActivity, error, Toast.LENGTH_SHORT).show();
     }
 
     private void editCustomerWithForm(Customer customer, SettingsForm settingsForm) {
@@ -64,9 +58,5 @@ public class SettingsHandler {
         customer.setFirstName(customerFromForm.getFirstName());
         customer.setLastName(customerFromForm.getLastName());
         customer.setEmail(customerFromForm.getEmail());
-    }
-
-    private void onSuccess() {
-        Toast.makeText(settingsActivity, R.string.message_saved, Toast.LENGTH_SHORT).show();
     }
 }

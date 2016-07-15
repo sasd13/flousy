@@ -1,18 +1,22 @@
 package com.sasd13.flousy;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.form.FormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
+import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.OperationForm;
@@ -121,5 +125,33 @@ public class OperationActivity extends MotherActivity {
                     }
                 }
         );
+    }
+
+    public void onCreateSuccess() {
+        Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
+        goToConsultActivity(GUIConstants.TIMEOUT_ACTIVITY);
+    }
+
+    private void goToConsultActivity(int timeOut) {
+        new TaskPlanner(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(OperationActivity.this, ConsultActivity.class));
+                finish();
+            }
+        }, timeOut).start();
+    }
+
+    public void onUpdateSuccess() {
+        Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onDeleteSuccess() {
+        Toast.makeText(this, R.string.message_deleted, Toast.LENGTH_SHORT).show();
+        goToConsultActivity(GUIConstants.TIMEOUT_ACTIVITY / 2);
+    }
+
+    public void onError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }

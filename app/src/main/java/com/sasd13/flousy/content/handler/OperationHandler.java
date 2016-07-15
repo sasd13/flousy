@@ -1,13 +1,6 @@
 package com.sasd13.flousy.content.handler;
 
-import android.content.Intent;
-import android.widget.Toast;
-
-import com.sasd13.androidex.gui.GUIConstants;
-import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.OperationActivity;
-import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
@@ -25,10 +18,6 @@ import java.util.Map;
  * Created by ssaidali2 on 03/07/2016.
  */
 public class OperationHandler {
-
-    private static final int TYPE_CREATE = 0;
-    private static final int TYPE_UPDATE = 1;
-    private static final int TYPE_DELETE = 2;
 
     private OperationActivity operationActivity;
     private LayeredPersistor persistor;
@@ -59,49 +48,19 @@ public class OperationHandler {
         try {
             editOperationWithForm(operation, operationForm);
             persistor.create(operation);
-            onSuccess(TYPE_CREATE);
+            operationActivity.onCreateSuccess();
         } catch (FormException e) {
-            onError(e.getMessage());
+            operationActivity.onError(e.getMessage());
         }
-    }
-
-    private void onError(String error) {
-        Toast.makeText(operationActivity, error, Toast.LENGTH_SHORT).show();
-    }
-
-    private void onSuccess(int type) {
-        switch (type) {
-            case OperationHandler.TYPE_CREATE:
-                Toast.makeText(operationActivity, R.string.message_saved, Toast.LENGTH_SHORT).show();
-                goToConsultActivity();
-                break;
-            case OperationHandler.TYPE_UPDATE:
-                Toast.makeText(operationActivity, R.string.message_saved, Toast.LENGTH_SHORT).show();
-                break;
-            case OperationHandler.TYPE_DELETE:
-                Toast.makeText(operationActivity, R.string.message_deleted, Toast.LENGTH_SHORT).show();
-                goToConsultActivity();
-                break;
-        }
-    }
-
-    private void goToConsultActivity() {
-        new TaskPlanner(new Runnable() {
-            @Override
-            public void run() {
-                operationActivity.startActivity(new Intent(operationActivity, ConsultActivity.class));
-                operationActivity.finish();
-            }
-        }, GUIConstants.TIMEOUT_ACTIVITY).start();
     }
 
     public void updateOperation(Operation operation, OperationForm operationForm) {
         try {
             editOperationWithForm(operation, operationForm);
             persistor.update(operation);
-            onSuccess(TYPE_UPDATE);
+            operationActivity.onUpdateSuccess();
         } catch (FormException e) {
-            onError(e.getMessage());
+            operationActivity.onError(e.getMessage());
         }
     }
 
@@ -116,6 +75,6 @@ public class OperationHandler {
 
     public void deleteOperation(Operation operation) {
         persistor.delete(operation);
-        onSuccess(TYPE_DELETE);
+        operationActivity.onDeleteSuccess();
     }
 }

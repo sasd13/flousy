@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sasd13.androidex.util.GUIHelper;
+import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.handler.LogInHandler;
+import com.sasd13.flousy.util.SessionHelper;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -74,5 +77,13 @@ public class LogInActivity extends AppCompatActivity {
 
     private void logIn(String email, String password) {
         logInHandler.logIn(email, password);
+    }
+
+    public void onSuccess(Customer customer) {
+        SessionHelper.logIn(this, customer);
+    }
+
+    public void onError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,7 +1,5 @@
 package com.sasd13.flousy.content.handler;
 
-import android.widget.Toast;
-
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Account;
@@ -10,7 +8,6 @@ import com.sasd13.flousy.content.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.Parameter;
-import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -36,25 +33,21 @@ public class SignHandler {
 
     public void sign(SignForm signForm) {
         if (!signForm.areTermsAccepted()) {
-            onError(signActivity.getResources().getString(R.string.form_sign_message_error_terms));
+            signActivity.onError(signActivity.getResources().getString(R.string.form_sign_message_error_terms));
         } else {
             parameters.clear();
             parameters.put(Parameter.EMAIL.getName(), new String[]{ signForm.getEditable().getEmail() });
 
             if (!persistor.read(parameters, Customer.class).isEmpty()) {
-                onError(signActivity.getResources().getString(R.string.message_email_exists));
+                signActivity.onError(signActivity.getResources().getString(R.string.message_email_exists));
             } else {
                 Customer customer = new Customer();
 
                 editCustomerWithForm(customer, signForm);
                 performSign(customer, signForm.getPassword());
-                onSuccess(customer);
+                signActivity.onSuccess(customer);
             }
         }
-    }
-
-    private void onError(String error) {
-        Toast.makeText(signActivity, error, Toast.LENGTH_SHORT).show();
     }
 
     private void editCustomerWithForm(Customer customer, SignForm signForm) {
@@ -82,9 +75,5 @@ public class SignHandler {
             dao.endTransaction();
             dao.close();
         }
-    }
-
-    private void onSuccess(Customer customer) {
-        SessionHelper.logIn(signActivity, customer);
     }
 }

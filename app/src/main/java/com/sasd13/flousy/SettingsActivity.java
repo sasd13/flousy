@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
@@ -71,5 +72,13 @@ public class SettingsActivity extends MotherActivity {
 
     private void updateCustomer() {
         settingsHandler.updateCustomer(customer, settingsForm);
+    }
+
+    public void onSuccess() {
+        Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }
