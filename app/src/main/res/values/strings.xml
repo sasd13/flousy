@@ -16,9 +16,7 @@
     <!-- Activity Log -->
     <string name="login_button_connect">Connect</string>
     <string name="login_textview_sign">Sign up on Flousy</string>
-    <string name="login_textview_restorepassword">Password forgotten?</string>
-    <string name="login_alertdialog_title_error_login">Connection error</string>
-    <string name="login_alertdialog_message_error_login">invalid logins</string>
+    <string name="login_textview_restorepassword">Password forgotten ?</string>
 
     <!-- Activity Home -->
     <string name="home_alertdialog_title_welcome">Welcome</string>
@@ -30,16 +28,16 @@
     <string name="consult_textview_operations">Operations</string>
 
     <!-- Activity Operation -->
+    <string name="operation_label_date">Realization date</string>
+    <string name="operation_label_title">Title</string>
+    <string name="operation_label_amount">Amount</string>
+    <string name="operation_label_type">Type</string>
     <string name="operation_type_debit">Debit</string>
     <string name="operation_type_credit">Credit</string>
     <string-array name="operation_types">
         <item>@string/operation_type_debit</item>
         <item>@string/operation_type_credit</item>
     </string-array>
-    <string name="operation_label_date">Realization date</string>
-    <string name="operation_label_type">Type</string>
-    <string name="operation_label_title">Title</string>
-    <string name="operation_label_amount">Amount</string>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
@@ -65,10 +63,7 @@
 
     <!-- Menu -->
     <string name="menuitem_action_done">Valid</string>
-    <string name="menuitem_action_new">New</string>
-    <string name="menuitem_action_edit">Edit</string>
     <string name="menuitem_action_delete">Delete</string>
-    <string name="menuitem_action_refresh">Refresh</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email already exists</string>
@@ -77,14 +72,10 @@
     <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_title">Title</string>
     <string name="tabitem_textview_amount">0.0</string>
-    <string name="tabitemtitle_textview_date">Date</string>
-    <string name="tabitemtitle_textview_title">Intitule</string>
-    <string name="tabitemtitle_textview_amount">Amount</string>
 
     <!-- Title -->
     <string name="title_identity">Identity</string>
     <string name="title_consult">Consult</string>
-    <string name="title_fill_form">Fill form below</string>
     <string name="subtitle_new">New</string>
     <string name="subtitle_consulting">Consulting</string>
 

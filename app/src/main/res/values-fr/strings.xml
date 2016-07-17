@@ -17,8 +17,6 @@
     <string name="login_button_connect">Connexion</string>
     <string name="login_textview_sign">Inscription sur Flousy</string>
     <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
-    <string name="login_alertdialog_title_error_login">Erreur connexion</string>
-    <string name="login_alertdialog_message_error_login">Identifiants invalides</string>
 
     <!-- Activity Home -->
     <string name="home_alertdialog_title_welcome">Bienvenue</string>
@@ -30,16 +28,16 @@
     <string name="consult_textview_operations">Opérations</string>
 
     <!-- Activity Operation -->
+    <string name="operation_label_date">Date de réalisation</string>
+    <string name="operation_label_title">Intitulé</string>
+    <string name="operation_label_amount">Montant</string>
+    <string name="operation_label_type">Type</string>
     <string name="operation_type_debit">Débit</string>
     <string name="operation_type_credit">Crédit</string>
     <string-array name="operation_types">
         <item>@string/operation_type_debit</item>
         <item>@string/operation_type_credit</item>
     </string-array>
-    <string name="operation_label_date">Date de réalisation</string>
-    <string name="operation_label_type">Type</string>
-    <string name="operation_label_title">Intitulé</string>
-    <string name="operation_label_amount">Montant</string>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
@@ -65,10 +63,7 @@
 
     <!-- Menu -->
     <string name="menuitem_action_done">Valider</string>
-    <string name="menuitem_action_new">Nouveau</string>
-    <string name="menuitem_action_edit">Modiifer</string>
     <string name="menuitem_action_delete">Supprimer</string>
-    <string name="menuitem_action_refresh">Actualiser</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email existe déjà</string>
@@ -77,14 +72,10 @@
     <string name="tabitem_textview_date">Date</string>
     <string name="tabitem_textview_title">Intitulé</string>
     <string name="tabitem_textview_amount">0.0</string>
-    <string name="tabitemtitle_textview_date">Date</string>
-    <string name="tabitemtitle_textview_title">Intitule</string>
-    <string name="tabitemtitle_textview_amount">Prix</string>
 
     <!-- Title -->
     <string name="title_identity">Identité</string>
     <string name="title_consult">Compte</string>
-    <string name="title_fill_form">Remplir le formulaire</string>
     <string name="subtitle_new">Nouveau</string>
     <string name="subtitle_consulting">Consultation</string>
 
