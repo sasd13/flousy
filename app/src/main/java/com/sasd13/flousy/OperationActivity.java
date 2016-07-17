@@ -22,8 +22,6 @@ import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.OperationForm;
 import com.sasd13.flousy.content.handler.OperationHandler;
 
-import java.sql.Timestamp;
-
 public class OperationActivity extends MotherActivity {
 
     private OperationHandler operationHandler;
@@ -53,14 +51,13 @@ public class OperationActivity extends MotherActivity {
 
     private void fillOperationView() {
         if (hasExtraModeEdit()) {
-            operation = operationHandler.readOperation();
-
             getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_consulting));
-        } else {
-            operation = new Operation();
-            operation.setDateRealization(new Timestamp(System.currentTimeMillis()));
 
+            operation = operationHandler.readOperation();
+        } else {
             getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_new));
+
+            operation = operationHandler.getDefaultValueOfOperation();
         }
 
         operationForm.bindOperation(operation);

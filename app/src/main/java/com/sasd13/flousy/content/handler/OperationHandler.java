@@ -11,6 +11,7 @@ import com.sasd13.flousy.util.Parameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,13 @@ public class OperationHandler {
         long id = operationActivity.getIntent().getLongExtra(Extra.OPERATION_ID, 0);
 
         return persistor.read(id, Operation.class);
+    }
+
+    public Operation getDefaultValueOfOperation() {
+        Operation operation = new Operation();
+        operation.setDateRealization(new Timestamp(System.currentTimeMillis()));
+
+        return operation;
     }
 
     public void createOperation(OperationForm operationForm) {
