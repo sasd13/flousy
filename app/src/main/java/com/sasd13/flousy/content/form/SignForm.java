@@ -5,8 +5,8 @@ import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.EditTextItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.PasswordItemModel;
-import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Customer;
 
@@ -15,20 +15,20 @@ import com.sasd13.flousy.bean.Customer;
  */
 public class SignForm extends Form {
 
-    private TextItemModel modelFirstName, modelLastName, modelEmail;
+    private EditTextItemModel modelFirstName, modelLastName, modelEmail;
     private PasswordItemModel modelPassword;
     private BooleanItemModel modelTerms;
 
     public SignForm(Context context) {
         String title = context.getResources().getString(R.string.title_identity);
 
-        modelFirstName = new TextItemModel();
+        modelFirstName = new EditTextItemModel();
         modelFirstName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         modelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
         modelFirstName.setHint(modelFirstName.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelFirstName));
 
-        modelLastName = new TextItemModel();
+        modelLastName = new EditTextItemModel();
         modelLastName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         modelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
         modelLastName.setHint(modelLastName.getLabel().toLowerCase());
@@ -36,7 +36,7 @@ public class SignForm extends Form {
 
         title = context.getResources().getString(R.string.drawer_header_account);
 
-        modelEmail = new TextItemModel();
+        modelEmail = new EditTextItemModel();
         modelEmail.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         modelEmail.setLabel(context.getResources().getString(R.string.label_email));
         modelEmail.setHint(modelEmail.getLabel().toLowerCase());

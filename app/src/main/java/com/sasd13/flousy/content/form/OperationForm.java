@@ -5,8 +5,8 @@ import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.DateItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.EditTextItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinItemModel;
-import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Operation;
@@ -26,7 +26,7 @@ public class OperationForm extends Form {
     private String[] operationTypes;
     private String debit, credit;
     private DateItemModel modelDateRealization;
-    private TextItemModel modelTitle, modelAmount;
+    private EditTextItemModel modelTitle, modelAmount;
     private RadioSpinItemModel modelTypes;
 
     public OperationForm(Context context) {
@@ -43,12 +43,12 @@ public class OperationForm extends Form {
         modelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
         holder.add(new RecyclerHolderPair(modelDateRealization));
 
-        modelTitle = new TextItemModel();
+        modelTitle = new EditTextItemModel();
         modelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
         modelTitle.setHint(modelTitle.getLabel().toLowerCase());
         holder.add(new RecyclerHolderPair(modelTitle));
 
-        modelAmount = new TextItemModel();
+        modelAmount = new EditTextItemModel();
         modelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         modelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
         holder.add(new RecyclerHolderPair(modelAmount));
