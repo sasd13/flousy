@@ -7,7 +7,7 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerItemBuilder;
 /**
  * Created by ssaidali2 on 02/07/2016.
  */
-public enum MyTabItemType implements IRecyclerItemType {
+public enum EnumMyTabItemType implements IRecyclerItemType {
     OPERATION("OPERATIONITEM", OperationItem.class, RecyclerItemBuilder.class),
     ;
 
@@ -15,7 +15,7 @@ public enum MyTabItemType implements IRecyclerItemType {
     private Class<? extends RecyclerItem> recyclerItemClass;
     private Class<? extends RecyclerItemBuilder> recyclerItemBuilderClass;
 
-    private MyTabItemType(String code, Class<? extends RecyclerItem> recyclerItemClass, Class<? extends RecyclerItemBuilder> recyclerItemBuilderClass) {
+    private EnumMyTabItemType(String code, Class<? extends RecyclerItem> recyclerItemClass, Class<? extends RecyclerItemBuilder> recyclerItemBuilderClass) {
         this.code = code;
         this.recyclerItemClass = recyclerItemClass;
         this.recyclerItemBuilderClass = recyclerItemBuilderClass;
@@ -36,8 +36,8 @@ public enum MyTabItemType implements IRecyclerItemType {
         return recyclerItemBuilderClass;
     }
 
-    public static MyTabItemType find(String code) {
-        for (MyTabItemType type : values()) {
+    public static EnumMyTabItemType find(String code) {
+        for (EnumMyTabItemType type : values()) {
             if (type.code.equalsIgnoreCase(code)) {
                 return type;
             }

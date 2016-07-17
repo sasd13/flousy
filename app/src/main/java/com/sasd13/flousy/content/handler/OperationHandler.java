@@ -7,7 +7,7 @@ import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.FormException;
 import com.sasd13.flousy.content.form.OperationForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -46,7 +46,7 @@ public class OperationHandler {
     public void createOperation(OperationForm operationForm) {
         parameters.clear();
         parameters.put(
-                Parameter.CUSTOMER.getName(),
+                EnumParameter.CUSTOMER.getName(),
                 new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(operationActivity, Extra.CUSTOMER_ID))}
         );
 

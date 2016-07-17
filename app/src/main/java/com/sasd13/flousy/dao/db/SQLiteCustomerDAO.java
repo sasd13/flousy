@@ -6,8 +6,8 @@ import android.database.Cursor;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.CustomerDAO;
 import com.sasd13.flousy.dao.IPersistable;
-import com.sasd13.flousy.dao.db.util.SQLWhereClauseException;
-import com.sasd13.flousy.dao.db.util.SQLWhereClauseParser;
+import com.sasd13.flousy.dao.db.util.ConditionParserException;
+import com.sasd13.flousy.dao.db.util.ConditionParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +95,7 @@ public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements Cust
             builder.append("SELECT * FROM ");
             builder.append(TABLE);
             builder.append(" WHERE ");
-            builder.append(SQLWhereClauseParser.parse(parameters, CustomerDAO.class));
+            builder.append(ConditionParser.parse(parameters, CustomerDAO.class));
             builder.append(" AND ");
             builder.append(COLUMN_DELETED + " = ?");
 
@@ -104,7 +104,7 @@ public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements Cust
                 list.add(getCursorValues(cursor));
             }
             cursor.close();
-        } catch (SQLWhereClauseException e) {
+        } catch (ConditionParserException e) {
             e.printStackTrace();
         }
 

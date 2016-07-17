@@ -5,10 +5,10 @@ import android.support.v4.content.ContextCompat;
 
 import com.sasd13.androidex.DrawerActivity;
 import com.sasd13.androidex.gui.IAction;
-import com.sasd13.androidex.gui.widget.ActionEvent;
+import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
-import com.sasd13.androidex.gui.widget.recycler.drawer.DrawerItemType;
+import com.sasd13.androidex.gui.widget.recycler.drawer.EnumDrawerItemType;
 import com.sasd13.flousy.gui.recycler.browser.Browser;
 import com.sasd13.flousy.gui.recycler.browser.BrowserItemModel;
 import com.sasd13.flousy.util.SessionHelper;
@@ -31,10 +31,10 @@ public abstract class MotherActivity extends DrawerActivity {
         RecyclerHolderPair pair;
 
         for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
-            browserItemModel.setType(DrawerItemType.NAV);
+            browserItemModel.setType(EnumDrawerItemType.NAV);
 
             pair = new RecyclerHolderPair(browserItemModel);
-            pair.addController(ActionEvent.CLICK, new IAction() {
+            pair.addController(EnumActionEvent.CLICK, new IAction() {
                 @Override
                 public void execute() {
                     startActivity(new Intent(MotherActivity.this, browserItemModel.getTarget()));
@@ -52,10 +52,10 @@ public abstract class MotherActivity extends DrawerActivity {
                 ContextCompat.getColor(this, R.color.greyBackground),
                 HomeActivity.class
         );
-        browserItemModel.setType(DrawerItemType.DRAWER);
+        browserItemModel.setType(EnumDrawerItemType.DRAWER);
 
         RecyclerHolderPair pair = new RecyclerHolderPair(browserItemModel);
-        pair.addController(ActionEvent.CLICK, new IAction() {
+        pair.addController(EnumActionEvent.CLICK, new IAction() {
             @Override
             public void execute() {
                 SessionHelper.logOut(MotherActivity.this);

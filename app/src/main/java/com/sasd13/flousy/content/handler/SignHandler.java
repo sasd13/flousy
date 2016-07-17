@@ -7,7 +7,7 @@ import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -36,7 +36,7 @@ public class SignHandler {
             signActivity.onError(signActivity.getResources().getString(R.string.form_sign_message_error_terms));
         } else {
             parameters.clear();
-            parameters.put(Parameter.EMAIL.getName(), new String[]{ signForm.getEditable().getEmail() });
+            parameters.put(EnumParameter.EMAIL.getName(), new String[]{ signForm.getEditable().getEmail() });
 
             if (!persistor.read(parameters, Customer.class).isEmpty()) {
                 signActivity.onError(signActivity.getResources().getString(R.string.message_email_exists));

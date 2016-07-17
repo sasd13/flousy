@@ -13,7 +13,7 @@ import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
-import com.sasd13.androidex.gui.widget.recycler.form.FormType;
+import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
@@ -42,7 +42,7 @@ public class OperationActivity extends MotherActivity {
     }
 
     private void buildOperationView() {
-        Recycler form = RecyclerFactory.makeBuilder(FormType.FORM).build((RecyclerView) findViewById(R.id.operation_recyclerview));
+        Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) findViewById(R.id.operation_recyclerview));
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, operationForm.getHolder());

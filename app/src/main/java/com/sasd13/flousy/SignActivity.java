@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
-import com.sasd13.androidex.gui.widget.recycler.form.FormType;
+import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
@@ -37,7 +37,7 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void buildSignView() {
-        Recycler form = RecyclerFactory.makeBuilder(FormType.FORM).build((RecyclerView) findViewById(R.id.sign_recyclerview));
+        Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) findViewById(R.id.sign_recyclerview));
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, signForm.getHolder());

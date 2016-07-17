@@ -23,7 +23,7 @@ public class OperationItemModel extends Observable implements IRecyclerItemModel
 
     @Override
     public IRecyclerItemType getItemType() {
-        return MyTabItemType.OPERATION;
+        return EnumMyTabItemType.OPERATION;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class OperationItemModel extends Observable implements IRecyclerItemModel
     public String getDate(Context context) {
         return DateTimeHelper.format(
                 operation.getDateRealization(),
-                DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT));
+                DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.EnumFormat.SHORT));
     }
 
     public String getAmount() {

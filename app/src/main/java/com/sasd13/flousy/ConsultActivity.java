@@ -6,12 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.IAction;
-import com.sasd13.androidex.gui.widget.ActionEvent;
+import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
-import com.sasd13.androidex.gui.widget.recycler.tab.TabType;
+import com.sasd13.androidex.gui.widget.recycler.tab.EnumTabType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Account;
@@ -49,7 +49,7 @@ public class ConsultActivity extends MotherActivity {
     private void buildConsultView() {
         textViewSold = (TextView) findViewById(R.id.consult_textview_sold);
 
-        tab = RecyclerFactory.makeBuilder(TabType.TAB).build((RecyclerView) findViewById(R.id.consult_recyclerview));
+        tab = RecyclerFactory.makeBuilder(EnumTabType.TAB).build((RecyclerView) findViewById(R.id.consult_recyclerview));
         tab.addDividerItemDecoration();
     }
 
@@ -77,7 +77,7 @@ public class ConsultActivity extends MotherActivity {
             operationItemModel = new OperationItemModel(operation);
 
             pair = new RecyclerHolderPair(operationItemModel);
-            pair.addController(ActionEvent.CLICK, new IAction() {
+            pair.addController(EnumActionEvent.CLICK, new IAction() {
                 @Override
                 public void execute() {
                     Intent intent = new Intent(ConsultActivity.this, OperationActivity.class);

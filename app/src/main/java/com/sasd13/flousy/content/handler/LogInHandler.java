@@ -4,7 +4,7 @@ import com.sasd13.flousy.LogInActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.javaex.db.DAOException;
 
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class LogInHandler {
 
     public void logIn(String email, String password) {
         parameters.clear();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{ email });
+        parameters.put(EnumParameter.EMAIL.getName(), new String[]{ email });
 
         Customer customer = null;
 

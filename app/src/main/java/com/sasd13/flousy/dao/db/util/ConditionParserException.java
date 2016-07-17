@@ -5,9 +5,9 @@ package com.sasd13.flousy.dao.db.util;
  */
 import java.sql.SQLException;
 
-public class SQLWhereClauseException extends SQLException {
+public class ConditionParserException extends SQLException {
 
-    public SQLWhereClauseException(String message) {
+    public ConditionParserException(String message) {
         super(message);
     }
 }

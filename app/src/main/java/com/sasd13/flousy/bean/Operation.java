@@ -8,7 +8,7 @@ public class Operation {
     private Timestamp dateRealization;
     private String title;
     private double amount;
-    private OperationType type;
+    private EnumOperationType type;
     private Account account;
 
     public Operation() {
@@ -54,11 +54,11 @@ public class Operation {
         this.amount = amount;
     }
 
-    public OperationType getType() {
+    public EnumOperationType getType() {
         return type;
     }
 
-    public void setType(OperationType type) {
+    public void setType(EnumOperationType type) {
         this.type = type;
     }
 

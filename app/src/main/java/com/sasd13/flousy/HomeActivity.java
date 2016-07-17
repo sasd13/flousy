@@ -6,15 +6,15 @@ import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.IAction;
-import com.sasd13.androidex.gui.widget.ActionEvent;
+import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
-import com.sasd13.androidex.gui.widget.recycler.grid.GridItemType;
-import com.sasd13.androidex.gui.widget.recycler.grid.GridType;
+import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridItemType;
+import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridType;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
@@ -37,7 +37,7 @@ public class HomeActivity extends MotherActivity {
     }
 
     private void buildHomeView() {
-        Recycler grid = RecyclerFactory.makeBuilder(GridType.GRID).build((RecyclerView) findViewById(R.id.home_recyclerview));
+        Recycler grid = RecyclerFactory.makeBuilder(EnumGridType.GRID).build((RecyclerView) findViewById(R.id.home_recyclerview));
 
         fillGrid(grid);
     }
@@ -48,10 +48,10 @@ public class HomeActivity extends MotherActivity {
         Browser browser = Browser.getInstance();
 
         for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
-            browserItemModel.setType(GridItemType.GRID);
+            browserItemModel.setType(EnumGridItemType.GRID);
 
             pair = new RecyclerHolderPair(browserItemModel);
-            pair.addController(ActionEvent.CLICK, new IAction() {
+            pair.addController(EnumActionEvent.CLICK, new IAction() {
                 @Override
                 public void execute() {
                     startActivity(new Intent(HomeActivity.this, browserItemModel.getTarget()));

@@ -4,7 +4,7 @@ import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -30,7 +30,7 @@ public class ConsultHandler {
         long id = SessionHelper.getExtraIdFromSession(consultActivity, Extra.CUSTOMER_ID);
 
         parameters.clear();
-        parameters.put(Parameter.CUSTOMER.getName(), new String[] { String.valueOf(id) });
+        parameters.put(EnumParameter.CUSTOMER.getName(), new String[] { String.valueOf(id) });
 
         return persistor.deepRead(parameters, Account.class).get(0);
     }

@@ -6,7 +6,7 @@ import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -37,7 +37,7 @@ public class SettingsHandler {
 
     public void updateCustomer(Customer customer, SettingsForm settingsForm) {
         parameters.clear();
-        parameters.put(Parameter.EMAIL.getName(), new String[]{ settingsForm.getEditable().getEmail() });
+        parameters.put(EnumParameter.EMAIL.getName(), new String[]{ settingsForm.getEditable().getEmail() });
 
         List<Customer> customers = persistor.read(parameters, Customer.class);
         if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {

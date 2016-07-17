@@ -9,8 +9,8 @@ import com.sasd13.androidex.gui.widget.recycler.form.EditTextItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.bean.EnumOperationType;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.bean.OperationType;
 
 import org.joda.time.LocalDate;
 
@@ -37,7 +37,7 @@ public class OperationForm extends Form {
         debit = context.getResources().getString(R.string.operation_type_debit);
         credit = context.getResources().getString(R.string.operation_type_credit);
 
-        String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.Format.SHORT);
+        String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.EnumFormat.SHORT);
 
         modelDateRealization = new DateItemModel(pattern);
         modelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
@@ -72,9 +72,9 @@ public class OperationForm extends Form {
             modelAmount.setValue(String.valueOf(Math.abs(operation.getAmount())));
         }
 
-        if (OperationType.DEBIT.equals(operation.getType())) {
+        if (EnumOperationType.DEBIT.equals(operation.getType())) {
             modelTypes.setValue(Arrays.asList(operationTypes).indexOf(debit));
-        } else if (OperationType.CREDIT.equals(operation.getType())) {
+        } else if (EnumOperationType.CREDIT.equals(operation.getType())) {
             modelTypes.setValue(Arrays.asList(operationTypes).indexOf(credit));
         }
     }
@@ -87,10 +87,10 @@ public class OperationForm extends Form {
         operation.setAmount(Double.valueOf(modelAmount.getValue()));
 
         if (operationTypes[modelTypes.getValue()].equals(debit)) {
-            operation.setType(OperationType.DEBIT);
+            operation.setType(EnumOperationType.DEBIT);
             operation.setAmount(0 - operation.getAmount());
         } else if (operationTypes[modelTypes.getValue()].equals(credit)) {
-            operation.setType(OperationType.CREDIT);
+            operation.setType(EnumOperationType.CREDIT);
         } else {
             throw new FormException(context.getResources().getString(R.string.form_operation_message_error_type));
         }

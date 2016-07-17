@@ -3,7 +3,7 @@ package com.sasd13.flousy.dao;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.util.Parameter;
+import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.DeepReader;
 import com.sasd13.javaex.db.IEntityDAO;
@@ -32,7 +32,7 @@ public class AccountDeepReader extends DeepReader<Account> {
         account.getCustomer().setEmail(customer.getEmail());
 
         Map<String, String[]> parameters = new HashMap<>();
-        parameters.put(Parameter.ACCOUNT.getName(), new String[]{ String.valueOf(account.getId()) });
+        parameters.put(EnumParameter.ACCOUNT.getName(), new String[]{ String.valueOf(account.getId()) });
 
         List<Operation> operations = operationDAO.select(parameters);
         Operation operationToAdd;

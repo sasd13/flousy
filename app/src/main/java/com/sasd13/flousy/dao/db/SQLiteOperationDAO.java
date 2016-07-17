@@ -5,11 +5,11 @@ import android.database.Cursor;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.bean.OperationType;
+import com.sasd13.flousy.bean.EnumOperationType;
 import com.sasd13.flousy.dao.IPersistable;
 import com.sasd13.flousy.dao.OperationDAO;
-import com.sasd13.flousy.dao.db.util.SQLWhereClauseException;
-import com.sasd13.flousy.dao.db.util.SQLWhereClauseParser;
+import com.sasd13.flousy.dao.db.util.ConditionParserException;
+import com.sasd13.flousy.dao.db.util.ConditionParser;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements Op
         operation.setDateRealization(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEREALIZATION))));
         operation.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
         operation.setAmount(cursor.getDouble(cursor.getColumnIndex(COLUMN_AMOUNT)));
-        operation.setType(OperationType.find(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE))));
+        operation.setType(EnumOperationType.find(cursor.getString(cursor.getColumnIndex(COLUMN_TYPE))));
 
         return operation;
     }
@@ -103,7 +103,7 @@ public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements Op
             builder.append("SELECT * FROM ");
             builder.append(TABLE);
             builder.append(" WHERE ");
-            builder.append(SQLWhereClauseParser.parse(parameters, OperationDAO.class));
+            builder.append(ConditionParser.parse(parameters, OperationDAO.class));
             builder.append(" AND ");
             builder.append(COLUMN_DELETED + " = ?");
 
@@ -112,7 +112,7 @@ public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements Op
                 list.add(getCursorValues(cursor));
             }
             cursor.close();
-        } catch (SQLWhereClauseException e) {
+        } catch (ConditionParserException e) {
             e.printStackTrace();
         }
 
