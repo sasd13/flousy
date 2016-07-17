@@ -56,7 +56,7 @@ public class OperationHandler {
         try {
             editOperationWithForm(operation, operationForm);
             persistor.create(operation);
-            operationActivity.onCreateSuccess();
+            operationActivity.onCreateSucceeded();
         } catch (FormException e) {
             operationActivity.onError(e.getMessage());
         }
@@ -66,7 +66,7 @@ public class OperationHandler {
         try {
             editOperationWithForm(operation, operationForm);
             persistor.update(operation);
-            operationActivity.onUpdateSuccess();
+            operationActivity.onUpdateSucceeded();
         } catch (FormException e) {
             operationActivity.onError(e.getMessage());
         }
@@ -83,6 +83,6 @@ public class OperationHandler {
 
     public void deleteOperation(Operation operation) {
         persistor.delete(operation);
-        operationActivity.onDeleteSuccess();
+        operationActivity.onDeleteSucceeded();
     }
 }

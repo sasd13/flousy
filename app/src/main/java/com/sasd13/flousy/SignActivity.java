@@ -68,7 +68,7 @@ public class SignActivity extends AppCompatActivity {
         signHandler.sign(signForm);
     }
 
-    public void onSuccess(Customer customer) {
+    public void onSignSucceeded(Customer customer) {
         SessionHelper.logIn(this, customer);
     }
 

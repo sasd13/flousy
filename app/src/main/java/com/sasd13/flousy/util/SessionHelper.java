@@ -29,7 +29,6 @@ public class SessionHelper {
         final WaitDialog waitDialog = new WaitDialog(activity);
         final Intent intent = new Intent(activity, HomeActivity.class);
 
-        waitDialog.setCancelable(false);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         new TaskPlanner(new Runnable() {

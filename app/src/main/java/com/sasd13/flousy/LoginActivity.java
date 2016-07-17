@@ -79,7 +79,7 @@ public class LogInActivity extends AppCompatActivity {
         logInHandler.logIn(email, password);
     }
 
-    public void onSuccess(Customer customer) {
+    public void onLogInSucceeded(Customer customer) {
         SessionHelper.logIn(this, customer);
     }
 

@@ -74,7 +74,7 @@ public class SettingsActivity extends MotherActivity {
         settingsHandler.updateCustomer(customer, settingsForm);
     }
 
-    public void onSuccess() {
+    public void onUpdateSucceeded() {
         Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
     }
 

@@ -45,7 +45,7 @@ public class SignHandler {
 
                 editCustomerWithForm(customer, signForm);
                 performSign(customer, signForm.getPassword());
-                signActivity.onSuccess(customer);
+                signActivity.onSignSucceeded(customer);
             }
         }
     }

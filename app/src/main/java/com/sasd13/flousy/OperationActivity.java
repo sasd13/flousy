@@ -124,7 +124,7 @@ public class OperationActivity extends MotherActivity {
         );
     }
 
-    public void onCreateSuccess() {
+    public void onCreateSucceeded() {
         Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
         goToConsultActivity(GUIConstants.TIMEOUT_ACTIVITY);
     }
@@ -139,11 +139,11 @@ public class OperationActivity extends MotherActivity {
         }, timeOut).start();
     }
 
-    public void onUpdateSuccess() {
+    public void onUpdateSucceeded() {
         Toast.makeText(this, R.string.message_saved, Toast.LENGTH_SHORT).show();
     }
 
-    public void onDeleteSuccess() {
+    public void onDeleteSucceeded() {
         Toast.makeText(this, R.string.message_deleted, Toast.LENGTH_SHORT).show();
         goToConsultActivity(GUIConstants.TIMEOUT_ACTIVITY / 2);
     }

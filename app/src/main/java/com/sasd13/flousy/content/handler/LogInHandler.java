@@ -48,7 +48,7 @@ public class LogInHandler {
         if (customer == null) {
             logInActivity.onError(LogInActivity.self.getResources().getString(com.sasd13.androidex.R.string.message_error_login));
         } else {
-            logInActivity.onSuccess(customer);
+            logInActivity.onLogInSucceeded(customer);
         }
     }
 

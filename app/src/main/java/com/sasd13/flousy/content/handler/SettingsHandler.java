@@ -48,7 +48,7 @@ public class SettingsHandler {
             editCustomerWithForm(customer, settingsForm);
             persistor.update(customer);
 
-            settingsActivity.onSuccess();
+            settingsActivity.onUpdateSucceeded();
         }
     }
 
