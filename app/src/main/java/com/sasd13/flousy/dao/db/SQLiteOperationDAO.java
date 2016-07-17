@@ -4,12 +4,13 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.bean.EnumOperationType;
+import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.dao.IPersistable;
 import com.sasd13.flousy.dao.OperationDAO;
-import com.sasd13.flousy.dao.db.util.ConditionParserException;
-import com.sasd13.flousy.dao.db.util.ConditionParser;
+import com.sasd13.flousy.dao.db.condition.OperationConditionExpression;
+import com.sasd13.javaex.db.condition.ConditionBuilder;
+import com.sasd13.javaex.db.condition.ConditionBuilderException;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -103,7 +104,7 @@ public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements Op
             builder.append("SELECT * FROM ");
             builder.append(TABLE);
             builder.append(" WHERE ");
-            builder.append(ConditionParser.parse(parameters, OperationDAO.class));
+            builder.append(ConditionBuilder.parse(parameters, OperationConditionExpression.class));
             builder.append(" AND ");
             builder.append(COLUMN_DELETED + " = ?");
 
@@ -112,7 +113,7 @@ public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements Op
                 list.add(getCursorValues(cursor));
             }
             cursor.close();
-        } catch (ConditionParserException e) {
+        } catch (ConditionBuilderException e) {
             e.printStackTrace();
         }
 

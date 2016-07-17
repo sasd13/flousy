@@ -7,8 +7,9 @@ import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.AccountDAO;
 import com.sasd13.flousy.dao.IPersistable;
-import com.sasd13.flousy.dao.db.util.ConditionParserException;
-import com.sasd13.flousy.dao.db.util.ConditionParser;
+import com.sasd13.flousy.dao.db.condition.AccountConditionExpression;
+import com.sasd13.javaex.db.condition.ConditionBuilder;
+import com.sasd13.javaex.db.condition.ConditionBuilderException;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -96,7 +97,7 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
             builder.append("SELECT * FROM ");
             builder.append(TABLE);
             builder.append(" WHERE ");
-            builder.append(ConditionParser.parse(parameters, AccountDAO.class));
+            builder.append(ConditionBuilder.parse(parameters, AccountConditionExpression.class));
             builder.append(" AND ");
             builder.append(COLUMN_DELETED + " = ?");
 
@@ -105,7 +106,7 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
                 list.add(getCursorValues(cursor));
             }
             cursor.close();
-        } catch (ConditionParserException e) {
+        } catch (ConditionBuilderException e) {
             e.printStackTrace();
         }
 
