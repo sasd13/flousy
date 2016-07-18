@@ -48,7 +48,7 @@ public class HomeActivity extends MotherActivity {
         Browser browser = Browser.getInstance();
 
         for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
-            browserItemModel.setType(EnumGridItemType.GRID);
+            browserItemModel.setItemType(EnumGridItemType.GRID);
 
             pair = new RecyclerHolderPair(browserItemModel);
             pair.addController(EnumActionEvent.CLICK, new IAction() {

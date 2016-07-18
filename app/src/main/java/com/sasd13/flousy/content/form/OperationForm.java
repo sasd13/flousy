@@ -6,7 +6,7 @@ import android.text.InputType;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.DateItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.EditTextItemModel;
-import com.sasd13.androidex.gui.widget.recycler.form.RadioSpinItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.SpinRadioItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.EnumOperationType;
@@ -27,7 +27,7 @@ public class OperationForm extends Form {
     private String debit, credit;
     private DateItemModel modelDateRealization;
     private EditTextItemModel modelTitle, modelAmount;
-    private RadioSpinItemModel modelTypes;
+    private SpinRadioItemModel modelTypes;
 
     public OperationForm(Context context) {
         super();
@@ -53,7 +53,7 @@ public class OperationForm extends Form {
         modelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
         holder.add(new RecyclerHolderPair(modelAmount));
 
-        modelTypes = new RadioSpinItemModel();
+        modelTypes = new SpinRadioItemModel();
         modelTypes.setLabel(context.getResources().getString(R.string.operation_label_type));
         modelTypes.setItems(context.getResources().getStringArray(R.array.operation_types));
         holder.add(new RecyclerHolderPair(modelTypes));

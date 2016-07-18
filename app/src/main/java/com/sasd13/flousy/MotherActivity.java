@@ -31,7 +31,7 @@ public abstract class MotherActivity extends DrawerActivity {
         RecyclerHolderPair pair;
 
         for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
-            browserItemModel.setType(EnumDrawerItemType.NAV);
+            browserItemModel.setItemType(EnumDrawerItemType.NAV);
 
             pair = new RecyclerHolderPair(browserItemModel);
             pair.addController(EnumActionEvent.CLICK, new IAction() {
@@ -52,7 +52,7 @@ public abstract class MotherActivity extends DrawerActivity {
                 ContextCompat.getColor(this, R.color.greyBackground),
                 HomeActivity.class
         );
-        browserItemModel.setType(EnumDrawerItemType.DRAWER);
+        browserItemModel.setItemType(EnumDrawerItemType.DRAWER);
 
         RecyclerHolderPair pair = new RecyclerHolderPair(browserItemModel);
         pair.addController(EnumActionEvent.CLICK, new IAction() {

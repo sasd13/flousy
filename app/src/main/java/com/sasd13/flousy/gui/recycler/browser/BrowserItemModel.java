@@ -34,7 +34,7 @@ public class BrowserItemModel extends Observable implements IRecyclerItemModel, 
         return type;
     }
 
-    public void setType(IRecyclerItemType type) {
+    public void setItemType(IRecyclerItemType type) {
         this.type = type;
     }
 
