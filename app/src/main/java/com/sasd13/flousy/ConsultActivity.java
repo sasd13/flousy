@@ -2,7 +2,9 @@ package com.sasd13.flousy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.sasd13.androidex.gui.IAction;
@@ -51,6 +53,15 @@ public class ConsultActivity extends MotherActivity {
 
         tab = RecyclerFactory.makeBuilder(EnumTabType.TAB).build((RecyclerView) findViewById(R.id.consult_recyclerview));
         tab.addDividerItemDecoration();
+
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.consult_floatingactionbutton);
+        assert floatingActionButton != null;
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ConsultActivity.this, OperationActivity.class));
+            }
+        });
     }
 
     @Override

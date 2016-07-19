@@ -6,8 +6,6 @@ import android.support.v4.content.ContextCompat;
 import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.FinancesActivity;
 import com.sasd13.flousy.FriendsActivity;
-import com.sasd13.flousy.OffersActivity;
-import com.sasd13.flousy.OperationActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SettingsActivity;
 
@@ -33,16 +31,9 @@ public class Browser {
     public List<BrowserItemModel> getItems(final Context context) {
         if (items.isEmpty()) {
             items.add(new BrowserItemModel(
-                    context.getResources().getString(R.string.activity_operation),
-                    ContextCompat.getDrawable(context, R.drawable.griditem_new),
-                    ContextCompat.getColor(context, R.color.green),
-                    OperationActivity.class
-            ));
-
-            items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_consult),
                     ContextCompat.getDrawable(context, R.drawable.griditem_consult),
-                    ContextCompat.getColor(context, R.color.red),
+                    ContextCompat.getColor(context, R.color.green),
                     ConsultActivity.class
             ));
 
@@ -56,15 +47,8 @@ public class Browser {
             items.add(new BrowserItemModel(
                     context.getResources().getString(R.string.activity_friends),
                     ContextCompat.getDrawable(context, R.drawable.griditem_dividing),
-                    ContextCompat.getColor(context, R.color.blue),
-                    FriendsActivity.class
-            ));
-
-            items.add(new BrowserItemModel(
-                    context.getResources().getString(R.string.activity_offers),
-                    ContextCompat.getDrawable(context, R.drawable.griditem_evolution),
                     ContextCompat.getColor(context, R.color.purple),
-                    OffersActivity.class
+                    FriendsActivity.class
             ));
 
             items.add(new BrowserItemModel(

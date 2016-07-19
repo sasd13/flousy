@@ -48,7 +48,7 @@ public abstract class MotherActivity extends DrawerActivity {
     private void addAccountItems(RecyclerHolder recyclerHolder) {
         final BrowserItemModel browserItemModel = new BrowserItemModel(
                 getResources().getString(R.string.drawer_label_logout),
-                ContextCompat.getDrawable(this, R.drawable.ic_room_black_36dp),
+                null,
                 ContextCompat.getColor(this, R.color.greyBackground),
                 HomeActivity.class
         );

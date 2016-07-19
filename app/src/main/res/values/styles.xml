@@ -57,4 +57,11 @@
         <item name="colorAccent">@color/brown</item>
     </style>
 
+    <style name="FlousyIndigo" parent="Flousy">
+        <item name="colorPrimary">@color/indigo</item>
+        <item name="colorPrimaryDark">@color/indigoMidDark</item>
+        <item name="colorSecondary">@color/indigoMidLight</item>
+        <item name="colorAccent">@color/indigo</item>
+    </style>
+
 </resources>
