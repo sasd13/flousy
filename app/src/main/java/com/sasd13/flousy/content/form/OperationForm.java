@@ -5,8 +5,8 @@ import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.DateItemModel;
-import com.sasd13.androidex.gui.widget.recycler.form.EditTextItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.SpinRadioItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.EnumOperationType;
@@ -21,12 +21,12 @@ import java.util.Arrays;
  * Created by ssaidali2 on 20/06/2016.
  */
 public class OperationForm extends Form {
-
+    
     private Context context;
     private String[] operationTypes;
     private String debit, credit;
     private DateItemModel modelDateRealization;
-    private EditTextItemModel modelTitle, modelAmount;
+    private TextItemModel modelTitle, modelAmount;
     private SpinRadioItemModel modelTypes;
 
     public OperationForm(Context context) {
@@ -43,12 +43,12 @@ public class OperationForm extends Form {
         modelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
         holder.add(new RecyclerHolderPair(modelDateRealization));
 
-        modelTitle = new EditTextItemModel();
+        modelTitle = new TextItemModel();
         modelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
         modelTitle.setHint(modelTitle.getLabel().toLowerCase());
         holder.add(new RecyclerHolderPair(modelTitle));
 
-        modelAmount = new EditTextItemModel();
+        modelAmount = new TextItemModel();
         modelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         modelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
         holder.add(new RecyclerHolderPair(modelAmount));
@@ -80,21 +80,38 @@ public class OperationForm extends Form {
     }
 
     public Operation getEditable() throws FormException {
+        validForm();
+
         Operation operation = new Operation();
 
         operation.setDateRealization(new Timestamp(modelDateRealization.getValue().toDate().getTime()));
-        operation.setTitle(modelTitle.getValue());
-        operation.setAmount(Double.valueOf(modelAmount.getValue()));
+        operation.setTitle(modelTitle.getValue().trim());
+        operation.setAmount(Double.valueOf(modelAmount.getValue().trim()));
 
         if (operationTypes[modelTypes.getValue()].equals(debit)) {
             operation.setType(EnumOperationType.DEBIT);
             operation.setAmount(0 - operation.getAmount());
         } else if (operationTypes[modelTypes.getValue()].equals(credit)) {
             operation.setType(EnumOperationType.CREDIT);
-        } else {
-            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_type));
         }
 
         return operation;
+    }
+
+    private void validForm() throws FormException {
+        if (modelTitle.getValue() == null
+                || modelTitle.getValue().trim().isEmpty()) {
+            throw new FormException("Error title");
+        }
+
+        if (modelAmount.getValue() == null
+                || modelTitle.getValue().trim().isEmpty()
+                || Double.valueOf(modelAmount.getValue()) < 0) {
+            throw new FormException("Error amount");
+        }
+
+        if (modelTypes.getValue() == -1) {
+            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_type));
+        }
     }
 }
