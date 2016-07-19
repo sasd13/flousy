@@ -21,8 +21,7 @@ import java.util.Arrays;
  * Created by ssaidali2 on 20/06/2016.
  */
 public class OperationForm extends Form {
-    
-    private Context context;
+
     private String[] operationTypes;
     private String debit, credit;
     private DateItemModel modelDateRealization;
@@ -30,9 +29,8 @@ public class OperationForm extends Form {
     private SpinRadioItemModel modelTypes;
 
     public OperationForm(Context context) {
-        super();
+        super(context);
 
-        this.context = context;
         this.operationTypes = context.getResources().getStringArray(R.array.operation_types);
         debit = context.getResources().getString(R.string.operation_type_debit);
         credit = context.getResources().getString(R.string.operation_type_credit);
@@ -60,13 +58,8 @@ public class OperationForm extends Form {
     }
 
     public void bindOperation(Operation operation) {
-        if (operation.getDateRealization() != null) {
-            modelDateRealization.setValue(new LocalDate(operation.getDateRealization()));
-        }
-
-        if (operation.getTitle() != null) {
-            modelTitle.setValue(operation.getTitle());
-        }
+        modelDateRealization.setValue(new LocalDate(operation.getDateRealization()));
+        modelTitle.setValue(operation.getTitle());
 
         if (operation.getAmount() != Double.valueOf(0)) {
             modelAmount.setValue(String.valueOf(Math.abs(operation.getAmount())));
@@ -101,13 +94,13 @@ public class OperationForm extends Form {
     private void validForm() throws FormException {
         if (modelTitle.getValue() == null
                 || modelTitle.getValue().trim().isEmpty()) {
-            throw new FormException("Error title");
+            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_title));
         }
 
         if (modelAmount.getValue() == null
                 || modelTitle.getValue().trim().isEmpty()
                 || Double.valueOf(modelAmount.getValue()) < 0) {
-            throw new FormException("Error amount");
+            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_amount));
         }
 
         if (modelTypes.getValue() == -1) {

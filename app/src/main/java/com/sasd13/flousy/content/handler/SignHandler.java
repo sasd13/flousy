@@ -4,6 +4,7 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.content.form.FormException;
 import com.sasd13.flousy.content.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
@@ -32,10 +33,8 @@ public class SignHandler {
     }
 
     public void sign(SignForm signForm) {
-        if (!signForm.areTermsAccepted()) {
-            signActivity.onError(signActivity.getResources().getString(R.string.form_sign_message_error_terms));
-        } else {
-            parameters.clear();
+        parameters.clear();
+        try {
             parameters.put(EnumParameter.EMAIL.getName(), new String[]{ signForm.getEditable().getEmail() });
 
             if (!persistor.read(parameters, Customer.class).isEmpty()) {
@@ -47,10 +46,12 @@ public class SignHandler {
                 performSign(customer, signForm.getPassword());
                 signActivity.onSignSucceeded(customer);
             }
+        } catch (FormException e) {
+            signActivity.onError(e.getMessage());
         }
     }
 
-    private void editCustomerWithForm(Customer customer, SignForm signForm) {
+    private void editCustomerWithForm(Customer customer, SignForm signForm) throws FormException {
         Customer customerFromForm = signForm.getEditable();
 
         customer.setFirstName(customerFromForm.getFirstName());

@@ -51,7 +51,16 @@
     <string name="edittext_hint_email">email</string>
 
     <!-- Form -->
+    <string name="form_sign_message_error_firstname">Invalid first name</string>
+    <string name="form_sign_message_error_lastname">Invalid last name</string>
+    <string name="form_sign_message_error_email">Invalid email</string>
+    <string name="form_sign_message_error_password">Invalid password</string>
+    <string name="form_settings_message_error_firstname">@string/form_sign_message_error_firstname</string>
+    <string name="form_settings_message_error_lastname">@string/form_sign_message_error_lastname</string>
+    <string name="form_settings_message_error_email">@string/form_sign_message_error_email</string>
     <string name="form_sign_message_error_terms">General terms of use are not accepted</string>
+    <string name="form_operation_message_error_title">Invalid title</string>
+    <string name="form_operation_message_error_amount">Invalid amount</string>
     <string name="form_operation_message_error_type">Invalid operation type</string>
 
     <!-- Label -->

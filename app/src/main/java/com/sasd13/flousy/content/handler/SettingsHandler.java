@@ -4,6 +4,7 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
+import com.sasd13.flousy.content.form.FormException;
 import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.EnumParameter;
@@ -37,22 +38,26 @@ public class SettingsHandler {
 
     public void updateCustomer(Customer customer, SettingsForm settingsForm) {
         parameters.clear();
-        parameters.put(EnumParameter.EMAIL.getName(), new String[]{ settingsForm.getEditable().getEmail() });
+        try {
+            parameters.put(EnumParameter.EMAIL.getName(), new String[]{ settingsForm.getEditable().getEmail() });
 
-        List<Customer> customers = persistor.read(parameters, Customer.class);
-        if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
-            String error = settingsActivity.getResources().getString(R.string.message_email_exists);
+            List<Customer> customers = persistor.read(parameters, Customer.class);
+            if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
+                String error = settingsActivity.getResources().getString(R.string.message_email_exists);
 
-            settingsActivity.onError(error);
-        } else {
-            editCustomerWithForm(customer, settingsForm);
-            persistor.update(customer);
+                settingsActivity.onError(error);
+            } else {
+                editCustomerWithForm(customer, settingsForm);
+                persistor.update(customer);
 
-            settingsActivity.onUpdateSucceeded();
+                settingsActivity.onUpdateSucceeded();
+            }
+        } catch (FormException e) {
+            settingsActivity.onError(e.getMessage());
         }
     }
 
-    private void editCustomerWithForm(Customer customer, SettingsForm settingsForm) {
+    private void editCustomerWithForm(Customer customer, SettingsForm settingsForm) throws FormException {
         Customer customerFromForm = settingsForm.getEditable();
 
         customer.setFirstName(customerFromForm.getFirstName());

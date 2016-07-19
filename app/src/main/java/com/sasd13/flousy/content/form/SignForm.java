@@ -20,6 +20,8 @@ public class SignForm extends Form {
     private BooleanItemModel modelTerms;
 
     public SignForm(Context context) {
+        super(context);
+
         String title = context.getResources().getString(R.string.title_identity);
 
         modelFirstName = new TextItemModel();
@@ -51,21 +53,50 @@ public class SignForm extends Form {
         holder.add(title, new RecyclerHolderPair(modelTerms));
     }
 
-    public Customer getEditable() {
+    public Customer getEditable() throws FormException {
+        validForm();
+
         Customer customer = new Customer();
 
-        customer.setFirstName(modelFirstName.getValue());
-        customer.setLastName(modelLastName.getValue());
-        customer.setEmail(modelEmail.getValue());
+        customer.setFirstName(modelFirstName.getValue().trim());
+        customer.setLastName(modelLastName.getValue().trim());
+        customer.setEmail(modelEmail.getValue().trim());
 
         return customer;
     }
 
-    public String getPassword() {
-        return modelPassword.getValue();
+    private void validForm() throws FormException {
+        if (modelFirstName.getValue() == null
+                || modelFirstName.getValue().trim().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_firstname));
+        }
+
+        if (modelLastName.getValue() == null
+                || modelLastName.getValue().trim().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_lastname));
+        }
+
+        if (modelEmail.getValue() == null
+                || modelEmail.getValue().trim().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_email));
+        }
+
+        if (modelPassword.getValue() == null
+                || modelPassword.getValue().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_password));
+        }
+
+        if (!modelTerms.getValue()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_terms));
+        }
     }
 
-    public boolean areTermsAccepted() {
-        return modelTerms.getValue();
+    public String getPassword() throws FormException {
+        if (modelPassword.getValue() == null
+                || modelPassword.getValue().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_password));
+        }
+
+        return modelPassword.getValue();
     }
 }

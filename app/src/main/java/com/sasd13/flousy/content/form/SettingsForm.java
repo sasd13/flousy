@@ -16,7 +16,7 @@ public class SettingsForm extends Form {
     private TextItemModel modelFirstName, modelLastName, modelEmail;
 
     public SettingsForm(Context context) {
-        super();
+        super(context);
 
         String title = context.getResources().getString(R.string.title_identity);
 
@@ -42,26 +42,46 @@ public class SettingsForm extends Form {
     }
 
     public void bindCustomer(Customer customer) {
-        if (customer.getFirstName() != null) {
-            modelFirstName.setValue(customer.getFirstName());
+        modelFirstName.setValue(customer.getFirstName());
+        modelLastName.setValue(customer.getLastName());
+        modelEmail.setValue(customer.getEmail());
+    }
+
+    public Customer getEditable() throws FormException {
+        validForm();
+
+        Customer customer = new Customer();
+
+        customer.setFirstName(modelFirstName.getValue().trim());
+        customer.setLastName(modelLastName.getValue().trim());
+        customer.setEmail(modelEmail.getValue().trim());
+
+        return customer;
+    }
+
+    private void validForm() throws FormException {
+        if (modelFirstName.getValue() == null
+                || modelFirstName.getValue().trim().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_firstname));
         }
 
-        if (customer.getLastName() != null) {
-            modelLastName.setValue(customer.getLastName());
+        if (modelLastName.getValue() == null
+                || modelLastName.getValue().trim().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_lastname));
         }
 
-        if (customer.getEmail() != null) {
-            modelEmail.setValue(customer.getEmail());
+        if (modelEmail.getValue() == null
+                || modelEmail.getValue().trim().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_email));
         }
     }
 
-    public Customer getEditable() {
-        Customer customer = new Customer();
+    public String getEmail() throws FormException {
+        if (modelEmail.getValue() == null
+                || modelEmail.getValue().trim().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_email));
+        }
 
-        customer.setFirstName(modelFirstName.getValue());
-        customer.setLastName(modelLastName.getValue());
-        customer.setEmail(modelEmail.getValue());
-
-        return customer;
+        return modelEmail.getValue().trim();
     }
 }
