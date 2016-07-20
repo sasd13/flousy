@@ -4,21 +4,12 @@
     android:layout_height="match_parent"
     style="@style/AndroidEX.Activity">
 
-    <TextView
-        android:id="@+id/sign_textview_title_form"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/AndroidEX.TitleWithTextAllCaps"
-        android:tag="title_0"
-        android:layout_alignParentTop="true"
-        android:text="@string/title_fill_form"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sign_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/AndroidEX.RecyclerWithPaddingHorizontal"
-        android:layout_below="@id/sign_textview_title_form"
+        style="@style/AndroidEX.Recycler"
+        android:layout_centerInParent="true"
         android:scrollbars="vertical"/>
 
 </RelativeLayout>

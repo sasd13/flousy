@@ -37,6 +37,12 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void buildSignView() {
+        getSupportActionBar().setSubtitle(R.string.title_fill_form);
+
+        buildSignForm();
+    }
+
+    private void buildSignForm() {
         Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) findViewById(R.id.sign_recyclerview));
         form.addDividerItemDecoration();
 

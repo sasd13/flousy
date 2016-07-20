@@ -55,7 +55,7 @@ public class OperationActivity extends MotherActivity {
 
             operation = operationHandler.readOperation();
         } else {
-            getSupportActionBar().setSubtitle(getResources().getString(R.string.subtitle_new));
+            getSupportActionBar().setSubtitle(getResources().getString(R.string.title_fill_form));
 
             operation = operationHandler.getDefaultValueOfOperation();
         }

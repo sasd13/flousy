@@ -85,7 +85,6 @@
     <!-- Title -->
     <string name="title_identity">Identité</string>
     <string name="title_consult">Compte</string>
-    <string name="subtitle_new">Nouveau</string>
     <string name="subtitle_consulting">Consultation</string>
 
 </resources>
