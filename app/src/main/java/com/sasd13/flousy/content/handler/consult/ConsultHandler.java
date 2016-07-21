@@ -1,11 +1,9 @@
-package com.sasd13.flousy.content.handler;
+package com.sasd13.flousy.content.handler.consult;
 
 import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.EnumParameter;
-import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
 
 import java.util.HashMap;
@@ -16,19 +14,15 @@ import java.util.Map;
  */
 public class ConsultHandler {
 
-    private ConsultActivity consultActivity;
     private LayeredPersistor persistor;
     private Map<String, String[]> parameters;
 
     public ConsultHandler(ConsultActivity consultActivity) {
-        this.consultActivity = consultActivity;
         persistor = new LayeredPersistor(SQLiteDAO.create(consultActivity));
         parameters = new HashMap<>();
     }
 
-    public Account readAccount() {
-        long id = SessionHelper.getExtraIdFromSession(consultActivity, Extra.CUSTOMER_ID);
-
+    public Account readAccount(long id) {
         parameters.clear();
         parameters.put(EnumParameter.CUSTOMER.getName(), new String[] { String.valueOf(id) });
 

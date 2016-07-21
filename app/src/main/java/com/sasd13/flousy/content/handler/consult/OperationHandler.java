@@ -1,12 +1,12 @@
-package com.sasd13.flousy.content.handler;
+package com.sasd13.flousy.content.handler.consult;
 
-import com.sasd13.flousy.OperationActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.FormException;
 import com.sasd13.flousy.content.form.OperationForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.fragment.consult.OperationFragment;
 import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.flousy.util.SessionHelper;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -20,20 +20,14 @@ import java.util.Map;
  */
 public class OperationHandler {
 
-    private OperationActivity operationActivity;
+    private OperationFragment operationFragment;
     private LayeredPersistor persistor;
     private Map<String, String[]> parameters;
 
-    public OperationHandler(OperationActivity operationActivity) {
-        this.operationActivity = operationActivity;
-        persistor = new LayeredPersistor(SQLiteDAO.create(operationActivity));
+    public OperationHandler(OperationFragment operationFragment) {
+        this.operationFragment = operationFragment;
+        persistor = new LayeredPersistor(SQLiteDAO.create(operationFragment.getContext()));
         parameters = new HashMap<>();
-    }
-
-    public Operation readOperation() {
-        long id = operationActivity.getIntent().getLongExtra(Extra.OPERATION_ID, 0);
-
-        return persistor.read(id, Operation.class);
     }
 
     public Operation getDefaultValueOfOperation() {
@@ -47,7 +41,7 @@ public class OperationHandler {
         parameters.clear();
         parameters.put(
                 EnumParameter.CUSTOMER.getName(),
-                new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(operationActivity, Extra.CUSTOMER_ID))}
+                new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(operationFragment.getContext(), Extra.CUSTOMER_ID))}
         );
 
         Account account = persistor.read(parameters, Account.class).get(0);
@@ -56,9 +50,9 @@ public class OperationHandler {
         try {
             editOperationWithForm(operation, operationForm);
             persistor.create(operation);
-            operationActivity.onCreateSucceeded();
+            operationFragment.onCreateSucceeded(operation);
         } catch (FormException e) {
-            operationActivity.onError(e.getMessage());
+            operationFragment.onError(e.getMessage());
         }
     }
 
@@ -66,9 +60,9 @@ public class OperationHandler {
         try {
             editOperationWithForm(operation, operationForm);
             persistor.update(operation);
-            operationActivity.onUpdateSucceeded();
+            operationFragment.onUpdateSucceeded();
         } catch (FormException e) {
-            operationActivity.onError(e.getMessage());
+            operationFragment.onError(e.getMessage());
         }
     }
 
@@ -83,6 +77,6 @@ public class OperationHandler {
 
     public void deleteOperation(Operation operation) {
         persistor.delete(operation);
-        operationActivity.onDeleteSucceeded();
+        operationFragment.onDeleteSucceeded();
     }
 }

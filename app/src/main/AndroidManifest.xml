@@ -65,7 +65,7 @@
         </activity>
 
         <activity
-            android:name=".OperationActivity"
+            android:name=".fragment.consult.OperationFragment"
             android:label="@string/activity_operation"
             android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
