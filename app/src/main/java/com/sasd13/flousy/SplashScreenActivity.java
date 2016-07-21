@@ -22,11 +22,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splashscreen);
-        createLogo();
+        buildView();
         run();
     }
 
-    private void createLogo() {
+    private void buildView() {
         ImageView imageViewLogo = (ImageView) findViewById(R.id.splashscreen_imageview);
         imageViewLogo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_app_logo));
     }

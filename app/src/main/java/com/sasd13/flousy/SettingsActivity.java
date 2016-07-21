@@ -13,8 +13,10 @@ import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.content.form.SettingsForm;
 import com.sasd13.flousy.content.handler.SettingsHandler;
+import com.sasd13.flousy.util.SessionHelper;
 
 public class SettingsActivity extends MotherActivity {
 
@@ -32,19 +34,19 @@ public class SettingsActivity extends MotherActivity {
         settingsHandler = new SettingsHandler(this);
         settingsForm = new SettingsForm(this);
 
-        buildSettingsView();
+        buildView();
     }
 
-    private void buildSettingsView() {
+    private void buildView() {
         Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) findViewById(R.id.settings_recyclerview));
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, settingsForm.getHolder());
-        fillSettingsView();
+        fillSettingsForm();
     }
 
-    private void fillSettingsView() {
-        customer = settingsHandler.readCustomer();
+    private void fillSettingsForm() {
+        customer = settingsHandler.readCustomer(SessionHelper.getExtraId(this, Extra.CUSTOMER_ID));
 
         settingsForm.bindCustomer(customer);
     }

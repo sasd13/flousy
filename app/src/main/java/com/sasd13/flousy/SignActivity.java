@@ -33,10 +33,10 @@ public class SignActivity extends AppCompatActivity {
         signHandler = new SignHandler(this);
         signForm = new SignForm(this);
 
-        buildSignView();
+        buildView();
     }
 
-    private void buildSignView() {
+    private void buildView() {
         getSupportActionBar().setSubtitle(R.string.title_fill_form);
 
         buildSignForm();

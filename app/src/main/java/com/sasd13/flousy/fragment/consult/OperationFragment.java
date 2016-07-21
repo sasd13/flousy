@@ -105,7 +105,7 @@ public class OperationFragment extends Fragment {
 
     public void onCreateSucceeded(Operation operation) {
         Toast.makeText(getContext(), R.string.message_saved, Toast.LENGTH_SHORT).show();
-        parentActivity.notifyAddOperation(operation);
+        parentActivity.notifyAddedOperation(operation);
         parentActivity.listOperations();
     }
 
@@ -115,7 +115,7 @@ public class OperationFragment extends Fragment {
 
     public void onDeleteSucceeded() {
         Toast.makeText(getContext(), R.string.message_deleted, Toast.LENGTH_SHORT).show();
-        parentActivity.notifyRemoveOperation(operation);
+        parentActivity.notifyRemovedOperation(operation);
         parentActivity.listOperations();
     }
 

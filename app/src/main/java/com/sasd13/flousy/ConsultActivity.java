@@ -34,7 +34,7 @@ public class ConsultActivity extends MotherActivity {
     protected void onStart() {
         super.onStart();
 
-        account = consultHandler.readAccount(SessionHelper.getExtraIdFromSession(this, Extra.CUSTOMER_ID));
+        account = consultHandler.readAccount(SessionHelper.getExtraId(this, Extra.CUSTOMER_ID));
     }
 
     public void listOperations() {
@@ -45,15 +45,15 @@ public class ConsultActivity extends MotherActivity {
 
     }
 
-    public void notifyAddOperation(Operation operation) {
-        account.getOperations().add(operation);
+    public void notifyAddedOperation(Operation operation) {
+
     }
 
     public void editOperation(Operation operation) {
 
     }
 
-    public void notifyRemoveOperation(Operation operation) {
-        account.getOperations().remove(operation);
+    public void notifyRemovedOperation(Operation operation) {
+        account.removeOperation(operation);
     }
 }

@@ -41,7 +41,7 @@ public class OperationHandler {
         parameters.clear();
         parameters.put(
                 EnumParameter.CUSTOMER.getName(),
-                new String[]{ String.valueOf(SessionHelper.getExtraIdFromSession(operationFragment.getContext(), Extra.CUSTOMER_ID))}
+                new String[]{ String.valueOf(SessionHelper.getExtraId(operationFragment.getContext(), Extra.CUSTOMER_ID))}
         );
 
         Account account = persistor.read(parameters, Account.class).get(0);

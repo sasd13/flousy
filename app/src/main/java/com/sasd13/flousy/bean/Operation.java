@@ -19,7 +19,7 @@ public class Operation {
         this();
 
         this.account = account;
-        account.getOperations().add(this);
+        account.addOperation(this);
     }
 
     public long getId() {

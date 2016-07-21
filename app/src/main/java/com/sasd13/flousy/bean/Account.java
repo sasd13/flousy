@@ -38,8 +38,16 @@ public class Account {
         this.dateOpening = dateOpening;
     }
 
-    public List<Operation> getOperations() {
-        return operations;
+    public Operation[] getOperations() {
+        return operations.toArray(new Operation[operations.size()]);
+    }
+
+    public boolean addOperation(Operation operation) {
+        return !operations.contains(operation) && operations.add(operation);
+    }
+
+    public boolean removeOperation(Operation operation) {
+        return operations.contains(operation) && operations.remove(operation);
     }
 
     public Customer getCustomer() {

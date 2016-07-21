@@ -32,10 +32,10 @@ public class LogInActivity extends AppCompatActivity {
         self = this;
         logInHandler = new LogInHandler(this);
 
-        buildLogInView();
+        buildView();
     }
 
-    private void buildLogInView() {
+    private void buildView() {
         LogInForm logInForm = new LogInForm();
         logInForm.editTextEmail = (EditText) findViewById(R.id.login_edittext_email);
         logInForm.editTextPassword = (EditText) findViewById(R.id.login_edittext_password);

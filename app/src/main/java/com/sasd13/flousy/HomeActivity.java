@@ -33,10 +33,10 @@ public class HomeActivity extends MotherActivity {
 
         self = this;
 
-        buildHomeView();
+        buildView();
     }
 
-    private void buildHomeView() {
+    private void buildView() {
         Recycler grid = RecyclerFactory.makeBuilder(EnumGridType.GRID).build((RecyclerView) findViewById(R.id.home_recyclerview));
 
         fillGrid(grid);

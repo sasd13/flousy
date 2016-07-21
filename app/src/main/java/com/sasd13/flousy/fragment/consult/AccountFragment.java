@@ -27,8 +27,10 @@ import com.sasd13.flousy.gui.recycler.tab.OperationItemModel;
 import com.sasd13.flousy.util.CollectionsHelper;
 
 import java.text.DecimalFormat;
+import java.util.Arrays;
+import java.util.List;
 
-public class OperationListFragment extends Fragment {
+public class AccountFragment extends Fragment {
 
     private static final String PATTERN_DECIMAL = "#.##";
 
@@ -40,12 +42,12 @@ public class OperationListFragment extends Fragment {
     private TextView textViewSold;
     private Recycler tab;
 
-    public static OperationListFragment newInstance(ConsultActivity parentActivity, Account account) {
-        OperationListFragment operationListFragment = new OperationListFragment();
-        operationListFragment.parentActivity = parentActivity;
-        operationListFragment.account = account;
+    public static AccountFragment newInstance(ConsultActivity parentActivity, Account account) {
+        AccountFragment accountFragment = new AccountFragment();
+        accountFragment.parentActivity = parentActivity;
+        accountFragment.account = account;
 
-        return operationListFragment;
+        return accountFragment;
     }
 
     @Override
@@ -94,13 +96,14 @@ public class OperationListFragment extends Fragment {
     private void fillTabOperations() {
         tab.clear();
 
-        CollectionsHelper.sortOperationsByDateDesc(account.getOperations());
+        List<Operation> operations = Arrays.asList(account.getOperations());
+        CollectionsHelper.sortOperationsByDateDesc(operations);
 
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;
         OperationItemModel operationItemModel;
 
-        for (final Operation operation : account.getOperations()) {
+        for (final Operation operation : operations) {
             operationItemModel = new OperationItemModel(operation);
 
             pair = new RecyclerHolderPair(operationItemModel);
