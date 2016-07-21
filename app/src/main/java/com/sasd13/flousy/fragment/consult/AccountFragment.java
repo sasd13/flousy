@@ -1,5 +1,6 @@
 package com.sasd13.flousy.fragment.consult;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -34,20 +35,25 @@ public class AccountFragment extends Fragment {
 
     private static final String PATTERN_DECIMAL = "#.##";
 
-    private ConsultActivity parentActivity;
     private Account account;
-
+    private ConsultActivity parentActivity;
     private DecimalFormat df;
-
     private TextView textViewSold;
     private Recycler tab;
 
-    public static AccountFragment newInstance(ConsultActivity parentActivity, Account account) {
-        AccountFragment accountFragment = new AccountFragment();
-        accountFragment.parentActivity = parentActivity;
-        accountFragment.account = account;
+    public static AccountFragment newInstance() {
+        return new AccountFragment();
+    }
 
-        return accountFragment;
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        parentActivity = (ConsultActivity) context;
     }
 
     @Override
@@ -60,9 +66,9 @@ public class AccountFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_operation_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        GUIHelper.colorTitles(this);
+        GUIHelper.colorTitles(view);
         buildView(view);
 
         return view;
@@ -85,8 +91,11 @@ public class AccountFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
+
+        parentActivity.getSupportActionBar().setTitle(getResources().getString(R.string.activity_consult));
+        parentActivity.getSupportActionBar().setSubtitle(null);
 
         textViewSold.setText(String.valueOf(df.format(account.getSold())));
 

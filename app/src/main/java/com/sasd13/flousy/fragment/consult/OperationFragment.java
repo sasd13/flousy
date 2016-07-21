@@ -1,5 +1,6 @@
 package com.sasd13.flousy.fragment.consult;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,26 +25,27 @@ import com.sasd13.flousy.content.handler.consult.OperationHandler;
 
 public class OperationFragment extends Fragment {
 
-    private ConsultActivity parentActivity;
     private Operation operation;
     private boolean inModeEdit;
-
+    private ConsultActivity parentActivity;
     private OperationHandler operationHandler;
     private OperationForm operationForm;
 
-    public static OperationFragment newInstance(ConsultActivity parentActivity) {
-        OperationFragment operationFragment = new OperationFragment();
-        operationFragment.parentActivity = parentActivity;
-
-        return operationFragment;
+    public static OperationFragment newInstance() {
+        return new OperationFragment();
     }
 
-    public static OperationFragment newInstance(ConsultActivity parentActivity, Operation operation) {
-        OperationFragment operationFragment = newInstance(parentActivity);
-        operationFragment.operation = operation;
-        operationFragment.inModeEdit = true;
+    public void setOperation(Operation operation) {
+        this.operation = operation;
 
-        return operationFragment;
+        inModeEdit = true;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        parentActivity = (ConsultActivity) context;
     }
 
     @Override
@@ -59,7 +61,7 @@ public class OperationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_operation, container, false);
 
-        GUIHelper.colorTitles(this);
+        GUIHelper.colorTitles(view);
         buildView(view);
 
         return view;
@@ -79,6 +81,14 @@ public class OperationFragment extends Fragment {
         }
 
         operationForm.bindOperation(operation);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        parentActivity.getSupportActionBar().setTitle(getResources().getString(R.string.activity_operation));
+        parentActivity.getSupportActionBar().setSubtitle(getResources().getString(R.string.title_fill_form));
     }
 
     public void saveOperation() {
