@@ -2,6 +2,7 @@ package com.sasd13.flousy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
 import com.sasd13.androidex.gui.GUIConstants;
@@ -18,10 +19,10 @@ import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridType;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.gui.recycler.browser.Browser;
-import com.sasd13.flousy.gui.recycler.browser.BrowserItemModel;
+import com.sasd13.flousy.gui.widget.recycler.browser.Browser;
+import com.sasd13.flousy.gui.widget.recycler.browser.BrowserItemModel;
 
-public class HomeActivity extends MotherActivity {
+public class HomeActivity extends AppCompatActivity {
 
     public static HomeActivity self;
 

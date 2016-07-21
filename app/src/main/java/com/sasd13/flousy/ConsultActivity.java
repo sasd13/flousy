@@ -1,6 +1,8 @@
 package com.sasd13.flousy;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Account;
@@ -13,9 +15,7 @@ import com.sasd13.flousy.util.SessionHelper;
 
 public class ConsultActivity extends MotherActivity {
 
-    private AccountFragment accountFragment;
     private Account account;
-    private ConsultHandler consultHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,15 +24,14 @@ public class ConsultActivity extends MotherActivity {
         setContentView(R.layout.activity_consult);
         GUIHelper.colorTitles(this);
 
-        consultHandler = new ConsultHandler(this);
+        ConsultHandler consultHandler = new ConsultHandler(this);
         account = consultHandler.readAccount(SessionHelper.getExtraId(this, Extra.CUSTOMER_ID));
 
         buildView();
     }
 
     private void buildView() {
-        accountFragment = (AccountFragment) getSupportFragmentManager().findFragmentById(R.id.consult_fragment);
-        accountFragment.setAccount(account);
+        listOperations();
     }
 
     public void listOperations() {
@@ -42,24 +41,23 @@ public class ConsultActivity extends MotherActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.consult_fragment, accountFragment)
-                .addToBackStack(null)
                 .commit();
     }
 
     public void newOperation() {
+        OperationFragment operationFragment = OperationFragment.newInstance();
+        operationFragment.setAccount(account);
+
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.consult_fragment, OperationFragment.newInstance())
+                .replace(R.id.consult_fragment, operationFragment)
                 .addToBackStack(null)
                 .commit();
     }
 
-    public void notifyAddedOperation(Operation operation) {
-
-    }
-
     public void editOperation(Operation operation) {
         OperationFragment operationFragment = OperationFragment.newInstance();
+        operationFragment.setAccount(account);
         operationFragment.setOperation(operation);
 
         getSupportFragmentManager()
@@ -69,7 +67,10 @@ public class ConsultActivity extends MotherActivity {
                 .commit();
     }
 
-    public void notifyRemovedOperation(Operation operation) {
-        account.removeOperation(operation);
+    public void finishFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        fragmentManager.beginTransaction().remove(fragment).commit();
+        fragmentManager.popBackStack();
     }
 }

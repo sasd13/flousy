@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -19,12 +22,14 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.form.OperationForm;
 import com.sasd13.flousy.content.handler.consult.OperationHandler;
 
 public class OperationFragment extends Fragment {
 
+    private Account account;
     private Operation operation;
     private boolean inModeEdit;
     private ConsultActivity parentActivity;
@@ -33,6 +38,10 @@ public class OperationFragment extends Fragment {
 
     public static OperationFragment newInstance() {
         return new OperationFragment();
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public void setOperation(Operation operation) {
@@ -51,6 +60,8 @@ public class OperationFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setHasOptionsMenu(true);
 
         operationHandler = new OperationHandler(this);
         operationForm = new OperationForm(getContext());
@@ -72,10 +83,10 @@ public class OperationFragment extends Fragment {
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, operationForm.getHolder());
-        fillOperationView();
+        fillFormOperation();
     }
 
-    private void fillOperationView() {
+    private void fillFormOperation() {
         if (!inModeEdit) {
             operation = operationHandler.getDefaultValueOfOperation();
         }
@@ -87,15 +98,51 @@ public class OperationFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        refreshView();
+    }
+
+    private void refreshView() {
         parentActivity.getSupportActionBar().setTitle(getResources().getString(R.string.activity_operation));
         parentActivity.getSupportActionBar().setSubtitle(getResources().getString(R.string.title_fill_form));
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.menu_operation, menu);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+
+        if (!inModeEdit) {
+            menu.findItem(R.id.menu_operation_action_delete).setVisible(false);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_operation_action_accept:
+                saveOperation();
+                break;
+            case R.id.menu_operation_action_delete:
+                deleteOperation();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
     }
 
     public void saveOperation() {
         if (inModeEdit) {
             operationHandler.updateOperation(operation, operationForm);
         } else {
-            operationHandler.createOperation(operationForm);
+            operationHandler.createOperation(operationForm, account);
         }
     }
 
@@ -115,7 +162,7 @@ public class OperationFragment extends Fragment {
 
     public void onCreateSucceeded(Operation operation) {
         Toast.makeText(getContext(), R.string.message_saved, Toast.LENGTH_SHORT).show();
-        parentActivity.notifyAddedOperation(operation);
+        parentActivity.finishFragment(this);
         parentActivity.listOperations();
     }
 
@@ -125,7 +172,7 @@ public class OperationFragment extends Fragment {
 
     public void onDeleteSucceeded() {
         Toast.makeText(getContext(), R.string.message_deleted, Toast.LENGTH_SHORT).show();
-        parentActivity.notifyRemovedOperation(operation);
+        parentActivity.finishFragment(this);
         parentActivity.listOperations();
     }
 

@@ -9,8 +9,8 @@ import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.drawer.EnumDrawerItemType;
-import com.sasd13.flousy.gui.recycler.browser.Browser;
-import com.sasd13.flousy.gui.recycler.browser.BrowserItemModel;
+import com.sasd13.flousy.gui.widget.recycler.browser.Browser;
+import com.sasd13.flousy.gui.widget.recycler.browser.BrowserItemModel;
 import com.sasd13.flousy.util.SessionHelper;
 
 public abstract class MotherActivity extends DrawerActivity {

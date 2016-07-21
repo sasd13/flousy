@@ -24,7 +24,7 @@ import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.gui.recycler.tab.OperationItemModel;
+import com.sasd13.flousy.gui.widget.recycler.tab.OperationItemModel;
 import com.sasd13.flousy.util.CollectionsHelper;
 
 import java.text.DecimalFormat;
@@ -91,9 +91,13 @@ public class AccountFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
 
+        refreshView();
+    }
+
+    private void refreshView() {
         parentActivity.getSupportActionBar().setTitle(getResources().getString(R.string.activity_consult));
         parentActivity.getSupportActionBar().setSubtitle(null);
 

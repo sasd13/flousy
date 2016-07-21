@@ -1,4 +1,4 @@
-package com.sasd13.flousy.gui.recycler.browser;
+package com.sasd13.flousy.gui.widget.recycler.browser;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;

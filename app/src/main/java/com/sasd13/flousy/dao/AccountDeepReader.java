@@ -42,6 +42,7 @@ public class AccountDeepReader extends DeepReader<Account> {
             operationToAdd.setDateRealization(operation.getDateRealization());
             operationToAdd.setTitle(operation.getTitle());
             operationToAdd.setAmount(operation.getAmount());
+            operationToAdd.setType(operation.getType());
         }
     }
 }
