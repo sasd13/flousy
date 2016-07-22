@@ -47,7 +47,13 @@ public class Account {
     }
 
     public boolean removeOperation(Operation operation) {
-        return operations.contains(operation) && operations.remove(operation);
+        boolean removed = operations.contains(operation) && operations.remove(operation);
+
+        if (removed) {
+            operation.setAccount(null);
+        }
+
+        return removed;
     }
 
     public Customer getCustomer() {

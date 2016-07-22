@@ -66,6 +66,10 @@ public class Operation {
         return account;
     }
 
+    void setAccount(Account account) {
+        this.account = account;
+    }
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
