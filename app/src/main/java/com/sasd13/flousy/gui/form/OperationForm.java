@@ -1,4 +1,4 @@
-package com.sasd13.flousy.content.form;
+package com.sasd13.flousy.gui.form;
 
 import android.content.Context;
 import android.text.InputType;

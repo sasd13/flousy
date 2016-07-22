@@ -1,4 +1,4 @@
-package com.sasd13.flousy.gui.widget.recycler.browser;
+package com.sasd13.flousy.gui.browser;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;

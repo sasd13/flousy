@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.content.handler.LogInHandler;
+import com.sasd13.flousy.handler.LogInHandler;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class LogInActivity extends AppCompatActivity {

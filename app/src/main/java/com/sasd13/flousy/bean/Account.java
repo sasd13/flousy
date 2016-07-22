@@ -42,7 +42,7 @@ public class Account {
         return operations.toArray(new Operation[operations.size()]);
     }
 
-    public boolean addOperation(Operation operation) {
+    boolean addOperation(Operation operation) {
         return !operations.contains(operation) && operations.add(operation);
     }
 

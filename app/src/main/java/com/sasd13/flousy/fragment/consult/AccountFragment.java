@@ -1,6 +1,5 @@
 package com.sasd13.flousy.fragment.consult;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -24,7 +23,7 @@ import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.gui.widget.recycler.tab.OperationItemModel;
+import com.sasd13.flousy.gui.tab.OperationItemModel;
 import com.sasd13.flousy.util.CollectionsHelper;
 
 import java.text.DecimalFormat;
@@ -41,25 +40,18 @@ public class AccountFragment extends Fragment {
     private TextView textViewSold;
     private Recycler tab;
 
-    public static AccountFragment newInstance() {
-        return new AccountFragment();
-    }
+    public static AccountFragment newInstance(Account account) {
+        AccountFragment accountFragment = new AccountFragment();
+        accountFragment.account = account;
 
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        parentActivity = (ConsultActivity) context;
+        return accountFragment;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        parentActivity = (ConsultActivity) getActivity();
         df = new DecimalFormat(PATTERN_DECIMAL);
     }
 
@@ -114,12 +106,9 @@ public class AccountFragment extends Fragment {
 
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;
-        OperationItemModel operationItemModel;
 
         for (final Operation operation : operations) {
-            operationItemModel = new OperationItemModel(operation);
-
-            pair = new RecyclerHolderPair(operationItemModel);
+            pair = new RecyclerHolderPair(new OperationItemModel(operation));
             pair.addController(EnumActionEvent.CLICK, new IAction() {
                 @Override
                 public void execute() {

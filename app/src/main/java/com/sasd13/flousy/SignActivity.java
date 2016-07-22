@@ -14,8 +14,8 @@ import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.content.form.SignForm;
-import com.sasd13.flousy.content.handler.SignHandler;
+import com.sasd13.flousy.gui.form.SignForm;
+import com.sasd13.flousy.handler.SignHandler;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class SignActivity extends AppCompatActivity {

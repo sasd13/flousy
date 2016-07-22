@@ -1,6 +1,5 @@
 package com.sasd13.flousy.fragment.consult;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,8 +23,8 @@ import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.content.form.OperationForm;
-import com.sasd13.flousy.content.handler.consult.OperationHandler;
+import com.sasd13.flousy.gui.form.OperationForm;
+import com.sasd13.flousy.handler.consult.OperationHandler;
 
 public class OperationFragment extends Fragment {
 
@@ -36,12 +35,11 @@ public class OperationFragment extends Fragment {
     private OperationHandler operationHandler;
     private OperationForm operationForm;
 
-    public static OperationFragment newInstance() {
-        return new OperationFragment();
-    }
+    public static OperationFragment newInstance(Account account) {
+        OperationFragment operationFragment = new OperationFragment();
+        operationFragment.account = account;
 
-    public void setAccount(Account account) {
-        this.account = account;
+        return operationFragment;
     }
 
     public void setOperation(Operation operation) {
@@ -51,18 +49,12 @@ public class OperationFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        parentActivity = (ConsultActivity) context;
-    }
-
-    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setHasOptionsMenu(true);
 
+        parentActivity = (ConsultActivity) getActivity();
         operationHandler = new OperationHandler(this);
         operationForm = new OperationForm(getContext());
     }
@@ -83,10 +75,10 @@ public class OperationFragment extends Fragment {
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, operationForm.getHolder());
-        fillFormOperation();
+        bindFormOperation();
     }
 
-    private void fillFormOperation() {
+    private void bindFormOperation() {
         if (!inModeEdit) {
             operation = operationHandler.getDefaultValueOfOperation();
         }

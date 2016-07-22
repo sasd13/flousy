@@ -1,4 +1,4 @@
-package com.sasd13.flousy.content.handler.consult;
+package com.sasd13.flousy.handler.consult;
 
 import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.bean.Account;

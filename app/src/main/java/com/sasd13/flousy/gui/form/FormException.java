@@ -1,4 +1,4 @@
-package com.sasd13.flousy.content.form;
+package com.sasd13.flousy.gui.form;
 
 /**
  * Created by ssaidali2 on 11/07/2016.

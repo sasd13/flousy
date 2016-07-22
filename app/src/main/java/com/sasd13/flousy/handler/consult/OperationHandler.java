@@ -1,9 +1,9 @@
-package com.sasd13.flousy.content.handler.consult;
+package com.sasd13.flousy.handler.consult;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.content.form.FormException;
-import com.sasd13.flousy.content.form.OperationForm;
+import com.sasd13.flousy.gui.form.FormException;
+import com.sasd13.flousy.gui.form.OperationForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.fragment.consult.OperationFragment;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -38,6 +38,7 @@ public class OperationHandler {
             persistor.create(operation);
             operationFragment.onCreateSucceeded(operation);
         } catch (FormException e) {
+            account.removeOperation(operation);
             operationFragment.onError(e.getMessage());
         }
     }

@@ -1,4 +1,4 @@
-package com.sasd13.flousy.content.handler;
+package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.LogInActivity;
 import com.sasd13.flousy.bean.Customer;

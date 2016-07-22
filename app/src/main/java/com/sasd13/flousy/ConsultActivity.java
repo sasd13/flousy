@@ -8,7 +8,7 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.content.handler.consult.ConsultHandler;
+import com.sasd13.flousy.handler.consult.ConsultHandler;
 import com.sasd13.flousy.fragment.consult.AccountFragment;
 import com.sasd13.flousy.fragment.consult.OperationFragment;
 import com.sasd13.flousy.util.SessionHelper;
@@ -35,29 +35,22 @@ public class ConsultActivity extends MotherActivity {
     }
 
     public void listOperations() {
-        AccountFragment accountFragment = AccountFragment.newInstance();
-        accountFragment.setAccount(account);
-
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.consult_fragment, accountFragment)
+                .replace(R.id.consult_fragment, AccountFragment.newInstance(account))
                 .commit();
     }
 
     public void newOperation() {
-        OperationFragment operationFragment = OperationFragment.newInstance();
-        operationFragment.setAccount(account);
-
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.consult_fragment, operationFragment)
+                .replace(R.id.consult_fragment, OperationFragment.newInstance(account))
                 .addToBackStack(null)
                 .commit();
     }
 
     public void editOperation(Operation operation) {
-        OperationFragment operationFragment = OperationFragment.newInstance();
-        operationFragment.setAccount(account);
+        OperationFragment operationFragment = OperationFragment.newInstance(account);
         operationFragment.setOperation(operation);
 
         getSupportFragmentManager()

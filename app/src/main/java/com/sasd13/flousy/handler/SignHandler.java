@@ -1,11 +1,11 @@
-package com.sasd13.flousy.content.handler;
+package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.content.form.FormException;
-import com.sasd13.flousy.content.form.SignForm;
+import com.sasd13.flousy.gui.form.FormException;
+import com.sasd13.flousy.gui.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.EnumParameter;

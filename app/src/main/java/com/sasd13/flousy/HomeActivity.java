@@ -19,8 +19,8 @@ import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridType;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.gui.widget.recycler.browser.Browser;
-import com.sasd13.flousy.gui.widget.recycler.browser.BrowserItemModel;
+import com.sasd13.flousy.gui.browser.Browser;
+import com.sasd13.flousy.gui.browser.BrowserItemModel;
 
 public class HomeActivity extends AppCompatActivity {
 
