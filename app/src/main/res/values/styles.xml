@@ -1,17 +1,18 @@
 <resources>
 
     <style name="Flousy" parent="AndroidEX">
-        <item name="android:editTextBackground">@android:drawable/edit_text</item>
+
     </style>
 
     <style name="Flousy.NoActionBar" parent="AndroidEX.NoActionBar">
-        <item name="android:editTextBackground">@android:drawable/edit_text</item>
+
     </style>
 
     <style name="FlousyGreen" parent="Flousy">
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/greenMidDark</item>
         <item name="colorSecondary">@color/greenMidLight</item>
+        <item name="colorTertiary">@color/greenDark</item>
         <item name="colorAccent">@color/green</item>
     </style>
 
@@ -19,6 +20,7 @@
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/greenMidDark</item>
         <item name="colorSecondary">@color/greenMidLight</item>
+        <item name="colorTertiary">@color/greenDark</item>
         <item name="colorAccent">@color/green</item>
     </style>
 
@@ -26,6 +28,7 @@
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryDark">@color/redMidDark</item>
         <item name="colorSecondary">@color/redMidLight</item>
+        <item name="colorTertiary">@color/redDark</item>
         <item name="colorAccent">@color/red</item>
     </style>
 
@@ -33,6 +36,7 @@
         <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryDark">@color/orangeMidDark</item>
         <item name="colorSecondary">@color/orangeMidLight</item>
+        <item name="colorTertiary">@color/orangeDark</item>
         <item name="colorAccent">@color/orange</item>
     </style>
 
@@ -40,6 +44,7 @@
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryDark">@color/blueMidDark</item>
         <item name="colorSecondary">@color/blueMidLight</item>
+        <item name="colorTertiary">@color/blueDark</item>
         <item name="colorAccent">@color/blue</item>
     </style>
 
@@ -47,6 +52,7 @@
         <item name="colorPrimary">@color/purple</item>
         <item name="colorPrimaryDark">@color/purpleMidDark</item>
         <item name="colorSecondary">@color/purpleMidLight</item>
+        <item name="colorTertiary">@color/purpleDark</item>
         <item name="colorAccent">@color/purple</item>
     </style>
 
@@ -54,6 +60,7 @@
         <item name="colorPrimary">@color/brown</item>
         <item name="colorPrimaryDark">@color/brownMidDark</item>
         <item name="colorSecondary">@color/brownMidLight</item>
+        <item name="colorTertiary">@color/brownDark</item>
         <item name="colorAccent">@color/brown</item>
     </style>
 
@@ -61,6 +68,7 @@
         <item name="colorPrimary">@color/indigo</item>
         <item name="colorPrimaryDark">@color/indigoMidDark</item>
         <item name="colorSecondary">@color/indigoMidLight</item>
+        <item name="colorTertiary">@color/indigoDark</item>
         <item name="colorAccent">@color/indigo</item>
     </style>
 

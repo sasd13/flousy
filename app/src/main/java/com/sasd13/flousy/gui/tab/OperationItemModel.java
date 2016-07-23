@@ -54,5 +54,8 @@ public class OperationItemModel extends Observable implements IRecyclerItemModel
 
     public void setSelected(boolean selected) {
         this.selected = selected;
+
+        setChanged();
+        notifyObservers();
     }
 }

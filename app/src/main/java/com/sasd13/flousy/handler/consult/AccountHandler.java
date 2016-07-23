@@ -13,13 +13,17 @@ import java.util.List;
  */
 public class AccountHandler {
 
+    private AccountFragment accountFragment;
     private SQLiteDAO dao;
 
     public AccountHandler(AccountFragment accountFragment) {
+        this.accountFragment = accountFragment;
         dao = SQLiteDAO.create(accountFragment.getContext());
     }
 
     public void deleteOperations(List<Operation> operations) {
+        boolean deleted = false;
+
         dao.open();
 
         try {
@@ -33,12 +37,19 @@ public class AccountHandler {
             }
 
             dao.commit();
+            deleted = true;
         } catch (DAOException e) {
             dao.rollback();
             e.printStackTrace();
         } finally {
             dao.endTransaction();
             dao.close();
+        }
+
+        if (deleted) {
+            accountFragment.onDeleteSucceeded();
+        } else {
+            accountFragment.onError("Operations not deleted");
         }
     }
 }

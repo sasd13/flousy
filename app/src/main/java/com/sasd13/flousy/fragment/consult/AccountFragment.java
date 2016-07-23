@@ -1,5 +1,6 @@
 package com.sasd13.flousy.fragment.consult;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -10,9 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.sasd13.androidex.gui.IAction;
 import com.sasd13.androidex.gui.widget.EnumActionEvent;
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
@@ -24,8 +26,8 @@ import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
+import com.sasd13.flousy.gui.tab.OperationItemActionClick;
 import com.sasd13.flousy.gui.tab.OperationItemActionLongClick;
-import com.sasd13.flousy.gui.tab.OperationItemActionMode;
 import com.sasd13.flousy.gui.tab.OperationItemModel;
 import com.sasd13.flousy.handler.consult.AccountHandler;
 import com.sasd13.flousy.util.CollectionsHelper;
@@ -46,8 +48,9 @@ public class AccountFragment extends Fragment {
     private TextView textViewSold;
     private Recycler tab;
     private ActionMode actionMode;
-    private OperationItemActionMode callback;
+    private AccountActionModeCallback callback;
     private List<OperationItemModel> selectedModels;
+    private FloatingActionButton floatingActionButton;
 
     public static AccountFragment newInstance(Account account) {
         AccountFragment accountFragment = new AccountFragment();
@@ -63,7 +66,7 @@ public class AccountFragment extends Fragment {
         parentActivity = (ConsultActivity) getActivity();
         accountHandler = new AccountHandler(this);
         df = new DecimalFormat(PATTERN_DECIMAL);
-        callback = new OperationItemActionMode(this);
+        callback = new AccountActionModeCallback(this);
         selectedModels = new ArrayList<>();
     }
 
@@ -84,8 +87,7 @@ public class AccountFragment extends Fragment {
         tab = RecyclerFactory.makeBuilder(EnumTabType.TAB).build((RecyclerView) view.findViewById(R.id.consult_recyclerview));
         tab.addDividerItemDecoration();
 
-        FloatingActionButton floatingActionButton = (FloatingActionButton) view.findViewById(R.id.consult_floatingactionbutton);
-        assert floatingActionButton != null;
+        floatingActionButton = (FloatingActionButton) view.findViewById(R.id.consult_floatingactionbutton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,22 +122,12 @@ public class AccountFragment extends Fragment {
         RecyclerHolderPair pair;
         OperationItemModel operationItemModel;
 
-        for (final Operation operation : operations) {
+        for (Operation operation : operations) {
             operationItemModel = new OperationItemModel(operation);
             pair = new RecyclerHolderPair(operationItemModel);
 
-            pair.addController(EnumActionEvent.CLICK, new IAction() {
-                @Override
-                public void execute() {
-                    parentActivity.editOperation(operation);
-                }
-            });
-            pair.addController(EnumActionEvent.LONG_CLICK, new OperationItemActionLongClick(
-                    this,
-                    callback,
-                    operationItemModel,
-                    selectedModels
-            ));
+            pair.addController(EnumActionEvent.CLICK, new OperationItemActionClick(this, operationItemModel));
+            pair.addController(EnumActionEvent.LONG_CLICK, new OperationItemActionLongClick(this, operationItemModel));
 
             recyclerHolder.add(pair);
         }
@@ -147,27 +139,83 @@ public class AccountFragment extends Fragment {
         return actionMode != null;
     }
 
-    public void setActionMode(ActionMode actionMode) {
-        this.actionMode = actionMode;
+    public void startActionMode() {
+        actionMode = getActivity().startActionMode(callback);
+    }
+
+    public void onStartActionMode() {
+        floatingActionButton.hide();
+    }
+
+    public void onFinishActionMode() {
+        actionMode = null;
+
+        resetSelectedModels();
+        floatingActionButton.show();
+    }
+
+    private void resetSelectedModels() {
+        for (OperationItemModel selectedModel : selectedModels) {
+            selectedModel.setSelected(false);
+        }
+
+        selectedModels.clear();
+    }
+
+    public void onSelectModel(OperationItemModel model) {
+        if (!model.isSelected()) {
+            model.setSelected(true);
+            selectedModels.add(model);
+        } else {
+            model.setSelected(false);
+            selectedModels.remove(model);
+        }
+
+        refreshActionModeTitle();
+    }
+
+    private void refreshActionModeTitle() {
+        if (selectedModels.size() <= 1) {
+            actionMode.setTitle(selectedModels.size() + " selectionné");
+        } else {
+            actionMode.setTitle(selectedModels.size() + " selectionnés");
+        }
     }
 
     public void deleteSelectedOperations() {
-        List<Operation> operations = new ArrayList<>();
+        OptionDialog.showOkCancelDialog(
+                getContext(),
+                getResources().getString(R.string.message_delete),
+                getResources().getString(R.string.message_confirm),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteOperations();
+                        actionMode.finish();
+                    }
+                }
+        );
+    }
 
-        for (OperationItemModel model : selectedModels) {
-            operations.add(model.getOperation());
+    private void deleteOperations() {
+        if (!selectedModels.isEmpty()) {
+            List<Operation> operations = new ArrayList<>();
+
+            for (OperationItemModel model : selectedModels) {
+                operations.add(model.getOperation());
+            }
+
+            accountHandler.deleteOperations(operations);
         }
+    }
 
-        accountHandler.deleteOperations(operations);
+    public void onDeleteSucceeded() {
+        Toast.makeText(getContext(), getResources().getString(R.string.message_deleted), Toast.LENGTH_SHORT).show();
         selectedModels.clear();
         refreshView();
     }
 
-    public void finishActionMode() {
-        actionMode = null;
-
-        for (OperationItemModel model : selectedModels) {
-            model.setSelected(false);
-        }
+    public void onError(String error) {
+        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 }
