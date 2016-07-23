@@ -8,6 +8,8 @@ import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Customer;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
@@ -60,27 +62,31 @@ public class SettingsForm extends Form {
     }
 
     private void validForm() throws FormException {
-        if (modelFirstName.getValue() == null
-                || modelFirstName.getValue().trim().isEmpty()) {
+        validFirstName();
+        validLastName();
+        validEmail();
+    }
+
+    private void validFirstName() throws FormException {
+        if (StringUtils.isBlank(modelFirstName.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_settings_message_error_firstname));
         }
+    }
 
-        if (modelLastName.getValue() == null
-                || modelLastName.getValue().trim().isEmpty()) {
+    private void validLastName() throws FormException {
+        if (StringUtils.isBlank(modelLastName.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_settings_message_error_lastname));
         }
+    }
 
-        if (modelEmail.getValue() == null
-                || modelEmail.getValue().trim().isEmpty()) {
+    private void validEmail() throws FormException {
+        if (StringUtils.isBlank(modelEmail.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_settings_message_error_email));
         }
     }
 
     public String getEmail() throws FormException {
-        if (modelEmail.getValue() == null
-                || modelEmail.getValue().trim().isEmpty()) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_email));
-        }
+        validEmail();
 
         return modelEmail.getValue().trim();
     }

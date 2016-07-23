@@ -12,6 +12,7 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.EnumOperationType;
 import com.sasd13.flousy.bean.Operation;
 
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;
 
 import java.sql.Timestamp;
@@ -92,17 +93,24 @@ public class OperationForm extends Form {
     }
 
     private void validForm() throws FormException {
-        if (modelTitle.getValue() == null
-                || modelTitle.getValue().trim().isEmpty()) {
+        validTitle();
+        validAmount();
+        validType();
+    }
+
+    private void validTitle() throws FormException {
+        if (StringUtils.isBlank(modelTitle.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_operation_message_error_title));
         }
+    }
 
-        if (modelAmount.getValue() == null
-                || modelTitle.getValue().trim().isEmpty()
-                || Double.valueOf(modelAmount.getValue()) < 0) {
+    private void validAmount() throws FormException {
+        if (StringUtils.isBlank(modelAmount.getValue()) || Double.valueOf(modelAmount.getValue()) < 0) {
             throw new FormException(context.getResources().getString(R.string.form_operation_message_error_amount));
         }
+    }
 
+    private void validType() throws FormException {
         if (modelTypes.getValue() == -1) {
             throw new FormException(context.getResources().getString(R.string.form_operation_message_error_type));
         }

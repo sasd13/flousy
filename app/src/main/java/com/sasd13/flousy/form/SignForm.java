@@ -10,6 +10,8 @@ import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Customer;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
@@ -66,36 +68,45 @@ public class SignForm extends Form {
     }
 
     private void validForm() throws FormException {
-        if (modelFirstName.getValue() == null
-                || modelFirstName.getValue().trim().isEmpty()) {
+        validFirstName();
+        validLastName();
+        validEmail();
+        validPassword();
+        validTerms();
+    }
+
+    private void validFirstName() throws FormException {
+        if (StringUtils.isBlank(modelFirstName.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_sign_message_error_firstname));
         }
+    }
 
-        if (modelLastName.getValue() == null
-                || modelLastName.getValue().trim().isEmpty()) {
+    private void validLastName() throws FormException {
+        if (StringUtils.isBlank(modelLastName.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_sign_message_error_lastname));
         }
+    }
 
-        if (modelEmail.getValue() == null
-                || modelEmail.getValue().trim().isEmpty()) {
+    private void validEmail() throws FormException {
+        if (StringUtils.isBlank(modelEmail.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_sign_message_error_email));
         }
+    }
 
-        if (modelPassword.getValue() == null
-                || modelPassword.getValue().isEmpty()) {
+    private void validPassword() throws FormException {
+        if (StringUtils.isBlank(modelPassword.getValue())) {
             throw new FormException(context.getResources().getString(R.string.form_sign_message_error_password));
         }
+    }
 
+    private void validTerms() throws FormException {
         if (!modelTerms.getValue()) {
             throw new FormException(context.getResources().getString(R.string.form_sign_message_error_terms));
         }
     }
 
     public String getPassword() throws FormException {
-        if (modelPassword.getValue() == null
-                || modelPassword.getValue().isEmpty()) {
-            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_password));
-        }
+        validPassword();
 
         return modelPassword.getValue();
     }
