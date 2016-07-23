@@ -4,8 +4,8 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.gui.form.FormException;
-import com.sasd13.flousy.gui.form.SignForm;
+import com.sasd13.flousy.form.FormException;
+import com.sasd13.flousy.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.EnumParameter;
@@ -60,8 +60,9 @@ public class SignHandler {
     }
 
     private void performSign(Customer customer, String password) {
+        dao.open();
+
         try {
-            dao.open();
             dao.beginTransaction();
             dao.getEntityDAO(Customer.class).insert(customer);
 
@@ -71,6 +72,7 @@ public class SignHandler {
             dao.getEntityDAO(Account.class).insert(customer.getAccount());
             dao.commit();
         } catch (DAOException e) {
+            dao.rollback();
             e.printStackTrace();
         } finally {
             dao.endTransaction();

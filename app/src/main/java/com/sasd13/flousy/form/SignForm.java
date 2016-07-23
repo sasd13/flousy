@@ -1,9 +1,11 @@
-package com.sasd13.flousy.gui.form;
+package com.sasd13.flousy.form;
 
 import android.content.Context;
 import android.text.InputType;
 
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
+import com.sasd13.androidex.gui.widget.recycler.form.BooleanItemModel;
+import com.sasd13.androidex.gui.widget.recycler.form.PasswordItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Customer;
@@ -11,11 +13,13 @@ import com.sasd13.flousy.bean.Customer;
 /**
  * Created by ssaidali2 on 20/06/2016.
  */
-public class SettingsForm extends Form {
+public class SignForm extends Form {
 
     private TextItemModel modelFirstName, modelLastName, modelEmail;
+    private PasswordItemModel modelPassword;
+    private BooleanItemModel modelTerms;
 
-    public SettingsForm(Context context) {
+    public SignForm(Context context) {
         super(context);
 
         String title = context.getResources().getString(R.string.title_identity);
@@ -39,12 +43,14 @@ public class SettingsForm extends Form {
         modelEmail.setLabel(context.getResources().getString(R.string.label_email));
         modelEmail.setHint(modelEmail.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelEmail));
-    }
 
-    public void bindCustomer(Customer customer) {
-        modelFirstName.setValue(customer.getFirstName());
-        modelLastName.setValue(customer.getLastName());
-        modelEmail.setValue(customer.getEmail());
+        modelPassword = new PasswordItemModel();
+        modelPassword.setLabel(context.getResources().getString(R.string.label_password));
+        holder.add(title, new RecyclerHolderPair(modelPassword));
+
+        modelTerms = new BooleanItemModel();
+        modelTerms.setLabel(context.getResources().getString(R.string.label_terms));
+        holder.add(title, new RecyclerHolderPair(modelTerms));
     }
 
     public Customer getEditable() throws FormException {
@@ -62,26 +68,35 @@ public class SettingsForm extends Form {
     private void validForm() throws FormException {
         if (modelFirstName.getValue() == null
                 || modelFirstName.getValue().trim().isEmpty()) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_firstname));
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_firstname));
         }
 
         if (modelLastName.getValue() == null
                 || modelLastName.getValue().trim().isEmpty()) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_lastname));
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_lastname));
         }
 
         if (modelEmail.getValue() == null
                 || modelEmail.getValue().trim().isEmpty()) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_email));
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_email));
+        }
+
+        if (modelPassword.getValue() == null
+                || modelPassword.getValue().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_password));
+        }
+
+        if (!modelTerms.getValue()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_terms));
         }
     }
 
-    public String getEmail() throws FormException {
-        if (modelEmail.getValue() == null
-                || modelEmail.getValue().trim().isEmpty()) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_email));
+    public String getPassword() throws FormException {
+        if (modelPassword.getValue() == null
+                || modelPassword.getValue().isEmpty()) {
+            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_password));
         }
 
-        return modelEmail.getValue().trim();
+        return modelPassword.getValue();
     }
 }

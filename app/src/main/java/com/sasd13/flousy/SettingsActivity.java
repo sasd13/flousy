@@ -14,7 +14,7 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.gui.form.SettingsForm;
+import com.sasd13.flousy.form.SettingsForm;
 import com.sasd13.flousy.handler.SettingsHandler;
 import com.sasd13.flousy.util.SessionHelper;
 

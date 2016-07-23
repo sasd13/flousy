@@ -23,7 +23,7 @@ import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.gui.form.OperationForm;
+import com.sasd13.flousy.form.OperationForm;
 import com.sasd13.flousy.handler.consult.OperationHandler;
 
 public class OperationFragment extends Fragment {
@@ -75,10 +75,10 @@ public class OperationFragment extends Fragment {
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, operationForm.getHolder());
-        bindFormOperation();
+        bindFormWithOperation();
     }
 
-    private void bindFormOperation() {
+    private void bindFormWithOperation() {
         if (!inModeEdit) {
             operation = operationHandler.getDefaultValueOfOperation();
         }
@@ -117,7 +117,7 @@ public class OperationFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_operation_action_accept:
+            case R.id.menu_operation_action_save:
                 saveOperation();
                 break;
             case R.id.menu_operation_action_delete:
