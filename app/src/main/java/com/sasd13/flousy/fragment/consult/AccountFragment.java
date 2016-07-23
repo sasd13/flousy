@@ -1,22 +1,18 @@
 package com.sasd13.flousy.fragment.consult;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sasd13.androidex.context.IActionModeConsumer;
 import com.sasd13.androidex.gui.widget.EnumActionEvent;
-import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
@@ -39,21 +35,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AccountFragment extends Fragment {
+public class AccountFragment extends Fragment implements IActionModeConsumer {
 
     private static final String PATTERN_DECIMAL = "#.##";
 
     private Account account;
     private ConsultActivity parentActivity;
     private AccountHandler accountHandler;
+    private AccountActionModeProvider actionModeProvider;
     private DecimalFormat df;
     private TextView textViewSold;
     private Recycler tab;
-    private ActionMode actionMode;
-    private AccountActionModeCallback callback;
-    private List<OperationItemModel> selectedModels;
     private FloatingActionButton floatingActionButton;
-    private MenuItem actionModeMenuDelete;
 
     public static AccountFragment newInstance(Account account) {
         AccountFragment accountFragment = new AccountFragment();
@@ -68,9 +61,8 @@ public class AccountFragment extends Fragment {
 
         parentActivity = (ConsultActivity) getActivity();
         accountHandler = new AccountHandler(this);
+        actionModeProvider = new AccountActionModeProvider(this);
         df = new DecimalFormat(PATTERN_DECIMAL);
-        callback = new AccountActionModeCallback(this);
-        selectedModels = new ArrayList<>();
     }
 
     @Nullable
@@ -129,8 +121,8 @@ public class AccountFragment extends Fragment {
             operationItemModel = new OperationItemModel(operation);
             pair = new RecyclerHolderPair(operationItemModel);
 
-            pair.addController(EnumActionEvent.CLICK, new OperationItemActionClick(this, operationItemModel));
-            pair.addController(EnumActionEvent.LONG_CLICK, new OperationItemActionLongClick(this, operationItemModel));
+            pair.addController(EnumActionEvent.CLICK, new OperationItemActionClick(operationItemModel, actionModeProvider, parentActivity));
+            pair.addController(EnumActionEvent.LONG_CLICK, new OperationItemActionLongClick(operationItemModel, actionModeProvider));
 
             recyclerHolder.add(pair);
         }
@@ -142,99 +134,34 @@ public class AccountFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        if (inActionMode()) {
-            actionMode.finish();
+        if (actionModeProvider.inActionMode()) {
+            actionModeProvider.finishActionMode();
         }
     }
 
-    public boolean inActionMode() {
-        return actionMode != null;
-    }
-
-    public void startActionMode() {
-        actionMode = getActivity().startActionMode(callback);
-    }
-
-    public void onCreateActionMode(Menu menu) {
+    @Override
+    public void onCreateActionMode() {
         floatingActionButton.hide();
-        actionModeMenuDelete = menu.findItem(R.id.menu_context_operation_action_delete);
     }
 
+    @Override
     public void onDestroyActionMode() {
-        actionMode = null;
-
-        resetSelectedModels();
         floatingActionButton.show();
     }
 
-    private void resetSelectedModels() {
-        for (OperationItemModel selectedModel : selectedModels) {
-            selectedModel.setSelected(false);
+    public void deleteOperations(List<OperationItemModel> operationItemModels) {
+        List<Operation> operations = new ArrayList<>();
+
+        for (OperationItemModel operationItemModel : operationItemModels) {
+            operations.add(operationItemModel.getOperation());
         }
 
-        selectedModels.clear();
-    }
-
-    public void onSelectModel(OperationItemModel model) {
-        if (!model.isSelected()) {
-            model.setSelected(true);
-            selectedModels.add(model);
-        } else {
-            model.setSelected(false);
-            selectedModels.remove(model);
-        }
-
-        refreshActionModeBar();
-    }
-
-    private void refreshActionModeBar() {
-        if (selectedModels.size() <= 1) {
-            actionMode.setTitle(selectedModels.size() + " selectionné");
-        } else {
-            actionMode.setTitle(selectedModels.size() + " selectionnés");
-        }
-
-        if (selectedModels.isEmpty()) {
-            if (actionModeMenuDelete.isVisible()) {
-                actionModeMenuDelete.setVisible(false);
-            }
-        } else {
-            if (!actionModeMenuDelete.isVisible()) {
-                actionModeMenuDelete.setVisible(true);
-            }
-        }
-    }
-
-    public void deleteSelectedOperations() {
-        OptionDialog.showOkCancelDialog(
-                getContext(),
-                getResources().getString(R.string.message_delete),
-                getResources().getString(R.string.message_confirm),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        deleteOperations();
-                        actionMode.finish();
-                    }
-                }
-        );
-    }
-
-    private void deleteOperations() {
-        if (!selectedModels.isEmpty()) {
-            List<Operation> operations = new ArrayList<>();
-
-            for (OperationItemModel model : selectedModels) {
-                operations.add(model.getOperation());
-            }
-
-            accountHandler.deleteOperations(operations);
-        }
+        accountHandler.deleteOperations(operations);
     }
 
     public void onDeleteSucceeded() {
         Toast.makeText(getContext(), getResources().getString(R.string.message_deleted), Toast.LENGTH_SHORT).show();
-        selectedModels.clear();
+
         refreshView();
     }
 

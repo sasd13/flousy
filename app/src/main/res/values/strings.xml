@@ -27,6 +27,9 @@
     <string name="consult_textview_sold">0.0</string>
     <string name="consult_textview_operations">Operations</string>
 
+    <!-- Activity Account -->
+    <string name="account_error_delete_operations">Operations not deleted</string>
+
     <!-- Activity Operation -->
     <string name="operation_label_date">Realization date</string>
     <string name="operation_label_title">Title</string>
@@ -76,6 +79,8 @@
 
     <!-- Message -->
     <string name="message_email_exists">Email already exists</string>
+    <string name="message_selected">selected</string>
+    <string name="message_selected_many">selected</string>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>

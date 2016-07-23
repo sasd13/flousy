@@ -1,5 +1,6 @@
 package com.sasd13.flousy.handler.consult;
 
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.dao.OperationDAO;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
@@ -28,14 +29,7 @@ public class AccountHandler {
 
         try {
             dao.beginTransaction();
-
-            OperationDAO operationDAO = (OperationDAO) dao.getEntityDAO(Operation.class);
-
-            for (Operation operation : operations) {
-                operation.getAccount().removeOperation(operation);
-                operationDAO.delete(operation);
-            }
-
+            performDelete(operations);
             dao.commit();
             deleted = true;
         } catch (DAOException e) {
@@ -49,7 +43,16 @@ public class AccountHandler {
         if (deleted) {
             accountFragment.onDeleteSucceeded();
         } else {
-            accountFragment.onError("Operations not deleted");
+            accountFragment.onError(accountFragment.getResources().getString(R.string.account_error_delete_operations));
+        }
+    }
+
+    private void performDelete(List<Operation> operations) throws DAOException {
+        OperationDAO operationDAO = (OperationDAO) dao.getEntityDAO(Operation.class);
+
+        for (Operation operation : operations) {
+            operation.getAccount().removeOperation(operation);
+            operationDAO.delete(operation);
         }
     }
 }
