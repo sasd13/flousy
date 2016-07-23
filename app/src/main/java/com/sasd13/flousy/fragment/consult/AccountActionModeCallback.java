@@ -23,7 +23,7 @@ public class AccountActionModeCallback implements ActionMode.Callback {
         MenuInflater inflater = mode.getMenuInflater();
         inflater.inflate(R.menu.menu_context_operation, menu);
 
-        accountFragment.onStartActionMode();
+        accountFragment.onCreateActionMode(menu);
 
         return true;
     }
@@ -46,6 +46,6 @@ public class AccountActionModeCallback implements ActionMode.Callback {
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        accountFragment.onFinishActionMode();
+        accountFragment.onDestroyActionMode();
     }
 }

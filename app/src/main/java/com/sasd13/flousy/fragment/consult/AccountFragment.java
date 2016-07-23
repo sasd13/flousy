@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -51,6 +53,7 @@ public class AccountFragment extends Fragment {
     private AccountActionModeCallback callback;
     private List<OperationItemModel> selectedModels;
     private FloatingActionButton floatingActionButton;
+    private MenuItem actionModeMenuDelete;
 
     public static AccountFragment newInstance(Account account) {
         AccountFragment accountFragment = new AccountFragment();
@@ -135,6 +138,15 @@ public class AccountFragment extends Fragment {
         RecyclerHelper.addAll(tab, recyclerHolder);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (inActionMode()) {
+            actionMode.finish();
+        }
+    }
+
     public boolean inActionMode() {
         return actionMode != null;
     }
@@ -143,11 +155,12 @@ public class AccountFragment extends Fragment {
         actionMode = getActivity().startActionMode(callback);
     }
 
-    public void onStartActionMode() {
+    public void onCreateActionMode(Menu menu) {
         floatingActionButton.hide();
+        actionModeMenuDelete = menu.findItem(R.id.menu_context_operation_action_delete);
     }
 
-    public void onFinishActionMode() {
+    public void onDestroyActionMode() {
         actionMode = null;
 
         resetSelectedModels();
@@ -171,14 +184,24 @@ public class AccountFragment extends Fragment {
             selectedModels.remove(model);
         }
 
-        refreshActionModeTitle();
+        refreshActionModeBar();
     }
 
-    private void refreshActionModeTitle() {
+    private void refreshActionModeBar() {
         if (selectedModels.size() <= 1) {
             actionMode.setTitle(selectedModels.size() + " selectionné");
         } else {
             actionMode.setTitle(selectedModels.size() + " selectionnés");
+        }
+
+        if (selectedModels.isEmpty()) {
+            if (actionModeMenuDelete.isVisible()) {
+                actionModeMenuDelete.setVisible(false);
+            }
+        } else {
+            if (!actionModeMenuDelete.isVisible()) {
+                actionModeMenuDelete.setVisible(true);
+            }
         }
     }
 
