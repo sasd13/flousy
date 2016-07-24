@@ -24,7 +24,6 @@ import java.util.Arrays;
 public class OperationForm extends Form {
 
     private String[] operationTypes;
-    private String debit, credit;
     private DateItemModel modelDateRealization;
     private TextItemModel modelTitle, modelAmount;
     private SpinRadioItemModel modelTypes;
@@ -32,9 +31,7 @@ public class OperationForm extends Form {
     public OperationForm(Context context) {
         super(context);
 
-        this.operationTypes = context.getResources().getStringArray(R.array.operation_types);
-        debit = context.getResources().getString(R.string.operation_type_debit);
-        credit = context.getResources().getString(R.string.operation_type_credit);
+        operationTypes = context.getResources().getStringArray(R.array.operation_types);
 
         String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.EnumFormat.SHORT);
 
@@ -66,10 +63,10 @@ public class OperationForm extends Form {
             modelAmount.setValue(String.valueOf(Math.abs(operation.getAmount())));
         }
 
-        if (EnumOperationType.DEBIT.equals(operation.getType())) {
-            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(debit));
-        } else if (EnumOperationType.CREDIT.equals(operation.getType())) {
-            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(credit));
+        if (EnumOperationType.DEBIT == operation.getType()) {
+            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(context.getResources().getString(EnumOperationType.DEBIT.getStringRes())));
+        } else if (EnumOperationType.CREDIT == operation.getType()) {
+            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(context.getResources().getString(EnumOperationType.CREDIT.getStringRes())));
         }
     }
 
@@ -82,10 +79,10 @@ public class OperationForm extends Form {
         operation.setTitle(modelTitle.getValue().trim());
         operation.setAmount(Double.valueOf(modelAmount.getValue().trim()));
 
-        if (operationTypes[modelTypes.getValue()].equals(debit)) {
+        if (operationTypes[modelTypes.getValue()].equals(context.getResources().getString(EnumOperationType.DEBIT.getStringRes()))) {
             operation.setType(EnumOperationType.DEBIT);
             operation.setAmount(0 - operation.getAmount());
-        } else if (operationTypes[modelTypes.getValue()].equals(credit)) {
+        } else if (operationTypes[modelTypes.getValue()].equals(context.getResources().getString(EnumOperationType.CREDIT.getStringRes()))) {
             operation.setType(EnumOperationType.CREDIT);
         }
 
