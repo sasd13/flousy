@@ -2,14 +2,17 @@ package com.sasd13.flousy.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import com.sasd13.androidex.gui.GUIConstants;
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.Session;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.HomeActivity;
 import com.sasd13.flousy.LogInActivity;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.SignActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
@@ -50,7 +53,21 @@ public class SessionHelper {
         waitDialog.show();
     }
 
-    public static void logOut(Activity activity) {
+    public static void logOut(final Activity activity) {
+        OptionDialog.showOkCancelDialog(
+                activity,
+                activity.getResources().getString(R.string.button_logout),
+                activity.getResources().getString(R.string.message_confirm),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        exit(activity);
+                    }
+                }
+        );
+    }
+
+    private static void exit(Activity activity) {
         Session.clear(activity);
 
         if (HomeActivity.class.equals(activity.getClass())) {

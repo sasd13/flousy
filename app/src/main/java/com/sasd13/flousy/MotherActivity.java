@@ -13,6 +13,9 @@ import com.sasd13.flousy.gui.browser.Browser;
 import com.sasd13.flousy.gui.browser.BrowserItemModel;
 import com.sasd13.flousy.util.SessionHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class MotherActivity extends DrawerActivity {
 
     @Override
@@ -26,11 +29,11 @@ public abstract class MotherActivity extends DrawerActivity {
     }
 
     private void addBrowserItems(RecyclerHolder recyclerHolder) {
-        String menu = getResources().getString(R.string.drawer_header_menu);
-        Browser browser = Browser.getInstance();
+        List<BrowserItemModel> browserItemModels = Browser.getInstance().getItems(this);
+        List<RecyclerHolderPair> pairs = new ArrayList<>();
         RecyclerHolderPair pair;
 
-        for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
+        for (final BrowserItemModel browserItemModel : browserItemModels) {
             browserItemModel.setItemType(EnumDrawerItemType.NAV);
 
             pair = new RecyclerHolderPair(browserItemModel);
@@ -41,12 +44,14 @@ public abstract class MotherActivity extends DrawerActivity {
                 }
             });
 
-            recyclerHolder.add(menu, pair);
+            pairs.add(pair);
         }
+
+        recyclerHolder.addAll(getResources().getString(R.string.drawer_header_menu), pairs);
     }
 
     private void addAccountItems(RecyclerHolder recyclerHolder) {
-        final BrowserItemModel browserItemModel = new BrowserItemModel(
+        BrowserItemModel browserItemModel = new BrowserItemModel(
                 getResources().getString(R.string.drawer_label_logout),
                 ContextCompat.getDrawable(this, R.drawable.ic_exit_to_app_black_24dp),
                 ContextCompat.getColor(this, R.color.greyBackground),

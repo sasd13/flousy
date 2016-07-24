@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.IAction;
@@ -21,6 +24,7 @@ import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.gui.browser.Browser;
 import com.sasd13.flousy.gui.browser.BrowserItemModel;
+import com.sasd13.flousy.util.SessionHelper;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -102,5 +106,26 @@ public class HomeActivity extends AppCompatActivity {
         }, GUIConstants.TIMEOUT_ACTIVITY).start();
 
         waitDialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_home, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.menu_home_action_logout:
+                SessionHelper.logOut(this);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
     }
 }
