@@ -47,7 +47,7 @@ public class Account {
     }
 
     public boolean removeOperation(Operation operation) {
-        boolean removed = operations.contains(operation) && operations.remove(operation);
+        boolean removed = operations.remove(operation);
 
         if (removed) {
             operation.setAccount(null);

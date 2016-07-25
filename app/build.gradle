@@ -20,6 +20,9 @@ android {
             debuggable true
         }
     }
+    packagingOptions {
+        exclude 'pom.properties'
+    }
 }
 
 repositories {
@@ -36,5 +39,5 @@ dependencies {
     compile 'com.android.support:design:23.3.0'
     compile 'com.sasd13.androidex:androidex-release@aar'
     compile 'joda-time:joda-time:2.9.4'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    compile 'org.apache.commons:commons-lang3:3.4'
 }
