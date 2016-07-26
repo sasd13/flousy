@@ -24,8 +24,6 @@ import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.gui.tab.OperationItemActionClick;
-import com.sasd13.flousy.gui.tab.OperationItemActionLongClick;
 import com.sasd13.flousy.gui.tab.OperationItemModel;
 import com.sasd13.flousy.handler.consult.AccountHandler;
 import com.sasd13.flousy.util.CollectionsHelper;
@@ -45,7 +43,7 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     private AccountActionModeProvider actionModeProvider;
     private DecimalFormat df;
     private TextView textViewSold;
-    private Recycler tab;
+    private Recycler tabOperations;
     private FloatingActionButton floatingActionButton;
 
     public static AccountFragment newInstance(Account account) {
@@ -79,9 +77,18 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     private void buildView(View view) {
         textViewSold = (TextView) view.findViewById(R.id.consult_textview_sold);
 
-        tab = RecyclerFactory.makeBuilder(EnumTabType.TAB).build((RecyclerView) view.findViewById(R.id.consult_recyclerview));
-        tab.addDividerItemDecoration();
+        buildTabOperations(view);
+        buildFloatingActionButton(view);
+    }
 
+    private void buildTabOperations(View view) {
+        tabOperations = RecyclerFactory
+                .makeBuilder(EnumTabType.TAB)
+                .build((RecyclerView) view.findViewById(R.id.consult_recyclerview));
+        tabOperations.addDividerItemDecoration();
+    }
+
+    private void buildFloatingActionButton(View view) {
         floatingActionButton = (FloatingActionButton) view.findViewById(R.id.consult_floatingactionbutton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +115,7 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     }
 
     private void fillTabOperations() {
-        tab.clear();
+        tabOperations.clear();
 
         List<Operation> operations = Arrays.asList(account.getOperations());
         CollectionsHelper.sortOperationsByDateDesc(operations);
@@ -127,7 +134,7 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
             recyclerHolder.add(pair);
         }
 
-        RecyclerHelper.addAll(tab, recyclerHolder);
+        RecyclerHelper.addAll(tabOperations, recyclerHolder);
     }
 
     @Override

@@ -21,7 +21,7 @@ import com.sasd13.flousy.util.SessionHelper;
 public class SettingsActivity extends MotherActivity {
 
     private SettingsHandler settingsHandler;
-    private SettingsForm settingsForm;
+    private SettingsForm formSettings;
     private Customer customer;
 
     @Override
@@ -32,23 +32,25 @@ public class SettingsActivity extends MotherActivity {
         GUIHelper.colorTitles(this);
 
         settingsHandler = new SettingsHandler(this);
-        settingsForm = new SettingsForm(this);
+        formSettings = new SettingsForm(this);
 
         buildView();
     }
 
     private void buildView() {
-        Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) findViewById(R.id.settings_recyclerview));
+        Recycler form = RecyclerFactory
+                .makeBuilder(EnumFormType.FORM)
+                .build((RecyclerView) findViewById(R.id.settings_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, settingsForm.getHolder());
-        fillSettingsForm();
+        RecyclerHelper.addAll(form, formSettings.getHolder());
+        fillFormSettings();
     }
 
-    private void fillSettingsForm() {
+    private void fillFormSettings() {
         customer = settingsHandler.readCustomer(SessionHelper.getExtraId(this, Extra.CUSTOMER_ID));
 
-        settingsForm.bindCustomer(customer);
+        formSettings.bindCustomer(customer);
     }
 
     @Override
@@ -73,7 +75,7 @@ public class SettingsActivity extends MotherActivity {
     }
 
     private void updateCustomer() {
-        settingsHandler.updateCustomer(customer, settingsForm);
+        settingsHandler.updateCustomer(customer, formSettings);
     }
 
     public void onUpdateSucceeded() {

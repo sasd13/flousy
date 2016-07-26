@@ -1,16 +1,14 @@
 package com.sasd13.flousy;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.handler.consult.ConsultHandler;
 import com.sasd13.flousy.fragment.consult.AccountFragment;
 import com.sasd13.flousy.fragment.consult.OperationFragment;
+import com.sasd13.flousy.handler.consult.ConsultHandler;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class ConsultActivity extends MotherActivity {
@@ -24,8 +22,7 @@ public class ConsultActivity extends MotherActivity {
         setContentView(R.layout.activity_consult);
         GUIHelper.colorTitles(this);
 
-        ConsultHandler consultHandler = new ConsultHandler(this);
-        account = consultHandler.readAccount(SessionHelper.getExtraId(this, Extra.CUSTOMER_ID));
+        account = new ConsultHandler(this).readAccount(SessionHelper.getExtraId(this, Extra.CUSTOMER_ID));
 
         buildView();
     }
@@ -58,12 +55,5 @@ public class ConsultActivity extends MotherActivity {
                 .replace(R.id.consult_fragment, operationFragment)
                 .addToBackStack(null)
                 .commit();
-    }
-
-    public void finishFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        fragmentManager.beginTransaction().remove(fragment).commit();
-        fragmentManager.popBackStack();
     }
 }

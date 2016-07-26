@@ -21,7 +21,7 @@ import com.sasd13.flousy.util.SessionHelper;
 public class SignActivity extends AppCompatActivity {
 
     private SignHandler signHandler;
-    private SignForm signForm;
+    private SignForm formSign;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class SignActivity extends AppCompatActivity {
         GUIHelper.colorTitles(this);
 
         signHandler = new SignHandler(this);
-        signForm = new SignForm(this);
+        formSign = new SignForm(this);
 
         buildView();
     }
@@ -39,14 +39,16 @@ public class SignActivity extends AppCompatActivity {
     private void buildView() {
         getSupportActionBar().setSubtitle(R.string.title_fill_form);
 
-        buildSignForm();
+        buildFormSign();
     }
 
-    private void buildSignForm() {
-        Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) findViewById(R.id.sign_recyclerview));
+    private void buildFormSign() {
+        Recycler form = RecyclerFactory
+                .makeBuilder(EnumFormType.FORM)
+                .build((RecyclerView) findViewById(R.id.sign_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, signForm.getHolder());
+        RecyclerHelper.addAll(form, formSign.getHolder());
     }
 
     @Override
@@ -71,7 +73,7 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void sign() {
-        signHandler.sign(signForm);
+        signHandler.sign(formSign);
     }
 
     public void onSignSucceeded(Customer customer) {

@@ -71,7 +71,9 @@ public class OperationFragment extends Fragment {
     }
 
     private void buildView(View view) {
-        Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) view.findViewById(R.id.operation_recyclerview));
+        Recycler form = RecyclerFactory
+                .makeBuilder(EnumFormType.FORM)
+                .build((RecyclerView) view.findViewById(R.id.operation_recyclerview));
         form.addDividerItemDecoration();
 
         RecyclerHelper.addAll(form, operationForm.getHolder());
@@ -154,7 +156,6 @@ public class OperationFragment extends Fragment {
 
     public void onCreateSucceeded(Operation operation) {
         Toast.makeText(getContext(), R.string.message_saved, Toast.LENGTH_SHORT).show();
-        parentActivity.finishFragment(this);
         parentActivity.listOperations();
     }
 
@@ -164,7 +165,6 @@ public class OperationFragment extends Fragment {
 
     public void onDeleteSucceeded() {
         Toast.makeText(getContext(), R.string.message_deleted, Toast.LENGTH_SHORT).show();
-        parentActivity.finishFragment(this);
         parentActivity.listOperations();
     }
 

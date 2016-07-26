@@ -1,7 +1,8 @@
-package com.sasd13.flousy.gui.tab;
+package com.sasd13.flousy.fragment.consult;
 
 import com.sasd13.androidex.gui.IAction;
 import com.sasd13.flousy.fragment.consult.AccountActionModeProvider;
+import com.sasd13.flousy.gui.tab.OperationItemModel;
 
 /**
  * Created by ssaidali2 on 23/07/2016.

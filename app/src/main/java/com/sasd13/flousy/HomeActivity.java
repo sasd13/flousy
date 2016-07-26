@@ -26,6 +26,8 @@ import com.sasd13.flousy.gui.browser.Browser;
 import com.sasd13.flousy.gui.browser.BrowserItemModel;
 import com.sasd13.flousy.util.SessionHelper;
 
+import java.util.List;
+
 public class HomeActivity extends AppCompatActivity {
 
     public static HomeActivity self;
@@ -42,17 +44,19 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void buildView() {
-        Recycler grid = RecyclerFactory.makeBuilder(EnumGridType.GRID).build((RecyclerView) findViewById(R.id.home_recyclerview));
+        Recycler grid = RecyclerFactory
+                .makeBuilder(EnumGridType.GRID)
+                .build((RecyclerView) findViewById(R.id.home_recyclerview));
 
         fillGrid(grid);
     }
 
     private void fillGrid(Recycler grid) {
+        List<BrowserItemModel> browserItemModels = Browser.getInstance().getItems(this);
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;
-        Browser browser = Browser.getInstance();
 
-        for (final BrowserItemModel browserItemModel : browser.getItems(this)) {
+        for (final BrowserItemModel browserItemModel : browserItemModels) {
             browserItemModel.setItemType(EnumGridItemType.GRID);
 
             pair = new RecyclerHolderPair(browserItemModel);
