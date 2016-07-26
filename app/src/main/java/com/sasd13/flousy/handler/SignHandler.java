@@ -8,6 +8,7 @@ import com.sasd13.flousy.form.FormException;
 import com.sasd13.flousy.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
+import com.sasd13.flousy.util.Binder;
 import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.javaex.db.DAOException;
 import com.sasd13.javaex.db.LayeredPersistor;
@@ -42,21 +43,13 @@ public class SignHandler {
             } else {
                 Customer customer = new Customer();
 
-                editCustomerWithForm(customer, signForm);
+                Binder.bind(customer, signForm.getEditable());
                 performSign(customer, signForm.getPassword());
                 signActivity.onSignSucceeded(customer);
             }
         } catch (FormException e) {
             signActivity.onError(e.getMessage());
         }
-    }
-
-    private void editCustomerWithForm(Customer customer, SignForm signForm) throws FormException {
-        Customer customerFromForm = signForm.getEditable();
-
-        customer.setFirstName(customerFromForm.getFirstName());
-        customer.setLastName(customerFromForm.getLastName());
-        customer.setEmail(customerFromForm.getEmail());
     }
 
     private void performSign(Customer customer, String password) {

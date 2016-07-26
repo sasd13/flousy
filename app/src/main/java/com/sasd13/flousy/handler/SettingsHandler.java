@@ -3,9 +3,10 @@ package com.sasd13.flousy.handler;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.form.FormException;
 import com.sasd13.flousy.form.SettingsForm;
-import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.util.Binder;
 import com.sasd13.flousy.util.EnumParameter;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -43,7 +44,7 @@ public class SettingsHandler {
 
                 settingsActivity.onError(error);
             } else {
-                editCustomerWithForm(customer, settingsForm);
+                Binder.bind(customer, settingsForm.getEditable());
                 persistor.update(customer);
 
                 settingsActivity.onUpdateSucceeded();
@@ -51,13 +52,5 @@ public class SettingsHandler {
         } catch (FormException e) {
             settingsActivity.onError(e.getMessage());
         }
-    }
-
-    private void editCustomerWithForm(Customer customer, SettingsForm settingsForm) throws FormException {
-        Customer customerFromForm = settingsForm.getEditable();
-
-        customer.setFirstName(customerFromForm.getFirstName());
-        customer.setLastName(customerFromForm.getLastName());
-        customer.setEmail(customerFromForm.getEmail());
     }
 }
