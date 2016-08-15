@@ -39,9 +39,13 @@ public class ConsultActivity extends MotherActivity {
     }
 
     public void newOperation() {
+        startFragment(OperationFragment.newInstance(account));
+    }
+
+    private void startFragment(OperationFragment operationFragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.consult_fragment, OperationFragment.newInstance(account))
+                .replace(R.id.consult_fragment, operationFragment)
                 .addToBackStack(null)
                 .commit();
     }
@@ -50,10 +54,6 @@ public class ConsultActivity extends MotherActivity {
         OperationFragment operationFragment = OperationFragment.newInstance(account);
         operationFragment.setOperation(operation);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.consult_fragment, operationFragment)
-                .addToBackStack(null)
-                .commit();
+        startFragment(operationFragment);
     }
 }

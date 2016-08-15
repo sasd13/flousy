@@ -73,10 +73,6 @@
     <string name="label_password">Password</string>
     <string name="label_terms">General terms of use</string>
 
-    <!-- Menu -->
-    <string name="menuitem_action_done">Valid</string>
-    <string name="menuitem_action_delete">Delete</string>
-
     <!-- Message -->
     <string name="message_email_exists">Email already exists</string>
     <string name="message_selected">selected</string>

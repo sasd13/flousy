@@ -73,10 +73,6 @@
     <string name="label_password">Mot de passe</string>
     <string name="label_terms">Conditions générales d\'utilisation</string>
 
-    <!-- Menu -->
-    <string name="menuitem_action_done">Valider</string>
-    <string name="menuitem_action_delete">Supprimer</string>
-
     <!-- Message -->
     <string name="message_email_exists">Email existe déjà</string>
     <string name="message_selected">sélectionné</string>
