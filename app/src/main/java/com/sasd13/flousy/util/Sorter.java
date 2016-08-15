@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 03/07/2016.
  */
-public class CollectionsHelper {
+public class Sorter {
 
     public static void sortOperationsByDateDesc(List<Operation> operations) {
         sortOperationByDate(operations, true);
