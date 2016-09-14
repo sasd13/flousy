@@ -16,7 +16,7 @@ import com.sasd13.flousy.util.SessionHelper;
 
 public class LogInActivity extends AppCompatActivity {
 
-    private class LogInForm {
+    private static class LogInForm {
         public EditText editTextEmail, editTextPassword;
     }
 

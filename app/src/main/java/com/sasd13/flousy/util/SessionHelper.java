@@ -39,6 +39,7 @@ public class SessionHelper {
             public void run() {
                 if (SignActivity.class.equals(activity.getClass())) {
                     LogInActivity.self.finish();
+                    LogInActivity.self = null;
 
                     intent.putExtra(Extra.WELCOME, true);
                     intent.putExtra(Extra.FIRSTNAME, customer.getFirstName());

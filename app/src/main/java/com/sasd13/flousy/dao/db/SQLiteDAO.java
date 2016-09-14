@@ -17,9 +17,6 @@ import com.sasd13.javaex.db.IEntityDAO;
 import com.sasd13.javaex.db.ILayeredDAO;
 import com.sasd13.javaex.db.ITransactional;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SQLiteDAO implements ILayeredDAO, ITransactional {
 
     private SQLiteDBHandler dbHandler;
@@ -36,8 +33,6 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
         return db;
     }
 
-    private static List<SQLiteDAO> pool = new ArrayList<>();
-
     private SQLiteDAO(Context context) {
         dbHandler = new SQLiteDBHandler(context, SQLiteDBInformation.DB, null, SQLiteDBInformation.VERSION);
 
@@ -50,20 +45,7 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
     }
 
     public static SQLiteDAO create(Context context) {
-        for (SQLiteDAO dao : pool) {
-            if (!dao.isOpened()) {
-                return dao;
-            }
-        }
-
-        SQLiteDAO dao = new SQLiteDAO(context);
-        pool.add(dao);
-
-        return dao;
-    }
-
-    private boolean isOpened() {
-        return db != null && db.isOpen();
+        return new SQLiteDAO(context);
     }
 
     @Override
