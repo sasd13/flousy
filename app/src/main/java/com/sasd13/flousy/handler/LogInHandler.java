@@ -1,6 +1,6 @@
 package com.sasd13.flousy.handler;
 
-import com.sasd13.flousy.LogInActivity;
+import com.sasd13.flousy.activities.LogInActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
@@ -46,7 +46,7 @@ public class LogInHandler {
         }
 
         if (customer == null) {
-            logInActivity.onError(logInActivity.getResources().getString(com.sasd13.androidex.R.string.message_error_login));
+            logInActivity.onError(com.sasd13.androidex.R.string.message_error_login);
         } else {
             logInActivity.onLogInSucceeded(customer);
         }

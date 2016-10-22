@@ -1,10 +1,10 @@
-package com.sasd13.flousy.handler.consult;
+package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.dao.OperationDAO;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.fragment.consult.AccountFragment;
+import com.sasd13.flousy.activities.fragment.account.AccountFragment;
 import com.sasd13.javaex.db.DAOException;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class AccountHandler {
         if (deleted) {
             accountFragment.onDeleteSucceeded();
         } else {
-            accountFragment.onError(accountFragment.getResources().getString(R.string.account_error_delete_operations));
+            accountFragment.onError(R.string.account_error_delete_operations);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.SignActivity;
+import com.sasd13.flousy.activities.SignActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.form.FormException;
@@ -39,7 +39,7 @@ public class SignHandler {
             parameters.put(EnumParameter.EMAIL.getName(), new String[]{ signForm.getEditable().getEmail() });
 
             if (!persistor.read(parameters, Customer.class).isEmpty()) {
-                signActivity.onError(signActivity.getResources().getString(R.string.message_email_exists));
+                signActivity.onError(R.string.message_email_exists);
             } else {
                 Customer customer = new Customer();
 
@@ -48,7 +48,7 @@ public class SignHandler {
                 signActivity.onSignSucceeded(customer);
             }
         } catch (FormException e) {
-            signActivity.onError(e.getMessage());
+            signActivity.onError(e.getResMessage());
         }
     }
 

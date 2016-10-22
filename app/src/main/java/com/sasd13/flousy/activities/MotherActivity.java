@@ -1,7 +1,9 @@
-package com.sasd13.flousy;
+package com.sasd13.flousy.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
 
 import com.sasd13.androidex.DrawerActivity;
 import com.sasd13.androidex.gui.IAction;
@@ -9,6 +11,7 @@ import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.drawer.EnumDrawerItemType;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.gui.browser.Browser;
 import com.sasd13.flousy.gui.browser.BrowserItemModel;
 import com.sasd13.flousy.util.SessionHelper;
@@ -17,6 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class MotherActivity extends DrawerActivity {
+
+    private View contentView;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        contentView = findViewById(android.R.id.content);
+    }
+
+    public View getContentView() {
+        return contentView;
+    }
 
     @Override
     protected RecyclerHolder getDrawerHolder() {

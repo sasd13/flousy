@@ -1,4 +1,4 @@
-package com.sasd13.flousy.fragment.consult;
+package com.sasd13.flousy.activities.fragment.account;
 
 import android.content.DialogInterface;
 import android.support.annotation.IdRes;
@@ -19,14 +19,9 @@ public class AccountActionModeProvider extends ActionModeProvider {
     private MenuItem menuItemDelete;
 
     public AccountActionModeProvider(AccountFragment accountFragment) {
-        super(accountFragment);
+        super(R.menu.menu_context_operation, accountFragment);
 
         selectedModels = new ArrayList<>();
-    }
-
-    @Override
-    protected int getMenuRes() {
-        return R.menu.menu_context_operation;
     }
 
     @Override
@@ -38,11 +33,11 @@ public class AccountActionModeProvider extends ActionModeProvider {
 
     public void onClickOnModel(OperationItemModel model) {
         if (!model.isSelected()) {
-            selectedModels.add(model);
             model.setSelected(true);
+            selectedModels.add(model);
         } else {
-            selectedModels.remove(model);
             model.setSelected(false);
+            selectedModels.remove(model);
         }
 
         refreshActionModeBar();

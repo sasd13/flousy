@@ -77,31 +77,31 @@ public class SignForm extends Form {
 
     private void validFirstName() throws FormException {
         if (StringUtils.isBlank(modelFirstName.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_firstname));
+            throw new FormException(context, R.string.form_sign_message_error_firstname);
         }
     }
 
     private void validLastName() throws FormException {
         if (StringUtils.isBlank(modelLastName.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_lastname));
+            throw new FormException(context, R.string.form_sign_message_error_lastname);
         }
     }
 
     private void validEmail() throws FormException {
         if (StringUtils.isBlank(modelEmail.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_email));
+            throw new FormException(context, R.string.form_sign_message_error_email);
         }
     }
 
     private void validPassword() throws FormException {
         if (StringUtils.isBlank(modelPassword.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_password));
+            throw new FormException(context, R.string.form_sign_message_error_password);
         }
     }
 
     private void validTerms() throws FormException {
         if (!modelTerms.getValue()) {
-            throw new FormException(context.getResources().getString(R.string.form_sign_message_error_terms));
+            throw new FormException(context, R.string.form_sign_message_error_terms);
         }
     }
 

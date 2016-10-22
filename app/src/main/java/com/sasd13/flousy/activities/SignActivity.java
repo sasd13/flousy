@@ -1,18 +1,21 @@
-package com.sasd13.flousy;
+package com.sasd13.flousy.activities;
 
 import android.os.Bundle;
+import android.support.annotation.StringRes;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.form.SignForm;
 import com.sasd13.flousy.handler.SignHandler;
@@ -20,6 +23,7 @@ import com.sasd13.flousy.util.SessionHelper;
 
 public class SignActivity extends AppCompatActivity {
 
+    private View contentView;
     private SignHandler signHandler;
     private SignForm formSign;
 
@@ -30,6 +34,7 @@ public class SignActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign);
         GUIHelper.colorTitles(this);
 
+        contentView = findViewById(android.R.id.content);
         signHandler = new SignHandler(this);
         formSign = new SignForm(this);
 
@@ -80,7 +85,7 @@ public class SignActivity extends AppCompatActivity {
         SessionHelper.logIn(this, customer);
     }
 
-    public void onError(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+    public void onError(@StringRes int error) {
+        Snackbar.make(contentView, error, Snackbar.LENGTH_SHORT).show();
     }
 }

@@ -29,7 +29,7 @@ public class OperationItemModel extends Observable implements IRecyclerItemModel
 
     @Override
     public IRecyclerItemType getItemType() {
-        return EnumMyTabItemType.OPERATION;
+        return EnumTabItemType.OPERATION;
     }
 
     @Override

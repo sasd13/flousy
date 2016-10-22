@@ -1,4 +1,4 @@
-package com.sasd13.flousy;
+package com.sasd13.flousy.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +21,7 @@ import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridItemType;
 import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridType;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.content.Extra;
 import com.sasd13.flousy.gui.browser.Browser;
 import com.sasd13.flousy.gui.browser.BrowserItemModel;

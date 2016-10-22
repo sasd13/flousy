@@ -1,6 +1,6 @@
-package com.sasd13.flousy.handler.consult;
+package com.sasd13.flousy.handler;
 
-import com.sasd13.flousy.ConsultActivity;
+import com.sasd13.flousy.activities.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.EnumParameter;

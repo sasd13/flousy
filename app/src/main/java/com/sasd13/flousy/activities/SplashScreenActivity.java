@@ -1,4 +1,4 @@
-package com.sasd13.flousy;
+package com.sasd13.flousy.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.util.TaskPlanner;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class SplashScreenActivity extends AppCompatActivity {

@@ -1,8 +1,10 @@
-package com.sasd13.flousy.fragment.consult;
+package com.sasd13.flousy.activities.fragment.operation;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
@@ -19,12 +20,12 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
-import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.activities.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.form.OperationForm;
-import com.sasd13.flousy.handler.consult.OperationHandler;
+import com.sasd13.flousy.handler.OperationHandler;
 
 public class OperationFragment extends Fragment {
 
@@ -155,20 +156,20 @@ public class OperationFragment extends Fragment {
     }
 
     public void onCreateSucceeded(Operation operation) {
-        Toast.makeText(getContext(), R.string.message_saved, Toast.LENGTH_SHORT).show();
+        Snackbar.make(getView(), R.string.message_saved, Snackbar.LENGTH_SHORT).show();
         parentActivity.listOperations();
     }
 
     public void onUpdateSucceeded() {
-        Toast.makeText(getContext(), R.string.message_saved, Toast.LENGTH_SHORT).show();
+        Snackbar.make(getView(), R.string.message_saved, Snackbar.LENGTH_SHORT).show();
     }
 
     public void onDeleteSucceeded() {
-        Toast.makeText(getContext(), R.string.message_deleted, Toast.LENGTH_SHORT).show();
+        Snackbar.make(getView(), R.string.message_deleted, Snackbar.LENGTH_SHORT).show();
         parentActivity.listOperations();
     }
 
-    public void onError(String error) {
-        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+    public void onError(@StringRes int error) {
+        Snackbar.make(getView(), error, Snackbar.LENGTH_SHORT).show();
     }
 }

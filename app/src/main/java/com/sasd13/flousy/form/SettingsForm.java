@@ -69,19 +69,19 @@ public class SettingsForm extends Form {
 
     private void validFirstName() throws FormException {
         if (StringUtils.isBlank(modelFirstName.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_firstname));
+            throw new FormException(context, R.string.form_settings_message_error_firstname);
         }
     }
 
     private void validLastName() throws FormException {
         if (StringUtils.isBlank(modelLastName.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_lastname));
+            throw new FormException(context, R.string.form_settings_message_error_lastname);
         }
     }
 
     private void validEmail() throws FormException {
         if (StringUtils.isBlank(modelEmail.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_settings_message_error_email));
+            throw new FormException(context, R.string.form_settings_message_error_email);
         }
     }
 

@@ -1,15 +1,16 @@
-package com.sasd13.flousy.fragment.consult;
+package com.sasd13.flousy.activities.fragment.account;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sasd13.androidex.context.IActionModeConsumer;
 import com.sasd13.androidex.gui.widget.EnumActionEvent;
@@ -20,12 +21,12 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.tab.EnumTabType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
-import com.sasd13.flousy.ConsultActivity;
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.activities.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.gui.tab.OperationItemModel;
-import com.sasd13.flousy.handler.consult.AccountHandler;
+import com.sasd13.flousy.handler.AccountHandler;
 import com.sasd13.flousy.util.Sorter;
 
 import java.text.DecimalFormat;
@@ -167,12 +168,12 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     }
 
     public void onDeleteSucceeded() {
-        Toast.makeText(getContext(), getResources().getString(R.string.message_deleted), Toast.LENGTH_SHORT).show();
+        Snackbar.make(getView(), R.string.message_deleted, Snackbar.LENGTH_SHORT).show();
 
         refreshView();
     }
 
-    public void onError(String error) {
-        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+    public void onError(@StringRes int error) {
+        Snackbar.make(getView(), error, Snackbar.LENGTH_SHORT).show();
     }
 }

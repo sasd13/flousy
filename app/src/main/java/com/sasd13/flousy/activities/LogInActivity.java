@@ -1,15 +1,17 @@
-package com.sasd13.flousy;
+package com.sasd13.flousy.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.StringRes;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sasd13.androidex.util.GUIHelper;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.handler.LogInHandler;
 import com.sasd13.flousy.util.SessionHelper;
@@ -21,6 +23,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public static LogInActivity self;
+    private View contentView;
     private LogInHandler logInHandler;
 
     @Override
@@ -30,6 +33,7 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         self = this;
+        contentView = findViewById(android.R.id.content);
         logInHandler = new LogInHandler(this);
 
         buildView();
@@ -83,7 +87,7 @@ public class LogInActivity extends AppCompatActivity {
         SessionHelper.logIn(this, customer);
     }
 
-    public void onError(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
+    public void onError(@StringRes int error) {
+        Snackbar.make(contentView, error, Snackbar.LENGTH_SHORT).show();
     }
 }

@@ -97,19 +97,19 @@ public class OperationForm extends Form {
 
     private void validTitle() throws FormException {
         if (StringUtils.isBlank(modelTitle.getValue())) {
-            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_title));
+            throw new FormException(context, R.string.form_operation_message_error_title);
         }
     }
 
     private void validAmount() throws FormException {
         if (StringUtils.isBlank(modelAmount.getValue()) || Double.valueOf(modelAmount.getValue()) < 0) {
-            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_amount));
+            throw new FormException(context, R.string.form_operation_message_error_amount);
         }
     }
 
     private void validType() throws FormException {
         if (modelTypes.getValue() == -1) {
-            throw new FormException(context.getResources().getString(R.string.form_operation_message_error_type));
+            throw new FormException(context, R.string.form_operation_message_error_type);
         }
     }
 }

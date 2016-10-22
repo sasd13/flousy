@@ -10,10 +10,10 @@ import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.util.Session;
 import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.HomeActivity;
-import com.sasd13.flousy.LogInActivity;
+import com.sasd13.flousy.activities.HomeActivity;
+import com.sasd13.flousy.activities.LogInActivity;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.SignActivity;
+import com.sasd13.flousy.activities.SignActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.content.Extra;
 

@@ -1,4 +1,4 @@
-package com.sasd13.flousy.handler.consult;
+package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
@@ -6,7 +6,7 @@ import com.sasd13.flousy.builder.consult.DefaultOperationBuilder;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.form.FormException;
 import com.sasd13.flousy.form.OperationForm;
-import com.sasd13.flousy.fragment.consult.OperationFragment;
+import com.sasd13.flousy.activities.fragment.operation.OperationFragment;
 import com.sasd13.flousy.util.Binder;
 import com.sasd13.javaex.db.LayeredPersistor;
 
@@ -38,7 +38,7 @@ public class OperationHandler {
             persistor.create(operation);
             operationFragment.onCreateSucceeded(operation);
         } catch (FormException e) {
-            operationFragment.onError(e.getMessage());
+            operationFragment.onError(e.getResMessage());
         }
     }
 
@@ -50,7 +50,7 @@ public class OperationHandler {
             persistor.update(operation);
             operationFragment.onUpdateSucceeded();
         } catch (FormException e) {
-            operationFragment.onError(e.getMessage());
+            operationFragment.onError(e.getResMessage());
         }
     }
 

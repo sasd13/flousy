@@ -1,14 +1,16 @@
-package com.sasd13.flousy;
+package com.sasd13.flousy.activities;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 
 import com.sasd13.androidex.util.GUIHelper;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.fragment.consult.AccountFragment;
-import com.sasd13.flousy.fragment.consult.OperationFragment;
-import com.sasd13.flousy.handler.consult.ConsultHandler;
+import com.sasd13.flousy.activities.fragment.account.AccountFragment;
+import com.sasd13.flousy.activities.fragment.operation.OperationFragment;
+import com.sasd13.flousy.handler.ConsultHandler;
 import com.sasd13.flousy.util.SessionHelper;
 
 public class ConsultActivity extends MotherActivity {
@@ -45,6 +47,7 @@ public class ConsultActivity extends MotherActivity {
     private void startFragment(OperationFragment operationFragment) {
         getSupportFragmentManager()
                 .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .replace(R.id.consult_fragment, operationFragment)
                 .addToBackStack(null)
                 .commit();

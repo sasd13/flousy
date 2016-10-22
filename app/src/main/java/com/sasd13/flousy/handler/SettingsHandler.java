@@ -1,7 +1,7 @@
 package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.SettingsActivity;
+import com.sasd13.flousy.activities.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.form.FormException;
@@ -40,9 +40,7 @@ public class SettingsHandler {
 
             List<Customer> customers = persistor.read(parameters, Customer.class);
             if (!customers.isEmpty() && customers.get(0).getId() != customer.getId()) {
-                String error = settingsActivity.getResources().getString(R.string.message_email_exists);
-
-                settingsActivity.onError(error);
+                settingsActivity.onError(R.string.message_email_exists);
             } else {
                 Binder.bind(customer, settingsForm.getEditable());
                 persistor.update(customer);
@@ -50,7 +48,7 @@ public class SettingsHandler {
                 settingsActivity.onUpdateSucceeded();
             }
         } catch (FormException e) {
-            settingsActivity.onError(e.getMessage());
+            settingsActivity.onError(e.getResMessage());
         }
     }
 }
