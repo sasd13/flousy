@@ -16,12 +16,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            debuggable true
-        }
     }
     packagingOptions {
-        exclude 'pom.properties'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
     }
 }
 
@@ -29,6 +27,7 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    mavenLocal()
 }
 
 dependencies {
@@ -38,6 +37,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile 'com.android.support:design:25.0.0'
     compile 'com.sasd13.androidex:androidex-release@aar'
+    compile 'com.sasd13.javaex:javaex:0.1'
     compile 'joda-time:joda-time:2.9.4'
     compile 'org.apache.commons:commons-lang3:3.4'
 }
