@@ -22,7 +22,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_splashscreen);
+        setContentView(R.layout.layout_splashscreen);
         buildView();
         run();
     }
@@ -34,9 +34,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     public void run() {
         if (SessionHelper.isLogged(this)) {
-            goToActivity(HomeActivity.class);
+            goToActivity(MainActivity.class);
         } else {
-            goToActivity(LogInActivity.class);
+            goToActivity(SignActivity.class);
         }
     }
 
@@ -46,7 +46,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
                 startActivity(new Intent(SplashScreenActivity.this, mClass));
             }
-        }, TIMEOUT).start();
+        }).start(TIMEOUT);
     }
 
     @Override

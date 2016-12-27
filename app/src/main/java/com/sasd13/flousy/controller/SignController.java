@@ -5,7 +5,10 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.sasd13.flousy.activities.SignActivity;
+import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.fragment.ISignController;
+import com.sasd13.flousy.fragment.sign.SignUpFragment;
+import com.sasd13.flousy.handler.LogInHandler;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
@@ -15,8 +18,9 @@ public class SignController implements ISignController {
 
     private SignActivity signActivity;
     private View contentView;
+    private LogInHandler logInHandler;
 
-    protected SignController(SignActivity signActivity) {
+    public SignController(SignActivity signActivity) {
         this.signActivity = signActivity;
         contentView = signActivity.findViewById(android.R.id.content);
     }
@@ -31,11 +35,22 @@ public class SignController implements ISignController {
         Snackbar.make(contentView, message, Snackbar.LENGTH_SHORT).show();
     }
 
-    protected void startFragment(Fragment fragment) {
+    private void startFragment(Fragment fragment) {
         signActivity.startFragment(fragment);
     }
 
-    public void backPress() {
-        signActivity.onBackPressed();
+    @Override
+    public void signIn(String username, String password) {
+
+    }
+
+    @Override
+    public void showSignUp() {
+        startFragment(SignUpFragment.newInstance());
+    }
+
+    @Override
+    public void signUp(Customer customer) {
+
     }
 }

@@ -10,6 +10,6 @@ public interface Extra {
     int MODE_NEW = 1;
     int MODE_EDIT = 2;
 
-    String CUSTOMER_ID = "CUSTOMER_ID";
+    String ID_CUSTOMER_EMAIL = "ID_CUSTOMER_EMAIL";
     String OPERATION_ID = "OPERATION_ID";
 }

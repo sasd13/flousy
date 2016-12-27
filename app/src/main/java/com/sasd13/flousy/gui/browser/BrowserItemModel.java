@@ -1,6 +1,5 @@
 package com.sasd13.flousy.gui.browser;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 
 import com.sasd13.androidex.gui.widget.IColorable;
@@ -8,6 +7,7 @@ import com.sasd13.androidex.gui.widget.IIconifiable;
 import com.sasd13.androidex.gui.widget.ILabelizable;
 import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemModel;
 import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemType;
+import com.sasd13.flousy.fragment.IController;
 
 import java.util.Observable;
 
@@ -16,13 +16,14 @@ import java.util.Observable;
  */
 public class BrowserItemModel extends Observable implements IRecyclerItemModel, ILabelizable, IIconifiable, IColorable {
 
-    private IRecyclerItemType type;
+    private EnumBrowserItemType browserItemType;
     private String label;
     private Drawable icon;
     private int color;
-    private Class<? extends Activity> target;
+    private Class<? extends IController> target;
 
-    public BrowserItemModel(String label, Drawable icon, int color, Class<? extends Activity> target) {
+    public BrowserItemModel(EnumBrowserItemType browserItemType, String label, Drawable icon, int color, Class<? extends IController> target) {
+        this.browserItemType = browserItemType;
         this.label = label;
         this.icon = icon;
         this.color = color;
@@ -31,11 +32,7 @@ public class BrowserItemModel extends Observable implements IRecyclerItemModel, 
 
     @Override
     public IRecyclerItemType getItemType() {
-        return type;
-    }
-
-    public void setItemType(IRecyclerItemType type) {
-        this.type = type;
+        return browserItemType.getRecyclerItemType();
     }
 
     @Override
@@ -53,7 +50,7 @@ public class BrowserItemModel extends Observable implements IRecyclerItemModel, 
         return color;
     }
 
-    public Class<? extends Activity> getTarget() {
+    public Class<? extends IController> getTarget() {
         return target;
     }
 }

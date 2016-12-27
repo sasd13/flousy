@@ -32,15 +32,6 @@
             android:launchMode="singleInstance">
         </activity>
 
-        <activity
-            android:name=".activities.HomeActivity"
-            android:label="@string/app_name"
-            android:theme="@style/FlousyGreen"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:launchMode="singleTask">
-        </activity>
-
     </application>
 
 </manifest>

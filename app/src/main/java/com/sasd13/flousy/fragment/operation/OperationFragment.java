@@ -63,7 +63,7 @@ public class OperationFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_operation, container, false);
+        View view = inflater.inflate(R.layout.layout_operation, container, false);
 
         GUIHelper.colorTitles(view);
         buildView(view);

@@ -1,6 +1,7 @@
 package com.sasd13.flousy.controller;
 
 import com.sasd13.flousy.activities.MainActivity;
+import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.fragment.ISettingsController;
 
 /**
@@ -15,6 +16,16 @@ public class SettingsController extends Controller implements ISettingsControlle
 
     @Override
     public void entry() {
+        showCustomer();
+    }
+
+    @Override
+    public void showCustomer(Customer customer) {
+
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
 
     }
 }

@@ -67,7 +67,7 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.layout_account, container, false);
 
         GUIHelper.colorTitles(view);
         buildView(view);

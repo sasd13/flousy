@@ -1,4 +1,4 @@
-package com.sasd13.flousy.activities;
+package com.sasd13.flousy.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.StringRes;
@@ -14,13 +14,14 @@ import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
+import com.sasd13.flousy.activities.MainActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.util.Extra;
 import com.sasd13.flousy.gui.form.SettingsForm;
 import com.sasd13.flousy.handler.SettingsHandler;
+import com.sasd13.flousy.util.Extra;
 import com.sasd13.flousy.util.SessionHelper;
 
-public class SettingsActivity extends MainActivity {
+public class SettingsFragment extends MainActivity {
 
     private SettingsHandler settingsHandler;
     private SettingsForm formSettings;
@@ -30,7 +31,7 @@ public class SettingsActivity extends MainActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.layout_settings);
         GUIHelper.colorTitles(this);
 
         settingsHandler = new SettingsHandler(this);
@@ -50,7 +51,7 @@ public class SettingsActivity extends MainActivity {
     }
 
     private void fillFormSettings() {
-        customer = settingsHandler.readCustomer(SessionHelper.getExtraId(this, Extra.CUSTOMER_ID));
+        customer = settingsHandler.readCustomer(SessionHelper.getExtraId(this, Extra.ID_CUSTOMER_EMAIL));
 
         formSettings.bindCustomer(customer);
     }
@@ -58,7 +59,7 @@ public class SettingsActivity extends MainActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_sign, menu);
+        inflater.inflate(R.menu.menu_signup, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
