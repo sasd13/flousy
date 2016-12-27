@@ -1,4 +1,4 @@
-package com.sasd13.flousy.activities.fragment.account;
+package com.sasd13.flousy.fragment.account;
 
 import com.sasd13.androidex.gui.IAction;
 import com.sasd13.flousy.activities.ConsultActivity;

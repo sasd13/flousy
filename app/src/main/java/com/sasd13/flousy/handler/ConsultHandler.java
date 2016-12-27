@@ -4,7 +4,6 @@ import com.sasd13.flousy.activities.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.util.EnumParameter;
-import com.sasd13.javaex.db.LayeredPersistor;
 
 import java.util.HashMap;
 import java.util.Map;

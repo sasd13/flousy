@@ -3,47 +3,14 @@
 
     <!-- Activity -->
     <string name="activity_splashscreen">@string/app_name</string>
-    <string name="activity_login">Log in</string>
     <string name="activity_sign">Sign</string>
-    <string name="activity_home">Home</string>
-    <string name="activity_operation">Operation</string>
-    <string name="activity_consult">Consult</string>
-    <string name="activity_finances">Finances</string>
-    <string name="activity_friends">Friends</string>
-    <string name="activity_offers">Offers</string>
-    <string name="activity_settings">Settings</string>
-
-    <!-- Activity Log -->
-    <string name="login_button_connect">Connect</string>
-    <string name="login_textview_sign">Sign up on Flousy</string>
-    <string name="login_textview_restorepassword">Password forgotten ?</string>
-
-    <!-- Activity Home -->
-    <string name="home_alertdialog_title_welcome">Welcome</string>
-    <string name="home_alertdialog_message_welcome">Hello</string>
-
-    <!-- Activity Consult -->
-    <string name="consult_textview_sold_title">Sold :</string>
-    <string name="consult_textview_sold">0.0</string>
-    <string name="consult_textview_operations">Operations</string>
-
-    <!-- Activity Account -->
-    <string name="account_error_delete_operations">Operations not deleted</string>
-
-    <!-- Activity Operation -->
-    <string name="operation_label_date">Realization date</string>
-    <string name="operation_label_title">Title</string>
-    <string name="operation_label_amount">Amount</string>
-    <string name="operation_label_type">Type</string>
-    <string name="operation_type_debit">Debit</string>
-    <string name="operation_type_credit">Credit</string>
-    <string-array name="operation_types">
-        <item>@string/operation_type_debit</item>
-        <item>@string/operation_type_credit</item>
-    </string-array>
 
     <!-- Application -->
     <string name="app_name">Flousy</string>
+
+    <!-- Dialog -->
+    <string name="home_alertdialog_title_welcome">Welcome</string>
+    <string name="home_alertdialog_message_welcome">Hello</string>
 
     <!-- Drawer -->
     <string name="drawer_header_menu">Menu</string>
@@ -66,6 +33,31 @@
     <string name="form_operation_message_error_amount">Invalid amount</string>
     <string name="form_operation_message_error_type">Invalid operation type</string>
 
+    <!-- Fragment Log -->
+    <string name="login_button_connect">Connect</string>
+    <string name="login_textview_sign">Sign up on Flousy</string>
+    <string name="login_textview_restorepassword">Password forgotten ?</string>
+
+    <!-- Fragment Consult -->
+    <string name="consult_textview_sold_title">Sold :</string>
+    <string name="consult_textview_sold">0.0</string>
+    <string name="consult_textview_operations">Operations</string>
+
+    <!-- Fragment Account -->
+    <string name="account_error_delete_operations">Operations not deleted</string>
+
+    <!-- Fragment Operation -->
+    <string name="operation_label_date">Realization date</string>
+    <string name="operation_label_title">Title</string>
+    <string name="operation_label_amount">Amount</string>
+    <string name="operation_label_type">Type</string>
+    <string name="operation_type_debit">Debit</string>
+    <string name="operation_type_credit">Credit</string>
+    <string-array name="operation_types">
+        <item>@string/operation_type_debit</item>
+        <item>@string/operation_type_credit</item>
+    </string-array>
+
     <!-- Label -->
     <string name="label_firstname">First name</string>
     <string name="label_lastname">Last name</string>
@@ -83,9 +75,15 @@
     <string name="tabitem_textview_title">Title</string>
     <string name="tabitem_textview_amount">0.0</string>
 
-    <!-- Title -->
-    <string name="title_identity">Identity</string>
+    <!-- Textview -->
+    <string name="title_home">Home</string>
+    <string name="title_operation">Operation</string>
     <string name="title_consult">Consult</string>
+    <string name="title_finances">Finances</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_offers">Offers</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_identity">Identity</string>
     <string name="subtitle_consulting">Consulting</string>
 
 </resources>

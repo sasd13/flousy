@@ -2,13 +2,12 @@ package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.builder.consult.DefaultOperationBuilder;
+import com.sasd13.flousy.util.builder.consult.DefaultOperationBuilder;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.form.FormException;
-import com.sasd13.flousy.form.OperationForm;
-import com.sasd13.flousy.activities.fragment.operation.OperationFragment;
+import com.sasd13.flousy.gui.form.FormException;
+import com.sasd13.flousy.gui.form.OperationForm;
+import com.sasd13.flousy.fragment.operation.OperationFragment;
 import com.sasd13.flousy.util.Binder;
-import com.sasd13.javaex.db.LayeredPersistor;
 
 /**
  * Created by ssaidali2 on 03/07/2016.

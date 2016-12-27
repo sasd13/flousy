@@ -4,14 +4,13 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.activities.SignActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.form.FormException;
-import com.sasd13.flousy.form.SignForm;
+import com.sasd13.flousy.gui.form.FormException;
+import com.sasd13.flousy.gui.form.SignForm;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
 import com.sasd13.flousy.dao.db.SQLitePasswordDAO;
 import com.sasd13.flousy.util.Binder;
 import com.sasd13.flousy.util.EnumParameter;
-import com.sasd13.javaex.db.DAOException;
-import com.sasd13.javaex.db.LayeredPersistor;
+import com.sasd13.javaex.dao.DAOException;
 
 import java.util.HashMap;
 import java.util.Map;

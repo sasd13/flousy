@@ -2,8 +2,6 @@ package com.sasd13.flousy.dao.db.condition;
 
 import com.sasd13.flousy.dao.CustomerDAO;
 import com.sasd13.flousy.util.EnumParameter;
-import com.sasd13.javaex.db.condition.ConditionBuilderException;
-import com.sasd13.javaex.db.condition.IConditionExpression;
 
 /**
  * Created by ssaidali2 on 17/07/2016.

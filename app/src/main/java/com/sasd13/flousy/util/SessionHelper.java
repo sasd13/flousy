@@ -15,7 +15,6 @@ import com.sasd13.flousy.activities.LogInActivity;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activities.SignActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.content.Extra;
 
 /**
  * Created by Samir on 05/03/2016.

@@ -1,16 +1,15 @@
 package com.sasd13.flousy.dao;
 
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.javaex.db.IEntityDAO;
+import com.sasd13.javaex.dao.ISession;
 
-public interface OperationDAO extends IEntityDAO<Operation> {
+public interface OperationDAO extends ISession<Operation> {
 
     String TABLE = "operations";
-
-    String COLUMN_ID = "id";
-    String COLUMN_DATEREALIZATION = "daterealization";
-    String COLUMN_TITLE = "title";
-    String COLUMN_AMOUNT = "amount";
-    String COLUMN_TYPE = "type";
-    String COLUMN_ACCOUNT_ID = "account_id";
+    String COLUMN_ID = "_id";
+    String COLUMN_DATEREALIZATION = "_daterealization";
+    String COLUMN_TITLE = "_title";
+    String COLUMN_AMOUNT = "_amount";
+    String COLUMN_TYPE = "_type";
+    String COLUMN_ACCOUNT_ID = "_account_id";
 }

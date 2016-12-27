@@ -1,4 +1,4 @@
-package com.sasd13.flousy.form;
+package com.sasd13.flousy.gui.form;
 
 import android.content.Context;
 import android.support.annotation.StringRes;

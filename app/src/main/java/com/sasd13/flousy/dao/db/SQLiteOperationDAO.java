@@ -9,8 +9,6 @@ import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.dao.IPersistable;
 import com.sasd13.flousy.dao.OperationDAO;
 import com.sasd13.flousy.dao.db.condition.OperationConditionExpression;
-import com.sasd13.javaex.db.condition.ConditionBuilder;
-import com.sasd13.javaex.db.condition.ConditionBuilderException;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;

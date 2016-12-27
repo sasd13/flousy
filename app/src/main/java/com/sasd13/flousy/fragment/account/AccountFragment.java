@@ -1,4 +1,4 @@
-package com.sasd13.flousy.activities.fragment.account;
+package com.sasd13.flousy.fragment.account;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.sasd13.androidex.context.IActionModeConsumer;
+import com.sasd13.androidex.activity.actionbar.IActionModeConsumer;
 import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;

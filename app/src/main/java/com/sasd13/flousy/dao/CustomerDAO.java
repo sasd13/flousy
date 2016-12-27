@@ -1,14 +1,13 @@
 package com.sasd13.flousy.dao;
 
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.javaex.db.IEntityDAO;
+import com.sasd13.javaex.dao.ISession;
 
-public interface CustomerDAO extends IEntityDAO<Customer> {
+public interface CustomerDAO extends ISession<Customer> {
 
     String TABLE = "customers";
-
-    String COLUMN_ID = "id";
-    String COLUMN_FIRSTNAME = "firstname";
-    String COLUMN_LASTNAME = "lastname";
-    String COLUMN_EMAIL = "email";
+    String COLUMN_ID = "_id";
+    String COLUMN_FIRSTNAME = "_firstname";
+    String COLUMN_LASTNAME = "_lastname";
+    String COLUMN_EMAIL = "_email";
 }

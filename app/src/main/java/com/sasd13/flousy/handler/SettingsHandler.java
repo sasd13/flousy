@@ -4,11 +4,10 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.activities.SettingsActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.form.FormException;
-import com.sasd13.flousy.form.SettingsForm;
+import com.sasd13.flousy.gui.form.FormException;
+import com.sasd13.flousy.gui.form.SettingsForm;
 import com.sasd13.flousy.util.Binder;
 import com.sasd13.flousy.util.EnumParameter;
-import com.sasd13.javaex.db.LayeredPersistor;
 
 import java.util.HashMap;
 import java.util.List;

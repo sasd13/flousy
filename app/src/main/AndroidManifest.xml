@@ -24,21 +24,12 @@
         </activity>
 
         <activity
-            android:name=".activities.LogInActivity"
-            android:label="@string/activity_login"
-            android:theme="@style/FlousyGreen.NoActionBar"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:launchMode="singleTask">
-        </activity>
-
-        <activity
             android:name=".activities.SignActivity"
             android:label="@string/activity_sign"
             android:theme="@style/FlousyGreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:launchMode="singleTask">
+            android:launchMode="singleInstance">
         </activity>
 
         <activity
@@ -48,48 +39,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:launchMode="singleTask">
-        </activity>
-
-        <activity
-            android:name=".activities.ConsultActivity"
-            android:label="@string/activity_consult"
-            android:theme="@style/FlousyGreen"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:launchMode="singleTop"
-            android:parentActivityName=".activities.HomeActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.HomeActivity" />
-        </activity>
-
-        <activity
-            android:name=".activities.fragment.operation.OperationFragment"
-            android:label="@string/activity_operation"
-            android:theme="@style/FlousyGreen"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:launchMode="singleTop"
-            android:parentActivityName=".activities.ConsultActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.ConsultActivity" />
-        </activity>
-
-        <activity
-            android:name=".activities.SettingsActivity"
-            android:label="@string/activity_settings"
-            android:theme="@style/FlousyBrown"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:launchMode="singleTop"
-            android:parentActivityName=".activities.HomeActivity">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.HomeActivity" />
         </activity>
 
     </application>

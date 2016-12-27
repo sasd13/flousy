@@ -7,13 +7,13 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.content.Extra;
-import com.sasd13.flousy.activities.fragment.account.AccountFragment;
-import com.sasd13.flousy.activities.fragment.operation.OperationFragment;
+import com.sasd13.flousy.util.Extra;
+import com.sasd13.flousy.fragment.account.AccountFragment;
+import com.sasd13.flousy.fragment.operation.OperationFragment;
 import com.sasd13.flousy.handler.ConsultHandler;
 import com.sasd13.flousy.util.SessionHelper;
 
-public class ConsultActivity extends MotherActivity {
+public class ConsultActivity extends MainActivity {
 
     private Account account;
 
@@ -33,16 +33,7 @@ public class ConsultActivity extends MotherActivity {
         listOperations();
     }
 
-    public void listOperations() {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.consult_fragment, AccountFragment.newInstance(account))
-                .commit();
-    }
 
-    public void newOperation() {
-        startFragment(OperationFragment.newInstance(account));
-    }
 
     private void startFragment(OperationFragment operationFragment) {
         getSupportFragmentManager()

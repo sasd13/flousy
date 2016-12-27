@@ -4,8 +4,8 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.dao.OperationDAO;
 import com.sasd13.flousy.dao.db.SQLiteDAO;
-import com.sasd13.flousy.activities.fragment.account.AccountFragment;
-import com.sasd13.javaex.db.DAOException;
+import com.sasd13.flousy.fragment.account.AccountFragment;
+import com.sasd13.javaex.dao.DAOException;
 
 import java.util.List;
 

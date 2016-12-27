@@ -1,4 +1,4 @@
-package com.sasd13.flousy.activities.fragment.operation;
+package com.sasd13.flousy.fragment.operation;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -24,7 +24,7 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.activities.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.form.OperationForm;
+import com.sasd13.flousy.gui.form.OperationForm;
 import com.sasd13.flousy.handler.OperationHandler;
 
 public class OperationFragment extends Fragment {

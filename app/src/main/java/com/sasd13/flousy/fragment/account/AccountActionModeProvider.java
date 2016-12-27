@@ -1,11 +1,11 @@
-package com.sasd13.flousy.activities.fragment.account;
+package com.sasd13.flousy.fragment.account;
 
 import android.content.DialogInterface;
 import android.support.annotation.IdRes;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.sasd13.androidex.context.ActionModeProvider;
+import com.sasd13.androidex.activity.actionbar.ActionModeProvider;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.gui.tab.OperationItemModel;

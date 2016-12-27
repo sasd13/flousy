@@ -8,8 +8,6 @@ import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.AccountDAO;
 import com.sasd13.flousy.dao.IPersistable;
 import com.sasd13.flousy.dao.db.condition.AccountConditionExpression;
-import com.sasd13.javaex.db.condition.ConditionBuilder;
-import com.sasd13.javaex.db.condition.ConditionBuilderException;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;

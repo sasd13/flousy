@@ -1,4 +1,4 @@
-package com.sasd13.flousy.form;
+package com.sasd13.flousy.gui.form;
 
 import android.content.Context;
 import android.text.InputType;
@@ -44,8 +44,7 @@ public class OperationForm extends Form {
         modelTitle.setHint(modelTitle.getLabel().toLowerCase());
         holder.add(new RecyclerHolderPair(modelTitle));
 
-        modelAmount = new TextItemModel();
-        modelAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        modelAmount = new TextItemModel(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         modelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
         holder.add(new RecyclerHolderPair(modelAmount));
 

@@ -7,8 +7,6 @@ import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.CustomerDAO;
 import com.sasd13.flousy.dao.IPersistable;
 import com.sasd13.flousy.dao.db.condition.CustomerConditionExpression;
-import com.sasd13.javaex.db.condition.ConditionBuilder;
-import com.sasd13.javaex.db.condition.ConditionBuilderException;
 
 import java.util.ArrayList;
 import java.util.List;

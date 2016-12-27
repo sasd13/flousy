@@ -11,11 +11,9 @@ import com.sasd13.flousy.dao.AccountDeepReader;
 import com.sasd13.flousy.dao.CustomerDAO;
 import com.sasd13.flousy.dao.OperationDAO;
 import com.sasd13.flousy.dao.OperationDeepReader;
-import com.sasd13.javaex.db.DAOException;
-import com.sasd13.javaex.db.DeepReader;
-import com.sasd13.javaex.db.IEntityDAO;
-import com.sasd13.javaex.db.ILayeredDAO;
-import com.sasd13.javaex.db.ITransactional;
+import com.sasd13.javaex.dao.DeepReader;
+import com.sasd13.javaex.dao.ILayeredDAO;
+import com.sasd13.javaex.dao.ISession;
 
 public class SQLiteDAO implements ILayeredDAO, ITransactional {
 
@@ -86,20 +84,20 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
     public void rollback() {}
 
     @Override
-    public <T> IEntityDAO<T> getEntityDAO(Class<T> mClass) throws DAOException {
+    public <T> ISession<T> getEntityDAO(Class<T> mClass) {
         if (Customer.class.equals(mClass)) {
-            return (IEntityDAO<T>) customerDAO;
+            return (ISession<T>) customerDAO;
         } else if (Account.class.equals(mClass)) {
-            return (IEntityDAO<T>) accountDAO;
+            return (ISession<T>) accountDAO;
         } else if (Operation.class.equals(mClass)) {
-            return (IEntityDAO<T>) operationDAO;
+            return (ISession<T>) operationDAO;
         } else {
             return null;
         }
     }
 
     @Override
-    public <T> DeepReader<T> getDeepReader(Class<T> mClass) throws DAOException {
+    public <T> DeepReader<T> getDeepReader(Class<T> mClass) {
         if (Account.class.equals(mClass)) {
             return (DeepReader<T>) accountDeepReader;
         } else if (Operation.class.equals(mClass)) {

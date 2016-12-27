@@ -1,4 +1,4 @@
-package com.sasd13.flousy.content;
+package com.sasd13.flousy.util;
 
 public interface Extra {
 
