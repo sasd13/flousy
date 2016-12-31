@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sasd13.androidex.gui.form.Form;
+import com.sasd13.androidex.gui.form.FormException;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
@@ -19,12 +19,14 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activities.SignActivity;
+import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.fragment.ISignController;
+import com.sasd13.flousy.gui.form.SignForm;
 
 public class SignUpFragment extends Fragment {
 
     private ISignController controller;
-    private Form formSign;
+    private SignForm signForm;
 
     public static SignUpFragment newInstance() {
         return new SignUpFragment();
@@ -57,12 +59,12 @@ public class SignUpFragment extends Fragment {
     }
 
     private void buildFormSign(View view) {
-        formSign = new Form();
+        signForm = new SignForm(getContext());
 
         Recycler form = RecyclerFactory.makeBuilder(EnumFormType.FORM).build((RecyclerView) view.findViewById(R.id.sign_recyclerview));
         form.addDividerItemDecoration();
 
-        RecyclerHelper.addAll(form, formSign.getHolder());
+        RecyclerHelper.addAll(form, signForm.getHolder());
     }
 
     @Override
@@ -86,7 +88,25 @@ public class SignUpFragment extends Fragment {
     }
 
     private void sign() {
-        controller.signUp();
+        try {
+            if (!signForm.isTermsAccepted()) {
+                controller.displayMessage(getString(R.string.form_sign_message_error_terms));
+            } else {
+                controller.signUp(getCustomerFromForm());
+            }
+        } catch (FormException e) {
+            controller.displayMessage(e.getMessage());
+        }
+    }
+
+    private Customer getCustomerFromForm() throws FormException {
+        Customer customer = new Customer();
+
+        customer.setFirstName(signForm.getFirstName());
+        customer.setLastName(signForm.getLastName());
+        customer.setEmail(signForm.getEmail());
+
+        return customer;
     }
 
     @Override

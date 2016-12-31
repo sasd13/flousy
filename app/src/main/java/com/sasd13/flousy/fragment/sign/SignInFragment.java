@@ -18,7 +18,7 @@ import com.sasd13.flousy.fragment.ISignController;
 public class SignInFragment extends Fragment {
 
     private static class LogInForm {
-        public EditText editTextEmail, editTextPassword;
+        private EditText editTextEmail, editTextPassword;
     }
 
     private ISignController controller;

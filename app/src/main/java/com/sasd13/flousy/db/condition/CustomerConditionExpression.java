@@ -1,6 +1,6 @@
-package com.sasd13.flousy.dao.db.condition;
+package com.sasd13.flousy.db.condition;
 
-import com.sasd13.flousy.dao.CustomerDAO;
+import com.sasd13.flousy.db.dao.ICustomerDAO;
 import com.sasd13.flousy.util.EnumParameter;
 
 /**
@@ -12,16 +12,16 @@ public class CustomerConditionExpression implements IConditionExpression {
     public String build(String key, String value) throws ConditionBuilderException {
         if (EnumParameter.ID.getName().equalsIgnoreCase(key)) {
             try {
-                return CustomerDAO.COLUMN_ID + " = " + Long.parseLong(value);
+                return ICustomerDAO.COLUMN_ID + " = " + Long.parseLong(value);
             } catch (NumberFormatException e) {
                 throw new ConditionBuilderException("Customer key '" + key + "' parameter parsing error");
             }
         } else if (EnumParameter.FIRSTNAME.getName().equalsIgnoreCase(key)) {
-            return CustomerDAO.COLUMN_FIRSTNAME + " = '" + value + "'";
+            return ICustomerDAO.COLUMN_FIRSTNAME + " = '" + value + "'";
         } else if (EnumParameter.LASTNAME.getName().equalsIgnoreCase(key)) {
-            return CustomerDAO.COLUMN_LASTNAME + " = '" + value + "'";
+            return ICustomerDAO.COLUMN_LASTNAME + " = '" + value + "'";
         } else if (EnumParameter.EMAIL.getName().equalsIgnoreCase(key)) {
-            return CustomerDAO.COLUMN_EMAIL + " = '" + value + "'";
+            return ICustomerDAO.COLUMN_EMAIL + " = '" + value + "'";
         } else {
             throw new ConditionBuilderException("Customer key '" + key + "' is not a declared parameter");
         }

@@ -3,12 +3,12 @@ package com.sasd13.flousy.gui.form;
 import android.content.Context;
 import android.text.InputType;
 
+import com.sasd13.androidex.gui.form.FormException;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.form.BooleanItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.PasswordItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.bean.Customer;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -26,22 +26,19 @@ public class SignForm extends Form {
 
         String title = context.getResources().getString(R.string.title_identity);
 
-        modelFirstName = new TextItemModel();
-        modelFirstName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        modelFirstName = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         modelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
         modelFirstName.setHint(modelFirstName.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelFirstName));
 
-        modelLastName = new TextItemModel();
-        modelLastName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        modelLastName = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         modelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
         modelLastName.setHint(modelLastName.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelLastName));
 
         title = context.getResources().getString(R.string.drawer_header_account);
 
-        modelEmail = new TextItemModel();
-        modelEmail.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        modelEmail = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         modelEmail.setLabel(context.getResources().getString(R.string.label_email));
         modelEmail.setHint(modelEmail.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelEmail));
@@ -55,59 +52,39 @@ public class SignForm extends Form {
         holder.add(title, new RecyclerHolderPair(modelTerms));
     }
 
-    public Customer getEditable() throws FormException {
-        validForm();
-
-        Customer customer = new Customer();
-
-        customer.setFirstName(modelFirstName.getValue().trim());
-        customer.setLastName(modelLastName.getValue().trim());
-        customer.setEmail(modelEmail.getValue().trim());
-
-        return customer;
-    }
-
-    private void validForm() throws FormException {
-        validFirstName();
-        validLastName();
-        validEmail();
-        validPassword();
-        validTerms();
-    }
-
-    private void validFirstName() throws FormException {
+    public String getFirstName() throws FormException {
         if (StringUtils.isBlank(modelFirstName.getValue())) {
             throw new FormException(context, R.string.form_sign_message_error_firstname);
         }
+
+        return modelFirstName.getValue().trim();
     }
 
-    private void validLastName() throws FormException {
+    public String getLastName() throws FormException {
         if (StringUtils.isBlank(modelLastName.getValue())) {
             throw new FormException(context, R.string.form_sign_message_error_lastname);
         }
+
+        return modelLastName.getValue().trim();
     }
 
-    private void validEmail() throws FormException {
+    public String getEmail() throws FormException {
         if (StringUtils.isBlank(modelEmail.getValue())) {
             throw new FormException(context, R.string.form_sign_message_error_email);
         }
-    }
 
-    private void validPassword() throws FormException {
-        if (StringUtils.isBlank(modelPassword.getValue())) {
-            throw new FormException(context, R.string.form_sign_message_error_password);
-        }
-    }
-
-    private void validTerms() throws FormException {
-        if (!modelTerms.getValue()) {
-            throw new FormException(context, R.string.form_sign_message_error_terms);
-        }
+        return modelEmail.getValue().trim();
     }
 
     public String getPassword() throws FormException {
-        validPassword();
+        if (StringUtils.isBlank(modelPassword.getValue())) {
+            throw new FormException(context, R.string.form_sign_message_error_password);
+        }
 
         return modelPassword.getValue();
+    }
+
+    public boolean isTermsAccepted() {
+        return modelTerms.getValue();
     }
 }

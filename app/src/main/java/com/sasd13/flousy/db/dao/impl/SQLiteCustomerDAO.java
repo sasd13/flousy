@@ -1,73 +1,71 @@
-package com.sasd13.flousy.dao.db;
+package com.sasd13.flousy.db.dao.impl;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.dao.AccountDAO;
-import com.sasd13.flousy.dao.IPersistable;
-import com.sasd13.flousy.dao.db.condition.AccountConditionExpression;
+import com.sasd13.flousy.db.dao.ICustomerDAO;
+import com.sasd13.flousy.db.condition.CustomerConditionExpression;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements AccountDAO, IPersistable<Account> {
+public class SQLiteCustomerDAO extends SQLiteEntityDAO<Customer> implements ICustomerDAO, IPersistable<Customer> {
 
     @Override
-    protected ContentValues getContentValues(Account account) {
+    protected ContentValues getContentValues(Customer customer) {
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_DATEOPENING, String.valueOf(account.getDateOpening()));
-        values.put(COLUMN_CUSTOMER_ID, account.getCustomer().getId());
+        values.put(COLUMN_FIRSTNAME, customer.getFirstName());
+        values.put(COLUMN_LASTNAME, customer.getLastName());
+        values.put(COLUMN_EMAIL, customer.getEmail());
 
         return values;
     }
 
     @Override
-    protected Account getCursorValues(Cursor cursor) {
+    protected Customer getCursorValues(Cursor cursor) {
         Customer customer = new Customer();
-        customer.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_CUSTOMER_ID)));
 
-        Account account = new Account(customer);
-        account.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
-        account.setDateOpening(Timestamp.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEOPENING))));
+        customer.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
+        customer.setFirstName(cursor.getString(cursor.getColumnIndex(COLUMN_FIRSTNAME)));
+        customer.setLastName(cursor.getString(cursor.getColumnIndex(COLUMN_LASTNAME)));
+        customer.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)));
 
-        return account;
+        return customer;
     }
 
     @Override
-    public long insert(Account account) {
-        long id = db.insert(TABLE, null, getContentValues(account));
+    public long insert(Customer customer) {
+        long id = db.insert(TABLE, null, getContentValues(customer));
 
-        account.setId(id);
+        customer.setId(id);
 
         return id;
     }
 
     @Override
-    public void update(Account account) {
-        db.update(TABLE, getContentValues(account), COLUMN_ID + " = ?", new String[]{ String.valueOf(account.getId()) });
+    public void update(Customer customer) {
+        db.update(TABLE, getContentValues(customer), COLUMN_ID + " = ?", new String[]{ String.valueOf(customer.getId()) });
     }
 
     @Override
-    public void delete(Account account) {
+    public void delete(Customer customer) {
         StringBuilder builder = new StringBuilder();
         builder.append("UPDATE ");
         builder.append(TABLE);
         builder.append(" SET ");
         builder.append(COLUMN_DELETED + " = 1");
         builder.append(" WHERE ");
-        builder.append(COLUMN_ID + " = " + account.getId());
+        builder.append(COLUMN_ID + " = " + customer.getId());
 
         db.execSQL(builder.toString());
     }
 
     @Override
-    public Account select(long id) {
-        Account account = null;
+    public Customer select(long id) {
+        Customer customer = null;
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -79,23 +77,23 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
 
         Cursor cursor = db.rawQuery(builder.toString(), new String[]{ String.valueOf(id), String.valueOf(0) });
         if (cursor.moveToNext()) {
-            account = getCursorValues(cursor);
+            customer = getCursorValues(cursor);
         }
         cursor.close();
 
-        return account;
+        return customer;
     }
 
     @Override
-    public List<Account> select(Map<String, String[]> parameters) {
-        List<Account> list = new ArrayList<>();
+    public List<Customer> select(Map<String, String[]> parameters) {
+        List<Customer> list = new ArrayList<>();
 
         try {
             StringBuilder builder = new StringBuilder();
             builder.append("SELECT * FROM ");
             builder.append(TABLE);
             builder.append(" WHERE ");
-            builder.append(ConditionBuilder.parse(parameters, AccountConditionExpression.class));
+            builder.append(ConditionBuilder.parse(parameters, CustomerConditionExpression.class));
             builder.append(" AND ");
             builder.append(COLUMN_DELETED + " = ?");
 
@@ -112,8 +110,8 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
     }
 
     @Override
-    public List<Account> selectAll() {
-        List<Account> list = new ArrayList<>();
+    public List<Customer> selectAll() {
+        List<Customer> list = new ArrayList<>();
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -131,11 +129,11 @@ public class SQLiteAccountDAO extends SQLiteEntityDAO<Account> implements Accoun
     }
 
     @Override
-    public void persist(Account account) {
-        if (select(account.getId()) == null) {
-            insert(account);
+    public void persist(Customer customer) {
+        if (select(customer.getId()) == null) {
+            insert(customer);
         } else {
-            update(account);
+            update(customer);
         }
     }
 }

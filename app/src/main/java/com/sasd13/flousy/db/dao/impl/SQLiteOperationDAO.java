@@ -1,4 +1,4 @@
-package com.sasd13.flousy.dao.db;
+package com.sasd13.flousy.db.dao.impl;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -6,16 +6,16 @@ import android.database.Cursor;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.EnumOperationType;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.dao.IPersistable;
-import com.sasd13.flousy.dao.OperationDAO;
-import com.sasd13.flousy.dao.db.condition.OperationConditionExpression;
+import com.sasd13.flousy.db.dao.IOperationDAO;
+import com.sasd13.flousy.db.condition.OperationConditionExpression;
+import com.sasd13.flousy.db.dao.impl.SQLiteEntityDAO;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements OperationDAO, IPersistable<Operation> {
+public class SQLiteOperationDAO extends SQLiteEntityDAO<Operation> implements IOperationDAO, IPersistable<Operation> {
 
     @Override
     protected ContentValues getContentValues(Operation operation) {

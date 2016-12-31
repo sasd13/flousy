@@ -1,4 +1,4 @@
-package com.sasd13.flousy.dao;
+package com.sasd13.flousy.db.dao;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
@@ -13,10 +13,10 @@ import java.util.Map;
 
 public class AccountDeepReader extends DeepReader<Account> {
 
-    private CustomerDAO customerDAO;
-    private OperationDAO operationDAO;
+    private ICustomerDAO customerDAO;
+    private IOperationDAO operationDAO;
 
-    public AccountDeepReader(ISession<Account> entityDAO, CustomerDAO customerDAO, OperationDAO operationDAO) {
+    public AccountDeepReader(ISession<Account> entityDAO, ICustomerDAO customerDAO, IOperationDAO operationDAO) {
         super(entityDAO);
 
         this.customerDAO = customerDAO;

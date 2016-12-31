@@ -1,6 +1,5 @@
-package com.sasd13.flousy.handler;
+package com.sasd13.flousy.service;
 
-import com.sasd13.flousy.activities.LogInActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.db.SQLiteDAO;
 import com.sasd13.flousy.db.dao.impl.SQLitePasswordDAO;
@@ -12,21 +11,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by ssaidali2 on 03/07/2016.
+ * Created by ssaidali2 on 31/12/2016.
  */
-public class LogInHandler {
 
-    private LogInActivity logInActivity;
+public class LogInService {
+
     private SQLiteDAO dao;
     private Map<String, String[]> parameters;
 
-    public LogInHandler(LogInActivity logInActivity) {
-        this.logInActivity = logInActivity;
-        dao = SQLiteDAO.create(logInActivity);
+    public LogInService() {
         parameters = new HashMap<>();
     }
 
-    public void logIn(String email, String password) {
+    public boolean logIn(String email, String password) {
         parameters.clear();
         parameters.put(EnumParameter.EMAIL.getName(), new String[]{ email });
 
@@ -52,7 +49,7 @@ public class LogInHandler {
         }
     }
 
-    private boolean passwordMatches(SQLiteDAO dao, Customer customer, String password) {
+    private boolean passwordMatches(Customer customer, String password) {
         return new SQLitePasswordDAO(dao.getDB()).contains(password, customer.getId());
     }
 }

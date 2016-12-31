@@ -4,30 +4,27 @@ import java.sql.Timestamp;
 
 public class Operation {
 
-    private long id;
+    private EnumOperationType type;
+    private double amount;
     private Timestamp dateRealization;
     private String title;
-    private double amount;
-    private EnumOperationType type;
+
     private Account account;
 
-    public Operation() {
-        dateRealization = new Timestamp(System.currentTimeMillis());
+    public EnumOperationType getType() {
+        return type;
     }
 
-    public Operation(Account account) {
-        this();
-
-        this.account = account;
-        account.addOperation(this);
+    public void setType(EnumOperationType type) {
+        this.type = type;
     }
 
-    public long getId() {
-        return id;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     public Timestamp getDateRealization() {
@@ -46,22 +43,6 @@ public class Operation {
         this.title = title;
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public EnumOperationType getType() {
-        return type;
-    }
-
-    public void setType(EnumOperationType type) {
-        this.type = type;
-    }
-
     public Account getAccount() {
         return account;
     }
@@ -74,11 +55,10 @@ public class Operation {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Operation [");
-        builder.append("id=" + getId());
+        builder.append("type=" + getType());
+        builder.append(", amount=" + getAmount());
         builder.append(", dateRealization=" + String.valueOf(getDateRealization()));
         builder.append(", title=" + getTitle());
-        builder.append(", amount=" + getAmount());
-        builder.append(", type=" + getType());
         builder.append("]");
 
         return builder.toString();

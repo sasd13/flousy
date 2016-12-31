@@ -1,4 +1,4 @@
-package com.sasd13.flousy.dao.db;
+package com.sasd13.flousy.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,11 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.dao.AccountDAO;
-import com.sasd13.flousy.dao.AccountDeepReader;
-import com.sasd13.flousy.dao.CustomerDAO;
-import com.sasd13.flousy.dao.OperationDAO;
-import com.sasd13.flousy.dao.OperationDeepReader;
+import com.sasd13.flousy.db.dao.IAccountDAO;
+import com.sasd13.flousy.db.dao.AccountDeepReader;
+import com.sasd13.flousy.db.dao.ICustomerDAO;
+import com.sasd13.flousy.db.dao.IOperationDAO;
+import com.sasd13.flousy.db.dao.OperationDeepReader;
+import com.sasd13.flousy.db.dao.impl.SQLiteAccountDAO;
+import com.sasd13.flousy.db.dao.impl.SQLiteCustomerDAO;
+import com.sasd13.flousy.db.dao.impl.SQLiteEntityDAO;
+import com.sasd13.flousy.db.dao.impl.SQLiteOperationDAO;
 import com.sasd13.javaex.dao.DeepReader;
 import com.sasd13.javaex.dao.ILayeredDAO;
 import com.sasd13.javaex.dao.ISession;
@@ -20,9 +24,9 @@ public class SQLiteDAO implements ILayeredDAO, ITransactional {
     private SQLiteDBHandler dbHandler;
     private SQLiteDatabase db;
 
-    protected CustomerDAO customerDAO;
-    protected AccountDAO accountDAO;
-    protected OperationDAO operationDAO;
+    protected ICustomerDAO customerDAO;
+    protected IAccountDAO accountDAO;
+    protected IOperationDAO operationDAO;
 
     private AccountDeepReader accountDeepReader;
     private OperationDeepReader operationDeepReader;

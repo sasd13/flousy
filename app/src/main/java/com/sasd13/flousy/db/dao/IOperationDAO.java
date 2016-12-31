@@ -1,9 +1,9 @@
-package com.sasd13.flousy.dao;
+package com.sasd13.flousy.db.dao;
 
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.javaex.dao.ISession;
 
-public interface OperationDAO extends ISession<Operation> {
+public interface IOperationDAO extends ISession<Operation> {
 
     String TABLE = "operations";
     String COLUMN_ID = "_id";

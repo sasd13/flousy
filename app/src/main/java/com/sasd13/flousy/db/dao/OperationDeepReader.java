@@ -1,4 +1,4 @@
-package com.sasd13.flousy.dao;
+package com.sasd13.flousy.db.dao;
 
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
@@ -7,9 +7,9 @@ import com.sasd13.javaex.dao.ISession;
 
 public class OperationDeepReader extends DeepReader<Operation> {
 
-    private AccountDAO accountDAO;
+    private IAccountDAO accountDAO;
 
-    public OperationDeepReader(ISession<Operation> entityDAO, AccountDAO accountDAO) {
+    public OperationDeepReader(ISession<Operation> entityDAO, IAccountDAO accountDAO) {
         super(entityDAO);
 
         this.accountDAO = accountDAO;

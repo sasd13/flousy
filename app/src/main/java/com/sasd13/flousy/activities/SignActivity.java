@@ -8,6 +8,7 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.controller.SignController;
 import com.sasd13.flousy.fragment.IController;
 import com.sasd13.flousy.fragment.ISignController;
+import com.sasd13.flousy.fragment.sign.SignInFragment;
 
 public class SignActivity extends AppCompatActivity {
 
@@ -27,7 +28,10 @@ public class SignActivity extends AppCompatActivity {
     }
 
     private void showSignIn() {
-        signController.entry();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.layout_container_fragment, SignInFragment.newInstance())
+                .commit();
     }
 
     public void startFragment(Fragment fragment) {

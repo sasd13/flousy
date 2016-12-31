@@ -2,8 +2,8 @@ package com.sasd13.flousy.handler;
 
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.dao.OperationDAO;
-import com.sasd13.flousy.dao.db.SQLiteDAO;
+import com.sasd13.flousy.db.dao.IOperationDAO;
+import com.sasd13.flousy.db.SQLiteDAO;
 import com.sasd13.flousy.fragment.account.AccountFragment;
 import com.sasd13.javaex.dao.DAOException;
 
@@ -48,7 +48,7 @@ public class AccountHandler {
     }
 
     private void performDelete(List<Operation> operations) throws DAOException {
-        OperationDAO operationDAO = (OperationDAO) dao.getEntityDAO(Operation.class);
+        IOperationDAO operationDAO = (IOperationDAO) dao.getEntityDAO(Operation.class);
 
         for (Operation operation : operations) {
             operation.getAccount().removeOperation(operation);

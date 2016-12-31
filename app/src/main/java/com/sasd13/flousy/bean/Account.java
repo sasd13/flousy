@@ -6,28 +6,20 @@ import java.util.List;
 
 public class Account {
 
-    private long id;
+    private String number;
     private Timestamp dateOpening;
     private List<Operation> operations;
-    private Customer customer;
 
     public Account() {
-        dateOpening = new Timestamp(System.currentTimeMillis());
         operations = new ArrayList<>();
     }
 
-    public Account(Customer customer) {
-        this();
-
-        this.customer = customer;
+    public String getNumber() {
+        return number;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public Timestamp getDateOpening() {
@@ -38,26 +30,12 @@ public class Account {
         this.dateOpening = dateOpening;
     }
 
-    public Operation[] getOperations() {
-        return operations.toArray(new Operation[operations.size()]);
+    public List<Operation> getOperations() {
+        return operations;
     }
 
-    boolean addOperation(Operation operation) {
-        return !operations.contains(operation) && operations.add(operation);
-    }
-
-    public boolean removeOperation(Operation operation) {
-        boolean removed = operations.remove(operation);
-
-        if (removed) {
-            operation.setAccount(null);
-        }
-
-        return removed;
-    }
-
-    public Customer getCustomer() {
-        return customer;
+    public void setOperations(List<Operation> operations) {
+        this.operations = operations;
     }
 
     public double getSold() {
@@ -75,7 +53,7 @@ public class Account {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Account [");
-        builder.append("id=" + getId());
+        builder.append("number=" + getNumber());
         builder.append(", dateOpening=" + String.valueOf(getDateOpening()));
         builder.append("]");
 

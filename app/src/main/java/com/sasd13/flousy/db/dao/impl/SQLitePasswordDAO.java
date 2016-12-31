@@ -1,4 +1,4 @@
-package com.sasd13.flousy.dao.db;
+package com.sasd13.flousy.db.dao.impl;
 
 import android.content.ContentValues;
 import android.database.Cursor;

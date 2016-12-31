@@ -2,21 +2,7 @@ package com.sasd13.flousy.bean;
 
 public class Customer {
 
-    private long id;
     private String firstName, lastName, email;
-    private Account account;
-
-    public Customer() {
-        account = new Account(this);
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -42,20 +28,14 @@ public class Customer {
         this.email = email;
     }
 
-    public Account getAccount() {
-        return account;
-    }
-
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Customer [");
-        builder.append("id=" + getId());
-        builder.append(", firstName=" + getFirstName());
+        builder.append("firstName=" + getFirstName());
         builder.append(", lastName=" + getLastName());
         builder.append(", email=" + getEmail());
-        builder.append(", account=" + getAccount());
         builder.append("]");
 
         return builder.toString();
