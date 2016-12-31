@@ -8,7 +8,6 @@ public class Operation {
     private double amount;
     private Timestamp dateRealization;
     private String title;
-
     private Account account;
 
     public EnumOperationType getType() {

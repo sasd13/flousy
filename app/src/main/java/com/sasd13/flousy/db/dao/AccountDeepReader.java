@@ -13,31 +13,25 @@ import java.util.Map;
 
 public class AccountDeepReader extends DeepReader<Account> {
 
-    private ICustomerDAO customerDAO;
     private IOperationDAO operationDAO;
+    private Map<String, String[]> parameters;
 
-    public AccountDeepReader(ISession<Account> entityDAO, ICustomerDAO customerDAO, IOperationDAO operationDAO) {
-        super(entityDAO);
+    public AccountDeepReader(IAccountDAO accountDAO, IOperationDAO operationDAO) {
+        super(accountDAO);
 
-        this.customerDAO = customerDAO;
         this.operationDAO = operationDAO;
+        parameters = new HashMap<>();
     }
 
     @Override
     protected void retrieveData(Account account) {
-        Customer customer = customerDAO.select(account.getCustomer().getId());
-        account.getCustomer().setFirstName(customer.getFirstName());
-        account.getCustomer().setLastName(customer.getLastName());
-        account.getCustomer().setEmail(customer.getEmail());
-
-        Map<String, String[]> parameters = new HashMap<>();
+        parameters.clear();
         parameters.put(EnumParameter.ACCOUNT.getName(), new String[]{ String.valueOf(account.getId()) });
 
         List<Operation> operations = operationDAO.select(parameters);
         Operation operationToAdd;
         for (Operation operation : operations) {
-            operationToAdd = new Operation(account);
-            operationToAdd.setId(operation.getId());
+            operationToAdd = new Operation();
             operationToAdd.setDateRealization(operation.getDateRealization());
             operationToAdd.setTitle(operation.getTitle());
             operationToAdd.setAmount(operation.getAmount());
