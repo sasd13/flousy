@@ -2,9 +2,9 @@ package com.sasd13.flousy.controller;
 
 import com.sasd13.flousy.activities.MainActivity;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.fragment.IAccountController;
-import com.sasd13.flousy.fragment.account.AccountFragment;
-import com.sasd13.flousy.fragment.operation.OperationFragment;
+import com.sasd13.flousy.view.fragment.IAccountController;
+import com.sasd13.flousy.view.fragment.account.AccountFragment;
+import com.sasd13.flousy.view.fragment.operation.OperationFragment;
 
 /**
  * Created by ssaidali2 on 27/12/2016.

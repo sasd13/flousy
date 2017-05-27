@@ -6,13 +6,13 @@
     android:layout_height="match_parent">
 
     <ViewStub
-        android:id="@+id/actionbar_viewstub"
+        android:accountID="@+accountID/actionbar_viewstub"
         android:layout="@layout/actionbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionbar_height"/>
 
     <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drawer_layout"
+        android:accountID="@+accountID/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -23,24 +23,24 @@
             android:layout_height="match_parent">
 
             <ViewStub
-                android:id="@+id/activitybar_viewstub"
+                android:accountID="@+accountID/activitybar_viewstub"
                 android:layout="@layout/activitybar_titled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"/>
 
             <ViewStub
-                android:id="@+id/activitycontent_viewstub"
+                android:accountID="@+accountID/activitycontent_viewstub"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:layout_below="@id/activitybar_viewstub"/>
+                android:layout_below="@accountID/activitybar_viewstub"/>
 
         </RelativeLayout>
 
         <!-- The navigation drawer -->
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/drawer_view"
+            android:accountID="@+accountID/drawer_view"
             android:layout_width="@dimen/drawer_width"
             android:layout_height="match_parent"
             android:layout_gravity="right"

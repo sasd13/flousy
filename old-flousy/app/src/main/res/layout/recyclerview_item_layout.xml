@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ViewStub
-        android:id="@+id/recyclerview_item_layout_viewstub"
+        android:accountID="@+accountID/recyclerview_item_layout_viewstub"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>

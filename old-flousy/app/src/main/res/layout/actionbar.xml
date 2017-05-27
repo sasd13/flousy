@@ -5,7 +5,7 @@
     android:layout_height="@dimen/actionbar_height">
 
     <ImageButton
-        android:id="@+id/actionbar_imagebutton_actionup"
+        android:accountID="@+accountID/actionbar_imagebutton_actionup"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
@@ -18,12 +18,12 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_toRightOf="@id/actionbar_imagebutton_actionup"
-        android:layout_alignBaseline="@id/actionbar_imagebutton_actionup"
+        android:layout_toRightOf="@accountID/actionbar_imagebutton_actionup"
+        android:layout_alignBaseline="@accountID/actionbar_imagebutton_actionup"
         android:gravity="left|center_vertical">
 
         <TextView
-            android:id="@+id/actionbar_textview_title"
+            android:accountID="@+accountID/actionbar_textview_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/actionbar_textview_title"
@@ -32,7 +32,7 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/actionbar_textview_subtitle"
+            android:accountID="@+accountID/actionbar_textview_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/actionbar_textview_subtitle"
@@ -49,7 +49,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/actionbar_imagebutton_actionsecond"
+            android:accountID="@+accountID/actionbar_imagebutton_actionsecond"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingRight="@dimen/actionbar_imagebutton_action_horizontalpadding"
@@ -57,7 +57,7 @@
             android:background="@color/transparent"/>
 
         <ImageButton
-            android:id="@+id/actionbar_imagebutton_actionfirst"
+            android:accountID="@+accountID/actionbar_imagebutton_actionfirst"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingRight="@dimen/actionbar_imagebutton_action_horizontalpadding"
@@ -65,7 +65,7 @@
             android:background="@color/transparent"/>
 
         <ImageButton
-            android:id="@+id/actionbar_imagebutton_actiondrawer"
+            android:accountID="@+accountID/actionbar_imagebutton_actiondrawer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/actionbar_imagebutton_action_horizontalpadding"

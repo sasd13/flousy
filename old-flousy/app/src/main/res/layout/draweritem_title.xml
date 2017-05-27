@@ -7,7 +7,7 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/draweritem_textview"
+        android:accountID="@+accountID/draweritem_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activitycontent_padding"
@@ -19,7 +19,7 @@
         android:textColor="@color/black"/>
 
     <View
-        android:id="@+id/draweritem_title_dividerview"
+        android:accountID="@+accountID/draweritem_title_dividerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dividerview_height_medium"
         android:layout_marginTop="@dimen/dividerview_margintop"

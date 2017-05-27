@@ -2,7 +2,7 @@ package com.sasd13.flousy.controller;
 
 import com.sasd13.flousy.activities.MainActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.fragment.ISettingsController;
+import com.sasd13.flousy.view.fragment.ISettingsController;
 
 /**
  * Created by ssaidali2 on 27/12/2016.

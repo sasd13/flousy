@@ -20,13 +20,13 @@ import com.sasd13.flousy.R;
 import com.sasd13.flousy.controller.AccountController;
 import com.sasd13.flousy.controller.LogOutController;
 import com.sasd13.flousy.controller.SettingsController;
-import com.sasd13.flousy.fragment.HomeFragment;
-import com.sasd13.flousy.fragment.IAccountController;
-import com.sasd13.flousy.fragment.IController;
-import com.sasd13.flousy.fragment.ILogOutController;
-import com.sasd13.flousy.fragment.ISettingsController;
-import com.sasd13.flousy.gui.browser.Browser;
-import com.sasd13.flousy.gui.browser.BrowserItemModel;
+import com.sasd13.flousy.view.fragment.HomeFragment;
+import com.sasd13.flousy.view.fragment.IAccountController;
+import com.sasd13.flousy.view.fragment.IController;
+import com.sasd13.flousy.view.fragment.ILogOutController;
+import com.sasd13.flousy.view.fragment.ISettingsController;
+import com.sasd13.flousy.view.gui.browser.Browser;
+import com.sasd13.flousy.view.gui.browser.BrowserItemModel;
 import com.sasd13.flousy.util.SessionHelper;
 
 import java.util.ArrayList;
@@ -169,7 +169,7 @@ public class MainActivity extends DrawerActivity {
 
     private void exit() {
         final WaitDialog waitDialog = new WaitDialog(this);
-        final Intent intent = new Intent(this, SignActivity.class);
+        final Intent intent = new Intent(this, IdentityActivity.class);
 
         new TaskPlanner(new Runnable() {
             @Override

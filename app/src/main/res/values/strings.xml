@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Activity -->
-    <string name="activity_splashscreen">@string/app_name</string>
-    <string name="activity_sign">Sign</string>
-
     <!-- Application -->
     <string name="app_name">Flousy</string>
 

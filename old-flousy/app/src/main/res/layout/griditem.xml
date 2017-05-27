@@ -7,7 +7,7 @@
     android:gravity="center">
 
     <ImageView
-        android:id="@+id/griditem_imageview"
+        android:accountID="@+accountID/griditem_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/griditem_verticalmargin_external"
@@ -15,7 +15,7 @@
         android:src="@drawable/griditem"/>
 
     <TextView
-        android:id="@+id/griditem_textview"
+        android:accountID="@+accountID/griditem_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

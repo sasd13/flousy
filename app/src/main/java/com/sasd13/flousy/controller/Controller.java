@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.sasd13.flousy.activities.MainActivity;
-import com.sasd13.flousy.fragment.IController;
+import com.sasd13.flousy.view.fragment.IController;
 
 /**
  * Created by ssaidali2 on 04/12/2016.

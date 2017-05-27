@@ -6,7 +6,7 @@
     android:padding="@dimen/activitycontent_padding">
 
     <ImageView
-        android:id="@+id/splashscreen_imageview_logo"
+        android:accountID="@+accountID/splashscreen_imageview_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -14,7 +14,7 @@
 
     <ProgressBar
         style="?android:attr/progressBarStyleSmall"
-        android:id="@+id/splashscreen_progressbar"
+        android:accountID="@+accountID/splashscreen_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

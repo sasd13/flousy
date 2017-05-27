@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sasd13.flousy"
     android:installLocation="auto">
 
@@ -11,11 +10,10 @@
 
         <activity
             android:name=".activities.SplashScreenActivity"
-            android:label="@string/activity_splashscreen"
-            android:theme="@style/FlousyGreen.NoActionBar"
+            android:noHistory="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:noHistory="true">
+            android:theme="@style/FlousyGreen.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,13 +22,11 @@
         </activity>
 
         <activity
-            android:name=".activities.SignActivity"
-            android:label="@string/activity_sign"
-            android:theme="@style/FlousyGreen"
+            android:name=".activities.IdentityActivity"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:launchMode="singleInstance">
-        </activity>
+            android:theme="@style/FlousyGreen"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
     </application>
 

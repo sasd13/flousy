@@ -36,7 +36,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         if (SessionHelper.isLogged(this)) {
             goToActivity(MainActivity.class);
         } else {
-            goToActivity(SignActivity.class);
+            goToActivity(IdentityActivity.class);
         }
     }
 

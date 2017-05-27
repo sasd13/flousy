@@ -1,14 +1,22 @@
 package com.sasd13.flousy.bean;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Operation {
 
+    private String operationID, title;
     private EnumOperationType type;
     private double amount;
-    private Timestamp dateRealization;
-    private String title;
+    private Date dateRealization;
     private Account account;
+
+    public String getOperationID() {
+        return operationID;
+    }
+
+    public void setOperationID(String operationID) {
+        this.operationID = operationID;
+    }
 
     public EnumOperationType getType() {
         return type;
@@ -26,11 +34,11 @@ public class Operation {
         this.amount = amount;
     }
 
-    public Timestamp getDateRealization() {
+    public Date getDateRealization() {
         return dateRealization;
     }
 
-    public void setDateRealization(Timestamp dateRealization) {
+    public void setDateRealization(Date dateRealization) {
         this.dateRealization = dateRealization;
     }
 
@@ -46,7 +54,7 @@ public class Operation {
         return account;
     }
 
-    void setAccount(Account account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
 
@@ -54,7 +62,8 @@ public class Operation {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Operation [");
-        builder.append("type=" + getType());
+        builder.append("operationID=" + getOperationID());
+        builder.append(", type=" + getType());
         builder.append(", amount=" + getAmount());
         builder.append(", dateRealization=" + String.valueOf(getDateRealization()));
         builder.append(", title=" + getTitle());

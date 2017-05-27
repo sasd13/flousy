@@ -1,57 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Activity -->
-    <string name="activity_splashscreen">@string/app_name</string>
-    <string name="activity_login">Connexion</string>
-    <string name="activity_sign">Inscription</string>
-    <string name="activity_home">Accueil</string>
-    <string name="activity_operation">Opération</string>
-    <string name="activity_consult">Consulter</string>
-    <string name="activity_finances">Finances</string>
-    <string name="activity_friends">Amis</string>
-    <string name="activity_offers">Offres</string>
-    <string name="activity_settings">Paramètres</string>
-
-    <!-- Activity Log -->
-    <string name="login_button_connect">Connexion</string>
-    <string name="login_textview_sign">Inscription sur Flousy</string>
-    <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
-
-    <!-- Activity Home -->
-    <string name="home_alertdialog_title_welcome">Bienvenue</string>
-    <string name="home_alertdialog_message_welcome">Salut</string>
-
-    <!-- Activity Consult -->
-    <string name="consult_textview_sold_title">Solde :</string>
-    <string name="consult_textview_sold">0.0</string>
-    <string name="consult_textview_operations">Opérations</string>
-
-    <!-- Activity Account -->
-    <string name="account_error_delete_operations">Opérations non supprimées</string>
-
-    <!-- Activity Operation -->
-    <string name="operation_label_date">Date de réalisation</string>
-    <string name="operation_label_title">Intitulé</string>
-    <string name="operation_label_amount">Montant</string>
-    <string name="operation_label_type">Type</string>
-    <string name="operation_type_debit">Débit</string>
-    <string name="operation_type_credit">Crédit</string>
-    <string-array name="operation_types">
-        <item>@string/operation_type_debit</item>
-        <item>@string/operation_type_credit</item>
-    </string-array>
-
     <!-- Application -->
     <string name="app_name">Flousy</string>
-
-    <!-- Drawer -->
-    <string name="drawer_header_menu">Menu</string>
-    <string name="drawer_header_account">Compte</string>
-    <string name="drawer_label_logout">Déconnexion</string>
-
-    <!-- EditText -->
-    <string name="edittext_hint_email">email</string>
 
     <!-- Form -->
     <string name="form_sign_message_error_firstname">Prénom invalide</string>
@@ -65,6 +16,43 @@
     <string name="form_operation_message_error_title">Intitulé invalide</string>
     <string name="form_operation_message_error_amount">Montant invalide</string>
     <string name="form_operation_message_error_type">Type d\'opération invalide</string>
+
+    <!-- Drawer -->
+    <string name="drawer_header_menu">Menu</string>
+    <string name="drawer_header_account">Compte</string>
+    <string name="drawer_label_logout">Déconnexion</string>
+
+    <!-- EditText -->
+    <string name="edittext_hint_email">email</string>
+
+    <!-- Fragment Log -->
+    <string name="login_button_connect">Connexion</string>
+    <string name="login_textview_sign">Inscription sur Flousy</string>
+    <string name="login_textview_restorepassword">Mot de passe oublié ?</string>
+
+    <!-- Fragment Home -->
+    <string name="home_alertdialog_title_welcome">Bienvenue</string>
+    <string name="home_alertdialog_message_welcome">Salut</string>
+
+    <!-- Fragment Consult -->
+    <string name="consult_textview_sold_title">Solde :</string>
+    <string name="consult_textview_sold">0.0</string>
+    <string name="consult_textview_operations">Opérations</string>
+
+    <!-- Fragment Account -->
+    <string name="account_error_delete_operations">Opérations non supprimées</string>
+
+    <!-- Fragment Operation -->
+    <string name="operation_label_date">Date de réalisation</string>
+    <string name="operation_label_title">Intitulé</string>
+    <string name="operation_label_amount">Montant</string>
+    <string name="operation_label_type">Type</string>
+    <string name="operation_type_debit">Débit</string>
+    <string name="operation_type_credit">Crédit</string>
+    <string-array name="operation_types">
+        <item>@string/operation_type_debit</item>
+        <item>@string/operation_type_credit</item>
+    </string-array>
 
     <!-- Label -->
     <string name="label_firstname">Prénom</string>

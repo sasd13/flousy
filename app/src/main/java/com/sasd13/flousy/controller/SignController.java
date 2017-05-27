@@ -4,11 +4,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.sasd13.flousy.activities.SignActivity;
+import com.sasd13.flousy.activities.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.fragment.ISignController;
-import com.sasd13.flousy.fragment.sign.SignUpFragment;
-import com.sasd13.flousy.handler.LogInHandler;
+import com.sasd13.flousy.view.fragment.ISignController;
+import com.sasd13.flousy.view.fragment.sign.SignUpFragment;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
@@ -16,13 +15,13 @@ import com.sasd13.flousy.handler.LogInHandler;
 
 public class SignController implements ISignController {
 
-    private SignActivity signActivity;
+    private IdentityActivity identityActivity;
     private View contentView;
     private LogInHandler logInHandler;
 
-    public SignController(SignActivity signActivity) {
-        this.signActivity = signActivity;
-        contentView = signActivity.findViewById(android.R.id.content);
+    public SignController(IdentityActivity identityActivity) {
+        this.identityActivity = identityActivity;
+        contentView = identityActivity.findViewById(android.R.id.content);
     }
 
     @Override
@@ -36,7 +35,7 @@ public class SignController implements ISignController {
     }
 
     private void startFragment(Fragment fragment) {
-        signActivity.startFragment(fragment);
+        identityActivity.startFragment(fragment);
     }
 
     @Override

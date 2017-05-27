@@ -2,7 +2,15 @@ package com.sasd13.flousy.bean;
 
 public class Customer {
 
-    private String firstName, lastName, email;
+    private String intermediary, firstName, lastName, email;
+
+    public String getIntermediary() {
+        return intermediary;
+    }
+
+    public void setIntermediary(String intermediary) {
+        this.intermediary = intermediary;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -33,7 +41,8 @@ public class Customer {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Customer [");
-        builder.append("firstName=" + getFirstName());
+        builder.append("intermediary=" + getIntermediary());
+        builder.append(", firstName=" + getFirstName());
         builder.append(", lastName=" + getLastName());
         builder.append(", email=" + getEmail());
         builder.append("]");

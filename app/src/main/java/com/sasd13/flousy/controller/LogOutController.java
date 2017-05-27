@@ -1,7 +1,7 @@
 package com.sasd13.flousy.controller;
 
 import com.sasd13.flousy.activities.MainActivity;
-import com.sasd13.flousy.fragment.ILogOutController;
+import com.sasd13.flousy.view.fragment.ILogOutController;
 
 /**
  * Created by ssaidali2 on 05/12/2016.

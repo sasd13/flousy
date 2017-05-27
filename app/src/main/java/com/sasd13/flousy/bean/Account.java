@@ -1,51 +1,35 @@
 package com.sasd13.flousy.bean;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 public class Account {
 
-    private String number;
-    private Timestamp dateOpening;
-    private List<Operation> operations;
+    private String accountID;
+    private Date dateOpening;
+    private Customer customer;
 
-    public Account() {
-        operations = new ArrayList<>();
+    public String getAccountID() {
+        return accountID;
     }
 
-    public String getNumber() {
-        return number;
+    public void setAccountID(String accountID) {
+        this.accountID = accountID;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public Timestamp getDateOpening() {
+    public Date getDateOpening() {
         return dateOpening;
     }
 
-    public void setDateOpening(Timestamp dateOpening) {
+    public void setDateOpening(Date dateOpening) {
         this.dateOpening = dateOpening;
     }
 
-    public List<Operation> getOperations() {
-        return operations;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setOperations(List<Operation> operations) {
-        this.operations = operations;
-    }
-
-    public double getSold() {
-        double sold = 0;
-
-        for (Operation operation : operations) {
-            sold += operation.getAmount();
-        }
-
-        return sold;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
@@ -53,7 +37,7 @@ public class Account {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Account [");
-        builder.append("number=" + getNumber());
+        builder.append("accountID=" + getAccountID());
         builder.append(", dateOpening=" + String.valueOf(getDateOpening()));
         builder.append("]");
 
