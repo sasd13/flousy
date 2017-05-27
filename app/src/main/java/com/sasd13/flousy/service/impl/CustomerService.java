@@ -5,6 +5,8 @@ import com.sasd13.flousy.dao.ICustomerDAO;
 import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.ServiceResult;
 
+import java.util.Collections;
+
 /**
  * Created by ssaidali2 on 27/05/2017.
  */
@@ -37,6 +39,7 @@ public class CustomerService implements ICustomerService {
 
         return new ServiceResult<>(
                 true,
+                Collections.<String, String>emptyMap(),
                 customer
         );
     }

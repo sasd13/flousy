@@ -1,11 +1,10 @@
-package com.sasd13.flousy.activities;
+package com.sasd13.flousy.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
-import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
+import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.util.SessionStorage;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.Configuration;
@@ -14,9 +13,9 @@ import com.sasd13.flousy.Router;
 import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.util.Constants;
 import com.sasd13.flousy.view.IController;
-import com.sasd13.flousy.view.fragment.authentication.LogInFragment;
+import com.sasd13.flousy.view.fragment.SplashScreenFragment;
 
-public class IdentityActivity extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     private Router router;
     private SessionStorage sessionStorage;
@@ -38,13 +37,13 @@ public class IdentityActivity extends AppCompatActivity {
         router = Configuration.init(this);
         sessionStorage = new SessionStorage(this);
 
-        startLogInFragment();
+        startSplashScreenFragment();
     }
 
-    private void startLogInFragment() {
+    private void startSplashScreenFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.layout_container_fragment, LogInFragment.newInstance())
+                .replace(R.id.layout_container_fragment, SplashScreenFragment.newInstance())
                 .commit();
     }
 
@@ -52,31 +51,24 @@ public class IdentityActivity extends AppCompatActivity {
         return router.dispatch(mClass, this);
     }
 
-    public void startFragment(Fragment fragment) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.layout_container_fragment, fragment)
-                .addToBackStack(null)
-                .commit();
-    }
-
     public void goToMainActivity(final User user) {
-        final WaitDialog waitDialog = new WaitDialog(this);
         final Intent intent = new Intent(this, MainActivity.class);
 
         new TaskPlanner(new Runnable() {
             @Override
             public void run() {
-                getSessionStorage().put(Constants.USERID, user.getUserID());
-                getSessionStorage().put(Constants.INTERMEDIARY, user.getIntermediary());
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra(Constants.USER, user);
                 startActivity(intent);
-                waitDialog.dismiss();
-                finish();
             }
-        }).start(0);
+        }).start(GUIConstants.TIMEOUT_ACTIVITY / 2);
+    }
 
-        waitDialog.show();
+    public void goToIdentityActivity() {
+        new TaskPlanner(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashScreenActivity.this, IdentityActivity.class));
+            }
+        }).start(GUIConstants.TIMEOUT_ACTIVITY / 2);
     }
 }

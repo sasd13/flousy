@@ -1,8 +1,9 @@
-package com.sasd13.flousy.view.fragment;
+package com.sasd13.flousy.view.fragment.setting;
 
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,16 +15,19 @@ import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.activities.MainActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.view.gui.form.SettingsForm;
 import com.sasd13.flousy.util.Extra;
+import com.sasd13.flousy.view.gui.form.SettingsForm;
 
-public class SettingsFragment extends MainActivity {
+public class SettingFragment extends Fragment {
 
     private SettingsHandler settingsHandler;
     private SettingsForm formSettings;
     private Customer customer;
+
+    public static SettingFragment newInstance() {
+        return new SettingFragment();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

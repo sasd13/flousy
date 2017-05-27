@@ -7,6 +7,7 @@ import com.sasd13.flousy.dao.IOperationDAO;
 import com.sasd13.flousy.service.IAccountService;
 import com.sasd13.flousy.service.ServiceResult;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,6 +44,7 @@ public class AccountService implements IAccountService {
 
         return new ServiceResult<>(
                 true,
+                Collections.<String, String>emptyMap(),
                 account
         );
     }
@@ -53,6 +55,7 @@ public class AccountService implements IAccountService {
 
         return new ServiceResult<>(
                 true,
+                Collections.<String, String>emptyMap(),
                 accounts
         );
     }

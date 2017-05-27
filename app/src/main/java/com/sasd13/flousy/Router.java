@@ -2,7 +2,23 @@ package com.sasd13.flousy;
 
 import android.app.Activity;
 
+import com.sasd13.flousy.activity.IdentityActivity;
+import com.sasd13.flousy.activity.MainActivity;
+import com.sasd13.flousy.activity.SplashScreenActivity;
+import com.sasd13.flousy.controller.authentication.LogInController;
+import com.sasd13.flousy.controller.authentication.LogOutController;
+import com.sasd13.flousy.controller.setting.SettingController;
+import com.sasd13.flousy.controller.sign.SignController;
+import com.sasd13.flousy.controller.splashscreen.SplashScreenController;
+import com.sasd13.flousy.service.IAuthenticationService;
+import com.sasd13.flousy.service.ICustomerService;
+import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.view.IController;
+import com.sasd13.flousy.view.ILogInController;
+import com.sasd13.flousy.view.ILogOutController;
+import com.sasd13.flousy.view.ISettingController;
+import com.sasd13.flousy.view.ISignController;
+import com.sasd13.flousy.view.ISplashScreenController;
 
 /**
  * Created by ssaidali2 on 02/04/2017.
@@ -40,6 +56,12 @@ public class Router {
             return new LogInController(
                     (IdentityActivity) activity,
                     (IAuthenticationService) provider.provide(IAuthenticationService.class)
+            );
+        } else if (ISignController.class.equals(mClass)) {
+            return new SignController(
+                    (IdentityActivity) activity,
+                    (IUserService) provider.provide(IUserService.class),
+                    (ICustomerService) provider.provide(ICustomerService.class)
             );
         } else if (ISettingController.class.equals(mClass)) {
             return new SettingController(

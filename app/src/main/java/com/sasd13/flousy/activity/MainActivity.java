@@ -1,4 +1,4 @@
-package com.sasd13.flousy.activities;
+package com.sasd13.flousy.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;

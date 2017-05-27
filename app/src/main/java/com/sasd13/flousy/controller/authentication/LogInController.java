@@ -1,15 +1,13 @@
 package com.sasd13.flousy.controller.authentication;
 
 import com.sasd13.androidex.util.requestor.Requestor;
-import com.sasd13.proadmin.android.activity.IdentityActivity;
-import com.sasd13.proadmin.android.bean.user.User;
-import com.sasd13.proadmin.android.controller.IdentityController;
-import com.sasd13.proadmin.android.scope.Scope;
-import com.sasd13.proadmin.android.service.IAuthenticationService;
-import com.sasd13.proadmin.android.view.ILogInController;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.sasd13.flousy.activity.IdentityActivity;
+import com.sasd13.flousy.bean.user.User;
+import com.sasd13.flousy.controller.IdentityController;
+import com.sasd13.flousy.scope.Scope;
+import com.sasd13.flousy.service.IAuthenticationService;
+import com.sasd13.flousy.view.ILogInController;
+import com.sasd13.javaex.security.Credential;
 
 /**
  * Created by ssaidali2 on 02/04/2017.
@@ -35,22 +33,17 @@ public class LogInController extends IdentityController implements ILogInControl
 
     @Override
     public void logIn(String username, String password) {
-        Map<String, String> credentials = new HashMap<>();
-
-        credentials.put(IAuthenticationService.PARAMETER_USERNAME, username);
-        credentials.put(IAuthenticationService.PARAMETER_PASSWORD, password);
-
-        connect(credentials);
+        connect(new Credential(username, password));
     }
 
-    private void connect(Map<String, String> credentials) {
+    private void connect(Credential credential) {
         scope.setLoading(true);
 
         if (logInTask == null) {
             logInTask = new LogInTask(this, authenticationService);
         }
 
-        new Requestor(logInTask).execute(credentials);
+        new Requestor(logInTask).execute(credential);
     }
 
     void onAuthenticated(User user) {

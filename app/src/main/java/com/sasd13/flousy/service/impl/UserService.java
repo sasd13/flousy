@@ -7,6 +7,8 @@ import com.sasd13.flousy.dao.IUserDAO;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.service.ServiceResult;
 
+import java.util.Collections;
+
 /**
  * Created by ssaidali2 on 27/05/2017.
  */
@@ -39,6 +41,7 @@ public class UserService implements IUserService {
 
         return new ServiceResult<>(
                 true,
+                Collections.<String, String>emptyMap(),
                 user
         );
     }

@@ -1,55 +1,67 @@
 package com.sasd13.flousy.controller.sign;
 
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.view.View;
-
-import com.sasd13.flousy.activities.IdentityActivity;
+import com.sasd13.androidex.util.requestor.Requestor;
+import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.bean.user.UserCreate;
+import com.sasd13.flousy.controller.IdentityController;
+import com.sasd13.flousy.scope.Scope;
+import com.sasd13.flousy.scope.SignScope;
+import com.sasd13.flousy.service.ICustomerService;
+import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.view.ISignController;
-import com.sasd13.flousy.view.fragment.sign.SignUpFragment;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
  */
 
-public class SignController implements ISignController {
+public class SignController extends IdentityController implements ISignController {
 
-    private IdentityActivity identityActivity;
-    private View contentView;
-    private LogInHandler logInHandler;
+    public static final String USER_TO_CREATE = "USER";
+    public static final String CUSTOMER_TO_CREATE = "CUSTOMER";
 
-    public SignController(IdentityActivity identityActivity) {
-        this.identityActivity = identityActivity;
-        contentView = identityActivity.findViewById(android.R.id.content);
+    private SignScope scope;
+    private IUserService userService;
+    private ICustomerService customerService;
+    private SignTask signTask;
+
+    public SignController(IdentityActivity identityActivity, IUserService userService, ICustomerService customerService) {
+        super(identityActivity);
+
+        scope = new SignScope();
+        this.userService = userService;
+        this.customerService = customerService;
     }
 
     @Override
-    public void entry() {
-
+    public Scope getScope() {
+        return scope;
     }
 
     @Override
-    public void displayMessage(String message) {
-        Snackbar.make(contentView, message, Snackbar.LENGTH_SHORT).show();
+    public void sign(UserCreate userCreate, Customer customer) {
+        Map<String, Object> parameters = new HashMap<>();
+
+        parameters.put(USER_TO_CREATE, userCreate);
+        parameters.put(CUSTOMER_TO_CREATE, customer);
+
+        sign(parameters);
     }
 
-    private void startFragment(Fragment fragment) {
-        identityActivity.startFragment(fragment);
+    private void sign(Map<String, Object> parameters) {
+        scope.setLoading(true);
+
+        if (signTask == null) {
+            signTask = new SignTask(this, userService, customerService);
+        }
+
+        new Requestor(signTask).execute(parameters);
     }
 
-    @Override
-    public void signIn(String username, String password) {
-
-    }
-
-    @Override
-    public void showSignUp() {
-        startFragment(SignUpFragment.newInstance());
-    }
-
-    @Override
-    public void sign(Customer customer) {
-
+    void onSign() {
+        scope.setLoading(false);
     }
 }

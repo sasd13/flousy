@@ -5,10 +5,7 @@ import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
-import com.sasd13.javaex.net.EnumHttpStatus;
-import com.sasd13.proadmin.android.util.EnumErrorRes;
-import com.sasd13.proadmin.android.view.IController;
-import com.sasd13.proadmin.util.EnumError;
+import com.sasd13.flousy.view.IController;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -40,24 +37,18 @@ public abstract class Controller implements IController {
         Snackbar.make(contentView, message, Snackbar.LENGTH_SHORT).show();
     }
 
-    public void onFail(int httpStatus, Map<String, String> errors) {
+    public void onFail(Map<String, String> errors) {
         if (getScope().isLoading()) {
             getScope().setLoading(false);
         }
 
         if (errors != null && !errors.isEmpty()) {
             Iterator<String> it = errors.keySet().iterator();
-            EnumError error = EnumError.find(Integer.valueOf(it.next()));
+            //EnumError error = EnumError.find(Integer.valueOf(it.next()));
 
-            display(EnumErrorRes.find(error).getResID());
+            //display(EnumErrorRes.find(error).getResID());
         } else {
-            EnumHttpStatus status = EnumHttpStatus.find(httpStatus);
-
-            if (status != null) {
-                display(status.getDesc());
-            } else {
-                display(EnumErrorRes.UNKNOWN.getResID());
-            }
+            //display(EnumErrorRes.UNKNOWN.getResID());
         }
     }
 

@@ -1,16 +1,16 @@
 package com.sasd13.flousy.controller.setting;
 
 import com.sasd13.androidex.util.requestor.Requestor;
-import com.sasd13.proadmin.android.R;
-import com.sasd13.proadmin.android.activity.MainActivity;
-import com.sasd13.proadmin.android.bean.user.User;
-import com.sasd13.proadmin.android.bean.user.UserUpdate;
-import com.sasd13.proadmin.android.controller.MainController;
-import com.sasd13.proadmin.android.scope.Scope;
-import com.sasd13.proadmin.android.scope.SettingScope;
-import com.sasd13.proadmin.android.service.IUserService;
-import com.sasd13.proadmin.android.view.ISettingController;
-import com.sasd13.proadmin.android.view.fragment.setting.SettingFragment;
+import com.sasd13.flousy.R;
+import com.sasd13.flousy.activity.MainActivity;
+import com.sasd13.flousy.bean.user.User;
+import com.sasd13.flousy.bean.user.UserUpdate;
+import com.sasd13.flousy.controller.MainController;
+import com.sasd13.flousy.scope.Scope;
+import com.sasd13.flousy.scope.SettingScope;
+import com.sasd13.flousy.service.IUserService;
+import com.sasd13.flousy.view.ISettingController;
+import com.sasd13.flousy.view.fragment.setting.SettingFragment;
 
 public class SettingController extends MainController implements ISettingController {
 

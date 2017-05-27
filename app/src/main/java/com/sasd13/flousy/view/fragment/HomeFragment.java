@@ -26,7 +26,7 @@ import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridType;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.activities.LogInActivity;
+import com.sasd13.flousy.activity.LogInActivity;
 import com.sasd13.flousy.view.gui.browser.Browser;
 import com.sasd13.flousy.view.gui.browser.BrowserItemModel;
 import com.sasd13.flousy.util.Extra;

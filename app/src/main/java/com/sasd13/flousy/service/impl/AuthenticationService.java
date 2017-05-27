@@ -7,6 +7,8 @@ import com.sasd13.flousy.service.IAuthenticationService;
 import com.sasd13.flousy.service.ServiceResult;
 import com.sasd13.javaex.security.Credential;
 
+import java.util.Collections;
+
 /**
  * Created by ssaidali2 on 27/05/2017.
  */
@@ -25,6 +27,7 @@ public class AuthenticationService implements IAuthenticationService {
 
         return new ServiceResult<>(
                 true,
+                Collections.<String, String>emptyMap(),
                 new AuthenticatedUser(user)
         );
     }

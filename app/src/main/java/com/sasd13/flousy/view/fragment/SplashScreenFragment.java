@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.activities.SplashScreenActivity;
+import com.sasd13.flousy.activity.SplashScreenActivity;
 import com.sasd13.flousy.view.ISplashScreenController;
 
 /**

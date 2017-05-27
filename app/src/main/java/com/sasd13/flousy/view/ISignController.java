@@ -1,6 +1,7 @@
 package com.sasd13.flousy.view;
 
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.bean.user.UserCreate;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
@@ -8,5 +9,5 @@ import com.sasd13.flousy.bean.Customer;
 
 public interface ISignController extends IController {
 
-    void sign(Customer customer);
+    void sign(UserCreate userCreate, Customer customer);
 }

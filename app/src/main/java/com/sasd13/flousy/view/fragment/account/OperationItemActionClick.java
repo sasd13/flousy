@@ -1,7 +1,7 @@
 package com.sasd13.flousy.view.fragment.account;
 
 import com.sasd13.androidex.gui.IAction;
-import com.sasd13.flousy.activities.ConsultActivity;
+import com.sasd13.flousy.activity.ConsultActivity;
 import com.sasd13.flousy.view.gui.tab.OperationItemModel;
 
 /**

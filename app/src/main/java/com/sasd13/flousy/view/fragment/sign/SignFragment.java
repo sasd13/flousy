@@ -18,18 +18,18 @@ import com.sasd13.androidex.gui.widget.recycler.form.EnumFormType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.activities.IdentityActivity;
+import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.view.ISignController;
 import com.sasd13.flousy.view.gui.form.SignForm;
 
-public class SignUpFragment extends Fragment {
+public class SignFragment extends Fragment {
 
     private ISignController controller;
     private SignForm signForm;
 
-    public static SignUpFragment newInstance() {
-        return new SignUpFragment();
+    public static SignFragment newInstance() {
+        return new SignFragment();
     }
 
     @Override

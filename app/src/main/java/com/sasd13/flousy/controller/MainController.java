@@ -2,8 +2,8 @@ package com.sasd13.flousy.controller;
 
 import android.support.v4.app.Fragment;
 
-import com.sasd13.proadmin.android.activity.MainActivity;
-import com.sasd13.proadmin.android.util.Constants;
+import com.sasd13.flousy.activity.MainActivity;
+import com.sasd13.flousy.util.Constants;
 
 /**
  * Created by ssaidali2 on 04/12/2016.

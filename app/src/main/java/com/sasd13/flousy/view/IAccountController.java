@@ -1,6 +1,6 @@
 package com.sasd13.flousy.view;
 
-import com.sasd13.flousy.bean.Operation;
+import com.sasd13.flousy.bean.Account;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
@@ -8,15 +8,13 @@ import com.sasd13.flousy.bean.Operation;
 
 public interface IAccountController extends IController {
 
-    void listOperations();
+    void actionLoadAccounts();
 
-    void newOperation();
+    void actionNewAccount();
 
-    void createOperation(Operation operation);
+    void actionCreateAccount(Account account);
 
-    void showOperation(Operation operation);
+    void actionShowAccount(Account account);
 
-    void updateOperation(Operation operation, Operation operationToUpdate);
-
-    void deleteOperation(Operation operation);
+    void actionUpdateAccount(Account account);
 }

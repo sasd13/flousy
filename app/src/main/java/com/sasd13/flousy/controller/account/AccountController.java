@@ -1,11 +1,12 @@
 package com.sasd13.flousy.controller.account;
 
-import com.sasd13.flousy.activities.MainActivity;
-import com.sasd13.flousy.bean.Operation;
+import com.sasd13.flousy.activity.MainActivity;
+import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.controller.Controller;
+import com.sasd13.flousy.scope.AccountScope;
+import com.sasd13.flousy.scope.Scope;
+import com.sasd13.flousy.service.IAccountService;
 import com.sasd13.flousy.view.IAccountController;
-import com.sasd13.flousy.view.fragment.account.AccountFragment;
-import com.sasd13.flousy.view.fragment.operation.OperationFragment;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
@@ -13,42 +14,43 @@ import com.sasd13.flousy.view.fragment.operation.OperationFragment;
 
 public class AccountController extends Controller implements IAccountController {
 
-    public AccountController(MainActivity mainActivity) {
+    private AccountScope scope;
+    private IAccountService accountService;
+
+    public AccountController(MainActivity mainActivity, IAccountService accountService) {
         super(mainActivity);
+
+        scope = new AccountScope();
+        this.accountService = accountService;
     }
 
     @Override
-    public void entry() {
-        listOperations();
+    public Scope getScope() {
+        return scope;
     }
 
     @Override
-    public void listOperations() {
-        startFragment(AccountFragment.newInstance());
-    }
-
-    @Override
-    public void newOperation() {
-        startFragment(OperationFragment.newInstance());
-    }
-
-    @Override
-    public void createOperation(Operation operation) {
+    public void actionLoadAccounts() {
 
     }
 
     @Override
-    public void showOperation(Operation operation) {
+    public void actionNewAccount() {
 
     }
 
     @Override
-    public void updateOperation(Operation operation, Operation operationToUpdate) {
+    public void actionCreateAccount(Account account) {
 
     }
 
     @Override
-    public void deleteOperation(Operation operation) {
+    public void actionShowAccount(Account account) {
+
+    }
+
+    @Override
+    public void actionUpdateAccount(Account account) {
 
     }
 }

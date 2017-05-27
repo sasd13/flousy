@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.activities.IdentityActivity;
+import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.view.ILogInController;
 
