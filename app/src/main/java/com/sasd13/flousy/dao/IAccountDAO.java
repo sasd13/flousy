@@ -2,6 +2,8 @@ package com.sasd13.flousy.dao;
 
 import com.sasd13.flousy.bean.Account;
 
+import java.util.List;
+
 public interface IAccountDAO {
 
     String TABLE = "accounts";
@@ -14,4 +16,6 @@ public interface IAccountDAO {
     void update(Account account);
 
     Account read(String accountID);
+
+    List<Account> readAll(String intermediary);
 }

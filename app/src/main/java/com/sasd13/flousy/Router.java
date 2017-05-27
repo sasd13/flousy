@@ -2,7 +2,7 @@ package com.sasd13.flousy;
 
 import android.app.Activity;
 
-import com.sasd13.flousy.view.fragment.IController;
+import com.sasd13.flousy.view.IController;
 
 /**
  * Created by ssaidali2 on 02/04/2017.

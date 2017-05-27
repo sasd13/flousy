@@ -1,4 +1,4 @@
-package com.sasd13.flousy.view.fragment;
+package com.sasd13.flousy.view;
 
 import com.sasd13.flousy.bean.Operation;
 

@@ -20,7 +20,7 @@ import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activities.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.view.fragment.ISignController;
+import com.sasd13.flousy.view.ISignController;
 import com.sasd13.flousy.view.gui.form.SignForm;
 
 public class SignUpFragment extends Fragment {
@@ -92,7 +92,7 @@ public class SignUpFragment extends Fragment {
             if (!signForm.isTermsAccepted()) {
                 controller.displayMessage(getString(R.string.form_sign_message_error_terms));
             } else {
-                controller.signUp(getCustomerFromForm());
+                controller.sign(getCustomerFromForm());
             }
         } catch (FormException e) {
             controller.displayMessage(e.getMessage());

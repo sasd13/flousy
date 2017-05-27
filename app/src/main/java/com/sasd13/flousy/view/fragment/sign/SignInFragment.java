@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activities.IdentityActivity;
-import com.sasd13.flousy.view.fragment.ISignController;
+import com.sasd13.flousy.view.ISignController;
 
 public class SignInFragment extends Fragment {
 

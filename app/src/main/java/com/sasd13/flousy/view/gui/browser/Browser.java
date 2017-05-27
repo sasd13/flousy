@@ -4,9 +4,8 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.view.fragment.IAccountController;
-import com.sasd13.flousy.view.fragment.ILogOutController;
-import com.sasd13.flousy.view.fragment.ISettingsController;
+import com.sasd13.flousy.view.IAccountController;
+import com.sasd13.flousy.view.ILogOutController;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,7 +8,9 @@ import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.IAccountDAO;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
 
@@ -52,7 +54,7 @@ public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
     }
 
     @Override
-    public Account read(String id) {
+    public Account read(String accountID) {
         Account account = null;
 
         StringBuilder builder = new StringBuilder();
@@ -61,12 +63,31 @@ public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
         builder.append(" WHERE ");
         builder.append(COLUMN_CODE + " = ?");
 
-        Cursor cursor = db.rawQuery(builder.toString(), new String[]{String.valueOf(id)});
+        Cursor cursor = db.rawQuery(builder.toString(), new String[]{String.valueOf(accountID)});
         if (cursor.moveToNext()) {
             account = getCursorValues(cursor);
         }
         cursor.close();
 
         return account;
+    }
+
+    @Override
+    public List<Account> readAll(String intermediary) {
+        List<Account> accounts = new ArrayList<>();
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("SELECT * FROM ");
+        builder.append(TABLE);
+        builder.append(" WHERE ");
+        builder.append(COLUMN_CUSTOMER + " = ?");
+
+        Cursor cursor = db.rawQuery(builder.toString(), new String[]{String.valueOf(intermediary)});
+        while (cursor.moveToNext()) {
+            accounts.add(getCursorValues(cursor));
+        }
+        cursor.close();
+
+        return accounts;
     }
 }

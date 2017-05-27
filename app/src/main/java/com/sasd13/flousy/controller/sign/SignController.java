@@ -1,4 +1,4 @@
-package com.sasd13.flousy.controller;
+package com.sasd13.flousy.controller.sign;
 
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.sasd13.flousy.activities.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.view.fragment.ISignController;
+import com.sasd13.flousy.view.ISignController;
 import com.sasd13.flousy.view.fragment.sign.SignUpFragment;
 
 /**
@@ -49,7 +49,7 @@ public class SignController implements ISignController {
     }
 
     @Override
-    public void signUp(Customer customer) {
+    public void sign(Customer customer) {
 
     }
 }

@@ -7,6 +7,8 @@ import com.sasd13.flousy.dao.IOperationDAO;
 import com.sasd13.flousy.service.IAccountService;
 import com.sasd13.flousy.service.ServiceResult;
 
+import java.util.List;
+
 /**
  * Created by ssaidali2 on 27/05/2017.
  */
@@ -42,6 +44,16 @@ public class AccountService implements IAccountService {
         return new ServiceResult<>(
                 true,
                 account
+        );
+    }
+
+    @Override
+    public ServiceResult<List<Account>> readAll(String intermediary) {
+        List<Account> accounts = accountDAO.readAll(intermediary);
+
+        return new ServiceResult<>(
+                true,
+                accounts
         );
     }
 
