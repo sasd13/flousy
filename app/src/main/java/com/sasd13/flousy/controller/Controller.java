@@ -5,6 +5,7 @@ import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
+import com.sasd13.flousy.util.EnumError;
 import com.sasd13.flousy.view.IController;
 
 import java.util.Iterator;
@@ -44,11 +45,11 @@ public abstract class Controller implements IController {
 
         if (errors != null && !errors.isEmpty()) {
             Iterator<String> it = errors.keySet().iterator();
-            //EnumError error = EnumError.find(Integer.valueOf(it.next()));
+            EnumError error = EnumError.find(Integer.valueOf(it.next()));
 
-            //display(EnumErrorRes.find(error).getResID());
+            display(error.getResID());
         } else {
-            //display(EnumErrorRes.UNKNOWN.getResID());
+            display(EnumError.UNKNOWN.getResID());
         }
     }
 

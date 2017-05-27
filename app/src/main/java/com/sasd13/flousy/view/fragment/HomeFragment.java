@@ -17,23 +17,26 @@ import com.sasd13.androidex.gui.IAction;
 import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
+import com.sasd13.androidex.gui.widget.recycler.EnumRecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridItemType;
-import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridType;
+import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activity.LogInActivity;
+import com.sasd13.flousy.util.Extra;
 import com.sasd13.flousy.view.gui.browser.Browser;
 import com.sasd13.flousy.view.gui.browser.BrowserItemModel;
-import com.sasd13.flousy.util.Extra;
 
 import java.util.List;
 
 public class HomeFragment extends Fragment {
+
+    private Recycler recycler;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -52,20 +55,22 @@ public class HomeFragment extends Fragment {
     }
 
     private void buildView(View view) {
-        Recycler grid = RecyclerFactory
-                .makeBuilder(EnumGridType.GRID)
-                .build((RecyclerView) findViewById(R.id.home_recyclerview));
-
-        fillGrid(grid);
+        GUIHelper.colorTitles(view);
+        buildGrid(view);
+        bindGrid();
     }
 
-    private void fillGrid(Recycler grid) {
-        List<BrowserItemModel> browserItemModels = Browser.getInstance().getItems(this);
+    private void buildGrid(View view) {
+        recycler = RecyclerFactory.makeBuilder(EnumRecyclerType.GRID).build((RecyclerView) view.findViewById(R.id.home_recyclerview));
+    }
+
+    private void bindGrid() {
+        List<BrowserItemModel> browserItemModels = Browser.getInstance().getNavItems(getContext());
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;
 
         for (final BrowserItemModel browserItemModel : browserItemModels) {
-            browserItemModel.setItemType(EnumGridItemType.GRID);
+            browserItemModel.set(EnumGridItemType.GRID);
 
             pair = new RecyclerHolderPair(browserItemModel);
             pair.addController(EnumActionEvent.CLICK, new IAction() {
@@ -131,7 +136,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.menu_home_action_logout:
                 SessionHelper.logOut(this);
                 break;

@@ -8,9 +8,11 @@ import com.sasd13.androidex.gui.widget.recycler.drawer.EnumDrawerItemType;
  */
 
 public enum EnumBrowserItemType {
-    ACCOUNT("ACCOUNT", EnumDrawerItemType.NAV),
-    SETTINGS("SETTINGS", EnumDrawerItemType.NAV),
-    LOGOUT("LOGOUT", EnumDrawerItemType.NAV),
+    GRID_ACCOUNT("GRID_ACCOUNT", EnumDrawerItemType.NAV),
+    GRID_SETTINGS("GRID_SETTINGS", EnumDrawerItemType.NAV),
+    NAV_ACCOUNT("NAV_ACCOUNT", EnumDrawerItemType.NAV),
+    NAV_SETTINGS("NAV_SETTINGS", EnumDrawerItemType.NAV),
+    NAV_LOGOUT("NAV_LOGOUT", EnumDrawerItemType.NAV),
     ;
 
     private String code;

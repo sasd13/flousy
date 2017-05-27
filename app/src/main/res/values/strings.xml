@@ -11,10 +11,12 @@
     <!-- Drawer -->
     <string name="drawer_header_menu">Menu</string>
     <string name="drawer_header_account">Account</string>
-    <string name="drawer_label_logout">Log out</string>
 
     <!-- EditText -->
     <string name="edittext_hint_email">email</string>
+
+    <!-- Error -->
+    <string name="exception_unknown">Error unknown</string>
 
     <!-- Form -->
     <string name="form_sign_message_error_firstname">Invalid first name</string>
@@ -60,6 +62,8 @@
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
     <string name="label_terms">General terms of use</string>
+    <string name="label_logout">Log out</string>
+    <string name="label_consult">Consult</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email already exists</string>

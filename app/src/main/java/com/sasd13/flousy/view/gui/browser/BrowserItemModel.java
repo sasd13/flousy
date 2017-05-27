@@ -22,8 +22,7 @@ public class BrowserItemModel extends Observable implements IRecyclerItemModel, 
     private int color;
     private Class<? extends IController> target;
 
-    public BrowserItemModel(EnumBrowserItemType browserItemType, String label, Drawable icon, int color, Class<? extends IController> target) {
-        this.browserItemType = browserItemType;
+    public BrowserItemModel(String label, Drawable icon, int color, Class<? extends IController> target) {
         this.label = label;
         this.icon = icon;
         this.color = color;
@@ -33,6 +32,10 @@ public class BrowserItemModel extends Observable implements IRecyclerItemModel, 
     @Override
     public IRecyclerItemType getItemType() {
         return browserItemType.getRecyclerItemType();
+    }
+
+    public void setItemType(EnumBrowserItemType browserItemType) {
+        this.browserItemType = browserItemType;
     }
 
     @Override
