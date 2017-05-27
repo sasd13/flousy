@@ -18,7 +18,6 @@ import com.sasd13.flousy.activities.MainActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.view.gui.form.SettingsForm;
 import com.sasd13.flousy.util.Extra;
-import com.sasd13.flousy.util.SessionHelper;
 
 public class SettingsFragment extends MainActivity {
 

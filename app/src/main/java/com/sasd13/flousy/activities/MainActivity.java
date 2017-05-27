@@ -27,7 +27,6 @@ import com.sasd13.flousy.view.fragment.ILogOutController;
 import com.sasd13.flousy.view.fragment.ISettingsController;
 import com.sasd13.flousy.view.gui.browser.Browser;
 import com.sasd13.flousy.view.gui.browser.BrowserItemModel;
-import com.sasd13.flousy.util.SessionHelper;
 
 import java.util.ArrayList;
 import java.util.List;

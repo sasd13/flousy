@@ -30,7 +30,6 @@ import com.sasd13.flousy.activities.LogInActivity;
 import com.sasd13.flousy.view.gui.browser.Browser;
 import com.sasd13.flousy.view.gui.browser.BrowserItemModel;
 import com.sasd13.flousy.util.Extra;
-import com.sasd13.flousy.util.SessionHelper;
 
 import java.util.List;
 

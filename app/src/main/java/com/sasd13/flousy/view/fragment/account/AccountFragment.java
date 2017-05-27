@@ -26,7 +26,7 @@ import com.sasd13.flousy.activities.ConsultActivity;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.view.gui.tab.OperationItemModel;
-import com.sasd13.flousy.util.Sorter;
+import com.sasd13.flousy.util.sorter.OperationSorter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -118,7 +118,7 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
         tabOperations.clear();
 
         List<Operation> operations = Arrays.asList(account.getOperations());
-        Sorter.sortOperationsByDateDesc(operations);
+        OperationSorter.byDate(operations);
 
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;

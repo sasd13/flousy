@@ -1,4 +1,4 @@
-package com.sasd13.flousy.util;
+package com.sasd13.flousy.util.sorter;
 
 import com.sasd13.flousy.bean.Operation;
 
@@ -9,13 +9,13 @@ import java.util.List;
 /**
  * Created by ssaidali2 on 03/07/2016.
  */
-public class Sorter {
+public class OperationSorter {
 
-    public static void sortOperationsByDateDesc(List<Operation> operations) {
-        sortOperationByDate(operations, true);
+    public static void byDate(List<Operation> operations) {
+        byDate(operations, true);
     }
 
-    public static void sortOperationByDate(List<Operation> operations, final boolean byDesc) {
+    public static void byDate(List<Operation> operations, final boolean byDesc) {
         Collections.sort(operations, new Comparator<Operation>() {
             @Override
             public int compare(Operation operation1, Operation operation2) {

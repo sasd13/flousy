@@ -37,7 +37,7 @@ public class UserService implements IUserService {
     public ServiceResult<User> find(String userID) {
         User user = userDAO.find(userID);
 
-        return new ServiceResult<User>(
+        return new ServiceResult<>(
                 true,
                 user
         );
