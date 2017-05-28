@@ -1,22 +1,16 @@
 package com.sasd13.flousy.view.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.IAction;
 import com.sasd13.androidex.gui.widget.EnumActionEvent;
 import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.recycler.EnumRecyclerType;
 import com.sasd13.androidex.gui.widget.recycler.Recycler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerFactory;
@@ -25,10 +19,10 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.gui.widget.recycler.grid.EnumGridItemType;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
-import com.sasd13.androidex.util.TaskPlanner;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.activity.LogInActivity;
-import com.sasd13.flousy.util.Extra;
+import com.sasd13.flousy.activity.MainActivity;
+import com.sasd13.flousy.bean.user.User;
+import com.sasd13.flousy.view.IBrowsable;
 import com.sasd13.flousy.view.gui.browser.Browser;
 import com.sasd13.flousy.view.gui.browser.BrowserItemModel;
 
@@ -36,10 +30,18 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    private User user;
     private Recycler recycler;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        user = ((MainActivity) getActivity()).getUser();
     }
 
     @Nullable
@@ -65,18 +67,18 @@ public class HomeFragment extends Fragment {
     }
 
     private void bindGrid() {
-        List<BrowserItemModel> browserItemModels = Browser.getInstance().getNavItems(getContext());
+        List<BrowserItemModel> browserItemModels = new Browser(getContext()).getNavItems();
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;
 
         for (final BrowserItemModel browserItemModel : browserItemModels) {
-            browserItemModel.set(EnumGridItemType.GRID);
-
             pair = new RecyclerHolderPair(browserItemModel);
+
+            browserItemModel.setItemType(EnumGridItemType.GRID);
             pair.addController(EnumActionEvent.CLICK, new IAction() {
                 @Override
                 public void execute() {
-                    startActivity(new Intent(HomeFragment.this, browserItemModel.getTarget()));
+                    ((IBrowsable) ((MainActivity) getActivity()).lookup(browserItemModel.getTarget())).browse();
                 }
             });
 
@@ -87,15 +89,12 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
 
         if (getIntent().hasExtra(Extra.WELCOME) && getIntent().getBooleanExtra(Extra.WELCOME, false)) {
             getIntent().removeExtra(Extra.WELCOME);
             showWelcome();
-        } else if (getIntent().hasExtra(Extra.EXIT) && getIntent().getBooleanExtra(Extra.EXIT, false)) {
-            getIntent().removeExtra(Extra.EXIT);
-            exit();
         }
     }
 
@@ -107,43 +106,5 @@ public class HomeFragment extends Fragment {
         builder.append(" !");
 
         OptionDialog.showOkDialog(this, getResources().getString(R.string.home_alertdialog_title_welcome), builder.toString());
-    }
-
-    public void exit() {
-        final WaitDialog waitDialog = new WaitDialog(this);
-        waitDialog.setCancelable(false);
-
-        new TaskPlanner(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(HomeFragment.this, LogInActivity.class));
-                waitDialog.dismiss();
-                finish();
-                self = null;
-            }
-        }, GUIConstants.TIMEOUT_ACTIVITY).start();
-
-        waitDialog.show();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_home, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_home_action_logout:
-                SessionHelper.logOut(this);
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-        return true;
     }
 }

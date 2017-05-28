@@ -14,7 +14,7 @@ public abstract class IdentityController extends Controller {
     }
 
     @Override
-    public IdentityActivity getActivity() {
+    protected IdentityActivity getActivity() {
         return (IdentityActivity) super.getActivity();
     }
 

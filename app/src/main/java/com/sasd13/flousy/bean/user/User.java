@@ -23,6 +23,9 @@ public class User implements Parcelable {
 
     private String userID, intermediary;
 
+    public User() {
+    }
+
     protected User(Parcel in) {
         userID = in.readString();
         intermediary = in.readString();

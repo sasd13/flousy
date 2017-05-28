@@ -1,27 +1,22 @@
 package com.sasd13.flousy.activity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.sasd13.androidex.activity.DrawerActivity;
-import com.sasd13.androidex.gui.GUIConstants;
 import com.sasd13.androidex.gui.IAction;
 import com.sasd13.androidex.gui.widget.EnumActionEvent;
-import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
-import com.sasd13.androidex.gui.widget.dialog.WaitDialog;
 import com.sasd13.androidex.gui.widget.pager.IPagerHandler;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolder;
 import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
-import com.sasd13.androidex.util.SessionStorage;
-import com.sasd13.androidex.util.TaskPlanner;
-import com.sasd13.flousy.Configuration;
+import com.sasd13.androidex.gui.widget.recycler.drawer.EnumDrawerItemType;
+import com.sasd13.flousy.Configurator;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.Router;
 import com.sasd13.flousy.bean.user.User;
+import com.sasd13.flousy.service.IUserStorageService;
 import com.sasd13.flousy.util.Constants;
 import com.sasd13.flousy.view.IBrowsable;
 import com.sasd13.flousy.view.IController;
@@ -35,21 +30,7 @@ import java.util.List;
 public class MainActivity extends DrawerActivity {
 
     private Router router;
-    private SessionStorage sessionStorage;
-    private User user;
     private IPagerHandler pagerHandler;
-
-    public SessionStorage getSessionStorage() {
-        return sessionStorage;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public void setPagerHandler(IPagerHandler pagerHandler) {
         this.pagerHandler = pagerHandler;
@@ -62,14 +43,19 @@ public class MainActivity extends DrawerActivity {
         setContentView(R.layout.layout_container);
 
         init();
+        startHomeFragment();
     }
 
     private void init() {
-        router = Configuration.init(this);
-        sessionStorage = new SessionStorage(this);
-        user = getIntent().getExtras().getParcelable(Constants.USER);
+        Configurator.Config config = Configurator.init(this);
+        router = config.getRouter();
 
-        startHomeFragment();
+        if (getIntent().hasExtra(Constants.USER)) {
+            User user = getIntent().getExtras().getParcelable(Constants.USER);
+
+            ((IUserStorageService) config.getProvider().provide(IUserStorageService.class)).write(user);
+            getIntent().removeExtra(Constants.USER);
+        }
     }
 
     private void startHomeFragment() {
@@ -82,15 +68,16 @@ public class MainActivity extends DrawerActivity {
     @Override
     protected RecyclerHolder getDrawerHolder() {
         RecyclerHolder recyclerHolder = new RecyclerHolder();
+        Browser browser = new Browser(this);
 
-        addNavItems(recyclerHolder);
-        addAccountItems(recyclerHolder);
+        addNavItems(recyclerHolder, browser.getNavItems());
+        addAccountItems(recyclerHolder, browser.getAccountItems());
 
         return recyclerHolder;
     }
 
-    private void addNavItems(RecyclerHolder recyclerHolder) {
-        List<RecyclerHolderPair> pairs = makeItems(Browser.getInstance().getNavItems(this));
+    private void addNavItems(RecyclerHolder recyclerHolder, List<BrowserItemModel> navItemsModels) {
+        List<RecyclerHolderPair> pairs = makeItems(navItemsModels);
 
         recyclerHolder.addAll(getString(R.string.drawer_header_menu), pairs);
     }
@@ -103,6 +90,7 @@ public class MainActivity extends DrawerActivity {
         for (final BrowserItemModel browserItemModel : browserItemModels) {
             pair = new RecyclerHolderPair(browserItemModel);
 
+            browserItemModel.setItemType(EnumDrawerItemType.DRAWER);
             pair.addController(EnumActionEvent.CLICK, new IAction() {
                 @Override
                 public void execute() {
@@ -118,11 +106,11 @@ public class MainActivity extends DrawerActivity {
     }
 
     public IController lookup(Class mClass) {
-        return router.dispatch(mClass, this);
+        return router.navigate(mClass, this);
     }
 
-    private void addAccountItems(RecyclerHolder recyclerHolder) {
-        List<RecyclerHolderPair> pairs = makeItems(Browser.getInstance().getAccountItems(this));
+    private void addAccountItems(RecyclerHolder recyclerHolder, List<BrowserItemModel> accountItemsModels) {
+        List<RecyclerHolderPair> pairs = makeItems(accountItemsModels);
 
         recyclerHolder.addAll(getString(R.string.drawer_header_account), pairs);
     }
@@ -140,38 +128,6 @@ public class MainActivity extends DrawerActivity {
                 .replace(R.id.layout_container_fragment, fragment)
                 .addToBackStack(null)
                 .commit();
-    }
-
-    public void exit() {
-        OptionDialog.showOkCancelDialog(
-                this,
-                getString(R.string.button_logout),
-                getString(R.string.message_confirm),
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        goToIdentityActivity();
-                    }
-                }
-        );
-    }
-
-    private void goToIdentityActivity() {
-        final WaitDialog waitDialog = new WaitDialog(this);
-        final Intent intent = new Intent(this, IdentityActivity.class);
-
-        new TaskPlanner(new Runnable() {
-            @Override
-            public void run() {
-                getSessionStorage().clear();
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                waitDialog.dismiss();
-                finish();
-            }
-        }).start(GUIConstants.TIMEOUT_ACTIVITY);
-
-        waitDialog.show();
     }
 
     public void clearHistory() {

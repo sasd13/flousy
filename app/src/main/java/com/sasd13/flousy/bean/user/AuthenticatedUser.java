@@ -15,12 +15,13 @@ public class AuthenticatedUser {
 
     public AuthenticatedUser(User user) {
         this.user = user;
-        session = new HashMap<>();
 
         buildSession();
     }
 
     private void buildSession() {
+        session = new HashMap<>();
+
         session.put("start", String.valueOf(new Date()));
     }
 

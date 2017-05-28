@@ -8,21 +8,27 @@ import com.sasd13.flousy.bean.user.UserUpdate;
 import com.sasd13.flousy.controller.MainController;
 import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.scope.SettingScope;
+import com.sasd13.flousy.service.ISessionStorageService;
 import com.sasd13.flousy.service.IUserService;
+import com.sasd13.flousy.service.IUserStorageService;
 import com.sasd13.flousy.view.ISettingController;
 import com.sasd13.flousy.view.fragment.setting.SettingFragment;
 
 public class SettingController extends MainController implements ISettingController {
 
     private SettingScope scope;
+    private ISessionStorageService sessionStorageService;
+    private IUserStorageService userStorageService;
     private IUserService userService;
     private UserReadTask userReadTask;
     private UserUpdateTask userUpdateTask;
 
-    public SettingController(MainActivity mainActivity, IUserService userService) {
+    public SettingController(MainActivity mainActivity, ISessionStorageService sessionStorageService, IUserStorageService userStorageService, IUserService userService) {
         super(mainActivity);
 
         scope = new SettingScope();
+        this.sessionStorageService = sessionStorageService;
+        this.userStorageService = userStorageService;
         this.userService = userService;
     }
 
@@ -34,6 +40,7 @@ public class SettingController extends MainController implements ISettingControl
     @Override
     public void browse() {
         getActivity().clearHistory();
+        scope.setUser(userStorageService.read());
         startFragment(SettingFragment.newInstance());
         actionLoadUser();
     }
@@ -50,11 +57,11 @@ public class SettingController extends MainController implements ISettingControl
             userReadTask = new UserReadTask(this, userService);
         }
 
-        new Requestor(userReadTask).execute(getUserIDFromSession());
+        new Requestor(userReadTask).execute(sessionStorageService.getUserID());
     }
 
     void onReadUser(User user) {
-        getActivity().setUser(user);
+        userStorageService.write(user);
         scope.setUser(user);
         scope.setLoading(false);
     }

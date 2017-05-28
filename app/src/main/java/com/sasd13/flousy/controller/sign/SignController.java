@@ -1,5 +1,7 @@
 package com.sasd13.flousy.controller.sign;
 
+import android.content.Intent;
+
 import com.sasd13.androidex.util.requestor.Requestor;
 import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
@@ -9,19 +11,14 @@ import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.scope.SignScope;
 import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.IUserService;
+import com.sasd13.flousy.util.wrapper.UserSignWrapper;
 import com.sasd13.flousy.view.ISignController;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
  */
 
 public class SignController extends IdentityController implements ISignController {
-
-    public static final String USER_TO_CREATE = "USER";
-    public static final String CUSTOMER_TO_CREATE = "CUSTOMER";
 
     private SignScope scope;
     private IUserService userService;
@@ -43,25 +40,30 @@ public class SignController extends IdentityController implements ISignControlle
 
     @Override
     public void sign(UserCreate userCreate, Customer customer) {
-        Map<String, Object> parameters = new HashMap<>();
+        UserSignWrapper wrapper = new UserSignWrapper();
 
-        parameters.put(USER_TO_CREATE, userCreate);
-        parameters.put(CUSTOMER_TO_CREATE, customer);
+        wrapper.setUserCreate(userCreate);
+        wrapper.setCustomer(customer);
 
-        sign(parameters);
+        sign(wrapper);
     }
 
-    private void sign(Map<String, Object> parameters) {
+    private void sign(UserSignWrapper wrapper) {
         scope.setLoading(true);
 
         if (signTask == null) {
             signTask = new SignTask(this, userService, customerService);
         }
 
-        new Requestor(signTask).execute(parameters);
+        new Requestor(signTask).execute(wrapper);
     }
 
     void onSign() {
         scope.setLoading(false);
+        goToIdentityActivity();
+    }
+
+    private void goToIdentityActivity() {
+        startActivity(new Intent(getActivity(), IdentityActivity.class));
     }
 }

@@ -1,6 +1,6 @@
 package com.sasd13.flousy.service;
 
-import com.sasd13.flousy.bean.user.AuthenticatedUser;
+import com.sasd13.flousy.bean.user.User;
 import com.sasd13.javaex.security.Credential;
 
 /**
@@ -9,5 +9,9 @@ import com.sasd13.javaex.security.Credential;
 
 public interface IAuthenticationService {
 
-    ServiceResult<AuthenticatedUser> logIn(Credential credential);
+    boolean isAuthenticated();
+
+    ServiceResult<User> logIn(Credential credential);
+
+    void logOut();
 }

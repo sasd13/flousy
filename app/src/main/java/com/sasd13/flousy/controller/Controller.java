@@ -1,6 +1,7 @@
 package com.sasd13.flousy.controller;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -24,8 +25,14 @@ public abstract class Controller implements IController {
         contentView = activity.findViewById(android.R.id.content);
     }
 
-    public Activity getActivity() {
+    protected Activity getActivity() {
         return activity;
+    }
+
+    protected void startActivity(Intent intent) {
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        getActivity().startActivity(intent);
+        activity.finish();
     }
 
     @Override
@@ -39,7 +46,7 @@ public abstract class Controller implements IController {
     }
 
     public void onFail(Map<String, String> errors) {
-        if (getScope().isLoading()) {
+        if (getScope() != null && getScope().isLoading()) {
             getScope().setLoading(false);
         }
 
@@ -54,10 +61,12 @@ public abstract class Controller implements IController {
     }
 
     public void onCancelled() {
-        if (getScope().isLoading()) {
-            getScope().setLoading(false);
-        }
+        if (getScope() != null) {
+            if (getScope().isLoading()) {
+                getScope().setLoading(false);
+            }
 
-        getScope().setCancelled(true);
+            getScope().setCancelled(true);
+        }
     }
 }

@@ -16,7 +16,7 @@ import java.util.Observable;
  */
 public class BrowserItemModel extends Observable implements IRecyclerItemModel, ILabelizable, IIconifiable, IColorable {
 
-    private EnumBrowserItemType browserItemType;
+    private IRecyclerItemType itemType;
     private String label;
     private Drawable icon;
     private int color;
@@ -31,11 +31,11 @@ public class BrowserItemModel extends Observable implements IRecyclerItemModel, 
 
     @Override
     public IRecyclerItemType getItemType() {
-        return browserItemType.getRecyclerItemType();
+        return itemType;
     }
 
-    public void setItemType(EnumBrowserItemType browserItemType) {
-        this.browserItemType = browserItemType;
+    public void setItemType(IRecyclerItemType itemType) {
+        this.itemType = itemType;
     }
 
     @Override

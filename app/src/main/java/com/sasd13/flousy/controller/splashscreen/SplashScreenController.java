@@ -1,11 +1,16 @@
 package com.sasd13.flousy.controller.splashscreen;
 
-import com.sasd13.androidex.util.SessionStorage;
+import android.content.Intent;
+
 import com.sasd13.androidex.util.requestor.Requestor;
+import com.sasd13.flousy.activity.IdentityActivity;
+import com.sasd13.flousy.activity.MainActivity;
 import com.sasd13.flousy.activity.SplashScreenActivity;
 import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.controller.Controller;
 import com.sasd13.flousy.scope.Scope;
+import com.sasd13.flousy.service.IAuthenticationService;
+import com.sasd13.flousy.service.ISessionStorageService;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.util.Constants;
 import com.sasd13.flousy.view.ISplashScreenController;
@@ -16,15 +21,17 @@ import com.sasd13.flousy.view.ISplashScreenController;
 
 public class SplashScreenController extends Controller implements ISplashScreenController {
 
+    private ISessionStorageService sessionStorageService;
+    private IAuthenticationService authenticationService;
     private IUserService userService;
-    private SessionStorage sessionStorage;
     private UserReadTask userReadTask;
 
-    public SplashScreenController(SplashScreenActivity splashScreenActivity, IUserService userService) {
+    public SplashScreenController(SplashScreenActivity splashScreenActivity, ISessionStorageService sessionStorageService, IAuthenticationService authenticationService, IUserService userService) {
         super(splashScreenActivity);
 
+        this.sessionStorageService = sessionStorageService;
+        this.authenticationService = authenticationService;
         this.userService = userService;
-        sessionStorage = splashScreenActivity.getSessionStorage();
     }
 
     @Override
@@ -33,21 +40,16 @@ public class SplashScreenController extends Controller implements ISplashScreenC
     }
 
     @Override
-    public SplashScreenActivity getActivity() {
-        return (SplashScreenActivity) super.getActivity();
-    }
-
-    @Override
     public void run() {
-        if (isAuthenticated()) {
-            readUser();
+        if (!authenticationService.isAuthenticated()) {
+            goToIdentityActivity();
         } else {
-            getActivity().goToIdentityActivity();
+            readUser();
         }
     }
 
-    private boolean isAuthenticated() {
-        return sessionStorage.contains(Constants.USERID) && sessionStorage.contains(Constants.INTERMEDIARY);
+    private void goToIdentityActivity() {
+        startActivity(new Intent(getActivity(), IdentityActivity.class));
     }
 
     private void readUser() {
@@ -55,10 +57,18 @@ public class SplashScreenController extends Controller implements ISplashScreenC
             userReadTask = new UserReadTask(this, userService);
         }
 
-        new Requestor(userReadTask).execute();
+        new Requestor(userReadTask).execute(sessionStorageService.getUserID());
     }
 
     void onReadUser(User user) {
-        getActivity().goToMainActivity(user);
+        goToMainActivity(user);
+    }
+
+    private void goToMainActivity(User user) {
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+
+        intent.putExtra(Constants.USER, user);
+
+        startActivity(intent);
     }
 }

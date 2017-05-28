@@ -1,13 +1,10 @@
 package com.sasd13.flousy.controller.sign;
 
 import com.sasd13.androidex.util.requestor.RequestorTask;
-import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.bean.user.UserCreate;
 import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.service.ServiceResult;
-
-import java.util.Map;
+import com.sasd13.flousy.util.wrapper.UserSignWrapper;
 
 /**
  * Created by ssaidali2 on 02/04/2017.
@@ -29,11 +26,11 @@ public class SignTask extends RequestorTask {
     public Object execute(Object in) {
         ServiceResult result;
 
-        Map<String, Object> parameters = (Map<String, Object>) in;
-        result = userService.create((UserCreate) parameters.get(SignController.USER_TO_CREATE));
+        UserSignWrapper wrapper = (UserSignWrapper) in;
+        result = userService.create(wrapper.getUserCreate());
 
         if (result.isSuccess()) {
-            result = customerService.create((Customer) parameters.get(SignController.CUSTOMER_TO_CREATE));
+            result = customerService.create(wrapper.getCustomer());
         }
 
         return result;

@@ -25,10 +25,6 @@ public class Repository {
         db = (new SQLiteDBHandler(context, SQLiteDBInformation.DB, null, SQLiteDBInformation.VERSION)).getWritableDatabase();
     }
 
-    public void close() {
-        db.close();
-    }
-
     public AbstractDAO getDAO(Class mClass) {
         AbstractDAO dao = (AbstractDAO) resolver.resolve(mClass);
 
