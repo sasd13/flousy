@@ -33,7 +33,7 @@ public class SettingFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.layout_settings);
+        setContentView(R.layout.layout_setting);
         GUIHelper.colorTitles(this);
 
         settingsHandler = new SettingsHandler(this);

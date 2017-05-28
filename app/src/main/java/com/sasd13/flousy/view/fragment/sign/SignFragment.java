@@ -46,7 +46,7 @@ public class SignFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View view = inflater.inflate(R.layout.layout_signup, container, false);
+        View view = inflater.inflate(R.layout.layout_sign, container, false);
 
         buildView(view);
 

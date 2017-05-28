@@ -21,16 +21,19 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activity.MainActivity;
-import com.sasd13.flousy.bean.user.User;
+import com.sasd13.flousy.scope.HomeScope;
 import com.sasd13.flousy.view.IBrowsable;
+import com.sasd13.flousy.view.IHomeController;
 import com.sasd13.flousy.view.gui.browser.Browser;
 import com.sasd13.flousy.view.gui.browser.BrowserItemModel;
 
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements Observer {
 
-    private User user;
+    private HomeScope scope;
     private Recycler recycler;
 
     public static HomeFragment newInstance() {
@@ -41,13 +44,15 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        user = ((MainActivity) getActivity()).getUser();
+        scope = (HomeScope) ((MainActivity) getActivity()).lookup(IHomeController.class).getScope();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+
+        scope.addObserver(this);
 
         View view = inflater.inflate(R.layout.layout_home, container, false);
 
@@ -60,6 +65,10 @@ public class HomeFragment extends Fragment {
         GUIHelper.colorTitles(view);
         buildGrid(view);
         bindGrid();
+
+        if (scope.isWelcomed()) {
+            showWelcome();
+        }
     }
 
     private void buildGrid(View view) {
@@ -85,26 +94,28 @@ public class HomeFragment extends Fragment {
             recyclerHolder.add(pair);
         }
 
-        RecyclerHelper.addAll(grid, recyclerHolder);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        if (getIntent().hasExtra(Extra.WELCOME) && getIntent().getBooleanExtra(Extra.WELCOME, false)) {
-            getIntent().removeExtra(Extra.WELCOME);
-            showWelcome();
-        }
+        RecyclerHelper.addAll(recycler, recyclerHolder);
     }
 
     private void showWelcome() {
         StringBuilder builder = new StringBuilder();
         builder.append(getResources().getString(R.string.home_alertdialog_message_welcome));
         builder.append(" ");
-        builder.append(getIntent().getStringExtra(Extra.FIRSTNAME));
+        builder.append(scope.getCustomer().getFirstName());
         builder.append(" !");
 
-        OptionDialog.showOkDialog(this, getResources().getString(R.string.home_alertdialog_title_welcome), builder.toString());
+        OptionDialog.showOkDialog(getContext(), getResources().getString(R.string.home_alertdialog_title_welcome), builder.toString());
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        //Do nothing
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        scope.deleteObserver(this);
     }
 }

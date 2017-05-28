@@ -22,10 +22,11 @@
     <string name="drawer_header_account">Compte</string>
 
     <!-- EditText -->
-    <string name="edittext_hint_email">email</string>
+    <string name="edittext_hint_username">identifiant</string>
 
     <!-- Error -->
     <string name="exception_unknown">Erreur inconnue</string>
+    <string name="error_empty_credential">Veuillez entrer vos identifiant/mot de passe</string>
 
     <!-- Fragment Log -->
     <string name="login_button_connect">Connexion</string>

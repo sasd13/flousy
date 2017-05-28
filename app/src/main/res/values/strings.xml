@@ -13,10 +13,11 @@
     <string name="drawer_header_account">Account</string>
 
     <!-- EditText -->
-    <string name="edittext_hint_email">email</string>
+    <string name="edittext_hint_username">username</string>
 
     <!-- Error -->
     <string name="exception_unknown">Error unknown</string>
+    <string name="error_empty_credential">Empty username/password</string>
 
     <!-- Form -->
     <string name="form_sign_message_error_firstname">Invalid first name</string>
