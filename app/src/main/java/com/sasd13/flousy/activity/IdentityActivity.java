@@ -36,15 +36,15 @@ public class IdentityActivity extends AppCompatActivity {
                 .commit();
     }
 
-    public IController lookup(Class mClass) {
-        return router.navigate(mClass, this);
-    }
-
     public void startFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.layout_container_fragment, fragment)
                 .addToBackStack(null)
                 .commit();
+    }
+
+    public IController lookup(Class mClass) {
+        return router.navigate(mClass, this);
     }
 }
