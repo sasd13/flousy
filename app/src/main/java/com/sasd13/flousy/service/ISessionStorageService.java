@@ -18,5 +18,7 @@ public interface ISessionStorageService {
 
     void putIntermediary(String value);
 
+    void remove(String key);
+
     void clear();
 }

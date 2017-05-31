@@ -33,6 +33,7 @@ import java.util.Observer;
 
 public class HomeFragment extends Fragment implements Observer {
 
+    private IHomeController controller;
     private HomeScope scope;
     private Recycler recycler;
 
@@ -44,7 +45,8 @@ public class HomeFragment extends Fragment implements Observer {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        scope = (HomeScope) ((MainActivity) getActivity()).lookup(IHomeController.class).getScope();
+        controller = (IHomeController) ((MainActivity) getActivity()).lookup(IHomeController.class);
+        scope = (HomeScope) controller.getScope();
     }
 
     @Nullable
@@ -65,10 +67,7 @@ public class HomeFragment extends Fragment implements Observer {
         GUIHelper.colorTitles(view);
         buildGrid(view);
         bindGrid();
-
-        if (scope.isWelcomed()) {
-            showWelcome();
-        }
+        run();
     }
 
     private void buildGrid(View view) {
@@ -97,6 +96,17 @@ public class HomeFragment extends Fragment implements Observer {
         RecyclerHelper.addAll(recycler, recyclerHolder);
     }
 
+    private void run() {
+        controller.run();
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        if (scope.isWelcomed()) {
+            showWelcome();
+        }
+    }
+
     private void showWelcome() {
         StringBuilder builder = new StringBuilder();
         builder.append(getResources().getString(R.string.home_alertdialog_message_welcome));
@@ -105,11 +115,6 @@ public class HomeFragment extends Fragment implements Observer {
         builder.append(" !");
 
         OptionDialog.showOkDialog(getContext(), getResources().getString(R.string.home_alertdialog_title_welcome), builder.toString());
-    }
-
-    @Override
-    public void update(Observable observable, Object o) {
-        //Do nothing
     }
 
     @Override

@@ -55,8 +55,6 @@ public class LogInController extends IdentityController implements ILogInControl
 
     void onAuthenticated(User user) {
         scope.setLoading(false);
-        sessionStorageService.putUserID(user.getUserID());
-        sessionStorageService.putIntermediary(user.getIntermediary());
         goToMainActivity(user);
     }
 

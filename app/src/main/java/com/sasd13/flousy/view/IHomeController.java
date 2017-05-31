@@ -6,4 +6,5 @@ package com.sasd13.flousy.view;
 
 public interface IHomeController extends IController {
 
+    void run();
 }

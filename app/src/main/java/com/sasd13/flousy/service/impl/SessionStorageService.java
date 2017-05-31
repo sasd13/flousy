@@ -49,6 +49,11 @@ public class SessionStorageService implements ISessionStorageService {
     }
 
     @Override
+    public void remove(String key) {
+        sessionStorage.remove(key);
+    }
+
+    @Override
     public void clear() {
         sessionStorage.clear();
     }

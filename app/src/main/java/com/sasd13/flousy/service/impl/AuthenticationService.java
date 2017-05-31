@@ -33,10 +33,19 @@ public class AuthenticationService implements IAuthenticationService {
 
     @Override
     public ServiceResult<User> logIn(Credential credential) {
+        boolean authenticated = false;
         User user = userDAO.find(credential);
 
+        if (user != null) {
+            authenticated = true;
+
+            sessionStorageService.putUserID(user.getUserID());
+            sessionStorageService.putIntermediary(user.getIntermediary());
+            userStorageService.write(user);
+        }
+
         return new ServiceResult<>(
-                true,
+                authenticated,
                 Collections.<String, String>emptyMap(),
                 user
         );

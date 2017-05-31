@@ -2,6 +2,7 @@ package com.sasd13.flousy.controller.home;
 
 import com.sasd13.flousy.activity.MainActivity;
 import com.sasd13.flousy.controller.MainController;
+import com.sasd13.flousy.scope.HomeScope;
 import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.view.IHomeController;
 
@@ -11,12 +12,19 @@ import com.sasd13.flousy.view.IHomeController;
 
 public class HomeController extends MainController implements IHomeController {
 
-    protected HomeController(MainActivity mainActivity) {
+    private HomeScope scope;
+
+    public HomeController(MainActivity mainActivity) {
         super(mainActivity);
     }
 
     @Override
     public Scope getScope() {
-        return null;
+        return scope;
+    }
+
+    @Override
+    public void run() {
+
     }
 }
