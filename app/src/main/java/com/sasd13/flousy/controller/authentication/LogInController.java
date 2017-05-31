@@ -9,7 +9,6 @@ import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.controller.IdentityController;
 import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.service.IAuthenticationService;
-import com.sasd13.flousy.service.ISessionStorageService;
 import com.sasd13.flousy.util.Constants;
 import com.sasd13.flousy.view.ILogInController;
 import com.sasd13.javaex.security.Credential;
@@ -21,15 +20,13 @@ import com.sasd13.javaex.security.Credential;
 public class LogInController extends IdentityController implements ILogInController {
 
     private Scope scope;
-    private ISessionStorageService sessionStorageService;
     private IAuthenticationService authenticationService;
     private LogInTask logInTask;
 
-    public LogInController(IdentityActivity identityActivity, ISessionStorageService sessionStorageService, IAuthenticationService authenticationService) {
+    public LogInController(IdentityActivity identityActivity, IAuthenticationService authenticationService) {
         super(identityActivity);
 
         scope = new Scope();
-        this.sessionStorageService = sessionStorageService;
         this.authenticationService = authenticationService;
     }
 
@@ -62,6 +59,7 @@ public class LogInController extends IdentityController implements ILogInControl
         Intent intent = new Intent(getActivity(), MainActivity.class);
 
         intent.putExtra(Constants.USER, user);
+        intent.putExtra(Constants.WELCOME, "WELCOME");
 
         startActivity(intent);
     }

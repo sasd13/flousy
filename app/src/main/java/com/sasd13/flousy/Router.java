@@ -69,7 +69,6 @@ public class Router {
         } else if (ILogInController.class.equals(mClass)) {
             return new LogInController(
                     (IdentityActivity) activity,
-                    (ISessionStorageService) provider.provide(ISessionStorageService.class),
                     (IAuthenticationService) provider.provide(IAuthenticationService.class)
             );
         } else if (ILogOutController.class.equals(mClass)) {

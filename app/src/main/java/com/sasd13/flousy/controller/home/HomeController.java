@@ -4,6 +4,7 @@ import com.sasd13.flousy.activity.MainActivity;
 import com.sasd13.flousy.controller.MainController;
 import com.sasd13.flousy.scope.HomeScope;
 import com.sasd13.flousy.scope.Scope;
+import com.sasd13.flousy.util.Constants;
 import com.sasd13.flousy.view.IHomeController;
 
 /**
@@ -16,6 +17,8 @@ public class HomeController extends MainController implements IHomeController {
 
     public HomeController(MainActivity mainActivity) {
         super(mainActivity);
+
+        scope = new HomeScope();
     }
 
     @Override
@@ -25,6 +28,14 @@ public class HomeController extends MainController implements IHomeController {
 
     @Override
     public void run() {
+        if (getActivity().getIntent().hasExtra(Constants.WELCOME)) {
+            showWelcome();
+        }
+    }
 
+    private void showWelcome() {
+        scope.setWelcomed(true);
+        getActivity().getIntent().removeExtra(Constants.WELCOME);
+        scope.setWelcomed(false);
     }
 }
