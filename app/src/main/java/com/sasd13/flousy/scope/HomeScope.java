@@ -24,6 +24,10 @@ public class HomeScope extends Scope {
         notifyObservers();
     }
 
+    public void clearWelcomed() {
+        welcomed = false;
+    }
+
     public User getUser() {
         return user;
     }

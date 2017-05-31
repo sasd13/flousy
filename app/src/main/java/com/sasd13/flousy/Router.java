@@ -9,6 +9,7 @@ import com.sasd13.flousy.controller.account.AccountController;
 import com.sasd13.flousy.controller.authentication.LogInController;
 import com.sasd13.flousy.controller.authentication.LogOutController;
 import com.sasd13.flousy.controller.customer.CustomerController;
+import com.sasd13.flousy.controller.home.HomeController;
 import com.sasd13.flousy.controller.operation.OperationController;
 import com.sasd13.flousy.controller.setting.SettingController;
 import com.sasd13.flousy.controller.sign.SignController;
@@ -22,6 +23,7 @@ import com.sasd13.flousy.service.IUserStorageService;
 import com.sasd13.flousy.view.IAccountController;
 import com.sasd13.flousy.view.IController;
 import com.sasd13.flousy.view.ICustomerController;
+import com.sasd13.flousy.view.IHomeController;
 import com.sasd13.flousy.view.ILogInController;
 import com.sasd13.flousy.view.ILogOutController;
 import com.sasd13.flousy.view.IOperationController;
@@ -65,6 +67,10 @@ public class Router {
             return new CustomerController(
                     (MainActivity) activity,
                     (ICustomerService) provider.provide(ICustomerService.class)
+            );
+        } else if (IHomeController.class.equals(mClass)) {
+            return new HomeController(
+                    (MainActivity) activity
             );
         } else if (ILogInController.class.equals(mClass)) {
             return new LogInController(

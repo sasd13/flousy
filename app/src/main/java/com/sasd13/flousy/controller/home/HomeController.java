@@ -36,6 +36,6 @@ public class HomeController extends MainController implements IHomeController {
     private void showWelcome() {
         scope.setWelcomed(true);
         getActivity().getIntent().removeExtra(Constants.WELCOME);
-        scope.setWelcomed(false);
+        scope.clearWelcomed();
     }
 }
