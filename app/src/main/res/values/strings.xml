@@ -69,11 +69,13 @@
     <string name="label_terms">General terms of use</string>
     <string name="label_logout">Log out</string>
     <string name="label_consult">Consult</string>
+    <string name="label_signed">Signed</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email already exists</string>
     <string name="message_selected">selected</string>
     <string name="message_selected_many">selected</string>
+    <string name="message_gotoidentityactivity">Log in to Flousy</string>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>

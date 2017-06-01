@@ -8,6 +8,7 @@ import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.service.ServiceResult;
 
 import java.util.Collections;
+import java.util.UUID;
 
 /**
  * Created by ssaidali2 on 27/05/2017.
@@ -23,6 +24,7 @@ public class UserService implements IUserService {
 
     @Override
     public ServiceResult<Void> create(UserCreate userCreate) {
+        userCreate.getUser().setUserID(UUID.randomUUID().toString());
         userDAO.create(userCreate);
 
         return ServiceResult.SUCCESS;

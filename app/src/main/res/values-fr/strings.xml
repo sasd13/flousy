@@ -69,11 +69,13 @@
     <string name="label_terms">Conditions générales d\'utilisation</string>
     <string name="label_logout">Déconnexion</string>
     <string name="label_consult">Consulter</string>
+    <string name="label_signed">Inscris</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email existe déjà</string>
     <string name="message_selected">sélectionné</string>
     <string name="message_selected_many">sélectionnés</string>
+    <string name="message_gotoidentityactivity">Connectez-vous sur Flousy</string>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>

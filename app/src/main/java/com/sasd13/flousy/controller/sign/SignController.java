@@ -1,8 +1,11 @@
 package com.sasd13.flousy.controller.sign;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 
+import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.util.requestor.Requestor;
+import com.sasd13.flousy.R;
 import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.bean.user.UserCreate;
@@ -66,7 +69,21 @@ public class SignController extends IdentityController implements ISignControlle
 
     void onSign() {
         scope.setLoading(false);
-        goToIdentityActivity();
+        showSigned();
+    }
+
+    private void showSigned() {
+        OptionDialog.showOkDialog(
+                getActivity(),
+                getActivity().getString(R.string.label_signed),
+                getActivity().getString(R.string.message_gotoidentityactivity),
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        goToIdentityActivity();
+                    }
+                }
+        );
     }
 
     private void goToIdentityActivity() {
