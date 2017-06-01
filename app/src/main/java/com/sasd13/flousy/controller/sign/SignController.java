@@ -13,6 +13,7 @@ import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.util.wrapper.UserSignWrapper;
 import com.sasd13.flousy.view.ISignController;
+import com.sasd13.flousy.view.fragment.sign.SignFragment;
 
 /**
  * Created by ssaidali2 on 27/12/2016.
@@ -36,6 +37,11 @@ public class SignController extends IdentityController implements ISignControlle
     @Override
     public Scope getScope() {
         return scope;
+    }
+
+    @Override
+    public void browse() {
+        startFragment(SignFragment.newInstance());
     }
 
     @Override

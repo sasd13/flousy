@@ -2,8 +2,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:flousy="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_sign_action_done"
-        android:icon="@drawable/ic_done_white_36dp"
-        android:title="@string/menuitem_action_done"
-        flousy:showAsAction="ifRoom"/>
+    <group android:id="@+id/menu_sign_group">
+        <item android:id="@+id/menu_sign_action_done"
+            android:icon="@drawable/ic_done_white_36dp"
+            android:title="@string/menuitem_action_done"
+            flousy:showAsAction="ifRoom"/>
+    </group>
 </menu>
