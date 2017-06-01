@@ -8,7 +8,7 @@ import com.sasd13.flousy.bean.Account;
 
 public interface IAccountController extends IController {
 
-    void actionLoadAccounts();
+    void actionReadAccounts();
 
     void actionNewAccount();
 

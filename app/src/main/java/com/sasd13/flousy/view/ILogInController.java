@@ -6,5 +6,5 @@ package com.sasd13.flousy.view;
 
 public interface ILogInController extends IController {
 
-    void logIn(String username, String password);
+    void actionLogIn(String username, String password);
 }

@@ -42,11 +42,11 @@ public class SettingController extends MainController implements ISettingControl
         getActivity().clearHistory();
         scope.setUser(userStorageService.read());
         startFragment(SettingFragment.newInstance());
-        actionLoadUser();
+        actionReadUser();
     }
 
     @Override
-    public void actionLoadUser() {
+    public void actionReadUser() {
         readUser();
     }
 

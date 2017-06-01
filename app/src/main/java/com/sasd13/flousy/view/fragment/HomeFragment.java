@@ -109,12 +109,12 @@ public class HomeFragment extends Fragment implements Observer {
 
     private void showWelcome() {
         StringBuilder builder = new StringBuilder();
-        builder.append(getResources().getString(R.string.home_alertdialog_message_welcome));
+        builder.append(getString(R.string.home_alertdialog_message_welcome));
         builder.append(" ");
         builder.append(scope.getCustomer().getFirstName());
         builder.append(" !");
 
-        OptionDialog.showOkDialog(getContext(), getResources().getString(R.string.home_alertdialog_title_welcome), builder.toString());
+        OptionDialog.showOkDialog(getContext(), getString(R.string.home_alertdialog_title_welcome), builder.toString());
     }
 
     @Override

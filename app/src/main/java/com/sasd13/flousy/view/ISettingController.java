@@ -8,7 +8,7 @@ import com.sasd13.flousy.bean.user.UserUpdate;
 
 public interface ISettingController extends IController, IBrowsable {
 
-    void actionLoadUser();
+    void actionReadUser();
 
     void actionUpdateUser(UserUpdate userUpdate);
 }

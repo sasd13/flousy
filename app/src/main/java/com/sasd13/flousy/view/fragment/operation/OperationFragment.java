@@ -96,8 +96,8 @@ public class OperationFragment extends Fragment {
     }
 
     private void refreshView() {
-        parentActivity.getSupportActionBar().setTitle(getResources().getString(R.string.activity_operation));
-        parentActivity.getSupportActionBar().setSubtitle(getResources().getString(R.string.title_fill_form));
+        parentActivity.getSupportActionBar().setTitle(getString(R.string.activity_operation));
+        parentActivity.getSupportActionBar().setSubtitle(getString(R.string.title_fill_form));
     }
 
     @Override
@@ -143,8 +143,8 @@ public class OperationFragment extends Fragment {
     public void deleteOperation() {
         OptionDialog.showYesNoDialog(
                 getContext(),
-                getResources().getString(R.string.message_delete),
-                getResources().getString(R.string.message_confirm),
+                getString(R.string.message_delete),
+                getString(R.string.message_confirm),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

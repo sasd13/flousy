@@ -36,11 +36,11 @@ public class LogInController extends IdentityController implements ILogInControl
     }
 
     @Override
-    public void logIn(String username, String password) {
-        connect(new Credential(username, password));
+    public void actionLogIn(String username, String password) {
+        logIn(new Credential(username, password));
     }
 
-    private void connect(Credential credential) {
+    private void logIn(Credential credential) {
         scope.setLoading(true);
 
         if (logInTask == null) {
@@ -50,7 +50,7 @@ public class LogInController extends IdentityController implements ILogInControl
         new Requestor(logInTask).execute(credential);
     }
 
-    void onAuthenticated(User user) {
+    void onLogIn(User user) {
         scope.setLoading(false);
         goToMainActivity(user);
     }

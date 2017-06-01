@@ -5,5 +5,5 @@ package com.sasd13.flousy.view;
  */
 public interface ILogOutController extends IController {
 
-    void logOut();
+    void actionLogOut();
 }

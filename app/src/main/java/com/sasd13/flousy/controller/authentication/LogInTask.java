@@ -32,7 +32,7 @@ public class LogInTask extends RequestorTask {
         ServiceResult<User> result = (ServiceResult<User>) out;
 
         if (result.isSuccess()) {
-            controller.onAuthenticated(result.getData());
+            controller.onLogIn(result.getData());
         } else {
             controller.onFail(result.getErrors());
         }

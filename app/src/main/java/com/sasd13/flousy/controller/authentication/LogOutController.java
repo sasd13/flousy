@@ -31,7 +31,11 @@ public class LogOutController extends MainController implements ILogOutControlle
     }
 
     @Override
-    public void logOut() {
+    public void actionLogOut() {
+        logOut();
+    }
+
+    private void logOut() {
         OptionDialog.showOkCancelDialog(
                 getActivity(),
                 getActivity().getString(R.string.button_logout),

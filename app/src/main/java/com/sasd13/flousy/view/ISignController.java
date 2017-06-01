@@ -9,5 +9,5 @@ import com.sasd13.flousy.bean.user.UserCreate;
 
 public interface ISignController extends IController, IBrowsable {
 
-    void sign(UserCreate userCreate, Customer customer);
+    void actionSign(UserCreate userCreate, Customer customer);
 }

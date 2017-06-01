@@ -45,7 +45,7 @@ public class SignController extends IdentityController implements ISignControlle
     }
 
     @Override
-    public void sign(UserCreate userCreate, Customer customer) {
+    public void actionSign(UserCreate userCreate, Customer customer) {
         UserSignWrapper wrapper = new UserSignWrapper();
 
         wrapper.setUserCreate(userCreate);

@@ -31,25 +31,25 @@ public class OperationForm extends Form {
     public OperationForm(Context context) {
         super(context);
 
-        operationTypes = context.getResources().getStringArray(R.array.operation_types);
+        operationTypes = context.getStringArray(R.array.operation_types);
 
         String pattern = DateTimeHelper.getLocaleDateFormatPattern(context, DateTimeHelper.EnumFormat.SHORT);
 
         modelDateRealization = new DateItemModel(pattern);
-        modelDateRealization.setLabel(context.getResources().getString(R.string.operation_label_date));
+        modelDateRealization.setLabel(context.getString(R.string.operation_label_date));
         holder.add(new RecyclerHolderPair(modelDateRealization));
 
         modelTitle = new TextItemModel();
-        modelTitle.setLabel(context.getResources().getString(R.string.operation_label_title));
+        modelTitle.setLabel(context.getString(R.string.operation_label_title));
         modelTitle.setHint(modelTitle.getLabel().toLowerCase());
         holder.add(new RecyclerHolderPair(modelTitle));
 
         modelAmount = new TextItemModel(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        modelAmount.setLabel(context.getResources().getString(R.string.operation_label_amount));
+        modelAmount.setLabel(context.getString(R.string.operation_label_amount));
         holder.add(new RecyclerHolderPair(modelAmount));
 
         modelTypes = new SpinRadioItemModel();
-        modelTypes.setLabel(context.getResources().getString(R.string.operation_label_type));
+        modelTypes.setLabel(context.getString(R.string.operation_label_type));
         modelTypes.setItems(context.getResources().getStringArray(R.array.operation_types));
         holder.add(new RecyclerHolderPair(modelTypes));
     }
@@ -63,9 +63,9 @@ public class OperationForm extends Form {
         }
 
         if (EnumOperationType.DEBIT == operation.getType()) {
-            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(context.getResources().getString(EnumOperationType.DEBIT.getStringRes())));
+            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(context.getString(EnumOperationType.DEBIT.getStringRes())));
         } else if (EnumOperationType.CREDIT == operation.getType()) {
-            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(context.getResources().getString(EnumOperationType.CREDIT.getStringRes())));
+            modelTypes.setValue(Arrays.asList(operationTypes).indexOf(context.getString(EnumOperationType.CREDIT.getStringRes())));
         }
     }
 
@@ -78,10 +78,10 @@ public class OperationForm extends Form {
         operation.setTitle(modelTitle.getValue().trim());
         operation.setAmount(Double.valueOf(modelAmount.getValue().trim()));
 
-        if (operationTypes[modelTypes.getValue()].equals(context.getResources().getString(EnumOperationType.DEBIT.getStringRes()))) {
+        if (operationTypes[modelTypes.getValue()].equals(context.getString(EnumOperationType.DEBIT.getStringRes()))) {
             operation.setType(EnumOperationType.DEBIT);
             operation.setAmount(0 - operation.getAmount());
-        } else if (operationTypes[modelTypes.getValue()].equals(context.getResources().getString(EnumOperationType.CREDIT.getStringRes()))) {
+        } else if (operationTypes[modelTypes.getValue()].equals(context.getString(EnumOperationType.CREDIT.getStringRes()))) {
             operation.setType(EnumOperationType.CREDIT);
         }
 

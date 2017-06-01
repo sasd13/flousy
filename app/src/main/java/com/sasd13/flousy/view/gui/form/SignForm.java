@@ -17,39 +17,57 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class SignForm extends Form {
 
-    private TextItemModel modelFirstName, modelLastName, modelEmail;
+    private TextItemModel modelIntermediary, modelFirstName, modelLastName, modelEmail, modelUsername;
     private PasswordItemModel modelPassword;
     private BooleanItemModel modelTerms;
 
     public SignForm(Context context) {
         super(context);
 
-        String title = context.getResources().getString(R.string.title_identity);
+        String title = context.getString(R.string.title_identity);
+
+        modelIntermediary = new TextItemModel(InputType.TYPE_CLASS_TEXT);
+        modelIntermediary.setLabel(context.getString(R.string.label_intermediary));
+        modelIntermediary.setHint(modelIntermediary.getLabel().toLowerCase());
+        holder.add(title, new RecyclerHolderPair(modelIntermediary));
 
         modelFirstName = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        modelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
+        modelFirstName.setLabel(context.getString(R.string.label_firstname));
         modelFirstName.setHint(modelFirstName.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelFirstName));
 
         modelLastName = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        modelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
+        modelLastName.setLabel(context.getString(R.string.label_lastname));
         modelLastName.setHint(modelLastName.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelLastName));
 
-        title = context.getResources().getString(R.string.drawer_header_account);
-
         modelEmail = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        modelEmail.setLabel(context.getResources().getString(R.string.label_email));
+        modelEmail.setLabel(context.getString(R.string.label_email));
         modelEmail.setHint(modelEmail.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelEmail));
 
+        title = context.getString(R.string.drawer_header_account);
+
+        modelUsername = new TextItemModel(InputType.TYPE_CLASS_TEXT);
+        modelUsername.setLabel(context.getString(R.string.label_username));
+        modelUsername.setHint(modelUsername.getLabel().toLowerCase());
+        holder.add(title, new RecyclerHolderPair(modelUsername));
+
         modelPassword = new PasswordItemModel();
-        modelPassword.setLabel(context.getResources().getString(R.string.label_password));
+        modelPassword.setLabel(context.getString(R.string.label_password));
         holder.add(title, new RecyclerHolderPair(modelPassword));
 
         modelTerms = new BooleanItemModel();
-        modelTerms.setLabel(context.getResources().getString(R.string.label_terms));
+        modelTerms.setLabel(context.getString(R.string.label_terms));
         holder.add(title, new RecyclerHolderPair(modelTerms));
+    }
+
+    public String getIntermediary() throws FormException {
+        if (StringUtils.isBlank(modelIntermediary.getValue())) {
+            throw new FormException(context, R.string.form_sign_message_error_intermediary);
+        }
+
+        return modelIntermediary.getValue().trim();
     }
 
     public String getFirstName() throws FormException {
@@ -74,6 +92,14 @@ public class SignForm extends Form {
         }
 
         return modelEmail.getValue().trim();
+    }
+
+    public String getUsername() throws FormException {
+        if (StringUtils.isBlank(modelUsername.getValue())) {
+            throw new FormException(context, R.string.form_sign_message_error_username);
+        }
+
+        return modelUsername.getValue();
     }
 
     public String getPassword() throws FormException {

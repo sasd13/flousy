@@ -24,7 +24,7 @@ public class Browser {
         navItems = new ArrayList<>();
 
         navItems.add(new BrowserItemModel(
-                context.getResources().getString(R.string.label_consult),
+                context.getString(R.string.label_consult),
                 ContextCompat.getDrawable(context, R.drawable.griditem_consult),
                 ContextCompat.getColor(context, R.color.green),
                 IAccountController.class
@@ -35,13 +35,13 @@ public class Browser {
         accountItems = new ArrayList<>();
 
         accountItems.add(new BrowserItemModel(
-                context.getResources().getString(R.string.title_settings),
+                context.getString(R.string.title_settings),
                 ContextCompat.getDrawable(context, R.drawable.ic_settings_black_24dp),
                 ContextCompat.getColor(context, R.color.brown),
                 ISettingController.class
         ));
         accountItems.add(new BrowserItemModel(
-                context.getResources().getString(R.string.label_logout),
+                context.getString(R.string.label_logout),
                 ContextCompat.getDrawable(context, R.drawable.ic_exit_to_app_black_24dp),
                 ContextCompat.getColor(context, R.color.greyBackground),
                 ILogOutController.class

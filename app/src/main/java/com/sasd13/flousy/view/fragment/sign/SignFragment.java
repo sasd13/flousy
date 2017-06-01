@@ -20,9 +20,11 @@ import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
+import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.bean.user.UserCreate;
 import com.sasd13.flousy.view.ISignController;
 import com.sasd13.flousy.view.gui.form.SignForm;
+import com.sasd13.javaex.security.Credential;
 
 public class SignFragment extends Fragment {
 
@@ -93,10 +95,10 @@ public class SignFragment extends Fragment {
 
     private void sign() {
         try {
-            if (!signForm.isTermsAccepted()) {
-                controller.display(getString(R.string.form_sign_message_error_terms));
+            if (signForm.isTermsAccepted()) {
+                controller.actionSign(getUserFromForm(), getCustomerFromForm());
             } else {
-                controller.sign(getUserFromForm(), getCustomerFromForm());
+                controller.display(getString(R.string.form_sign_message_error_terms));
             }
         } catch (FormException e) {
             controller.display(e.getMessage());
@@ -104,7 +106,18 @@ public class SignFragment extends Fragment {
     }
 
     private UserCreate getUserFromForm() throws FormException {
-        return new UserCreate();
+        UserCreate userCreate = new UserCreate();
+
+        User user = new User();
+        user.setIntermediary(signForm.getIntermediary());
+        userCreate.setUser(user);
+
+        Credential credential = new Credential();
+        credential.setUsername(signForm.getUsername());
+        credential.setPassword(signForm.getPassword());
+        userCreate.setCredential(credential);
+
+        return userCreate;
     }
 
     private Customer getCustomerFromForm() throws FormException {
@@ -121,7 +134,7 @@ public class SignFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        ((IdentityActivity) getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        ((IdentityActivity) getActivity()).getSupportActionBar().setTitle(R.string.app_name);
         ((IdentityActivity) getActivity()).getSupportActionBar().setSubtitle(R.string.title_fill_form);
     }
 

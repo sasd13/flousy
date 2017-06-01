@@ -83,7 +83,7 @@ public class LogInFragment extends Fragment implements Observer {
         String password = logInForm.editTextPassword.getText().toString();
 
         if (!username.isEmpty() && !password.isEmpty()) {
-            controller.logIn(username, password);
+            controller.actionLogIn(username, password);
         } else {
             controller.display(R.string.error_empty_credential);
         }

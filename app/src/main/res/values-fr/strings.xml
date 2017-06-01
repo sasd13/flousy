@@ -5,9 +5,11 @@
     <string name="app_name">Flousy</string>
 
     <!-- Form -->
+    <string name="form_sign_message_error_intermediary">Code Intermediary invalide</string>
     <string name="form_sign_message_error_firstname">Prénom invalide</string>
     <string name="form_sign_message_error_lastname">Nom invalide</string>
     <string name="form_sign_message_error_email">Email invalide</string>
+    <string name="form_sign_message_error_username">Identifiant invalide</string>
     <string name="form_sign_message_error_password">Mot de passe invalide</string>
     <string name="form_settings_message_error_firstname">@string/form_sign_message_error_firstname</string>
     <string name="form_settings_message_error_lastname">@string/form_sign_message_error_lastname</string>
@@ -58,9 +60,11 @@
     </string-array>
 
     <!-- Label -->
+    <string name="label_intermediary">Code Intermediary</string>
     <string name="label_firstname">Prénom</string>
     <string name="label_lastname">Nom</string>
     <string name="label_email">Email</string>
+    <string name="label_username">Identifiant</string>
     <string name="label_password">Mot de passe</string>
     <string name="label_terms">Conditions générales d\'utilisation</string>
     <string name="label_logout">Déconnexion</string>

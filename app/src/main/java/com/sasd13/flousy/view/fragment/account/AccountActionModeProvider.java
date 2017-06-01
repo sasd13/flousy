@@ -45,9 +45,9 @@ public class AccountActionModeProvider extends ActionModeProvider {
 
     private void refreshActionModeBar() {
         if (selectedModels.size() <= 1) {
-            actionMode.setTitle(selectedModels.size() + " " + actionModeConsumer.getActivity().getResources().getString(R.string.message_selected));
+            actionMode.setTitle(selectedModels.size() + " " + actionModeConsumer.getActivity().getString(R.string.message_selected));
         } else {
-            actionMode.setTitle(selectedModels.size() + " " + actionModeConsumer.getActivity().getResources().getString(R.string.message_selected_many));
+            actionMode.setTitle(selectedModels.size() + " " + actionModeConsumer.getActivity().getString(R.string.message_selected_many));
         }
 
         if (selectedModels.isEmpty()) {
@@ -77,8 +77,8 @@ public class AccountActionModeProvider extends ActionModeProvider {
     private void deleteSelectedModels() {
         OptionDialog.showOkCancelDialog(
                 actionModeConsumer.getActivity(),
-                actionModeConsumer.getActivity().getResources().getString(R.string.message_delete),
-                actionModeConsumer.getActivity().getResources().getString(R.string.message_confirm),
+                actionModeConsumer.getActivity().getString(R.string.message_delete),
+                actionModeConsumer.getActivity().getString(R.string.message_confirm),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

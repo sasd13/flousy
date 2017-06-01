@@ -30,7 +30,7 @@ public class AccountController extends Controller implements IAccountController 
     }
 
     @Override
-    public void actionLoadAccounts() {
+    public void actionReadAccounts() {
 
     }
 

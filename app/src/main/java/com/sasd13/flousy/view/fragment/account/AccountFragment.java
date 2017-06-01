@@ -23,8 +23,8 @@ import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.Account;
 import com.sasd13.flousy.bean.Operation;
-import com.sasd13.flousy.view.gui.tab.OperationItemModel;
 import com.sasd13.flousy.util.sorter.OperationSorter;
+import com.sasd13.flousy.view.gui.tab.OperationItemModel;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -104,7 +104,7 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     }
 
     private void refreshView() {
-        parentActivity.getSupportActionBar().setTitle(getResources().getString(R.string.activity_consult));
+        parentActivity.getSupportActionBar().setTitle(getString(R.string.activity_consult));
         parentActivity.getSupportActionBar().setSubtitle(null);
 
         textViewSold.setText(String.valueOf(df.format(account.getSold())));

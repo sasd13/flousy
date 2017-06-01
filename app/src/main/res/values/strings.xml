@@ -20,9 +20,11 @@
     <string name="error_empty_credential">Empty username/password</string>
 
     <!-- Form -->
+    <string name="form_sign_message_error_intermediary">Invalid intermediary code</string>
     <string name="form_sign_message_error_firstname">Invalid first name</string>
     <string name="form_sign_message_error_lastname">Invalid last name</string>
     <string name="form_sign_message_error_email">Invalid email</string>
+    <string name="form_sign_message_error_username">Invalid username</string>
     <string name="form_sign_message_error_password">Invalid password</string>
     <string name="form_settings_message_error_firstname">@string/form_sign_message_error_firstname</string>
     <string name="form_settings_message_error_lastname">@string/form_sign_message_error_lastname</string>
@@ -58,9 +60,11 @@
     </string-array>
 
     <!-- Label -->
+    <string name="label_intermediary">Intermediary code</string>
     <string name="label_firstname">First name</string>
     <string name="label_lastname">Last name</string>
     <string name="label_email">Email</string>
+    <string name="label_username">Username</string>
     <string name="label_password">Password</string>
     <string name="label_terms">General terms of use</string>
     <string name="label_logout">Log out</string>

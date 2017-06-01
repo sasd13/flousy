@@ -21,22 +21,22 @@ public class SettingsForm extends Form {
     public SettingsForm(Context context) {
         super(context);
 
-        String title = context.getResources().getString(R.string.title_identity);
+        String title = context.getString(R.string.title_identity);
 
         modelFirstName = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        modelFirstName.setLabel(context.getResources().getString(R.string.label_firstname));
+        modelFirstName.setLabel(context.getString(R.string.label_firstname));
         modelFirstName.setHint(modelFirstName.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelFirstName));
 
         modelLastName = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        modelLastName.setLabel(context.getResources().getString(R.string.label_lastname));
+        modelLastName.setLabel(context.getString(R.string.label_lastname));
         modelLastName.setHint(modelLastName.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelLastName));
 
-        title = context.getResources().getString(R.string.drawer_header_account);
+        title = context.getString(R.string.drawer_header_account);
 
         modelEmail = new TextItemModel(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        modelEmail.setLabel(context.getResources().getString(R.string.label_email));
+        modelEmail.setLabel(context.getString(R.string.label_email));
         modelEmail.setHint(modelEmail.getLabel().toLowerCase());
         holder.add(title, new RecyclerHolderPair(modelEmail));
     }
