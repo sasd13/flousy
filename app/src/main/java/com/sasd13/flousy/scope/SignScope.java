@@ -1,7 +1,7 @@
 package com.sasd13.flousy.scope;
 
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.bean.user.User;
+import com.sasd13.flousy.bean.user.UserCreate;
 
 /**
  * Created by ssaidali2 on 06/12/2016.
@@ -9,15 +9,15 @@ import com.sasd13.flousy.bean.user.User;
 
 public class SignScope extends Scope {
 
-    private User user;
+    private UserCreate userCreate;
     private Customer customer;
 
-    public User getUser() {
-        return user;
+    public UserCreate getUserCreate() {
+        return userCreate;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserCreate(UserCreate userCreate) {
+        this.userCreate = userCreate;
 
         setChanged();
         notifyObservers();

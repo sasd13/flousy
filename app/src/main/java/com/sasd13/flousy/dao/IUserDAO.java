@@ -12,10 +12,11 @@ import com.sasd13.javaex.security.Credential;
 public interface IUserDAO {
 
     String TABLE = "users";
-    String COLUMN_USERID = "_userID";
     String COLUMN_USERNAME = "_username";
     String COLUMN_PASSWORD = "_password";
+    String COLUMN_USERID = "_userID";
     String COLUMN_INTERMEDIARY = "_intermediary";
+    String COLUMN_EMAIL = "_email";
 
     long create(UserCreate userCreate);
 

@@ -20,15 +20,15 @@ import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.bean.user.UserCreate;
+import com.sasd13.flousy.scope.SignScope;
 import com.sasd13.flousy.view.ISignController;
 import com.sasd13.flousy.view.gui.form.SignForm;
-import com.sasd13.javaex.security.Credential;
 
 public class SignFragment extends Fragment {
 
     private ISignController controller;
+    private SignScope scope;
     private SignForm signForm;
     private Menu menu;
 
@@ -43,6 +43,7 @@ public class SignFragment extends Fragment {
         setHasOptionsMenu(true);
 
         controller = (ISignController) ((IdentityActivity) getActivity()).lookup(ISignController.class);
+        scope = (SignScope) controller.getScope();
     }
 
     @Nullable
@@ -106,22 +107,17 @@ public class SignFragment extends Fragment {
     }
 
     private UserCreate getUserFromForm() throws FormException {
-        UserCreate userCreate = new UserCreate();
+        UserCreate userCreate = scope.getUserCreate();
 
-        User user = new User();
-        user.setIntermediary(signForm.getIntermediary());
-        userCreate.setUser(user);
-
-        Credential credential = new Credential();
-        credential.setUsername(signForm.getUsername());
-        credential.setPassword(signForm.getPassword());
-        userCreate.setCredential(credential);
+        userCreate.getUser().setIntermediary(signForm.getIntermediary());
+        userCreate.getCredential().setUsername(signForm.getUsername());
+        userCreate.getCredential().setPassword(signForm.getPassword());
 
         return userCreate;
     }
 
     private Customer getCustomerFromForm() throws FormException {
-        Customer customer = new Customer();
+        Customer customer = scope.getCustomer();
 
         customer.setFirstName(signForm.getFirstName());
         customer.setLastName(signForm.getLastName());

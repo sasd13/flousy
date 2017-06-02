@@ -18,6 +18,7 @@
     <string name="form_operation_message_error_title">Intitulé invalide</string>
     <string name="form_operation_message_error_amount">Montant invalide</string>
     <string name="form_operation_message_error_type">Type d\'opération invalide</string>
+    <string name="form_settings_message_error_preference_date">Invalid date format</string>
 
     <!-- Drawer -->
     <string name="drawer_header_menu">Menu</string>
@@ -70,6 +71,7 @@
     <string name="label_logout">Déconnexion</string>
     <string name="label_consult">Consulter</string>
     <string name="label_signed">Inscris</string>
+    <string name="label_date">Date</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email existe déjà</string>
@@ -85,6 +87,7 @@
     <!-- Title -->
     <string name="title_identity">Identité</string>
     <string name="title_consult">Compte</string>
+    <string name="title_parameters">Paramètres</string>
     <string name="subtitle_consulting">Consultation</string>
 
 </resources>

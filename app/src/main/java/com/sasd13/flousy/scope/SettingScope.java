@@ -1,6 +1,6 @@
 package com.sasd13.flousy.scope;
 
-import com.sasd13.flousy.bean.user.User;
+import com.sasd13.flousy.bean.user.UserUpdate;
 
 /**
  * Created by ssaidali2 on 06/12/2016.
@@ -8,14 +8,14 @@ import com.sasd13.flousy.bean.user.User;
 
 public class SettingScope extends Scope {
 
-    private User user;
+    private UserUpdate userUpdate;
 
-    public User getUser() {
-        return user;
+    public UserUpdate getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserUpdate(UserUpdate userUpdate) {
+        this.userUpdate = userUpdate;
 
         setChanged();
         notifyObservers();

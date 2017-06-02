@@ -14,6 +14,8 @@ import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.scope.SignScope;
 import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.IUserService;
+import com.sasd13.flousy.util.builder.NewCustomerBuilder;
+import com.sasd13.flousy.util.builder.NewUserCreateBuilder;
 import com.sasd13.flousy.util.wrapper.UserSignWrapper;
 import com.sasd13.flousy.view.ISignController;
 import com.sasd13.flousy.view.fragment.sign.SignFragment;
@@ -44,6 +46,8 @@ public class SignController extends IdentityController implements ISignControlle
 
     @Override
     public void browse() {
+        scope.setUserCreate(new NewUserCreateBuilder().build());
+        scope.setCustomer(new NewCustomerBuilder().build());
         startFragment(SignFragment.newInstance());
     }
 

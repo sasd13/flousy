@@ -24,10 +24,11 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     protected ContentValues getContentValues(UserCreate userCreate) {
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_USERID, "");
         values.put(COLUMN_USERNAME, userCreate.getCredential().getUsername());
         values.put(COLUMN_PASSWORD, userCreate.getCredential().getPassword());
+        values.put(COLUMN_USERID, userCreate.getUser().getUserID());
         values.put(COLUMN_INTERMEDIARY, userCreate.getUser().getIntermediary());
+        values.put(COLUMN_EMAIL, userCreate.getUser().getEmail());
 
         return values;
     }
@@ -35,10 +36,11 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     protected ContentValues getContentValues(UserUpdate userUpdate) {
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_USERID, userUpdate.getUser().getUserID());
         values.put(COLUMN_USERNAME, userUpdate.getCredentials().getCurrent().getUsername());
         values.put(COLUMN_PASSWORD, userUpdate.getCredentials().getCurrent().getPassword());
+        values.put(COLUMN_USERID, userUpdate.getUser().getUserID());
         values.put(COLUMN_INTERMEDIARY, userUpdate.getUser().getIntermediary());
+        values.put(COLUMN_EMAIL, userUpdate.getUser().getEmail());
 
         return values;
     }
@@ -49,6 +51,7 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
         user.setUserID(cursor.getString(cursor.getColumnIndex(COLUMN_USERID)));
         user.setIntermediary(cursor.getString(cursor.getColumnIndex(COLUMN_INTERMEDIARY)));
+        user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)));
 
         return user;
     }

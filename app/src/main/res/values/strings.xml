@@ -33,6 +33,7 @@
     <string name="form_operation_message_error_title">Invalid title</string>
     <string name="form_operation_message_error_amount">Invalid amount</string>
     <string name="form_operation_message_error_type">Invalid operation type</string>
+    <string name="form_settings_message_error_preference_date">Invalid date format</string>
 
     <!-- Fragment Log -->
     <string name="login_button_connect">Connect</string>
@@ -70,12 +71,23 @@
     <string name="label_logout">Log out</string>
     <string name="label_consult">Consult</string>
     <string name="label_signed">Signed</string>
+    <string name="label_date">Date</string>
 
     <!-- Message -->
     <string name="message_email_exists">Email already exists</string>
     <string name="message_selected">selected</string>
     <string name="message_selected_many">selected</string>
     <string name="message_gotoidentityactivity">Log in to Flousy</string>
+
+    <!-- Pattern date -->
+    <string-array name="dates">
+        <item>yyyy-MM-dd</item>
+        <item>yyyy/MM/dd</item>
+        <item>MM-dd-yyyy</item>
+        <item>MM/dd/yyyy</item>
+        <item>dd-MM-yyyy</item>
+        <item>dd/MM/yyyy</item>
+    </string-array>
 
     <!-- Tab -->
     <string name="tabitem_textview_date">Date</string>
@@ -91,6 +103,7 @@
     <string name="title_offers">Offers</string>
     <string name="title_settings">Settings</string>
     <string name="title_identity">Identity</string>
+    <string name="title_parameters">Parameters</string>
     <string name="subtitle_consulting">Consulting</string>
 
 </resources>
