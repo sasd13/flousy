@@ -6,9 +6,7 @@ import com.sasd13.flousy.bean.Account;
  * Created by ssaidali2 on 27/12/2016.
  */
 
-public interface IAccountController extends IController {
-
-    void actionReadAccounts();
+public interface IAccountController extends IController, IBrowsable {
 
     void actionNewAccount();
 

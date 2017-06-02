@@ -30,7 +30,11 @@ public class CustomerController extends Controller implements ICustomerControlle
     }
 
     @Override
-    public void actionShowCustomer(Customer customer) {
+    public void browse() {
+        readCustomer();
+    }
+
+    private void readCustomer() {
 
     }
 
