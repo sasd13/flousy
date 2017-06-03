@@ -45,13 +45,15 @@ public class SplashScreenFragment extends Fragment {
     }
 
     private void buildView(View view) {
-        buildLogo(view);
-        run();
-    }
-
-    private void buildLogo(View view) {
         ImageView imageViewLogo = (ImageView) view.findViewById(R.id.splashscreen_imageview);
         imageViewLogo.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_app_logo));
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        run();
     }
 
     private void run() {

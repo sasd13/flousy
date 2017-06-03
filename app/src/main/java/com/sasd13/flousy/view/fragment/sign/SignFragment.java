@@ -40,10 +40,10 @@ public class SignFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setHasOptionsMenu(true);
-
         controller = (ISignController) ((IdentityActivity) getActivity()).lookup(ISignController.class);
         scope = (SignScope) controller.getScope();
+
+        setHasOptionsMenu(true);
     }
 
     @Nullable
@@ -65,11 +65,10 @@ public class SignFragment extends Fragment {
 
     private void buildFormSign(View view) {
         signForm = new SignForm(getContext());
+        Recycler recycler = RecyclerFactory.makeBuilder(EnumRecyclerType.FORM).build((RecyclerView) view.findViewById(R.id.sign_recyclerview));
 
-        Recycler form = RecyclerFactory.makeBuilder(EnumRecyclerType.FORM).build((RecyclerView) view.findViewById(R.id.sign_recyclerview));
-        form.addDividerItemDecoration();
-
-        RecyclerHelper.addAll(form, signForm.getHolder());
+        recycler.addDividerItemDecoration();
+        RecyclerHelper.addAll(recycler, signForm.getHolder());
     }
 
     @Override

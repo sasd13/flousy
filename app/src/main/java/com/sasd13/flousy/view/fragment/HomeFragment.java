@@ -35,7 +35,6 @@ public class HomeFragment extends Fragment implements Observer {
 
     private IHomeController controller;
     private HomeScope scope;
-    private Recycler recycler;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -66,15 +65,14 @@ public class HomeFragment extends Fragment implements Observer {
     private void buildView(View view) {
         GUIHelper.colorTitles(view);
         buildGrid(view);
-        bindGrid();
-        run();
     }
 
     private void buildGrid(View view) {
-        recycler = RecyclerFactory.makeBuilder(EnumRecyclerType.GRID).build((RecyclerView) view.findViewById(R.id.home_recyclerview));
+        Recycler recycler = RecyclerFactory.makeBuilder(EnumRecyclerType.GRID).build((RecyclerView) view.findViewById(R.id.home_recyclerview));
+        addItemsToGrid(recycler);
     }
 
-    private void bindGrid() {
+    private void addItemsToGrid(Recycler recycler) {
         List<BrowserItemModel> browserItemModels = new Browser(getContext()).getNavItems();
         RecyclerHolder recyclerHolder = new RecyclerHolder();
         RecyclerHolderPair pair;
@@ -94,6 +92,13 @@ public class HomeFragment extends Fragment implements Observer {
         }
 
         RecyclerHelper.addAll(recycler, recyclerHolder);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        run();
     }
 
     private void run() {
