@@ -36,6 +36,7 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     protected ContentValues getContentValues(UserUpdate userUpdate) {
         ContentValues values = new ContentValues();
 
+        values.put(COLUMN_ID, userUpdate.getUser().getId());
         values.put(COLUMN_USERNAME, userUpdate.getCredentials().getCurrent().getUsername());
         values.put(COLUMN_PASSWORD, userUpdate.getCredentials().getCurrent().getPassword());
         values.put(COLUMN_USERID, userUpdate.getUser().getUserID());
@@ -49,6 +50,7 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
     protected User getCursorValues(Cursor cursor) {
         User user = new User();
 
+        user.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
         user.setUserID(cursor.getString(cursor.getColumnIndex(COLUMN_USERID)));
         user.setIntermediary(cursor.getString(cursor.getColumnIndex(COLUMN_INTERMEDIARY)));
         user.setEmail(cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)));
@@ -58,17 +60,21 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
     @Override
     public long create(UserCreate userCreate) {
-        return db.insert(TABLE, null, getContentValues(userCreate));
+        long id = db.insert(TABLE, null, getContentValues(userCreate));
+
+        userCreate.getUser().setId(id);
+
+        return id;
     }
 
     @Override
     public void update(UserUpdate userUpdate) {
-        db.update(TABLE, getContentValues(userUpdate), COLUMN_USERID + " = ?", new String[]{String.valueOf(userUpdate.getUser().getUserID())});
+        db.update(TABLE, getContentValues(userUpdate), COLUMN_ID + " = ?", new String[]{String.valueOf(userUpdate.getUser().getId())});
     }
 
     @Override
     public User find(Credential credential) {
-        User user = null;
+        User result = null;
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -80,16 +86,16 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
         Cursor cursor = db.rawQuery(builder.toString(), new String[]{credential.getUsername(), credential.getPassword()});
         if (cursor.moveToNext()) {
-            user = getCursorValues(cursor);
+            result = getCursorValues(cursor);
         }
         cursor.close();
 
-        return user;
+        return result;
     }
 
     @Override
     public User find(String userID) {
-        User user = null;
+        User result = null;
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -99,10 +105,10 @@ public class UserDAO extends AbstractDAO<User> implements IUserDAO {
 
         Cursor cursor = db.rawQuery(builder.toString(), new String[]{userID});
         if (cursor.moveToNext()) {
-            user = getCursorValues(cursor);
+            result = getCursorValues(cursor);
         }
         cursor.close();
 
-        return user;
+        return result;
     }
 }

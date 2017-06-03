@@ -9,7 +9,6 @@ import com.sasd13.androidex.gui.widget.recycler.form.SpinRadioItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.bean.user.User;
-import com.sasd13.flousy.util.EnumPreference;
 import com.sasd13.flousy.util.IndexFinder;
 
 import org.apache.commons.lang3.StringUtils;

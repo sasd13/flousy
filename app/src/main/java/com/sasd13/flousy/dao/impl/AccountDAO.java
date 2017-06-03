@@ -22,6 +22,7 @@ public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
     protected ContentValues getContentValues(Account account) {
         ContentValues values = new ContentValues();
 
+        values.put(COLUMN_ID, account.getId());
         values.put(COLUMN_CODE, account.getAccountID());
         values.put(COLUMN_DATEOPENING, String.valueOf(account.getDateOpening().getTime()));
         values.put(COLUMN_CUSTOMER, account.getCustomer().getIntermediary());
@@ -33,6 +34,7 @@ public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
     protected Account getCursorValues(Cursor cursor) {
         Account account = new Account();
 
+        account.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
         account.setAccountID(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)));
         account.setDateOpening(new Date(Long.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEOPENING)))));
 
@@ -45,17 +47,21 @@ public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
 
     @Override
     public long create(Account account) {
-        return db.insert(TABLE, null, getContentValues(account));
+        long id = db.insert(TABLE, null, getContentValues(account));
+
+        account.setId(id);
+
+        return id;
     }
 
     @Override
     public void update(Account account) {
-        db.update(TABLE, getContentValues(account), COLUMN_CODE + " = ?", new String[]{String.valueOf(account.getAccountID())});
+        db.update(TABLE, getContentValues(account), COLUMN_ID + " = ?", new String[]{String.valueOf(account.getId())});
     }
 
     @Override
     public Account read(String accountID) {
-        Account account = null;
+        Account result = null;
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -63,18 +69,18 @@ public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
         builder.append(" WHERE ");
         builder.append(COLUMN_CODE + " = ?");
 
-        Cursor cursor = db.rawQuery(builder.toString(), new String[]{String.valueOf(accountID)});
+        Cursor cursor = db.rawQuery(builder.toString(), new String[]{accountID});
         if (cursor.moveToNext()) {
-            account = getCursorValues(cursor);
+            result = getCursorValues(cursor);
         }
         cursor.close();
 
-        return account;
+        return result;
     }
 
     @Override
     public List<Account> readAll(String intermediary) {
-        List<Account> accounts = new ArrayList<>();
+        List<Account> results = new ArrayList<>();
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -82,12 +88,12 @@ public class AccountDAO extends AbstractDAO<Account> implements IAccountDAO {
         builder.append(" WHERE ");
         builder.append(COLUMN_CUSTOMER + " = ?");
 
-        Cursor cursor = db.rawQuery(builder.toString(), new String[]{String.valueOf(intermediary)});
+        Cursor cursor = db.rawQuery(builder.toString(), new String[]{intermediary});
         while (cursor.moveToNext()) {
-            accounts.add(getCursorValues(cursor));
+            results.add(getCursorValues(cursor));
         }
         cursor.close();
 
-        return accounts;
+        return results;
     }
 }

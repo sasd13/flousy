@@ -21,7 +21,6 @@ import com.sasd13.flousy.activity.MainActivity;
 import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.bean.user.UserUpdate;
 import com.sasd13.flousy.scope.SettingScope;
-import com.sasd13.flousy.util.EnumPreference;
 import com.sasd13.flousy.view.ISettingController;
 import com.sasd13.flousy.view.gui.form.UserForm;
 

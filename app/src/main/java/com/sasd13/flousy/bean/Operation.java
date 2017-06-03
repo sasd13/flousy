@@ -1,14 +1,25 @@
 package com.sasd13.flousy.bean;
 
+import com.sasd13.flousy.bean.*;
+
 import java.util.Date;
 
 public class Operation {
 
+    private long id;
     private String operationID, title;
     private EnumOperationType type;
     private double amount;
     private Date dateRealization;
     private Account account;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getOperationID() {
         return operationID;
@@ -62,7 +73,8 @@ public class Operation {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Operation [");
-        builder.append("operationID=" + getOperationID());
+        builder.append("id=" + getId());
+        builder.append(", operationID=" + getOperationID());
         builder.append(", type=" + getType());
         builder.append(", amount=" + getAmount());
         builder.append(", dateRealization=" + String.valueOf(getDateRealization()));

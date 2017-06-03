@@ -7,6 +7,7 @@ import java.util.List;
 public interface IOperationDAO {
 
     String TABLE = "operations";
+    String COLUMN_ID = "_id";
     String COLUMN_CODE = "_code";
     String COLUMN_TYPE = "_type";
     String COLUMN_AMOUNT = "_amount";

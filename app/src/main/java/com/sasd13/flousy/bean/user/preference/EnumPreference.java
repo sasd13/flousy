@@ -1,11 +1,12 @@
-package com.sasd13.flousy.util;
+package com.sasd13.flousy.bean.user.preference;
 
 /**
  * Created by ssaidali2 on 02/06/2017.
  */
 
 public enum EnumPreference {
-    GENERAL_DATE("GEN", "DT");
+    GENERAL_DATE("GEN", "DT"),
+    AMMOUNT_DECIMALFORMAT("AMT", "DF");
 
     private String category, name;
 

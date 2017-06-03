@@ -17,6 +17,8 @@ public class CustomerDAO extends AbstractDAO<Customer> implements ICustomerDAO {
     protected ContentValues getContentValues(Customer customer) {
         ContentValues values = new ContentValues();
 
+        values.put(COLUMN_ID, customer.getId());
+        values.put(COLUMN_CODE, customer.getIntermediary());
         values.put(COLUMN_FIRSTNAME, customer.getFirstName());
         values.put(COLUMN_LASTNAME, customer.getLastName());
         values.put(COLUMN_EMAIL, customer.getEmail());
@@ -28,6 +30,7 @@ public class CustomerDAO extends AbstractDAO<Customer> implements ICustomerDAO {
     protected Customer getCursorValues(Cursor cursor) {
         Customer customer = new Customer();
 
+        customer.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
         customer.setIntermediary(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)));
         customer.setFirstName(cursor.getString(cursor.getColumnIndex(COLUMN_FIRSTNAME)));
         customer.setLastName(cursor.getString(cursor.getColumnIndex(COLUMN_LASTNAME)));
@@ -38,17 +41,21 @@ public class CustomerDAO extends AbstractDAO<Customer> implements ICustomerDAO {
 
     @Override
     public long create(Customer customer) {
-        return db.insert(TABLE, null, getContentValues(customer));
+        long id = db.insert(TABLE, null, getContentValues(customer));
+
+        customer.setId(id);
+
+        return id;
     }
 
     @Override
     public void update(Customer customer) {
-        db.update(TABLE, getContentValues(customer), COLUMN_CODE + " = ?", new String[]{String.valueOf(customer.getIntermediary())});
+        db.update(TABLE, getContentValues(customer), COLUMN_ID + " = ?", new String[]{String.valueOf(customer.getId())});
     }
 
     @Override
     public Customer read(String intermediary) {
-        Customer customer = null;
+        Customer result = null;
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -56,12 +63,12 @@ public class CustomerDAO extends AbstractDAO<Customer> implements ICustomerDAO {
         builder.append(" WHERE ");
         builder.append(COLUMN_CODE + " = ?");
 
-        Cursor cursor = db.rawQuery(builder.toString(), new String[]{String.valueOf(intermediary)});
+        Cursor cursor = db.rawQuery(builder.toString(), new String[]{intermediary});
         if (cursor.moveToNext()) {
-            customer = getCursorValues(cursor);
+            result = getCursorValues(cursor);
         }
         cursor.close();
 
-        return customer;
+        return result;
     }
 }

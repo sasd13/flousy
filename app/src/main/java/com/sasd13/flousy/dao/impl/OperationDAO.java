@@ -23,6 +23,7 @@ public class OperationDAO extends AbstractDAO<Operation> implements IOperationDA
     protected ContentValues getContentValues(Operation operation) {
         ContentValues values = new ContentValues();
 
+        values.put(COLUMN_ID, operation.getId());
         values.put(COLUMN_CODE, operation.getOperationID());
         values.put(COLUMN_DATEREALIZATION, String.valueOf(operation.getDateRealization().getTime()));
         values.put(COLUMN_TITLE, operation.getTitle());
@@ -37,6 +38,7 @@ public class OperationDAO extends AbstractDAO<Operation> implements IOperationDA
     protected Operation getCursorValues(Cursor cursor) {
         Operation operation = new Operation();
 
+        operation.setId(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)));
         operation.setOperationID(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)));
         operation.setDateRealization(new Date(Long.valueOf(cursor.getString(cursor.getColumnIndex(COLUMN_DATEREALIZATION)))));
         operation.setTitle(cursor.getString(cursor.getColumnIndex(COLUMN_TITLE)));
@@ -52,12 +54,16 @@ public class OperationDAO extends AbstractDAO<Operation> implements IOperationDA
 
     @Override
     public long create(Operation operation) {
-        return db.insert(TABLE, null, getContentValues(operation));
+        long id = db.insert(TABLE, null, getContentValues(operation));
+
+        operation.setId(id);
+
+        return id;
     }
 
     @Override
     public void update(Operation operation) {
-        db.update(TABLE, getContentValues(operation), COLUMN_CODE + " = ?", new String[]{String.valueOf(operation.getOperationID())});
+        db.update(TABLE, getContentValues(operation), COLUMN_ID + " = ?", new String[]{String.valueOf(operation.getId())});
     }
 
     @Override
@@ -75,7 +81,7 @@ public class OperationDAO extends AbstractDAO<Operation> implements IOperationDA
 
     @Override
     public List<Operation> read(String accountID) {
-        List<Operation> list = new ArrayList<>();
+        List<Operation> results = new ArrayList<>();
 
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT * FROM ");
@@ -87,10 +93,10 @@ public class OperationDAO extends AbstractDAO<Operation> implements IOperationDA
 
         Cursor cursor = db.rawQuery(builder.toString(), new String[]{accountID});
         while (cursor.moveToNext()) {
-            list.add(getCursorValues(cursor));
+            results.add(getCursorValues(cursor));
         }
         cursor.close();
 
-        return list;
+        return results;
     }
 }

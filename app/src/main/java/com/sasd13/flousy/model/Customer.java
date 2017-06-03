@@ -1,9 +1,30 @@
-package com.sasd13.flousy.bean;
+package com.sasd13.flousy.model;
+
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.Property;
 
 public class Customer {
 
+    @Property(nameInDb = "_id")
+    @Id(autoincrement = true)
     private long id;
-    private String intermediary, firstName, lastName, email;
+
+    @Property(nameInDb = "_accountID")
+    @NotNull
+    private String intermediary;
+
+    @Property(nameInDb = "_firstname")
+    @NotNull
+    private String firstName;
+
+    @Property(nameInDb = "_lastname")
+    @NotNull
+    private String lastName;
+
+    @Property(nameInDb = "_email")
+    @NotNull
+    private String email;
 
     public long getId() {
         return id;
@@ -43,20 +64,5 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-
-        builder.append("Customer [");
-        builder.append("id=" + getId());
-        builder.append(", intermediary=" + getIntermediary());
-        builder.append(", firstName=" + getFirstName());
-        builder.append(", lastName=" + getLastName());
-        builder.append(", email=" + getEmail());
-        builder.append("]");
-
-        return builder.toString();
     }
 }

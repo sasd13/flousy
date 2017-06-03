@@ -35,14 +35,10 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
 
     private static final String PATTERN_DECIMAL = "#.##";
 
-    private Account account;
-    private ConsultActivity parentActivity;
-    private AccountHandler accountHandler;
     private AccountActionModeProvider actionModeProvider;
     private DecimalFormat df;
     private TextView textViewSold;
-    private Recycler tabOperations;
-    private FloatingActionButton floatingActionButton;
+    private Recycler recycler;
 
     public static AccountFragment newInstance(Account account) {
         AccountFragment accountFragment = new AccountFragment();
@@ -55,8 +51,6 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        parentActivity = (ConsultActivity) getActivity();
-        accountHandler = new AccountHandler(this);
         actionModeProvider = new AccountActionModeProvider(this);
         df = new DecimalFormat(PATTERN_DECIMAL);
     }
@@ -64,15 +58,18 @@ public class AccountFragment extends Fragment implements IActionModeConsumer {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+
         View view = inflater.inflate(R.layout.layout_account, container, false);
 
-        GUIHelper.colorTitles(view);
         buildView(view);
 
         return view;
     }
 
     private void buildView(View view) {
+        GUIHelper.colorTitles(view);
+
         textViewSold = (TextView) view.findViewById(R.id.consult_textview_sold);
 
         buildTabOperations(view);

@@ -1,12 +1,35 @@
-package com.sasd13.flousy.bean;
+package com.sasd13.flousy.model;
+
+import com.sasd13.flousy.util.DateConverter;
+
+import org.greenrobot.greendao.annotation.Convert;
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.ToOne;
+import org.greenrobot.greendao.annotation.Unique;
 
 import java.util.Date;
 
+@Entity
 public class Account {
 
+    @Property(nameInDb = "_id")
+    @Id(autoincrement = true)
     private long id;
+
+    @Property(nameInDb = "_accountID")
+    @NotNull
+    @Unique
     private String accountID;
+
+    @Property(nameInDb = "_dateopening")
+    @NotNull
+    @Convert(converter = DateConverter.class, columnType = Long.class)
     private Date dateOpening;
+
+    @ToOne()
     private Customer customer;
 
     public long getId() {
@@ -39,18 +62,5 @@ public class Account {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-
-        builder.append("Account [");
-        builder.append("id=" + getId());
-        builder.append(", accountID=" + getAccountID());
-        builder.append(", dateOpening=" + String.valueOf(getDateOpening()));
-        builder.append("]");
-
-        return builder.toString();
     }
 }
