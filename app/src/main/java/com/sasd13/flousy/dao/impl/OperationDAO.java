@@ -4,9 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.EnumOperationType;
-import com.sasd13.flousy.bean.Operation;
+import com.sasd13.flousy.util.EnumOperationType;
 import com.sasd13.flousy.dao.IOperationDAO;
 
 import java.sql.Date;

@@ -7,8 +7,7 @@ import com.sasd13.androidex.gui.widget.dialog.OptionDialog;
 import com.sasd13.androidex.util.requestor.Requestor;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activity.IdentityActivity;
-import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.bean.user.UserCreate;
+import com.sasd13.flousy.util.wrapper.UserCreate;
 import com.sasd13.flousy.controller.IdentityController;
 import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.scope.SignScope;
@@ -16,7 +15,7 @@ import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.util.builder.NewCustomerBuilder;
 import com.sasd13.flousy.util.builder.NewUserCreateBuilder;
-import com.sasd13.flousy.util.wrapper.UserSignWrapper;
+import com.sasd13.flousy.util.wrapper.UserSign;
 import com.sasd13.flousy.view.ISignController;
 import com.sasd13.flousy.view.fragment.sign.SignFragment;
 
@@ -53,7 +52,7 @@ public class SignController extends IdentityController implements ISignControlle
 
     @Override
     public void actionSign(UserCreate userCreate, Customer customer) {
-        UserSignWrapper wrapper = new UserSignWrapper();
+        UserSign wrapper = new UserSign();
 
         wrapper.setUserCreate(userCreate);
         wrapper.setCustomer(customer);
@@ -61,7 +60,7 @@ public class SignController extends IdentityController implements ISignControlle
         sign(wrapper);
     }
 
-    private void sign(UserSignWrapper wrapper) {
+    private void sign(UserSign wrapper) {
         scope.setLoading(true);
 
         if (signTask == null) {

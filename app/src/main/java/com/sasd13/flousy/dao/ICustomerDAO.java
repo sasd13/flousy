@@ -1,7 +1,5 @@
 package com.sasd13.flousy.dao;
 
-import com.sasd13.flousy.bean.Customer;
-
 public interface ICustomerDAO {
 
     String TABLE = "customers";

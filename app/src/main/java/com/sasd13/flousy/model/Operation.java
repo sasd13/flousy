@@ -1,11 +1,9 @@
 package com.sasd13.flousy.model;
 
-import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.EnumOperationType;
-import com.sasd13.flousy.util.DateConverter;
-import com.sasd13.flousy.util.OperationTypeConverter;
+import com.sasd13.flousy.util.converter.DateConverter;
 
 import org.greenrobot.greendao.annotation.Convert;
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Property;
@@ -13,6 +11,7 @@ import org.greenrobot.greendao.annotation.ToOne;
 
 import java.util.Date;
 
+@Entity(generateGettersSetters = false)
 public class Operation {
 
     @Property(nameInDb = "_id")
@@ -25,8 +24,7 @@ public class Operation {
 
     @Property(nameInDb = "_type")
     @NotNull
-    @Convert(converter = OperationTypeConverter.class, columnType = String.class)
-    private EnumOperationType type;
+    private String type;
 
     @Property(nameInDb = "_amount")
     @NotNull
@@ -37,8 +35,9 @@ public class Operation {
     @Convert(converter = DateConverter.class, columnType = Long.class)
     private Date dateRealization;
 
-    @ToOne()
+    @ToOne(joinProperty = "accountId")
     private Account account;
+    private long accountId;
 
     public long getId() {
         return id;
@@ -48,11 +47,11 @@ public class Operation {
         this.id = id;
     }
 
-    public EnumOperationType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(EnumOperationType type) {
+    public void setType(String type) {
         this.type = type;
     }
 

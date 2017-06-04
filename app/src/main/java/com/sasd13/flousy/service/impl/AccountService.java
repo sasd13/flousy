@@ -1,7 +1,5 @@
 package com.sasd13.flousy.service.impl;
 
-import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.dao.IAccountDAO;
 import com.sasd13.flousy.dao.IOperationDAO;
 import com.sasd13.flousy.service.IAccountService;

@@ -1,5 +1,6 @@
 package com.sasd13.flousy.model;
 
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Property;
@@ -8,6 +9,7 @@ import org.greenrobot.greendao.annotation.Property;
  * Created by ssaidali2 on 03/06/2017.
  */
 
+@Entity(generateGettersSetters = false)
 public class Preference {
 
     @Property(nameInDb = "_id")

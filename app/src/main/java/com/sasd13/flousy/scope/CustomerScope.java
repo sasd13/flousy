@@ -1,7 +1,5 @@
 package com.sasd13.flousy.scope;
 
-import com.sasd13.flousy.bean.Customer;
-
 /**
  * Created by ssaidali2 on 27/05/2017.
  */

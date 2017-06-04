@@ -1,4 +1,4 @@
-package com.sasd13.flousy.bean.user;
+package com.sasd13.flousy.util.wrapper;
 
 import com.sasd13.javaex.security.Credential;
 

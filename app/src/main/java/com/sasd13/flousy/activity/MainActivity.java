@@ -15,7 +15,6 @@ import com.sasd13.androidex.gui.widget.recycler.drawer.EnumDrawerItemType;
 import com.sasd13.flousy.Configurator;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.Router;
-import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.service.IUserStorageService;
 import com.sasd13.flousy.util.Constants;
 import com.sasd13.flousy.view.IBrowsable;

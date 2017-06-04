@@ -1,7 +1,6 @@
 package com.sasd13.flousy.util.builder;
 
-import com.sasd13.flousy.bean.user.User;
-import com.sasd13.flousy.bean.user.UserCreate;
+import com.sasd13.flousy.util.wrapper.UserCreate;
 import com.sasd13.javaex.pattern.builder.IBuilder;
 import com.sasd13.javaex.security.Credential;
 

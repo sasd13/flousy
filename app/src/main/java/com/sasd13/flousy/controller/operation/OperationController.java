@@ -1,8 +1,6 @@
 package com.sasd13.flousy.controller.operation;
 
 import com.sasd13.flousy.activity.MainActivity;
-import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.controller.Controller;
 import com.sasd13.flousy.scope.OperationScope;
 import com.sasd13.flousy.scope.Scope;

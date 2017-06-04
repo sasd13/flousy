@@ -9,8 +9,7 @@ import com.sasd13.androidex.gui.widget.recycler.form.SpinRadioItemModel;
 import com.sasd13.androidex.gui.widget.recycler.form.TextItemModel;
 import com.sasd13.androidex.util.DateTimeHelper;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.bean.EnumOperationType;
-import com.sasd13.flousy.bean.Operation;
+import com.sasd13.flousy.util.EnumOperationType;
 
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;

@@ -1,7 +1,7 @@
 package com.sasd13.flousy.controller.setting;
 
 import com.sasd13.androidex.util.requestor.RequestorTask;
-import com.sasd13.flousy.bean.user.UserUpdate;
+import com.sasd13.flousy.util.wrapper.UserUpdate;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.service.ServiceResult;
 

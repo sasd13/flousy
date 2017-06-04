@@ -1,6 +1,5 @@
 package com.sasd13.flousy.service.impl;
 
-import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.ICustomerDAO;
 import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.ServiceResult;

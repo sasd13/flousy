@@ -4,9 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sasd13.flousy.bean.user.User;
-import com.sasd13.flousy.bean.user.UserCreate;
-import com.sasd13.flousy.bean.user.UserUpdate;
+import com.sasd13.flousy.util.wrapper.UserCreate;
+import com.sasd13.flousy.util.wrapper.UserUpdate;
 import com.sasd13.flousy.dao.IUserDAO;
 import com.sasd13.javaex.security.Credential;
 

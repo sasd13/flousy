@@ -1,7 +1,5 @@
 package com.sasd13.flousy.util.sorter;
 
-import com.sasd13.flousy.bean.Operation;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;

@@ -1,4 +1,6 @@
-package com.sasd13.flousy.bean.user.preference;
+package com.sasd13.flousy.model;
+
+import com.sasd13.flousy.util.EnumPreference;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.sasd13.flousy.view;
 
-import com.sasd13.flousy.bean.user.UserUpdate;
+import com.sasd13.flousy.util.wrapper.UserUpdate;
 
 /**
  * Created by ssaidali2 on 04/12/2016.

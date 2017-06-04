@@ -1,4 +1,4 @@
-package com.sasd13.flousy.bean;
+package com.sasd13.flousy.util;
 
 import android.support.annotation.StringRes;
 

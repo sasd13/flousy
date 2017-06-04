@@ -21,8 +21,6 @@ import com.sasd13.androidex.gui.widget.recycler.RecyclerHolderPair;
 import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
-import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.util.sorter.OperationSorter;
 import com.sasd13.flousy.view.gui.tab.OperationItemModel;
 

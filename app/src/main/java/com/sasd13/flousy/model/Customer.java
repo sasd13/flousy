@@ -1,9 +1,11 @@
 package com.sasd13.flousy.model;
 
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Property;
 
+@Entity(generateGettersSetters = false)
 public class Customer {
 
     @Property(nameInDb = "_id")

@@ -7,7 +7,6 @@ import com.sasd13.androidex.gui.widget.ISelectable;
 import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemModel;
 import com.sasd13.androidex.gui.widget.recycler.IRecyclerItemType;
 import com.sasd13.androidex.util.DateTimeHelper;
-import com.sasd13.flousy.bean.Operation;
 
 import java.util.Observable;
 

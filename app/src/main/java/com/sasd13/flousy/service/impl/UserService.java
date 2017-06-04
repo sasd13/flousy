@@ -1,8 +1,7 @@
 package com.sasd13.flousy.service.impl;
 
-import com.sasd13.flousy.bean.user.User;
-import com.sasd13.flousy.bean.user.UserCreate;
-import com.sasd13.flousy.bean.user.UserUpdate;
+import com.sasd13.flousy.util.wrapper.UserCreate;
+import com.sasd13.flousy.util.wrapper.UserUpdate;
 import com.sasd13.flousy.dao.IUserDAO;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.service.ServiceResult;

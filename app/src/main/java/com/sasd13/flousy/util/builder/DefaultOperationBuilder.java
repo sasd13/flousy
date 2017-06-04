@@ -1,6 +1,5 @@
 package com.sasd13.flousy.util.builder;
 
-import com.sasd13.flousy.bean.Operation;
 import com.sasd13.javaex.pattern.builder.IBuilder;
 
 import java.sql.Timestamp;

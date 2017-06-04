@@ -1,7 +1,6 @@
 package com.sasd13.flousy.controller.splashscreen;
 
 import com.sasd13.androidex.util.requestor.RequestorTask;
-import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.service.ServiceResult;
 

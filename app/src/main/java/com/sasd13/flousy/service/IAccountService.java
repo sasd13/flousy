@@ -1,8 +1,5 @@
 package com.sasd13.flousy.service;
 
-import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.Operation;
-
 import java.util.List;
 
 /**

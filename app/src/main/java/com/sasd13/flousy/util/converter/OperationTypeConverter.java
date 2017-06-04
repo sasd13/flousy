@@ -1,6 +1,6 @@
-package com.sasd13.flousy.util;
+package com.sasd13.flousy.util.converter;
 
-import com.sasd13.flousy.bean.EnumOperationType;
+import com.sasd13.flousy.util.EnumOperationType;
 
 import org.greenrobot.greendao.converter.PropertyConverter;
 

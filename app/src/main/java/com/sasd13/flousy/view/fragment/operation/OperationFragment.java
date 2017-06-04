@@ -22,8 +22,6 @@ import com.sasd13.androidex.util.GUIHelper;
 import com.sasd13.androidex.util.RecyclerHelper;
 import com.sasd13.flousy.R;
 import com.sasd13.flousy.activity.ConsultActivity;
-import com.sasd13.flousy.bean.Account;
-import com.sasd13.flousy.bean.Operation;
 import com.sasd13.flousy.view.gui.form.OperationForm;
 
 public class OperationFragment extends Fragment {

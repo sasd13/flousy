@@ -1,7 +1,6 @@
 package com.sasd13.flousy.controller.authentication;
 
 import com.sasd13.androidex.util.requestor.RequestorTask;
-import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.service.IAuthenticationService;
 import com.sasd13.flousy.service.ServiceResult;
 import com.sasd13.javaex.security.Credential;

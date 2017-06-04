@@ -1,5 +1,8 @@
 package com.sasd13.flousy.model;
 
+import com.sasd13.flousy.util.EnumPreference;
+
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Property;
@@ -9,6 +12,7 @@ import org.greenrobot.greendao.annotation.ToOne;
  * Created by ssaidali2 on 08/05/2017.
  */
 
+@Entity(generateGettersSetters = false)
 public class UserPreference {
 
     @Property(nameInDb = "_id")
@@ -19,11 +23,13 @@ public class UserPreference {
     @NotNull
     private String value;
 
-    @ToOne()
+    @ToOne(joinProperty = "userId")
     private User user;
+    private long userId;
 
-    @ToOne()
+    @ToOne(joinProperty = "preferenceId")
     private Preference preference;
+    private long preferenceId;
 
     public long getId() {
         return id;
@@ -55,5 +61,9 @@ public class UserPreference {
 
     public void setPreference(Preference preference) {
         this.preference = preference;
+    }
+
+    public boolean matches(EnumPreference mate) {
+        return preference.getCategory().equalsIgnoreCase(mate.getCategory()) && preference.getName().equalsIgnoreCase(mate.getName());
     }
 }

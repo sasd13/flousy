@@ -1,6 +1,5 @@
 package com.sasd13.flousy.service.impl;
 
-import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.service.IUserStorageService;
 
 /**

@@ -1,6 +1,5 @@
 package com.sasd13.flousy.util.builder;
 
-import com.sasd13.flousy.bean.Customer;
 import com.sasd13.javaex.pattern.builder.IBuilder;
 
 /**

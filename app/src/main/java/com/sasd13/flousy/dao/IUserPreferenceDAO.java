@@ -1,7 +1,5 @@
 package com.sasd13.flousy.dao;
 
-import com.sasd13.flousy.bean.user.preference.UserPreference;
-
 import java.util.List;
 
 /**

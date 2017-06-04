@@ -1,4 +1,4 @@
-package com.sasd13.flousy.util;
+package com.sasd13.flousy.util.converter;
 
 import org.greenrobot.greendao.converter.PropertyConverter;
 

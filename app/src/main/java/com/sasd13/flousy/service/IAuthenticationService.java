@@ -1,6 +1,5 @@
 package com.sasd13.flousy.service;
 
-import com.sasd13.flousy.bean.user.User;
 import com.sasd13.javaex.security.Credential;
 
 /**

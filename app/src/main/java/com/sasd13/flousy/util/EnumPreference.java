@@ -1,4 +1,4 @@
-package com.sasd13.flousy.bean.user.preference;
+package com.sasd13.flousy.util;
 
 /**
  * Created by ssaidali2 on 02/06/2017.

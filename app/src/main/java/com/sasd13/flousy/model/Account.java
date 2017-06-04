@@ -1,6 +1,6 @@
 package com.sasd13.flousy.model;
 
-import com.sasd13.flousy.util.DateConverter;
+import com.sasd13.flousy.util.converter.DateConverter;
 
 import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
@@ -12,25 +12,26 @@ import org.greenrobot.greendao.annotation.Unique;
 
 import java.util.Date;
 
-@Entity
+@Entity(generateGettersSetters = false)
 public class Account {
 
     @Property(nameInDb = "_id")
     @Id(autoincrement = true)
     private long id;
 
-    @Property(nameInDb = "_accountID")
+    @Property(nameInDb = "_number")
     @NotNull
     @Unique
-    private String accountID;
+    private String number;
 
     @Property(nameInDb = "_dateopening")
     @NotNull
     @Convert(converter = DateConverter.class, columnType = Long.class)
     private Date dateOpening;
 
-    @ToOne()
+    @ToOne(joinProperty = "customerId")
     private Customer customer;
+    private long customerId;
 
     public long getId() {
         return id;
@@ -40,12 +41,12 @@ public class Account {
         this.id = id;
     }
 
-    public String getAccountID() {
-        return accountID;
+    public String getNumber() {
+        return number;
     }
 
-    public void setAccountID(String accountID) {
-        this.accountID = accountID;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public Date getDateOpening() {

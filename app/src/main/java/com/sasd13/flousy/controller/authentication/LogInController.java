@@ -5,7 +5,6 @@ import android.content.Intent;
 import com.sasd13.androidex.util.requestor.Requestor;
 import com.sasd13.flousy.activity.IdentityActivity;
 import com.sasd13.flousy.activity.MainActivity;
-import com.sasd13.flousy.bean.user.User;
 import com.sasd13.flousy.controller.IdentityController;
 import com.sasd13.flousy.scope.Scope;
 import com.sasd13.flousy.service.IAuthenticationService;

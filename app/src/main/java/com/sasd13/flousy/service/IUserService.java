@@ -1,8 +1,7 @@
 package com.sasd13.flousy.service;
 
-import com.sasd13.flousy.bean.user.User;
-import com.sasd13.flousy.bean.user.UserCreate;
-import com.sasd13.flousy.bean.user.UserUpdate;
+import com.sasd13.flousy.util.wrapper.UserCreate;
+import com.sasd13.flousy.util.wrapper.UserUpdate;
 
 /**
  * Created by ssaidali2 on 27/05/2017.

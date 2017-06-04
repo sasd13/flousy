@@ -1,13 +1,12 @@
 package com.sasd13.flousy.util.wrapper;
 
-import com.sasd13.flousy.bean.Customer;
-import com.sasd13.flousy.bean.user.UserCreate;
+import com.sasd13.flousy.model.Customer;
 
 /**
  * Created by ssaidali2 on 28/05/2017.
  */
 
-public class UserSignWrapper {
+public class UserSign {
 
     private UserCreate userCreate;
     private Customer customer;

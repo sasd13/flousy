@@ -4,7 +4,7 @@ import com.sasd13.androidex.util.requestor.RequestorTask;
 import com.sasd13.flousy.service.ICustomerService;
 import com.sasd13.flousy.service.IUserService;
 import com.sasd13.flousy.service.ServiceResult;
-import com.sasd13.flousy.util.wrapper.UserSignWrapper;
+import com.sasd13.flousy.util.wrapper.UserSign;
 
 /**
  * Created by ssaidali2 on 02/04/2017.
@@ -26,7 +26,7 @@ public class SignTask extends RequestorTask {
     public Object execute(Object in) {
         ServiceResult result;
 
-        UserSignWrapper wrapper = (UserSignWrapper) in;
+        UserSign wrapper = (UserSign) in;
         result = userService.create(wrapper.getUserCreate());
 
         if (result.isSuccess()) {

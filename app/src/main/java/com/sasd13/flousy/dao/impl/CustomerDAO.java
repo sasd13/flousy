@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.sasd13.flousy.bean.Customer;
 import com.sasd13.flousy.dao.ICustomerDAO;
 
 public class CustomerDAO extends AbstractDAO<Customer> implements ICustomerDAO {
